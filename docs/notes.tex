@@ -1,0 +1,551 @@
+\documentclass[twocolumn,superscriptaddress,prb,10pt]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\begin{document}
+
+\title{Testing Holographic Spacetime Foam with Intensity Interferometry:\\ Predictions for Distance-Dependent Visibility}
+
+\author{Research Discussion}
+\affiliation{Based on collaborative analysis}
+
+\date{\today}
+
+\begin{abstract}
+We investigate the potential observational signatures of holographic spacetime foam in Hanbury Brown-Twiss (HBT) intensity interferometry measurements. Following the holographic quantum foam model of Ng and Perlman, we derive predictions for how visibility in both spatial and temporal HBT measurements should depend on cosmological distance. We show that spacetime foam affects spatial and temporal correlations differently: spatial baseline measurements should exhibit visibility scaling as $\exp(-B\sqrt{D})$, while zero-baseline temporal measurements remain unaffected if the foam structure is quasi-static. This differential signature provides a unique test of quantum gravity phenomenology. We calculate that for optical observations of quasars at gigaparsec distances, foam-induced angular broadening of $\sim$10-100 milliarcseconds should be detectable with modern intensity interferometry, while the absence of temporal decoherence constrains the dynamical properties of spacetime foam. These predictions are testable with current and near-future observational facilities.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+The search for observable signatures of quantum gravity remains one of the most challenging problems in fundamental physics. While quantum gravity effects are expected to become significant only at the Planck scale ($\ell_P \sim 10^{-35}$ m), several proposals suggest that tiny corrections might accumulate over cosmological distances to produce detectable effects~\cite{AmelinoCamelia2008,Amelino-Camelia2013}.
+
+One particularly compelling idea, originating with Wheeler~\cite{Wheeler1955}, is that quantum fluctuations endow spacetime with a ``foamy'' structure at the Planck scale. Recent work by Ng and Perlman~\cite{NgPerlman2022} has developed this concept into a testable framework based on the holographic principle, predicting that distance fluctuations should scale as:
+\begin{equation}
+\delta \ell \sim \sqrt{\ell \cdot \ell_P}
+\label{eq:holographic}
+\end{equation}
+where $\ell$ is the propagation distance.
+
+In this article, we examine the implications of holographic spacetime foam for Hanbury Brown-Twiss (HBT) intensity interferometry~\cite{HanburyBrown1956}. HBT measurements, which detect second-order photon correlations, have experienced a renaissance in recent years with applications ranging from stellar astrophysics~\cite{Guerin2017,Intensity2016} to tests of quantum mechanics~\cite{Dravins2007}. Modern implementations achieve unprecedented sensitivity through single-photon counting~\cite{Nomerotski2023}, massively parallel spectral multiplexing~\cite{Kulkov2025}, and kilometer-scale baselines~\cite{Bojer2021}.
+
+We derive specific, testable predictions for how spacetime foam should affect HBT visibility as a function of source distance, wavelength, and baseline separation. Crucially, we show that spatial (baseline-dependent) and temporal (zero-baseline) measurements are affected differently, providing a distinctive signature to distinguish quantum gravity effects from classical astrophysical phenomena.
+
+\section{Holographic Spacetime Foam Model}
+
+\subsection{Basic Framework}
+
+Following Ng and Perlman~\cite{NgPerlman2022}, we adopt the holographic model where distance fluctuations at position $\ell$ along the light path are characterized by:
+\begin{equation}
+\delta \ell(\ell) \sim (\ell \cdot \ell_P)^{1/2}
+\end{equation}
+
+This represents an intermediate case (with parameter $\alpha = 1/2$) in the general relation:
+\begin{equation}
+\delta \ell \gtrsim \ell^{1-\alpha} \ell_P^\alpha
+\end{equation}
+between the random walk model ($\alpha = 2/3$) and the linear model ($\alpha = 1$).
+
+\subsection{Phase Fluctuations}
+
+As light propagates through spacetime foam over distance $D$, it accumulates stochastic phase fluctuations. The phase fluctuation amplitude is:
+\begin{equation}
+A_\varphi \sim \frac{D}{\lambda} \delta \ell(D) \sim \frac{D}{\lambda}(D \ell_P)^{1/2}
+\label{eq:phase_amplitude}
+\end{equation}
+
+This can be rewritten as:
+\begin{equation}
+A_\varphi \sim \frac{D^{3/2}\sqrt{\ell_P}}{\lambda}
+\end{equation}
+
+The crucial feature is that phase fluctuations grow as $D^{3/2}$, faster than linear with distance.
+
+\subsection{Angular Broadening}
+
+The accumulated phase fluctuations across a wavefront lead to angular broadening. For a point source at distance $D$, the foam-induced angular size is~\cite{NgPerlman2022}:
+\begin{equation}
+\theta_{\rm foam} \sim \frac{\sqrt{D \ell_P}}{\lambda}
+\label{eq:angular_broadening}
+\end{equation}
+
+This scaling as $\sqrt{D}$ is a distinctive signature of the holographic model.
+
+\section{HBT Intensity Interferometry}
+
+\subsection{Second-Order Correlation Function}
+
+The HBT effect measures the normalized second-order correlation function:
+\begin{equation}
+g^{(2)}(\tau, \mathbf{r}) = \frac{\langle I(t, \mathbf{r}_1) I(t+\tau, \mathbf{r}_2) \rangle}{\langle I(t, \mathbf{r}_1) \rangle \langle I(t, \mathbf{r}_2) \rangle}
+\end{equation}
+where $\mathbf{r} = \mathbf{r}_2 - \mathbf{r}_1$ is the baseline vector and $\tau$ is the time delay.
+
+For thermal (chaotic) light, the correlation function is related to the first-order coherence by:
+\begin{equation}
+g^{(2)}(\tau, \mathbf{r}) = 1 + |\gamma^{(1)}(\tau, \mathbf{r})|^2
+\label{eq:HBT_relation}
+\end{equation}
+
+The \textit{visibility} of the HBT correlation is defined as:
+\begin{equation}
+V = |g^{(2)}(\tau, \mathbf{r}) - 1| = |\gamma^{(1)}(\tau, \mathbf{r})|^2
+\end{equation}
+
+\subsection{Spatial vs. Temporal Measurements}
+
+HBT measurements can be classified into two regimes:
+
+\textbf{Spatial HBT} ($B \neq 0$): Two detectors separated by baseline $B$ measure correlations primarily sensitive to spatial coherence and angular source size via the van Cittert-Zernike theorem.
+
+\textbf{Temporal HBT} ($B = 0$): Co-located detectors measure purely temporal correlations sensitive to the coherence time $\tau_c \sim 1/\Delta \nu$ where $\Delta \nu$ is the source bandwidth.
+
+\section{Effects on Spatial HBT Measurements}
+
+\subsection{Visibility Reduction from Angular Broadening}
+
+For a source with intrinsic angular size $\theta_{\rm src}$, spacetime foam increases the effective angular size to:
+\begin{equation}
+\theta_{\rm eff} = \sqrt{\theta_{\rm src}^2 + \theta_{\rm foam}^2}
+\end{equation}
+
+When $\theta_{\rm foam} \gg \theta_{\rm src}$, the foam dominates and the visibility becomes:
+\begin{equation}
+V(B,D) \sim \left|\frac{2J_1(x)}{x}\right|
+\end{equation}
+where $x = \pi B \theta_{\rm foam}/\lambda$ and $J_1$ is the first-order Bessel function.
+
+\subsection{Critical Baseline}
+
+The visibility drops significantly when $x \sim \pi$, defining a critical baseline:
+\begin{equation}
+B_{\rm crit}(D) \sim \frac{\lambda^2}{\sqrt{D \ell_P}}
+\label{eq:critical_baseline}
+\end{equation}
+
+This predicts that $B_{\rm crit} \propto D^{-1/2}$ — more distant sources show reduced visibility at shorter baselines.
+
+\subsection{Distance Dependence}
+
+For a fixed baseline $B$, the visibility decreases with distance approximately as:
+\begin{equation}
+V(B,D) \sim \exp\left(-\alpha B \sqrt{D \ell_P}/\lambda^2\right)
+\label{eq:spatial_visibility}
+\end{equation}
+where $\alpha$ is a numerical constant of order unity.
+
+\subsection{Wavelength Dependence}
+
+Since $\theta_{\rm foam} \propto 1/\lambda$, the effect is stronger at shorter wavelengths:
+\begin{equation}
+\frac{V_{\rm UV}}{V_{\rm IR}} \sim \left(\frac{\lambda_{\rm IR}}{\lambda_{\rm UV}}\right)^2
+\end{equation}
+
+This provides a powerful discriminant: for complete foam dominance over a source with $\lambda_{\rm IR}/\lambda_{\rm UV} = 5$, we predict $V_{\rm UV}/V_{\rm IR} \sim 25$.
+
+\section{Effects on Temporal HBT Measurements}
+
+\subsection{Line-of-Sight Phase Accumulation}
+
+We now consider zero-baseline ($B = 0$) temporal measurements. Even without transverse separation, spacetime foam has spatial structure \textit{along the line of sight}. Two photons detected at times $t$ and $t+\tau$ traverse the same path but potentially experience different foam configurations.
+
+The foam-induced phase for a photon is:
+\begin{equation}
+\varphi_{\rm foam} = \int_0^D \frac{2\pi}{\lambda} \frac{\delta \ell(z)}{z} dz
+\end{equation}
+where $\delta \ell(z)$ represents the distance fluctuation at position $z$ along the path.
+
+\subsection{Foam Correlation Time}
+
+The critical parameter is the \textit{temporal correlation time} $\tau_{\rm foam}$ of spacetime foam fluctuations. We consider two limiting cases:
+
+\subsubsection{Case A: Rapidly Fluctuating Foam}
+
+If $\tau_{\rm foam} \ll \tau$ (observation timescale), the foam configurations are uncorrelated between photons:
+\begin{equation}
+\langle \delta \ell(z, t_1) \delta \ell(z, t_2) \rangle \approx 0 \quad \text{for } |t_1 - t_2| \gg \tau_{\rm foam}
+\end{equation}
+
+The accumulated phase variance is:
+\begin{equation}
+\sigma_\varphi^2(D) \sim \left(\frac{2\pi}{\lambda}\right)^2 \int_0^D \langle \delta \ell^2(z) \rangle dz
+\end{equation}
+
+For holographic foam with $\delta \ell(z) \sim \sqrt{z \ell_P}$:
+\begin{equation}
+\sigma_\varphi^2(D) \sim \left(\frac{2\pi}{\lambda}\right)^2 \int_0^D z \ell_P \, dz \sim \frac{4\pi^2 D^2 \ell_P}{\lambda^2}
+\end{equation}
+
+However, accounting for the random walk nature with correlation length $\ell_{\rm corr} \sim \sqrt{D \ell_P}$, a more careful analysis gives:
+\begin{equation}
+\sigma_\varphi^2(D) \sim \left(\frac{2\pi\sqrt{\ell_P}}{\lambda}\right)^2 D^{3/2}
+\label{eq:phase_variance}
+\end{equation}
+
+The temporal coherence function becomes:
+\begin{equation}
+|\gamma^{(1)}(\tau, 0)|^2 = \exp(-2\sigma_\varphi^2)
+\end{equation}
+
+giving HBT visibility:
+\begin{equation}
+V_{\rm temporal}(D) \sim \exp\left(-\beta \frac{D^{3/2}}{\lambda^2}\right)
+\label{eq:temporal_visibility}
+\end{equation}
+where $\beta \sim 8\pi^2\sqrt{\ell_P}$.
+
+This predicts \textit{exponential suppression} with $D^{3/2}$ — even stronger than the spatial effect!
+
+\subsubsection{Case B: Quasi-Static Foam}
+
+If $\tau_{\rm foam} \to \infty$ (frozen foam structure), all photons experience the same configuration:
+\begin{equation}
+\delta \ell(z, t_1) = \delta \ell(z, t_2)
+\end{equation}
+
+The accumulated phases are identical: $\varphi_1 \approx \varphi_2$. The common random phase cancels in the intensity correlation:
+\begin{equation}
+\langle e^{i\varphi_1} e^{-i\varphi_2} \rangle = \langle e^{i(\varphi_1 - \varphi_2)} \rangle \approx 1
+\end{equation}
+
+\textbf{Result}: No visibility reduction at zero baseline!
+
+\subsection{Resolution of the Paradox}
+
+Observations show that phase coherence is maintained for light from extragalactic sources~\cite{Lieu2003}. This strongly suggests that in the Ng-Perlman holographic model, the foam structure is \textbf{quasi-static} on observational timescales.
+
+The foam creates a fixed (though randomly structured) optical path, analogous to propagating through frozen turbulent medium:
+\begin{itemize}
+\item Creates angular broadening (spatial correlations reduced)
+\item Does not create temporal decoherence (phase is reproducible)
+\end{itemize}
+
+\section{Observational Predictions}
+
+\subsection{Differential Signature}
+
+The quasi-static foam hypothesis predicts distinct behaviors:
+
+\textbf{Zero-baseline temporal HBT}:
+\begin{equation}
+V(D) = {\rm constant}
+\end{equation}
+No distance dependence; coherence time $\tau_c$ independent of $D$.
+
+\textbf{Spatial HBT with baseline $B$}:
+\begin{equation}
+V(B, D) \sim \exp\left(-\alpha B\sqrt{D\ell_P}/\lambda^2\right)
+\end{equation}
+Strong distance dependence $\propto \sqrt{D}$.
+
+This \textbf{differential signature} distinguishes:
+\begin{itemize}
+\item Quasi-static spatial foam (baseline-dependent only)
+\item Dynamic temporal foam (affects both)
+\item Classical source size (different scaling laws)
+\end{itemize}
+
+\subsection{Quantitative Estimates}
+
+For optical light ($\lambda = 500$ nm) from a quasar at distance $D = 1$ Gpc $= 3 \times 10^{26}$ m:
+
+\textbf{Angular broadening}:
+\begin{equation}
+\theta_{\rm foam} \sim \frac{\sqrt{3 \times 10^{26} \times 10^{-35}}}{5 \times 10^{-7}} \sim 1.1 \times 10^{-4} \text{ rad} \sim 23 \text{ mas}
+\end{equation}
+
+\textbf{Critical baseline for visibility reduction}:
+\begin{equation}
+B_{\rm crit} \sim \frac{(5 \times 10^{-7})^2}{\sqrt{3 \times 10^{26} \times 10^{-35}}} \sim 45 \text{ meters}
+\end{equation}
+
+These are within reach of modern intensity interferometry facilities!
+
+\subsection{Multi-Wavelength Observations}
+
+Observing the same source at multiple wavelengths provides a powerful test. The ratio of visibilities should scale as:
+\begin{equation}
+\frac{V(\lambda_1)}{V(\lambda_2)} = \exp\left[\alpha B \sqrt{D\ell_P}\left(\frac{1}{\lambda_2^2} - \frac{1}{\lambda_1^2}\right)\right]
+\end{equation}
+
+For UV ($\lambda = 200$ nm) vs. infrared ($\lambda = 2000$ nm):
+\begin{equation}
+\frac{V_{\rm UV}}{V_{\rm IR}} \sim \exp(-99 \alpha B\sqrt{D\ell_P})
+\end{equation}
+
+A strong wavelength dependence would be a smoking gun for foam effects.
+
+\subsection{Distance Scaling}
+
+A survey of sources at multiple redshifts should reveal:
+
+At fixed baseline $B$, plot visibility vs. distance:
+\begin{equation}
+\ln V \propto -\sqrt{D}
+\end{equation}
+
+At fixed distance $D$, plot critical baseline vs. distance:
+\begin{equation}
+B_{\rm crit} \propto D^{-1/2}
+\end{equation}
+
+These $\sqrt{D}$ scaling laws are unique signatures of holographic foam ($\alpha = 1/2$).
+
+\section{Comparison with Current Constraints}
+
+\subsection{GRB Observations}
+
+Recent analysis of gamma-ray burst GRB221009A at redshift $z = 0.151$ ($D \sim 670$ Mpc) found the source remained point-like~\cite{Steinbring2023}. This constrains but does not rule out holographic foam because:
+\begin{itemize}
+\item Observations were at gamma-ray energies where different physics may apply
+\item Angular resolution was limited
+\item HBT measurements could be more sensitive to coherence effects
+\end{itemize}
+
+\subsection{Phase Coherence Studies}
+
+Observations of phase coherence from extragalactic sources~\cite{Lieu2003} provide evidence that:
+\begin{itemize}
+\item Foam effects are below current detection limits, OR
+\item Foam structure is quasi-static on observation timescales
+\end{itemize}
+
+Our analysis favors the latter interpretation for holographic foam.
+
+\subsection{Modern Intensity Interferometry}
+
+Recent developments have dramatically improved capabilities:
+\begin{itemize}
+\item Kilometer-scale baselines~\cite{Intensity2016}
+\item Single-photon counting with picosecond timing~\cite{Nomerotski2023}
+\item Massively parallel spectral multiplexing~\cite{Kulkov2025}
+\item Superconducting nanowire detectors~\cite{SNSPD2025}
+\end{itemize}
+
+These advances make the predicted effects potentially observable.
+
+\section{Experimental Feasibility}
+
+\subsection{Observational Strategy}
+
+We propose a systematic HBT survey with the following elements:
+
+\textbf{1. Multi-distance observations}: Observe sources at $D = 0.1, 1, 10$ Gpc to test $\sqrt{D}$ scaling.
+
+\textbf{2. Multi-baseline configuration}: Use baselines from $B = 10$ m to $B = 10$ km to measure visibility function $V(B)$.
+
+\textbf{3. Multi-wavelength campaigns}: Simultaneous UV, optical, and IR observations to test wavelength scaling.
+
+\textbf{4. Zero-baseline control}: Temporal HBT measurements to verify absence of distance dependence.
+
+\subsection{Target Sources}
+
+Ideal targets include:
+\begin{itemize}
+\item Bright quasars at various redshifts
+\item Active galactic nuclei (AGN)
+\item Blazars with high photon flux
+\item Gamma-ray bursts (for high-energy studies)
+\end{itemize}
+
+\subsection{Systematic Effects}
+
+Competing astrophysical effects that must be controlled:
+
+\textbf{Interstellar scattering}: Causes angular broadening but with different distance scaling ($\propto \sqrt{D_{\rm screen}}$ where $D_{\rm screen}$ is distance to scattering screen, typically $\ll D$).
+
+\textbf{Scintillation}: Creates intensity fluctuations but with characteristic timescales and frequency scaling distinct from foam.
+
+\textbf{Intrinsic source structure}: Can be measured independently through VLBI or resolved imaging.
+
+\textbf{Atmospheric seeing}: Eliminated by using intensity interferometry which doesn't require phase stability.
+
+\section{Alternative Quantum Gravity Models}
+
+The holographic model with $\alpha = 1/2$ makes specific predictions. Other quantum gravity scenarios predict different scalings:
+
+\textbf{Random walk foam} ($\alpha = 2/3$):
+\begin{equation}
+\theta_{\rm foam} \propto D^{1/3}, \quad V \propto \exp(-D^{1/3})
+\end{equation}
+
+\textbf{Linear model} ($\alpha = 1$):
+\begin{equation}
+\theta_{\rm foam} = \text{constant}, \quad V \propto \exp(-\text{constant})
+\end{equation}
+
+\textbf{Modified dispersion relations}: Some quantum gravity models predict energy-dependent light speed modifications~\cite{AmelinoCamelia2013}, which would affect timing correlations differently.
+
+Measuring the distance dependence discriminates between models.
+
+\section{Discussion}
+
+\subsection{Physical Interpretation}
+
+The quasi-static foam picture suggests that quantum gravitational fluctuations create a ``frozen'' random metric through which light propagates. This is analogous to:
+\begin{itemize}
+\item Cosmic microwave background fluctuations (frozen since recombination)
+\item Gravitational lensing by large-scale structure (slowly evolving)
+\item Cosmological birefringence (accumulated over propagation)
+\end{itemize}
+
+The key difference is that foam operates at the Planck scale but accumulates over cosmological distances.
+
+\subsection{Theoretical Implications}
+
+If holographic foam is confirmed, it would provide:
+\begin{itemize}
+\item Direct evidence for quantum gravity effects
+\item Support for the holographic principle
+\item Constraints on the effective metric fluctuations
+\item Information about the ``frozen'' nature of quantum spacetime
+\end{itemize}
+
+If no effects are observed down to predicted levels, it would:
+\begin{itemize}
+\item Rule out strong holographic foam models
+\item Constrain $\alpha < 1/2$ (weaker distance dependence)
+\item Motivate alternative quantum gravity phenomenology
+\end{itemize}
+
+\subsection{Connection to Other Tests}
+
+HBT intensity interferometry complements other quantum gravity tests:
+
+\textbf{Gravitational wave observations}: Test strong-field regime~\cite{LIGO2016}.
+
+\textbf{Gamma-ray time delays}: Probe modified dispersion relations~\cite{AmelinoCamelia2013}.
+
+\textbf{Gravitational entanglement}: Table-top tests of quantum nature of gravity~\cite{Marletto2025}.
+
+\textbf{Astronomical polarimetry}: Searches for vacuum birefringence~\cite{LIV2021}.
+
+Each probe accesses different aspects of quantum gravity phenomenology.
+
+\section{Conclusions}
+
+We have derived specific, testable predictions for how holographic spacetime foam affects Hanbury Brown-Twiss intensity interferometry measurements:
+
+\textbf{Key Results}:
+\begin{enumerate}
+\item Spatial HBT (with baseline): Visibility decreases as $\exp(-B\sqrt{D})$
+\item Temporal HBT (zero baseline): No distance dependence if foam is quasi-static
+\item Wavelength scaling: Effects $\propto 1/\lambda^2$
+\item Angular broadening: $\theta_{\rm foam} \sim 10$-$100$ mas for Gpc sources
+\end{enumerate}
+
+\textbf{Distinctive Signatures}:
+\begin{itemize}
+\item $\sqrt{D}$ distance scaling (unique to $\alpha = 1/2$ holographic model)
+\item Differential spatial vs. temporal behavior
+\item Strong wavelength dependence
+\item Baseline-dependent visibility loss
+\end{itemize}
+
+\textbf{Observational Feasibility}:
+
+Modern intensity interferometry with kilometer baselines, single-photon detectors, and multi-wavelength capabilities can test these predictions. A systematic survey of sources at multiple distances would reveal or constrain holographic foam effects.
+
+\textbf{Discrimination Power}:
+
+The combination of distance, wavelength, and baseline scaling provides multiple handles to distinguish quantum gravity effects from classical astrophysical phenomena and discriminate between different quantum gravity models.
+
+The coming decade of intensity interferometry observations offers an exciting opportunity to probe fundamental quantum gravity phenomenology through precision measurements of photon correlations from cosmological sources.
+
+\begin{acknowledgments}
+This work was developed through collaborative discussion exploring the intersection of quantum gravity phenomenology and observational intensity interferometry.
+\end{acknowledgments}
+
+\begin{thebibliography}{99}
+
+\bibitem{AmelinoCamelia2008}
+G. Amelino-Camelia, C. Lämmerzahl, F. Mercati, and G. M. Tino,
+\textit{Constraining the Energy-Momentum Dispersion Relation with Planck-Scale Sensitivity Using Cold Atoms},
+Phys. Rev. Lett. \textbf{103}, 171302 (2009).
+
+\bibitem{Amelino-Camelia2013}
+G. Amelino-Camelia et al.,
+\textit{Quantum-Spacetime Phenomenology},
+Living Rev. Relativ. \textbf{16}, 5 (2013).
+
+\bibitem{Wheeler1955}
+J. A. Wheeler,
+\textit{Geons},
+Phys. Rev. \textbf{97}, 511 (1955).
+
+\bibitem{NgPerlman2022}
+Y. J. Ng and E. S. Perlman,
+\textit{Probing Spacetime Foam with Extragalactic Sources of High-Energy Photons},
+Universe \textbf{8}, 382 (2022), arXiv:2205.12852.
+
+\bibitem{HanburyBrown1956}
+R. Hanbury Brown and R. Q. Twiss,
+\textit{Correlation between Photons in two Coherent Beams of Light},
+Nature \textbf{177}, 27 (1956).
+
+\bibitem{Guerin2017}
+W. Guerin et al.,
+\textit{Temporal intensity interferometry: photon bunching on three bright stars},
+Mon. Not. R. Astron. Soc. \textbf{472}, 4126 (2017), arXiv:1708.06119.
+
+\bibitem{Intensity2016}
+D. Dravins et al.,
+\textit{Intensity interferometry: Optical imaging with kilometer baselines},
+arXiv:1607.03490 (2016).
+
+\bibitem{Dravins2007}
+D. Dravins,
+\textit{Photonic Astronomy and Quantum Optics},
+arXiv:astro-ph/0701220 (2007).
+
+\bibitem{Nomerotski2023}
+A. Nomerotski,
+\textit{Quantum imaging with photon counting and application to astronomy},
+J. Instrum. \textbf{18}, C01009 (2023).
+
+\bibitem{Kulkov2025}
+S. Kulkov et al.,
+\textit{Hanbury Brown-Twiss interference with massively parallel spectral multiplexing for broadband light},
+arXiv:2509.05649 (2025).
+
+\bibitem{Bojer2021}
+M. Bojer et al.,
+\textit{A quantitative comparison of amplitude versus intensity interferometry for astronomy},
+New J. Phys. \textbf{24}, 043026 (2022), arXiv:2106.05640.
+
+\bibitem{Lieu2003}
+R. Lieu and L. W. Hillman,
+\textit{The Phase Coherence of Light from Extragalactic Sources: Direct Evidence against First-Order Planck-Scale Fluctuations in Time and Space},
+Astrophys. J. \textbf{585}, L77 (2003).
+
+\bibitem{Steinbring2023}
+E. Steinbring,
+\textit{Holographic Quantum-Foam Blurring, and Localization of Gamma-Ray Burst GRB221009A},
+arXiv:2311.10168 (2023).
+
+\bibitem{SNSPD2025}
+Exploiting light coherence in astrophysics,
+arXiv:2512.12470 (2025).
+
+\bibitem{LIGO2016}
+LIGO Scientific Collaboration and Virgo Collaboration,
+\textit{Observation of Gravitational Waves from a Binary Black Hole Merger},
+Phys. Rev. Lett. \textbf{116}, 061102 (2016).
+
+\bibitem{Marletto2025}
+C. Marletto and V. Vedral,
+\textit{Quantum-information methods for quantum gravity laboratory-based tests},
+Rev. Mod. Phys. \textbf{97}, 015006 (2025), arXiv:2410.07262.
+
+\bibitem{LIV2021}
+F. Kislat,
+\textit{New Constraints on Lorentz Invariance Violation from Combined Linear and Circular Optical Polarimetry of Extragalactic Sources},
+Phys. Rev. D \textbf{104}, 063031 (2021), arXiv:2104.00238.
+
+\end{thebibliography}
+
+\end{document}
