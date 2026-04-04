@@ -60,7 +60,7 @@ developed in subsequent quantum-gravity
 work~\cite{Hawking1978,Ellis1984}, refers to the hypothesized
 granularity of spacetime at scales near the Planck length
 $\ell_{\mathrm{P}} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m.
-A phenomenological framework due to Ng and Perlman~\cite{NgPerlman2022,Ng2003,Ng2001}
+A phenomenological framework due to Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001}
 parametrizes a broad class of foam models by a single power-law
 exponent $\alpha$ that controls how distance fluctuations accumulate
 with propagation length. For a photon propagating a distance $\ell$,
@@ -74,47 +74,89 @@ $\alpha = 1$ (giving $\delta\ell \sim \ell_{\mathrm{P}}$, independent
 of $\ell$), the holography-inspired model to $\alpha = 2/3$, and the
 random-walk model to $\alpha = 1/2$.
 
-Astronomical observations offer extraordinarily long baselines over
-which foam fluctuations might accumulate to detectable levels.
-Lieu and Hillman~\cite{LieuHillman2003,Christiansen2011,Perlman2015}
-proposed that the phase coherence of light from distant AGN could
-constrain foam through spatial (imaging) HBT interferometry.
-Temporal (single-telescope) HBT intensity
-correlations~\cite{HBT1956,Abeysekara2020,Acharyya2024} offer a complementary
-route, probing the coherence of a single spatial mode in time rather
-than across a baseline.
+Extragalactic sources, with their cosmological propagation distances,
+provide stronger constraints. Ragazzoni et al.~\cite{Ragazzoni2003}
+used VLT images of distant quasars to argue that the random-walk model
+($\alpha=1/2$) is ruled out. Christiansen et al.~\cite{Christiansen2011}
+and Perlman et al.~\cite{Perlman2015} extended this program using
+archival and deep Hubble Space Telescope imaging of galaxies and
+quasars, placing progressively tighter constraints on both $\alpha=1/2$
+and $\alpha=2/3$ models. Gamma-ray observations of blazars and
+gamma-ray bursts provide a complementary probe through energy-dependent
+photon arrival-time delays~\cite{HESS2008,Fermi2009}. Taken together,
+the $\alpha=1/2$ (random-walk) model is strongly disfavored by multiple
+independent lines of evidence. However, Geoghan et
+al.~\cite{Geoghan2022} cautioned that several of these extragalactic
+constraints inherit variants of the same dimensional and scaling
+ambiguities identified in the Lieu--Hillman analysis, so that
+constraints on the holographic model ($\alpha=2/3$) should be regarded
+as less secure than commonly stated, and the $\alpha=1$ model remains
+essentially unconstrained.
+
+Lieu and Hillman~\cite{LieuHillman2003} proposed constraining spacetime
+foam through spatial interferometry of galactic stars, arguing that
+foam-induced path-length fluctuations would degrade fringe visibility
+even for nearby sources. For the random-walk model ($\alpha=1/2$) and
+sources at $D\sim 1$~kpc, they predicted that coherence would be lost
+at optical baselines exceeding $\sim100$~m, suggesting that
+then-current interferometers could already constrain foam models.
+However, Geoghan et al.~\cite{Geoghan2022} demonstrated that this
+prediction rested on an error in the distance scaling of the phase
+variance: Lieu and Hillman implicitly assumed the variance scales as
+$D^2$, whereas the correct random-walk accumulation gives a scaling
+linear in $D$. After correcting this error, the predicted effect is
+substantially smaller. Using CHARA observations of Betelgeuse, Geoghan
+et al.\ derived a revised lower limit on the effective Planck length
+for the $\alpha=1/2$ model, and emphasized that accurate dimensional
+analysis is essential for deriving meaningful foam constraints from
+interferometric data.
+
+Temporal intensity interferometry via the Hanbury Brown--Twiss (HBT)
+effect~\cite{HBT1956} offers a complementary approach. Rather than
+comparing signals across a spatial baseline, HBT measures the
+second-order intensity correlation $g^{(2)}(\tau)$ of a single spatial
+mode as a function of time delay $\tau$, thereby probing temporal
+coherence. This makes it less susceptible to many of the
+baseline-dependent systematics that affect spatial interferometry,
+though its sensitivity to foam-induced effects depends on different
+combinations of the model parameters. Modern HBT campaigns targeting
+bright stars and AGN with large telescope
+arrays~\cite{Abeysekara2020,Acharyya2024} have begun to achieve the
+photon-rate sensitivity necessary to make this a practical
+observational tool.
 
 The purpose of this paper is threefold. First, we establish a
 dimensionally consistent formalism that rigorously connects the
 Ng--Perlman single-point scaling~\eqref{eq:NgPerlman} to the
-path-aggregated phase-variance observable in temporal HBT, resolving
-a dimensional ambiguity that has appeared in some earlier treatments.
-Second, we identify and separately characterize the three physical
-channels through which foam can enter the measured intensity
-correlations, clarifying a subtlety that has not always been made
-explicit in the temporal HBT literature: a pure single-mode phase
-modulation leaves the intensity autocorrelation $g^{(2)}(\tau)$
-entirely unaffected. Third, we provide a compact predictive formula
-for the foam decoherence observable and illustrate its magnitude for
-representative foam models and AGN observations.
+path-aggregated phase-variance observable in temporal HBT, avoiding the
+dimensional ambiguities identified by Geoghan et al.~\cite{Geoghan2022}
+and in earlier treatments. Second, we identify and separately
+characterize the three physical channels through which foam can enter
+the measured intensity correlations, clarifying a subtlety not always
+made explicit in the literature: a pure single-mode phase modulation
+leaves $g^{(2)}(\tau)$ entirely unaffected, so that observable foam
+signatures must arise through amplitude or multi-mode effects. Third,
+we provide a compact predictive formula for the foam decoherence
+observable and illustrate its magnitude for representative foam models
+and AGN parameters.
 
 The paper is organized as follows.
 Section~\ref{sec:conventions} establishes notation, conventions, and
-dimension analysis.
+dimensional analysis.
 Section~\ref{sec:phasestats} derives the statistics of the
 foam-induced phase fluctuations accumulated along the line of sight.
 Section~\ref{sec:HBT} derives the relationship between the phase
-variance and the HBT observable, including a careful discussion of
-the Siegert relation and its limitations.
-Section~\ref{sec:observable} gives the explicit predictive formula
-for the foam decoherence observable $V(\tau;D)$.
+variance and the HBT observable, including a careful treatment of the
+Siegert relation and its limitations.
+Section~\ref{sec:observable} gives the explicit predictive formula for
+the foam decoherence observable $V(\tau;D)$.
 Section~\ref{sec:numerical} provides a numerical illustration for
 representative values of $\alpha$, $\lambda$, and $D$.
 Section~\ref{sec:discussion} discusses consistency checks,
 observational implications, and directions for future work.
-Appendix~\ref{app:correlationStructure} discusses the conditions
-under which the path-aggregate variance inherits the Ng--Perlman
-single-point scaling.
+Appendix~\ref{app:correlationStructure} discusses the conditions under
+which the path-aggregate variance inherits the Ng--Perlman single-point
+scaling.
 
 % ==============================================================
 \section{Notation, Conventions, and Dimension Analysis}
