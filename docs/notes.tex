@@ -82,7 +82,7 @@ blur or wash out images of quasars when observed at high angular
 resolution, and used the sharp appearance of existing quasar images to
 place limits on foam models. In a re-analysis of the same data,
 \citet{NgPerlman2022}
-find limits for thw cumulative
+find limits for the cumulative
 statistical phase dispersion 
 $\Delta\phi \sim 10 \times 2\pi$ for the random walk $\alpha = 1/2$ model and $\Delta\phi \sim 10^{-9} \times 2\pi$ for the holography $\alpha = 2/3$ model.
 
@@ -155,9 +155,8 @@ observational tool.
 The purpose of this paper is threefold. First, we establish a
 dimensionally consistent formalism that rigorously connects the
 Ng--Perlman single-point scaling~\eqref{eq:NgPerlman} to the
-path-aggregated phase-variance observable in temporal HBT, avoiding the
-dimensional ambiguities identified by Geoghan et al.~\cite{Geoghan2022}
-and in earlier treatments. Second, we identify and separately
+path-aggregated phase-variance observable in temporal HBT, avoiding
+dimensional ambiguities present in some earlier treatments. Second, we identify and separately
 characterize the three physical channels through which foam can enter
 the measured intensity correlations, clarifying a subtlety not always
 made explicit in the literature: a pure single-mode phase modulation
@@ -602,12 +601,25 @@ and parametrize the foam-induced decoherence as
   \exp\!\Big[-\big\langle\!\big[\Delta\varphi^{(D)}(\tau)\big]^{\!2}\big\rangle\Big].
   \label{eq:HBTobservableFull}
 \end{equation}
-This form is the natural generalization of the Siegert relation to a
-field that has been partially dephased by the foam (via one of the
-channels in Section~\ref{sec:channels}): the factor
-$|g^{(1)}_{\mathrm{src}}(\tau)|^2$ represents the intrinsic source
-bunching, and the exponential represents the additional decoherence
-due to the foam.
+This form requires care in its interpretation. In the pure single-mode
+phase case analyzed in Section~\ref{sec:Siegert}, the foam phase cancels
+identically in $|E(t)|^2$, the Siegert relation gives
+$g^{(2)}-1 = |g^{(1)}_{\mathrm{src}}|^2$ independent of foam, and
+Eq.~\eqref{eq:HBTobservableFull} does \emph{not} apply.
+Equation~\eqref{eq:HBTobservableFull} is instead the appropriate form
+when channels~(i) or~(ii) are operative: after superposition across
+spatial modes (aperture integration, channel~i) or spectral components
+(bandwidth integration, channel~ii), the effective field at the detector
+is still a circular complex Gaussian, but with a reduced effective
+coherence function $g^{(1)}_{\mathrm{eff}}(\tau) =
+g^{(1)}_{\mathrm{src}}(\tau)\,e^{-\frac{1}{2}
+\langle[\Delta\varphi(\tau)]^2\rangle}$ derived in
+Section~\ref{sec:g1}. Applying the Siegert relation to this effective
+field yields Eq.~\eqref{eq:HBTobservableFull}, with the factor
+$|g^{(1)}_{\mathrm{src}}(\tau)|^2$ representing the intrinsic source
+bunching and the exponential the foam decoherence. Channel~(iii)
+(arrival-time jitter) is not captured by this framework and requires
+a photon-counting treatment left for future work.
 
 \subsection{Explicit foam-decoherence prediction}
 \label{sec:prediction}
