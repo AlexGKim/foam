@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{booktabs}
+\usepackage{aas_macros}%
 
 \begin{document}
 
@@ -79,43 +80,63 @@ foam through loss of phase coherence in light from distant extragalactic
 sources. They argued that accumulated path-length fluctuations would
 blur or wash out images of quasars when observed at high angular
 resolution, and used the sharp appearance of existing quasar images to
-place limits on foam models. However, Geoghan et
-al.~\cite{Geoghan2022} identified a dimensional error in Lieu and
-Hillman's analysis: the phase variance scales as $D$ rather than $D^2$
-for the $\alpha=1/2$ model, substantially weakening the predicted
-effects and revising the constraints.
+place limits on foam models. In a re-analysis of the same data,
+\citet{NgPerlman2022}
+find limits for thw cumulative
+statistical phase dispersion 
+$\Delta\phi \sim 10 \times 2\pi$ for the random walk $\alpha = 1/2$ model and $\Delta\phi \sim 10^{-9} \times 2\pi$ for the holography $\alpha = 2/3$ model.
 
 Additional extragalactic constraints have been pursued through direct
-imaging and timing observations. Ragazzoni, Turatto, and
-Gaessler~\cite{Ragazzoni2003} noted the lack of foam-induced blurring
-in images of quasars and argued this absence placed limits on spacetime
-foam models. Christiansen et al.~\cite{Christiansen2011} analyzed
+imaging and timing observations. \citet{2003ApJ...587L...1R} used the apparent diffraction pattern
+in images of SN~1994D to put limits on structure in
+spacetime. Christiansen et al.~\cite{Christiansen2011} analyzed
 archival Hubble Space Telescope images of distant quasars, placing
 constraints on both $\alpha=1/2$ and $\alpha=2/3$ models. Perlman et
 al.~\cite{Perlman2015} extended these imaging constraints using
 additional HST observations. Gamma-ray observations of blazars and
 gamma-ray bursts provide a complementary probe through searches for
 energy-dependent photon arrival-time
-delays~\cite{HESS2008,Fermi2009}. However, Geoghan et
-al.~\cite{Geoghan2022} cautioned that several of these constraints may
+delays \citep{HESS2008,Fermi2009}. 
+
+However, \citet{Carlip2023} cautioned that several of these constraints may
 inherit variants of the dimensional ambiguities found in the original
-Lieu--Hillman analysis. The current observational status is that the
+Lieu--Hillman analysis. The core issue is that converting the fundamental
+path-length fluctuation $\delta\ell \sim \ell^{1-\alpha}\ell_{\mathrm{P}}^\alpha$
+into observable signatures---whether angular blurring, loss of interferometric
+visibility, or timing dispersion---requires assumptions about:
+(i)~whether transverse or longitudinal metric fluctuations dominate the 
+observable effect;
+(ii)~the appropriate transverse coherence length scale;
+(iii)~the statistical properties (Gaussian vs.\ non-Gaussian) and correlation
+structure of spacetime fluctuations; and
+(iv)~whether foam affects the classical metric geometry or induces quantum
+phase fluctuations in the photon state.
+Different reasonable choices for these poorly constrained aspects can shift
+predicted limits by orders of magnitude. Moreover, many constraints conflate
+direct image blurring with loss of spatial or temporal coherence, which have
+distinct dependencies on the model parameters and observational configuration.
+As a result, the current observational status is that the
 $\alpha=1/2$ (random-walk) model is strongly disfavored, constraints on
 the holographic model ($\alpha=2/3$) are less secure than sometimes
 claimed, and the $\alpha=1$ model remains essentially unconstrained.
 
 Lieu and Hillman also noted that stellar interferometry provides an
-alternative test. For galactic sources at distances $D \sim 1$~kpc, the
+alternative test that may circumvent some of these ambiguities. 
+\citet{Carlip2023} emphasizes that interferometric observables---particularly
+the complex visibility---have a more direct theoretical connection to
+coherence properties than does image quality, since visibility explicitly
+measures the correlation between electromagnetic fields at separated points.
+For galactic sources at distances $D \sim 1$~kpc, the
 random-walk model ($\alpha=1/2$) would predict observable phase
 decoherence effects when measuring stellar fringes at baselines
 exceeding $\sim 100$~m. This galactic test could avoid some of the
-complexities associated with extragalactic sources while still
+complexities associated with extragalactic sources (such as intrinsic
+source structure and uncertain source sizes) while still
 accumulating significant path-length fluctuations over kiloparsec
-distances. Geoghan et al.~\cite{Geoghan2022} applied corrected
-dimensional analysis to CHARA interferometer observations of Betelgeuse,
-deriving revised constraints and demonstrating that accurate treatment
-of the distance scaling is essential for meaningful limits from
-interferometric data.
+distances. However, even interferometric tests require careful treatment
+of whether transverse correlation lengths are set by the wavelength,
+the Fresnel scale $\sqrt{\lambda D}$, or the geometric path difference,
+choices that affect the predicted visibility degradation.
 
 Temporal intensity interferometry via the Hanbury Brown--Twiss (HBT)
 effect~\cite{HBT1956} offers a complementary approach. Rather than
