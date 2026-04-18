@@ -882,46 +882,23 @@ this model.  Observations at shorter wavelengths (UV, X-ray) or with
 vastly larger $A_\alpha$ might push into constraining territory; we
 leave this analysis for future work.
 
-\paragraph{Effect of a resolved source on the HBT signal.}
-The HBT bunching signal also depends on the angular size of the
-source.  An incoherent extended source of angular diameter $\theta_s$
-illuminates the aperture with a spatial coherence area
-$A_\mathrm{coh} \sim (\lambda/\theta_s)^2$.  The number of
-independent spatial modes collected across the aperture is
-\begin{equation}
-  M \;\sim\; \left(\frac{D\,\theta_s}{\lambda}\right)^2.
-  \label{eq:modeCount}
-\end{equation}
-The field at the detector is a superposition of $M$ independent
-thermal modes $E(t) = \sum_{k=1}^M E_k(t)$.  Applying the Gaussian
-moment theorem mode-by-mode and using the mutual independence of
-modes ($\langle E_k^*(t)\,E_l(t)\rangle = 0$ for $k\neq l$), the
-excess intensity correlation becomes
-\begin{equation}
-  g^{(2)}(\tau) \;=\; 1 \;+\; \frac{1}{M}\,\big|g^{(1)}(\tau)\big|^2.
-  \label{eq:g2multimode}
-\end{equation}
-The bunching amplitude is suppressed by $1/M$ because only photon
-pairs from the \emph{same} spatial mode are indistinguishable and
-interfere; pairs from different modes contribute only to the
-incoherent background.  For a resolved source ($M\gg 1$), the
-bunching signal is diluted by $1/M$ regardless of which foam channel
-is active.
-
-This dilution can be mitigated by coupling the telescope output into
-a single-mode fiber before the HBT detectors.  A single-mode fiber
-accepts only one spatial mode, restoring full bunching contrast; the
-penalty is a factor $1/M$ reduction in count rate rather than in
-contrast.  The practical window for temporal HBT is therefore sources
-that are either (a)~unresolved ($M\approx 1$, full bunching and full
-flux), or (b)~moderately resolved but bright enough to sustain
-adequate coincidence rates with single-mode coupling.
-
-For AGN at Gpc distances, the compact nucleus subtends
-$\theta_s \ll \lambda/D$ at optical wavelengths for meter-class
-apertures, placing them in regime~(a).  The comparison with imaging
-constraints therefore does not hinge on source extent for these
-targets.
+\paragraph{Temporal HBT is applicable to extended sources.}
+A key practical advantage of temporal HBT over imaging constraints is
+that it does not require the source to be unresolved.  Imaging
+constraints depend on the preservation of diffraction rings, which
+requires the source to subtend an angle smaller than the diffraction
+limit; any resolved source structure destroys the Airy pattern and
+eliminates the observable.  Temporal HBT, by contrast, measures a
+property of the field at a \emph{single spatial point}: for thermal
+light, $g^{(2)}(0) = 2$ holds at any point in the focal plane
+regardless of source angular size, because the field at any single
+detector location retains full circular complex Gaussian statistics
+even when the source is extended.  The foam decoherence observable
+$V(\tau;D)$ of Eq.~\eqref{eq:HBTfull} therefore retains its full
+amplitude for resolved sources.  Temporal HBT is thus complementary
+to imaging constraints in an additional sense: it can exploit
+extended or moderately resolved sources for which the imaging method
+fails entirely.
 
 \subsection{Limitations and future directions}
 
