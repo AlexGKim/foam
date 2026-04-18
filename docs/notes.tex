@@ -27,25 +27,25 @@ foam models, characterized by a single power-law parameter $\alpha$,
 using temporal (single-telescope) Hanbury Brown--Twiss (HBT)
 intensity-correlation measurements. We propagate foam-induced
 path-length fluctuations, accumulated along astronomical light paths,
-to a directly observable foam decoherence factor in the HBT visibility
-$V(\tau;D)$. We identify and separate three distinct physical channels
-through which spacetime foam can affect intensity correlations in a
-realistic measurement: (i)~wavefront distortion and spatial-mode
-mixing, (ii)~chromatic phase fluctuations and spectral mixing, and
-(iii)~foam-induced photon arrival-time jitter. We emphasize that a
-strictly pure-phase, single-mode foam leaves the intensity correlation
-function $g^{(2)}(\tau)$ unchanged, and that one or more of these
-channels must be operative for a temporal HBT measurement to constrain
-foam. We provide a compact, testable prediction for $V(\tau;D)$ as a
-function of $\alpha$, the observing wavelength $\lambda$, the source
-distance $D$, and the temporal lag $\tau$ through a decorrelation
-function $C_\alpha(\tau;D)$. We illustrate expected magnitudes for the
-standard benchmarks $\alpha \in \{1,\,2/3,\,1/2\}$ and representative
-optical observations of active galactic nuclei~(AGN), finding that the
-random-walk model ($\alpha = 1/2$) predicts dramatic decoherence
-already at Gpc distances, while the holography ($\alpha=2/3$) and
-conservative ($\alpha=1$) models predict effects far below current
-detectability at optical wavelengths.
+to a directly observable effect on the second-order intensity
+correlation $g^{(2)}(\tau)$. We emphasize that a strictly pure-phase,
+single-mode foam leaves $g^{(2)}(\tau)$ unchanged; an observable
+effect requires foam to modulate photon arrival times. Spacetime foam
+induces a random path-length fluctuation $\Delta\ell_{\rm tot}^{(D)}$
+along the line of sight, shifting each photon's arrival time by
+$\delta t = \Delta\ell_{\rm tot}^{(D)}/c$. The observed $g^{(2)}$ is
+then a convolution of the intrinsic source correlation with the
+distribution of differential arrival-time jitter, characterized by
+rms jitter $\sigma_\tau$. Taking the Ng--Perlman path-length variance
+as input, we derive a compact, testable prediction for
+$g^{(2)}_{\rm obs}(\tau)$ as a function of $\alpha$, the source
+distance $D$, and the temporal lag $\tau$. We illustrate expected
+magnitudes for the standard benchmarks $\alpha \in \{1,\,2/3,\,1/2\}$
+and representative optical observations of active galactic nuclei
+(AGN), finding that the random-walk model ($\alpha = 1/2$) predicts
+$\sigma_\tau$ comparable to the source coherence time at Gpc
+distances, while the holography ($\alpha=2/3$) and conservative
+($\alpha=1$) models predict effects far below current detectability.
 \end{abstract}
 
 \maketitle
@@ -152,32 +152,31 @@ photon-rate sensitivity necessary to make this a practical
 observational tool.
 
 The purpose of this paper is threefold. First, we establish a
-formalism that connects the
-Ng--Perlman single-point scaling~\eqref{eq:NgPerlman} to the
-path-aggregated phase-variance observable in temporal HBT. Second, we identify and separately
-characterize the three physical channels through which foam can enter
-the measured intensity correlations, clarifying a subtlety not always
-made explicit in the literature: a pure single-mode phase modulation
-leaves $g^{(2)}(\tau)$ entirely unaffected, so that observable foam
-signatures must arise through amplitude or multi-mode effects. Third,
-we provide a compact predictive formula for the foam decoherence
-observable and illustrate its magnitude for representative foam models
-and AGN parameters.
+formalism that connects the Ng--Perlman path-length variance to the
+arrival-time jitter observable in photon-counting temporal HBT.
+Second, we identify and clarify a subtlety not always made explicit in
+the literature: a pure single-mode phase modulation leaves
+$g^{(2)}(\tau)$ entirely unaffected, so that the operative mechanism
+for temporal HBT constraints is photon arrival-time jitter rather than
+phase decoherence. Third, we derive a compact predictive formula for
+$g^{(2)}_{\rm obs}(\tau)$ and illustrate its magnitude for
+representative foam models and AGN parameters.
 
 The paper is organized as follows.
 Section~\ref{sec:conventions} establishes notation, conventions, and
 dimensional analysis.
 Section~\ref{sec:phasestats} derives the statistics of the
-foam-induced phase fluctuations accumulated along the line of sight.
-Section~\ref{sec:HBT} derives the relationship between the phase
-variance and the HBT observable, including a careful treatment of the
-Siegert relation and its limitations.
-Section~\ref{sec:observable} gives the explicit predictive formula for
-the foam decoherence observable $V(\tau;D)$.
+foam-induced path-length fluctuations accumulated along the line of
+sight.
+Section~\ref{sec:HBT} derives the key result that pure-phase foam
+does not affect $g^{(2)}(\tau)$, and identifies arrival-time jitter
+as the operative channel.
+Section~\ref{sec:observable} derives the explicit predictive formula
+for $g^{(2)}_{\rm obs}(\tau)$ via the arrival-time jitter convolution.
 Section~\ref{sec:numerical} provides a numerical illustration for
-representative values of $\alpha$, $\lambda$, and $D$.
-Section~\ref{sec:discussion} discusses consistency checks,
-observational implications, and directions for future work.
+representative values of $\alpha$ and $D$.
+Section~\ref{sec:discussion} discusses observational implications and
+directions for future work.
 Appendix~\ref{app:correlationStructure} discusses the conditions under
 which the path-aggregate variance inherits the Ng--Perlman single-point
 scaling.
@@ -526,135 +525,164 @@ $g^{(2)}(\tau)$, the foam must couple the phase degree of freedom
 to the amplitude (intensity) degree of freedom through one of the
 physical mechanisms discussed in the next section.
 
-\subsection{Physical channels through which foam enters $g^{(2)}$}
+\subsection{The operative channel: photon arrival-time jitter}
 \label{sec:channels}
 
-We identify three distinct channels through which spacetime foam can
-modify the observed intensity correlation function:
+The cancellation result of Section~\ref{sec:Siegert} establishes that
+any strictly single-mode, pure-phase foam leaves $g^{(2)}(\tau)$
+unchanged. For foam to produce an observable effect in temporal HBT,
+it must modulate photon arrival times rather than (or in addition to)
+phases.
 
-\paragraph{Channel (i): Wavefront distortion and spatial-mode mixing.}
-A realistic foam does not imprint a single, spatially uniform phase
-$\varphi^{(D)}(t)$ across the telescope aperture. Transverse variations
-in the accumulated path-length fluctuation $\eta(\mathbf{x}_\perp,s,t)$
-distort the wavefront. After propagation, these transverse phase
-gradients produce amplitude scintillation (the same mechanism as
-atmospheric seeing): different parts of the aperture contribute with
-different phases, and the total field at the detector is a superposition
-of spatial modes. In this case, $|E(t)|^2 \neq |E_0(t)|^2$; the
-intensity acquires foam-dependent fluctuations, and the cancellation
-in Eq.~\eqref{eq:IIcondition} no longer holds. This is the primary
-mechanism invoked in spatial (imaging) HBT constraints on
-foam~\cite{LieuHillman2003}, and it also affects temporal measurements
-whenever the aperture resolves transverse structure in the foam
-fluctuations.
+Two other mechanisms could in principle break the cancellation.
+Transverse variations of the foam phase across the aperture (wavefront
+distortion) would produce amplitude scintillation via the same
+mechanism as atmospheric seeing, coupling phase to intensity; this
+requires a full wave-optics treatment and is left for future work.
+A wavelength-independent path-length fluctuation $\Delta\ell_{\rm tot}^{(D)}(t)$
+imprints the same phase $\varphi(\lambda,t) = (2\pi/\lambda)\Delta\ell_{\rm tot}^{(D)}(t)$
+at every frequency, which is simply a time delay $\delta t =
+\Delta\ell_{\rm tot}^{(D)}(t)/c$ — the arrival-time jitter mechanism
+described below.
 
-\paragraph{Channel (ii): Chromatic phase fluctuations and spectral mixing.}
-If the observation integrates over a finite bandwidth $\Delta\lambda$,
-different frequency components $\lambda' \in [\lambda - \Delta\lambda/2,
-\lambda + \Delta\lambda/2]$ accumulate different foam-induced phases,
-$\varphi^{(D)}(t;\lambda') = (2\pi/\lambda')\,\Delta\ell_{\mathrm{tot}}^{(D)}(t)$.
-Interference among these components converts phase fluctuations into
-intensity fluctuations. The effect is proportional to
-$\Delta\lambda/\lambda$ and becomes significant when the differential
-foam phase across the band,
-$\delta\varphi \sim (2\pi\,\Delta\lambda/\lambda^2)\,\Delta\ell_{\mathrm{tot}}^{(D)}$,
-exceeds order unity.
-
-\paragraph{Channel (iii): Foam-induced photon arrival-time jitter.}
-Temporal fluctuations in the total path length
-$\Delta\ell_{\mathrm{tot}}^{(D)}(t)$ correspond to fluctuations in the
-photon arrival time $\delta t \sim \Delta\ell_{\mathrm{tot}}^{(D)}/c$.
-For photon-counting detectors, this arrival-time jitter modifies the
-temporal bunching signature in the coincidence rate, even for a
-single spatial mode, and does not suffer from the phase cancellation
-described above.
-
-For the remainder of this work we adopt the framework in which one or
-more of these channels is operative, so that foam does modulate the
-effective intensity correlations, and we parametrize the net effect
-as a foam-induced reduction of the HBT visibility. The detailed
-modelling of each channel is left for future work; here we focus on
-the phenomenological form of the resulting observable.
+\paragraph{Arrival-time jitter.}
+Temporal fluctuations in the path length $\Delta\ell_{\rm tot}^{(D)}(t)$
+shift each photon's arrival time by
+\begin{equation}
+  \delta t(t) \;=\; \frac{\Delta\ell_{\rm tot}^{(D)}(t)}{c}.
+  \label{eq:jitter}
+\end{equation}
+For a photon-counting HBT detector this jitter is directly observable:
+it displaces detected photons along the time axis and therefore
+smears the measured coincidence peak. This effect operates for a
+single spatial mode and is not subject to the phase cancellation of
+Section~\ref{sec:Siegert}. We treat it quantitatively in
+Section~\ref{sec:observable}.
 
 % ==============================================================
-\section{The Foam Decoherence Observable}
+\section{Foam-Induced Arrival-Time Jitter and $g^{(2)}$}
 \label{sec:observable}
 % ==============================================================
 
-\subsection{Definition and parametrization}
-\label{sec:Vdef}
+\subsection{Convolution formula for the observed $g^{(2)}$}
+\label{sec:convolution}
 
-When one or more of the channels in Section~\ref{sec:channels} is
-operative, the foam-induced decoherence manifests as a suppression
-of the excess intensity correlation above unity. Following the
-approach of Lieu \& Hillman~\cite{LieuHillman2003} and Ng \&
-Perlman~\cite{NgPerlman2022}, we define the HBT visibility as
+Each photon travelling from a source at distance $D$ acquires a
+random arrival-time displacement $\delta t = \Delta\ell_{\rm tot}^{(D)}/c$
+[Eq.~\eqref{eq:jitter}]. In a photon-counting HBT measurement the
+coincidence rate at nominal lag $\tau$ is built from pairs of photons
+whose true arrival-time separation is $\tau + \delta_1 - \delta_2$,
+where $\delta_1$ and $\delta_2$ are independent realizations of the
+jitter drawn at times $t$ and $t+\tau$ respectively.  The
+\emph{differential jitter}
 \begin{equation}
-  V(\tau;D) \;\equiv\; g^{(2)}_{\mathrm{obs}}(\tau;D) - 1
-  \label{eq:Vdef}
+  \Delta(\tau) \;\equiv\; \delta t(t+\tau) - \delta t(t)
+  \;=\; \frac{\Delta\ell_{\rm tot}^{(D)}(t+\tau) - \Delta\ell_{\rm tot}^{(D)}(t)}{c}
+  \label{eq:diffJitter}
 \end{equation}
-and parametrize the foam-induced decoherence as
+smears the measured coincidence peak. The observed second-order
+correlation is therefore the convolution
 \begin{equation}
-  V(\tau;D) \;=\; \big|g^{(1)}_{\mathrm{src}}(\tau)\big|^2\;
-  \exp\!\Big[-\big\langle\!\big[\Delta\varphi^{(D)}(\tau)\big]^{\!2}\big\rangle\Big].
-  \label{eq:HBTobservableFull}
+  g^{(2)}_{\rm obs}(\tau) - 1
+  \;=\; \int_{-\infty}^{\infty}
+  p(\Delta;\tau)\,
+  \bigl[g^{(2)}_{\rm src}(\tau + \Delta) - 1\bigr]\,d\Delta,
+  \label{eq:convolution}
 \end{equation}
-This form requires care in its interpretation. In the pure single-mode
-phase case analyzed in Section~\ref{sec:Siegert}, the foam phase cancels
-identically in $|E(t)|^2$, the Siegert relation gives
-$g^{(2)}-1 = |g^{(1)}_{\mathrm{src}}|^2$ independent of foam, and
-Eq.~\eqref{eq:HBTobservableFull} does \emph{not} apply.
-Equation~\eqref{eq:HBTobservableFull} is instead the appropriate form
-when channels~(i) or~(ii) are operative: after superposition across
-spatial modes (aperture integration, channel~i) or spectral components
-(bandwidth integration, channel~ii), the effective field at the detector
-is still a circular complex Gaussian, but with a reduced effective
-coherence function $g^{(1)}_{\mathrm{eff}}(\tau) =
-g^{(1)}_{\mathrm{src}}(\tau)\,e^{-\frac{1}{2}
-\langle[\Delta\varphi(\tau)]^2\rangle}$ derived in
-Section~\ref{sec:g1}. Applying the Siegert relation to this effective
-field yields Eq.~\eqref{eq:HBTobservableFull}, with the factor
-$|g^{(1)}_{\mathrm{src}}(\tau)|^2$ representing the intrinsic source
-bunching and the exponential the foam decoherence. Channel~(iii)
-(arrival-time jitter) is not captured by this framework and requires
-a photon-counting treatment left for future work.
+where $p(\Delta;\tau)$ is the probability distribution of $\Delta(\tau)$.
 
-\subsection{Explicit foam-decoherence prediction}
+\subsection{Distribution of the differential jitter}
+\label{sec:jitterDist}
+
+From Eq.~\eqref{eq:phaseVarCompact} the variance of the differential
+path-length increment is
+$\langle[\Delta\ell_{\rm tot}^{(D)}(t+\tau)-\Delta\ell_{\rm tot}^{(D)}(t)]^2\rangle
+= 2\sigma_\ell^2(D)[1-C_\alpha(\tau;D)]$.
+The differential jitter therefore has variance
+\begin{equation}
+  \sigma_\tau^2(D;\tau)
+  \;\equiv\;
+  \bigl\langle\Delta(\tau)^2\bigr\rangle
+  \;=\;
+  \frac{2\sigma_\ell^2(D)}{c^2}\,\bigl[1 - C_\alpha(\tau;D)\bigr].
+  \label{eq:sigmaTau}
+\end{equation}
+Substituting the Ng--Perlman scaling~\eqref{eq:NgPerlmanScaling},
+\begin{equation}
+  \boxed{
+  \sigma_\tau^2(D;\tau)
+  \;=\;
+  \frac{2A_\alpha}{c^2}\,
+  [\ell(D)]^{2(1-\alpha)}\,\ell_{\mathrm{P}}^{2\alpha}\,
+  \bigl[1 - C_\alpha(\tau;D)\bigr].
+  }
+  \label{eq:sigmaTauNgPerlman}
+\end{equation}
+By the Gaussianity argument of Section~\ref{sec:Gaussianity},
+$\Delta(\tau)$ is a zero-mean Gaussian, so
+\begin{equation}
+  p(\Delta;\tau) \;=\;
+  \frac{1}{\sqrt{2\pi}\,\sigma_\tau}\,
+  \exp\!\left(-\frac{\Delta^2}{2\sigma_\tau^2}\right).
+  \label{eq:pGaussian}
+\end{equation}
+At $\tau = 0$, $\sigma_\tau^2 = 0$ and $p(\Delta;0) = \delta_{\rm D}(\Delta)$,
+so $g^{(2)}_{\rm obs}(0) = g^{(2)}_{\rm src}(0) = 2$, as required by
+consistency.
+
+\subsection{Explicit prediction for a Lorentzian source}
 \label{sec:prediction}
 
-Substituting the phase variance from Eq.~\eqref{eq:phaseVarNgPerlman}
-into Eq.~\eqref{eq:HBTobservableFull}, we obtain the main predictive
-formula of this work:
+For a quasi-monochromatic chaotic source with coherence time $\tau_c$,
 \begin{equation}
-  V(\tau;D) \;=\; \big|g^{(1)}_{\mathrm{src}}(\tau)\big|^2\;
-  \exp\!\bigg\{
-  -\frac{8\pi^2 A_\alpha}{\lambda^2}\,
-  [\ell(D)]^{2(1-\alpha)}\,\ell_{\mathrm{P}}^{2\alpha}\,
-  \big[1 - C_\alpha(\tau;D)\big]
-  \bigg\}.
-  \label{eq:HBTfull}
+  g^{(2)}_{\rm src}(\tau) - 1
+  \;=\; \exp\!\left(-\frac{|\tau|}{\tau_c}\right).
+  \label{eq:g2src}
 \end{equation}
-Here we have written $2(2\pi/\lambda)^2 = 8\pi^2/\lambda^2$ for
-compactness. We highlight the key physical content of the
-foam-contributed damping in this expression:
+Substituting into Eq.~\eqref{eq:convolution} with the Gaussian kernel
+\eqref{eq:pGaussian} and evaluating the integral gives
+\begin{equation}
+  \boxed{
+  g^{(2)}_{\rm obs}(\tau) - 1
+  \;=\;
+  \exp\!\left(\frac{\sigma_\tau^2}{2\tau_c^2} - \frac{|\tau|}{\tau_c}\right)
+  \mathrm{erfc}\!\left(\frac{\sigma_\tau/\tau_c - |\tau|/\sigma_\tau}{\sqrt{2}}\right)
+  \cdot \frac{1}{2}e^{|\tau|/\tau_c},
+  }
+  \label{eq:g2obsLorentz}
+\end{equation}
+which simplifies in the two limiting regimes:
+\begin{align}
+  \sigma_\tau \ll \tau_c: &\quad
+    g^{(2)}_{\rm obs}(\tau) - 1
+    \;\approx\;
+    \exp\!\left(-\frac{|\tau|}{\tau_c}\right),
+    \label{eq:g2noFoamLimit} \\
+  \sigma_\tau \gg \tau_c: &\quad
+    g^{(2)}_{\rm obs}(\tau) - 1
+    \;\approx\;
+    \frac{\tau_c}{\sqrt{2\pi}\,\sigma_\tau}
+    \exp\!\left(-\frac{\tau^2}{2\sigma_\tau^2}\right).
+    \label{eq:g2largeFoamLimit}
+\end{align}
+In the first limit the foam jitter is negligible and the intrinsic
+bunching peak is recovered. In the second limit the bunching peak is
+broadened and suppressed: its height falls as $\tau_c/\sigma_\tau \ll 1$
+and its width grows to $\sigma_\tau \gg \tau_c$.
 
+We highlight the key physical content of $\sigma_\tau^2$ from
+Eq.~\eqref{eq:sigmaTauNgPerlman}:
 \begin{itemize}
-  \item \textbf{Wavelength dependence}: $V$ decreases as $\lambda$ decreases
-    (shorter wavelengths are more sensitive to foam). The dependence
-    enters as $\lambda^{-2}$ in the exponent.
-  \item \textbf{Distance dependence}: $V$ decreases (stronger decoherence)
-    with increasing $\ell(D)$ for $\alpha < 1$, with a power
-    $[\ell(D)]^{2(1-\alpha)}$ that grows more steeply for smaller $\alpha$.
-  \item \textbf{Time-lag dependence}: $V(\tau;D)$ decreases as $\tau$ grows
-    beyond the foam decorrelation time (encoded in $C_\alpha$), and
-    saturates to its asymptotic minimum $V(\infty;D) =
-    \exp[-8\pi^2 A_\alpha \ell(D)^{2(1-\alpha)} \ell_\mathrm{P}^{2\alpha}/\lambda^2]$
-    when $C_\alpha(\tau;D)\to 0$.
-  \item \textbf{Model sensitivity}: The exponent is extremely sensitive to $\alpha$,
-    as illustrated in Section~\ref{sec:numerical}.
-  \item \textbf{Zero-lag consistency}: $V(0;D) = 1$ for all $\alpha$, since
-    $C_\alpha(0;D) = 1$ by construction, consistent with
-    $g^{(2)}(0) = 2$ for a purely chaotic source.
+  \item \textbf{Distance dependence}: $\sigma_\tau$ grows with $\ell(D)$
+    for $\alpha < 1$, with exponent $[\ell(D)]^{1-\alpha}$ growing more
+    steeply for smaller $\alpha$.
+  \item \textbf{Model sensitivity}: $\sigma_\tau$ is extremely sensitive
+    to $\alpha$, as illustrated in Section~\ref{sec:numerical}.
+  \item \textbf{Zero-lag consistency}: $\sigma_\tau^2(D;0) = 0$ for all
+    $\alpha$, recovering $g^{(2)}_{\rm obs}(0) = 2$.
+  \item \textbf{Wavelength independence}: Unlike phase-based observables,
+    $\sigma_\tau$ does not depend on $\lambda$; the jitter is a
+    geometric path-length effect.
 \end{itemize}
 
 % ==============================================================
@@ -665,130 +693,92 @@ foam-contributed damping in this expression:
 \subsection{Representative parameters}
 \label{sec:params}
 
-To illustrate the observability of the foam signal, we evaluate the
-exponent in Eq.~\eqref{eq:HBTfull} for the following representative
-parameters:
+The foam effect is characterised by the rms arrival-time jitter
+$\sigma_\tau$ of Eq.~\eqref{eq:sigmaTauNgPerlman}, which should be
+compared to the source coherence time
+$\tau_c \sim \lambda^2/(c\,\Delta\lambda)$.  When $\sigma_\tau \gg
+\tau_c$ the bunching peak is broadened and its height suppressed by
+$\tau_c/\sigma_\tau \ll 1$; when $\sigma_\tau \ll \tau_c$ the effect
+is undetectable.  We evaluate $\sigma_\tau$ for the following
+representative parameters:
 \begin{align}
-  \lambda &= 500~\mathrm{nm} = 5\times10^{-7}~\mathrm{m}
-    \quad\text{(optical)}, \notag\\
   D &= 1~\mathrm{Gpc} \approx 3.09\times10^{25}~\mathrm{m}, \notag\\
   \ell(D) &\approx D = 3.09\times10^{25}~\mathrm{m}, \notag\\
   \ell_{\mathrm{P}} &= 1.616\times10^{-35}~\mathrm{m}, \notag\\
   A_\alpha &= 1, \notag\\
-  1 - C_\alpha(\tau;D) &= 1
+  1 - C_\alpha &= 1
     \quad\text{(maximal decorrelation, large }\tau\text{)}.
   \notag
 \end{align}
-The prefactor involving $\lambda$ is
-\begin{equation}
-  \frac{8\pi^2}{\lambda^2}
-  \;=\; \frac{8\pi^2}{(5\times10^{-7})^2}
-  \;\approx\; 3.16\times10^{14}~\mathrm{m}^{-2}.
-  \label{eq:prefactor}
-\end{equation}
+For the coherence time we take a narrow optical filter with bandwidth
+$\Delta\lambda/\lambda \sim 10^{-3}$ at $\lambda = 500$~nm,
+giving $\tau_c \sim \lambda^2/(c\,\Delta\lambda) \approx 0.8$~ps.
 
-\subsection{Exponent for each foam model}
+\subsection{Arrival-time jitter for each foam model}
 
 \paragraph{Conservative model ($\alpha = 1$).}
-The path-length variance is $\sigma_\ell^2 = A_1\,\ell_{\mathrm{P}}^2$,
-independent of distance. The exponent is
-\begin{align}
-  \mathcal{E}_1
-  &= \frac{8\pi^2}{\lambda^2}\,\ell_{\mathrm{P}}^2
-   = 3.16\times10^{14} \times (1.616\times10^{-35})^2 \notag\\
-  &= 3.16\times10^{14} \times 2.61\times10^{-70}
-   \;\approx\; 8.3\times10^{-56}.
-\end{align}
-Thus $V \approx e^{-8.3\times10^{-56}} \approx 1 - 8.3\times10^{-56}$,
-which is utterly undetectable.
+$\sigma_\ell^2 = A_1\,\ell_{\mathrm{P}}^2$, so
+$\sigma_\ell = \ell_{\mathrm{P}} = 1.616\times10^{-35}$~m and
+\begin{equation}
+  \sigma_\tau = \frac{\sqrt{2}\,\sigma_\ell}{c}
+  \approx \frac{1.414 \times 1.616\times10^{-35}}{3\times10^8}
+  \approx 7.6\times10^{-44}~\mathrm{s}.
+\end{equation}
+This is utterly undetectable: $\sigma_\tau \ll \tau_c$.
 
 \paragraph{Holography model ($\alpha = 2/3$).}
-The path-length variance is $\sigma_\ell^2 = A_{2/3}\,\ell(D)^{2/3}\,
-\ell_{\mathrm{P}}^{4/3}$.  We compute
-\begin{align}
-  [\ell(D)]^{2/3}
-  &= (3.09\times10^{25})^{2/3}
-   \;\approx\; 9.84\times10^{16}~\mathrm{m}^{2/3}, \\
-  \ell_{\mathrm{P}}^{4/3}
-  &= (1.616\times10^{-35})^{4/3}
-   \;\approx\; 3.34\times10^{-47}~\mathrm{m}^{4/3},
-\end{align}
-giving $[\ell(D)]^{2/3}\,\ell_{\mathrm{P}}^{4/3} \approx
-9.84\times10^{16}\times3.34\times10^{-47} = 3.29\times10^{-30}$~m$^2$.
-The exponent is
+$\sigma_\ell^2 = A_{2/3}\,\ell(D)^{2/3}\,\ell_{\mathrm{P}}^{4/3}
+\approx 3.29\times10^{-30}$~m$^2$, so
+$\sigma_\ell \approx 5.7\times10^{-15}$~m and
 \begin{equation}
-  \mathcal{E}_{2/3}
-  = 3.16\times10^{14} \times 3.29\times10^{-30}
-  \;\approx\; 1.0\times10^{-15}.
+  \sigma_\tau \approx \frac{\sqrt{2}\times 5.7\times10^{-15}}{3\times10^8}
+  \approx 2.7\times10^{-23}~\mathrm{s}.
 \end{equation}
-Thus $V \approx e^{-10^{-15}} \approx 1 - 10^{-15}$, again
-far below current detectability at optical wavelengths.
+Again $\sigma_\tau \ll \tau_c$: undetectable.
 
 \paragraph{Random-walk model ($\alpha = 1/2$).}
-The path-length variance is $\sigma_\ell^2 = A_{1/2}\,\ell(D)\,\ell_{\mathrm{P}}$.
-We have
+$\sigma_\ell^2 = A_{1/2}\,\ell(D)\,\ell_{\mathrm{P}}
+= 3.09\times10^{25}\times1.616\times10^{-35}
+\approx 4.99\times10^{-10}$~m$^2$, so
+$\sigma_\ell \approx 2.2\times10^{-5}$~m and
 \begin{equation}
-  \ell(D)\,\ell_{\mathrm{P}}
-  = 3.09\times10^{25} \times 1.616\times10^{-35}
-  = 4.99\times10^{-10}~\mathrm{m}^2.
+  \sigma_\tau \approx \frac{\sqrt{2}\times 2.2\times10^{-5}}{3\times10^8}
+  \approx 1.0\times10^{-13}~\mathrm{s} \;=\; 0.10~\mathrm{ps}.
 \end{equation}
-The exponent is
-\begin{equation}
-  \mathcal{E}_{1/2}
-  = 3.16\times10^{14} \times 4.99\times10^{-10}
-  \;\approx\; 1.58\times10^{5}.
-\end{equation}
-Thus $V \approx e^{-1.58\times10^5} \approx 0$: the foam decoherence
-is so large as to completely suppress the HBT signal.
+Here $\sigma_\tau \sim \tau_c \approx 0.8$~ps: the jitter is
+comparable to the coherence time, so the bunching peak would be
+broadened and suppressed by a factor $\tau_c/\sigma_\tau \sim 8$.
 
 \subsection{Summary of numerical results}
 
 \begin{table}[h]
   \centering
   \caption{%
-    Foam decoherence exponent $\mathcal{E}_\alpha$ and corresponding
-    HBT visibility $V$ for the three standard foam models, computed
-    for $\lambda = 500$~nm, $D = 1$~Gpc, $A_\alpha = 1$,
-    and $1-C_\alpha=1$ (maximum decorrelation).
+    Foam rms arrival-time jitter $\sigma_\tau$ for the three standard
+    foam models, computed for $D = 1$~Gpc and $A_\alpha = 1$
+    (maximal decorrelation).  The source coherence time $\tau_c \approx
+    0.8$~ps assumes $\lambda = 500$~nm and $\Delta\lambda/\lambda = 10^{-3}$.
   }
   \label{tab:numerical}
   \begin{ruledtabular}
-  \begin{tabular}{lcc}
-    Model ($\alpha$) & $\mathcal{E}_\alpha$ & $V \approx e^{-\mathcal{E}_\alpha}$ \\
+  \begin{tabular}{lccc}
+    Model ($\alpha$) & $\sigma_\ell$~(m) & $\sigma_\tau$~(s) & $\sigma_\tau/\tau_c$ \\
     \hline
-    Conservative ($\alpha=1$)   & $8.3\times10^{-56}$ & $\approx 1$    \\
-    Holography ($\alpha=2/3$)   & $1.0\times10^{-15}$ & $\approx 1$    \\
-    Random walk ($\alpha=1/2$)  & $1.6\times10^{5}$   & $\approx 0$    \\
+    Conservative ($\alpha=1$)  & $1.6\times10^{-35}$ & $7.6\times10^{-44}$ & $\ll 1$ \\
+    Holography ($\alpha=2/3$)  & $5.7\times10^{-15}$ & $2.7\times10^{-23}$ & $\ll 1$ \\
+    Random walk ($\alpha=1/2$) & $2.2\times10^{-5}$  & $1.0\times10^{-13}$ & $\sim 0.1$ \\
   \end{tabular}
   \end{ruledtabular}
 \end{table}
 
-The results are summarized in Table~\ref{tab:numerical}. The random-walk
-model ($\alpha=1/2$) predicts complete decoherence at Gpc distances in
-optical light, meaning that if this model were correct, AGN would show
-no HBT bunching signal whatsoever. Non-observation of such a suppression
-in HBT data would therefore strongly constrain or rule out $\alpha=1/2$.
-The holography ($\alpha=2/3$) and conservative ($\alpha=1$) models predict
-effects so small at optical wavelengths and Gpc distances that they are
-utterly beyond the reach of current or foreseeable technology in the
-optical band.
-
-\paragraph{Dependence on bandwidth.}
-The above estimates assume monochromatic observations ($\Delta\lambda\to0$).
-When channel~(ii) (chromatic mixing) dominates, the effective foam
-phase difference across the band is
-$\delta\varphi \sim (2\pi\Delta\lambda/\lambda^2)
-\Delta\ell_{\mathrm{tot}}^{(D)}$. For the random-walk model with
-$\Delta\ell_{\mathrm{tot}}^{(D)} \sim \sqrt{\ell(D)\ell_\mathrm{P}}
-\approx 2.2\times10^{-5}$~m, and an optical bandwidth
-$\Delta\lambda/\lambda \sim 10^{-3}$:
-\begin{equation}
-  \delta\varphi \;\sim\;
-  \frac{2\pi\times10^{-3}}{5\times10^{-7}}\times2.2\times10^{-5}
-  \;\approx\; 2.8\times10^{2} \;\gg\; 1,
-\end{equation}
-confirming that chromatic mixing is also a strongly operative channel
-for $\alpha=1/2$ at optical wavelengths and Gpc distances.
+The results are summarized in Table~\ref{tab:numerical}.  The
+random-walk model ($\alpha=1/2$) predicts $\sigma_\tau$ within an
+order of magnitude of $\tau_c$: the bunching peak would be measurably
+broadened and suppressed at Gpc distances, and non-observation of
+this effect would constrain $\alpha=1/2$, subject to the model
+dependence encoded in $A_\alpha$ and $C_\alpha$.  The holography
+($\alpha=2/3$) and conservative ($\alpha=1$) models predict jitter
+many orders of magnitude below $\tau_c$ and are undetectable.
 
 % ==============================================================
 \section{Discussion}
@@ -840,65 +830,37 @@ Appendix~\ref{app:correlationStructure}.
 
 The imaging constraints of \citet{LieuHillman2003} and subsequent
 HST analyses~\cite{Christiansen2011,Perlman2015} operate through
-channel~(i): foam imprints spatially varying phase fluctuations
-$\varphi^{(D)}(\mathbf{x}_\perp, t)$ across the telescope aperture,
-degrading the Strehl ratio and washing out diffraction rings.
-The constraint requires Strehl~$\approx 1$, i.e., the rms wavefront
-error $\sigma_\phi \ll 1$~rad across the aperture.  Once the
-foam-induced wavefront variance exceeds $\sim 1$~rad$^2$, the Airy
-pattern is destroyed and the imaging method loses sensitivity.
+wavefront distortion: foam imprints spatially varying phase
+fluctuations across the telescope aperture, degrading the Strehl
+ratio and washing out diffraction rings.  These are first-order
+coherence constraints, not intensity-correlation (HBT) measurements
+in the strict sense.  Temporal HBT, by contrast, measures
+$g^{(2)}(\tau)$ at a single spatial point and is sensitive to
+arrival-time jitter rather than wavefront distortion.  The two
+methods therefore probe orthogonal foam properties and are genuinely
+complementary.
 
-Temporal HBT measures the second-order intensity correlation
-$g^{(2)}(\tau)$ of a \emph{single} spatial mode as a function of
-time delay.  Channels~(ii) and~(iii)---chromatic phase mixing and
-arrival-time jitter---are intrinsically temporal and are entirely
-insensitive to transverse wavefront structure.  Consequently,
-temporal HBT and imaging constraints probe \emph{orthogonal} foam
-properties: imaging is sensitive to spatial coherence across the
-aperture, while temporal HBT is sensitive to the temporal coherence
-of the path-integrated phase.
-
-The regime in which temporal HBT provides complementary (or superior)
-information is therefore foam that is spatially coherent across the
-aperture---preserving Strehl~$\approx 1$ so that imaging constraints
-see nothing---but temporally fluctuating on timescales accessible to
-the HBT correlator.  Whether this regime is physically realized
-depends on the transverse correlation length $\ell_\perp$ of the foam
-fluctuations relative to the telescope aperture $D$: if
-$\ell_\perp \gg D$, wavefront distortion is negligible and the
-temporal channels dominate; if $\ell_\perp \ll D$, both methods are
-degraded simultaneously.
-
-The result that $\alpha = 1/2$ predicts complete decoherence at Gpc
-distances in optical light is consistent with the analysis of
-\citet{LieuHillman2003}, who found that observed AGN phase coherence
-is incompatible with the random-walk model.  Our temporal HBT
-formalism reaches the same qualitative conclusion by a different
-route, confirming that the observational constraint on $\alpha = 1/2$
-is extremely robust.  For the holography model ($\alpha=2/3$), our
-optical estimates give $V \approx 1$ at Gpc distances, suggesting
-that temporal optical HBT at current sensitivity cannot constrain
-this model.  Observations at shorter wavelengths (UV, X-ray) or with
-vastly larger $A_\alpha$ might push into constraining territory; we
-leave this analysis for future work.
+The result that $\alpha = 1/2$ produces $\sigma_\tau \sim \tau_c$ at
+Gpc distances is consistent with earlier findings that the random-walk
+model is strongly disfavored by optical phase-coherence
+observations~\cite{LieuHillman2003}.  Our arrival-time jitter
+formalism reaches the same qualitative conclusion by an independent
+route.  The holography ($\alpha=2/3$) and conservative ($\alpha=1$)
+models produce jitter many orders of magnitude below $\tau_c$ and
+are undetectable at optical wavelengths.
 
 \paragraph{Temporal HBT is applicable to extended sources.}
 A key practical advantage of temporal HBT over imaging constraints is
 that it does not require the source to be unresolved.  Imaging
 constraints depend on the preservation of diffraction rings, which
-requires the source to subtend an angle smaller than the diffraction
-limit; any resolved source structure destroys the Airy pattern and
-eliminates the observable.  Temporal HBT, by contrast, measures a
-property of the field at a \emph{single spatial point}: for thermal
-light, $g^{(2)}(0) = 2$ holds at any point in the focal plane
-regardless of source angular size, because the field at any single
-detector location retains full circular complex Gaussian statistics
-even when the source is extended.  The foam decoherence observable
-$V(\tau;D)$ of Eq.~\eqref{eq:HBTfull} therefore retains its full
-amplitude for resolved sources.  Temporal HBT is thus complementary
-to imaging constraints in an additional sense: it can exploit
-extended or moderately resolved sources for which the imaging method
-fails entirely.
+requires the source angular size to be below the diffraction limit.
+Temporal HBT measures $g^{(2)}(\tau)$ at a single spatial point;
+for thermal light, $g^{(2)}(0) = 2$ holds regardless of source
+angular size because the field at any single detector location retains
+full circular complex Gaussian statistics.  The arrival-time jitter
+effect derived here therefore applies equally to extended sources,
+giving temporal HBT access to targets for which imaging constraints
+fail.
 
 \subsection{Limitations and future directions}
 
@@ -908,23 +870,14 @@ fails entirely.
     microscopic model of foam fluctuations. We have treated both as
     phenomenological inputs. Future work should derive these from
     specific quantum-gravity inspired models.
-  \item \textbf{Transverse structure}: We have not modelled the
-    transverse spatial structure of the foam (channel~(i)) in detail.
-    A full treatment would require specifying the transverse correlation
-    length of the foam and computing the modal mixing in the aperture.
-  \item \textbf{Spectral structure}: The chromatic channel (ii) requires
-    a model for the wavelength dependence of $\Delta\ell_{\mathrm{tot}}^{(D)}(t;\lambda)$.
-    We have assumed it scales as $\lambda^{-1}$, but a more detailed
-    treatment might reveal additional spectral signatures.
-  \item \textbf{Photon-counting statistics}: The arrival-time jitter
-    channel (iii) is most naturally treated in the photon-counting
-    framework rather than the continuous-field framework used here.
-    A full treatment would require a photon-counting model for the
-    HBT correlator.
+  \item \textbf{Wavefront distortion}: We have not modelled the
+    transverse spatial structure of the foam in detail. A full
+    treatment would require specifying the transverse correlation
+    length of the foam and computing the induced amplitude scintillation,
+    which could provide a complementary constraint channel.
   \item \textbf{Comparison with other constraints}: Future work should
     systematically compare the constraints from temporal HBT with those
-    from spatial HBT, wavefront sensing, dispersion measurements, and
-    other probes.
+    from imaging, wavefront sensing, and dispersion measurements.
 \end{enumerate}
 
 % ==============================================================
@@ -933,43 +886,41 @@ fails entirely.
 % ==============================================================
 
 We have presented a dimensionally consistent formalism for deriving
-temporal Hanbury Brown--Twiss constraints on spacetime foam, correcting
-a dimensional ambiguity present in some earlier treatments. The main
-results are as follows.
+temporal Hanbury Brown--Twiss constraints on spacetime foam via
+photon arrival-time jitter. The main results are as follows.
 
 \begin{enumerate}
   \item The total path-length fluctuation
     $\Delta\ell_{\mathrm{tot}}^{(D)}(t)$ accumulated over a line
-    of sight of length $\ell(D)$ is the fundamental observable
-    quantity. It is a discrete sum (or, in the continuum limit, an
-    integral of a dimensionless fluctuation density) and has dimension
-    of length.
-  \item The foam-induced phase variance is
-    $\langle[\Delta\varphi^{(D)}(\tau)]^2\rangle =
-    (8\pi^2/\lambda^2)\,A_\alpha\,[\ell(D)]^{2(1-\alpha)}\,
-    \ell_\mathrm{P}^{2\alpha}\,[1-C_\alpha(\tau;D)]$,
-    which is dimensionless and vanishes at $\tau=0$.
+    of sight of length $\ell(D)$ is the fundamental quantity. It
+    has dimension of length and, taking the Ng--Perlman scaling as
+    input, variance $\sigma_\ell^2(D) =
+    A_\alpha\,[\ell(D)]^{2(1-\alpha)}\,\ell_\mathrm{P}^{2\alpha}$.
   \item For a strictly pure-phase, single-mode foam, the intensity
     autocorrelation $g^{(2)}(\tau)$ is completely independent of
-    the foam. Foam must couple to intensity through one of three
-    physical channels---wavefront distortion, chromatic mixing, or
-    arrival-time jitter---to produce a detectable signal in temporal HBT.
-  \item The foam decoherence observable is
-    $V(\tau;D) = \exp\{-(8\pi^2/\lambda^2)\,A_\alpha\,
-    [\ell(D)]^{2(1-\alpha)}\,\ell_\mathrm{P}^{2\alpha}\,
-    [1-C_\alpha(\tau;D)]\}$,
-    which is suppressed below the intrinsic source coherence level by
-    the foam decoherence factor.
-  \item Numerically, for $\lambda = 500$~nm and $D = 1$~Gpc, the
-    random-walk model ($\alpha=1/2$) predicts $V\approx 0$ (complete
-    decoherence), the holography model ($\alpha=2/3$) predicts
-    $V\approx 1-10^{-15}$ (undetectable), and the conservative model
-    ($\alpha=1$) predicts $V\approx 1-10^{-55}$ (completely undetectable).
+    the foam. The operative mechanism for temporal HBT constraints
+    is photon arrival-time jitter, not phase decoherence.
+  \item Foam shifts each photon's arrival time by
+    $\delta t = \Delta\ell_{\mathrm{tot}}^{(D)}/c$. The observed
+    $g^{(2)}_{\rm obs}(\tau)$ is a convolution of the intrinsic source
+    correlation with a Gaussian jitter kernel of rms width
+    $\sigma_\tau^2 = 2A_\alpha c^{-2}[\ell(D)]^{2(1-\alpha)}
+    \ell_\mathrm{P}^{2\alpha}[1-C_\alpha(\tau;D)]$.
+  \item When $\sigma_\tau \gg \tau_c$, the bunching peak is broadened
+    and suppressed by $\tau_c/\sigma_\tau$; when $\sigma_\tau \ll
+    \tau_c$, the effect is undetectable.
+  \item Numerically, for $D = 1$~Gpc, the random-walk model
+    ($\alpha=1/2$) predicts $\sigma_\tau \sim 0.1$~ps, comparable to
+    the optical coherence time $\tau_c \sim 0.8$~ps for
+    $\Delta\lambda/\lambda \sim 10^{-3}$. The holography ($\alpha=2/3$)
+    and conservative ($\alpha=1$) models predict jitter many orders of
+    magnitude below $\tau_c$ and are undetectable.
 \end{enumerate}
 
-These results confirm and extend earlier conclusions from spatial HBT
-analyses~\cite{LieuHillman2003} and provide a self-consistent
-foundation for future temporal HBT constraints on spacetime foam.
+These results provide a self-consistent, derived framework for
+temporal HBT constraints on spacetime foam, complementary to
+earlier imaging and phase-coherence
+analyses~\cite{LieuHillman2003,Christiansen2011,Perlman2015}.
 
 \begin{acknowledgments}
 [Acknowledgments to be added.]
@@ -1019,9 +970,17 @@ foam along the line of sight.
 In general, the Ng--Perlman scaling~\eqref{eq:NgPerlmanScaling}
 holds when $S(s,s')$ is a function of $|s-s'|$ (translational
 invariance along the path) and the double integral scales as
-$\ell(D)^{2(1-\alpha)}$ for large $\ell(D)$. This is guaranteed for
-any spatially stationary, isotropic correlation function with a
-power-law tail $S(u)\sim u^{2\alpha-2}$ for $u\gg\xi$.
+$\ell(D)^{2(1-\alpha)}$ for large $\ell(D)$. For correlations of
+the power-law form $S(u) \propto u^{-\beta}$, the double integral
+gives $\sigma_\ell^2 \propto \ell(D)^{2-\beta}$, so matching
+$2(1-\alpha)$ requires $\beta = 2\alpha$, i.e., $S(u) \sim
+u^{-2\alpha}$ for $u \gg \xi$.  Note that for $\alpha \leq 1/2$
+(i.e., $\beta \leq 1$) this is a long-range correlation; for $\alpha
+> 1/2$ the required $\beta = 2\alpha > 1$ makes the integral
+converge, and short-range correlations already give $\sigma_\ell^2
+\propto \ell(D)$ (random-walk, $\alpha=1/2$). Sub-random-walk growth
+(i.e., $\alpha > 1/2$) therefore requires anticorrelations in
+$\eta(s,t)$ along the line of sight.
 
 \subsection{Self-averaging and the coefficient $A_\alpha$}
 
