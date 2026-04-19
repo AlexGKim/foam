@@ -140,8 +140,8 @@ choices that affect the predicted visibility degradation.
 The Hanbury Brown--Twiss (HBT)
 effect~\cite{HBT1956} offers a complementary approach. Rather than
 comparing signals across a spatial baseline, HBT measures the
-second-order intensity correlation $g^{(2)}(\tau)$ of a single spatial
-mode as a function of time delay $\tau$, thereby probing temporal
+second-order intensity correlation $g^{(2)}(\tau)$ at a single detector
+as a function of time delay $\tau$, thereby probing temporal
 coherence. This makes it less susceptible to many of the
 baseline-dependent systematics that affect spatial interferometry,
 though its sensitivity to foam-induced effects depends on different
@@ -154,11 +154,10 @@ observational tool.
 The purpose of this paper is threefold. First, we establish a
 formalism that connects the Ng--Perlman path-length variance to the
 arrival-time jitter observable in photon-counting temporal HBT.
-Second, we identify and clarify a subtlety not always made explicit in
-the literature: a pure single-mode phase modulation leaves
-$g^{(2)}(\tau)$ entirely unaffected, so that the operative mechanism
-for temporal HBT constraints is photon arrival-time jitter rather than
-phase decoherence. Third, we derive a compact predictive formula for
+Second, we note that a pure phase modulation leaves $g^{(2)}(\tau)$
+unchanged — since $I(t)=|E(t)|^2$ is insensitive to phase — so that
+the operative mechanism for temporal HBT constraints is photon
+arrival-time jitter rather than phase decoherence. Third, we derive a compact predictive formula for
 $g^{(2)}_{\rm obs}(\tau)$ and illustrate its magnitude for
 representative foam models and AGN parameters.
 
@@ -554,8 +553,7 @@ shift each photon's arrival time by
 \end{equation}
 For a photon-counting HBT detector this jitter is directly observable:
 it displaces detected photons along the time axis and therefore
-smears the measured coincidence peak. This effect operates for a
-single spatial mode and is not subject to the phase cancellation of
+smears the measured coincidence peak. This effect is not subject to the phase cancellation of
 Section~\ref{sec:Siegert}. We treat it quantitatively in
 Section~\ref{sec:observable}.
 
