@@ -184,69 +184,43 @@ scaling.
 \label{sec:conventions}
 % ==============================================================
 
-\subsection{Propagation length and Planck scale}
+\subsection{Path-length fluctuations and foam-induced phase}
+\label{sec:foamcells}
 
 We denote by $D$ the cosmological distance to a source and by
 $\ell(D)$ the effective line-of-sight propagation length over which
-foam fluctuations accumulate. For sources at moderate redshifts we
-take $\ell(D) \approx D$; the distinction between comoving and
-luminosity distances is important for precision work but does not
-affect the order-of-magnitude scalings derived here.
-
-\subsection{Foam cells and path-length fluctuations}
-\label{sec:foamcells}
-
-We model the photon path as traversing $N \gg 1$ discrete foam cells.
-Let $\delta\ell_i(t)$ denote the instantaneous path-length fluctuation
-contributed by the $i$-th foam cell at time $t$. Each $\delta\ell_i(t)$
-has the dimension of length and a zero mean,
-$\langle \delta\ell_i(t)\rangle = 0$. The total path-length fluctuation
-accumulated over the entire line of sight to a source at distance $D$ is
+foam fluctuations accumulate; for sources at moderate redshifts,
+$\ell(D) \approx D$.  We model the photon path as traversing $N \gg
+1$ discrete foam cells, with $\delta\ell_i(t)$ the instantaneous
+path-length fluctuation contributed by the $i$-th cell at time $t$.
+Each $\delta\ell_i(t)$ has dimension of length and zero mean.  The
+total path-length fluctuation accumulated to a source at distance $D$
+is
 \begin{equation}
   \Delta\ell_{\mathrm{tot}}^{(D)}(t)
-  \;\equiv\; \sum_{i=1}^{N} \delta\ell_i(t).
+  \;\equiv\; \sum_{i=1}^{N} \delta\ell_i(t),
   \label{eq:Deltaltot}
 \end{equation}
-This quantity carries the dimension of length and represents the
-net deviation of the photon travel distance from its mean value at
-time $t$.
-
-\paragraph{Continuum notation.}
-In the continuum limit it is convenient to write
+which has dimension of length.  In the continuum limit,
 \begin{equation}
   \Delta\ell_{\mathrm{tot}}^{(D)}(t)
   \;=\; \int_{0}^{\ell(D)} \eta(s,t)\,ds,
   \label{eq:DeltaltotContinuum}
 \end{equation}
 where $\eta(s,t)$ is a \emph{dimensionless} fluctuation density
-(fluctuation per unit path length) at position $s$ along the line of
-sight. This convention makes $\Delta\ell_{\mathrm{tot}}^{(D)}(t)$
-dimensionally consistent: the integrand $\eta(s,t)\,ds$ has the
-dimension of length, as required. We emphasize that $\eta(s,t)$ is
-\emph{not} the same as the local single-cell fluctuation $\delta\ell$
-appearing in the Ng--Perlman single-point scaling~\eqref{eq:NgPerlman};
-it is a continuum proxy for the discrete sum~\eqref{eq:Deltaltot}.
+(fluctuation per unit path length).  Note that $\eta(s,t)$ is not the
+same as the local single-cell fluctuation $\delta\ell$ in the
+Ng--Perlman scaling~\eqref{eq:NgPerlman}; inserting a dimensional
+$\delta\ell(s,t)$ directly under $\int ds$ would produce an object of
+dimension length$^2$, not length.
 
-\paragraph{Dimensional note.}
-The reader should be alert to a common source of confusion: inserting a
-dimensional quantity $\delta\ell(s,t)$ (with dimension of length) under
-a spatial integral $\int ds$ (also length) would produce an object with
-dimensions of length$^2$, which cannot equal $\Delta\ell_{\mathrm{tot}}^{(D)}(t)$
-(length). We avoid this pitfall throughout by using the dimensionless
-density $\eta(s,t)$ in continuum expressions. Equations written in
-terms of discrete sums~\eqref{eq:Deltaltot} are free of this issue.
-
-\subsection{Foam-induced phase}
-
-The foam-induced phase accumulated along the path to a source at
-distance $D$ at time $t$ is
+The foam-induced phase at the detector is
 \begin{equation}
   \varphi^{(D)}(t) \;\equiv\; \frac{2\pi}{\lambda}\,
   \Delta\ell_{\mathrm{tot}}^{(D)}(t),
   \label{eq:phase}
 \end{equation}
-where $\lambda$ is the observing wavelength. The \emph{two-time phase
-difference} relevant for temporal coherence is
+and the two-time phase difference relevant for temporal coherence is
 \begin{equation}
   \Delta\varphi^{(D)}(\tau)
   \;\equiv\; \varphi^{(D)}(t+\tau) - \varphi^{(D)}(t)
@@ -258,25 +232,18 @@ difference} relevant for temporal coherence is
 Both $\varphi^{(D)}(t)$ and $\Delta\varphi^{(D)}(\tau)$ are
 dimensionless, as required for a physical phase.
 
-\subsection{Covariances of the foam fluctuation density}
+\subsection{Covariances and path-aggregate variance}
 \label{sec:covariances}
 
-In the continuum representation we define the equal-time and
-unequal-time spatial covariances of $\eta(s,t)$ as
+We define the equal-time and unequal-time spatial covariances of
+$\eta(s,t)$ as
 \begin{align}
   S(s,s') &\equiv \big\langle \eta(s,t)\,\eta(s',t)\big\rangle, \\
   T(s,s',\tau) &\equiv \big\langle \eta(s,t)\,\eta(s',t+\tau)\big\rangle.
   \label{eq:covDefs}
 \end{align}
-Both $S$ and $T$ are dimensionless (as befits a density--density
-correlator). These quantities encode the full spatial and temporal
-correlation structure of the foam along the line of sight.
-
-\subsection{Path-aggregate variance and temporal coherence}
-\label{sec:pathaggregate}
-
-The path-aggregated variance of $\Delta\ell_{\mathrm{tot}}^{(D)}$
-follows from Eq.~\eqref{eq:DeltaltotContinuum}:
+Both are dimensionless.  The path-aggregated variance of
+$\Delta\ell_{\mathrm{tot}}^{(D)}$ is
 \begin{equation}
   \sigma_\ell^2(D)
   \;\equiv\;
@@ -284,11 +251,8 @@ follows from Eq.~\eqref{eq:DeltaltotContinuum}:
   \;=\; \int_{0}^{\ell(D)}\!\!ds\int_{0}^{\ell(D)}\!\!ds'\;S(s,s'),
   \label{eq:pathAggVar}
 \end{equation}
-which has dimension of length$^2$, consistent with
-$(\Delta\ell_{\mathrm{tot}}^{(D)})^2$.
-
-We define the normalized temporal coherence function of the
-path-integrated foam fluctuation as
+which has dimension length$^2$.  We also define the normalized
+temporal coherence function of the path-integrated fluctuation,
 \begin{equation}
   C_\alpha(\tau;D) \;\equiv\;
   \frac{\big\langle
@@ -297,10 +261,9 @@ path-integrated foam fluctuation as
   \big\rangle}{\sigma_\ell^2(D)},
   \label{eq:Calpha}
 \end{equation}
-with $C_\alpha(0;D) = 1$ by construction. The function
-$C_\alpha(\tau;D)$ encodes how quickly the foam fluctuations
-decorrelate in time; its precise form depends on the assumed temporal
-correlation structure of the foam (see Appendix~\ref{app:correlationStructure}).
+with $C_\alpha(0;D) = 1$ by construction.  The form of $C_\alpha$
+depends on the assumed temporal correlation structure of the foam
+(see Appendix~\ref{app:correlationStructure}).
 
 % ==============================================================
 \section{Statistics of Foam-Induced Phase Fluctuations}
