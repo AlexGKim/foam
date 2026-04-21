@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{booktabs}
-\usepackage{aas_macros}%
+\usepackage{aas_macros}
 
 \begin{document}
 
@@ -22,14 +22,38 @@
 \date{\today}
 
 \begin{abstract}
-We present a dimensionally consistent framework for testing spacetime foam models characterized by a single power-law parameter $\alpha$ using temporal (single-telescope) Hanbury Brown--Twiss (HBT) intensity-correlation measurements. We extend an earlier line-of-sight (1D) formalism by incorporating both temporal and transverse foam fluctuations across an extended source. Foam induces random photon arrival-time jitter, shifting detected arrival times by $\delta t=\Delta\ell_{\rm tot}^{(D)}/c$. The arrival-time jitter becomes ray-dependent for photons arriving from different source directions. We compute the variance of the differential arrival-time increment between two rays as
+We present a dimensionally consistent framework for testing spacetime foam models
+characterized by a single power-law parameter $\alpha$ using temporal
+(single-telescope) Hanbury Brown--Twiss (HBT) intensity-correlation measurements.
+Foam induces random photon arrival-time jitter, shifting detected arrival times by
+$\delta t = \Delta\ell_{\rm tot}^{(D)}/c$.
+We show that this jitter mechanism produces two distinct and observable signatures.
+First, because the single-ray and differential jitter kernels are not identical,
+foam breaks the Siegert relation between the observed first- and second-order
+coherence functions in a predictable, distance-dependent way, even for a point
+source.
+The discrepancy $\mathcal{S}(\tau) \equiv |g^{(1)}_{\rm obs}(\tau)|^2 -
+[g^{(2)}_{\rm obs}(\tau)-1]$ constitutes a direct foam observable independent
+of the unknown intrinsic source spectrum.
+Second, for extended sources the arrival-time jitter becomes ray-dependent,
+and we compute the variance of the differential arrival-time increment between
+two rays as
 \[
 \sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
-\;=\;
-\frac{2\sigma_\ell^2(D)}{c^2}
-\Big[1-C_\alpha(\tau;D)\,\Phi\!\big(b(\boldsymbol{\theta},\boldsymbol{\theta}')/r_\perp\big)\Big],
+= \frac{2\sigma_\ell^2(D)}{c^2}
+  \Big[1 - C_\alpha(\tau;D)\,\Phi\!\big(b(\boldsymbol{\theta},\boldsymbol{\theta}')/r_\perp\big)\Big],
 \]
-where $C_\alpha$ encodes temporal decorrelation and $\Phi$ encodes transverse decorrelation with transverse correlation length $r_\perp$. The observed second-order correlation is an angularly weighted (extended-source) mixture of Gaussian-jitter convolutions of the intrinsic source correlation. In the limit of large transverse foam coherence across the source (point-source/fully correlated regime), the prediction reduces to the earlier 1D result. When transverse foam coherence is small, extended sources experience enhanced effective jitter, broadening and suppressing the bunching peak. Pure-phase, strictly single-mode modulation leaves $g^{(2)}(\tau)$ unchanged; observable effects require arrival-time jitter (or a mechanism that couples phase to amplitude).
+where $C_\alpha$ encodes temporal decorrelation and $\Phi$ encodes transverse
+decorrelation with transverse correlation length $r_\perp$.
+When transverse foam coherence is small, extended sources experience enhanced
+effective jitter, suppressing the zero-lag bunching peak by an amount that
+correlates with source angular size — a signature largely free of astrophysical
+degeneracies.
+In the limit of large transverse foam coherence (point-source regime), the
+prediction reduces to the 1D result.
+Pure-phase, strictly single-mode modulation leaves $g^{(2)}(\tau)$ unchanged;
+observable effects require arrival-time jitter (or a mechanism that couples
+phase to amplitude).
 \end{abstract}
 
 \maketitle
@@ -39,397 +63,596 @@ where $C_\alpha$ encodes temporal decorrelation and $\Phi$ encodes transverse de
 \label{sec:intro}
 % ==============================================================
 
-Spacetime foam, originally proposed by Wheeler~\cite{Wheeler1955} and developed in subsequent quantum-gravity work~\cite{Hawking1978,Ellis1984}, refers to hypothesized granularity of spacetime at scales near the Planck length
+Spacetime foam, originally proposed by Wheeler~\cite{Wheeler1955} and developed
+in subsequent quantum-gravity work~\cite{Hawking1978,Ellis1984}, refers to
+hypothesized granularity of spacetime at scales near the Planck length
 $\ell_{\mathrm{P}} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m.
-A phenomenological framework by Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} parametrizes a broad class of foam models by a single power-law exponent $\alpha$ controlling how distance fluctuations accumulate with propagation length.
+A phenomenological framework by Ng and
+collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} parametrizes a broad class of
+foam models by a single power-law exponent $\alpha$ controlling how distance
+fluctuations accumulate with propagation length.
 For a photon propagating a distance $\ell$,
 \begin{equation}
   \delta\ell \;\sim\; \ell^{1-\alpha}\,\ell_{\mathrm{P}}^\alpha,
   \label{eq:NgPerlman}
 \end{equation}
-with conservative fluctuations corresponding to $\alpha = 1$ (giving $\delta\ell \sim \ell_{\mathrm{P}}$ independent of $\ell$), holography-inspired models to $\alpha = 2/3$, and random-walk models to $\alpha = 1/2$.
+with conservative fluctuations corresponding to $\alpha = 1$ (giving
+$\delta\ell \sim \ell_{\mathrm{P}}$ independent of $\ell$),
+holography-inspired models to $\alpha = 2/3$, and random-walk models to
+$\alpha = 1/2$.
+Lieu and Hillman~\cite{LieuHillman2003} proposed constraining spacetime foam
+through loss of phase coherence in light from distant extragalactic sources,
+while subsequent work~\cite{NgPerlman2022,Christiansen2011,Perlman2015}
+developed related phase-coherence and imaging constraints.
+Carlip~\cite{Carlip2023} cautioned that some constraints may inherit dimensional
+ambiguities from assumptions about what kinds of metric fluctuations dominate
+observable signatures and what statistical properties/correlation structures are
+appropriate.
 
-Lieu and Hillman~\cite{LieuHillman2003} proposed constraining spacetime foam through loss of phase coherence in light from distant extragalactic sources, while subsequent work~\cite{NgPerlman2022,Christiansen2011,Perlman2015} developed related phase-coherence and imaging constraints. Carlip~\cite{Carlip2023} cautioned that some constraints may inherit dimensional ambiguities from assumptions about what kinds of metric fluctuations dominate observable signatures and what statistical properties/correlation structures are appropriate.
+Hanbury Brown--Twiss (HBT) intensity correlations offer an alternative
+temporal-coherence probe.
+Temporal (single-telescope) HBT measures the second-order intensity correlation
+$g^{(2)}(\tau)$ at a single spatial location as a function of time lag $\tau$,
+directly probing temporal coherence.
+Modern HBT campaigns targeting bright stars and active galactic nuclei (AGN)
+have begun achieving photon-rate sensitivity adequate for precision
+tests~\cite{Abeysekara2020,Acharyya2024}.
+A strictly pure-phase, single-mode foam does not alter $g^{(2)}(\tau)$;
+observable HBT effects require arrival-time jitter rather than phase
+decoherence.
 
-Hanbury Brown--Twiss (HBT) intensity correlations offer an alternative temporal-coherence probe. Temporal (single-telescope) HBT measures the second-order intensity correlation $g^{(2)}(\tau)$ at a single spatial location as a function of time lag $\tau$, directly probing temporal coherence. Modern HBT campaigns targeting bright stars and active galactic nuclei (AGN) have begun achieving photon-rate sensitivity adequate for precision tests~\cite{Abeysekara2020,Acharyya2024}.
+In this paper we develop two distinct observational signatures of foam-induced
+arrival-time jitter.
+The first arises even for a point source: because foam modifies the first- and
+second-order coherence functions through different kernels, it breaks the Siegert
+relation between the observed power spectrum and the HBT bunching peak in a
+distance-dependent and parameter-controlled way.
+The second arises for extended sources: the arrival-time jitter becomes
+ray-dependent, and photons arriving from different source directions receive
+independent timing jitter when the transverse foam coherence length is small
+compared to the source's angular extent.
+This suppresses and broadens the zero-lag bunching peak by an amount that
+correlates with source angular size.
 
-An earlier line-of-sight (1D) formulation emphasized that a strictly pure-phase, single-mode foam does not alter $g^{(2)}(\tau)$; observable HBT effects require arrival-time jitter rather than phase decoherence.
-Here we extend the formalism to include transverse foam fluctuations across an extended source and show explicitly how the foam correlation length in the transverse direction controls whether the point-source approximation is valid. If the transverse coherence of the foam is large compared to the source's angular extent (across the rays contributing to detection), the extended source effectively behaves point-like for the foam-induced arrival-time jitter mechanism.
-If the transverse coherence is small, photons arriving along different lines of sight receive effectively independent timing jitter, increasing the effective decoherence and further suppressing/broadening the HBT bunching peak.
-
-The paper is organized as follows. Section~\ref{sec:conventions} establishes notation, dimensional analysis, and the ray/angle representation for extended sources. Section~\ref{sec:foamstats} derives temporal and transverse foam statistics and their implications for differential arrival-time jitter. Section~\ref{sec:HBT} connects the foam-induced jitter to the HBT observable, including the key pure-phase cancellation. Section~\ref{sec:observable} provides the explicit angularly averaged convolution formula for $g^{(2)}_{\rm obs}(\tau)$. Section~\ref{sec:numerical} gives a parameterized numerical illustration including a transverse-coherence factor. Finally, Section~\ref{sec:discussion} discusses limitations and next steps.
+The paper is organized as follows.
+Section~\ref{sec:1D} treats the single-ray (point-source) case, establishing
+the jitter mechanism and the Siegert violation.
+Section~\ref{sec:derivation} extends the formalism to an extended source,
+introducing transverse foam fluctuations and deriving the angularly averaged
+HBT correlation.
+Section~\ref{sec:zerolag} analyzes the suppression of the zero-lag bunching
+peak for extended sources and its dependence on source angular size.
+Section~\ref{sec:numerical} gives a parameterized numerical illustration.
+Finally, Section~\ref{sec:discussion} discusses limitations and next steps.
 
 % ==============================================================
-\section{Notation, Conventions, and Dimension Analysis}
-\label{sec:conventions}
+\section{Single-Ray Case: Path Fluctuations and the Siegert Violation}
+\label{sec:1D}
 % ==============================================================
 
-We denote by $D$ the cosmological distance to a source, and by $\ell(D)$ the effective line-of-sight propagation length over which foam fluctuations accumulate; for sources at moderate redshifts,
-$\ell(D)\approx D$.
+\subsection{Arrival-Time Jitter from Path-Length Fluctuations}
 
-\subsection{Foam fluctuation density and ray-dependent path length}
-We model the photon path as propagating along a mean axis, with a transverse coordinate $\mathbf{x}_\perp$ perpendicular to that axis.
-We represent an individual ray by a small direction offset $\boldsymbol{\theta}$ (e.g. far-field small-angle approximation) such that the ray's transverse position at distance $s$ along the line of sight is approximately
-\[
-\mathbf{x}_\perp(s;\boldsymbol{\theta}) \simeq s\,\boldsymbol{\theta}.
-\]
-
-We model foam fluctuations by a \emph{dimensionless} fluctuation density
-$\eta(s,\mathbf{x}_\perp,t)$, where $s$ is distance along the mean propagation direction and $t$ is time.
-The total path-length fluctuation accumulated to a photon propagating along ray $\boldsymbol{\theta}$ is
+We first consider a point source, so that all detected photons propagate along
+a single effective line of sight.
+As a photon propagates over a line-of-sight length $\ell^{(D)}$, spacetime foam
+induces a total accumulated path-length fluctuation $\Delta\ell^{(D)}_{\rm tot}(t)$,
+which manifests as a random arrival-time jitter at the detector:
 \begin{equation}
-  \Delta\ell_{\mathrm{tot}}^{(D)}(t;\boldsymbol{\theta})
-  \;\equiv\;
-  \int_{0}^{\ell(D)} \eta\!\left(s,\,\mathbf{x}_\perp(s;\boldsymbol{\theta}),\,t\right)\,ds .
-  \label{eq:DeltaltotRay}
+  \delta t(t) = \frac{1}{c}\,\Delta\ell^{(D)}_{\rm tot}(t).
+  \label{eq:jitter1D}
 \end{equation}
-This quantity has dimension of length.
-The foam-induced phase at the detector is
+We assume the single-ray variance inherits the Ng--Perlman scaling,
 \begin{equation}
-  \varphi^{(D)}(t;\boldsymbol{\theta})
-  \;\equiv\; \frac{2\pi}{\lambda}\,
-  \Delta\ell_{\mathrm{tot}}^{(D)}(t;\boldsymbol{\theta}),
-  \label{eq:phaseRay}
+  \sigma_\ell^2(D) = A_\alpha\,[\ell^{(D)}]^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
+  \label{eq:NgPerlmanVariance}
 \end{equation}
-which is dimensionless.
+and that the temporal covariance of the path-length aggregate along a single
+ray takes the factorized form
+\begin{equation}
+  \big\langle \Delta\ell^{(D)}_{\rm tot}(t)\,
+              \Delta\ell^{(D)}_{\rm tot}(t+\tau) \big\rangle
+  = \sigma_\ell^2(D)\,C_\alpha(\tau;D),
+  \label{eq:cov1D}
+\end{equation}
+where $C_\alpha(\tau;D)$ is the temporal decorrelation function satisfying
+$C_\alpha(0;D)=1$.
 
-\subsection{Arrival-time jitter}
-Arrival-time jitter associated with ray $\boldsymbol{\theta}$ is given by
+\subsection{Effect on First-Order Coherence}
+
+The arrival-time jitter shifts each photon's arrival time, which modifies the
+observed field autocorrelation function.
+The observed first-order coherence $g^{(1)}_{\rm obs}(\tau)$ is the intrinsic
+$g^{(1)}_{\rm src}(\tau)$ convolved with the single-ray jitter kernel,
+a zero-mean Gaussian with variance $\sigma_\ell^2(D)/c^2$.
+By the Wiener--Khinchin theorem, this corresponds to a broadening of the
+observed power spectrum relative to the intrinsic source spectrum, with the
+broadening amplitude set by $\sigma_\ell^2(D) \propto D^{2(1-\alpha)}$.
+
+\subsection{Effect on Second-Order Coherence}
+
+For HBT measurements, the relevant quantity is the differential jitter between
+two photon arrivals separated by lag $\tau$:
+\begin{equation}
+  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t).
+  \label{eq:diffJitter1D}
+\end{equation}
+Using Eq.~\eqref{eq:cov1D}, the variance of this differential jitter is
+\begin{equation}
+  \sigma_{\Delta,{\rm 1D}}^2(\tau)
+  = \frac{2\sigma_\ell^2(D)}{c^2}\,\big[1 - C_\alpha(\tau;D)\big].
+  \label{eq:diffVar1D}
+\end{equation}
+Because the path-aggregate fluctuations are sums over many weakly correlated
+foam cells, we model the differential jitter with a Gaussian kernel of zero
+mean and variance $\sigma_{\Delta,{\rm 1D}}^2(\tau)$.
+The observed second-order correlation is then the intrinsic source correlation
+convolved with this kernel:
+\begin{equation}
+  g^{(2)}_{\rm obs}(\tau) - 1
+  = \int_{-\infty}^{\infty}
+      p_{\rm 1D}(\Delta;\tau)\,\big[g^{(2)}_{\rm src}(\tau+\Delta)-1\big]\,d\Delta,
+  \label{eq:g2obs1D}
+\end{equation}
+where $p_{\rm 1D}(\Delta;\tau)$ is the Gaussian kernel with variance
+$\sigma_{\Delta,{\rm 1D}}^2(\tau)$.
+
+Note that at zero lag, $C_\alpha(0;D)=1$ and therefore
+$\sigma_{\Delta,{\rm 1D}}^2(0) = 0$: the differential jitter vanishes and
+$g^{(2)}_{\rm obs}(0) = g^{(2)}_{\rm src}(0) = 2$ is recovered exactly for
+a point source.
+The foam effect on $g^{(2)}$ in the single-ray case manifests at finite lag,
+through the broadening and suppression of the bunching peak shape.
+
+\subsection{Violation of the Siegert Relation}
+\label{sec:siegert}
+
+For a stationary thermal (chaotic) light source with Gaussian field statistics,
+the Siegert relation
+\begin{equation}
+  g^{(2)}_{\rm src}(\tau) - 1 = \left|g^{(1)}_{\rm src}(\tau)\right|^2
+  \label{eq:Siegert}
+\end{equation}
+connects the power spectrum to the HBT bunching peak through the moment theorem
+for Gaussian random processes.
+In the absence of foam both quantities share the same underlying field
+statistics and the relation holds exactly for a single detected spatial mode.
+
+Spacetime foam breaks this relation in a specific and structured way.
+The observed first-order coherence is broadened by the \emph{single-ray}
+jitter kernel, whose width is set by $\sigma_\ell(D)/c$.
+The observed second-order coherence is broadened by the \emph{differential}
+jitter kernel, whose width is set by $\sigma_{\Delta,{\rm 1D}}(\tau)$, a
+distinct quantity that depends on $C_\alpha(\tau;D)$.
+These two kernels are not the same: the single-ray kernel is fixed by the
+path-length variance alone, while the differential kernel vanishes at $\tau=0$
+and grows with lag as $C_\alpha$ decays.
+Consequently the foam does not modify $g^{(1)}_{\rm obs}$ and
+$g^{(2)}_{\rm obs}$ in the same way, and the Siegert relation is violated at
+the level of the observed quantities:
+\begin{equation}
+  g^{(2)}_{\rm obs}(\tau) - 1 \;\neq\; \left|g^{(1)}_{\rm obs}(\tau)\right|^2.
+  \label{eq:SiegertViolation}
+\end{equation}
+This violation is not a failure of the underlying Gaussian statistics of the
+source — the Siegert relation continues to hold intrinsically — but a
+consequence of foam acting as different effective filters on the first- and
+second-order coherence functions.
+
+We define the discrepancy function
+\begin{equation}
+  \mathcal{S}(\tau)
+  \equiv \left|g^{(1)}_{\rm obs}(\tau)\right|^2
+         - \left[g^{(2)}_{\rm obs}(\tau) - 1\right],
+  \label{eq:SiegertDiscrepancy}
+\end{equation}
+which vanishes in the absence of foam and is strictly positive in the presence
+of differential jitter.
+Crucially, $\mathcal{S}(\tau)$ does not depend on the unknown intrinsic source
+spectrum: whatever $g^{(1)}_{\rm src}(\tau)$, the foam-induced violation takes
+a specific and predictable form controlled by $\alpha$ and $D$.
+Its amplitude at zero lag constrains $\sigma_\ell(D)$ and hence $\alpha$ given
+$D$, while its shape as a function of $\tau$ constrains $C_\alpha(\tau;D)$.
+
+The Siegert discrepancy $\mathcal{S}(\tau)$ is a particularly robust foam
+signature for three reasons.
+First, it does not require knowledge of the intrinsic source spectrum or
+coherence time, since both $g^{(1)}_{\rm obs}$ and $g^{(2)}_{\rm obs}$ are
+directly measurable.
+Second, it carries a specific distance dependence through
+$\sigma_\ell^2(D) \propto D^{2(1-\alpha)}$ that distinguishes foam from
+instrumental or atmospheric effects, which would not scale with source distance.
+Third, conventional mechanisms that modify $g^{(2)}$ — multimode contamination,
+detector timing jitter, or source variability — act symmetrically on $g^{(1)}$
+and $g^{(2)}$ in ways that preserve or approximately preserve the Siegert
+relation.
+A detection of $\mathcal{S}(\tau) > 0$ at a level consistent with the
+Ng--Perlman scaling across multiple sources and redshifts would therefore
+constitute strong evidence for spacetime foam.
+
+% ==============================================================
+\section{Extended Sources: Transverse Foam Fluctuations}
+\label{sec:derivation}
+% ==============================================================
+
+\subsection{Ray-Dependent Arrival-Time Jitter}
+
+We now generalise to an extended astronomical source, modelled as a collection
+of rays arriving at the detector, where an individual ray is labelled by a small
+direction offset $\boldsymbol{\theta}$.
+As a photon propagates along ray $\boldsymbol{\theta}$ over a line-of-sight
+length $\ell^{(D)}$, spacetime foam induces a total path-length fluctuation
+$\Delta\ell^{(D)}_{\rm tot}(t;\boldsymbol{\theta})$, giving an arrival-time
+jitter
 \begin{equation}
   \delta t(t;\boldsymbol{\theta})
-  \;=\;
-  \frac{1}{c}\Delta\ell_{\mathrm{tot}}^{(D)}(t;\boldsymbol{\theta}) .
-  \label{eq:jitterRay}
+  = \frac{1}{c}\,\Delta\ell^{(D)}_{\rm tot}(t;\boldsymbol{\theta}).
+  \label{eq:jitterExtended}
 \end{equation}
-This depends on the \emph{ray label} because the transverse foam sampling differs across rays.
+The jitter now depends on the ray label because rays sample different transverse
+positions in the foam, and the foam fluctuations are correlated over a finite
+transverse coherence length $r_\perp$.
 
-\subsection{Temporal and transverse correlations}
-We encode foam statistics through the following two ingredients:
+\subsection{Spatiotemporal Covariance of the Jitter}
 
-\begin{itemize}
-\item \textbf{Temporal decorrelation} of path aggregates along a single ray:
+The single-ray variance continues to obey the Ng--Perlman scaling of
+Eq.~\eqref{eq:NgPerlmanVariance}.
+For the covariance between two distinct rays we assume a factorized form
+separating temporal and transverse dependences:
 \begin{equation}
-  C_\alpha(\tau;D)
-  \;\equiv\;
-  \frac{
-    \big\langle
-      \Delta\ell_{\mathrm{tot}}^{(D)}(t;\boldsymbol{\theta})\,
-      \Delta\ell_{\mathrm{tot}}^{(D)}(t+\tau;\boldsymbol{\theta})
-    \big\rangle
-  }{
-    \sigma_\ell^2(D)
-  },
-  \qquad C_\alpha(0;D)=1,
-  \label{eq:CalphaDef}
+  \Big\langle \Delta\ell^{(D)}_{\rm tot}(t;\boldsymbol{\theta})\,
+              \Delta\ell^{(D)}_{\rm tot}(t+\tau;\boldsymbol{\theta}')
+  \Big\rangle
+  = \sigma_\ell^2(D)\,C_\alpha(\tau;D)\,
+    \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
+  \label{eq:covExtended}
 \end{equation}
-where $\sigma_\ell^2(D)$ is the single-ray variance (independent of $\boldsymbol{\theta}$ under statistical homogeneity).
-\item \textbf{Transverse decorrelation} between different rays:
-we introduce a transverse correlation function $\Phi(u)$ with $\Phi(0)=1$ and $\Phi(u)\to 0$ for large $u$, controlled by a transverse correlation length $r_\perp$.
-\end{itemize}
+where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq
+\ell^{(D)}|\boldsymbol{\theta}-\boldsymbol{\theta}'|$ is the transverse
+separation between the two rays, and $\Phi$ is a transverse coherence function
+satisfying $\Phi(0)=1$ and decaying to zero for separations large compared to
+$r_\perp$.
+The temporal decorrelation $C_\alpha(\tau;D)$ is the same function introduced
+in Section~\ref{sec:1D}.
 
-To connect rays, we define a typical transverse separation between two rays. In the far-field small-angle limit, a standard estimate is
-\begin{equation}
-  b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq \ell(D)\,|\boldsymbol{\theta}-\boldsymbol{\theta}'|.
-  \label{eq:separationEstimate}
-\end{equation}
+\subsection{Differential Jitter Variance}
 
-\subsection{Path-aggregate Ng--Perlman scaling}
-The central ansatz is that the single-ray variance inherits the Ng--Perlman scaling:
-\begin{equation}
-  \sigma_\ell^2(D)
-  \;=\;
-  A_\alpha\,[\ell(D)]^{2(1-\alpha)}\,\ell_{\mathrm{P}}^{2\alpha},
-  \label{eq:NgPerlmanScaling}
-\end{equation}
-where $A_\alpha$ is dimensionless and order unity (up to mild dependence on $\alpha$ and detailed correlation structure, summarized later).
-
-\subsection{Foam two-ray covariance closure}
-We assume that the covariance of path-length aggregates between two rays factorizes into temporal and transverse pieces:
-\begin{equation}
-\begin{split}
-\Big\langle
-  \Delta\ell_{\mathrm{tot}}^{(D)}(t;\boldsymbol{\theta})\,
-  \Delta\ell_{\mathrm{tot}}^{(D)}(t+\tau;\boldsymbol{\theta}')
-\Big\rangle
-\;=\;
-\sigma_\ell^2(D)\,
-C_\alpha(\tau;D)\,
-\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right).
-\end{split}
-\label{eq:twoRayCovariance}
-\end{equation}
-This closure satisfies the correct limits:
-at $\tau=0$ and $\boldsymbol{\theta}=\boldsymbol{\theta}'$ we recover $\sigma_\ell^2(D)$.
-
-
-% ==============================================================
-\section{Foam-Induced Temporal and Transverse Phase/Jitter Statistics}
-\label{sec:foamstats}
-% ==============================================================
-
-\subsection{Two-time phase variance (generalized)}
-The two-time phase difference relevant for temporal coherence for ray $\boldsymbol{\theta}$ is
-\begin{equation}
-  \Delta\varphi^{(D)}(\tau;\boldsymbol{\theta})
-  \equiv
-  \varphi^{(D)}(t+\tau;\boldsymbol{\theta})-\varphi^{(D)}(t;\boldsymbol{\theta}).
-\end{equation}
-For the present purpose (arrival-time jitter), we emphasize timing rather than phase. Still, the same temporal covariance enters the variance:
-\begin{equation}
-  \Big\langle \big[\Delta\varphi^{(D)}(\tau;\boldsymbol{\theta})\big]^2 \Big\rangle
-  =
-  2\left(\frac{2\pi}{\lambda}\right)^2 \sigma_\ell^2(D)\,[1-C_\alpha(\tau;D)].
-  \label{eq:phaseVarSingleRay}
-\end{equation}
-For a \emph{two-ray} difference one would similarly obtain factors of $\Phi$; we do not require the phase variance explicitly below because $g^{(2)}$ is sensitive to arrival-time jitter.
-
-\subsection{Differential arrival-time jitter between rays}
-For HBT, photons detected at times separated by $\tau$ may originate from different rays within the detected spatial mode. Define the differential arrival-time increment between rays $\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$ as
+Because HBT photon pairs may originate from different rays within the detected
+spatial mode, we define the differential arrival-time increment between rays
+$\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$ at lag $\tau$ as
 \begin{equation}
   \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
-  \;\equiv\;
-  \delta t(t+\tau;\boldsymbol{\theta})
-  -
-  \delta t(t;\boldsymbol{\theta}').
-  \label{eq:diffJitterTwoRays}
+  \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}').
+  \label{eq:diffJitterExtended}
 \end{equation}
-Using Eq.~\eqref{eq:jitterRay}, Eq.~\eqref{eq:twoRayCovariance}, and stationarity, its variance is
-\begin{align}
-\sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
-&\equiv
-\Big\langle \big[\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)\big]^2\Big\rangle
-\nonumber\\
-&=
-\frac{1}{c^2}\Big[
-  \langle \Delta\ell(t+\tau;\boldsymbol{\theta})^2\rangle
- +\langle \Delta\ell(t;\boldsymbol{\theta}')^2\rangle
- -2\langle \Delta\ell(t+\tau;\boldsymbol{\theta})\Delta\ell(t;\boldsymbol{\theta}')\rangle
-\Big]
-\nonumber\\
-&=
-\frac{2\sigma_\ell^2(D)}{c^2}
-\Big[
-  1
-  -
-  C_\alpha(\tau;D)\,
-  \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)
-\Big].
-\label{eq:sigmaDeltaTwoRaysFinal}
-\end{align}
-For $\boldsymbol{\theta}=\boldsymbol{\theta}'$, $\Phi(0)=1$ and one recovers the earlier same-ray result:
-\[
-\sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta})
-=
-\frac{2\sigma_\ell^2(D)}{c^2}\,[1-C_\alpha(\tau;D)].
-\]
-
-\subsection{Gaussianity}
-As in the 1D formalism, we assume that path-aggregate fluctuations are sums over many weakly correlated foam cells. For cosmological distances this motivates a Gaussian approximation for the differential jitter:
+Using the factorized covariance of Eq.~\eqref{eq:covExtended}, the variance of
+this differential jitter evaluates to
 \begin{equation}
-  \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)\sim \mathcal{N}\!\left(0,\sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right).
-  \label{eq:GaussianJitter}
+  \sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
+  = \frac{2\sigma_\ell^2(D)}{c^2}
+    \left[1 - C_\alpha(\tau;D)\,
+          \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}
+               \right)\right].
+  \label{eq:diffVarExtended}
 \end{equation}
-We will therefore use a Gaussian jitter kernel for each ray pair.
+Comparing with the single-ray result Eq.~\eqref{eq:diffVar1D}, the extended-source
+variance includes the additional transverse factor $\Phi$: when
+$\boldsymbol{\theta} = \boldsymbol{\theta}'$ and $\Phi(0)=1$,
+Eq.~\eqref{eq:diffVarExtended} reduces to Eq.~\eqref{eq:diffVar1D} as required.
+When $\Phi < 1$, the differential variance is increased, reflecting the
+additional decoherence from independent transverse foam sampling.
 
-% ==============================================================
-\section{From Foam-Induced Jitter to the HBT Observable}
-\label{sec:HBT}
-% ==============================================================
-
-\subsection{Source and field statistics}
-We consider a quasi-monochromatic chaotic (thermal) source with central angular frequency $\omega_0=2\pi c/\lambda$.
-In the absence of foam, the detected analytic signal is modeled as a zero-mean circular complex Gaussian random process.
-
-We include an extended source by allowing contributions from rays labeled by $\boldsymbol{\theta}$ (within the angular region coupled into the detection mode).
-We treat the foam as imprinting ray-dependent arrival-time jitter, not only phases.
-
-A minimal operational picture for photon-counting HBT is: the intrinsic photon arrival times are shifted by a random $\delta t(t;\boldsymbol{\theta})$ that depends on which ray the photon propagated along.
-
-\subsection{Siegert relation and the role of arrival-time jitter}
-For chaotic Gaussian fields, the Siegert relation holds:
-\begin{equation}
-  g^{(2)}(\tau)
-  \;=\;
-  1+\big|g^{(1)}(\tau)\big|^2.
-\end{equation}
-In the earlier 1D approach, a strictly pure-phase, single-mode foam left $g^{(2)}(\tau)$ unchanged because $|E(t)|^2$ is insensitive to phase.
-That cancellation still holds when the foam only modulates the phase without producing timing (or without coupling phase to intensity through wavefront distortion).
-In contrast, arrival-time jitter does alter photon-counting coincidences: it displaces detected photons along the time axis and smears the coincidence peak.
-
-Therefore, our operative mechanism for temporal HBT constraints is the arrival-time jitter, generalized here to include transverse decorrelation between rays.
-
-% ==============================================================
-\section{Angularly Averaged Convolution Formula for $g^{(2)}_{\rm obs}(\tau)$}
-\label{sec:observable}
-% ==============================================================
-
-\subsection{Jitter kernels and extended-source averaging}
-Let $g^{(2)}_{\rm src}(\tau)$ denote the intrinsic second-order correlation function of the source (in the absence of foam).
-In the presence of arrival-time jitter, the measured coincidence peak at lag $\tau$ is built from photon pairs whose true time separation differs from the nominal lag by a differential jitter $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$.
-
-For a fixed pair of rays $(\boldsymbol{\theta},\boldsymbol{\theta}')$, the jitter PDF is Gaussian:
+By the same central-limit argument as in Section~\ref{sec:1D}, we model the
+differential jitter with a Gaussian kernel:
 \begin{equation}
   p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)
-  =
-  \frac{1}{\sqrt{2\pi}\,\sigma_{\Delta}(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')}
-  \exp\!\left(
-    -\frac{\Delta^2}{2\sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')}
-  \right).
-  \label{eq:pjittRayPair}
+  = \frac{1}{\sqrt{2\pi}\,\sigma_{\Delta}(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')}
+    \exp\!\left(
+      -\frac{\Delta^2}{2\sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')}
+    \right).
+  \label{eq:kernelExtended}
 \end{equation}
 
-The observed $g^{(2)}_{\rm obs}$ becomes a mixture over ray pairs, weighted by an angular acceptance/source weighting function $W(\boldsymbol{\theta},\boldsymbol{\theta}')$ that encodes:
-(i) source angular brightness distribution,
-(ii) telescope point-spread/collection mode,
-and (iii) how intensity at the detector samples the field from different angles.
-We require only normalization $\iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\,W(\boldsymbol{\theta},\boldsymbol{\theta}')=1$ for convenience.
+\subsection{The Observable HBT Correlation Mixture}
 
-The general angularly averaged convolution is then
+For an extended source, the total observed $g^{(2)}_{\rm obs}(\tau)$ is an
+angularly weighted mixture over all ray pairs, weighted by
+$W(\boldsymbol{\theta},\boldsymbol{\theta}')$, an angular acceptance function
+encoding the source brightness distribution and the telescope point-spread mode:
 \begin{equation}
-\boxed{
-g^{(2)}_{\rm obs}(\tau)-1
-=
-\iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-W(\boldsymbol{\theta},\boldsymbol{\theta}')
-\int_{-\infty}^{\infty}
-p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)\,
-\Big[g^{(2)}_{\rm src}(\tau+\Delta)-1\Big]\,
-d\Delta.
-}
-\label{eq:g2AngAveragedFinal}
+  g^{(2)}_{\rm obs}(\tau) - 1
+  = \iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
+    W(\boldsymbol{\theta},\boldsymbol{\theta}')
+    \int_{-\infty}^{\infty}
+      p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)\,
+      \big[g^{(2)}_{\rm src}(\tau+\Delta) - 1\big]\,
+    d\Delta.
+  \label{eq:g2obsExtended}
 \end{equation}
+This is the general result.
+In the limit $\Phi \equiv 1$ (all rays perfectly correlated in the transverse
+direction), each ray-pair kernel reduces to $p_{\rm 1D}(\Delta;\tau)$ and
+Eq.~\eqref{eq:g2obsExtended} reduces to the single-ray result
+Eq.~\eqref{eq:g2obs1D}, confirming consistency with Section~\ref{sec:1D}.
 
-\subsection{Effective transverse coherence approximation}
-In many practical cases one can define an effective transverse-coherence factor by averaging $\Phi$ over the angular region that significantly contributes to the detected intensity correlations:
+\subsection{Effective Transverse Coherence Approximation}
+
+To simplify the ray-pair mixture, we define an effective transverse-coherence
+factor $\Phi_{\rm eff}$ by averaging $\Phi$ over the angular weighting function:
 \begin{equation}
-  \Phi_{\rm eff}(\tau)
-  \;\equiv\;
-  \iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-  W(\boldsymbol{\theta},\boldsymbol{\theta}')
-  \,\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right).
+  \Phi_{\rm eff}
+  \equiv \iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
+         W(\boldsymbol{\theta},\boldsymbol{\theta}')\,
+         \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right).
   \label{eq:PhiEff}
 \end{equation}
-Assuming the mixture is approximately represented by a single Gaussian kernel with variance
+This replaces the ray-dependent differential variance with a single effective
+variance,
 \begin{equation}
   \sigma_{\tau,\rm eff}^2(D;\tau)
-  \;\equiv\;
-  \frac{2\sigma_\ell^2(D)}{c^2}\,
-  \Big[1-C_\alpha(\tau;D)\,\Phi_{\rm eff}\Big],
-  \label{eq:sigmaTauEffDef}
+  \equiv \frac{2\sigma_\ell^2(D)}{c^2}
+         \Big[1 - C_\alpha(\tau;D)\,\Phi_{\rm eff}\Big],
+  \label{eq:sigmaEff}
 \end{equation}
-Eq.~\eqref{eq:g2AngAveragedFinal} reduces to the earlier 1D structure with $\sigma_\tau\to \sigma_{\tau,\rm eff}$.
+and allows the general mixture Eq.~\eqref{eq:g2obsExtended} to be approximated
+by the simpler 1D convolution structure of Eq.~\eqref{eq:g2obs1D} with
+$\sigma_{\Delta,{\rm 1D}}^2$ replaced by $\sigma_{\tau,\rm eff}^2$.
+The Siegert discrepancy $\mathcal{S}(\tau)$ defined in
+Eq.~\eqref{eq:SiegertDiscrepancy} now also depends on $\Phi_{\rm eff}$ through
+$\sigma_{\tau,\rm eff}$, providing an additional handle on the transverse foam
+coherence length $r_\perp$ from joint measurements of sources with different
+angular diameters.
 
-\subsection{Point-like vs extended limits controlled by $\Phi$}
-Equation~\eqref{eq:sigmaDeltaTwoRaysFinal} makes the regimes explicit:
+% ==============================================================
+\section{Observational Signatures}
+\label{sec:signatures}
+% ==============================================================
 
-\begin{itemize}
-\item \textbf{Point-like (or fully correlated) regime:} if transverse foam coherence is large across the angular support of $W$, then
-$\Phi(b/r_\perp)\approx 1$, hence $\Phi_{\rm eff}\approx 1$ and
-\[
-\sigma_{\tau,\rm eff}^2(D;\tau)\approx \frac{2\sigma_\ell^2(D)}{c^2}\,[1-C_\alpha(\tau;D)],
-\]
-recovering the earlier 1D same-ray result.
+The formalism developed in Sections~\ref{sec:1D} and~\ref{sec:derivation}
+predicts two distinct and complementary observational signatures of
+spacetime foam.
+The first — violation of the Siegert relation — is present even for a point
+source and probes the single-ray path variance $\sigma_\ell^2(D)$ and the
+temporal decorrelation $C_\alpha(\tau;D)$.
+The second — suppression of the zero-lag bunching peak — requires an extended
+source and probes the transverse coherence factor $\Phi_{\rm eff}$ in addition
+to $\sigma_\ell^2(D)$.
+The two signatures are complementary: joint measurement of both allows
+$\alpha$, $D$, and $r_\perp$ to be constrained simultaneously and largely
+independently of the unknown intrinsic source spectrum.
 
-\item \textbf{Extended (incoherent transverse) regime:} if transverse coherence is small, then for typical ray separations
-$\Phi(b/r_\perp)\approx 0$ and $\Phi_{\rm eff}\approx 0$, giving
-\[
-\sigma_{\tau,\rm eff}^2(D;\tau)\approx \frac{2\sigma_\ell^2(D)}{c^2},
-\]
-i.e. maximal broadening relative to the correlated case.
-\end{itemize}
+% --------------------------------------------------------------
+\subsection{Violation of the Siegert Relation}
+\label{sec:siegert_obs}
+% --------------------------------------------------------------
 
-\subsection{Lorentzian source example}
-For a quasi-monochromatic chaotic source with coherence time $\tau_c$, take
+\subsubsection*{The predicted discrepancy}
+
+For a stationary thermal source with Gaussian field statistics, the Siegert
+relation $g^{(2)}_{\rm src}(\tau) - 1 = |g^{(1)}_{\rm src}(\tau)|^2$ holds
+intrinsically.
+As shown in Section~\ref{sec:siegert}, foam breaks this relation at the level
+of the observed quantities because the single-ray jitter kernel (which broadens
+$g^{(1)}_{\rm obs}$) and the differential jitter kernel (which broadens
+$g^{(2)}_{\rm obs}$) are not identical.
+The discrepancy function
 \begin{equation}
-  g^{(2)}_{\rm src}(\tau)-1=\exp\!\left(-\frac{|\tau|}{\tau_c}\right).
-  \label{eq:g2srcLorentz}
+  \mathcal{S}(\tau)
+  \equiv \left|g^{(1)}_{\rm obs}(\tau)\right|^2
+         - \left[g^{(2)}_{\rm obs}(\tau) - 1\right]
+  \label{eq:S_def}
 \end{equation}
-Under the effective Gaussian approximation, the convolution yields the same functional form as in the 1D case upon replacing $\sigma_\tau$ by $\sigma_{\tau,\rm eff}$.
-Define $\sigma_{\tau,\rm eff}\equiv \sigma_\tau$ for notational brevity.
-Then
+vanishes in the absence of foam and is strictly positive in the presence of
+differential jitter.
+Its functional form encodes the foam parameters: the amplitude at zero lag
+constrains $\sigma_\ell(D)$ and hence $\alpha$ given $D$, while the shape as
+a function of $\tau$ constrains $C_\alpha(\tau;D)$.
+
+\subsubsection*{Independence from the intrinsic source spectrum}
+
+A key virtue of $\mathcal{S}(\tau)$ is that it does not require knowledge of
+the intrinsic source spectrum.
+Both $g^{(1)}_{\rm obs}(\tau)$ — equivalently the observed power spectrum via
+the Wiener--Khinchin theorem — and $g^{(2)}_{\rm obs}(\tau)$ are directly
+measurable.
+Whatever the intrinsic $g^{(1)}_{\rm src}(\tau)$, the foam-induced violation
+takes a specific and predictable form controlled by $\alpha$, $D$, and
+$\Phi_{\rm eff}$.
+In particular, at zero lag $g^{(1)}_{\rm obs}(0) = 1$ by normalization, so
+$|g^{(1)}_{\rm obs}(0)|^2 = 1$ exactly, while the observed zero-lag
+second-order coherence is suppressed below unity (see
+Section~\ref{sec:zerolag_obs} below).
+The discrepancy at zero lag is therefore
+\begin{equation}
+  \mathcal{S}(0) = 1 - \left[g^{(2)}_{\rm obs}(0) - 1\right]
+                 = \delta g^{(2)},
+  \label{eq:S0}
+\end{equation}
+directly equal to the bunching peak suppression, connecting the two signatures.
+
+\subsubsection*{Robustness against astrophysical mimics}
+
+The Siegert discrepancy is a robust foam signature for three reasons.
+First, it is independent of the intrinsic source spectrum, as noted above.
+Second, it has a specific distance dependence through
+$\sigma_\ell^2(D) \propto D^{2(1-\alpha)}$ that distinguishes foam from
+instrumental or atmospheric effects, which would not scale with source distance.
+Third, conventional astrophysical mechanisms that modify $g^{(2)}$ —
+multimode contamination, detector timing jitter, or source variability — act
+symmetrically on $g^{(1)}$ and $g^{(2)}$ in ways that preserve or
+approximately preserve the Siegert relation.
+A detection of $\mathcal{S}(\tau) > 0$ consistent with the Ng--Perlman
+scaling across multiple sources and redshifts would therefore constitute strong
+evidence for spacetime foam.
+
+\subsubsection*{Quantitative estimate}
+
+To make the Siegert discrepancy concrete we adopt a Gaussian intrinsic
+correlation,
+\begin{equation}
+  g^{(2)}_{\rm src}(\tau) - 1
+  = \exp\!\left(-\frac{\tau^2}{2\tau_c^2}\right),
+  \label{eq:g2src_gauss2}
+\end{equation}
+which is analytically tractable; a Lorentzian profile, more typical of thermal
+or AGN sources, yields a different functional form but the same controlling
+parameter $\sigma_0/\tau_c$.
+For a point source ($\Phi_{\rm eff} = 1$) the differential jitter variance at
+zero lag vanishes, $\sigma_{\Delta,{\rm 1D}}^2(0) = 0$, and
+$\mathcal{S}(0) = 0$ exactly.
+At finite lag the discrepancy grows as $C_\alpha(\tau;D)$ decays from unity,
+with the foam effect encoded in the ratio
+\begin{equation}
+  \frac{\sigma_{\Delta,{\rm 1D}}(\tau)}{\tau_c}
+  = \frac{\sqrt{2[1-C_\alpha(\tau;D)]}\,\sqrt{A_\alpha}\,
+          [\ell^{(D)}]^{1-\alpha}\,\ell_{\rm P}^{\alpha}}
+         {c\,\tau_c}.
+  \label{eq:ratio1D}
+\end{equation}
+For representative parameters $D = 1$~Gpc and $\tau_c \approx 0.8$~ps
+($\Delta\lambda/\lambda \sim 10^{-3}$ at $\lambda = 500$~nm,
+$c\tau_c \approx 0.24$~mm) with $A_\alpha = 1$, and taking maximal temporal
+decorrelation $1 - C_\alpha \approx 1$:
 \begin{align}
-  g^{(2)}_{\rm obs}(\tau)-1
-  &=
-  \exp\!\left(\frac{\sigma_\tau^2}{2\tau_c^2}-\frac{|\tau|}{\tau_c}\right)
-  \mathrm{erfc}\!\left(\frac{\sigma_\tau/\tau_c-|\tau|/\sigma_\tau}{\sqrt{2}}\right)
-  \cdot \frac{1}{2}e^{|\tau|/\tau_c}.
-  \label{eq:g2obsLorentzEff}
+  \alpha = 1\colon\quad
+    \frac{\sigma_{\Delta,{\rm 1D}}}{\tau_c}
+    &\approx 9.5\times10^{-32},
+    \label{eq:ratio1D_alpha1}\\[4pt]
+  \alpha = \tfrac{2}{3}\colon\quad
+    \frac{\sigma_{\Delta,{\rm 1D}}}{\tau_c}
+    &\approx 3.4\times10^{-11},
+    \label{eq:ratio1D_alpha23}\\[4pt]
+  \alpha = \tfrac{1}{2}\colon\quad
+    \frac{\sigma_{\Delta,{\rm 1D}}}{\tau_c}
+    &\approx 0.59.
+    \label{eq:ratio1D_alpha12}
 \end{align}
-Two limiting regimes are:
+For $\alpha = 1$ and $\alpha = 2/3$ the Siegert discrepancy is negligibly
+small.
+For the random-walk model $\alpha = 1/2$, the ratio approaches order unity
+at large lag, and the discrepancy $\mathcal{S}(\tau)$ at finite lag becomes
+in principle measurable.
+The distance scaling $\sigma_{\Delta,{\rm 1D}} \propto D^{1-\alpha}$ means
+that comparing $\mathcal{S}(\tau)$ across sources at different redshifts
+provides a direct test of the Ng--Perlman exponent $\alpha$.
+
+% --------------------------------------------------------------
+\subsection{Angular-Size Dependence of the Zero-Lag Bunching Peak}
+\label{sec:zerolag_obs}
+% --------------------------------------------------------------
+
+\subsubsection*{The predicted suppression}
+
+For an extended source the effective differential jitter variance at zero lag
+is, from Eq.~\eqref{eq:sigmaEff0},
+\begin{equation}
+  \sigma_0^2
+  \equiv \sigma_{\tau,\rm eff}^2(D;0)
+  = \frac{2\sigma_\ell^2(D)}{c^2}\,(1 - \Phi_{\rm eff}),
+  \label{eq:sigma0}
+\end{equation}
+where we used $C_\alpha(0;D) = 1$.
+This is strictly positive whenever $\Phi_{\rm eff} < 1$, i.e.\ whenever the
+transverse foam coherence does not fully correlate all ray pairs contributing
+to the detection.
+The resulting suppression of the zero-lag bunching peak is, from
+Eq.~\eqref{eq:deltag2},
+\begin{equation}
+  \delta g^{(2)}
+  \equiv 2 - g^{(2)}_{\rm obs}(0)
+  = 1 - \frac{1}{\sqrt{1 + (\sigma_0/\tau_c)^2}},
+  \label{eq:deltag2_sig}
+\end{equation}
+with $\sigma_0/\tau_c$ given by Eq.~\eqref{eq:ratio}.
+In the point-source limit $\Phi_{\rm eff} \to 1$, $\sigma_0 \to 0$ and
+$\delta g^{(2)} \to 0$ as expected from Section~\ref{sec:1D}.
+
+\subsubsection*{Angular-size dependence as a smoking-gun signature}
+
+Because $\sigma_0^2 \propto (1 - \Phi_{\rm eff})$ and $\Phi_{\rm eff}$
+decreases as the source angular diameter $\Delta\theta$ increases at fixed $D$
+and $r_\perp$, Eq.~\eqref{eq:deltag2_sig} predicts that more angularly
+extended sources experience greater suppression of the zero-lag bunching peak.
+To see this explicitly, adopt a Gaussian transverse correlation,
+\begin{equation}
+  \Phi(u) = \exp\!\left(-\frac{u^2}{2}\right),
+  \qquad u = \frac{b}{r_\perp},
+  \label{eq:PhiGauss}
+\end{equation}
+with $b \simeq \ell^{(D)}|\boldsymbol{\theta} - \boldsymbol{\theta}'|$.
+The criterion $r_\perp \gg \ell^{(D)}\Delta\theta$ gives $\Phi_{\rm eff}
+\approx 1$ (point-like regime), while $r_\perp \ll \ell^{(D)}\Delta\theta$
+gives $\Phi_{\rm eff} \approx 0$ (maximal transverse decorrelation).
+For two sources at the same luminosity distance $D$ but different angular
+diameters, the more extended source will have a smaller $\Phi_{\rm eff}$,
+a larger $\sigma_0$, and hence a larger $\delta g^{(2)}$.
+
+This prediction is largely free of astrophysical degeneracies.
+Standard source-intrinsic mechanisms that broaden or suppress the bunching
+peak — multimode detection, finite detector timing resolution, or source
+variability — do not correlate with source angular size in this way.
+A systematic survey comparing $g^{(2)}_{\rm obs}(0)$ across sources of
+varying angular extent but similar redshift and spectral properties would
+therefore constitute a near-smoking-gun test of the transverse foam coherence
+mechanism, with the functional form of the suppression versus $\Delta\theta$
+directly constraining the transverse correlation length $r_\perp$ of the foam.
+Combined with the Siegert discrepancy measurement, which constrains $\alpha$
+and $D$ independently of $r_\perp$, joint observations of point-like and
+extended sources at the same redshift allow all three foam parameters
+$\{\alpha, \sigma_\ell(D), r_\perp\}$ to be constrained simultaneously.
+
+\subsubsection*{Quantitative estimates}
+
+Inserting $\sigma_\ell^2(D) = A_\alpha[\ell^{(D)}]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}$
+into Eq.~\eqref{eq:sigma0} and using the same representative parameters as
+above ($D = 1$~Gpc, $\tau_c \approx 0.8$~ps, $A_\alpha = 1$):
 \begin{align}
-  \sigma_\tau \ll \tau_c: &\quad
-  g^{(2)}_{\rm obs}(\tau)-1 \approx \exp\!\left(-\frac{|\tau|}{\tau_c}\right),
-  \label{eq:noFoamLimitEff}\\
-  \sigma_\tau \gg \tau_c: &\quad
-  g^{(2)}_{\rm obs}(\tau)-1 \approx
-  \frac{\tau_c}{\sqrt{2\pi}\,\sigma_\tau}\exp\!\left(-\frac{\tau^2}{2\sigma_\tau^2}\right).
-  \label{eq:largeFoamLimitEff}
+  \alpha = 1\colon\quad
+    \frac{\sigma_0}{\tau_c}
+    &\approx \sqrt{2(1-\Phi_{\rm eff})}\times 6.7\times10^{-32},
+    \label{eq:ratio_sig_alpha1}\\[4pt]
+  \alpha = \tfrac{2}{3}\colon\quad
+    \frac{\sigma_0}{\tau_c}
+    &\approx \sqrt{2(1-\Phi_{\rm eff})}\times 2.4\times10^{-11},
+    \label{eq:ratio_sig_alpha23}\\[4pt]
+  \alpha = \tfrac{1}{2}\colon\quad
+    \frac{\sigma_0}{\tau_c}
+    &\approx \sqrt{2(1-\Phi_{\rm eff})}\times 0.42.
+    \label{eq:ratio_sig_alpha12}
 \end{align}
+For $\alpha = 1$ and $\alpha = 2/3$ the suppression is negligible regardless
+of $\Phi_{\rm eff}$.
+For the random-walk model $\alpha = 1/2$:
+\begin{equation}
+  \delta g^{(2)}\big|_{\alpha=1/2}
+  = 1 - \frac{1}{\sqrt{1 + 0.35\,(1 - \Phi_{\rm eff})}}.
+  \label{eq:deltag2_alpha12_sig}
+\end{equation}
+In the maximally incoherent transverse regime ($\Phi_{\rm eff} \to 0$) this
+gives $\delta g^{(2)} \approx 0.15$, a suppression of roughly 15\% below the
+ideal bunching peak.
+In the small-suppression limit $\sigma_0 \ll \tau_c$ the suppression is
+second order, $\delta g^{(2)} \approx \tfrac{1}{2}(\sigma_0/\tau_c)^2$,
+while in the strong-jitter limit $\sigma_0 \gg \tau_c$ the bunching peak is
+almost entirely washed out, $\delta g^{(2)} \approx 1 - \tau_c/\sigma_0$.
 
-Finally, note that $\sigma_{\tau,\rm eff}(\tau=0)=0$ because $C_\alpha(0;D)=1$, ensuring $g^{(2)}_{\rm obs}(0)=2$ in the idealized Gaussian single-mode detection limit.
+\subsubsection*{Detectability}
 
-% ==============================================================
-\section{Parameterized Numerical Illustration}
-\label{sec:numerical}
-% ==============================================================
-
-\subsection{Representative parameters}
-We evaluate the foam-induced rms arrival-time jitter scale
-\[
-\sigma_{\tau,\rm eff}^2(D;\tau)
-=
-\frac{2\sigma_\ell^2(D)}{c^2}\,
-\Big[1-C_\alpha(\tau;D)\,\Phi_{\rm eff}\Big],
-\qquad
-\sigma_\ell^2(D)=A_\alpha[\ell(D)]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}.
-\]
-For definiteness, set $\ell(D)\approx D$, $A_\alpha=1$, and take maximal decorrelation in time $1-C_\alpha(\tau;D)\sim 1$ (i.e. consider the large-lag regime where the temporal correlation has decayed).
-For the source coherence time, take $\tau_c\sim \lambda^2/(c\Delta\lambda)$ with a narrow optical filter:
-$\Delta\lambda/\lambda\sim 10^{-3}$ at $\lambda=500$~nm, giving $\tau_c\approx 0.8$~ps as in the earlier 1D illustration.
-
-We set $D=1$~Gpc $\approx 3.09\times 10^{25}$~m.
-
-\subsection{Model foam scaling for $\alpha\in\{1,2/3,1/2\}$}
-Assuming $\Phi_{\rm eff}=1$ corresponds to the point-like correlated regime and $\Phi_{\rm eff}=0$ corresponds to the maximal transverse decoherence regime, the characteristic jitter scale in the large-lag limit becomes
-\[
-\sigma_{\tau,\rm eff} \sim \frac{\sqrt{2}\,\sigma_\ell(D)}{c}
-\quad \text{(for }\Phi_{\rm eff}\approx 0\text{ or }1-C_\alpha\approx 1).
-\]
-Using the same scalings as the 1D calculation yields:
-
-\begin{align}
-\alpha=1:\quad &\sigma_\ell = \ell_{\rm P} = 1.616\times10^{-35}\,{\rm m}
-\quad\Rightarrow\quad
-\sigma_{\tau,\rm eff}\approx 7.6\times 10^{-44}\,{\rm s},\\
-\alpha=2/3:\quad &\sigma_\ell \approx 5.7\times10^{-15}\,{\rm m}
-\quad\Rightarrow\quad
-\sigma_{\tau,\rm eff}\approx 2.7\times 10^{-23}\,{\rm s},\\
-\alpha=1/2:\quad &\sigma_\ell \approx 2.2\times10^{-5}\,{\rm m}
-\quad\Rightarrow\quad
-\sigma_{\tau,\rm eff}\approx 1.0\times 10^{-13}\,{\rm s}=0.10\,{\rm ps}.
-\end{align}
-
-Thus the random-walk model can yield $\sigma_{\tau}$ comparable to $\tau_c$, while the holographic and conservative models remain far below detectability, even before including the additional potential suppression from transverse decoherence (which, in our framework, only \emph{increases} the effective jitter by decreasing $\Phi_{\rm eff}$).
-
-\subsection{A transverse-coherence example}
-To visualize the dependence on extended-source physics, adopt a concrete transverse correlation form:
-\[
-\Phi(u)=\exp\!\left(-\frac{u^2}{2}\right),
-\qquad
-u=\frac{b}{r_\perp}.
-\]
-Then $\Phi_{\rm eff}$ is determined by the typical angular separation contributing to $W$:
-with $b\simeq \ell(D)|\boldsymbol{\theta}-\boldsymbol{\theta}'|$, the criterion $u\ll 1$ corresponds to $r_\perp\gg \ell(D)\Delta\theta$ (point-like in the foam sense),
-while $u\gg 1$ gives $\Phi_{\rm eff}\approx 0$ (maximal transverse decorrelation).
-
-For illustration, one may parameterize $\Phi_{\rm eff}$ by a single number $\Phi_{\rm eff}\in[0,1]$ and note:
-\[
-\sigma_{\tau,\rm eff}^2(D;\tau)
-=
-\frac{2A_\alpha}{c^2}\,[\ell(D)]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}
-\Big[1-C_\alpha(\tau;D)\Phi_{\rm eff}\Big].
-\]
-In the correlated regime $\Phi_{\rm eff}\to 1$ one recovers the earlier 1D prediction, while in the incoherent transverse regime $\Phi_{\rm eff}\to 0$ the effective jitter increases.
+The suppression $\delta g^{(2)}$ is observable when it exceeds the shot-noise
+uncertainty $N^{-1/2}$ on $g^{(2)}_{\rm obs}(0)$, where $N$ is the number of
+coincidence events in the bunching peak:
+\begin{equation}
+  \delta g^{(2)}
+  \;\gtrsim\; N^{-1/2}.
+  \label{eq:detectability_sig}
+\end{equation}
+For the $\alpha = 1/2$ model in the incoherent transverse regime, with
+$\delta g^{(2)} \sim 0.15$, this requires $N \sim 50$ coincidences in the
+peak — demanding but not unreasonable for bright AGN targets with modern
+photon-counting arrays.
+The corresponding Siegert discrepancy $\mathcal{S}(0) = \delta g^{(2)}$
+imposes the same detectability condition and can be measured simultaneously
+from the same dataset, providing an internal consistency check between the
+two signatures.
 
 % ==============================================================
 \section{Discussion}
@@ -437,69 +660,114 @@ In the correlated regime $\Phi_{\rm eff}\to 1$ one recovers the earlier 1D predi
 % ==============================================================
 
 \subsection{Pure-phase cancellation vs arrival-time jitter}
-The original motivation for temporal HBT foam constraints relies on the fact that intensity correlations are insensitive to a \emph{strictly} pure phase modulation of a single-mode field: if the foam affects only the phase and does not produce arrival-time jitter (and does not couple phase to intensity through wavefront distortion), then the predicted $g^{(2)}(\tau)$ is unchanged.
+
+Intensity correlations are insensitive to a \emph{strictly} pure phase
+modulation of a single-mode field: if the foam affects only the phase without
+producing arrival-time jitter, the predicted $g^{(2)}(\tau)$ is unchanged.
 In this work we explicitly include the arrival-time jitter mechanism.
-Transverse foam fluctuations only matter insofar as they make the jitter ray-dependent and reduce the transverse coherence factor $\Phi$ between different rays contributing to the detected correlation.
+Transverse foam fluctuations matter insofar as they make the jitter
+ray-dependent and reduce the transverse coherence factor $\Phi$ between
+different rays contributing to the detected correlation.
 
 \subsection{Extended sources and the transverse coherence criterion}
-The key new result is that the relevant decoherence channel is controlled by
-\[
-1- C_\alpha(\tau;D)\,\Phi\!\left(\frac{b}{r_\perp}\right).
-\]
-Thus, even if the temporal foam correlation length yields significant time decorrelation, the foam's ability to suppress the HBT bunching peak depends on whether the transverse coherence of the foam is large enough to keep different rays correlated.
 
-In particular:
+The relevant decoherence channel is controlled by
+\[
+  1 - C_\alpha(\tau;D)\,\Phi\!\left(\frac{b}{r_\perp}\right).
+\]
+Even if the temporal foam correlation length yields significant time
+decorrelation, the foam's ability to suppress the HBT bunching peak depends on
+whether the transverse coherence of the foam is large enough to keep different
+rays correlated:
 \begin{itemize}
-\item If $r_\perp \gg \ell(D)\Delta\theta$, then $\Phi\approx 1$ over the angular support and the extended source reduces to an effective point-source foam response.
-\item If $r_\perp \ll \ell(D)\Delta\theta$, then $\Phi\approx 0$ for typical ray separations and the extended-source case experiences increased effective jitter, further broadening and suppressing $g^{(2)}(\tau)-1$.
+  \item If $r_\perp \gg \ell(D)\Delta\theta$, then $\Phi \approx 1$ over the
+    angular support and the extended source reduces to an effective point-source
+    foam response.
+  \item If $r_\perp \ll \ell(D)\Delta\theta$, then $\Phi \approx 0$ for typical
+    ray separations and the extended-source case experiences increased effective
+    jitter, further broadening and suppressing $g^{(2)}(\tau) - 1$.
 \end{itemize}
 
 \subsection{Limitations}
+
 This formulation is phenomenological in two places:
-(i) the Ng--Perlman scaling for single-ray variance through $A_\alpha$,
-and (ii) the factorized temporal/transverse closure Eq.~\eqref{eq:twoRayCovariance}.
-Future work should derive $\Phi$ and its relation to microscopic foam correlation properties.
-Additionally, the angular weighting function $W(\boldsymbol{\theta},\boldsymbol{\theta}')$ depends on the detection mode and source brightness distribution; a fully realistic prediction requires specifying observational configuration (e.g. coupling into a single-mode fiber vs imaging camera, telescope PSF, and source angular structure).
+(i) the Ng--Perlman scaling for single-ray variance through $A_\alpha$, and
+(ii) the factorized temporal/transverse covariance closure.
+Future work should derive $\Phi$ and its relation to microscopic foam
+correlation properties.
+Additionally, $W(\boldsymbol{\theta},\boldsymbol{\theta}')$ depends on the
+detection mode and source brightness distribution; a fully realistic prediction
+requires specifying the observational configuration (e.g.\ coupling into a
+single-mode fiber vs.\ imaging camera, telescope PSF, and source angular
+structure).
 
 \subsection{Next steps}
+
 To complete an observational program, one should:
-(i) build a model of $W$ for a given instrument and source,
-(ii) adopt or derive plausible foam transverse correlation models $\Phi(u)$,
-(iii) compute $g^{(2)}_{\rm obs}(\tau)$ in either the full mixture form Eq.~\eqref{eq:g2AngAveragedFinal} or under the effective Gaussian approximation Eq.~\eqref{eq:sigmaTauEffDef},
-and (iv) compare predicted bunching suppression/broadening against measured temporal HBT peaks.
+(i) build a model of $W$ for a given instrument and source;
+(ii) adopt or derive plausible foam transverse correlation models $\Phi(u)$;
+(iii) compute $g^{(2)}_{\rm obs}(\tau)$ in either the full mixture form or
+under the effective Gaussian approximation;
+(iv) measure $\mathcal{S}(\tau)$ jointly with the observed power spectrum; and
+(v) compare predicted bunching suppression/broadening and Siegert discrepancy
+against observations across sources of varying redshift and angular size.
 
 % ==============================================================
 \section{Conclusions}
 \label{sec:conclusions}
 % ==============================================================
 
-We presented a dimensionally consistent formalism for temporal HBT constraints on spacetime foam that incorporates both temporal and transverse foam fluctuations.
-The core mechanism is photon arrival-time jitter generated by accumulated path-length fluctuations.
-We derived the variance of the differential arrival-time jitter between two rays:
-\[
-\sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
-=
-\frac{2\sigma_\ell^2(D)}{c^2}
-\left[
-1- C_\alpha(\tau;D)\,
-\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)
-\right],
-\]
-with $\sigma_\ell^2(D)=A_\alpha[\ell(D)]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}$.
-The observed correlation is an angularly averaged convolution of the intrinsic source correlation with the jitter kernel:
-\[
-g^{(2)}_{\rm obs}(\tau)-1
-=
-\iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-W(\boldsymbol{\theta},\boldsymbol{\theta}')
-\int d\Delta\,
-p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)\,
-\big[g^{(2)}_{\rm src}(\tau+\Delta)-1\big].
-\]
+We have presented a dimensionally consistent formalism for temporal HBT
+constraints on spacetime foam that incorporates both single-ray path fluctuations
+and transverse foam fluctuations across extended sources, and have identified
+two distinct observational signatures.
 
-In the limit of large transverse foam coherence across the source ($\Phi\approx 1$), the prediction reduces to the earlier line-of-sight (1D) result.
-When transverse foam coherence is small ($\Phi\approx 0$), extended sources experience enhanced effective jitter, broadening and suppressing the HBT bunching peak.
-Pure-phase, strictly single-mode foam leaves $g^{(2)}(\tau)$ unchanged; observable effects require arrival-time jitter and/or phase-to-amplitude coupling mechanisms.
+The first signature — violation of the Siegert relation — arises from the
+asymmetry between how foam modifies first- and second-order coherence.
+The single-ray path variance $\sigma_\ell^2(D) = A_\alpha[\ell^{(D)}]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}$
+broadens the observed power spectrum through a single-ray jitter kernel, while
+the differential jitter between photon pairs broadens $g^{(2)}_{\rm obs}$
+through a distinct kernel depending on $C_\alpha(\tau;D)$.
+The discrepancy
+\[
+  \mathcal{S}(\tau)
+  \equiv \left|g^{(1)}_{\rm obs}(\tau)\right|^2
+         - \left[g^{(2)}_{\rm obs}(\tau) - 1\right] \geq 0
+\]
+is a direct foam observable, independent of the unknown intrinsic source
+spectrum, with amplitude and shape encoding $\alpha$, $D$, and $C_\alpha(\tau;D)$.
+
+The second signature — suppression of the zero-lag bunching peak for extended
+sources — arises from transverse foam fluctuations.
+The differential arrival-time jitter between ray pairs is
+\[
+  \sigma_{\Delta}^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
+  = \frac{2\sigma_\ell^2(D)}{c^2}
+    \left[1 - C_\alpha(\tau;D)\,
+          \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}
+               \right)\right],
+\]
+and the observed correlation is an angularly averaged convolution
+\[
+  g^{(2)}_{\rm obs}(\tau) - 1
+  = \iint d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
+    W(\boldsymbol{\theta},\boldsymbol{\theta}')
+    \int d\Delta\,
+    p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)\,
+    \big[g^{(2)}_{\rm src}(\tau+\Delta) - 1\big].
+\]
+When transverse foam coherence is large ($\Phi_{\rm eff} \approx 1$), the
+prediction reduces to the 1D result and $g^{(2)}_{\rm obs}(0) = 2$.
+When transverse foam coherence is small ($\Phi_{\rm eff} \approx 0$), extended
+sources experience a suppression $\delta g^{(2)} = 1 - [1+(\sigma_0/\tau_c)^2]^{-1/2}$
+that correlates with source angular size — a signature largely free of
+astrophysical degeneracies.
+For the random-walk model ($\alpha = 1/2$) at $D = 1$~Gpc, the suppression
+can reach $\sim 15\%$ in the maximally incoherent transverse regime, in
+principle detectable with modern photon-counting arrays targeting bright AGN.
+Pure-phase, strictly single-mode foam leaves $g^{(2)}(\tau)$ unchanged;
+observable effects require arrival-time jitter and/or phase-to-amplitude
+coupling mechanisms.
 
 % ==============================================================
 \begin{acknowledgments}
@@ -515,32 +783,38 @@ Pure-phase, strictly single-mode foam leaves $g^{(2)}(\tau)$ unchanged; observab
 
 Here we discuss conditions under which the path-aggregate variance
 \[
-\sigma_\ell^2(D)=\int_0^{\ell(D)}ds\int_0^{\ell(D)}ds'\,S(s,s')
+  \sigma_\ell^2(D)
+  = \int_0^{\ell(D)} ds \int_0^{\ell(D)} ds'\, S(s,s')
 \]
 inherits the Ng--Perlman single-point scaling
-\[
-\sigma_\ell^2(D)=A_\alpha[\ell(D)]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}.
-\]
-In this work we treat $A_\alpha$ phenomenologically; for completeness we summarize key correlation-structure considerations.
+$\sigma_\ell^2(D) = A_\alpha[\ell(D)]^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}$.
+In this work we treat $A_\alpha$ phenomenologically; for completeness we
+summarize key correlation-structure considerations.
 
 \subsection{Short-range correlations (white-noise limit)}
-If the foam fluctuation density $\eta(s,t)$ has a finite correlation length $\xi$ along the line of sight, and
+
+If the foam fluctuation density $\eta(s,t)$ has a finite correlation length
+$\xi$ along the line of sight, and
 \[
-S(s,s')=\sigma_0^2 f\!\left(\frac{|s-s'|}{\xi}\right),
-\qquad f(0)=1,\qquad \int_0^\infty f(u)\,du=1,
+  S(s,s') = \sigma_0^2\,f\!\left(\frac{|s-s'|}{\xi}\right),
+  \qquad f(0) = 1, \qquad \int_0^\infty f(u)\,du = 1,
 \]
-then for $\ell(D)\gg\xi$,
+then for $\ell(D) \gg \xi$,
 \[
-\sigma_\ell^2(D)\approx \sigma_0^2\,\xi\,\ell(D),
+  \sigma_\ell^2(D) \approx \sigma_0^2\,\xi\,\ell(D),
 \]
-which corresponds to random-walk growth $\alpha=1/2$ when $\sigma_0^2\xi\sim A_{1/2}\ell_{\rm P}$.
+which corresponds to random-walk growth $\alpha = 1/2$ when
+$\sigma_0^2\xi \sim A_{1/2}\ell_{\rm P}$.
 
 \subsection{Long-range correlations and other $\alpha$ values}
-For correlations of the power-law form $S(u)\propto u^{-\beta}$ with $0<\beta<1$,
-the double integral scales as $\sigma_\ell^2\propto \ell(D)^{2-\beta}$.
-Matching $2(1-\alpha)=2-\beta$ gives $\beta=2\alpha$.
-Thus, for sub-random-walk $\alpha>1/2$ one requires long-range/anticorrelated structures such that the effective integral scaling decreases relative to the $\alpha=1/2$ baseline.
 
+For correlations of the power-law form $S(u) \propto u^{-\beta}$ with
+$0 < \beta < 1$, the double integral scales as
+$\sigma_\ell^2 \propto \ell(D)^{2-\beta}$.
+Matching $2(1-\alpha) = 2-\beta$ gives $\beta = 2\alpha$.
+Thus, for $\alpha > 1/2$ (slower-than-random-walk growth) one requires
+long-range or anticorrelated structures such that the effective integral
+scaling decreases relative to the $\alpha = 1/2$ baseline.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
