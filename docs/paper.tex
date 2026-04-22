@@ -25,16 +25,21 @@ Ng--Perlman exponent $\alpha$.
 In the narrow-band limit, foam-induced arrival-time jitter suppresses the
 observed first-order coherence by $e^{-\sigma_\phi^2[1-C_\alpha(\tau)]}$
 (where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$) while leaving the
-second-order coherence unchanged for a point source, producing a
-Siegert violation
-$\mathcal{S}(\tau) = |g^{(1)}_{\rm src}|^2(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}) \geq 0$
-that encodes $\alpha$ and $D$ independently of the source spectrum.
+second-order coherence unchanged for a point source \emph{to leading order},
+producing a Siegert violation
+$\mathcal{S}(\tau) = |g^{(1)}_{\rm src}(\tau)|^2\!\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}\right)
+\geq 0$.
+Here the foam-dependent factor $1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$ encodes
+$\alpha$ and $D$ independently of the intrinsic source spectrum; the overall
+scale is set by the intrinsic $|g^{(1)}_{\rm src}(\tau)|^2$.
 For extended sources, photon pairs from directions separated by more than
 the transverse foam coherence length $r_\perp$ accumulate independent jitters,
 suppressing the zero-lag bunching peak by
 $\delta g^{(2)} = 1 - e^{2s^2}\mathrm{erfc}(\sqrt{2}\,s)$
-(where $s=\sigma_0/\tau_c$) in a way that grows with source angular size
-and directly probes $r_\perp$; the Siegert discrepancy at zero lag becomes
+(where $s=\sigma_0/\tau_c$) \emph{within the effective-transverse-coherence reduction},
+in a way that grows with source angular size and directly probes $r_\perp$
+(for the assumed Lorentzian/thermal coherence time $\tau_c$).
+Within the same approximation, the Siegert discrepancy at zero lag becomes
 $\mathcal{S}(0)=-\delta g^{(2)}<0$, distinct from the point-source case.
 The fringe-erasure condition of Lieu \& Hillman and the Strehl-ratio suppression
 of Ng \& Perlman are recovered as limiting cases, with temporal HBT less
@@ -367,21 +372,34 @@ The structure is identical to Eq.~\eqref{eq:g1obs}: both $g^{(1)}_{\rm obs}$
 and $g^{(2)}_{\rm obs}$ are convolutions of their intrinsic counterparts
 with the \emph{same} Gaussian jitter kernel.
 
-\subsection{Narrow-Band Limit: $g^{(2)}$ is Unchanged}
+\subsection{Narrow-Band Limit: $g^{(2)}$ is Unchanged to Leading Order}
 
 In the narrow-band limit, the jitter $\delta t \ll \tau_c$ does not affect
-the amplitude envelope $A(t)$.
-Since intensity $I_{\rm obs}(t) = |E_{\rm obs}(t)|^2 = |A(t)|^2 = I_{\rm src}(t)$,
-the intensity statistics are identical to the intrinsic source:
+the amplitude envelope $A(t)$ appreciably.
+Since the field is
+$E_{\rm obs}(t)=A(t)\,e^{-i\omega_0 t}\,e^{i\omega_0\delta t(t)}$
+(with $A(t-\delta t)\approx A(t)$ for slow envelope variations), the intensity is
 \begin{equation}
-  g^{(2)}_{\rm obs}(\tau) = g^{(2)}_{\rm src}(\tau) \qquad
-  \text{(narrow-band limit, exactly)}.
+  I_{\rm obs}(t)=|E_{\rm obs}(t)|^2=|A(t-\delta t(t))|^2 .
+\end{equation}
+In the limit $\delta t/\tau_c\to 0$ we may set $A(t-\delta t)\approx A(t)$,
+so that to leading order
+\begin{equation}
+  I_{\rm obs}(t)\approx |A(t)|^2=I_{\rm src}(t).
+\end{equation}
+Consequently, the intensity statistics agree with the intrinsic source
+to leading order in the narrow-band expansion:
+\begin{equation}
+  g^{(2)}_{\rm obs}(\tau) = g^{(2)}_{\rm src}(\tau)
+  \qquad \text{(narrow-band limit, to leading order)} ,
   \label{eq:g2unchanged}
 \end{equation}
+with corrections controlled by the small envelope-time shifts (equivalently by
+$\sigma_\Delta(\tau)/\tau_c$).
+
 The physical reason is that intensity is blind to the carrier phase
-$e^{i\omega_0\delta t(t)}$: a timing jitter that shifts the wavepacket by
-$\delta t \ll \tau_c$ does not change the envelope shape, only the phase of
-the underlying oscillation.
+$e^{i\omega_0\delta t(t)}$: carrier-phase modulation does not affect
+$|E_{\rm obs}(t)|^2$.
 By contrast, $g^{(1)}$ \emph{is} sensitive to this phase because
 $\omega_0\delta t \sim \omega_0\sigma_\ell/c = \sigma_\phi$ can be large
 even when $\delta t \ll \tau_c$: for $\alpha=1/2$ at $D=1$~Gpc and
@@ -421,18 +439,14 @@ cross-ray differential jitter can drive $\mathcal{S}(0)<0$
 (see Section~\ref{sec:extended}).
 
 \subsection{Explicit Form in the Narrow-Band Limit}
-
-In the narrow-band limit, $g^{(2)}_{\rm obs} = g^{(2)}_{\rm src}$ exactly
-(Eq.~\ref{eq:g2unchanged}), while $g^{(1)}_{\rm obs}$ is suppressed by
-$\mathcal{F}_{\rm foam}(\tau)$ (Eq.~\ref{eq:g1narrowband}).
-Using the intrinsic Siegert relation
-$g^{(2)}_{\rm src}(\tau)-1 = |g^{(1)}_{\rm src}(\tau)|^2$:
-\begin{equation}
-  \boxed{\mathcal{S}(\tau)
-    = \left|g^{(1)}_{\rm src}(\tau)\right|^2
-      \left(1 - e^{-2\sigma_\phi^2[1-C_\alpha(\tau;D)]}\right).}
-  \label{eq:S_explicit}
-\end{equation}
+In the narrow-band limit, $g^{(2)}_{\rm obs} \approx g^{(2)}_{\rm src}$ to leading order
+(from Eq.~\eqref{eq:g2unchanged}), while $g^{(1)}_{\rm obs}$ is suppressed by $F_{\rm foam}(\tau)$
+(Eq.~\eqref{eq:g1obsfoam}).
+Using the intrinsic Siegert relation $g^{(2)}_{\rm src}(\tau)-1=|g^{(1)}_{\rm src}(\tau)|^2$,
+to leading order
+\[
+S(\tau)\approx |g^{(1)}_{\rm src}(\tau)|^2\!\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau;D)]}\right).
+\]
 
 \subsection{Properties}
 
@@ -717,7 +731,7 @@ controlled by $\sigma_\phi^2$ and $C_\alpha(\tau;D)$ alone, probing
 $\alpha$ and $D$ with no sensitivity to $r_\perp$.
 For an extended source, $\mathcal{S}(\tau)$ acquires additional dependence on
 $r_\perp$ through the cross-ray differential jitter: at $\tau=0$ this is
-captured exactly by $\mathcal{S}(0)=-\delta g^{(2)}$, which depends on
+captured (within the $\Phi_{\rm eff}$ reduction) by $\mathcal{S}(0)=-\delta g^{(2)}$, which depends on
 $\Phi_{\rm eff}$ and hence on $r_\perp$.
 The bunching suppression $\delta g^{(2)}$ is controlled by
 $\sigma_0^2\propto\sigma_\ell^2(D)(1-\Phi_{\rm eff})$, providing a direct
