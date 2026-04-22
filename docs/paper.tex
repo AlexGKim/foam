@@ -19,34 +19,16 @@
 \date{\today}
 
 \begin{abstract}
-We derive the first- and second-order coherence functions for light from point
-and extended sources propagating through spacetime foam parametrized by the
-Ng--Perlman exponent $\alpha$.
-In the narrow-band limit, foam-induced arrival-time jitter suppresses the
-observed first-order coherence by $e^{-\sigma_\phi^2[1-C_\alpha(\tau)]}$
-(where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$) while leaving the
-second-order coherence unchanged for a point source \emph{to leading order},
-producing a Siegert violation
-$\mathcal{S}(\tau) = |g^{(1)}_{\rm src}(\tau)|^2\!\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}\right)
-\geq 0$.
-Here the foam-dependent factor $1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$ encodes
-$\alpha$ and $D$ independently of the intrinsic source spectrum; the overall
-scale is set by the intrinsic $|g^{(1)}_{\rm src}(\tau)|^2$.
-For extended sources, photon pairs from directions separated by more than
-the transverse foam coherence length $r_\perp$ accumulate independent jitters,
-suppressing the zero-lag bunching peak by
-$\delta g^{(2)} = 1 - e^{2s^2}\mathrm{erfc}(\sqrt{2}\,s)$
-(where $s=\sigma_0/\tau_c$) \emph{within the effective-transverse-coherence reduction},
-in a way that grows with source angular size and directly probes $r_\perp$
-(for the assumed Lorentzian/thermal coherence time $\tau_c$).
-Within the same approximation, the Siegert discrepancy at zero lag becomes
-$\mathcal{S}(0)=-\delta g^{(2)}<0$, distinct from the point-source case.
-The fringe-erasure condition of Lieu \& Hillman and the Strehl-ratio suppression
-of Ng \& Perlman are recovered as limiting cases, with temporal HBT less
-sensitive than imaging by a factor $\Delta\lambda/\lambda$.
-Joint measurements of the Siegert discrepancy and bunching suppression across
-sources of varying redshift and angular size constrain
-$\{\alpha,\sigma_\ell(D),r_\perp\}$ simultaneously.
+We study first- and second-order coherence of light from point and extended sources
+propagating through spacetime foam characterized by the Ng--Perlman exponent $\alpha$.
+In the narrow-band regime, arrival-time jitter suppresses temporal first-order coherence and
+produces a Siegert violation whose foam dependence encodes $\alpha$ and the
+line-of-sight path-length scale $\sigma_\ell(D)$.
+For extended sources, transverse foam coherence introduces an additional suppression of the
+zero-lag Hanbury Brown--Twiss bunching peak that directly probes the transverse coherence
+length $r_\perp$.
+Joint measurements of the Siegert discrepancy and zero-lag bunching suppression across sources
+of different angular size and redshift can constrain $\{\alpha,\sigma_\ell(D),r_\perp\}$ simultaneously.
 \end{abstract}
 
 \maketitle
@@ -106,10 +88,11 @@ $\tau$:
   \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t).
   \label{eq:DeltaDef}
 \end{equation}
-By stationarity, the statistics of $\Delta(\tau)$ depend only on $\tau$.
+For a fixed propagation distance $D$, stationarity implies that the
+statistics of $\Delta(\tau)$ depend only on $\tau$.
 Its variance follows directly from Eq.~\eqref{eq:pathcov}:
 \begin{align}
-  \sigma_\Delta^2(\tau)
+  \sigma_\Delta^2(\tau;D)
   &\equiv \langle \Delta(\tau)^2 \rangle \notag \\
   &= \frac{1}{c^2}\big\langle
      [\Delta\ell_{\rm tot}(t+\tau) - \Delta\ell_{\rm tot}(t)]^2
@@ -119,15 +102,22 @@ Its variance follows directly from Eq.~\eqref{eq:pathcov}:
 \end{align}
 Because $\Delta(\tau)$ is a sum of contributions from many weakly correlated
 foam cells, the central limit theorem implies it is Gaussian with zero mean.
-We therefore write its probability density as
+We therefore write its conditional probability density (at fixed $D$) as
 \begin{equation}
-  p(\Delta;\tau) = \frac{1}{\sqrt{2\pi}\,\sigma_\Delta(\tau)}
-    \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau)}\right).
+  p(\Delta;\tau,D) = \frac{1}{\sqrt{2\pi}\,\sigma_\Delta(\tau;D)}
+    \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau;D)}\right).
   \label{eq:kernel}
 \end{equation}
-Note the two limits: $\sigma_\Delta^2(0) = 0$ (no jitter between simultaneous
-arrivals) and $\sigma_\Delta^2(\infty) = 2\sigma_\ell^2(D)/c^2$ (maximal
+Note the two limits:
+$\sigma_\Delta^2(0;D) = 0$ (no jitter between simultaneous
+arrivals) and
+$\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2$ (maximal
 decorrelation at large lag).
+
+For notational compactness in subsequent sections, we suppress the explicit
+$D$-dependence and write $C_\alpha(\tau)\equiv C_\alpha(\tau;D)$ and
+$\sigma_\Delta(\tau)\equiv \sigma_\Delta(\tau;D)$ (similarly for any other
+$D$-dependent quantity).
 
 % ==============================================================
 \section{First-Order Coherence}
@@ -240,11 +230,11 @@ At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
 At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2}$.
 
 % ==============================================================
-\section{Connection to Fringe Visibility and Strehl Ratio}
+\subsection{Connection to Fringe Visibility and Strehl Ratio}
 \label{sec:connection}
 % ==============================================================
 
-\subsection{Fringe Visibility and the Lieu--Hillman Condition}
+\subsubsection{Fringe Visibility and the Lieu--Hillman Condition}
 
 The fringe visibility measured in a stellar interferometer at time delay $\tau$
 is $V(\tau) = |g^{(1)}_{\rm obs}(\tau)|$.
@@ -265,7 +255,7 @@ precisely $\sigma_\phi \geq 1$.
 Our result extends this binary criterion to a continuous suppression curve
 $V(\tau)$ whose shape encodes the temporal decorrelation $C_\alpha(\tau;D)$.
 
-\subsection{Strehl Ratio}
+\subsubsection{Strehl Ratio}
 
 For spatially uncorrelated phase noise of rms $\sigma_\phi$ across the
 telescope aperture, the Strehl ratio (ratio of the observed PSF peak to the
@@ -288,47 +278,6 @@ The difference is observational channel: Strehl and fringes probe the
 $g^{(1)}$ probes the \emph{temporal} phase variation along a single ray
 as a function of lag.
 
-\subsection{Why Temporal HBT is Less Sensitive}
-
-In the narrow-band limit the relevant sensitivity parameter for the temporal
-measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
-Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ (physics convention) and
-$\omega_0 = 2\pi c/\lambda$, so $\omega_0\tau_c = \lambda/\Delta\lambda$:
-\begin{equation}
-  \frac{\sigma_\Delta(\tau)}{\tau_c}
-  = \frac{\sqrt{2[1-C_\alpha(\tau)]}\,\sigma_\ell(D)}{c\tau_c}
-  = \frac{\sigma_\phi}{\omega_0\tau_c}\cdot\sqrt{2[1-C_\alpha(\tau)]}
-  = \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha(\tau)]}.
-  \label{eq:ratio}
-\end{equation}
-The suppression factor $\Delta\lambda/\lambda \ll 1$ means that even when
-$\sigma_\phi \gg 1$ (fringes erased), the temporal HBT ratio can be of order
-unity or smaller.
-
-\begin{table}[h]
-\centering
-\caption{Comparison of foam observables at $D=1$~Gpc, $\lambda=500$~nm,
-         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$.}
-\begin{tabular}{lcc}
-\toprule
-Method & Probe & Sensitivity \\
-\midrule
-Strehl / Lieu--Hillman & $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ & Direct \\
-Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{2[1-C_\alpha(\tau)]}\cdot\Delta\lambda/\lambda$ & Suppressed by $\Delta\lambda/\lambda$ \\
-\bottomrule
-\end{tabular}
-\label{tab:comparison}
-\end{table}
-
-For $\alpha=1/2$ at $D=1$~Gpc with $A_\alpha=1$:
-$\sigma_\ell = \sqrt{\ell_{\rm P}\,\ell^{(D)}} \approx 2.2\times10^{-5}$~m,
-giving $\sigma_\phi \approx 280$ (fringes completely erased at $\sigma_\phi\gg 1$),
-while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and
-$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$
-(marginally accessible to HBT).
-This reflects the fact that phase-coherence constraints already rule
-out $\alpha=1/2$ at optical wavelengths~\cite{Perlman2015}, whereas the
-temporal HBT signature for the same model is only at the edge of detectability.
 
 % ==============================================================
 \section{Second-Order Coherence}
@@ -405,12 +354,58 @@ $\omega_0\delta t \sim \omega_0\sigma_\ell/c = \sigma_\phi$ can be large
 even when $\delta t \ll \tau_c$: for $\alpha=1/2$ at $D=1$~Gpc and
 $\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
 
+\subsection{Why Temporal Second-Order Correlations are Less Sensitive to First-Order Effects}
+Although the narrow-band jitter leaves $g^{(2)}$ for a point source unchanged at leading order, any observable foam signature in a temporal second-order measurement is controlled by the residual differential-jitter scale $\sigma_\Delta(\tau)$ relative to the source coherence time $\tau_c$.
+In the narrow-band limit the relevant sensitivity parameter for the temporal
+measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
+Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ (physics convention) and
+$\omega_0 = 2\pi c/\lambda$, so $\omega_0\tau_c = \lambda/\Delta\lambda$:
+\begin{equation}
+  \frac{\sigma_\Delta(\tau)}{\tau_c}
+  = \frac{\sqrt{2[1-C_\alpha(\tau)]}\,\sigma_\ell(D)}{c\tau_c}
+  = \frac{\sigma_\phi}{\omega_0\tau_c}\cdot\sqrt{2[1-C_\alpha(\tau)]}
+  = \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha(\tau)]}.
+  \label{eq:ratio}
+\end{equation}
+The suppression factor $\Delta\lambda/\lambda \ll 1$ means that even when
+$\sigma_\phi \gg 1$ (fringes erased), the temporal HBT ratio can be of order
+unity or smaller.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of foam observables at $D=1$~Gpc, $\lambda=500$~nm,
+         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$.}
+\begin{tabular}{lcc}
+\toprule
+Method & Probe & Sensitivity \\
+\midrule
+Strehl / Lieu--Hillman & $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ & Direct \\
+Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{2[1-C_\alpha(\tau)]}\cdot\Delta\lambda/\lambda$ & Suppressed by $\Delta\lambda/\lambda$ \\
+\bottomrule
+\end{tabular}
+\label{tab:comparison}
+\end{table}
+
+For $\alpha=1/2$ at $D=1$~Gpc with $A_\alpha=1$:
+$\sigma_\ell = \sqrt{\ell_{\rm P}\,\ell^{(D)}} \approx 2.2\times10^{-5}$~m,
+giving $\sigma_\phi \approx 280$ (fringes completely erased at $\sigma_\phi\gg 1$),
+while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and
+$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$
+(marginally accessible to HBT).
+This reflects the fact that phase-coherence constraints already rule
+out $\alpha=1/2$ at optical wavelengths~\cite{Perlman2015}, whereas the
+temporal HBT signature for the same model is only at the edge of detectability.
+
+
 % ==============================================================
 \section{Siegert Relation Violation}
 \label{sec:siegert}
 % ==============================================================
 
 \subsection{General Bound}
+A foundational result for thermal/chaotic light is the Siegert relation, which connects the second-order (intensity–intensity) coherence to the first-order (field–field) coherence: for stationary complex Gaussian fields one has
+$g^{(2)}(\tau)-1 = |g^{(1)}(\tau)|^2$.
+In practice, this means that once $g^{(1)}$ is known, the expected $g^{(2)}$ is fixed, providing a powerful internal consistency check on the underlying statistical assumptions. Systems that do not follow the Siegert relation are therefore of special interest: they signal the presence of nontrivial propagation or measurement physics—e.g., non-Gaussianity, mode mixing, or additional stochastic phase/amplitude processes—that can decouple intensity correlations from field coherence. Such Siegert violations offer a route to probe otherwise hidden dynamics with a self-referential observable, making them particularly valuable in contexts where conventional first-order coherence tests are insensitive or ambiguous.
 
 Define the Siegert discrepancy:
 \begin{equation}
