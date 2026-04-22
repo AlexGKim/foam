@@ -27,8 +27,11 @@ line-of-sight path-length scale $\sigma_\ell(D)$.
 For extended sources, transverse foam coherence introduces an additional suppression of the
 zero-lag Hanbury Brown--Twiss bunching peak that directly probes the transverse coherence
 length $r_\perp$.
-Joint measurements of the Siegert discrepancy and zero-lag bunching suppression across sources
-of different angular size and redshift can constrain $\{\alpha,\sigma_\ell(D),r_\perp\}$ simultaneously.
+We develop the theoretical framework through which joint measurements of the Siegert
+discrepancy and zero-lag bunching suppression across sources of different angular size
+and redshift could constrain $\{\alpha,\sigma_\ell(D),r_\perp\}$ simultaneously,
+and identify the distance scaling and achromaticity as discriminants against conventional
+propagation phase screens.
 \end{abstract}
 
 \maketitle
@@ -51,36 +54,72 @@ where $E_{\rm src}(t)$ is a stationary zero-mean complex Gaussian process
 arrival-time jitter, a stationary stochastic process statistically independent
 of $E_{\rm src}$.
 The jitter arises from cumulative path-length fluctuations along the
-line of sight of length $\ell^{(D)}$:
+line of sight of propagation distance $D$:
 \begin{equation}
-  \delta t(t) = \frac{1}{c}\,\Delta\ell^{(D)}_{\rm tot}(t).
+  \delta t(t) = \frac{1}{c}\,\Delta\ell_{\rm tot}(t).
   \label{eq:jitter}
 \end{equation}
+In the geometric-optics limit the path-length shift $\Delta\ell_{\rm tot}$
+is a purely geometric quantity and hence frequency-independent (achromatic),
+in contrast to plasma dispersion which scales as $\lambda^2$.
+This achromaticity is a key discriminant between foam and conventional
+propagation effects (see Section~\ref{sec:discriminant}).
 
 \subsection{Ng--Perlman Variance and Temporal Covariance}
 
 Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001}, the
 single-ray path-length variance obeys the power-law scaling
 \begin{equation}
-  \sigma_\ell^2(D) = A_\alpha\,[\ell^{(D)}]^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
+  \sigma_\ell^2(D) = A_\alpha\,D^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
   \label{eq:NgPerlmanVar}
 \end{equation}
 where $\ell_{\rm P} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m is the
 Planck length, $\alpha$ parametrizes the foam model
 ($\alpha=1$: conservative; $\alpha=2/3$: holographic; $\alpha=1/2$: random walk),
 and $A_\alpha$ is a dimensionless coefficient of order unity.
-The temporal covariance of the aggregate path-length fluctuation along a single
+The two-time covariance of the aggregate path-length fluctuation along a single
 ray takes the factorized form
 \begin{equation}
-  \big\langle \Delta\ell^{(D)}_{\rm tot}(t)\,
-              \Delta\ell^{(D)}_{\rm tot}(t+\tau) \big\rangle
+  \big\langle \Delta\ell_{\rm tot}(t)\,
+              \Delta\ell_{\rm tot}(t+\tau) \big\rangle
   = \sigma_\ell^2(D)\,C_\alpha(\tau;D),
   \label{eq:pathcov}
 \end{equation}
-where the temporal decorrelation function $C_\alpha(\tau;D)$ satisfies
-$C_\alpha(0;D) = 1$ and decays to zero as $\tau\to\infty$.
+where $C_\alpha(\tau;D)$ satisfies $C_\alpha(0;D) = 1$ and decays to zero as
+$\tau\to\infty$.
+
+\subsection{Physical Origin of $C_\alpha(\tau;D)$}
+
+Two photons emitted by the source at times $t$ and $t+\tau$ travel along
+light paths that are spatially offset by $\sim c\tau$ near the source end of
+the line of sight.
+As they traverse the foam they therefore sample \emph{different} spatial
+realizations of the path-length fluctuation field.
+Consequently, $C_\alpha(\tau;D)$ is the normalized longitudinal
+(line-of-sight) spatial autocorrelation of the foam path-length field,
+evaluated at a spatial separation $c\tau$ along the propagation direction.
+It decorrelates on the timescale $\tau_{\rm foam} = \xi_\parallel/c$,
+where $\xi_\parallel$ is the longitudinal foam correlation length.
+
+This interpretation has an important limiting case: if the foam is
+\emph{quasi-static} on all observation timescales, i.e.\ $\xi_\parallel \gg D$,
+then $C_\alpha(\tau) \approx 1$ for all $\tau$ of interest, $\sigma_\Delta^2 \to 0$,
+and every temporal foam observable constructed below vanishes.
+In this limit the measurements place a \emph{lower bound} on $\xi_\parallel$
+rather than detecting a temporal signal directly.
+The temporal program of this paper is therefore simultaneously a probe of
+$\{\alpha,\sigma_\ell(D)\}$ and of the longitudinal foam correlation length
+$\xi_\parallel$.
+
+The CLT argument of Section~\ref{sec:differential_jitter} requires the elementary
+foam cells contributing to $\Delta\ell_{\rm tot}$ to be approximately independent.
+This holds when the scale of interest ($c\tau$ or the transverse baseline $b$) exceeds
+the cell correlation lengths $\xi_\parallel$ and $r_\perp$;
+if correlation lengths are comparable to $D$ the cells are not independent and
+the Gaussian approximation for $\Delta(\tau)$ may acquire non-Gaussian tails.
 
 \subsection{Differential Jitter and Its Distribution}
+\label{sec:differential_jitter}
 
 Define the differential jitter between two detection times separated by lag
 $\tau$:
@@ -217,7 +256,7 @@ Substituting $\omega_0 = 2\pi c/\lambda$ and Eq.~\eqref{eq:diffVar}:
 where we define the rms accumulated phase
 \begin{equation}
   \sigma_\phi \equiv \frac{2\pi\,\sigma_\ell(D)}{\lambda}
-  = \frac{2\pi\,\sqrt{A_\alpha}\,[\ell^{(D)}]^{1-\alpha}\,\ell_{\rm P}^\alpha}{\lambda}.
+  = \frac{2\pi\,\sqrt{A_\alpha}\,D^{1-\alpha}\,\ell_{\rm P}^\alpha}{\lambda}.
   \label{eq:sigmaphi}
 \end{equation}
 We write the foam suppression factor as
@@ -295,6 +334,12 @@ For any complex Gaussian field the Siegert relation holds exactly, so
   = \left|g^{(1)}_{\rm obs}(\tau\mid\delta t)\right|^2.
   \label{eq:SiegertCond}
 \end{equation}
+(A subtlety: conditioned on $\delta t$, the field $E_{\rm obs}(t)$ is generally
+non-stationary, so the conditional two-time correlator depends on the absolute
+time $t$ as well as the lag $\tau$.
+The relation~\eqref{eq:SiegertCond} is applied as an instantaneous identity at
+each fixed pair $(t,t+\tau)$; stationarity is restored upon averaging over $\delta t$,
+whose statistics are by assumption stationary.)
 Given a fixed $\delta t$, the differential jitter $\Delta(\tau)$ is a
 deterministic number, so
 $g^{(1)}_{\rm obs}(\tau\mid\delta t) = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$.
@@ -323,8 +368,10 @@ with the \emph{same} Gaussian jitter kernel.
 
 \subsection{Narrow-Band Limit: $g^{(2)}$ is Unchanged to Leading Order}
 
-In the narrow-band limit, the jitter $\delta t \ll \tau_c$ does not affect
-the amplitude envelope $A(t)$ appreciably.
+The exact result for $g^{(2)}_{\rm obs}$ is the convolution Eq.~\eqref{eq:g2obs},
+which requires no approximation.
+The narrow-band simplification follows when the jitter $\delta t \ll \tau_c$
+does not appreciably shift the amplitude envelope $A(t)$.
 Since the field is
 $E_{\rm obs}(t)=A(t)\,e^{-i\omega_0 t}\,e^{i\omega_0\delta t(t)}$
 (with $A(t-\delta t)\approx A(t)$ for slow envelope variations), the intensity is
@@ -332,19 +379,21 @@ $E_{\rm obs}(t)=A(t)\,e^{-i\omega_0 t}\,e^{i\omega_0\delta t(t)}$
   I_{\rm obs}(t)=|E_{\rm obs}(t)|^2=|A(t-\delta t(t))|^2 .
 \end{equation}
 In the limit $\delta t/\tau_c\to 0$ we may set $A(t-\delta t)\approx A(t)$,
-so that to leading order
+so that to leading order in $\delta t/\tau_c$
 \begin{equation}
   I_{\rm obs}(t)\approx |A(t)|^2=I_{\rm src}(t).
 \end{equation}
 Consequently, the intensity statistics agree with the intrinsic source
-to leading order in the narrow-band expansion:
+to leading order in $\delta t/\tau_c$:
 \begin{equation}
   g^{(2)}_{\rm obs}(\tau) = g^{(2)}_{\rm src}(\tau)
-  \qquad \text{(narrow-band limit, to leading order)} ,
+  \qquad \text{(leading order in $\delta t/\tau_c$)} ,
   \label{eq:g2unchanged}
 \end{equation}
-with corrections controlled by the small envelope-time shifts (equivalently by
-$\sigma_\Delta(\tau)/\tau_c$).
+with corrections of order $(\delta t/\tau_c)^2 \sim (\sigma_\ell/c\tau_c)^2$.
+Note that $\delta t/\tau_c$ and $\sigma_\Delta/\tau_c$ are related by
+$\sigma_\Delta \leq \sqrt{2}\,\sigma_\ell/c = \sqrt{2}\,\delta t_{\rm rms}$,
+so controlling $\delta t/\tau_c$ is the fundamental expansion parameter.
 
 The physical reason is that intensity is blind to the carrier phase
 $e^{i\omega_0\delta t(t)}$: carrier-phase modulation does not affect
@@ -387,14 +436,21 @@ Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{2[1-C_\alpha(\tau)]}\cdot\D
 \end{table}
 
 For $\alpha=1/2$ at $D=1$~Gpc with $A_\alpha=1$:
-$\sigma_\ell = \sqrt{\ell_{\rm P}\,\ell^{(D)}} \approx 2.2\times10^{-5}$~m,
+$\sigma_\ell = \sqrt{\ell_{\rm P}\,D} \approx 2.2\times10^{-5}$~m,
 giving $\sigma_\phi \approx 280$ (fringes completely erased at $\sigma_\phi\gg 1$),
 while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and
-$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$
-(marginally accessible to HBT).
-This reflects the fact that phase-coherence constraints already rule
-out $\alpha=1/2$ at optical wavelengths~\cite{Perlman2015}, whereas the
-temporal HBT signature for the same model is only at the edge of detectability.
+$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$.
+The narrow-band expansion parameter is
+$\delta t_{\rm rms}/\tau_c = \sigma_\ell/(c\tau_c) \approx 0.28$,
+so corrections to Eq.~\eqref{eq:g2unchanged} are at the $\sim 8\%$ level;
+the exact convolution~\eqref{eq:g2obs} should be used for precision work.
+Critically, this case ($\alpha=1/2$) is already excluded by fringe-visibility
+measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
+For the holographic model $\alpha=2/3$ with the same parameters, $\sigma_\phi\sim 10^{-8}$,
+so all foam coherence observables are negligibly small with current instrumentation.
+The theoretical framework is therefore most useful as a basis for future constraints
+at shorter wavelengths (X-ray or near-UV), longer baselines, or next-generation
+intensity interferometers, where the sensitivity scales as $\lambda^{-1}$ and $D^{1-\alpha}$.
 
 
 % ==============================================================
@@ -436,7 +492,7 @@ cross-ray differential jitter can drive $\mathcal{S}(0)<0$
 \subsection{Explicit Form in the Narrow-Band Limit}
 In the narrow-band limit, $g^{(2)}_{\rm obs} \approx g^{(2)}_{\rm src}$ to leading order
 (from Eq.~\eqref{eq:g2unchanged}), while $g^{(1)}_{\rm obs}$ is suppressed by $F_{\rm foam}(\tau)$
-(Eq.~\eqref{eq:g1obsfoam}).
+(Eq.~\eqref{eq:g1narrowband}).
 Using the intrinsic Siegert relation $g^{(2)}_{\rm src}(\tau)-1=|g^{(1)}_{\rm src}(\tau)|^2$,
 to leading order
 \[
@@ -473,11 +529,51 @@ This asymmetry is the root cause of the Siegert violation.
 The discrepancy $\mathcal{S}(\tau)$ is a direct observable — both
 $g^{(1)}_{\rm obs}$ and $g^{(2)}_{\rm obs}$ are measurable from the same
 dataset — and carries a specific distance dependence
-$\sigma_\phi^2 \propto [\ell^{(D)}]^{2(1-\alpha)}$ that distinguishes foam
+$\sigma_\phi^2 \propto D^{2(1-\alpha)}$ that distinguishes foam
 from instrumental effects, which would not scale with source distance.
 The modulation of $\mathcal{S}(\tau)$ beyond the prefactor
 $|g^{(1)}_{\rm src}(\tau)|^2$ is controlled solely by $\alpha$, $D$, and
 $C_\alpha(\tau;D)$, independently of the unknown source spectrum.
+
+\subsection{Distinguishing Foam from Conventional Phase Screens}
+\label{sec:discriminant}
+
+The mathematical structure of Eqs.~\eqref{eq:g1narrowband}–\eqref{eq:Ffoam} is
+identical to that of any Gaussian random phase screen, including atmospheric
+turbulence, ionospheric or interstellar scintillation, and intergalactic plasma
+scattering~\cite{Carlip2023}.
+Two discriminants separate foam from these conventional sources:
+
+\paragraph{Distance scaling.}
+For spacetime foam, $\sigma_\phi^2 \propto D^{2(1-\alpha)}$
+($D^1$ for $\alpha=1/2$, $D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$).
+For a thin intervening screen the phase variance scales as $\sigma_\phi^2 \propto D$
+(linear), while for Kolmogorov turbulence distributed along the line of sight
+the variance accumulates as $D^{11/6}$~\cite{Carlip2023}.
+Measuring $\sigma_\phi(D)$ across a range of source redshifts can distinguish
+these scalings, particularly since the holographic ($\alpha=2/3$) and conservative
+($\alpha=1$) foam models predict sub-linear or flat growth — qualitatively
+different from any known astrophysical screen.
+
+\paragraph{Frequency dependence.}
+As noted in Section~\ref{sec:model}, geometric-optics foam jitter is achromatic:
+$\delta t = \Delta\ell/c$ is independent of $\lambda$.
+Plasma-based propagation effects (dispersion measure, scintillation) scale as
+$\lambda^2$, providing a clean observational discriminant when multi-wavelength
+data are available.
+Existing upper limits from Fermi and H.E.S.S.\ time-of-flight
+measurements~\cite{Fermi2009,HESS2008} already exploit the
+energy-dependence channel; the coherence-based approach is complementary.
+
+Additional observational constraints on the allowed $\alpha$ range come from
+imaging coherence measurements: Ragazzoni et al.~\cite{2003ApJ...587L...1R},
+Perlman et al.~\cite{Perlman2015}, and Christiansen et al.~\cite{Christiansen2011}
+together exclude $\alpha \lesssim 2/3$ at optical through X-ray wavelengths for
+$D \sim 1$--$10$~Gpc.
+For surviving models ($\alpha \geq 2/3$), $\sigma_\phi \ll 1$ and all foam
+coherence observables are proportionally suppressed (see Section~\ref{sec:g2}
+and Table~\ref{tab:comparison}); the coherence framework then sets upper limits
+on $\sigma_\phi(D)$ rather than detecting a positive signal.
 
 % ==============================================================
 \section{Extended Sources: Transverse Foam Coherence}
@@ -488,6 +584,9 @@ $C_\alpha(\tau;D)$, independently of the unknown source spectrum.
 
 We now generalize to an extended incoherent source whose angular brightness
 distribution is $W(\boldsymbol{\theta})$ (normalized to unity).
+The analysis assumes a point (single spatial mode) detector; a finite aperture
+would introduce Van~Cittert--Zernike geometric phases that modify the angular
+coherence and are left to future work.
 The detected field is a weighted superposition over rays labelled by direction
 offset $\boldsymbol{\theta}$:
 \begin{equation}
@@ -506,11 +605,25 @@ The spatiotemporal covariance of the path-length aggregate is
     \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
   \label{eq:covExt}
 \end{equation}
-where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq \ell^{(D)}|\boldsymbol{\theta}-\boldsymbol{\theta}'|$
-is the transverse separation between rays at distance $\ell^{(D)}$,
+where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$
+is the transverse separation between rays at distance $D$,
 $r_\perp$ is the foam transverse coherence length, and $\Phi$ is the
 transverse coherence function satisfying $\Phi(0)=1$ and
 $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
+
+Structurally, $\Phi(b/r_\perp)$ plays the same role in the transverse direction
+as $C_\alpha(\tau;D)$ plays in the longitudinal (temporal) direction: both are
+normalized spatial autocorrelation functions of the foam path-length fluctuation
+field.
+Just as $\xi_\parallel$ (the longitudinal correlation length) must be inferred
+from the temporal decorrelation measurements of Sections~\ref{sec:g1} and
+\ref{sec:g2}, the transverse coherence length $r_\perp$ is an independent free
+parameter of the foam that is constrained empirically by the angular-size
+dependence of the HBT bunching suppression.
+Different foam models (random-walk, holographic, etc.) may predict different
+values of $r_\perp$, but the measurement is model-agnostic in the same way that
+a turbulence outer-scale measurement constrains $L_0$ irrespective of the
+spectral model assumed.
 
 \subsection{First-Order Coherence is Unchanged}
 
@@ -614,9 +727,9 @@ and allows Eq.~\eqref{eq:g2obsExt} to be approximated by the simpler
 1D convolution of Eq.~\eqref{eq:g2obs} with $\sigma_\Delta^2$ replaced by
 $\sigma_{\tau,\rm eff}^2$.
 The two limits are:
-$\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg\ell^{(D)}\Delta\theta$)
+$\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg D\,\Delta\theta$)
 recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
-$r_\perp\ll\ell^{(D)}\Delta\theta$) maximizes the effective variance.
+$r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
 
 \subsection{Zero-Lag Bunching Peak Suppression}
 
