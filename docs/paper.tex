@@ -173,12 +173,16 @@ sign of $\tau-\Delta$ gives, for $\tau > 0$:
   \label{eq:g1obs_erfc}
 \end{equation}
 where $\sigma_\Delta \equiv \sigma_\Delta(\tau)$.
-In the weak-jitter limit $\sigma_\Delta \ll \tau_c$, expanding the erfc gives
+In the weak-jitter limit $\sigma_\Delta \ll \tau_c$, the Gaussian average of
+$e^{-|\tau-\Delta|/\tau_c}$ over $\Delta\sim\mathcal{N}(0,\sigma_\Delta^2)$
+is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau) \approx e^{-|\tau|/\tau_c}
-  \left[1 - \frac{\sigma_\Delta^2(\tau)}{\tau_c}\,|\tau| + \mathcal{O}(\sigma_\Delta^4)\right].
+  \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_c^2} + \mathcal{O}(\sigma_\Delta^4)\right].
   \label{eq:g1weak}
 \end{equation}
+The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
+Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly, since
 $\sigma_\Delta(0) = 0$.
 
@@ -186,9 +190,10 @@ $\sigma_\Delta(0) = 0$.
 \label{sec:narrowband}
 
 For a quasi-monochromatic source with center frequency $\omega_0$ and
-bandwidth $\Delta\omega \ll \omega_0$, write
+angular-frequency bandwidth $\Delta\omega \ll \omega_0$, write
 $E_{\rm src}(t) = A(t)\,e^{-i\omega_0 t}$
-where $A(t)$ varies on timescale $\tau_c = 1/\Delta\omega$.
+where $A(t)$ varies on the coherence timescale
+$\tau_c = 1/\Delta\omega = \lambda^2/(2\pi c\,\Delta\lambda)$.
 For jitter $|\delta t| \ll \tau_c$, the envelope is unaffected,
 $A(t-\delta t) \approx A(t)$, and the jitter acts purely as a carrier
 phase modulation:
@@ -279,15 +284,16 @@ as a function of lag.
 
 In the narrow-band limit the relevant sensitivity parameter for the temporal
 measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
-Using $c\tau_c = \lambda^2/\Delta\lambda$ for fixed fractional bandwidth:
+Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ (physics convention):
 \begin{equation}
   \frac{\sigma_\Delta(\tau)}{\tau_c}
   = \frac{\sqrt{2[1-C_\alpha(\tau)]}\,\sigma_\ell(D)}{c\tau_c}
   = \sigma_\phi \cdot \frac{\sqrt{2[1-C_\alpha(\tau)]}}{\omega_0\tau_c}
-  \sim \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha]}.
+  \sim \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot
+       \frac{\sqrt{2[1-C_\alpha]}}{2\pi}.
   \label{eq:ratio}
 \end{equation}
-The suppression factor $\Delta\lambda/\lambda \ll 1$ means that even when
+The suppression factor $\Delta\lambda/(2\pi\lambda) \ll 1$ means that even when
 $\sigma_\phi \gg 1$ (fringes erased), the temporal HBT ratio can be of order
 unity or smaller.
 
@@ -300,16 +306,19 @@ unity or smaller.
 Method & Probe & Sensitivity \\
 \midrule
 Strehl / Lieu--Hillman & $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ & Direct \\
-Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{1-C_\alpha(\tau)}\cdot(\Delta\lambda/\lambda)$ & Suppressed by $\Delta\lambda/\lambda$ \\
+Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{1-C_\alpha(\tau)}\cdot\Delta\lambda/(2\pi\lambda)$ & Suppressed by $\Delta\lambda/(2\pi\lambda)$ \\
 \bottomrule
 \end{tabular}
 \label{tab:comparison}
 \end{table}
 
-For $\alpha=1/2$ at $D=1$~Gpc: $\sigma_\phi \approx 4\pi\times10^9$ (fringes
-completely erased), while $\sigma_\Delta/\tau_c \approx 0.59$ (marginally
-accessible to HBT).
-This reflects the fact that phase-coherence constraints already decisively rule
+For $\alpha=1/2$ at $D=1$~Gpc with $A_\alpha=1$:
+$\sigma_\ell = \sqrt{\ell_{\rm P}\,\ell^{(D)}} \approx 2.2\times10^{-5}$~m,
+giving $\sigma_\phi \approx 280$ (fringes completely erased at $\sigma_\phi\gg 1$),
+while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and
+$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$
+(marginally accessible to HBT).
+This reflects the fact that phase-coherence constraints already rule
 out $\alpha=1/2$ at optical wavelengths~\cite{Perlman2015}, whereas the
 temporal HBT signature for the same model is only at the edge of detectability.
 
@@ -373,7 +382,7 @@ the underlying oscillation.
 By contrast, $g^{(1)}$ \emph{is} sensitive to this phase because
 $\omega_0\delta t \sim \omega_0\sigma_\ell/c = \sigma_\phi$ can be large
 even when $\delta t \ll \tau_c$: for $\alpha=1/2$ at $D=1$~Gpc and
-$\lambda=500$~nm, $\sigma_\phi \sim 4\pi\times10^9$.
+$\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
 
 % ==============================================================
 \section{Siegert Relation Violation}
@@ -388,17 +397,17 @@ Define the Siegert discrepancy:
   \equiv \left[g^{(2)}_{\rm obs}(\tau)-1\right] - \left|g^{(1)}_{\rm obs}(\tau)\right|^2.
   \label{eq:Sdef}
 \end{equation}
-Let $X \equiv g^{(1)}_{\rm src}(\tau-\Delta(\tau))$, a real random variable.
+Let $X \equiv g^{(1)}_{\rm src}(\tau-\Delta(\tau))$, a complex random variable.
 From Eqs.~\eqref{eq:g1obs} and \eqref{eq:g2obs}:
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau) = \langle X\rangle_{\delta t}, \qquad
-  g^{(2)}_{\rm obs}(\tau) - 1 = \langle X^2\rangle_{\delta t}.
+  g^{(2)}_{\rm obs}(\tau) - 1 = \langle |X|^2\rangle_{\delta t}.
 \end{equation}
 Therefore
 \begin{equation}
   \mathcal{S}(\tau)
-  = \langle X^2\rangle - \langle X\rangle^2
-  = \mathrm{Var}(X) \geq 0,
+  = \langle |X|^2\rangle - |\langle X\rangle|^2
+  \geq 0,
   \label{eq:Svar}
 \end{equation}
 by the Cauchy--Schwarz inequality, with equality only when $\Delta(\tau)$ has
@@ -451,9 +460,9 @@ $g^{(1)}_{\rm obs}$ and $g^{(2)}_{\rm obs}$ are measurable from the same
 dataset — and carries a specific distance dependence
 $\sigma_\phi^2 \propto [\ell^{(D)}]^{2(1-\alpha)}$ that distinguishes foam
 from instrumental effects, which would not scale with source distance.
-It is also independent of the unknown intrinsic source spectrum: whatever
-$g^{(1)}_{\rm src}(\tau)$, the violation is controlled solely by $\alpha$,
-$D$, and $C_\alpha(\tau;D)$.
+The modulation of $\mathcal{S}(\tau)$ beyond the prefactor
+$|g^{(1)}_{\rm src}(\tau)|^2$ is controlled solely by $\alpha$, $D$, and
+$C_\alpha(\tau;D)$, independently of the unknown source spectrum.
 
 % ==============================================================
 \section{Extended Sources: Transverse Foam Coherence}
@@ -602,18 +611,27 @@ At $\tau=0$, $C_\alpha(0;D)=1$, so $\sigma_{\tau,\rm eff}^2(0)$ reduces to
   \label{eq:sigma0}
 \end{equation}
 which is strictly positive whenever $\Phi_{\rm eff}<1$.
-Evaluating the zero-lag convolution in Eq.~\eqref{eq:g2obsExt} for a
-Lorentzian $g^{(2)}_{\rm src}(\tau)=1+e^{-|\tau|/\tau_c}$:
+Evaluating the zero-lag convolution in Eq.~\eqref{eq:g2obsExt} using
+$g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_c}$
+(from Siegert applied to $g^{(1)}_{\rm src}=e^{-|\tau|/\tau_c}$):
+For $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ and $s\equiv\sigma_0/\tau_c$:
+\begin{equation}
+  \big\langle e^{-2|\Delta|/\tau_c}\big\rangle
+  = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
+  \label{eq:zerolagavg}
+\end{equation}
+so
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(0)
-    = 1 + \frac{1}{\sqrt{1+(\sigma_0/\tau_c)^2}},}
+    = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
+    \qquad s\equiv\sigma_0/\tau_c,}
   \label{eq:g2zero}
 \end{equation}
-so the zero-lag bunching peak is suppressed below its ideal value of 2 by
+and the zero-lag bunching peak is suppressed below its ideal value of 2 by
 \begin{equation}
   \delta g^{(2)}
   \equiv 2 - g^{(2)}_{\rm obs}(0)
-  = 1 - \frac{1}{\sqrt{1+(\sigma_0/\tau_c)^2}}.
+  = 1 - e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right).
   \label{eq:deltag2}
 \end{equation}
 In the point-source limit $\Phi_{\rm eff}\to 1$, $\sigma_0\to 0$ and
@@ -633,33 +651,34 @@ This is a purely \emph{spatial} effect with no analogue in the point-source case
 
 \subsection{Extended-Source Siegert Discrepancy}
 
-In the narrow-band limit, $g^{(2)}_{\rm obs}(\tau)-1$ for the extended source
-is obtained from Eq.~\eqref{eq:g2obsExt} with the Gaussian carrier-phase
-substitution.
-The result is
+For the extended source, $g^{(1)}_{\rm obs}(\tau)$ is unchanged from the
+point-source result (Eq.~\ref{eq:g1ext}), while $g^{(2)}_{\rm obs}(\tau)$
+is given by the general mixture Eq.~\eqref{eq:g2obsExt}.
+Unlike the point-source case, in the narrow-band limit $g^{(2)}_{\rm obs}$
+is \emph{not} equal to $g^{(2)}_{\rm src}$: the cross-ray differential jitter
+modifies the intensity correlation through the envelope timing, even though
+the carrier phase does not affect individual intensities.
+The Siegert discrepancy is therefore
 \begin{equation}
-  g^{(2)}_{\rm obs}(\tau) - 1
-  = \left|g^{(1)}_{\rm src}(\tau)\right|^2\,\mathcal{G}(\tau),
-  \label{eq:g2extNB}
+  \mathcal{S}(\tau)
+  = \left[g^{(2)}_{\rm obs}(\tau) - 1\right]
+    - \left|g^{(1)}_{\rm obs}(\tau)\right|^2,
+  \label{eq:SextDef}
 \end{equation}
-where
+where $g^{(2)}_{\rm obs}(\tau)-1$ is given by Eq.~\eqref{eq:g2obsExt} and
+$|g^{(1)}_{\rm obs}(\tau)|^2 = |g^{(1)}_{\rm src}(\tau)|^2\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$.
+At $\tau=0$, using $g^{(1)}_{\rm obs}(0)=1$ exactly:
 \begin{equation}
-  \mathcal{G}(\tau) = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-    W(\boldsymbol{\theta})W(\boldsymbol{\theta}')\,
-    \exp\!\left(-2\sigma_\phi^2\big[1-C_\alpha(\tau)\big]
-                \big[1-\Phi(b/r_\perp)\big]\right).
-  \label{eq:Gcal}
+  \mathcal{S}(0)
+  = \left[g^{(2)}_{\rm obs}(0) - 1\right] - 1
+  = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right) - 1
+  = -\,\delta g^{(2)},
+  \label{eq:S0ext}
 \end{equation}
-Since $g^{(1)}_{\rm obs}(\tau) = g^{(1)}_{\rm src}(\tau)\cdot e^{-\sigma_\phi^2[1-C_\alpha]}$
-(Eq.~\ref{eq:g1ext}), the Siegert discrepancy is:
-\begin{equation}
-  \boxed{\mathcal{S}(\tau)
-    = \left|g^{(1)}_{\rm src}(\tau)\right|^2
-      \Big[\mathcal{G}(\tau) - e^{-2\sigma_\phi^2[1-C_\alpha(\tau;D)]}\Big].}
-  \label{eq:SextNB}
-\end{equation}
-For a point source ($\Phi\equiv 1$, so $\mathcal{G}\to 1$), this reduces to
-the point-source result Eq.~\eqref{eq:S_explicit}.
+so the Siegert discrepancy at zero lag equals minus the bunching-peak
+suppression.
+For a point source ($\Phi_{\rm eff}=1$, $s=0$), $\mathcal{S}(0)=0$, recovering
+the point-source result.
 
 \subsection{Two Distinct Signatures}
 
