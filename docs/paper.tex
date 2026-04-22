@@ -31,8 +31,9 @@ that encodes $\alpha$ and $D$ independently of the source spectrum.
 For extended sources, photon pairs from directions separated by more than
 the transverse foam coherence length $r_\perp$ accumulate independent jitters,
 suppressing the zero-lag bunching peak by
-$\delta g^{(2)} = 1 - [1+(\sigma_0/\tau_c)^2]^{-1/2}$
-in a way that grows with source angular size and directly probes $r_\perp$.
+$\delta g^{(2)} = 1 - e^{2s^2}\mathrm{erfc}(\sqrt{2}\,s)$
+(where $s=\sigma_0/\tau_c$) in a way that grows with source angular size
+and directly probes $r_\perp$, with $\mathcal{S}(0)=-\delta g^{(2)}\neq 0$.
 The fringe-erasure condition of Lieu \& Hillman and the Strehl-ratio suppression
 of Ng \& Perlman are recovered as limiting cases, with temporal HBT less
 sensitive than imaging by a factor $\Delta\lambda/\lambda$.
@@ -284,16 +285,16 @@ as a function of lag.
 
 In the narrow-band limit the relevant sensitivity parameter for the temporal
 measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
-Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ (physics convention):
+Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ (physics convention) and
+$\omega_0 = 2\pi c/\lambda$, so $\omega_0\tau_c = \lambda/\Delta\lambda$:
 \begin{equation}
   \frac{\sigma_\Delta(\tau)}{\tau_c}
   = \frac{\sqrt{2[1-C_\alpha(\tau)]}\,\sigma_\ell(D)}{c\tau_c}
-  = \sigma_\phi \cdot \frac{\sqrt{2[1-C_\alpha(\tau)]}}{\omega_0\tau_c}
-  \sim \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot
-       \frac{\sqrt{2[1-C_\alpha]}}{2\pi}.
+  = \frac{\sigma_\phi}{\omega_0\tau_c}\cdot\sqrt{2[1-C_\alpha(\tau)]}
+  = \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha(\tau)]}.
   \label{eq:ratio}
 \end{equation}
-The suppression factor $\Delta\lambda/(2\pi\lambda) \ll 1$ means that even when
+The suppression factor $\Delta\lambda/\lambda \ll 1$ means that even when
 $\sigma_\phi \gg 1$ (fringes erased), the temporal HBT ratio can be of order
 unity or smaller.
 
@@ -306,7 +307,7 @@ unity or smaller.
 Method & Probe & Sensitivity \\
 \midrule
 Strehl / Lieu--Hillman & $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ & Direct \\
-Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{1-C_\alpha(\tau)}\cdot\Delta\lambda/(2\pi\lambda)$ & Suppressed by $\Delta\lambda/(2\pi\lambda)$ \\
+Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{1-C_\alpha(\tau)}\cdot\Delta\lambda/\lambda$ & Suppressed by $\Delta\lambda/\lambda$ \\
 \bottomrule
 \end{tabular}
 \label{tab:comparison}
@@ -692,8 +693,8 @@ Table~\ref{tab:signatures}.
 \toprule
 Signature & Origin & Non-zero at $\tau=0$? & Depends on $r_\perp$? \\
 \midrule
-Siegert discrepancy $\mathcal{S}(\tau)$ & Temporal phase scrambling (single ray)
-  & No & Only via $\mathcal{G}(\tau)$ \\
+Siegert discrepancy $\mathcal{S}(\tau>0)$ & Temporal phase scrambling
+  & Yes (via $\delta g^{(2)}$) & Yes — via $\Phi_{\rm eff}$ \\
 Bunching suppression $\delta g^{(2)}$ & Transverse spatial decorrelation
   & Yes & Yes — direct probe of $r_\perp$ \\
 \bottomrule
@@ -702,12 +703,17 @@ Bunching suppression $\delta g^{(2)}$ & Transverse spatial decorrelation
 \end{table}
 
 The two signatures are complementary.
-The Siegert discrepancy $\mathcal{S}(\tau)$ is controlled by $\sigma_\phi^2$
-and $C_\alpha(\tau;D)$, probing $\alpha$ and $D$ independently of $r_\perp$.
-The bunching suppression $\delta g^{(2)}$ is controlled by $\sigma_0^2
-\propto \sigma_\ell^2(D)(1-\Phi_{\rm eff})$, providing a direct handle
-on the transverse coherence length $r_\perp$ through the dependence of
-$\Phi_{\rm eff}$ on source angular size.
+For a point-like source, the Siegert discrepancy $\mathcal{S}(\tau)$ is
+controlled by $\sigma_\phi^2$ and $C_\alpha(\tau;D)$ alone, probing
+$\alpha$ and $D$ with no sensitivity to $r_\perp$.
+For an extended source, $\mathcal{S}(\tau)$ acquires additional dependence on
+$r_\perp$ through the cross-ray differential jitter: at $\tau=0$ this is
+captured exactly by $\mathcal{S}(0)=-\delta g^{(2)}$, which depends on
+$\Phi_{\rm eff}$ and hence on $r_\perp$.
+The bunching suppression $\delta g^{(2)}$ is controlled by
+$\sigma_0^2\propto\sigma_\ell^2(D)(1-\Phi_{\rm eff})$, providing a direct
+handle on $r_\perp$ through the dependence of $\Phi_{\rm eff}$ on source
+angular size.
 Joint measurements of point-like and extended sources at the same redshift
 therefore allow $\{\alpha,\sigma_\ell(D),r_\perp\}$ to be constrained
 simultaneously and largely independently of the unknown intrinsic source
