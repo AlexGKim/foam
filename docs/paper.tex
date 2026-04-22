@@ -25,7 +25,8 @@ Ng--Perlman exponent $\alpha$.
 In the narrow-band limit, foam-induced arrival-time jitter suppresses the
 observed first-order coherence by $e^{-\sigma_\phi^2[1-C_\alpha(\tau)]}$
 (where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$) while leaving the
-second-order coherence unchanged, producing a Siegert violation
+second-order coherence unchanged for a point source, producing a
+Siegert violation
 $\mathcal{S}(\tau) = |g^{(1)}_{\rm src}|^2(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}) \geq 0$
 that encodes $\alpha$ and $D$ independently of the source spectrum.
 For extended sources, photon pairs from directions separated by more than
@@ -33,7 +34,8 @@ the transverse foam coherence length $r_\perp$ accumulate independent jitters,
 suppressing the zero-lag bunching peak by
 $\delta g^{(2)} = 1 - e^{2s^2}\mathrm{erfc}(\sqrt{2}\,s)$
 (where $s=\sigma_0/\tau_c$) in a way that grows with source angular size
-and directly probes $r_\perp$, with $\mathcal{S}(0)=-\delta g^{(2)}\neq 0$.
+and directly probes $r_\perp$; the Siegert discrepancy at zero lag becomes
+$\mathcal{S}(0)=-\delta g^{(2)}<0$, distinct from the point-source case.
 The fringe-erasure condition of Lieu \& Hillman and the Strehl-ratio suppression
 of Ng \& Perlman are recovered as limiting cases, with temporal HBT less
 sensitive than imaging by a factor $\Delta\lambda/\lambda$.
@@ -307,7 +309,7 @@ unity or smaller.
 Method & Probe & Sensitivity \\
 \midrule
 Strehl / Lieu--Hillman & $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ & Direct \\
-Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{1-C_\alpha(\tau)}\cdot\Delta\lambda/\lambda$ & Suppressed by $\Delta\lambda/\lambda$ \\
+Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{2[1-C_\alpha(\tau)]}\cdot\Delta\lambda/\lambda$ & Suppressed by $\Delta\lambda/\lambda$ \\
 \bottomrule
 \end{tabular}
 \label{tab:comparison}
@@ -414,6 +416,9 @@ Therefore
 by the Cauchy--Schwarz inequality, with equality only when $\Delta(\tau)$ has
 zero variance (i.e., at $\tau=0$ or in the absence of foam).
 The Siegert relation is violated for all $\tau\neq 0$ whenever foam is present.
+This non-negativity holds for a point source; for extended sources the
+cross-ray differential jitter can drive $\mathcal{S}(0)<0$
+(see Section~\ref{sec:extended}).
 
 \subsection{Explicit Form in the Narrow-Band Limit}
 
@@ -577,6 +582,7 @@ Eq.~\eqref{eq:g2obsExt} reduces to the point-source result
 Eq.~\eqref{eq:g2obs}.
 
 \subsection{Effective Transverse Coherence Factor}
+\label{sec:PhiEff}
 
 To reduce Eq.~\eqref{eq:g2obsExt} to a tractable form, define the
 effective transverse coherence factor:
@@ -612,7 +618,9 @@ At $\tau=0$, $C_\alpha(0;D)=1$, so $\sigma_{\tau,\rm eff}^2(0)$ reduces to
   \label{eq:sigma0}
 \end{equation}
 which is strictly positive whenever $\Phi_{\rm eff}<1$.
-Evaluating the zero-lag convolution in Eq.~\eqref{eq:g2obsExt} using
+Within the $\Phi_{\rm eff}$ approximation of Section~\ref{sec:PhiEff},
+the ray-pair mixture reduces to a single Gaussian kernel of width $\sigma_0$.
+Evaluating the zero-lag convolution using
 $g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_c}$
 (from Siegert applied to $g^{(1)}_{\rm src}=e^{-|\tau|/\tau_c}$):
 For $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ and $s\equiv\sigma_0/\tau_c$:
@@ -668,16 +676,17 @@ The Siegert discrepancy is therefore
 \end{equation}
 where $g^{(2)}_{\rm obs}(\tau)-1$ is given by Eq.~\eqref{eq:g2obsExt} and
 $|g^{(1)}_{\rm obs}(\tau)|^2 = |g^{(1)}_{\rm src}(\tau)|^2\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$.
-At $\tau=0$, using $g^{(1)}_{\rm obs}(0)=1$ exactly:
+Within the $\Phi_{\rm eff}$ approximation, at $\tau=0$,
+using $g^{(1)}_{\rm obs}(0)=1$ exactly:
 \begin{equation}
   \mathcal{S}(0)
   = \left[g^{(2)}_{\rm obs}(0) - 1\right] - 1
   = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right) - 1
-  = -\,\delta g^{(2)},
+  = -\,\delta g^{(2)} < 0,
   \label{eq:S0ext}
 \end{equation}
-so the Siegert discrepancy at zero lag equals minus the bunching-peak
-suppression.
+so within this approximation the Siegert discrepancy at zero lag equals
+minus the bunching-peak suppression, and is negative for $s>0$.
 For a point source ($\Phi_{\rm eff}=1$, $s=0$), $\mathcal{S}(0)=0$, recovering
 the point-source result.
 
@@ -693,8 +702,8 @@ Table~\ref{tab:signatures}.
 \toprule
 Signature & Origin & Non-zero at $\tau=0$? & Depends on $r_\perp$? \\
 \midrule
-Siegert discrepancy $\mathcal{S}(\tau>0)$ & Temporal phase scrambling
-  & Yes (via $\delta g^{(2)}$) & Yes — via $\Phi_{\rm eff}$ \\
+Siegert discrepancy $\mathcal{S}(\tau)$ & Temporal + cross-ray jitter
+  & Yes (via $\delta g^{(2)}$; $<0$) & Yes — via $\Phi_{\rm eff}$ \\
 Bunching suppression $\delta g^{(2)}$ & Transverse spatial decorrelation
   & Yes & Yes — direct probe of $r_\perp$ \\
 \bottomrule
