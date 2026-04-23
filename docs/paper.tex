@@ -94,6 +94,10 @@ ray takes the factorized form
 \end{equation}
 where $C_\alpha(\tau;D)$ satisfies $C_\alpha(0;D) = 1$ and decays to zero as
 $\tau\to\infty$.
+This product form — separating the total variance from the normalized temporal
+shape — is a structural assumption of the model, not a consequence of
+Eq.~\eqref{eq:NgPerlmanVar}; in a general stationary process the variance and
+the normalized correlation function can carry independent $D$-dependence.
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
@@ -104,15 +108,16 @@ coherence length
   r_\perp \sim A_\alpha^{1/2}\,b^{1-\alpha}\,\ell_{\rm P}^{\alpha},
   \label{eq:rperp}
 \end{equation}
-by direct analogy with Eq.~(\ref{eq:NgPerlmanVar}), with the same coefficient
-$A_\alpha$ and exponent $\alpha$. This identifies $r_\perp$ as the transverse
-scale over which path-length fluctuations along neighboring rays remain
-correlated. In practice, however, the normalization and functional form of the
-transverse correlation function depend on microscopic properties of the foam not
-fixed by the Ng--Perlman framework alone; accordingly, $r_\perp$ is treated as
-an independent free parameter in Section~\ref{sec:extended}, where it is
-constrained empirically through the angular-size dependence of the HBT bunching
-suppression. The two principal observables developed below --- the Siegert
+by dimensional analogy with Eq.~(\ref{eq:NgPerlmanVar}).
+This analogy motivates the \emph{existence} of a transverse scale but does not
+derive its value: in the longitudinal case $D$ counts the number of cells
+traversed along the ray, while in the transverse case $b$ is a separation between
+rays that share cells along the line of sight — the number of shared cells depends
+on both $b$ and $D$ in a way that is geometrically distinct from the single-ray
+accumulation.
+Accordingly, $r_\perp$ is treated as an independent free parameter in
+Section~\ref{sec:extended}, where it is constrained empirically through the
+angular-size dependence of the HBT bunching suppression. The two principal observables developed below --- the Siegert
 discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
 $\delta g^{(2)}$ --- therefore both descend from the single scaling relation
 Eq.~(\ref{eq:NgPerlmanVar}), with Sections~\ref{sec:g1}--\ref{sec:siegert}
@@ -267,8 +272,14 @@ the expansion is in $\sigma_\Delta(\tau)/\tau_c$ at fixed $\tau$, and its validi
 requires $\sigma_\Delta(\tau) \ll \tau_c$ at each lag of interest.
 The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
 Jensen's inequality applies.
-The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly, since
-$\sigma_\Delta(0) = 0$.
+The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
+To verify this from Eq.~\eqref{eq:g1obs_erfc}: as $\tau\to0^+$,
+$\sigma_\Delta(\tau)\to 0$ (since $C_\alpha(0)=1$), so $\tau/\sigma_\Delta\to 0$
+as well (for any $C_\alpha$ smooth at $\tau=0$, $\sigma_\Delta \propto \sqrt{\tau}$
+so $\tau/\sigma_\Delta \propto \sqrt{\tau}\to 0$).
+Both erfc arguments therefore approach zero, giving $\mathrm{erfc}(0)=1$,
+and $e^{\sigma_\Delta^2/2\tau_c^2}\to 1$, so
+$g^{(1)}_{\rm obs}(0) = \tfrac{1}{2}[1\cdot1 + 1\cdot1] = 1$. $\checkmark$
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
@@ -343,19 +354,26 @@ $V(\tau)$ whose shape encodes the temporal decorrelation $C_\alpha(\tau;D)$.
 
 \subsubsection{Strehl Ratio}
 
-For spatially uncorrelated phase noise of rms $\sigma_\phi$ across the
+For spatially uncorrelated Gaussian phase noise of rms $\sigma_\phi$ across the
 telescope aperture, the Strehl ratio (ratio of the observed PSF peak to the
-diffraction-limited peak) is~\cite{NgPerlman2022}
+diffraction-limited peak) is given by the Mar\'{e}chal approximation~\cite{NgPerlman2022}
 \begin{equation}
-  S = e^{-\sigma_\phi^2}.
+  S = e^{-\sigma_\phi^2},
   \label{eq:Strehl}
 \end{equation}
-Comparing with Eq.~\eqref{eq:Ffoam}, the Strehl ratio equals the long-lag
-limit of the foam suppression factor:
+which is valid for $\sigma_\phi \lesssim 1$; for $\sigma_\phi \gg 1$ the
+PSF peak saturates to zero and the exponential formula is inapplicable in the
+telescope-optics sense.
+Within the foam model, however, $\mathcal{F}_{\rm foam}(\tau\to\infty) = e^{-\sigma_\phi^2}$
+is an exact result from the Gaussian characteristic function, independent of the
+Mar\'{e}chal approximation.
+The connection between the two is:
 \begin{equation}
-  S = \mathcal{F}_{\rm foam}(\tau\to\infty).
+  S = \mathcal{F}_{\rm foam}(\tau\to\infty),
   \label{eq:StrehlFoam}
 \end{equation}
+which is numerically indistinguishable from zero for $\sigma_\phi \gg 1$
+regardless of which interpretation is used.
 Both the Strehl and the Lieu--Hillman fringe visibility measure the same
 underlying quantity $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ — the
 total accumulated phase variance.
@@ -569,7 +587,7 @@ Table~\ref{tab:Sprops}.
 Limit & $\mathcal{S}(\tau)$ & Reason \\
 \midrule
 $\tau = 0$ & $0$ & $\Delta(0)=0$; both coherences agree \\
-$\sigma_\phi \ll 1$ (weak jitter) & $\approx 2\sigma_\phi^2[1-C_\alpha]\,|g^{(1)}_{\rm src}|^2$ & Linear in phase variance \\
+$\sigma_\phi \to 0$ (small phase variance) & $\approx 2\sigma_\phi^2[1-C_\alpha]\,|g^{(1)}_{\rm src}|^2$ & Linear in $\sigma_\phi^2$ \\
 $\sigma_\phi \gg 1$ (strong jitter) & $\approx |g^{(1)}_{\rm src}(\tau)|^2$ & $g^{(1)}_{\rm obs}\to 0$; full violation \\
 $\tau\to\infty$ & $\to 0$ & $|g^{(1)}_{\rm src}|\to 0$ faster \\
 \bottomrule
@@ -759,8 +777,34 @@ absent in the point-source case.
 
 \subsection{General Second-Order Coherence}
 
-By the Gaussian moment theorem, the unconditional $g^{(2)}$ for an extended
-source is an angularly weighted mixture over all ray pairs:
+The unnormalized intensity correlator is
+$\langle I(t)I(t+\tau)\rangle = \langle E^*(t)E(t)E^*(t+\tau)E(t+\tau)\rangle$,
+where $E \equiv E_{\rm obs}$ is the field of Eq.~\eqref{eq:EobsExt}.
+Expanding the double angular integral and applying the Wick (moment) theorem
+to the four-point function of the zero-mean complex Gaussian field
+$E_{\boldsymbol{\theta}}$ produces two pairings:
+\begin{align}
+  &\langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}
+            E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_4}\rangle
+  \;\propto\;
+  \langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}\rangle
+  \langle E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_4}\rangle
+  +
+  \langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_4}\rangle
+  \langle E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_2}\rangle.
+  \label{eq:Wick}
+\end{align}
+The first pairing contributes $\langle I(t)\rangle\langle I(t+\tau)\rangle$
+(the disconnected term, which cancels when forming $g^{(2)}-1$).
+The second pairing gives the connected contribution.
+Because different source directions are spatially incoherent,
+$\langle E^*_{\boldsymbol{\theta}}(s)\,E_{\boldsymbol{\theta}'}(s')\rangle
+\propto \delta(\boldsymbol{\theta}-\boldsymbol{\theta}')$,
+so the connected pairing requires $\boldsymbol{\theta}_1=\boldsymbol{\theta}_4$
+and $\boldsymbol{\theta}_3=\boldsymbol{\theta}_2$.
+The four-fold angular integral therefore collapses to a double integral
+over ray pairs $(\boldsymbol{\theta},\boldsymbol{\theta}')$, each pair
+contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(\tau) - 1
   = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
@@ -905,6 +949,18 @@ so within this approximation the Siegert discrepancy at zero lag equals
 minus the bunching-peak suppression, and is negative for $s>0$.
 For a point source ($\Phi_{\rm eff}=1$, $s=0$), $\mathcal{S}(0)=0$, recovering
 the point-source result.
+
+The negative value of $\mathcal{S}(0)$ does not violate any fundamental inequality.
+The bound $\mathcal{S}(\tau)\geq 0$ was established in Section~\ref{sec:siegert}
+for a point source, where the conditional Siegert relation and Cauchy--Schwarz apply
+to a single complex Gaussian mode conditioned on one jitter process.
+For an extended source the unconditional field is an \emph{angular mixture} over many
+independent modes and jitter processes; such a mixture is not itself a Gaussian state
+in the mode-counting sense, and therefore need not satisfy $\mathcal{S}\geq 0$.
+Physically, $g^{(2)}_{\rm obs}(0)$ is suppressed below 2 by the cross-ray spatial
+jitter (an envelope-level effect), while $|g^{(1)}_{\rm obs}(0)|^2 = 1$ exactly,
+so these two observables are controlled by different physical mechanisms and their
+difference can be negative.
 
 \subsection{Two Distinct Signatures}
 
