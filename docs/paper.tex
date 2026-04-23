@@ -262,6 +262,9 @@ is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
   \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_c^2} + \mathcal{O}(\sigma_\Delta^4)\right].
   \label{eq:g1weak}
 \end{equation}
+Here $\sigma_\Delta \equiv \sigma_\Delta(\tau)$ is $\tau$-dependent through $C_\alpha(\tau)$;
+the expansion is in $\sigma_\Delta(\tau)/\tau_c$ at fixed $\tau$, and its validity
+requires $\sigma_\Delta(\tau) \ll \tau_c$ at each lag of interest.
 The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
 Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly, since
@@ -608,6 +611,16 @@ Measuring $\sigma_\phi(D)$ across a range of source redshifts can distinguish
 these scalings, particularly since the holographic ($\alpha=2/3$) and conservative
 ($\alpha=1$) foam models predict sub-linear or flat growth — qualitatively
 different from any known astrophysical screen.
+In practice this program requires knowing the intrinsic source visibility
+$V_{\rm src}(\tau)$, which is generally unknown and must be modeled or inferred,
+introducing a degeneracy between foam suppression and intrinsic source properties.
+Three partial mitigants are available: (i) comparing the same source class at
+multiple redshifts removes the contribution of intrinsic source variation;
+(ii) the achromaticity of foam ($\delta t$ independent of $\lambda$) distinguishes
+it from chromatic intrinsic or propagation effects; and (iii) the Siegert
+discrepancy $\mathcal{S}(\tau)$ is partially self-calibrating — it measures the
+difference between $g^{(2)}_{\rm obs}$ and $|g^{(1)}_{\rm obs}|^2$ from the same
+dataset, so common-mode source properties partially cancel.
 
 \paragraph{Frequency dependence.}
 As noted in Section~\ref{sec:model}, geometric-optics foam jitter is achromatic:
@@ -792,6 +805,14 @@ The two limits are:
 $\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg D\,\Delta\theta$)
 recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
 $r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
+The approximation is exact at both limits.
+At intermediate angular sizes ($r_\perp \sim D\,\Delta\theta$), $\Phi(b/r_\perp)$
+varies across ray pairs and the replacement of the full double integral by a single
+kernel introduces an error of order $\mathrm{Var}_W[\Phi]$, the angular-weighted
+variance of $\Phi$ over the source brightness distribution $W(\boldsymbol{\theta})$.
+A precise bound on this error requires knowledge of the functional form of $\Phi$
+and the source profile; for the purposes of this paper the $\Phi_{\rm eff}$
+reduction is used as a tractable approximation.
 
 \subsection{Zero-Lag Bunching Peak Suppression}
 
