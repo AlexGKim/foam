@@ -73,8 +73,9 @@ propagation effects (see Section~\ref{sec:discriminant}).
 
 \subsection{Ng--Perlman Variance and Temporal Covariance}
 
-Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001}, the
-single-ray path-length variance obeys the power-law scaling
+Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} (see also
+Ref.~\cite{Carlip2023} for a review of foam models and their observational
+constraints), the single-ray path-length variance obeys the power-law scaling
 \begin{equation}
   \sigma_\ell^2(D) = A_\alpha\,D^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
   \label{eq:NgPerlmanVar}
@@ -121,33 +122,45 @@ $\{\alpha,\,\ell_{\rm P},\,A_\alpha\}$.
 
 \subsection{Physical Origin of $C_\alpha(\tau;D)$}
 
-Two photons emitted by the source at times $t$ and $t+\tau$ travel along
-light paths that are spatially offset by $\sim c\tau$ near the source end of
-the line of sight.
-As they traverse the foam they therefore sample \emph{different} spatial
-realizations of the path-length fluctuation field.
-Consequently, $C_\alpha(\tau;D)$ is the normalized longitudinal
-(line-of-sight) spatial autocorrelation of the foam path-length field,
-evaluated at a spatial separation $c\tau$ along the propagation direction.
-It decorrelates on the timescale $\tau_{\rm foam} = \xi_\parallel/c$,
-where $\xi_\parallel$ is the longitudinal foam correlation length.
+Quantum foam models posit that each Planck-scale cell of spacetime along the line
+of sight fluctuates in time.
+Two photons traversing the same cell at coordinate times separated by $\tau$
+experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
+but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
+characteristic temporal fluctuation timescale at each cell.
+Consequently, $C_\alpha(\tau;D)$ is the normalized \emph{temporal} autocorrelation
+of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
+cells along the line of sight; $\sigma_\ell^2(D)$ encodes the accumulated variance.
+The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
+not fixed by the Ng--Perlman variance relation alone.
 
-This interpretation has an important limiting case: if the foam is
-\emph{quasi-static} on all observation timescales, i.e.\ $\xi_\parallel \gg D$,
-then $C_\alpha(\tau) \approx 1$ for all $\tau$ of interest, $\sigma_\Delta^2 \to 0$,
-and every temporal foam observable constructed below vanishes.
-In this limit the measurements place a \emph{lower bound} on $\xi_\parallel$
-rather than detecting a temporal signal directly.
-The temporal program of this paper is therefore simultaneously a probe of
-$\{\alpha,\sigma_\ell(D)\}$ and of the longitudinal foam correlation length
-$\xi_\parallel$.
+If $\tau_{\rm foam}$ is of order the Planck time,
+$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
+accessible lags and $\sigma_\Delta^2(\tau) \approx 2\sigma_\ell^2/c^2$ at all $\tau$:
+the maximum differential jitter, and the most optimistic scenario for detection.
+In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
+across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
+interest, $\sigma_\Delta^2 \to 0$, and every temporal observable vanishes.
+In this limit a null measurement places a \emph{lower bound} on $\tau_{\rm foam}$;
+however, this bound is meaningful only when combined with an independent constraint
+on $\sigma_\phi$ — for example from fringe-visibility measurements, since a null HBT
+result alone is equally consistent with the observationally allowed regime
+$\sigma_\phi \ll 1$ where the foam signal is undetectably small regardless of
+$\tau_{\rm foam}$.
+
+The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
+in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
+but is fundamentally temporal in origin.
+For cosmological $D$, a complete treatment would require accounting for the redshift
+when converting proper-time lags at each cell to observed lags; this correction is
+beyond the scope of the present paper.
 
 The CLT argument of Section~\ref{sec:differential_jitter} requires the elementary
 foam cells contributing to $\Delta\ell_{\rm tot}$ to be approximately independent.
-This holds when the scale of interest ($c\tau$ or the transverse baseline $b$) exceeds
-the cell correlation lengths $\xi_\parallel$ and $r_\perp$;
-if correlation lengths are comparable to $D$ the cells are not independent and
-the Gaussian approximation for $\Delta(\tau)$ may acquire non-Gaussian tails.
+This holds when the temporal lag of interest satisfies $\tau \gg \tau_{\rm foam}$
+(so cells decorrelate over one lag interval) and when the transverse baseline $b \gg r_\perp$;
+if $\tau_{\rm foam}$ is comparable to the coherence time $\tau_c$, or if transverse
+correlations extend over $b$, the Gaussian approximation may acquire non-Gaussian tails.
 
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
@@ -454,13 +467,15 @@ unity or smaller.
 \begin{table}[h]
 \centering
 \caption{Comparison of foam observables at $D=1$~Gpc, $\lambda=500$~nm,
-         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$.}
-\begin{tabular}{lcc}
+         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, $C_\alpha\to 0$.
+         The $\alpha=1/2$ case is observationally excluded~\cite{Perlman2015};
+         $\alpha=2/3$ (holographic) is the most sensitive surviving model.}
+\begin{tabular}{lccc}
 \toprule
-Method & Probe & Sensitivity \\
+Method & Probe & $\alpha=1/2$ (excluded) & $\alpha=2/3$ \\
 \midrule
-Strehl / Lieu--Hillman & $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ & Direct \\
-Temporal $g^{(1)}$ at lag $\tau$ & $\sigma_\phi\sqrt{2[1-C_\alpha(\tau)]}\cdot\Delta\lambda/\lambda$ & Suppressed by $\Delta\lambda/\lambda$ \\
+Strehl / Lieu--Hillman & $\sigma_\phi$ & $280$ & $2.8\times10^{-8}$ \\
+Temporal $g^{(1)}$, $g^{(2)}$ & $\sigma_\phi\sqrt{2[1-C_\alpha]}\cdot\Delta\lambda/\lambda$ & $0.40$ & $4.0\times10^{-11}$ \\
 \bottomrule
 \end{tabular}
 \label{tab:comparison}
@@ -482,6 +497,14 @@ so all foam coherence observables are negligibly small with current instrumentat
 The theoretical framework is therefore most useful as a basis for future constraints
 at shorter wavelengths (X-ray or near-UV), longer baselines, or next-generation
 intensity interferometers, where the sensitivity scales as $\lambda^{-1}$ and $D^{1-\alpha}$.
+To make this concrete: for $\alpha=2/3$ at $D=10$~Gpc and soft X-ray wavelength
+$\lambda=1$~\AA, one finds $\sigma_\ell \approx 4.3\times10^{-15}$~m,
+$\sigma_\phi \approx 2.7\times10^{-4}$, and
+$\sigma_\Delta/\tau_c \approx 3.8\times10^{-7}$ (for $\Delta\lambda/\lambda=10^{-3}$) —
+still approximately seven orders of magnitude below a unity HBT signal.
+The framework therefore serves primarily as a theoretical tool and as an upper-limit
+setter for future precision measurements, rather than as a near-term positive-detection
+strategy.
 
 
 % ==============================================================
@@ -637,10 +660,18 @@ The spatiotemporal covariance of the path-length aggregate is
   \label{eq:covExt}
 \end{equation}
 where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$
-is the transverse separation between rays at distance $D$,
+is the transverse separation between rays evaluated at the source end,
 $r_\perp$ is the foam transverse coherence length, and $\Phi$ is the
 transverse coherence function satisfying $\Phi(0)=1$ and
 $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
+For foam distributed uniformly along the line of sight the ray separation at
+position $z$ is $z|\boldsymbol{\theta}-\boldsymbol{\theta}'|$, so the full
+cross-covariance integral involves an average over $0\leq z\leq D$;
+setting $b = D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$ corresponds to a
+thin-screen approximation in which the correlation is dominated by contributions
+near the source.
+Because $r_\perp$ is treated as an effective free parameter, the $O(1)$ geometric
+factor from the $z$-integral is absorbed into its definition.
 
 Structurally, $\Phi(b/r_\perp)$ plays the same role in the transverse direction
 as $C_\alpha(\tau;D)$ plays in the longitudinal (temporal) direction: both are
@@ -802,6 +833,17 @@ Since $\sigma_0^2\propto(1-\Phi_{\rm eff})$ and $\Phi_{\rm eff}$ decreases
 as the source angular diameter increases at fixed $D$ and $r_\perp$, more
 extended sources experience greater suppression of the bunching peak.
 
+In practice, a real HBT measurement returns $g^{(2)}(0) = 1 + 1/M$ where
+$M$ is the number of collected spatiotemporal modes (spatial modes times
+temporal bins within the coherence time), so the foam signal $\delta g^{(2)}$
+must exceed the $1/M$ shot-noise floor.
+For stellar intensity interferometry at optical wavelengths,
+$M \sim 10^{10}$--$10^{12}$, giving
+$\delta g^{(2)}_{\rm floor} \sim 10^{-10}$--$10^{-12}$.
+For small $s$, $\delta g^{(2)} \approx s^2 = (\sigma_0/\tau_c)^2$, so
+the detectability condition is $\sigma_0/\tau_c \gtrsim M^{-1/2}$;
+this should be quoted alongside any observational upper bound on $\sigma_0$.
+
 The physical origin is distinct from the temporal phase-scrambling effect.
 Even at $\tau=0$, photon pairs from \emph{different} sky directions
 $\boldsymbol{\theta}\neq\boldsymbol{\theta}'$ accumulate independent
@@ -882,7 +924,9 @@ simultaneously and largely independently of the unknown intrinsic source
 spectrum.
 
 \begin{acknowledgments}
-[Acknowledgments to be added.]
+This work was supported in part by the Director, Office of Science, Office of
+High Energy Physics of the U.S.\ Department of Energy under Contract No.\
+DE-AC02-05CH11231.
 \end{acknowledgments}
 
 \bibliographystyle{apsrev4-2}
