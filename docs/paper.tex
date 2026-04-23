@@ -782,11 +782,12 @@ $\langle I(t)I(t+\tau)\rangle = \langle E^*(t)E(t)E^*(t+\tau)E(t+\tau)\rangle$,
 where $E \equiv E_{\rm obs}$ is the field of Eq.~\eqref{eq:EobsExt}.
 Expanding the double angular integral and applying the Wick (moment) theorem
 to the four-point function of the zero-mean complex Gaussian field
-$E_{\boldsymbol{\theta}}$ produces two pairings:
+$E_{\boldsymbol{\theta}}$ produces two pairings (the $W^{1/2}$ weight factors
+enter the angular integral and are suppressed here for clarity):
 \begin{align}
   &\langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}
             E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_4}\rangle
-  \;\propto\;
+  =
   \langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}\rangle
   \langle E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_4}\rangle
   +
@@ -872,12 +873,17 @@ the ray-pair mixture reduces to a single Gaussian kernel of width $\sigma_0$.
 Evaluating the zero-lag convolution using
 $g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_c}$
 (from Siegert applied to $g^{(1)}_{\rm src}=e^{-|\tau|/\tau_c}$):
-For $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ and $s\equiv\sigma_0/\tau_c$:
+For $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ and $s\equiv\sigma_0/\tau_c$,
+splitting on $\Delta>0$ and $\Delta<0$ and completing the square in each half:
 \begin{equation}
   \big\langle e^{-2|\Delta|/\tau_c}\big\rangle
+  = \frac{2}{\sqrt{2\pi}\,\sigma_0}\int_0^\infty e^{-2\Delta/\tau_c}e^{-\Delta^2/2\sigma_0^2}d\Delta
   = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:zerolagavg}
 \end{equation}
+which satisfies the limits $s\to 0$: $1\cdot1=1$ (no suppression) and
+$s\to\infty$: $e^{2s^2}\mathrm{erfc}(\sqrt{2}s)\sim 1/(\sqrt{\pi}s)\to 0$
+(full suppression, $g^{(2)}_{\rm obs}(0)\to 1$).
 so
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(0)
@@ -937,7 +943,10 @@ The Siegert discrepancy is therefore
 where $g^{(2)}_{\rm obs}(\tau)-1$ is given by Eq.~\eqref{eq:g2obsExt} and
 $|g^{(1)}_{\rm obs}(\tau)|^2 = |g^{(1)}_{\rm src}(\tau)|^2\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$.
 Within the $\Phi_{\rm eff}$ approximation, at $\tau=0$,
-using $g^{(1)}_{\rm obs}(0)=1$ exactly:
+using $g^{(1)}_{\rm obs}(0)=1$ exactly
+(this follows from the spatial-incoherence argument of Section~\ref{sec:extended}
+and is independent of the $\Phi_{\rm eff}$ approximation, which affects only
+$g^{(2)}_{\rm obs}$ through the effective kernel width $\sigma_0$):
 \begin{equation}
   \mathcal{S}(0)
   = \left[g^{(2)}_{\rm obs}(0) - 1\right] - 1
