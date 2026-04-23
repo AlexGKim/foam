@@ -125,48 +125,6 @@ probing its longitudinal projection and Section~\ref{sec:extended} its transvers
 projection, all governed by the same parameter set
 $\{\alpha,\,\ell_{\rm P},\,A_\alpha\}$.
 
-\subsection{Physical Origin of $C_\alpha(\tau;D)$}
-
-Quantum foam models posit that each Planck-scale cell of spacetime along the line
-of sight fluctuates in time.
-Two photons traversing the same cell at coordinate times separated by $\tau$
-experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
-but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
-characteristic temporal fluctuation timescale at each cell.
-Consequently, $C_\alpha(\tau;D)$ is the normalized \emph{temporal} autocorrelation
-of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
-cells along the line of sight; $\sigma_\ell^2(D)$ encodes the accumulated variance.
-The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
-not fixed by the Ng--Perlman variance relation alone.
-
-If $\tau_{\rm foam}$ is of order the Planck time,
-$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
-accessible lags and $\sigma_\Delta^2(\tau) \approx 2\sigma_\ell^2/c^2$ at all $\tau$:
-the maximum differential jitter, and the most optimistic scenario for detection.
-In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
-across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
-interest, $\sigma_\Delta^2 \to 0$, and every temporal observable vanishes.
-In this limit a null measurement places a \emph{lower bound} on $\tau_{\rm foam}$;
-however, this bound is meaningful only when combined with an independent constraint
-on $\sigma_\phi$ — for example from fringe-visibility measurements, since a null HBT
-result alone is equally consistent with the observationally allowed regime
-$\sigma_\phi \ll 1$ where the foam signal is undetectably small regardless of
-$\tau_{\rm foam}$.
-
-The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
-in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
-but is fundamentally temporal in origin.
-For cosmological $D$, a complete treatment would require accounting for the redshift
-when converting proper-time lags at each cell to observed lags; this correction is
-beyond the scope of the present paper.
-
-The CLT argument of Section~\ref{sec:differential_jitter} requires the elementary
-foam cells contributing to $\Delta\ell_{\rm tot}$ to be approximately independent.
-This holds when the temporal lag of interest satisfies $\tau \gg \tau_{\rm foam}$
-(so cells decorrelate over one lag interval) and when the transverse baseline $b \gg r_\perp$;
-if $\tau_{\rm foam}$ is comparable to the coherence time $\tau_c$, or if transverse
-correlations extend over $b$, the Gaussian approximation may acquire non-Gaussian tails.
-
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
 
@@ -207,6 +165,48 @@ $D$-dependence and write $C_\alpha(\tau)\equiv C_\alpha(\tau;D)$ and
 $\sigma_\Delta(\tau)\equiv \sigma_\Delta(\tau;D)$ (similarly for any other
 $D$-dependent quantity).
 
+\subsection{Physical Origin of $C_\alpha(\tau;D)$}
+
+Quantum foam models posit that each Planck-scale cell of spacetime along the line
+of sight fluctuates in time.
+Two photons traversing the same cell at coordinate times separated by $\tau$
+experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
+but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
+characteristic temporal fluctuation timescale at each cell.
+Consequently, $C_\alpha(\tau;D)$ is the normalized \emph{temporal} autocorrelation
+of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
+cells along the line of sight; $\sigma_\ell^2(D)$ encodes the accumulated variance.
+The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
+not fixed by the Ng--Perlman variance relation alone.
+
+If $\tau_{\rm foam}$ is of order the Planck time,
+$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
+accessible lags and $\sigma_\Delta^2(\tau) \approx 2\sigma_\ell^2/c^2$ at all $\tau$:
+the maximum differential jitter, and the most optimistic scenario for detection.
+In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
+across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
+interest, $\sigma_\Delta^2 \to 0$, and every temporal observable vanishes.
+In this limit a null measurement places a \emph{lower bound} on $\tau_{\rm foam}$;
+however, this bound is meaningful only when combined with an independent constraint
+on $\sigma_\phi$ — for example from fringe-visibility measurements, since a null HBT
+result alone is equally consistent with the observationally allowed regime
+$\sigma_\phi \ll 1$ where the foam signal is undetectably small regardless of
+$\tau_{\rm foam}$.
+
+The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
+in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
+but is fundamentally temporal in origin.
+For cosmological $D$, a complete treatment would require accounting for the redshift
+when converting proper-time lags at each cell to observed lags; this correction is
+beyond the scope of the present paper.
+
+The Gaussian approximation for $\Delta(\tau)$ requires the elementary foam cells contributing to
+to $\Delta\ell_{\rm tot}$ to be approximately independent.
+This holds when the temporal lag of interest satisfies $\tau \gg \tau_{\rm foam}$
+(so cells decorrelate over one lag interval) and when the transverse baseline $b \gg r_\perp$;
+if $\tau_{\rm foam}$ is comparable to the coherence time $\tau_c$, or if transverse
+correlations extend over $b$, the Gaussian approximation may acquire non-Gaussian tails.
+
 % ==============================================================
 \section{First-Order Coherence}
 \label{sec:g1}
@@ -241,7 +241,8 @@ convolved with the Gaussian differential-jitter kernel.
 
 \subsection{Closed Form for a Lorentzian Source}
 
-A thermal or AGN source typically has a Lorentzian power spectrum, so
+Astronomical emission lines generally have  a Lorentzian line profile, which 
+corresponds to an exponential coherence function via the Wiener-Khinchin theorem, so
 \begin{equation}
   g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c},
   \label{eq:g1src_lorentz}
@@ -255,10 +256,9 @@ sign of $\tau-\Delta$ gives, for $\tau > 0$:
     \cdot\frac{1}{2}\left[
       e^{-\tau/\tau_c}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_c - \tau/\sigma_\Delta}{\sqrt{2}}\right)
       + e^{\tau/\tau_c}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_c + \tau/\sigma_\Delta}{\sqrt{2}}\right)
-    \right],
+    \right].
   \label{eq:g1obs_erfc}
 \end{equation}
-where $\sigma_\Delta \equiv \sigma_\Delta(\tau)$.
 In the weak-jitter limit $\sigma_\Delta \ll \tau_c$, the Gaussian average of
 $e^{-|\tau-\Delta|/\tau_c}$ over $\Delta\sim\mathcal{N}(0,\sigma_\Delta^2)$
 is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
@@ -273,17 +273,13 @@ requires $\sigma_\Delta(\tau) \ll \tau_c$ at each lag of interest.
 The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
 Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
-To verify this from Eq.~\eqref{eq:g1obs_erfc}: as $\tau\to0^+$,
-$\sigma_\Delta(\tau)\to 0$ (since $C_\alpha(0)=1$), so $\tau/\sigma_\Delta\to 0$
-as well (for any $C_\alpha$ smooth at $\tau=0$, $\sigma_\Delta \propto \sqrt{\tau}$
-so $\tau/\sigma_\Delta \propto \sqrt{\tau}\to 0$).
-Both erfc arguments therefore approach zero, giving $\mathrm{erfc}(0)=1$,
-and $e^{\sigma_\Delta^2/2\tau_c^2}\to 1$, so
-$g^{(1)}_{\rm obs}(0) = \tfrac{1}{2}[1\cdot1 + 1\cdot1] = 1$. $\checkmark$
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
 
+High-resolution spectrographs transmit
+slivers of the spectrum that
+approach the narrow-band limit.
 For a quasi-monochromatic source with center frequency $\omega_0$ and
 angular-frequency bandwidth $\Delta\omega \ll \omega_0$, write
 $E_{\rm src}(t) = A(t)\,e^{-i\omega_0 t}$
