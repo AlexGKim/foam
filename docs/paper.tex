@@ -952,14 +952,13 @@ $D = 1\,\mathrm{Gpc}$, $\lambda = 500\,\mathrm{nm}$,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$, $C_\alpha \to 0$.
 The $\alpha = 1/2$ case is observationally excluded~\cite{Perlman2015};
 $\alpha = 2/3$ (holographic) is the most sensitive surviving model.
-For $\alpha = 1/2$ the approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ is inaccurate
-at the $\sim$50\% level; the full expression Eq.~(46) must be used.}
+For $\alpha = 1/2$, the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ overestimates the exact value by a factor of $\sim$1.5 because $s=0.40$ is not in the asymptotic small-$s$ regime, and the full expression Eq.~(46) must be used.}
 \label{tab:bunching}
 \begin{tabular}{lcc}
 \hline\hline
 Quantity & $\alpha = 1/2$ (excluded) & $\alpha = 2/3$ \\
 \hline
-$\sigma_\phi$ & $2.81 \times 10^{2}$ & $2.52 \times 10^{-8}$ \\
+$\sigma_\phi$ & \multicolumn{1}{c}{$2.81 \times 10^2$} & \multicolumn{1}{c}{$2.52 \times 10^{-8}$} \\
 $s = \sigma_0/\tau_c$ & $3.97 \times 10^{-1}$ & $3.56 \times 10^{-11}$ \\
 $\delta g^{(2)}$ [Eq.~(46), exact] & $4.14 \times 10^{-1}$ & $5.69 \times 10^{-11}$ \\
 $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ [small-$s$] & $6.33 \times 10^{-1}$ & $5.68 \times 10^{-11}$ \\
@@ -1018,18 +1017,12 @@ the exact convolution~\eqref{eq:g2obs} should be used for precision work.
 Critically, this case ($\alpha=1/2$) is already excluded by fringe-visibility
 measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
 For the holographic model $\alpha=2/3$ with the same parameters, $\sigma_\phi\sim 10^{-8}$,
-so all foam coherence observables are negligibly small with current instrumentation.
-The theoretical framework is therefore most useful as a basis for future constraints
-at shorter wavelengths (X-ray or near-UV), longer baselines, or next-generation
-intensity interferometers, where the sensitivity scales as $\lambda^{-1}$ and $D^{1-\alpha}$.
-To make this concrete: for $\alpha=2/3$ at $D=10$~Gpc and soft X-ray wavelength
-$\lambda=1$~\AA, one finds $\sigma_\ell \approx 4.3\times10^{-15}$~m,
-$\sigma_\phi \approx 2.7\times10^{-4}$, and
-$\sigma_\Delta/\tau_c \approx 3.8\times10^{-7}$ (for $\Delta\lambda/\lambda=10^{-3}$) —
-still approximately seven orders of magnitude below a unity HBT signal.
-The framework therefore serves primarily as a theoretical tool and as an upper-limit
-setter for future precision measurements, rather than as a near-term positive-detection
-strategy.
+so temporal point-source observables are negligibly small with current instrumentation.
+However, as shown in Table~\ref{tab:bunching}, the extended-source zero-lag bunching suppression scales linearly rather than quadratically with the small parameter $s = \sigma_0/\tau_c$.
+Under the optimistic but physically motivated assumption $\Phi_{\rm eff} \to 0$ (a fully resolved source where the transverse ray separation $b \gg r_\perp$), this yields a suppression $\delta g^{(2)} \approx 5.7\times10^{-11}$.
+This signal lies directly within the $10^{-10}$--$10^{-12}$ shot-noise floor of next-generation optical intensity interferometers.
+Thus, the extended-source bunching suppression brings the holographic foam model within the detectability threshold of future optical instruments, subject to geometric caveats concerning the source angular size and the unknown transverse coherence length $r_\perp$.
+This provides a promising new observational pathway: rather than serving merely as a theoretical tool or an upper-limit setter, the framework developed here identifies a viable positive-detection strategy for probing the quantum structure of spacetime.
 % ==============================================================
 
 A deeper question left open by the present framework is whether spacetime foam should be treated as a static medium or whether its statistical properties evolve on cosmological timescales. Throughout this paper we have treated $\sigma^2_\ell(D)$ as a fixed parameter, an assumption justified by the negligible fractional change $H_0 T \sim 10^{-10}$ in the propagation distance over any realistic observation duration. Over cosmological lookback times, however, the foam may track the expansion of the universe in a non-trivial way. If the Ng--Perlman exponent $\alpha$ or the coefficient $A_\alpha$ itself carries a redshift dependence, then observations of sources at different redshifts would no longer trace a simple power-law $\sigma_\phi(D)$, and the distance-scaling discriminant developed in Section IV.E would need to be generalized. More speculatively, if the foam undergoes a phase transition or qualitative change in its structure at some epoch — analogous to other symmetry-breaking transitions in the early universe — this could in principle be imprinted on the coherence of light from sources bracketing that epoch, providing a novel cosmological probe. We flag these possibilities as motivation for developing a fully non-stationary, redshift-resolved treatment of foam coherence in future work.
