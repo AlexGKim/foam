@@ -473,7 +473,7 @@ $\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
 Although the narrow-band jitter leaves $g^{(2)}$ for a point source unchanged at leading order, any observable foam signature in a temporal second-order measurement is controlled by the residual differential-jitter scale $\sigma_\Delta(\tau)$ relative to the source coherence time $\tau_c$.
 In the narrow-band limit the relevant sensitivity parameter for the temporal
 measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
-Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ (physics convention) and
+Using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ and
 $\omega_0 = 2\pi c/\lambda$, so $\omega_0\tau_c = \lambda/\Delta\lambda$:
 \begin{equation}
   \frac{\sigma_\Delta(\tau)}{\tau_c}
@@ -640,14 +640,14 @@ on $\sigma_\phi(D)$ rather than detecting a positive signal.
 \subsection{Field Model and Spatiotemporal Covariance}
 
 We now generalize to an extended incoherent source whose angular brightness
-distribution is $W(\boldsymbol{\theta})$ (normalized to unity).
+distribution is $I(\boldsymbol{\theta})$ (normalized to unity).
 The analysis assumes a point (single spatial mode) detector; a finite aperture
 would introduce Van~Cittert--Zernike geometric phases that modify the angular
 coherence and are left to future work.
 The detected field is a weighted superposition over rays labelled by direction
 offset $\boldsymbol{\theta}$:
 \begin{equation}
-  E_{\rm obs}(t) = \int d\boldsymbol{\theta}\,W^{1/2}(\boldsymbol{\theta})\,
+  E_{\rm obs}(t) = \int d\boldsymbol{\theta}\,I^{1/2}(\boldsymbol{\theta})\,
   E_{\boldsymbol{\theta}}\!\left(t - \delta t(t;\boldsymbol{\theta})\right),
   \label{eq:EobsExt}
 \end{equation}
@@ -701,7 +701,7 @@ Because different source directions are spatially incoherent,
 \end{equation}
 so only the diagonal $\boldsymbol{\theta}=\boldsymbol{\theta}'$ contributes.
 Each diagonal term reproduces the single-ray result of
-Section~\ref{sec:narrowband}, and the angular integral over $W$ gives unity.
+Section~\ref{sec:narrowband}, and the angular integral over $I$ gives unity.
 Therefore:
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau)
@@ -754,7 +754,7 @@ $\langle I(t)I(t+\tau)\rangle = \langle E^*(t)E(t)E^*(t+\tau)E(t+\tau)\rangle$,
 where $E \equiv E_{\rm obs}$ is the field of Eq.~\eqref{eq:EobsExt}.
 Expanding the double angular integral and applying the Wick (moment) theorem
 to the four-point function of the zero-mean complex Gaussian field
-$E_{\boldsymbol{\theta}}$ produces two pairings (the $W^{1/2}$ weight factors
+$E_{\boldsymbol{\theta}}$ produces two pairings (the $I^{1/2}$ weight factors
 enter the angular integral and are suppressed here for clarity):
 \begin{align}
   &\langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}
@@ -781,7 +781,7 @@ contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(\tau) - 1
   = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-    W(\boldsymbol{\theta})W(\boldsymbol{\theta}')
+    I(\boldsymbol{\theta})I(\boldsymbol{\theta}')
     \int_{-\infty}^{\infty}
       p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)\,
       \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,}
@@ -803,7 +803,7 @@ effective transverse coherence factor:
 \begin{equation}
   \Phi_{\rm eff}
   \equiv \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-         W(\boldsymbol{\theta})W(\boldsymbol{\theta}')\,
+         I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
          \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right).
   \label{eq:PhiEff}
 \end{equation}
@@ -825,8 +825,8 @@ $r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
 The approximation is exact at both limits.
 At intermediate angular sizes ($r_\perp \sim D\,\Delta\theta$), $\Phi(b/r_\perp)$
 varies across ray pairs and the replacement of the full double integral by a single
-kernel introduces an error of order $\mathrm{Var}_W[\Phi]$, the angular-weighted
-variance of $\Phi$ over the source brightness distribution $W(\boldsymbol{\theta})$.
+kernel introduces an error of order $\mathrm{Var}_I[\Phi]$, the angular-weighted
+variance of $\Phi$ over the source brightness distribution $I(\boldsymbol{\theta})$.
 A precise bound on this error requires knowledge of the functional form of $\Phi$
 and the source profile; for the purposes of this paper the $\Phi_{\rm eff}$
 reduction is used as a tractable approximation.
