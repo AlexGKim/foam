@@ -464,7 +464,12 @@ $\omega_0\delta t \sim \omega_0\sigma_\ell/c = \sigma_\phi$ can be large
 even when $\delta t \ll \tau_c$: for $\alpha=1/2$ at $D=1$~Gpc and
 $\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
 
-\subsection{Why Temporal Second-Order Correlations are Less Sensitive to First-Order Effects}
+
+
+% ==============================================================
+\section{Siegert Relation Violation}
+\label{sec:siegert}
+\subsection{Motivation: Sensitivity of Temporal Second-Order Correlations}
 Although the narrow-band jitter leaves $g^{(2)}$ for a point source unchanged at leading order, any observable foam signature in a temporal second-order measurement is controlled by the residual differential-jitter scale $\sigma_\Delta(\tau)$ relative to the source coherence time $\tau_c$.
 In the narrow-band limit the relevant sensitivity parameter for the temporal
 measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
@@ -498,35 +503,6 @@ Temporal $g^{(1)}$, $g^{(2)}$ & $\sigma_\phi\sqrt{2[1-C_\alpha]}\cdot\Delta\lamb
 \label{tab:comparison}
 \end{table}
 
-For $\alpha=1/2$ at $D=1$~Gpc with $A_\alpha=1$:
-$\sigma_\ell = \sqrt{\ell_{\rm P}\,D} \approx 2.2\times10^{-5}$~m,
-giving $\sigma_\phi \approx 280$ (fringes completely erased at $\sigma_\phi\gg 1$),
-while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and
-$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$.
-The narrow-band expansion parameter is
-$\delta t_{\rm rms}/\tau_c = \sigma_\ell/(c\tau_c) \approx 0.28$,
-so corrections to Eq.~\eqref{eq:g2unchanged} are at the $\sim 8\%$ level;
-the exact convolution~\eqref{eq:g2obs} should be used for precision work.
-Critically, this case ($\alpha=1/2$) is already excluded by fringe-visibility
-measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
-For the holographic model $\alpha=2/3$ with the same parameters, $\sigma_\phi\sim 10^{-8}$,
-so all foam coherence observables are negligibly small with current instrumentation.
-The theoretical framework is therefore most useful as a basis for future constraints
-at shorter wavelengths (X-ray or near-UV), longer baselines, or next-generation
-intensity interferometers, where the sensitivity scales as $\lambda^{-1}$ and $D^{1-\alpha}$.
-To make this concrete: for $\alpha=2/3$ at $D=10$~Gpc and soft X-ray wavelength
-$\lambda=1$~\AA, one finds $\sigma_\ell \approx 4.3\times10^{-15}$~m,
-$\sigma_\phi \approx 2.7\times10^{-4}$, and
-$\sigma_\Delta/\tau_c \approx 3.8\times10^{-7}$ (for $\Delta\lambda/\lambda=10^{-3}$) —
-still approximately seven orders of magnitude below a unity HBT signal.
-The framework therefore serves primarily as a theoretical tool and as an upper-limit
-setter for future precision measurements, rather than as a near-term positive-detection
-strategy.
-
-
-% ==============================================================
-\section{Siegert Relation Violation}
-\label{sec:siegert}
 % ==============================================================
 
 \subsection{General Bound}
@@ -1010,6 +986,30 @@ spectrum.
 % ==============================================================
 \section{Conclusions}
 \label{sec:conclusions}
+For $\alpha=1/2$ at $D=1$~Gpc with $A_\alpha=1$:
+$\sigma_\ell = \sqrt{\ell_{\rm P}\,D} \approx 2.2\times10^{-5}$~m,
+giving $\sigma_\phi \approx 280$ (fringes completely erased at $\sigma_\phi\gg 1$),
+while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and
+$\sigma_\Delta/\tau_c \approx \sqrt{2}\,\sigma_\ell/(c\tau_c) \approx 0.40$.
+The narrow-band expansion parameter is
+$\delta t_{\rm rms}/\tau_c = \sigma_\ell/(c\tau_c) \approx 0.28$,
+so corrections to Eq.~\eqref{eq:g2unchanged} are at the $\sim 8\%$ level;
+the exact convolution~\eqref{eq:g2obs} should be used for precision work.
+Critically, this case ($\alpha=1/2$) is already excluded by fringe-visibility
+measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
+For the holographic model $\alpha=2/3$ with the same parameters, $\sigma_\phi\sim 10^{-8}$,
+so all foam coherence observables are negligibly small with current instrumentation.
+The theoretical framework is therefore most useful as a basis for future constraints
+at shorter wavelengths (X-ray or near-UV), longer baselines, or next-generation
+intensity interferometers, where the sensitivity scales as $\lambda^{-1}$ and $D^{1-\alpha}$.
+To make this concrete: for $\alpha=2/3$ at $D=10$~Gpc and soft X-ray wavelength
+$\lambda=1$~\AA, one finds $\sigma_\ell \approx 4.3\times10^{-15}$~m,
+$\sigma_\phi \approx 2.7\times10^{-4}$, and
+$\sigma_\Delta/\tau_c \approx 3.8\times10^{-7}$ (for $\Delta\lambda/\lambda=10^{-3}$) —
+still approximately seven orders of magnitude below a unity HBT signal.
+The framework therefore serves primarily as a theoretical tool and as an upper-limit
+setter for future precision measurements, rather than as a near-term positive-detection
+strategy.
 % ==============================================================
 
 A deeper question left open by the present framework is whether spacetime foam should be treated as a static medium or whether its statistical properties evolve on cosmological timescales. Throughout this paper we have treated $\sigma^2_\ell(D)$ as a fixed parameter, an assumption justified by the negligible fractional change $H_0 T \sim 10^{-10}$ in the propagation distance over any realistic observation duration. Over cosmological lookback times, however, the foam may track the expansion of the universe in a non-trivial way. If the Ng--Perlman exponent $\alpha$ or the coefficient $A_\alpha$ itself carries a redshift dependence, then observations of sources at different redshifts would no longer trace a simple power-law $\sigma_\phi(D)$, and the distance-scaling discriminant developed in Section IV.E would need to be generalized. More speculatively, if the foam undergoes a phase transition or qualitative change in its structure at some epoch — analogous to other symmetry-breaking transitions in the early universe — this could in principle be imprinted on the coherence of light from sources bracketing that epoch, providing a novel cosmological probe. We flag these possibilities as motivation for developing a fully non-stationary, redshift-resolved treatment of foam coherence in future work.
