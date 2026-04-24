@@ -686,9 +686,7 @@ from the temporal decorrelation measurements of Sections~\ref{sec:g1} and
 parameter of the foam that is constrained empirically by the angular-size
 dependence of the HBT bunching suppression.
 Different foam models (random-walk, holographic, etc.) may predict different
-values of $r_\perp$, but the measurement is model-agnostic in the same way that
-a turbulence outer-scale measurement constrains $L_0$ irrespective of the
-spectral model assumed.
+values of $r_\perp$, but the measurement is model-agnostic.
 
 \subsection{First-Order Coherence is Unchanged}
 
@@ -885,8 +883,8 @@ must exceed the $1/M$ shot-noise floor.
 For stellar intensity interferometry at optical wavelengths,
 $M \sim 10^{10}$--$10^{12}$, giving
 $\delta g^{(2)}_{\rm floor} \sim 10^{-10}$--$10^{-12}$.
-For small $s$, $\delta g^{(2)} \approx s^2 = (\sigma_0/\tau_c)^2$, so
-the detectability condition is $\sigma_0/\tau_c \gtrsim M^{-1/2}$;
+For small $s$, $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s \approx 1.6\,(\sigma_0/\tau_c)$, so
+the detectability condition is $\sigma_0/\tau_c \gtrsim M^{-1}$;
 this should be quoted alongside any observational upper bound on $\sigma_0$.
 
 The physical origin is distinct from the temporal phase-scrambling effect.
@@ -945,28 +943,34 @@ jitter (an envelope-level effect), while $|g^{(1)}_{\rm obs}(0)|^2 = 1$ exactly,
 so these two observables are controlled by different physical mechanisms and their
 difference can be negative.
 
-\subsection{Two Distinct Signatures}
-
-The two observable signatures of foam for extended sources are summarized in
-Table~\ref{tab:signatures}.
-
 \begin{table}[h]
 \centering
-\caption{Two foam signatures for an extended source in the narrow-band limit.}
-\begin{tabular}{lccc}
-\toprule
-Signature & Origin & Non-zero at $\tau=0$? & Depends on $r_\perp$? \\
-\midrule
-Siegert discrepancy $\mathcal{S}(\tau)$ & Temporal + cross-ray jitter
-  & Yes (via $\delta g^{(2)}$; $<0$) & Yes — via $\Phi_{\rm eff}$ \\
-Bunching suppression $\delta g^{(2)}$ & Transverse spatial decorrelation
-  & Yes & Yes — direct probe of $r_\perp$ \\
-\bottomrule
+\caption{Bunching suppression $\delta g^{(2)}$ from Eq.~(46) and sensitivity parameter
+$s = \sigma_0/\tau_c$ for an extended source in the fully resolved limit
+$\Phi_{\rm eff} \to 0$, using the fiducial parameters of Table~I:
+$D = 1\,\mathrm{Gpc}$, $\lambda = 500\,\mathrm{nm}$,
+$\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$, $C_\alpha \to 0$.
+The $\alpha = 1/2$ case is observationally excluded~\cite{Perlman2015};
+$\alpha = 2/3$ (holographic) is the most sensitive surviving model.
+For $\alpha = 1/2$ the approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ is inaccurate
+at the $\sim$50\% level; the full expression Eq.~(46) must be used.}
+\label{tab:bunching}
+\begin{tabular}{lcc}
+\hline\hline
+Quantity & $\alpha = 1/2$ (excluded) & $\alpha = 2/3$ \\
+\hline
+$\sigma_\phi$ & $2.81 \times 10^{2}$ & $2.52 \times 10^{-8}$ \\
+$s = \sigma_0/\tau_c$ & $3.97 \times 10^{-1}$ & $3.56 \times 10^{-11}$ \\
+$\delta g^{(2)}$ [Eq.~(46), exact] & $4.14 \times 10^{-1}$ & $5.69 \times 10^{-11}$ \\
+$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ [small-$s$] & $6.33 \times 10^{-1}$ & $5.68 \times 10^{-11}$ \\
+\hline\hline
 \end{tabular}
-\label{tab:signatures}
 \end{table}
 
-The two signatures are complementary.
+\subsection{Two Distinct Signatures}
+
+The two complementary observable signatures of foam for extended sources are summarized in
+Table~\ref{tab:signatures}.
 For a point-like source, the Siegert discrepancy $\mathcal{S}(\tau)$ is
 controlled by $\sigma_\phi^2$ and $C_\alpha(\tau;D)$ alone, probing
 $\alpha$ and $D$ with no sensitivity to $r_\perp$.
@@ -983,6 +987,22 @@ therefore allow $\{\alpha,\sigma_\ell(D),r_\perp\}$ to be constrained
 simultaneously and largely independently of the unknown intrinsic source
 spectrum.
 
+
+\begin{table}[h]
+\centering
+\caption{Two foam signatures for an extended source in the narrow-band limit.}
+\begin{tabular}{lccc}
+\toprule
+Signature & Origin & Non-zero at $\tau=0$? & Depends on $r_\perp$? \\
+\midrule
+Siegert discrepancy $\mathcal{S}(\tau)$ & Temporal + cross-ray jitter
+  & Yes (via $\delta g^{(2)}$; $<0$) & Yes — via $\Phi_{\rm eff}$ \\
+Bunching suppression $\delta g^{(2)}$ & Transverse spatial decorrelation
+  & Yes & Yes — direct probe of $r_\perp$ \\
+\bottomrule
+\end{tabular}
+\label{tab:signatures}
+\end{table}
 % ==============================================================
 \section{Conclusions}
 \label{sec:conclusions}
