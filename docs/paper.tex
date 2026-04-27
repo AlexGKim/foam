@@ -831,6 +831,10 @@ reduction is used as a tractable approximation.
 
 \subsection{Zero-Lag Bunching Peak Suppression}
 
+Working in the narrow-band limit of Section~\ref{sec:narrowband}
+($|\delta t| \ll \tau_c$, so that the jitter acts as a pure carrier-phase
+modulator and leaves the intensity envelope unchanged), we evaluate the
+zero-lag effective variance.
 At $\tau=0$, $C_\alpha(0;D)=1$, so $\sigma_{\tau,\rm eff}^2(0)$ reduces to
 \begin{equation}
   \sigma_0^2
@@ -840,14 +844,16 @@ At $\tau=0$, $C_\alpha(0;D)=1$, so $\sigma_{\tau,\rm eff}^2(0)$ reduces to
 which is strictly positive whenever $\Phi_{\rm eff}<1$.
 Within the $\Phi_{\rm eff}$ approximation of Section~\ref{sec:PhiEff},
 the ray-pair mixture reduces to a single Gaussian kernel of width $\sigma_0$.
-Evaluating the zero-lag convolution using
-$g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_c}$
-(from Siegert applied to $g^{(1)}_{\rm src}=e^{-|\tau|/\tau_c}$):
-For $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ and $s\equiv\sigma_0/\tau_c$,
-splitting on $\Delta>0$ and $\Delta<0$ and completing the square in each half:
+
+For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c}$,
+so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_c}$.
+The zero-lag convolution over $\Delta \sim \mathcal{N}(0, \sigma_0^2)$
+then becomes, setting $s \equiv \sigma_0/\tau_c$ and splitting on the sign
+of $\Delta$ (both halves contributing equally by symmetry of $|\Delta|$),
 \begin{equation}
   \big\langle e^{-2|\Delta|/\tau_c}\big\rangle
-  = \frac{2}{\sqrt{2\pi}\,\sigma_0}\int_0^\infty e^{-2\Delta/\tau_c}e^{-\Delta^2/2\sigma_0^2}d\Delta
+  = \frac{2}{\sqrt{2\pi}\,\sigma_0}\int_0^\infty
+    e^{-2\Delta/\tau_c}e^{-\Delta^2/2\sigma_0^2}d\Delta
   = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:zerolagavg}
 \end{equation}
@@ -855,8 +861,7 @@ which satisfies the limits $s\to 0$: $1\cdot1=1$ (no suppression) and
 $s\to\infty$: setting $x=\sqrt{2}s$, the standard asymptotic
 $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$ gives
 $e^{2s^2}\mathrm{erfc}(\sqrt{2}s)\sim 1/(\sqrt{2\pi}\,s)\to 0$
-(full suppression, $g^{(2)}_{\rm obs}(0)\to 1$).
-so
+(full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(0)
     = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
@@ -876,25 +881,43 @@ Since $\sigma_0^2\propto(1-\Phi_{\rm eff})$ and $\Phi_{\rm eff}$ decreases
 as the source angular diameter increases at fixed $D$ and $r_\perp$, more
 extended sources experience greater suppression of the bunching peak.
 
-In practice, a real HBT measurement returns $g^{(2)}(0) = 1 + 1/M$ where
+For the surviving models ($\alpha \geq 2/3$), $\sigma_\phi$ is small and the
+sensitivity parameter
+$s = \sigma_0/\tau_c
+ = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi\cdot(\Delta\lambda/\lambda)$
+is correspondingly small across all realistic observational bandwidths.
+For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
+that even at a realistic high spectral resolution
+$R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
+This is firmly in the regime where the linear approximation
+$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ is essentially exact and the
+narrow-band validity condition $s \ll 1$ is satisfied with many orders of
+magnitude to spare, self-consistently justifying the narrow-band assumption
+under which equations~(\ref{eq:g2zero}) and~(\ref{eq:deltag2}) were derived.
+Broader lines increase $\delta g^{(2)}$ linearly but bring no risk of
+violating the narrow-band framework.
+
+In practice, a real HBT measurement returns $g^{(2)}(0) = 1+ 1/M$ where
 $M$ is the number of collected spatiotemporal modes (spatial modes times
 temporal bins within the coherence time), so the foam signal $\delta g^{(2)}$
-must exceed the $1/M$ shot-noise floor.
-For stellar intensity interferometry at optical wavelengths,
-$M \sim 10^{10}$--$10^{12}$, giving
+must exceed the $1/M$ shot-noise floor. For stellar intensity interferometry
+at optical wavelengths, $M \sim 10^{10}$--$10^{12}$, giving
 $\delta g^{(2)}_{\rm floor} \sim 10^{-10}$--$10^{-12}$.
-For small $s$, $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s \approx 1.6\,(\sigma_0/\tau_c)$, so
-the detectability condition is $\sigma_0/\tau_c \gtrsim M^{-1}$;
-this should be quoted alongside any observational upper bound on $\sigma_0$.
+The detectability condition is therefore $\sigma_0/\tau_c \gtrsim M^{-1}$,
+which should be quoted alongside any observational upper bound on $\sigma_0$.
 
-The physical origin is distinct from the temporal phase-scrambling effect.
-Even at $\tau=0$, photon pairs from \emph{different} sky directions
-$\boldsymbol{\theta}\neq\boldsymbol{\theta}'$ accumulate independent
-instantaneous jitters $\delta t(t;\boldsymbol{\theta})\neq\delta t(t;\boldsymbol{\theta}')$
-when $b\gg r_\perp$.
-Their relative offset $\delta t(t;\boldsymbol{\theta})-\delta t(t;\boldsymbol{\theta}')$
-blurs the $g^{(2)}(0)$ measurement even though $\tau=0$.
-This is a purely \emph{spatial} effect with no analogue in the point-source case.
+The dependence of $\delta g^{(2)}$ on $\Phi_{\rm eff}$ (and hence on $r_\perp$)
+has a transparent physical interpretation.
+The zero-lag suppression arises from a purely spatial mechanism, distinct from the temporal
+phase-scrambling effect responsible for the Siegert discrepancy $\mathcal{S}(\tau)$.
+Even at $\tau = 0$, photon pairs from different sky directions
+$\boldsymbol{\theta} \neq \boldsymbol{\theta}'$ accumulate independent
+instantaneous jitters $\delta t(t;\boldsymbol{\theta}) \neq
+\delta t(t;\boldsymbol{\theta}')$ when $b \gg r_\perp$.
+Their relative offset $\delta t(t;\boldsymbol{\theta}) -
+\delta t(t;\boldsymbol{\theta}')$ blurs the $g^{(2)}(0)$ measurement even
+though $\tau = 0$.
+This is a purely spatial effect with no analogue in the point-source case.
 
 \subsection{Extended-Source Siegert Discrepancy}
 
