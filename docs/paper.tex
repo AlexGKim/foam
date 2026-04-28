@@ -831,11 +831,8 @@ reduction is used as a tractable approximation.
 
 \subsection{Zero-Lag Bunching Peak Suppression}
 
-Working in the narrow-band limit of Section~\ref{sec:narrowband}
-($|\delta t| \ll \tau_c$, so that the jitter acts as a pure carrier-phase
-modulator and leaves the intensity envelope unchanged), we evaluate the
-zero-lag effective variance.
-At $\tau=0$, $C_\alpha(0;D)=1$, so $\sigma_{\tau,\rm eff}^2(0)$ reduces to
+Evaluating the zero-lag effective variance using $C_\alpha(0;D)=1$ exactly,
+$\sigma_{\tau,\rm eff}^2(0)$ reduces to
 \begin{equation}
   \sigma_0^2
   \equiv \frac{2\sigma_\ell^2(D)}{c^2}(1-\Phi_{\rm eff}),
@@ -890,12 +887,8 @@ For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
 that even at a realistic high spectral resolution
 $R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
 This is firmly in the regime where the linear approximation
-$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ is essentially exact and the
-narrow-band validity condition $s \ll 1$ is satisfied with many orders of
-magnitude to spare, self-consistently justifying the narrow-band assumption
-under which equations~(\ref{eq:g2zero}) and~(\ref{eq:deltag2}) were derived.
-Broader lines increase $\delta g^{(2)}$ linearly but bring no risk of
-violating the narrow-band framework.
+$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ is essentially exact.
+Broader lines increase $\delta g^{(2)}$ linearly.
 
 In practice, a real HBT measurement returns $g^{(2)}(0) = 1+ 1/M$ where
 $M$ is the number of collected spatiotemporal modes (spatial modes times
