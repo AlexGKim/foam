@@ -567,6 +567,28 @@ $\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
 \section{Siegert Relation Violation}
 \label{sec:siegert}
 \subsection{Motivation: Sensitivity of Temporal Second-Order Correlations}
+Two distinct quantities characterize the foam-induced timing uncertainty,
+and the sensitivity of each observable is controlled by a different one.
+The first is $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$ — the rms phase
+accumulated by a single ray over the full propagation distance $D$,
+with $\sigma_\phi^2 = \omega_0^2\langle\delta t(t)^2\rangle$ independent
+of any time lag.
+It controls $g^{(1)}$ because the carrier phase $e^{i\omega_0\delta t(t)}$
+appears directly in the field correlation.
+Crucially, $\sigma_\phi \gg 1$ (fringes fully erased) is compatible with
+the narrow-band condition $\delta t \ll \tau_c$, provided
+$\sigma_\phi \ll \lambda/\Delta\lambda$.
+The second is $\sigma_\Delta(\tau)$ — the rms \emph{difference} in jitter
+between two photon arrivals separated by lag $\tau$
+(Eqs.~\eqref{eq:DeltaDef}--\eqref{eq:diffVar}).
+It controls $g^{(2)}$ because intensity correlations depend on how much
+the jitter \emph{changes} between two detection events, not on its
+absolute value.
+The decoupling of these two quantities — $\sigma_\phi \gg 1$ while
+$\sigma_\Delta(\tau)/\tau_c \ll 1$ — is the physical root of the Siegert
+violation derived below; the $\Delta\lambda/\lambda$ suppression factor
+that separates them emerges from their ratio, as quantified next.
+
 Although the narrow-band jitter leaves $g^{(2)}$ for a point source unchanged at leading order, any observable foam signature in a temporal second-order measurement is controlled by the residual differential-jitter scale $\sigma_\Delta(\tau)$ relative to the source coherence time $\tau_c$.
 In the narrow-band limit the relevant sensitivity parameter for the temporal
 measurement is $\sigma_\Delta(\tau)/\tau_c$, not $\sigma_\phi$ directly.
