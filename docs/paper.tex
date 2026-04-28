@@ -175,50 +175,17 @@ projection.
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
 
-Define the differential jitter between two detection times separated by lag
-$\tau$:
-\begin{equation}
-  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t).
-  \label{eq:DeltaDef}
-\end{equation}
-For a fixed propagation distance $D$, stationarity implies that the
-statistics of $\Delta(\tau)$ depend only on $\tau$.
-Its variance follows directly from Eq.~\eqref{eq:pathcov1ray}:
-\begin{align}
-  \sigma_\Delta^2(\tau;D)
-  &\equiv \langle \Delta(\tau)^2 \rangle \notag \\
-  &= \frac{1}{c^2}\big\langle
-     [\Delta\ell_{\rm tot}(t+\tau) - \Delta\ell_{\rm tot}(t)]^2
-     \big\rangle \notag \\
-  &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
-  \label{eq:diffVar}
-\end{align}
-Because $\Delta(\tau)$ is a sum of contributions from many weakly correlated
-foam cells, the central limit theorem implies it is Gaussian with zero mean.
-We therefore write its conditional probability density (at fixed $D$) as
-\begin{equation}
-  p(\Delta;\tau,D) = \frac{1}{\sqrt{2\pi}\,\sigma_\Delta(\tau;D)}
-    \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau;D)}\right).
-  \label{eq:kernel}
-\end{equation}
-Note $\sigma_\Delta^2(0;D) = 0$ (no jitter between simultaneous arrivals).
-At large lag, $\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2[1-C_\alpha(\infty;D)]$,
-which reaches its maximum $2\sigma_\ell^2/c^2$ only in the dynamical limit
-$C_\alpha(\infty;D)\to 0$; for quasi-static foam $C_\alpha\approx 1$ and
-$\sigma_\Delta^2\to 0$ at all lags.
-
-In the general case, photons arrive along different sky directions
-$\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$, each carrying its own foam jitter.
-The \emph{cross-ray differential jitter} is:
+Define the \emph{cross-ray differential jitter} between a photon arriving along
+direction $\boldsymbol{\theta}$ at time $t+\tau$ and a photon arriving along
+$\boldsymbol{\theta}'$ at time $t$:
 \begin{equation}
   \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
-  \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}'),
+  \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}').
   \label{eq:DeltaExt}
 \end{equation}
-the time offset between the ``second photon'' arriving along
-$\boldsymbol{\theta}$ at $t+\tau$ and the ``first photon'' along
-$\boldsymbol{\theta}'$ at $t$.
-Its variance follows from the full spatiotemporal covariance Eq.~\eqref{eq:pathcov}:
+For fixed $D$, stationarity implies the statistics depend only on $\tau$ and the
+transverse separation $b(\boldsymbol{\theta},\boldsymbol{\theta}')=D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$.
+Expanding the square and applying Eq.~\eqref{eq:pathcov}:
 \begin{align}
   \sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
   &= \frac{1}{c^2}\big\langle
@@ -233,14 +200,39 @@ Its variance follows from the full spatiotemporal covariance Eq.~\eqref{eq:pathc
     \left[1 - C_\alpha(\tau;D)\,\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)\right].
   \label{eq:diffVarExt}
 \end{align}
-The point-source case follows by setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$
-(so $b=0$ and $\Phi(0)=1$), which recovers Eq.~\eqref{eq:diffVar} exactly.
 For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
 $2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
 absent in the point-source case.
-By the same central limit theorem argument, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
-is Gaussian with zero mean and variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$,
-provided the contributing foam cells are approximately independent.
+
+Setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$, $\Phi(0)=1$) gives the
+single-ray differential jitter $\Delta(\tau)\equiv\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}}(\tau)$:
+\begin{equation}
+  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
+  \label{eq:DeltaDef}
+\end{equation}
+with variance
+\begin{align}
+  \sigma_\Delta^2(\tau;D)
+  &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
+  \label{eq:diffVar}
+\end{align}
+Note $\sigma_\Delta^2(0;D) = 0$ (no jitter between simultaneous arrivals).
+At large lag, $\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2[1-C_\alpha(\infty;D)]$,
+which reaches its maximum $2\sigma_\ell^2/c^2$ only in the dynamical limit
+$C_\alpha(\infty;D)\to 0$; for quasi-static foam $C_\alpha\approx 1$ and
+$\sigma_\Delta^2\to 0$ at all lags.
+
+By the central limit theorem, both $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
+and $\Delta(\tau)$ are sums of contributions from many foam cells and are therefore
+Gaussian with zero mean.
+We write the conditional probability density (at fixed $D$) as
+\begin{equation}
+  p(\Delta;\tau,D) = \frac{1}{\sqrt{2\pi}\,\sigma_\Delta(\tau;D)}
+    \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau;D)}\right),
+  \label{eq:kernel}
+\end{equation}
+where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt} for the cross-ray
+case or Eq.~\eqref{eq:diffVar} for the single-ray case.
 
 The Gaussian approximation requires the elementary foam cells to be approximately
 independent.
@@ -417,33 +409,74 @@ $V(\tau)$ whose shape encodes the temporal decorrelation $C_\alpha(\tau;D)$.
 
 \subsubsection{Strehl Ratio}
 
-For spatially uncorrelated Gaussian phase noise of rms $\sigma_\phi$ across the
-telescope aperture, the Strehl ratio (ratio of the observed PSF peak to the
-diffraction-limited peak) is given by the Mar\'{e}chal approximation~\cite{NgPerlman2022}
+The Strehl ratio $S$ — the ratio of the observed PSF peak to the
+diffraction-limited peak — is the standard measure of wavefront quality in
+telescope optics.
+In the Ng--Perlman picture~\cite{NgPerlman2022}, spacetime foam imprints a
+spatially varying random phase $\Delta\phi(x,y)$ across the entrance aperture:
+each point $(x,y)$ on the mirror receives a ray that has accumulated an
+independent random path-length shift from the Planck-scale cells it traversed,
+producing a random phase screen with rms value $\sigma_\phi$.
+When these phase shifts are spatially uncorrelated across the aperture — the
+limit $r_\perp \ll D_{\rm tel}$, where $r_\perp$ is the transverse foam
+coherence length and $D_{\rm tel}$ is the aperture diameter — the
+Mar\'{e}chal approximation gives
 \begin{equation}
   S = e^{-\sigma_\phi^2},
   \label{eq:Strehl}
 \end{equation}
-which is valid for $\sigma_\phi \lesssim 1$; for $\sigma_\phi \gg 1$ the
-PSF peak saturates to zero and the exponential formula is inapplicable in the
-telescope-optics sense.
-Within the foam model, however, $\mathcal{F}_{\rm foam}(\tau\to\infty) = e^{-\sigma_\phi^2}$
-is an exact result from the Gaussian characteristic function, independent of the
-Mar\'{e}chal approximation.
-The connection between the two is:
+valid for $\sigma_\phi \lesssim 1$; for $\sigma_\phi \gg 1$ the PSF peak is
+effectively destroyed.
+
+Within the present temporal framework, the same quantity $\sigma_\phi^2$
+appears as the large-lag limit of the foam suppression factor.
+From Eq.~\eqref{eq:Ffoam}, $\mathcal{F}_{\rm foam}(\tau) =
+e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]}$, so in the dynamical limit
+$C_\alpha(\infty;D)\to 0$:
 \begin{equation}
-  S = \mathcal{F}_{\rm foam}(\tau\to\infty),
+  S = \mathcal{F}_{\rm foam}(\tau\to\infty) = e^{-\sigma_\phi^2}.
   \label{eq:StrehlFoam}
 \end{equation}
-which is numerically indistinguishable from zero for $\sigma_\phi \gg 1$
-regardless of which interpretation is used.
-Both the Strehl and the Lieu--Hillman fringe visibility measure the same
-underlying quantity $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ — the
-total accumulated phase variance.
+This equality is an exact result of the Gaussian characteristic function,
+independent of the Mar\'{e}chal approximation.
+It reflects a direct correspondence between two descriptions of the same
+underlying physics: the spatial description sums independent phase contributions
+across the mirror at a single instant, while the temporal description tracks
+how the phase along a single ray decorrelates as the lag $\tau$ grows large
+enough that $C_\alpha(\tau;D)\to 0$ and the two time samples become independent.
+Both arrive at the same rms phase variance
+$\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$.
+For quasi-static foam ($C_\alpha\approx 1$), $\mathcal{F}_{\rm foam}(\infty)\to 1$
+consistently with $S\to 1$ in the $r_\perp \gg D_{\rm tel}$ limit discussed below.
+
+It is important to distinguish the role of the transverse coherence function
+$\Phi(b/r_\perp)$ from the
+aperture-plane phase noise just described.
+The quantity $\sigma_\phi^2$ is a single-ray variance: it characterises the
+accumulated phase fluctuation along one line of sight and does not by itself
+involve correlations between spatially separated rays.
+The Maréchal formula Eq.~\eqref{eq:Strehl}, however, additionally requires
+that adjacent aperture elements sample \emph{independent} foam realizations,
+which is precisely the $r_\perp \ll D_{\rm tel}$ condition already stated.
+In the opposite limit, $r_\perp \gg D_{\rm tel}$, the entire aperture sits
+within a single coherence patch: the wavefront has a common phase offset that
+varies in time but not across the aperture, there is no spatial phase variation,
+and $S\to 1$ — the foam is invisible to PSF-based measurements even though
+$\sigma_\phi^2$ may be large.
+The transverse coherence function $\Phi(b/r_\perp)$ governs a physically
+distinct effect — correlations between rays arriving from different sky
+directions $\boldsymbol{\theta}\neq\boldsymbol{\theta}'$ — which manifests in
+the second-order coherence of extended sources (Section~\ref{sec:extended})
+but does not directly enter the single-aperture Strehl ratio.
+
+Both the Strehl and the Lieu--Hillman fringe visibility therefore measure the
+same underlying quantity $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$.
 The difference is observational channel: Strehl and fringes probe the
-\emph{spatial} phase variation across the aperture, while the temporal
-$g^{(1)}$ probes the \emph{temporal} phase variation along a single ray
-as a function of lag.
+\emph{spatial} phase variation across the aperture (requiring
+$r_\perp \ll D_{\rm tel}$), while the temporal $g^{(1)}$ of
+Eq.~\eqref{eq:g1narrowband} probes the \emph{temporal} phase variation along
+a single ray as a function of lag, with no assumption on $r_\perp$ relative
+to the aperture.
 
 
 % ==============================================================
