@@ -71,6 +71,52 @@ in contrast to plasma dispersion which scales as $\lambda^2$.
 This achromaticity is a key discriminant between foam and conventional
 propagation effects (see Section~\ref{sec:discriminant}).
 
+\subsection{Physical Origin of $C_\alpha(\tau;D)$}
+\label{sec:Calpha_origin}
+
+Quantum foam models posit that each Planck-scale cell of spacetime along the line
+of sight fluctuates in time.
+Two photons traversing the same cell at coordinate times separated by $\tau$
+experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
+but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
+characteristic temporal fluctuation timescale at each cell.
+Consequently, $C_\alpha(\tau;D)$ is the normalized \emph{temporal} autocorrelation
+of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
+cells along the line of sight (where $\ell_{\rm P} = \sqrt{\hbar G/c^3}
+\simeq 1.616\times10^{-35}$~m is the Planck length);
+$\sigma_\ell^2(D)$ encodes the accumulated variance.
+The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
+not fixed by the Ng--Perlman variance relation alone.
+
+If $\tau_{\rm foam}$ is of order the Planck time,
+$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
+accessible lags and $\sigma_\Delta^2(\tau) \approx 2\sigma_\ell^2/c^2$ at all $\tau$
+(see Section~\ref{sec:differential_jitter}):
+the maximum differential jitter, and the most optimistic scenario for detection.
+In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
+across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
+interest, $\sigma_\Delta^2 \to 0$, and every temporal observable vanishes.
+In this limit a null measurement places a \emph{lower bound} on $\tau_{\rm foam}$;
+however, this bound is meaningful only when combined with an independent constraint
+on $\sigma_\phi$ — for example from fringe-visibility measurements, since a null HBT
+result alone is equally consistent with the observationally allowed regime
+$\sigma_\phi \ll 1$ where the foam signal is undetectably small regardless of
+$\tau_{\rm foam}$.
+
+The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
+in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
+but is fundamentally temporal in origin.
+For cosmological $D$, a complete treatment would require accounting for the redshift
+when converting proper-time lags at each cell to observed lags; this correction is
+beyond the scope of the present paper. Furthermore, we treat the foam's statistical properties as stationary over the observation duration $T$; any secular drift due to cosmological expansion is of order $H_0 T \lesssim 10^{-10}$ and thus strictly negligible.
+
+The Gaussian approximation for $\Delta(\tau)$ requires the elementary foam cells contributing to
+to $\Delta\ell_{\rm tot}$ to be approximately independent.
+This holds when the temporal lag of interest satisfies $\tau \gg \tau_{\rm foam}$
+(so cells decorrelate over one lag interval) and when the transverse baseline $b \gg r_\perp$;
+if $\tau_{\rm foam}$ is comparable to the coherence time $\tau_c$, or if transverse
+correlations extend over $b$, the Gaussian approximation may acquire non-Gaussian tails.
+
 \subsection{Ng--Perlman Variance and Temporal Covariance}
 
 Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} (see also
@@ -92,8 +138,8 @@ ray takes the factorized form
   = \sigma_\ell^2(D)\,C_\alpha(\tau;D),
   \label{eq:pathcov}
 \end{equation}
-where $C_\alpha(\tau;D)$ satisfies $C_\alpha(0;D) = 1$ and decays to zero as
-$\tau\to\infty$.
+where $C_\alpha(\tau;D)$ satisfies $C_\alpha(0;D) = 1$; its behavior at large
+$\tau$ depends on the foam's temporal dynamics, as described above.
 This product form — separating the total variance from the normalized temporal
 shape — is a structural assumption of the model, not a consequence of
 Eq.~\eqref{eq:NgPerlmanVar}; in a general stationary process the variance and
@@ -164,48 +210,6 @@ For notational compactness in subsequent sections, we suppress the explicit
 $D$-dependence and write $C_\alpha(\tau)\equiv C_\alpha(\tau;D)$ and
 $\sigma_\Delta(\tau)\equiv \sigma_\Delta(\tau;D)$ (similarly for any other
 $D$-dependent quantity).
-
-\subsection{Physical Origin of $C_\alpha(\tau;D)$}
-
-Quantum foam models posit that each Planck-scale cell of spacetime along the line
-of sight fluctuates in time.
-Two photons traversing the same cell at coordinate times separated by $\tau$
-experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
-but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
-characteristic temporal fluctuation timescale at each cell.
-Consequently, $C_\alpha(\tau;D)$ is the normalized \emph{temporal} autocorrelation
-of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
-cells along the line of sight; $\sigma_\ell^2(D)$ encodes the accumulated variance.
-The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
-not fixed by the Ng--Perlman variance relation alone.
-
-If $\tau_{\rm foam}$ is of order the Planck time,
-$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
-accessible lags and $\sigma_\Delta^2(\tau) \approx 2\sigma_\ell^2/c^2$ at all $\tau$:
-the maximum differential jitter, and the most optimistic scenario for detection.
-In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
-across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
-interest, $\sigma_\Delta^2 \to 0$, and every temporal observable vanishes.
-In this limit a null measurement places a \emph{lower bound} on $\tau_{\rm foam}$;
-however, this bound is meaningful only when combined with an independent constraint
-on $\sigma_\phi$ — for example from fringe-visibility measurements, since a null HBT
-result alone is equally consistent with the observationally allowed regime
-$\sigma_\phi \ll 1$ where the foam signal is undetectably small regardless of
-$\tau_{\rm foam}$.
-
-The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
-in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
-but is fundamentally temporal in origin.
-For cosmological $D$, a complete treatment would require accounting for the redshift
-when converting proper-time lags at each cell to observed lags; this correction is
-beyond the scope of the present paper. Furthermore, we treat the foam's statistical properties as stationary over the observation duration $T$; any secular drift due to cosmological expansion is of order $H_0 T \lesssim 10^{-10}$ and thus strictly negligible.
-
-The Gaussian approximation for $\Delta(\tau)$ requires the elementary foam cells contributing to
-to $\Delta\ell_{\rm tot}$ to be approximately independent.
-This holds when the temporal lag of interest satisfies $\tau \gg \tau_{\rm foam}$
-(so cells decorrelate over one lag interval) and when the transverse baseline $b \gg r_\perp$;
-if $\tau_{\rm foam}$ is comparable to the coherence time $\tau_c$, or if transverse
-correlations extend over $b$, the Gaussian approximation may acquire non-Gaussian tails.
 
 % ==============================================================
 \section{First-Order Coherence}
