@@ -152,7 +152,8 @@ satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
 Structurally, $\Phi(b/r_\perp)$ plays the same role in the transverse direction
 as $C_\alpha(\tau;D)$ plays in the temporal direction: both are normalized
 autocorrelation functions of the foam path-length fluctuation field.
-The single-ray temporal covariance is the special case
+The single-ray temporal covariance appropriate for a
+point source is the special case
 $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$ and $\Phi(0)=1$):
 \begin{equation}
   \big\langle \Delta\ell_{\rm tot}(t)\,
@@ -169,8 +170,7 @@ discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
 $\delta g^{(2)}$ --- therefore both descend from the single scaling relation
 Eq.~(\ref{eq:NgPerlmanVar}), with Sections~\ref{sec:g1}--\ref{sec:siegert}
 probing its longitudinal projection and Section~\ref{sec:extended} its transverse
-projection, all governed by the same parameter set
-$\{\alpha,\,\ell_{\rm P},\,A_\alpha\}$.
+projection.
 
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
@@ -207,12 +207,53 @@ arrivals) and
 $\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2$ (maximal
 decorrelation at large lag).
 
-The Gaussian approximation for $\Delta(\tau)$ requires the elementary foam cells
-contributing to $\Delta\ell_{\rm tot}$ to be approximately independent.
-This holds when the temporal lag of interest satisfies $\tau \gg \tau_{\rm foam}$
-(so cells decorrelate over one lag interval) and when the transverse baseline $b \gg r_\perp$;
-if $\tau_{\rm foam}$ is comparable to the coherence time $\tau_c$, or if transverse
-correlations extend over $b$, the Gaussian approximation may acquire non-Gaussian tails.
+For an extended source, photons arrive along different sky directions
+$\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$, each carrying its own
+foam jitter.
+The relevant quantity is the \emph{cross-ray differential jitter}:
+\begin{equation}
+  \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
+  \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}'),
+  \label{eq:DeltaExt}
+\end{equation}
+the time offset between the ``second photon'' arriving along
+$\boldsymbol{\theta}$ at $t+\tau$ and the ``first photon'' along
+$\boldsymbol{\theta}'$ at $t$.
+Its variance follows from the full spatiotemporal covariance Eq.~\eqref{eq:pathcov}:
+\begin{align}
+  \sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
+  &= \frac{1}{c^2}\big\langle
+    [\Delta\ell_{\rm tot}(t+\tau;\boldsymbol{\theta})
+     - \Delta\ell_{\rm tot}(t;\boldsymbol{\theta}')]^2
+    \big\rangle \notag \\
+  &= \frac{1}{c^2}\left[
+    \sigma_\ell^2 + \sigma_\ell^2
+    - 2\sigma_\ell^2\,C_\alpha(\tau)\,\Phi\!\left(\frac{b}{r_\perp}\right)
+    \right] \notag \\[4pt]
+  &= \frac{2\sigma_\ell^2(D)}{c^2}
+    \left[1 - C_\alpha(\tau;D)\,\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)\right].
+  \label{eq:diffVarExt}
+\end{align}
+Setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$ and $\Phi(0)=1$)
+recovers the single-ray result Eq.~\eqref{eq:diffVar} exactly.
+For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
+$2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
+absent in the point-source case.
+By the same CLT argument as the single-ray case, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
+is Gaussian with zero mean and variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$,
+provided the contributing foam cells are approximately independent.
+
+The Gaussian approximation requires the elementary foam cells to be approximately
+independent.
+For the single-ray case this holds when $\tau \gg \tau_{\rm foam}$ (cells decorrelate
+over one lag interval) and $D/\ell_{\rm P} \gg 1$ (many cells along the line of
+sight, trivially satisfied for cosmological $D$).
+For the cross-ray case the two rays share foam cells along the line of sight, and
+independence further requires $b \gg r_\perp$.
+In the intermediate regime $b \sim r_\perp$ (equivalently $r_\perp \sim D\Delta\theta$),
+the cross-ray Gaussian approximation and the $\Phi_{\rm eff}$ approximation of
+Section~\ref{sec:PhiEff} break down together; both introduce errors of the same
+order and must be assessed jointly.
 
 For notational compactness in subsequent sections, we suppress the explicit
 $D$-dependence and write $C_\alpha(\tau)\equiv C_\alpha(\tau;D)$ and
@@ -223,6 +264,13 @@ $D$-dependent quantity).
 \section{First-Order Coherence}
 \label{sec:g1}
 % ==============================================================
+
+In Sections~\ref{sec:g1}--\ref{sec:siegert} we treat a \emph{point source}:
+a single ray ($\boldsymbol{\theta}=\boldsymbol{\theta}'$), so the relevant
+differential jitter is $\Delta(\tau)$ of Eq.~\eqref{eq:DeltaDef} with variance
+Eq.~\eqref{eq:diffVar}.
+The generalization to extended sources and cross-ray jitter is taken up in
+Section~\ref{sec:extended}.
 
 \subsection{General Result}
 
@@ -710,35 +758,13 @@ foam structure leaves no imprint on $g^{(1)}$.
 For $g^{(2)}$, the Wick contraction in the Gaussian moment theorem
 enforces pairings between rays $\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$
 that need not be equal.
-The relevant quantity is the \emph{cross-ray differential jitter}:
-\begin{equation}
-  \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
-  \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}'),
-  \label{eq:DeltaExt}
-\end{equation}
-the time offset between the ``second photon'' arriving along
-$\boldsymbol{\theta}$ at $t+\tau$ and the ``first photon'' along
-$\boldsymbol{\theta}'$ at $t$.
-Computing its variance from Eq.~\eqref{eq:pathcov}:
-\begin{align}
-  \sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
-  &= \frac{1}{c^2}\big\langle
-    [\Delta\ell_{\rm tot}(t+\tau;\boldsymbol{\theta})
-     - \Delta\ell_{\rm tot}(t;\boldsymbol{\theta}')]^2
-    \big\rangle \notag \\
-  &= \frac{1}{c^2}\left[
-    \sigma_\ell^2 + \sigma_\ell^2
-    - 2\sigma_\ell^2\,C_\alpha(\tau)\,\Phi\!\left(\frac{b}{r_\perp}\right)
-    \right] \notag \\[4pt]
-  &= \frac{2\sigma_\ell^2(D)}{c^2}
-    \left[1 - C_\alpha(\tau;D)\,\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)\right].
-  \label{eq:diffVarExt}
-\end{align}
-Setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (and hence $\Phi(0)=1$) recovers
-the single-ray result Eq.~\eqref{eq:diffVar} exactly.
-For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
-$2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
-absent in the point-source case.
+The cross-ray differential jitter $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
+and its variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$
+are defined and derived in Section~\ref{sec:differential_jitter}
+(Eqs.~\eqref{eq:DeltaExt}--\eqref{eq:diffVarExt}).
+The key new feature relative to the point-source case is that for $b\gg r_\perp$,
+$\Phi\to 0$ and $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ \emph{at all lags,
+including $\tau=0$}.
 
 \subsection{General Second-Order Coherence}
 
