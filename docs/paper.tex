@@ -94,12 +94,6 @@ optimistic scenario for detection.
 In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
 across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
 interest and every temporal observable vanishes.
-In this limit a null measurement places a \emph{lower bound} on $\tau_{\rm foam}$;
-however, this bound is meaningful only when combined with an independent constraint
-on $\sigma_\phi$ — for example from fringe-visibility measurements, since a null HBT
-result alone is equally consistent with the observationally allowed regime
-$\sigma_\phi \ll 1$ where the foam signal is undetectably small regardless of
-$\tau_{\rm foam}$.
 
 The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
 in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
@@ -108,7 +102,7 @@ For cosmological $D$, a complete treatment would require accounting for the reds
 when converting proper-time lags at each cell to observed lags; this correction is
 beyond the scope of the present paper. Furthermore, we treat the foam's statistical properties as stationary over the observation duration $T$; any secular drift due to cosmological expansion is of order $H_0 T \lesssim 10^{-10}$ and thus strictly negligible.
 
-\subsection{Ng--Perlman Variance and Temporal Covariance}
+\subsection{Ng--Perlman Variance and Spatiotemporal Covariance}
 
 Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} (see also
 Ref.~\cite{Carlip2023} for a review of foam models and their observational
@@ -121,20 +115,6 @@ where $\ell_{\rm P} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m is the
 Planck length, $\alpha$ parametrizes the foam model
 ($\alpha=1$: conservative; $\alpha=2/3$: holographic; $\alpha=1/2$: random walk),
 and $A_\alpha$ is a dimensionless coefficient of order unity.
-The two-time covariance of the aggregate path-length fluctuation along a single
-ray takes the factorized form
-\begin{equation}
-  \big\langle \Delta\ell_{\rm tot}(t)\,
-              \Delta\ell_{\rm tot}(t+\tau) \big\rangle
-  = \sigma_\ell^2(D)\,C_\alpha(\tau;D),
-  \label{eq:pathcov}
-\end{equation}
-where $C_\alpha(\tau;D)$ satisfies $C_\alpha(0;D) = 1$; its behavior at large
-$\tau$ depends on the foam's temporal dynamics, as described above.
-This product form — separating the total variance from the normalized temporal
-shape — is a structural assumption of the model, not a consequence of
-Eq.~\eqref{eq:NgPerlmanVar}; in a general stationary process the variance and
-the normalized correlation function can carry independent $D$-dependence.
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
@@ -153,8 +133,38 @@ rays that share cells along the line of sight — the number of shared cells dep
 on both $b$ and $D$ in a way that is geometrically distinct from the single-ray
 accumulation.
 Accordingly, $r_\perp$ is treated as an independent free parameter in
-Section~\ref{sec:extended}, where it is constrained empirically through the
-angular-size dependence of the HBT bunching suppression. The two principal observables developed below --- the Siegert
+Section~\ref{sec:extended}.
+
+The full spatiotemporal covariance between two rays separated by transverse
+distance $b$ takes the factorized form
+\begin{equation}
+  \big\langle \Delta\ell_{\rm tot}(t;\boldsymbol{\theta})\,
+              \Delta\ell_{\rm tot}(t+\tau;\boldsymbol{\theta}')\big\rangle
+  = \sigma_\ell^2(D)\,C_\alpha(\tau;D)\,
+    \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
+  \label{eq:pathcov}
+\end{equation}
+where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$,
+$C_\alpha(\tau;D)$ is the normalized temporal autocorrelation introduced in
+Section~\ref{sec:Calpha_origin} (with $C_\alpha(0;D)=1$ and behavior at large $\tau$
+depending on the foam dynamics), and $\Phi$ is the transverse coherence function
+satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
+Structurally, $\Phi(b/r_\perp)$ plays the same role in the transverse direction
+as $C_\alpha(\tau;D)$ plays in the temporal direction: both are normalized
+autocorrelation functions of the foam path-length fluctuation field.
+The single-ray temporal covariance is the special case
+$\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$ and $\Phi(0)=1$):
+\begin{equation}
+  \big\langle \Delta\ell_{\rm tot}(t)\,
+              \Delta\ell_{\rm tot}(t+\tau) \big\rangle
+  = \sigma_\ell^2(D)\,C_\alpha(\tau;D).
+  \label{eq:pathcov1ray}
+\end{equation}
+This product form — separating the total variance from the normalized
+spatiotemporal shape — is a structural assumption of the model, not a consequence
+of Eq.~\eqref{eq:NgPerlmanVar}; in a general stationary process the variance and
+the normalized correlation functions can carry independent $D$-dependence.
+The two principal observables developed below --- the Siegert
 discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
 $\delta g^{(2)}$ --- therefore both descend from the single scaling relation
 Eq.~(\ref{eq:NgPerlmanVar}), with Sections~\ref{sec:g1}--\ref{sec:siegert}
@@ -173,7 +183,7 @@ $\tau$:
 \end{equation}
 For a fixed propagation distance $D$, stationarity implies that the
 statistics of $\Delta(\tau)$ depend only on $\tau$.
-Its variance follows directly from Eq.~\eqref{eq:pathcov}:
+Its variance follows directly from Eq.~\eqref{eq:pathcov1ray}:
 \begin{align}
   \sigma_\Delta^2(\tau;D)
   &\equiv \langle \Delta(\tau)^2 \rangle \notag \\
@@ -656,19 +666,10 @@ offset $\boldsymbol{\theta}$:
 where the $E_{\boldsymbol{\theta}}$ are independent, identically distributed
 complex Gaussian processes (one per sky direction), and each ray carries its
 own foam jitter $\delta t(t;\boldsymbol{\theta})$.
-The spatiotemporal covariance of the path-length aggregate is
-\begin{equation}
-  \big\langle \Delta\ell_{\rm tot}(t;\boldsymbol{\theta})\,
-              \Delta\ell_{\rm tot}(t+\tau;\boldsymbol{\theta}')\big\rangle
-  = \sigma_\ell^2(D)\,C_\alpha(\tau;D)\,
-    \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
-  \label{eq:covExt}
-\end{equation}
-where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$
-is the transverse separation between rays evaluated at the source end,
-$r_\perp$ is the foam transverse coherence length, and $\Phi$ is the
-transverse coherence function satisfying $\Phi(0)=1$ and
-$\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
+The spatiotemporal covariance of the path-length aggregate is given by
+Eq.~\eqref{eq:pathcov} of Section~\ref{sec:model}, with
+$b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$
+the transverse separation between rays evaluated at the source end.
 For foam distributed uniformly along the line of sight the ray separation at
 position $z$ is $z|\boldsymbol{\theta}-\boldsymbol{\theta}'|$, so the full
 cross-covariance integral involves an average over $0\leq z\leq D$;
@@ -677,18 +678,10 @@ thin-screen approximation in which the correlation is dominated by contributions
 near the source.
 Because $r_\perp$ is treated as an effective free parameter, the $O(1)$ geometric
 factor from the $z$-integral is absorbed into its definition.
-
-Structurally, $\Phi(b/r_\perp)$ plays the same role in the transverse direction
-as $C_\alpha(\tau;D)$ plays in the longitudinal (temporal) direction: both are
-normalized spatial autocorrelation functions of the foam path-length fluctuation
-field.
-Just as $\xi_\parallel$ (the longitudinal correlation length) must be inferred
-from the temporal decorrelation measurements of Sections~\ref{sec:g1} and
-\ref{sec:g2}, the transverse coherence length $r_\perp$ is an independent free
-parameter of the foam that is constrained empirically by the angular-size
-dependence of the HBT bunching suppression.
-Different foam models (random-walk, holographic, etc.) may predict different
-values of $r_\perp$, but the measurement is model-agnostic.
+The transverse coherence length $r_\perp$ is an independent free parameter of the
+foam, constrained empirically by the angular-size dependence of the HBT bunching
+suppression; different foam models may predict different values, but the
+measurement is model-agnostic.
 
 \subsection{First-Order Coherence is Unchanged}
 
@@ -726,7 +719,7 @@ The relevant quantity is the \emph{cross-ray differential jitter}:
 the time offset between the ``second photon'' arriving along
 $\boldsymbol{\theta}$ at $t+\tau$ and the ``first photon'' along
 $\boldsymbol{\theta}'$ at $t$.
-Computing its variance from Eq.~\eqref{eq:covExt}:
+Computing its variance from Eq.~\eqref{eq:pathcov}:
 \begin{align}
   \sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
   &= \frac{1}{c^2}\big\langle
