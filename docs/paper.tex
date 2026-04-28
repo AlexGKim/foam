@@ -435,7 +435,9 @@ $C_\alpha(\infty;D)\to 0$:
   \label{eq:StrehlFoam}
 \end{equation}
 This equality is an exact result of the Gaussian characteristic function,
-independent of the Mar\'{e}chal approximation.
+independent of the Mar\'{e}chal approximation, but holds only in the
+dynamical limit $C_\alpha(\infty;D)\to 0$; for foam that does not
+fully decorrelate on any accessible timescale the two sides differ.
 It reflects a direct correspondence between two descriptions of the same
 underlying physics: the spatial description sums independent phase contributions
 across the mirror at a single instant, while the temporal description tracks
@@ -495,9 +497,11 @@ For any complex Gaussian field the Siegert relation holds exactly, so
 (A subtlety: conditioned on $\delta t$, the field $E_{\rm obs}(t)$ is generally
 non-stationary, so the conditional two-time correlator depends on the absolute
 time $t$ as well as the lag $\tau$.
-The relation~\eqref{eq:SiegertCond} is applied as an instantaneous identity at
-each fixed pair $(t,t+\tau)$; stationarity is restored upon averaging over $\delta t$,
-whose statistics are by assumption stationary.)
+The Siegert identity nevertheless holds at each fixed pair $(t,t+\tau)$ as a
+pointwise Gaussian moment-factoring identity, without invoking stationarity.
+Averaging over both $t$ and $\delta t$ is valid because $E_{\rm src}$ and
+$\delta t$ are independent stationary processes, so the double average commutes
+and the result depends only on $\tau$.)
 Given a fixed $\delta t$, the differential jitter $\Delta(\tau)$ is a
 deterministic number, so
 $g^{(1)}_{\rm obs}(\tau\mid\delta t) = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$.
@@ -552,6 +556,12 @@ with corrections of order $(\delta t/\tau_c)^2 \sim (\sigma_\ell/c\tau_c)^2$.
 Note that $\delta t/\tau_c$ and $\sigma_\Delta/\tau_c$ are related by
 $\sigma_\Delta \leq \sqrt{2}\,\sigma_\ell/c = \sqrt{2}\,\delta t_{\rm rms}$,
 so controlling $\delta t/\tau_c$ is the fundamental expansion parameter.
+For $\alpha=1/2$ at $D=1$~Gpc and $\lambda=500$~nm, the expansion parameter
+is $\delta t_{\rm rms}/\tau_c \approx 0.28$ for $\Delta\lambda/\lambda=10^{-3}$,
+which is not small; for this case the exact convolution
+Eq.~\eqref{eq:g2obs} should be used in place of Eq.~\eqref{eq:g2unchanged}.
+For $\alpha=2/3$ the expansion parameter is $\sim 10^{-11}$ and the
+leading-order result is exact to any practical precision.
 
 The physical reason is that intensity is blind to the carrier phase
 $e^{i\omega_0\delta t(t)}$: carrier-phase modulation does not affect
