@@ -201,16 +201,15 @@ We therefore write its conditional probability density (at fixed $D$) as
     \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau;D)}\right).
   \label{eq:kernel}
 \end{equation}
-Note the two limits:
-$\sigma_\Delta^2(0;D) = 0$ (no jitter between simultaneous
-arrivals) and
-$\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2$ (maximal
-decorrelation at large lag).
+Note $\sigma_\Delta^2(0;D) = 0$ (no jitter between simultaneous arrivals).
+At large lag, $\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2[1-C_\alpha(\infty;D)]$,
+which reaches its maximum $2\sigma_\ell^2/c^2$ only in the dynamical limit
+$C_\alpha(\infty;D)\to 0$; for quasi-static foam $C_\alpha\approx 1$ and
+$\sigma_\Delta^2\to 0$ at all lags.
 
-For an extended source, photons arrive along different sky directions
-$\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$, each carrying its own
-foam jitter.
-The relevant quantity is the \emph{cross-ray differential jitter}:
+In the general case, photons arrive along different sky directions
+$\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$, each carrying its own foam jitter.
+The \emph{cross-ray differential jitter} is:
 \begin{equation}
   \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
   \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}'),
@@ -234,12 +233,12 @@ Its variance follows from the full spatiotemporal covariance Eq.~\eqref{eq:pathc
     \left[1 - C_\alpha(\tau;D)\,\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)\right].
   \label{eq:diffVarExt}
 \end{align}
-Setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$ and $\Phi(0)=1$)
-recovers the single-ray result Eq.~\eqref{eq:diffVar} exactly.
+The point-source case follows by setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$
+(so $b=0$ and $\Phi(0)=1$), which recovers Eq.~\eqref{eq:diffVar} exactly.
 For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
 $2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
 absent in the point-source case.
-By the same CLT argument as the single-ray case, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
+By the same central limit theorem argument, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
 is Gaussian with zero mean and variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$,
 provided the contributing foam cells are approximately independent.
 
@@ -380,12 +379,20 @@ We write the foam suppression factor as
 \end{equation}
 so $g^{(1)}_{\rm obs}(\tau) = g^{(1)}_{\rm src}(\tau)\cdot\mathcal{F}_{\rm foam}(\tau)$.
 At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
-At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2}$.
+At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2[1-C_\alpha(\infty;D)]}$,
+which equals $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$)
+and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 
 % ==============================================================
 \subsection{Connection to Fringe Visibility and Strehl Ratio}
 \label{sec:connection}
 % ==============================================================
+
+The fringe visibility and Strehl ratio are the observables through which
+published constraints on spacetime foam have been obtained~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
+Both are direct consequences of the first-order coherence $g^{(1)}_{\rm obs}(\tau)$
+derived above, and the foam suppression factor $\mathcal{F}_{\rm foam}(\tau)$
+of Eq.~\eqref{eq:Ffoam} unifies them in a single framework.
 
 \subsubsection{Fringe Visibility and the Lieu--Hillman Condition}
 
