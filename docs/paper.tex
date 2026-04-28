@@ -204,47 +204,26 @@ For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
 $2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
 absent in the point-source case.
 
-Setting $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$, $\Phi(0)=1$) gives the
-single-ray differential jitter $\Delta(\tau)\equiv\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}}(\tau)$:
-\begin{equation}
-  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
-  \label{eq:DeltaDef}
-\end{equation}
-with variance
-\begin{align}
-  \sigma_\Delta^2(\tau;D)
-  &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
-  \label{eq:diffVar}
-\end{align}
-Note $\sigma_\Delta^2(0;D) = 0$ (no jitter between simultaneous arrivals).
-At large lag, $\sigma_\Delta^2(\infty;D) = 2\sigma_\ell^2(D)/c^2[1-C_\alpha(\infty;D)]$,
-which reaches its maximum $2\sigma_\ell^2/c^2$ only in the dynamical limit
-$C_\alpha(\infty;D)\to 0$; for quasi-static foam $C_\alpha\approx 1$ and
-$\sigma_\Delta^2\to 0$ at all lags.
-
-By the central limit theorem, both $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
-and $\Delta(\tau)$ are sums of contributions from many foam cells and are therefore
-Gaussian with zero mean.
+By the central limit theorem, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
+is a sum of contributions from many foam cells and is therefore Gaussian with zero mean.
 We write the conditional probability density (at fixed $D$) as
 \begin{equation}
   p(\Delta;\tau,D) = \frac{1}{\sqrt{2\pi}\,\sigma_\Delta(\tau;D)}
     \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau;D)}\right),
   \label{eq:kernel}
 \end{equation}
-where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt} for the cross-ray
-case or Eq.~\eqref{eq:diffVar} for the single-ray case.
+where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt}.
 
 The Gaussian approximation requires the elementary foam cells to be approximately
 independent.
-For the single-ray case this holds when $\tau \gg \tau_{\rm foam}$ (cells decorrelate
-over one lag interval) and $D/\ell_{\rm P} \gg 1$ (many cells along the line of
-sight, trivially satisfied for cosmological $D$).
 For the cross-ray case the two rays share foam cells along the line of sight, and
-independence further requires $b \gg r_\perp$.
+independence requires $b \gg r_\perp$.
 In the intermediate regime $b \sim r_\perp$ (equivalently $r_\perp \sim D\Delta\theta$),
 the cross-ray Gaussian approximation and the $\Phi_{\rm eff}$ approximation of
 Section~\ref{sec:PhiEff} break down together; both introduce errors of the same
 order and must be assessed jointly.
+The single-ray case ($\boldsymbol{\theta}=\boldsymbol{\theta}'$, $b=0$) is taken up
+at the opening of Section~\ref{sec:g1}.
 
 For notational compactness in subsequent sections, we suppress the explicit
 $D$-dependence and write $C_\alpha(\tau)\equiv C_\alpha(\tau;D)$ and
@@ -257,9 +236,27 @@ $D$-dependent quantity).
 % ==============================================================
 
 In Sections~\ref{sec:g1}--\ref{sec:siegert} we treat a \emph{point source}:
-a single ray ($\boldsymbol{\theta}=\boldsymbol{\theta}'$), so the relevant
-differential jitter is $\Delta(\tau)$ of Eq.~\eqref{eq:DeltaDef} with variance
-Eq.~\eqref{eq:diffVar}.
+a single ray ($\boldsymbol{\theta}=\boldsymbol{\theta}'$, $b=0$).
+The relevant quantity is the \emph{single-ray differential jitter}
+\begin{equation}
+  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
+  \label{eq:DeltaDef}
+\end{equation}
+with variance (from Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$)
+\begin{align}
+  \sigma_\Delta^2(\tau;D)
+  &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
+  \label{eq:diffVar}
+\end{align}
+Note $\sigma_\Delta^2(0;D)=0$ (no jitter between simultaneous arrivals).
+At large lag, $\sigma_\Delta^2(\infty;D)$ reaches its maximum $2\sigma_\ell^2/c^2$
+only in the dynamical limit $C_\alpha(\infty;D)\to 0$; for quasi-static foam
+$C_\alpha\approx 1$ and $\sigma_\Delta^2\to 0$ at all lags.
+By the central limit theorem, $\Delta(\tau)$ is Gaussian with zero mean;
+Eq.~\eqref{eq:kernel} applies with $\sigma_\Delta^2$ from Eq.~\eqref{eq:diffVar}.
+The Gaussian approximation holds when $\tau \gg \tau_{\rm foam}$ and
+$D/\ell_{\rm P} \gg 1$ (many independent cells along the line of sight,
+trivially satisfied for cosmological $D$).
 The generalization to extended sources and cross-ray jitter is taken up in
 Section~\ref{sec:extended}.
 
