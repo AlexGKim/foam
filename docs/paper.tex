@@ -346,9 +346,18 @@ angular-frequency bandwidth $\Delta\omega \ll \omega_0$, write
 $E_{\rm src}(t) = A(t)\,e^{-i\omega_0 t}$
 where $A(t)$ varies on the coherence timescale
 $\tau_c = 1/\Delta\omega = \lambda^2/(2\pi c\,\Delta\lambda)$.
-For jitter $|\delta t| \ll \tau_c$, the envelope is unaffected,
+When the rms jitter $\delta t_{\rm rms} = \sigma_\ell/c \ll \tau_c$, typical
+realizations of $\delta t$ leave the envelope unaffected,
 $A(t-\delta t) \approx A(t)$, and the jitter acts purely as a carrier
-phase modulation:
+phase modulation.
+The precise condition is $\sigma_\ell/(c\tau_c) \ll 1$; corrections to
+the envelope approximation are of order $(\sigma_\ell/c\tau_c)^2$ and become
+non-negligible when $\sigma_\ell/(c\tau_c)\sim 1$
+(e.g.\ $\approx 0.28$ for $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm,
+$\Delta\lambda/\lambda=10^{-3}$).
+In that regime the exact convolution Eq.~\eqref{eq:g1obs_erfc} must be used
+rather than the narrow-band approximation developed below.
+When the condition is satisfied, the observed field takes the form
 \begin{equation}
   E_{\rm obs}(t) \approx A(t)\,e^{-i\omega_0 t}\,e^{i\omega_0\delta t(t)}.
   \label{eq:Eobs_narrowband}
