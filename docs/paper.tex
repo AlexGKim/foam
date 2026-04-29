@@ -662,14 +662,16 @@ $\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
 \section{Siegert Relation Violation}
 \label{sec:siegert}
 \subsection{Two Sensitivity Scales: $\sigma_\phi$ and $\sigma_\Delta(\tau)/\tau_c$}
-Two distinct quantities characterize the foam-induced timing uncertainty,
-and the sensitivity of each observable is controlled by a different one.
-The first is $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$ — the rms phase
-accumulated by a single ray over the full propagation distance $D$,
-with $\sigma_\phi^2 = \omega_0^2\langle\delta t(t)^2\rangle$ independent
-of any time lag.
-It controls $g^{(1)}$ because the carrier phase $e^{i\omega_0\delta t(t)}$
-appears directly in the field correlation.
+The first-order coherence $g^{(1)}$ is controlled by $\sigma_\phi =
+2\pi\sigma_\ell(D)/\lambda$, the rms phase accumulated along a single ray,
+while the second-order coherence $g^{(2)}$ is controlled by
+$\sigma_\Delta(\tau)/\tau_c = \sigma_\phi\cdot(\Delta\lambda/\lambda)\cdot
+\sqrt{2[1-C_\alpha(\tau)]}$, the differential jitter scaled by the coherence
+time; these can differ by orders of magnitude when $\Delta\lambda/\lambda \ll 1$.
+Specifically, $\sigma_\phi^2 = \omega_0^2\langle\delta t(t)^2\rangle$ is
+independent of any time lag, and $g^{(1)}$ is sensitive to it because the
+carrier phase $e^{i\omega_0\delta t(t)}$ appears directly in the field
+correlation.
 Crucially, $\sigma_\phi \gg 1$ (fringes fully erased) is compatible with
 the narrow-band condition $\delta t \ll \tau_c$, provided
 $\sigma_\phi \ll \lambda/\Delta\lambda$, i.e.\ the simultaneous regime
@@ -727,6 +729,14 @@ Temporal $g^{(2)}$ & $\sigma_\Delta(\tau)/\tau_c = \sigma_\phi\cdot\frac{\Delta\
 \end{tabular}
 \label{tab:comparison}
 \end{table}
+
+Because $g^{(2)}_{\rm obs} \approx g^{(2)}_{\rm src}$ (Section~\ref{sec:narrowband})
+while $g^{(1)}_{\rm obs} = g^{(1)}_{\rm src}\cdot\mathcal{F}_{\rm foam}$ is
+strongly suppressed when $\sigma_\phi \gg 1$, the Siegert relation
+$g^{(2)}-1 = |g^{(1)}|^2$ must be violated: the left-hand side retains its
+intrinsic value while the right-hand side is suppressed by
+$\mathcal{F}_{\rm foam}^2 \approx 0$.
+The following subsections quantify this discrepancy.
 
 % ==============================================================
 
