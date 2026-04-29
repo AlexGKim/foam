@@ -400,6 +400,21 @@ At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2[1-C_\alp
 which equals $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$)
 and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 
+To summarize which expression to use in practice:
+Eq.~\eqref{eq:g1obs} is always valid (exact within the model assumptions);
+Eq.~\eqref{eq:g1obs_erfc} is its closed form for a Lorentzian source and is
+likewise exact.
+Eq.~\eqref{eq:g1weak} (weak-jitter expansion) requires
+$\sigma_\Delta(\tau)/\tau_c \ll 1$ at each lag of interest.
+Eq.~\eqref{eq:g1narrowband} (narrow-band, carrier-phase result) requires
+$\sigma_\ell/(c\tau_c) \ll 1$; it captures the dominant physics when
+$\sigma_\phi \gtrsim 1$ but $\sigma_\phi \ll \lambda/\Delta\lambda$.
+These conditions are compatible: the narrow-band condition controls whether
+the envelope is smeared, while the weak-jitter condition controls whether
+the carrier-phase suppression is small.
+When neither approximation applies (i.e.\ $\sigma_\ell/(c\tau_c) \sim 1$),
+the full convolution Eq.~\eqref{eq:g1obs} must be evaluated numerically.
+
 % ==============================================================
 \subsection{Connection to Fringe Visibility and Strehl Ratio}
 \label{sec:connection}
