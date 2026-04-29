@@ -558,8 +558,14 @@ Gaussian process), so the time average of the conditional correlators converges
 to the conditional ensemble average.
 The subsequent average over the stationary $\delta t$ process then yields a
 function of $\tau$ only, by independence of $E_{\rm src}$ and $\delta t$.)
-Given a fixed $\delta t$, the differential jitter $\Delta(\tau)$ is a
-deterministic number, so
+Given a fixed realization of the process $\delta t(\cdot)$, the quantity
+$\Delta(\tau,t)\equiv\delta t(t+\tau)-\delta t(t)$ is a deterministic function
+of both $t$ and $\tau$; stationarity of $\delta t$ implies that its distribution
+is independent of $t$, but any individual realization retains $t$-dependence.
+After time-averaging (as in the ergodicity argument above), the $t$-dependence
+drops out and we may write $\Delta(\tau)$ for the lag-only quantity that enters
+the ensemble averages.
+With this understanding, for a fixed $\delta t$:
 $g^{(1)}_{\rm obs}(\tau\mid\delta t) = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$.
 Using the intrinsic Siegert relation
 $g^{(2)}_{\rm src} - 1 = |g^{(1)}_{\rm src}|^2$:
