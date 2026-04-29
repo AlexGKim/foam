@@ -71,38 +71,8 @@ in contrast to plasma dispersion which scales as $\lambda^2$.
 This achromaticity is a key discriminant between foam and conventional
 propagation effects (see Section~\ref{sec:discriminant}).
 
-\subsection{Temporal Fluctuations of Spacetime Foam}
+\subsection{Spatial and Temporal Fluctuations of Spacetime Foam}
 \label{sec:Calpha_origin}
-
-Quantum foam models posit that each Planck-scale cell of spacetime along the line
-of sight fluctuates in time.
-Two photons traversing the same cell at coordinate times separated by $\tau$
-experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
-but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
-characteristic temporal fluctuation timescale at each cell.
-We introduce $C_\alpha(\tau;D)$ as the normalized \emph{temporal} autocorrelation
-of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
-cells along the line of sight (where $\ell_{\rm P} = \sqrt{\hbar G/c^3}
-\simeq 1.616\times10^{-35}$~m is the Planck length).
-The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
-not fixed by the Ng--Perlman variance relation alone.
-
-If $\tau_{\rm foam}$ is of order the Planck time,
-$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
-accessible lags: the foam is fully decorrelated on any observable timescale, the most
-optimistic scenario for detection.
-In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
-across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
-interest and every temporal observable vanishes.
-
-The quantity $\xi_\parallel \equiv c\,\tau_{\rm foam}$ is the distance light travels
-in one foam coherence time; it provides a length-scale interpretation of $\tau_{\rm foam}$
-but is fundamentally temporal in origin.
-For cosmological $D$, a complete treatment would require accounting for the redshift
-when converting proper-time lags at each cell to observed lags; this correction is
-beyond the scope of the present paper. Furthermore, we treat the foam's statistical properties as stationary over the observation duration $T$; any secular drift due to cosmological expansion is of order $H_0 T \lesssim 10^{-10}$ and thus strictly negligible.
-
-\subsection{Ng--Perlman Variance and Spatiotemporal Covariance}
 
 Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} (see also
 Ref.~\cite{Carlip2023} for a review of foam models and their observational
@@ -111,8 +81,8 @@ constraints), the single-ray path-length variance obeys the power-law scaling
   \sigma_\ell^2(D) = A_\alpha\,D^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
   \label{eq:NgPerlmanVar}
 \end{equation}
-where $\ell_{\rm P} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m is the
-Planck length, $\alpha$ parametrizes the foam model
+where
+$\alpha$ parametrizes the foam model
 ($\alpha=1$: conservative; $\alpha=2/3$: holographic; $\alpha=1/2$: random walk),
 and $A_\alpha$ is a dimensionless coefficient of order unity.
 
@@ -134,6 +104,29 @@ on both $b$ and $D$ in a way that is geometrically distinct from the single-ray
 accumulation.
 Accordingly, $r_\perp$ is treated as an independent free parameter in
 Section~\ref{sec:extended}.
+We denote the normalized transverse coherence function by $\Phi(b/r_\perp)$,
+satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
+
+Turning to the temporal dimension, quantum foam models posit that each Planck-scale cell of spacetime along the line
+of sight fluctuates in time.
+Two photons traversing the same cell at coordinate times separated by $\tau$
+experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
+but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
+characteristic temporal fluctuation timescale at each cell.
+We introduce $C_\alpha(\tau;D)$ as the normalized \emph{temporal} autocorrelation
+of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P}$
+cells along the line of sight (where $\ell_{\rm P} = \sqrt{\hbar G/c^3}
+\simeq 1.616\times10^{-35}$~m is the Planck length).
+The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
+not fixed by the Ng--Perlman variance relation alone.
+If $\tau_{\rm foam}$ is of order the Planck time,
+$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
+accessible lags: the foam is fully decorrelated on any observable timescale, the most
+optimistic scenario for detection.
+In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
+across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
+interest and every temporal observable vanishes.
+
 
 The full spatiotemporal covariance between two rays separated by transverse
 distance $b$ takes the factorized form
@@ -144,17 +137,10 @@ distance $b$ takes the factorized form
     \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
   \label{eq:pathcov}
 \end{equation}
-where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$,
-$C_\alpha(\tau;D)$ is the normalized temporal autocorrelation introduced in
-Section~\ref{sec:Calpha_origin} (with $C_\alpha(0;D)=1$ and behavior at large $\tau$
-depending on the foam dynamics), and $\Phi$ is the transverse coherence function
-satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
-Structurally, $\Phi(b/r_\perp)$ plays the same role in the transverse direction
-as $C_\alpha(\tau;D)$ plays in the temporal direction: both are normalized
-autocorrelation functions of the foam path-length fluctuation field.
+where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$.
 The single-ray temporal covariance appropriate for a
 point source is the special case
-$\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$ and $\Phi(0)=1$):
+$\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$):
 \begin{equation}
   \big\langle \Delta\ell_{\rm tot}(t)\,
               \Delta\ell_{\rm tot}(t+\tau) \big\rangle
@@ -175,6 +161,8 @@ projection.
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
 
+With the spatiotemporal covariance model in place, we define the key derived quantity
+that enters the coherence integrals.
 Define the \emph{cross-ray differential jitter} between a photon arriving along
 direction $\boldsymbol{\theta}$ at time $t+\tau$ and a photon arriving along
 $\boldsymbol{\theta}'$ at time $t$:
@@ -205,11 +193,10 @@ $2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
 absent in the point-source case.
 
 By the central limit theorem, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
-is a sum of contributions from many foam cells and is therefore Gaussian with zero mean.
-We write the conditional probability density (at fixed $D$) as
+is a sum of contributions from many foam cells and is therefore Gaussian with zero mean:
 \begin{equation}
-  p(\Delta;\tau,D) = \frac{1}{\sqrt{2\pi}\,\sigma_\Delta(\tau;D)}
-    \exp\!\left(-\frac{\Delta^2}{2\sigma_\Delta^2(\tau;D)}\right),
+  \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
+  \sim \mathcal{N}\!\left(0,\,\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right),
   \label{eq:kernel}
 \end{equation}
 where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt}.
@@ -222,27 +209,15 @@ In the intermediate regime $b \sim r_\perp$ (equivalently $r_\perp \sim D\Delta\
 the cross-ray Gaussian approximation and the $\Phi_{\rm eff}$ approximation of
 Section~\ref{sec:PhiEff} break down together; both introduce errors of the same
 order and must be assessed jointly.
-The single-ray case ($\boldsymbol{\theta}=\boldsymbol{\theta}'$, $b=0$) is taken up
-at the opening of Section~\ref{sec:g1}.
-
-For notational compactness in subsequent sections, we suppress the explicit
-$D$-dependence and write $C_\alpha(\tau)\equiv C_\alpha(\tau;D)$ and
-$\sigma_\Delta(\tau)\equiv \sigma_\Delta(\tau;D)$ (similarly for any other
-$D$-dependent quantity).
 
 % ==============================================================
 \section{First-Order Coherence}
 \label{sec:g1}
 % ==============================================================
 
-In Sections~\ref{sec:g1}--\ref{sec:siegert} we treat a \emph{point source}:
-a single ray ($\boldsymbol{\theta}=\boldsymbol{\theta}'$, $b=0$).
-The relevant quantity is the \emph{single-ray differential jitter}
-\begin{equation}
-  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
-  \label{eq:DeltaDef}
-\end{equation}
-with variance (from Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$)
+In Sections~\ref{sec:g1}--\ref{sec:siegert} we restrict to a point source ($b=0$),
+for which the single-ray differential jitter $\Delta(\tau) \equiv \delta t(t+\tau)-\delta t(t)$
+has variance given by Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$:
 \begin{align}
   \sigma_\Delta^2(\tau;D)
   &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
@@ -255,12 +230,9 @@ $C_\alpha\approx 1$ and $\sigma_\Delta^2\to 0$ at all lags.
 By the central limit theorem, $\Delta(\tau)$ is Gaussian with zero mean;
 Eq.~\eqref{eq:kernel} applies with $\sigma_\Delta^2$ from Eq.~\eqref{eq:diffVar}.
 The Gaussian approximation holds when $\tau \gg \tau_{\rm foam}$ and
-$D/\ell_{\rm P} \gg 1$ (many independent cells along the line of sight,
-trivially satisfied for cosmological $D$).
-The generalization to extended sources and cross-ray jitter is taken up in
-Section~\ref{sec:extended}.
+$D/\ell_{\rm P} \gg 1$ (many independent cells, trivially satisfied for cosmological $D$).
 
-\subsection{General Result}
+\subsection{Jitter Convolution Formula}
 
 The observed first-order coherence is
 \begin{equation}
@@ -280,7 +252,7 @@ yields
 \begin{equation}
   \boxed{g^{(1)}_{\rm obs}(\tau)
     = \big\langle g^{(1)}_{\rm src}(\tau - \Delta(\tau))\big\rangle_{\delta t}
-    = \int_{-\infty}^{\infty} p(\Delta;\tau)\,
+    = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
       g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.}
   \label{eq:g1obs}
 \end{equation}
@@ -582,7 +554,7 @@ Averaging over the jitter distribution:
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(\tau) - 1
     = \big\langle g^{(2)}_{\rm src}(\tau-\Delta(\tau))-1\big\rangle_{\delta t}
-    = \int_{-\infty}^{\infty} p(\Delta;\tau)\,
+    = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
       \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta.}
   \label{eq:g2obs}
 \end{equation}
@@ -599,7 +571,7 @@ to the carrier phase $e^{i\omega_0\delta t}$ while $g^{(2)}$ is not (as the
 intensity $|E_{\rm obs}|^2$ is phase-blind).
 This two-step logic — same convolution kernel, but different carrier-phase
 sensitivity — is developed quantitatively in Section~\ref{sec:siegert}.
-The Gaussianity of $p(\Delta;\tau)$ relies on the CLT argument of
+The Gaussianity of the kernel $\mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))$ relies on the CLT argument of
 Section~\ref{sec:differential_jitter}, which requires $\tau \gg \tau_{\rm foam}$;
 for $\tau \lesssim \tau_{\rm foam}$ the kernel may deviate from Gaussian and
 Eq.~\eqref{eq:g2obs} should be regarded as approximate in that regime
@@ -977,15 +949,13 @@ contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
   = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
     I(\boldsymbol{\theta})I(\boldsymbol{\theta}')
     \int_{-\infty}^{\infty}
-      p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)\,
+      \mathcal{N}\!\left(\Delta;0,\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right)\,
       \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,}
   \label{eq:g2obsExt}
 \end{equation}
-where $p_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\Delta;\tau)$ is Gaussian
-with variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$
-from Eq.~\eqref{eq:diffVarExt}.
+where $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$ is from Eq.~\eqref{eq:diffVarExt}.
 In the limit $\Phi\equiv 1$ (all rays transversely coherent),
-every kernel reduces to the single-ray $p_{\rm 1D}$ and
+every kernel reduces to the single-ray $\mathcal{N}(0,\sigma_\Delta^2(\tau))$ and
 Eq.~\eqref{eq:g2obsExt} reduces to the point-source result
 Eq.~\eqref{eq:g2obs}.
 
