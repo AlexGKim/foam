@@ -541,14 +541,23 @@ For any complex Gaussian field the Siegert relation holds exactly, so
   = \left|g^{(1)}_{\rm obs}(\tau\mid\delta t)\right|^2.
   \label{eq:SiegertCond}
 \end{equation}
-(A subtlety: conditioned on $\delta t$, the field $E_{\rm obs}(t)$ is generally
-non-stationary, so the conditional two-time correlator depends on the absolute
-time $t$ as well as the lag $\tau$.
+(Two subtleties arise here.
+First, conditioned on $\delta t$, the field $E_{\rm obs}(t)$ is generally
+non-stationary, so the conditional two-time correlator depends on absolute
+time $t$ as well as lag $\tau$.
 The Siegert identity nevertheless holds at each fixed pair $(t,t+\tau)$ as a
-pointwise Gaussian moment-factoring identity, without invoking stationarity.
-Averaging over both $t$ and $\delta t$ is valid because $E_{\rm src}$ and
-$\delta t$ are independent stationary processes, so the double average commutes
-and the result depends only on $\tau$.)
+purely algebraic Gaussian moment-factoring identity: for any zero-mean complex
+Gaussian vector $(Z_1,Z_2)$, $\langle|Z_1|^2|Z_2|^2\rangle =
+\langle|Z_1|^2\rangle\langle|Z_2|^2\rangle + |\langle Z_1^*Z_2\rangle|^2$,
+with no stationarity required.
+Second, converting the conditional pointwise identity into the lag-only result
+Eq.~\eqref{eq:g2cond} requires time-averaging the conditional correlators and
+then averaging over $\delta t$.
+We assume that $E_{\rm src}$ is ergodic (which holds for any mixing stationary
+Gaussian process), so the time average of the conditional correlators converges
+to the conditional ensemble average.
+The subsequent average over the stationary $\delta t$ process then yields a
+function of $\tau$ only, by independence of $E_{\rm src}$ and $\delta t$.)
 Given a fixed $\delta t$, the differential jitter $\Delta(\tau)$ is a
 deterministic number, so
 $g^{(1)}_{\rm obs}(\tau\mid\delta t) = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$.
