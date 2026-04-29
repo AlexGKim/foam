@@ -466,13 +466,17 @@ This equality is an exact result of the Gaussian characteristic function,
 independent of the Mar\'{e}chal approximation, but holds only in the
 dynamical limit $C_\alpha(\infty;D)\to 0$; for foam that does not
 fully decorrelate on any accessible timescale the two sides differ.
-It reflects a direct correspondence between two descriptions of the same
+It reflects a correspondence between two descriptions of the same
 underlying physics: the spatial description sums independent phase contributions
 across the mirror at a single instant, while the temporal description tracks
 how the phase along a single ray decorrelates as the lag $\tau$ grows large
 enough that $C_\alpha(\tau;D)\to 0$ and the two time samples become independent.
-Both arrive at the same rms phase variance
-$\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$.
+Both involve the same rms phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$,
+but the correspondence is asymmetric: the temporal result $\mathcal{F}_{\rm foam}(\tau\to\infty)=e^{-\sigma_\phi^2}$
+is exact for all $\sigma_\phi$, while the spatial Maréchal formula is an
+approximation valid only for $\sigma_\phi \lesssim 1$.
+For $\sigma_\phi \gg 1$ both give $S \approx 0$, so they agree numerically,
+but only the temporal result is theoretically exact in that regime.
 For quasi-static foam ($C_\alpha\approx 1$), $\mathcal{F}_{\rm foam}(\infty)\to 1$
 consistently with $S\to 1$ in the $r_\perp \gg D_{\rm tel}$ limit discussed below.
 
