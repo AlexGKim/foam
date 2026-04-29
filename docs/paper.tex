@@ -589,6 +589,16 @@ Averaging over the jitter distribution:
 The structure is identical to Eq.~\eqref{eq:g1obs}: both $g^{(1)}_{\rm obs}$
 and $g^{(2)}_{\rm obs}$ are convolutions of their intrinsic counterparts
 with the \emph{same} Gaussian jitter kernel.
+This symmetry is non-trivial and worth emphasizing: the convolution mechanism
+treats both correlation orders identically, so foam acting purely as a timing
+jitter would suppress $g^{(1)}$ and $g^{(2)}$ in the same way and leave the
+Siegert relation intact.
+The Siegert violation arises at a different level — the narrow-band carrier-phase
+effect breaks the symmetry between the two orders because $g^{(1)}$ is sensitive
+to the carrier phase $e^{i\omega_0\delta t}$ while $g^{(2)}$ is not (as the
+intensity $|E_{\rm obs}|^2$ is phase-blind).
+This two-step logic — same convolution kernel, but different carrier-phase
+sensitivity — is developed quantitatively in Section~\ref{sec:siegert}.
 The Gaussianity of $p(\Delta;\tau)$ relies on the CLT argument of
 Section~\ref{sec:differential_jitter}, which requires $\tau \gg \tau_{\rm foam}$;
 for $\tau \lesssim \tau_{\rm foam}$ the kernel may deviate from Gaussian and
