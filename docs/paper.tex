@@ -364,8 +364,14 @@ When the condition is satisfied, the observed field takes the form
 \end{equation}
 Since $A(t)$ and $\delta t(t)$ are independent, the first-order coherence
 factorizes.
-The jitter contribution is the characteristic function of the Gaussian
-$\Delta(\tau)$ evaluated at $\omega_0$:
+The jitter contribution is the characteristic function of $\Delta(\tau)$
+evaluated at $\omega_0$.
+$\Delta(\tau)$ is Gaussian (Section~\ref{sec:differential_jitter}) when
+$\tau \gg \tau_{\rm foam}$, so that contributions from individual foam cells
+are independent; for $\tau \ll \tau_{\rm foam}$ the CLT does not apply and
+Eq.~\eqref{eq:g1narrowband} below is an approximation.
+In the dynamical limit $\tau_{\rm foam} \ll \tau_c$ this condition is satisfied
+at all observationally relevant lags.
 \begin{equation}
   \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
   = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}.
