@@ -672,7 +672,13 @@ It controls $g^{(1)}$ because the carrier phase $e^{i\omega_0\delta t(t)}$
 appears directly in the field correlation.
 Crucially, $\sigma_\phi \gg 1$ (fringes fully erased) is compatible with
 the narrow-band condition $\delta t \ll \tau_c$, provided
-$\sigma_\phi \ll \lambda/\Delta\lambda$.
+$\sigma_\phi \ll \lambda/\Delta\lambda$, i.e.\ the simultaneous regime
+requires $1 \ll \sigma_\phi \ll \lambda/\Delta\lambda$.
+For $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$:
+$\sigma_\phi \approx 280$ and $\lambda/\Delta\lambda = 10^3$, so the window
+$1 \ll 280 \ll 1000$ is satisfied but not comfortably; the expansion parameter
+$\delta t_{\rm rms}/\tau_c \approx 0.28$ (Section~\ref{sec:narrowband}) already
+signals that the narrow-band approximation is marginal for this case.
 The second is $\sigma_\Delta(\tau)$ — the rms \emph{difference} in jitter
 between two photon arrivals separated by lag $\tau$
 (Eqs.~\eqref{eq:DeltaDef}--\eqref{eq:diffVar}).
@@ -696,6 +702,13 @@ $\omega_0\tau_c = \lambda/\Delta\lambda$:
 The suppression factor $\Delta\lambda/\lambda \ll 1$ means that even when
 $\sigma_\phi \gg 1$ (fringes erased), the temporal HBT ratio can be of order
 unity or smaller.
+The factor $\sqrt{2[1-C_\alpha(\tau)]}$ ranges from $0$ at $\tau=0$ to
+$\sqrt{2}$ in the dynamical limit ($C_\alpha\to 0$); at intermediate lags
+its value depends on $\tau_{\rm foam}$, which is a free parameter
+(Section~\ref{sec:Calpha_origin}).
+The numerical values in Table~\ref{tab:comparison} are evaluated at the
+dynamical limit $C_\alpha\to 0$ — the most optimistic case for detection;
+for quasi-static foam ($C_\alpha\approx 1$) the ratio vanishes at all lags.
 
 \begin{table}[h]
 \centering
