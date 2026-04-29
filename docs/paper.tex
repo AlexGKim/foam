@@ -321,6 +321,19 @@ requires $\sigma_\Delta(\tau) \ll \tau_c$ at each lag of interest.
 The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
 Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
+This positive correction reflects jitter acting as \emph{envelope smearing}:
+the real Lorentzian envelope is broadened, and convexity makes the average
+exceed the unsmeared value.
+It does not conflict with the suppression in the narrow-band result
+Eq.~\eqref{eq:g1narrowband}: the narrow-band calculation retains the full
+complex source coherence $g^{(1)}_{\rm src}(\tau-\Delta)=e^{-|\tau-\Delta|/\tau_c}
+e^{-i\omega_0(\tau-\Delta)}$, and averaging the carrier phase $e^{i\omega_0\Delta}$
+yields the characteristic-function suppression $e^{-\omega_0^2\sigma_\Delta^2/2}$,
+which dominates over the envelope correction by a factor
+$(\omega_0\tau_c)^2 = (\lambda/\Delta\lambda)^2 \gg 1$.
+In the narrow-band regime the net effect is therefore suppression; Eq.~\eqref{eq:g1weak}
+captures only the subdominant envelope contribution and should not be used
+when $\sigma_\phi \gtrsim 1$.
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
