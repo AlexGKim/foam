@@ -42,6 +42,8 @@ propagation phase screens.
 
 \maketitle
 
+\input{intro_sf.tex}
+
 % ==============================================================
 \section{Model}
 \label{sec:model}
@@ -224,7 +226,7 @@ Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$:
   \label{eq:diffVar}
 \end{align}
 
-\subsection{Jitter Convolution Formula}
+\subsection{Jitter Convolution Formula for $g^{(1)}$}
 
 The observed first-order coherence is
 \begin{equation}
@@ -473,54 +475,32 @@ to the aperture.
 \label{sec:g2}
 % ==============================================================
 
-\subsection{Conditional Siegert Relation}
+We derive the second-order coherence $g^{(2)}_{\rm obs}(\tau)$ for a point source,
+continuing the framework of Section~\ref{sec:g1}.
+The result has the same structure as Eq.~\eqref{eq:g1obs}: $g^{(2)}_{\rm obs}-1$
+is a convolution of $g^{(2)}_{\rm src}-1$ with the identical Gaussian jitter kernel.
+Because the intensity $|E_{\rm obs}|^2$ is blind to the carrier phase
+$e^{i\omega_0\delta t}$, foam leaves $g^{(2)}$ nearly unchanged in the narrow-band
+limit while strongly suppressing $g^{(1)}$ --- the asymmetry that produces the
+Siegert violation developed in Section~\ref{sec:siegert}.
+
+\subsection{Jitter Convolution Formula for $g^{(2)}$}
 
 Fix a realization of the jitter process $\delta t(\cdot)$.
 Conditioned on it, $E_{\rm obs}(t)$ is a deterministic time-warp of a
-complex Gaussian field, hence is itself complex Gaussian.
-For any complex Gaussian field the Siegert relation holds exactly, so
+complex Gaussian field, so the Siegert identity holds at each fixed pair
+$(t,t+\tau)$ as a purely algebraic Gaussian moment identity, with no
+stationarity required.
+(Ergodicity of $E_{\rm src}$ allows the conditional time-average to be
+replaced by the conditional ensemble average; the subsequent average over
+the stationary $\delta t$ process then yields a function of $\tau$ only,
+by independence of $E_{\rm src}$ and $\delta t$.)
+With $g^{(1)}_{\rm obs}(\tau\mid\delta t) = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$
+and the intrinsic Siegert relation $g^{(2)}_{\rm src}-1 = |g^{(1)}_{\rm src}|^2$:
 \begin{equation}
   g^{(2)}_{\rm obs}(\tau\mid\delta t) - 1
-  = \left|g^{(1)}_{\rm obs}(\tau\mid\delta t)\right|^2.
-  \label{eq:SiegertCond}
-\end{equation}
-(Two subtleties arise here.
-First, conditioned on $\delta t$, the field $E_{\rm obs}(t)$ is generally
-non-stationary, so the conditional two-time correlator depends on absolute
-time $t$ as well as lag $\tau$.
-The Siegert identity nevertheless holds at each fixed pair $(t,t+\tau)$ as a
-purely algebraic Gaussian moment-factoring identity: for any zero-mean complex
-Gaussian vector $(Z_1,Z_2)$, $\langle|Z_1|^2|Z_2|^2\rangle =
-\langle|Z_1|^2\rangle\langle|Z_2|^2\rangle + |\langle Z_1^*Z_2\rangle|^2$,
-with no stationarity required.
-Second, converting the conditional pointwise identity into the lag-only result
-Eq.~\eqref{eq:g2cond} requires time-averaging the conditional correlators and
-then averaging over $\delta t$.
-We assume that $E_{\rm src}$ is ergodic (which holds for any mixing stationary
-Gaussian process), so the time average of the conditional correlators converges
-to the conditional ensemble average.
-The subsequent average over the stationary $\delta t$ process then yields a
-function of $\tau$ only, by independence of $E_{\rm src}$ and $\delta t$.)
-Given a fixed realization of the process $\delta t(\cdot)$, the quantity
-$\Delta(\tau,t)\equiv\delta t(t+\tau)-\delta t(t)$ is a deterministic function
-of both $t$ and $\tau$; stationarity of $\delta t$ implies that its distribution
-is independent of $t$, but any individual realization retains $t$-dependence.
-After time-averaging (as in the ergodicity argument above), the $t$-dependence
-drops out and we may write $\Delta(\tau)$ for the lag-only quantity that enters
-the ensemble averages.
-With this understanding, for a fixed $\delta t$:
-$g^{(1)}_{\rm obs}(\tau\mid\delta t) = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$.
-Using the intrinsic Siegert relation
-$g^{(2)}_{\rm src} - 1 = |g^{(1)}_{\rm src}|^2$:
-\begin{equation}
-  g^{(2)}_{\rm obs}(\tau\mid\delta t) - 1
-  = \left|g^{(1)}_{\rm src}(\tau-\Delta(\tau))\right|^2
   = g^{(2)}_{\rm src}(\tau-\Delta(\tau)) - 1.
-  \label{eq:g2cond}
 \end{equation}
-
-\subsection{Unconditional Second-Order Coherence}
-
 Averaging over the jitter distribution:
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(\tau) - 1
@@ -529,19 +509,6 @@ Averaging over the jitter distribution:
       \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta.}
   \label{eq:g2obs}
 \end{equation}
-The structure is identical to Eq.~\eqref{eq:g1obs}: both $g^{(1)}_{\rm obs}$
-and $g^{(2)}_{\rm obs}$ are convolutions of their intrinsic counterparts
-with the \emph{same} Gaussian jitter kernel.
-This symmetry is non-trivial and worth emphasizing: the convolution mechanism
-treats both correlation orders identically, so foam acting purely as a timing
-jitter would suppress $g^{(1)}$ and $g^{(2)}$ in the same way and leave the
-Siegert relation intact.
-The Siegert violation arises at a different level — the narrow-band carrier-phase
-effect breaks the symmetry between the two orders because $g^{(1)}$ is sensitive
-to the carrier phase $e^{i\omega_0\delta t}$ while $g^{(2)}$ is not (as the
-intensity $|E_{\rm obs}|^2$ is phase-blind).
-This two-step logic — same convolution kernel, but different carrier-phase
-sensitivity — is developed quantitatively in Section~\ref{sec:siegert}.
 The Gaussianity of the kernel $\mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))$ relies on the CLT argument of
 Section~\ref{sec:differential_jitter}, which requires $\tau \gg \tau_{\rm foam}$;
 for $\tau \lesssim \tau_{\rm foam}$ the kernel may deviate from Gaussian and
