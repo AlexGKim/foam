@@ -71,7 +71,7 @@ In the geometric-optics limit the path-length shift $\Delta\ell_{\rm tot}$
 is a purely geometric quantity and hence frequency-independent (achromatic),
 in contrast to plasma dispersion which scales as $\lambda^2$.
 This achromaticity is a key discriminant between foam and conventional
-propagation effects (see Section~\ref{sec:discriminant}).
+propagation effects.
 
 \subsection{Spatial and Temporal Fluctuations of Spacetime Foam}
 \label{sec:Calpha_origin}
@@ -509,7 +509,7 @@ Averaging over the jitter distribution:
       \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta.}
   \label{eq:g2obs}
 \end{equation}
-The Gaussianity of the kernel $\mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))$ relies on the CLT argument of
+This Gaussian kernel relies on the CLT argument of
 Section~\ref{sec:differential_jitter}, which requires $\tau \gg \tau_{\rm foam}$;
 for $\tau \lesssim \tau_{\rm foam}$ the kernel may deviate from Gaussian and
 Eq.~\eqref{eq:g2obs} should be regarded as approximate in that regime
@@ -517,143 +517,46 @@ Eq.~\eqref{eq:g2obs} should be regarded as approximate in that regime
 
 \subsection{Narrow-Band Limit: $g^{(2)}$ is Unchanged to Leading Order}
 
-The exact result for $g^{(2)}_{\rm obs}$ is the convolution Eq.~\eqref{eq:g2obs},
-which requires no approximation.
-The narrow-band simplification follows when the jitter $\delta t \ll \tau_c$
-does not appreciably shift the amplitude envelope $A(t)$.
-Since the field is
-$E_{\rm obs}(t)=A(t)\,e^{-i\omega_0 t}\,e^{i\omega_0\delta t(t)}$
-(with $A(t-\delta t)\approx A(t)$ for slow envelope variations), the intensity is
-\begin{equation}
-  I_{\rm obs}(t)=|E_{\rm obs}(t)|^2=|A(t-\delta t(t))|^2 .
-\end{equation}
-In the limit $\delta t/\tau_c\to 0$ we may set $A(t-\delta t)\approx A(t)$,
-so that to leading order in $\delta t/\tau_c$
-\begin{equation}
-  I_{\rm obs}(t)\approx |A(t)|^2=I_{\rm src}(t).
-\end{equation}
-Consequently, the intensity statistics agree with the intrinsic source
-to leading order in $\delta t/\tau_c$:
+The intensity $I_{\rm obs}(t)=|E_{\rm obs}(t)|^2$ is blind to the carrier phase
+$e^{i\omega_0\delta t(t)}$: only the envelope matters.
+In the narrow-band limit $\delta t \ll \tau_c$, the jitter does not appreciably
+shift the envelope, $A(t-\delta t)\approx A(t)$, so
+$I_{\rm obs}(t)\approx|A(t)|^2=I_{\rm src}(t)$ to leading order in $\delta t/\tau_c$.
+Consequently:
 \begin{equation}
   g^{(2)}_{\rm obs}(\tau) = g^{(2)}_{\rm src}(\tau)
-  \qquad \text{(leading order in $\delta t/\tau_c$)} ,
+  \qquad \text{(leading order in $\delta t/\tau_c$)},
   \label{eq:g2unchanged}
 \end{equation}
-with corrections of order $(\delta t/\tau_c)^2 \sim (\sigma_\ell/c\tau_c)^2$.
-This estimate captures two physically distinct contributions at the same order:
-envelope-timing corrections from the shift $A(t-\delta t)-A(t)\sim(\delta t/\tau_c)A'$,
-and carrier-phase corrections to $g^{(2)}$ from the next-order term in the
-intensity expansion, which enter as $(\sigma_\phi\cdot\Delta\lambda/\lambda)^2
-= (\sigma_\ell/c\tau_c)^2$.
-Both are controlled by the single parameter $\sigma_\ell/(c\tau_c)$, so the
-quoted correction order is complete, though the two sources would need to be
-separated for a precision calculation when $\sigma_\ell/(c\tau_c)\sim 1$.
-Note that $\delta t/\tau_c$ and $\sigma_\Delta/\tau_c$ are related by
-$\sigma_\Delta \leq \sqrt{2}\,\sigma_\ell/c = \sqrt{2}\,\delta t_{\rm rms}$,
-so controlling $\delta t/\tau_c$ is the fundamental expansion parameter.
-For $\alpha=1/2$ at $D=1$~Gpc and $\lambda=500$~nm, the expansion parameter
-is $\delta t_{\rm rms}/\tau_c \approx 0.28$ for $\Delta\lambda/\lambda=10^{-3}$,
-which is not small; for this case the exact convolution
-Eq.~\eqref{eq:g2obs} should be used in place of Eq.~\eqref{eq:g2unchanged}.
-For $\alpha=2/3$ the expansion parameter is $\sim 10^{-11}$ and the
-leading-order result is exact to any practical precision.
+with corrections of order $(\sigma_\ell/c\tau_c)^2$ from both envelope-timing
+and carrier-phase contributions to the intensity.
+For $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$:
+$\delta t_{\rm rms}/\tau_c \approx 0.28$, so corrections are at the ${\sim}8\%$
+level and the exact convolution Eq.~\eqref{eq:g2obs} should be used for precision
+work.
+For $\alpha=2/3$ the expansion parameter is $\sim 10^{-11}$ and
+Eq.~\eqref{eq:g2unchanged} is exact to any practical precision.
 
-The physical reason is that intensity is blind to the carrier phase
-$e^{i\omega_0\delta t(t)}$: carrier-phase modulation does not affect
-$|E_{\rm obs}(t)|^2$.
-By contrast, $g^{(1)}$ \emph{is} sensitive to this phase because
-$\omega_0\delta t \sim \omega_0\sigma_\ell/c = \sigma_\phi$ can be large
-even when $\delta t \ll \tau_c$: for $\alpha=1/2$ at $D=1$~Gpc and
-$\lambda=500$~nm, $\sigma_\phi \approx 280 \gg 1$.
+By contrast, $g^{(1)}$ \emph{is} sensitive to the carrier phase because
+$\sigma_\phi = \omega_0\sigma_\ell/c$ can be large even when $\delta t \ll \tau_c$:
+for the same parameters, $\sigma_\phi \approx 280 \gg 1$.
 
 
 
 % ==============================================================
 \section{Siegert Relation Violation}
 \label{sec:siegert}
-\subsection{Two Sensitivity Scales: $\sigma_\phi$ and $\sigma_\Delta(\tau)/\tau_c$}
-The first-order coherence $g^{(1)}$ is controlled by $\sigma_\phi =
-2\pi\sigma_\ell(D)/\lambda$, the rms phase accumulated along a single ray,
-while the second-order coherence $g^{(2)}$ is controlled by
-$\sigma_\Delta(\tau)/\tau_c = \sigma_\phi\cdot(\Delta\lambda/\lambda)\cdot
-\sqrt{2[1-C_\alpha(\tau)]}$, the differential jitter scaled by the coherence
-time; these can differ by orders of magnitude when $\Delta\lambda/\lambda \ll 1$.
-Specifically, $\sigma_\phi^2 = \omega_0^2\langle\delta t(t)^2\rangle$ is
-independent of any time lag, and $g^{(1)}$ is sensitive to it because the
-carrier phase $e^{i\omega_0\delta t(t)}$ appears directly in the field
-correlation.
-Crucially, $\sigma_\phi \gg 1$ (fringes fully erased) is compatible with
-the narrow-band condition $\delta t \ll \tau_c$, provided
-$\sigma_\phi \ll \lambda/\Delta\lambda$, i.e.\ the simultaneous regime
-requires $1 \ll \sigma_\phi \ll \lambda/\Delta\lambda$.
-For $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$:
-$\sigma_\phi \approx 280$ and $\lambda/\Delta\lambda = 10^3$, so the window
-$1 \ll 280 \ll 1000$ is satisfied but not comfortably; the expansion parameter
-$\delta t_{\rm rms}/\tau_c \approx 0.28$ (Section~\ref{sec:narrowband}) already
-signals that the narrow-band approximation is marginal for this case.
-The second is $\sigma_\Delta(\tau)$ — the rms \emph{difference} in jitter
-between two photon arrivals separated by lag $\tau$
-(Eqs.~\eqref{eq:DeltaDef}--\eqref{eq:diffVar}).
-It controls $g^{(2)}$ because intensity correlations depend on how much
-the jitter \emph{changes} between two detection events, not on its
-absolute value.
-The decoupling of these two quantities — $\sigma_\phi \gg 1$ while
-$\sigma_\Delta(\tau)/\tau_c \ll 1$ — is the physical root of the Siegert
-violation derived below; the $\Delta\lambda/\lambda$ suppression factor
-that separates them emerges from their ratio, as quantified next.
 
-Quantitatively, using $c\tau_c = \lambda^2/(2\pi\Delta\lambda)$ and
-$\omega_0\tau_c = \lambda/\Delta\lambda$:
-\begin{equation}
-  \frac{\sigma_\Delta(\tau)}{\tau_c}
-  = \frac{\sqrt{2[1-C_\alpha(\tau)]}\,\sigma_\ell(D)}{c\tau_c}
-  = \frac{\sigma_\phi}{\omega_0\tau_c}\cdot\sqrt{2[1-C_\alpha(\tau)]}
-  = \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha(\tau)]}.
-  \label{eq:ratio}
-\end{equation}
-The suppression factor $\Delta\lambda/\lambda \ll 1$ means that even when
-$\sigma_\phi \gg 1$ (fringes erased), the temporal HBT ratio can be of order
-unity or smaller.
-The factor $\sqrt{2[1-C_\alpha(\tau)]}$ ranges from $0$ at $\tau=0$ to
-$\sqrt{2}$ in the dynamical limit ($C_\alpha\to 0$); at intermediate lags
-its value depends on $\tau_{\rm foam}$, which is a free parameter
-(Section~\ref{sec:Calpha_origin}).
-The numerical values in Table~\ref{tab:comparison} are evaluated at the
-dynamical limit $C_\alpha\to 0$ — the most optimistic case for detection;
-for quasi-static foam ($C_\alpha\approx 1$) the ratio vanishes at all lags.
-
-\begin{table}[h]
-\centering
-\caption{Sensitivity scales for temporal coherence observables at $D=1$~Gpc,
-         $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$,
-         $C_\alpha\to 0$.
-         The $\alpha=1/2$ case is observationally excluded~\cite{Perlman2015};
-         $\alpha=2/3$ (holographic) is the most sensitive surviving model.}
-\begin{tabular}{lccc}
-\toprule
-Method & Probe & $\alpha=1/2$ (excluded) & $\alpha=2/3$ \\
-\midrule
-Temporal $g^{(1)}$ (incl.\ Strehl / Lieu--Hillman) & $\sigma_\phi\sqrt{1-C_\alpha}$ & $280$ ($\mathcal{F}\approx 0$) & $2.5\times10^{-8}$ ($\mathcal{F}\approx 1$) \\
-Temporal $g^{(2)}$ & $\sigma_\Delta(\tau)/\tau_c = \sigma_\phi\cdot\frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha]}$ & $0.40$ & $3.6\times10^{-11}$ \\
-\bottomrule
-\end{tabular}
-\label{tab:comparison}
-\end{table}
-
-Because $g^{(2)}_{\rm obs} \approx g^{(2)}_{\rm src}$ (Section~\ref{sec:narrowband})
-while $g^{(1)}_{\rm obs} = g^{(1)}_{\rm src}\cdot\mathcal{F}_{\rm foam}$ is
-strongly suppressed when $\sigma_\phi \gg 1$, the Siegert relation
-$g^{(2)}-1 = |g^{(1)}|^2$ must be violated: the left-hand side retains its
-intrinsic value while the right-hand side is suppressed by
-$\mathcal{F}_{\rm foam}^2 \approx 0$.
-The following subsections quantify this discrepancy.
-
-% ==============================================================
+The Siegert relation $g^{(2)}(\tau)-1=|g^{(1)}(\tau)|^2$ holds for any
+stationary complex Gaussian field and provides a powerful internal consistency
+check: once $g^{(1)}$ is known, the expected $g^{(2)}$ is fixed.
+As foreshadowed in Section~\ref{sec:g2}, foam violates this relation because
+$g^{(1)}_{\rm obs}$ is suppressed by the carrier-phase factor
+$\mathcal{F}_{\rm foam}$ while $g^{(2)}_{\rm obs}$ is not.
+This section derives and characterizes the Siegert discrepancy
+$\mathcal{S}(\tau) \equiv [g^{(2)}_{\rm obs}-1] - |g^{(1)}_{\rm obs}|^2$.
 
 \subsection{General Bound}
-A foundational result for thermal/chaotic light is the Siegert relation, which connects the second-order (intensity–intensity) coherence to the first-order (field–field) coherence: for stationary complex Gaussian fields one has
-$g^{(2)}(\tau)-1 = |g^{(1)}(\tau)|^2$.
-In practice, this means that once $g^{(1)}$ is known, the expected $g^{(2)}$ is fixed, providing a powerful internal consistency check on the underlying statistical assumptions. Systems that do not follow the Siegert relation are therefore of special interest: they signal the presence of nontrivial propagation or measurement physics—e.g., non-Gaussianity, mode mixing, or additional stochastic phase/amplitude processes—that can decouple intensity correlations from field coherence. Such Siegert violations offer a route to probe otherwise hidden dynamics with a self-referential observable, making them particularly valuable in contexts where conventional first-order coherence tests are insensitive or ambiguous.
 
 Define the Siegert discrepancy:
 \begin{equation}
@@ -681,114 +584,99 @@ This non-negativity holds for a point source; for extended sources the
 cross-ray differential jitter can drive $\mathcal{S}(0)<0$
 (see Section~\ref{sec:extended}).
 
-\subsection{Explicit Form in the Narrow-Band Limit}
-In the narrow-band limit, $g^{(2)}_{\rm obs} \approx g^{(2)}_{\rm src}$ to leading order
-(from Eq.~\eqref{eq:g2unchanged}), while $g^{(1)}_{\rm obs}$ is suppressed by $F_{\rm foam}(\tau)$
-(Eq.~\eqref{eq:g1narrowband}).
-Using the intrinsic Siegert relation $g^{(2)}_{\rm src}(\tau)-1=|g^{(1)}_{\rm src}(\tau)|^2$,
-to leading order
-\[
-S(\tau)\approx |g^{(1)}_{\rm src}(\tau)|^2\!\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau;D)]}\right).
-\]
+\subsection{Sensitivity Scale Decoupling}
+\label{sec:scales}
 
-\subsection{Properties}
-
-The key properties of $\mathcal{S}(\tau)$ are summarized in
-Table~\ref{tab:Sprops}.
+The violation arises because $g^{(1)}$ and $g^{(2)}$ respond to foam on
+different scales.
+The first-order coherence is controlled by $\sigma_\phi =
+2\pi\sigma_\ell(D)/\lambda$, the rms accumulated phase along a single ray;
+$g^{(1)}$ is sensitive to it because the carrier phase $e^{i\omega_0\delta t}$
+appears directly in the field correlation.
+The second-order coherence is controlled by $\sigma_\Delta(\tau)/\tau_c$,
+the rms differential jitter scaled by the coherence time; $g^{(2)}$ is
+sensitive to it because intensity correlations depend on how much the
+jitter \emph{changes} between two detection events, not its absolute value.
+These two scales are related by
+\begin{equation}
+  \frac{\sigma_\Delta(\tau)}{\tau_c}
+  = \frac{\sqrt{2[1-C_\alpha(\tau)]}\,\sigma_\ell(D)}{c\tau_c}
+  = \sigma_\phi \cdot \frac{\Delta\lambda}{\lambda}\cdot\sqrt{2[1-C_\alpha(\tau)]},
+  \label{eq:ratio}
+\end{equation}
+using $\omega_0\tau_c = \lambda/\Delta\lambda$.
+The factor $\Delta\lambda/\lambda \ll 1$ means that even when $\sigma_\phi \gg 1$
+(fringes erased), $\sigma_\Delta(\tau)/\tau_c$ can be small — so $g^{(2)}$ remains
+near its intrinsic value while $g^{(1)}$ is suppressed.
+This decoupling is the physical root of the Siegert violation, and is only
+possible within the narrow-band regime discussed in Section~\ref{sec:narrowband}.
+Numerical values of both scales are given in Table~\ref{tab:comparison}
+(evaluated at the dynamical limit $C_\alpha\to 0$; for quasi-static foam
+$C_\alpha\approx 1$ the ratio vanishes at all lags).
 
 \begin{table}[h]
 \centering
-\caption{Properties of the Siegert discrepancy $\mathcal{S}(\tau)$ in the narrow-band limit.}
-\begin{tabular}{lll}
+\caption{Sensitivity scales at $D=1$~Gpc, $\lambda=500$~nm,
+         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, $C_\alpha\to 0$.
+         The $\alpha=1/2$ case is observationally excluded~\cite{Perlman2015};
+         $\alpha=2/3$ (holographic) is the most sensitive surviving model.}
+\begin{tabular}{lcc}
 \toprule
-Limit & $\mathcal{S}(\tau)$ & Reason \\
+Scale & $\alpha=1/2$ (excluded) & $\alpha=2/3$ \\
 \midrule
-$\tau = 0$ & $0$ & $\Delta(0)=0$; both coherences agree \\
-$\sigma_\phi \to 0$ (small phase variance) & $\approx 2\sigma_\phi^2[1-C_\alpha]\,|g^{(1)}_{\rm src}|^2$ & Linear in $\sigma_\phi^2$ \\
-$\sigma_\phi \gg 1$ (strong jitter) & $\approx |g^{(1)}_{\rm src}(\tau)|^2$ & $g^{(1)}_{\rm obs}\to 0$; full violation \\
-$\tau\to\infty$ & $\to 0$ & $|g^{(1)}_{\rm src}|\to 0$ faster \\
+$\sigma_\phi$ & $280$ & $2.5\times10^{-8}$ \\
+$\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
 \bottomrule
 \end{tabular}
-\label{tab:Sprops}
+\label{tab:comparison}
 \end{table}
 
-\subsection{Physical Interpretation}
+\subsection{Explicit Form and Properties in the Narrow-Band Limit}
 
-In the narrow-band limit foam acts as a \emph{phase screen}: it modulates the
-carrier phase $\omega_0\delta t(t)$ randomly without touching the intensity
-envelope.
-This asymmetry is the root cause of the Siegert violation.
+In the narrow-band limit, $g^{(2)}_{\rm obs} \approx g^{(2)}_{\rm src}$
+(Eq.~\eqref{eq:g2unchanged}), while $g^{(1)}_{\rm obs}$ is suppressed by
+$\mathcal{F}_{\rm foam}(\tau)$ (Eq.~\eqref{eq:g1narrowband}).
+Using the intrinsic Siegert relation $g^{(2)}_{\rm src}(\tau)-1=|g^{(1)}_{\rm src}(\tau)|^2$,
+to leading order:
+\begin{equation}
+  \mathcal{S}(\tau) \approx
+  |g^{(1)}_{\rm src}(\tau)|^2\!\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau;D)]}\right).
+  \label{eq:Sexplicit}
+\end{equation}
+In the weak-jitter limit $\sigma_\phi\ll 1$,
+$\mathcal{S}\approx 2\sigma_\phi^2[1-C_\alpha]\,|g^{(1)}_{\rm src}|^2$ — linear
+in $\sigma_\phi^2$ and small.
+In the strong-jitter limit $\sigma_\phi\gg 1$, the exponential vanishes and
+$\mathcal{S}\approx|g^{(1)}_{\rm src}(\tau)|^2$: $g^{(2)}_{\rm obs}-1$ retains
+its intrinsic value while $|g^{(1)}_{\rm obs}|^2\to 0$, producing a full violation.
+Quasi-static foam ($C_\alpha\approx 1$) gives $\mathcal{S}\approx 0$ at all lags
+— foam is invisible to all coherence observables in this limit.
 The discrepancy $\mathcal{S}(\tau)$ is a direct observable — both
 $g^{(1)}_{\rm obs}$ and $g^{(2)}_{\rm obs}$ are measurable from the same
-dataset — and carries a specific distance dependence
-$\sigma_\phi^2 \propto D^{2(1-\alpha)}$ that distinguishes foam
-from instrumental effects, which would not scale with source distance.
-The modulation of $\mathcal{S}(\tau)$ beyond the prefactor
-$|g^{(1)}_{\rm src}(\tau)|^2$ is controlled solely by $\alpha$, $D$, and
-$C_\alpha(\tau;D)$, independently of the unknown source spectrum.
-
-\subsection{Distinguishing Foam from Conventional Phase Screens}
-\label{sec:discriminant}
-
-The mathematical structure of Eqs.~\eqref{eq:g1narrowband}–\eqref{eq:Ffoam} is
-identical to that of any Gaussian random phase screen, including atmospheric
-turbulence, ionospheric or interstellar scintillation, and intergalactic plasma
-scattering~\cite{Carlip2023}.
-Two discriminants separate foam from these conventional sources:
-
-\paragraph{Distance scaling.}
-For spacetime foam, $\sigma_\phi^2 \propto D^{2(1-\alpha)}$
-($D^1$ for $\alpha=1/2$, $D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$).
-For a thin intervening screen the phase variance scales as $\sigma_\phi^2 \propto D$
-(linear), while for Kolmogorov turbulence distributed along the line of sight
-the variance accumulates as $D^{11/6}$~\cite{Carlip2023}.
-Measuring $\sigma_\phi(D)$ across a range of source redshifts can distinguish
-these scalings, particularly since the holographic ($\alpha=2/3$) and conservative
-($\alpha=1$) foam models predict sub-linear or flat growth — qualitatively
-different from any known astrophysical screen.
-In practice this program requires knowing the intrinsic source visibility
-$V_{\rm src}(\tau)$, which is generally unknown and must be modeled or inferred,
-introducing a degeneracy between foam suppression and intrinsic source properties.
-Three partial mitigants are available: (i) comparing the same source class at
-multiple redshifts removes the contribution of intrinsic source variation;
-(ii) the achromaticity of foam ($\delta t$ independent of $\lambda$) distinguishes
-it from chromatic intrinsic or propagation effects; and (iii) the Siegert
-discrepancy $\mathcal{S}(\tau)$ is partially self-calibrating — it measures the
-difference between $g^{(2)}_{\rm obs}$ and $|g^{(1)}_{\rm obs}|^2$ from the same
-dataset, so common-mode source properties partially cancel.
-
-\paragraph{Frequency dependence.}
-As noted in Section~\ref{sec:model}, geometric-optics foam jitter is achromatic:
-$\delta t = \Delta\ell/c$ is independent of $\lambda$.
-Plasma-based propagation effects (dispersion measure, scintillation) scale as
-$\lambda^2$, providing a clean observational discriminant when multi-wavelength
-data are available.
-Existing upper limits from Fermi and H.E.S.S.\ time-of-flight
-measurements~\cite{Fermi2009,HESS2008} already exploit the
-energy-dependence channel; the coherence-based approach is complementary.
-
-Additional observational constraints on the allowed $\alpha$ range come from
-imaging coherence measurements: Ragazzoni et al.~\cite{2003ApJ...587L...1R},
-Perlman et al.~\cite{Perlman2015}, and Christiansen et al.~\cite{Christiansen2011}
-together exclude $\alpha \lesssim 2/3$ at optical through X-ray wavelengths for
-$D \sim 1$--$10$~Gpc.
-For surviving models ($\alpha \geq 2/3$), $\sigma_\phi \ll 1$ and all foam
-coherence observables are proportionally suppressed (see Section~\ref{sec:g2}
-and Table~\ref{tab:comparison}); the coherence framework then sets upper limits
-on $\sigma_\phi(D)$ rather than detecting a positive signal.
+dataset — and the modulation beyond the prefactor $|g^{(1)}_{\rm src}(\tau)|^2$
+is controlled solely by $\alpha$, $D$, and $C_\alpha(\tau;D)$, independently
+of the unknown source spectrum.
 
 % ==============================================================
 \section{Extended Sources: Transverse Foam Coherence}
 \label{sec:extended}
 % ==============================================================
 
+We now generalize from a point source to an extended incoherent source.
+The first-order coherence $g^{(1)}_{\rm obs}$ turns out to be unchanged from the
+point-source result, because $g^{(1)}$ probes only single-ray statistics.
+The second-order coherence $g^{(2)}_{\rm obs}$, however, acquires new structure
+through cross-ray differential jitter between rays arriving from different sky
+directions, producing a suppression of the zero-lag bunching peak that directly
+probes the transverse foam coherence length $r_\perp$.
+
 \subsection{Field Model and Spatiotemporal Covariance}
 
-We now generalize to an extended incoherent source whose angular brightness
+We generalize to an extended incoherent source whose angular brightness
 distribution is $I(\boldsymbol{\theta})$ (normalized to unity).
 The analysis assumes a point (single spatial mode) detector; a finite aperture
 would introduce Van~Cittert--Zernike geometric phases that modify the angular
-coherence and are left to future work.
+coherence.
 The detected field is a weighted superposition over rays labelled by direction
 offset $\boldsymbol{\theta}$:
 \begin{equation}
@@ -806,15 +694,12 @@ the transverse separation between rays evaluated at the source end.
 For foam distributed uniformly along the line of sight the ray separation at
 position $z$ is $z|\boldsymbol{\theta}-\boldsymbol{\theta}'|$, so the full
 cross-covariance integral involves an average over $0\leq z\leq D$;
-setting $b = D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$ corresponds to a
-thin-screen approximation in which the correlation is dominated by contributions
-near the source.
+setting $b = D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$ evaluates the separation
+at the source plane.
 Because $r_\perp$ is treated as an effective free parameter, the $O(1)$ geometric
-factor from the $z$-integral is absorbed into its definition.
-The transverse coherence length $r_\perp$ is an independent free parameter of the
-foam, constrained empirically by the angular-size dependence of the HBT bunching
-suppression; different foam models may predict different values, but the
-measurement is model-agnostic.
+factor from the $z$-integral is absorbed into its definition; its value is
+constrained empirically by the angular-size dependence of $\delta g^{(2)}$,
+derived in Section~\ref{sec:PhiEff}.
 
 \subsection{First-Order Coherence is Unchanged}
 
@@ -838,20 +723,7 @@ identical to the point-source result Eq.~\eqref{eq:g1narrowband}.
 The first-order coherence probes only single-ray statistics; the transverse
 foam structure leaves no imprint on $g^{(1)}$.
 
-\subsection{Cross-Ray Differential Jitter}
-
-For $g^{(2)}$, the Wick contraction in the Gaussian moment theorem
-enforces pairings between rays $\boldsymbol{\theta}$ and $\boldsymbol{\theta}'$
-that need not be equal.
-The cross-ray differential jitter $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
-and its variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$
-are defined and derived in Section~\ref{sec:differential_jitter}
-(Eqs.~\eqref{eq:DeltaExt}--\eqref{eq:diffVarExt}).
-The key new feature relative to the point-source case is that for $b\gg r_\perp$,
-$\Phi\to 0$ and $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ \emph{at all lags,
-including $\tau=0$}.
-
-\subsection{General Second-Order Coherence}
+\subsection{Second-Order Coherence for an Extended Source}
 
 The unnormalized intensity correlator is
 $\langle I(t)I(t+\tau)\rangle = \langle E^*(t)E(t)E^*(t+\tau)E(t+\tau)\rangle$,
@@ -891,11 +763,14 @@ contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
       \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,}
   \label{eq:g2obsExt}
 \end{equation}
-where $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$ is from Eq.~\eqref{eq:diffVarExt}.
+where $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$ is from
+Eq.~\eqref{eq:diffVarExt} (Section~\ref{sec:differential_jitter}).
+The key new feature relative to the point-source case is that for $b\gg r_\perp$,
+$\Phi\to 0$ and $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ at all lags, including
+$\tau=0$.
 In the limit $\Phi\equiv 1$ (all rays transversely coherent),
 every kernel reduces to the single-ray $\mathcal{N}(0,\sigma_\Delta^2(\tau))$ and
-Eq.~\eqref{eq:g2obsExt} reduces to the point-source result
-Eq.~\eqref{eq:g2obs}.
+Eq.~\eqref{eq:g2obsExt} reduces to the point-source result Eq.~\eqref{eq:g2obs}.
 
 \subsection{Effective Transverse Coherence Factor}
 \label{sec:PhiEff}
@@ -926,10 +801,10 @@ recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
 $r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
 The approximation is exact at both limits.
 At intermediate angular sizes ($r_\perp \sim D\,\Delta\theta$), $\Phi(b/r_\perp)$
-varies across ray pairs and the replacement of the full double integral by a single
-kernel introduces an error of order $\mathrm{Var}_I[\Phi]$, the angular-weighted
-variance of $\Phi$ over the source brightness distribution $I(\boldsymbol{\theta})$.
-A precise bound on this error requires knowledge of the functional form of $\Phi$
+varies across ray pairs and replacing the full double integral by a single
+kernel introduces errors proportional to the variance of $\Phi(b/r_\perp)$
+across the source brightness distribution.
+A precise bound requires knowledge of the functional form of $\Phi$
 and the source profile; for the purposes of this paper the $\Phi_{\rm eff}$
 reduction is used as a tractable approximation.
 
@@ -943,7 +818,7 @@ $\sigma_{\tau,\rm eff}^2(0)$ reduces to
   \label{eq:sigma0}
 \end{equation}
 which is strictly positive whenever $\Phi_{\rm eff}<1$.
-Within the $\Phi_{\rm eff}$ approximation of Section~\ref{sec:PhiEff},
+Within this approximation,
 the ray-pair mixture reduces to a single Gaussian kernel of width $\sigma_0$.
 
 For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c}$,
@@ -958,10 +833,8 @@ of $\Delta$ (both halves contributing equally by symmetry of $|\Delta|$),
   = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:zerolagavg}
 \end{equation}
-which satisfies the limits $s\to 0$: $1\cdot1=1$ (no suppression) and
-$s\to\infty$: setting $x=\sqrt{2}s$, the standard asymptotic
-$e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$ gives
-$e^{2s^2}\mathrm{erfc}(\sqrt{2}s)\sim 1/(\sqrt{2\pi}\,s)\to 0$
+which gives $1$ as $s\to 0$ (no suppression) and $\to 0$ as $s\to\infty$
+via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
 (full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
 \begin{equation}
   \boxed{g^{(2)}_{\rm obs}(0)
@@ -982,26 +855,42 @@ Since $\sigma_0^2\propto(1-\Phi_{\rm eff})$ and $\Phi_{\rm eff}$ decreases
 as the source angular diameter increases at fixed $D$ and $r_\perp$, more
 extended sources experience greater suppression of the bunching peak.
 
-For the surviving models ($\alpha \geq 2/3$), $\sigma_\phi$ is small and the
-sensitivity parameter
+In the narrow-band limit $\sigma_\ell/(c\tau_c)\ll 1$
+(Section~\ref{sec:narrowband}), $\sigma_0\ll\tau_c$ for any $\Phi_{\rm eff}$.
+Substituting $u=\Delta/\sigma_0$ and expanding $g^{(2)}_{\rm src}(\sigma_0 u)-1$
+for small $\sigma_0$, the convolution integral yields to first order in
+$s=\sigma_0/\tau_c$:
+\begin{equation}
+  g^{(2)}_{\rm obs}(0) - 1
+  \approx \bigl[g^{(2)}_{\rm src}(0)-1\bigr]
+          + \sqrt{\tfrac{2}{\pi}}\,\sigma_0\,g^{(2)\prime}_{\rm src}(0^+),
+  \label{eq:g2zero_nb}
+\end{equation}
+where $g^{(2)\prime}_{\rm src}(0^+)$ is the right-derivative of $g^{(2)}_{\rm src}$
+at zero lag.
+For sources with a smooth (even) profile the right-derivative vanishes and the
+leading correction is $O(\sigma_0^2)$; for a Lorentzian,
+$g^{(2)\prime}_{\rm src}(0^+) = -2/\tau_c$, recovering
+$\delta g^{(2)}\approx 2\sqrt{2/\pi}\,s$, consistent with the small-$s$
+expansion of Eq.~\eqref{eq:deltag2}.
+This is consistent with the sensitivity-scale hierarchy of Section~\ref{sec:scales}:
+the zero-lag suppression is small in the narrow-band regime.
+Observationally, this implies that a spectrograph transmitting a nearly flat
+bandpass (e.g.\ continuum), whose $g^{(2)}_{\rm src}$ is smooth at zero lag,
+suppresses the first-order contribution, leaving only an $O(s^2)$ residual;
+observing an unresolved emission line, whose Lorentzian profile preserves the
+cusp in $g^{(2)}_{\rm src}$, is therefore preferable for maximizing foam
+sensitivity in $\delta g^{(2)}$.
+
+For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
+and the sensitivity parameter
 $s = \sigma_0/\tau_c
  = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi\cdot(\Delta\lambda/\lambda)$
-is correspondingly small across all realistic observational bandwidths.
+is small across all realistic observational bandwidths.
 For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
-that even at a realistic high spectral resolution
+that even at a high spectral resolution
 $R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
-This is firmly in the regime where the linear approximation
-$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ is essentially exact.
-Broader lines increase $\delta g^{(2)}$ linearly.
-
-In practice, a real HBT measurement returns $g^{(2)}(0) = 1+ 1/M$ where
-$M$ is the number of collected spatiotemporal modes (spatial modes times
-temporal bins within the coherence time), so the foam signal $\delta g^{(2)}$
-must exceed the $1/M$ shot-noise floor. For stellar intensity interferometry
-at optical wavelengths, $M \sim 10^{10}$--$10^{12}$, giving
-$\delta g^{(2)}_{\rm floor} \sim 10^{-10}$--$10^{-12}$.
-The detectability condition is therefore $\sigma_0/\tau_c \gtrsim M^{-1}$,
-which should be quoted alongside any observational upper bound on $\sigma_0$.
+The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
 
 The dependence of $\delta g^{(2)}$ on $\Phi_{\rm eff}$ (and hence on $r_\perp$)
 has a transparent physical interpretation.
@@ -1065,14 +954,16 @@ difference can be negative.
 
 \begin{table}[h]
 \centering
-\caption{Bunching suppression $\delta g^{(2)}$ from Eq.~(46) and sensitivity parameter
-$s = \sigma_0/\tau_c$ for an extended source in the fully resolved limit
-$\Phi_{\rm eff} \to 0$, using the fiducial parameters of Table~I:
-$D = 1\,\mathrm{Gpc}$, $\lambda = 500\,\mathrm{nm}$,
+\caption{Bunching suppression $\delta g^{(2)}$ from Eq.~\eqref{eq:deltag2} and
+sensitivity parameter $s = \sigma_0/\tau_c$ for an extended source in the fully
+resolved limit $\Phi_{\rm eff} \to 0$, using the fiducial parameters of
+Table~\ref{tab:comparison}: $D = 1\,\mathrm{Gpc}$, $\lambda = 500\,\mathrm{nm}$,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$, $C_\alpha \to 0$.
 The $\alpha = 1/2$ case is observationally excluded~\cite{Perlman2015};
 $\alpha = 2/3$ (holographic) is the most sensitive surviving model.
-For $\alpha = 1/2$, the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ overestimates the exact value by a factor of $\sim$1.5 because $s=0.40$ is not in the asymptotic small-$s$ regime, and the full expression Eq.~(46) must be used.}
+For $\alpha = 1/2$, the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$
+overestimates the exact value by a factor of $\sim$1.5 because $s=0.40$ is outside
+the small-$s$ regime; the full expression Eq.~\eqref{eq:deltag2} must be used.}
 \label{tab:bunching}
 \begin{tabular}{lcc}
 \hline\hline
@@ -1145,6 +1036,26 @@ scales linearly with the parameter $s = \sigma_0/\tau_c$, providing progressivel
 probative power as next-generation optical intensity interferometers push toward the 
 $10^{-10}$--$10^{-12}$ shot-noise floor.
 
+The coherence observables also serve as discriminants against conventional
+propagation phase screens~\cite{Carlip2023}.
+The mathematical structure of the foam suppression factor $\mathcal{F}_{\rm foam}$
+is identical to that of any Gaussian random phase screen, but two signatures
+distinguish foam: distance scaling and achromaticity.
+For spacetime foam $\sigma_\phi^2\propto D^{2(1-\alpha)}$ ($D^1$ for $\alpha=1/2$,
+$D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$), whereas a thin intervening
+screen scales as $D$ and Kolmogorov turbulence as $D^{11/6}$; the holographic
+and conservative foam models predict sub-linear or flat growth qualitatively
+different from any known astrophysical screen.
+Geometrically, foam jitter is achromatic ($\delta t=\Delta\ell/c$ independent
+of $\lambda$), in contrast to plasma-based effects which scale as $\lambda^2$;
+existing Fermi and H.E.S.S.\ time-of-flight limits~\cite{Fermi2009,HESS2008}
+already exploit this channel, and the coherence-based approach is complementary.
+In practice, the intrinsic source visibility $V_{\rm src}(\tau)$ introduces a
+degeneracy with foam suppression, but the Siegert discrepancy $\mathcal{S}(\tau)$
+is partially self-calibrating — constructed from simultaneous $g^{(1)}$ and
+$g^{(2)}$ measurements on the same dataset, so common-mode source properties
+partially cancel.
+
 For $\alpha = 1/2$ at $D = 1$~Gpc with $A_\alpha = 1$: $\sigma_\ell = \sqrt{\ell_{\rm P} D} 
 \approx 2.2\times10^{-5}$~m, giving $\sigma_\phi \approx 280$ (fringes completely erased at 
 $\sigma_\phi \gg 1$), while $c\tau_c = \lambda^2/(2\pi\Delta\lambda) \approx 80\,\mu$m and 
@@ -1170,7 +1081,8 @@ approximation barrier to exploiting a broader bandpass.
 Pushing from $\Delta\lambda/\lambda = 10^{-3}$ to order unity would boost $s$ and hence
 $\delta g^{(2)}$ by three orders of magnitude, bringing the signal to $\sim 10^{-8}$ without any
 improvement in telescope area or detector technology.
-We flag broadband HBT as a promising avenue for future observational work, noting that a
+We flag broadband Hanbury Brown--Twiss (HBT) photon-correlation measurements as a
+promising avenue for future observational work, noting that a
 rigorous treatment will require extending the present quasi-monochromatic framework to the
 broadband regime.
 Whether this limit is achieved depends on
@@ -1178,6 +1090,14 @@ the unknown transverse coherence length $r_\perp$, which is itself constrained b
 angular-size dependence of $\delta g^{(2)}$ across sources at the same redshift, subject to
 the accuracy of the $\Phi_{\rm eff}$ approximation at intermediate angular sizes
 (Section~V\,E).
+In any HBT measurement, a finite number $M$ of collected spatiotemporal modes
+(spatial modes times temporal bins within the coherence time) contributes a
+shot-noise floor $g^{(2)}(0) = 1 + 1/M$.
+For stellar optical intensity interferometry,
+$M \sim 10^{10}$--$10^{12}$, giving a floor
+$\delta g^{(2)}_{\rm floor} \sim 10^{-10}$--$10^{-12}$.
+The foam detectability condition $\sigma_0/\tau_c \gtrsim M^{-1}$ should therefore
+be quoted alongside any observational upper bound on $\sigma_0$.
 
 A deeper question left open by the present framework is whether spacetime foam should be 
 treated as a static medium or whether its statistical properties evolve on cosmological 
@@ -1187,8 +1107,7 @@ propagation distance over any realistic observation duration. Over cosmological 
 times, however, the foam may track the expansion of the universe in a non-trivial way. If 
 the Ng--Perlman exponent $\alpha$ or the coefficient $A_\alpha$ itself carries a redshift 
 dependence, then observations of sources at different redshifts would no longer trace a 
-simple power-law $\sigma_\phi(D)$, and the distance-scaling discriminant developed in 
-Section~\ref{sec:discriminant} would need to be generalized. More speculatively, if the 
+simple power-law $\sigma_\phi(D)$, and the distance-scaling discriminant discussed above would need to be generalized. More speculatively, if the 
 foam undergoes a phase transition or qualitative change in its structure at some epoch --- 
 analogous to other symmetry-breaking transitions in the early universe --- this could in 
 principle be imprinted on the coherence of light from sources bracketing that epoch, 
