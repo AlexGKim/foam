@@ -218,8 +218,13 @@ order and must be assessed jointly.
 % ==============================================================
 
 In Sections~\ref{sec:g1}--\ref{sec:siegert} we restrict to a point source ($b=0$),
-for which the single-ray differential jitter variance reduces to
-Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$:
+for which the cross-ray differential jitter of Eq.~\eqref{eq:DeltaExt}
+reduces to the single-ray differential jitter
+\begin{equation}
+  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
+  \label{eq:DeltaDef}
+\end{equation}
+with variance obtained from Eq.~\eqref{eq:diffVarExt} at $\Phi(0)=1$:
 \begin{align}
   \sigma_\Delta^2(\tau;D)
   &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
