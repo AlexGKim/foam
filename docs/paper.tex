@@ -398,7 +398,7 @@ yields
 The observed first-order coherence is the intrinsic coherence function
 convolved with the Gaussian differential-jitter kernel.
 
-\subsection{Closed Form for a Lorentzian Source}
+\subsection{Closed Forms for Lorentzian and Voigt Sources}
 
 As a representative case admitting a closed-form result, we take a Lorentzian
 line profile, which corresponds to an exponential coherence function via the
@@ -433,6 +433,34 @@ requires $\sigma_\Delta(\tau) \ll \tau_c$ at each lag of interest.
 The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
 Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
+
+For a Voigt profile $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$
+--- a Lorentzian of width $\tau_L$ convolved with a Gaussian of width $\tau_G$ modelling
+Doppler and turbulent broadening --- the jitter kernel combines with the source Gaussian
+into an effective width and mean,
+\begin{equation}
+  \tilde\sigma_1^2 = \frac{\sigma_\Delta^2\,\tau_G^2}{\sigma_\Delta^2+\tau_G^2},
+  \qquad
+  \mu_1(\tau) = \frac{\tau_G^2\,\tau}{\sigma_\Delta^2+\tau_G^2},
+  \label{eq:voigt_params}
+\end{equation}
+giving, for $\tau > 0$:
+\begin{equation}
+  g^{(1)}_{\rm obs}(\tau)
+  = \frac{\tilde\sigma_1}{\sigma_\Delta}\,
+    e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}\,
+    e^{\tilde\sigma_1^2/2\tau_L^2}\,
+    \frac{1}{2}\!\left[
+      e^{-\mu_1/\tau_L}\,\mathrm{erfc}\!\left(\frac{\tilde\sigma_1/\tau_L - \mu_1/\tilde\sigma_1}{\sqrt{2}}\right)
+      +e^{\mu_1/\tau_L}\,\mathrm{erfc}\!\left(\frac{\tilde\sigma_1/\tau_L + \mu_1/\tilde\sigma_1}{\sqrt{2}}\right)
+    \right].
+  \label{eq:g1obs_voigt}
+\end{equation}
+In the limit $\tau_G\to\infty$ (pure Lorentzian), $\tilde\sigma_1\to\sigma_\Delta$ and
+$\mu_1\to\tau$, so Eq.~\eqref{eq:g1obs_voigt} reduces to Eq.~\eqref{eq:g1obs_erfc}.
+In the limit $\tau_L\to\infty$ (pure Gaussian), the erfc terms combine to unity and
+$g^{(1)}_{\rm obs}(\tau) = (\tilde\sigma_1/\sigma_\Delta)\,e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}$:
+the observed coherence is a Gaussian whose width is broadened in quadrature by the jitter.
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
