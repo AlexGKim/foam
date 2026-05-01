@@ -949,18 +949,36 @@ A precise bound requires knowledge of the functional form of $\Phi$
 and the source profile; for the purposes of this paper the $\Phi_{\rm eff}$
 reduction is used as a tractable approximation.
 
-\subsection{Zero-Lag Bunching Peak Suppression}
+\subsection{Extended-Source Siegert Discrepancy and Zero-Lag Bunching}
+\label{sec:zerolag}
 
-Evaluating the zero-lag effective variance using $C_\alpha(0;D)=1$ exactly,
-$\sigma_{\tau,\rm eff}^2(0)$ reduces to
+For the extended source, $g^{(1)}_{\rm obs}(\tau)$ is unchanged from the
+point-source result (Eq.~\ref{eq:g1ext}), while $g^{(2)}_{\rm obs}(\tau)$
+is given by the general mixture Eq.~\eqref{eq:g2obsExt}.
+Unlike the point-source case, in the narrow-band limit $g^{(2)}_{\rm obs}$
+is \emph{not} equal to $g^{(2)}_{\rm src}$: the cross-ray differential jitter
+modifies the intensity correlation through the envelope timing, even though
+the carrier phase does not affect individual intensities.
+The Siegert discrepancy is therefore
+\begin{equation}
+  \mathcal{S}(\tau)
+  = \left[g^{(2)}_{\rm obs}(\tau) - 1\right]
+    - \left|g^{(1)}_{\rm obs}(\tau)\right|^2,
+  \label{eq:SextDef}
+\end{equation}
+where $g^{(2)}_{\rm obs}(\tau)-1$ is given by Eq.~\eqref{eq:g2obsExt} and
+$|g^{(1)}_{\rm obs}(\tau)|^2 = |g^{(1)}_{\rm src}(\tau)|^2\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$.
+
+At $\tau=0$, $g^{(1)}_{\rm obs}(0)=1$ exactly by the spatial-incoherence argument of
+Section~\ref{sec:extended}, so $\mathcal{S}(0) = g^{(2)}_{\rm obs}(0) - 2$.
+Evaluating the zero-lag effective variance with $C_\alpha(0;D)=1$ gives
 \begin{equation}
   \sigma_0^2
   \equiv \frac{2\sigma_\ell^2(D)}{c^2}(1-\Phi_{\rm eff}),
   \label{eq:sigma0}
 \end{equation}
-which is strictly positive whenever $\Phi_{\rm eff}<1$.
-Within this approximation,
-the ray-pair mixture reduces to a single Gaussian kernel of width $\sigma_0$.
+which is strictly positive whenever $\Phi_{\rm eff}<1$, so the ray-pair mixture
+reduces to a single Gaussian kernel of width $\sigma_0$.
 
 For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c}$,
 so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_c}$.
@@ -987,14 +1005,20 @@ and the zero-lag bunching peak is suppressed below its ideal value of 2 by
 \begin{equation}
   \delta g^{(2)}
   \equiv 2 - g^{(2)}_{\rm obs}(0)
-  = 1 - e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right).
+  = 1 - e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:deltag2}
 \end{equation}
-In the point-source limit $\Phi_{\rm eff}\to 1$, $\sigma_0\to 0$ and
-$\delta g^{(2)}\to 0$ as expected.
+giving
+\begin{equation}
+  \mathcal{S}(0) = -\,\delta g^{(2)} \leq 0.
+  \label{eq:S0ext}
+\end{equation}
+In the point-source limit $\Phi_{\rm eff}\to 1$, $\sigma_0\to 0$,
+$\delta g^{(2)}\to 0$, and $\mathcal{S}(0)\to 0$, recovering the point-source result.
 Since $\sigma_0^2\propto(1-\Phi_{\rm eff})$ and $\Phi_{\rm eff}$ decreases
 as the source angular diameter increases at fixed $D$ and $r_\perp$, more
-extended sources experience greater suppression of the bunching peak.
+extended sources experience greater suppression of the bunching peak and a
+more negative Siegert discrepancy at zero lag.
 
 In the narrow-band limit $\sigma_\ell/(c\tau_c)\ll 1$
 (Section~\ref{sec:narrowband}), $\sigma_0\ll\tau_c$ for any $\Phi_{\rm eff}$.
@@ -1023,67 +1047,7 @@ observing an unresolved emission line, whose Lorentzian profile preserves the
 cusp in $g^{(2)}_{\rm src}$, is therefore preferable for maximizing foam
 sensitivity in $\delta g^{(2)}$.
 
-For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
-and the sensitivity parameter
-$s = \sigma_0/\tau_c
- = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi\cdot(\Delta\lambda/\lambda)$
-is small across all realistic observational bandwidths.
-For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
-that even at a high spectral resolution
-$R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
-The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
-
-The dependence of $\delta g^{(2)}$ on $\Phi_{\rm eff}$ (and hence on $r_\perp$)
-has a transparent physical interpretation.
-The zero-lag suppression arises from a purely spatial mechanism, distinct from the temporal
-phase-scrambling effect responsible for the Siegert discrepancy $\mathcal{S}(\tau)$.
-Even at $\tau = 0$, photon pairs from different sky directions
-$\boldsymbol{\theta} \neq \boldsymbol{\theta}'$ accumulate independent
-instantaneous jitters $\delta t(t;\boldsymbol{\theta}) \neq
-\delta t(t;\boldsymbol{\theta}')$ when $b \gg r_\perp$.
-Their relative offset $\delta t(t;\boldsymbol{\theta}) -
-\delta t(t;\boldsymbol{\theta}')$ blurs the $g^{(2)}(0)$ measurement even
-though $\tau = 0$.
-This is a purely spatial effect with no analogue in the point-source case.
-
-\subsection{Extended-Source Siegert Discrepancy}
-
-The extended-source Siegert discrepancy $\mathcal{S}(\tau)$ acquires a new
-feature absent in the point-source case: it can be negative at $\tau=0$.
-
-For the extended source, $g^{(1)}_{\rm obs}(\tau)$ is unchanged from the
-point-source result (Eq.~\ref{eq:g1ext}), while $g^{(2)}_{\rm obs}(\tau)$
-is given by the general mixture Eq.~\eqref{eq:g2obsExt}.
-Unlike the point-source case, in the narrow-band limit $g^{(2)}_{\rm obs}$
-is \emph{not} equal to $g^{(2)}_{\rm src}$: the cross-ray differential jitter
-modifies the intensity correlation through the envelope timing, even though
-the carrier phase does not affect individual intensities.
-The Siegert discrepancy is therefore
-\begin{equation}
-  \mathcal{S}(\tau)
-  = \left[g^{(2)}_{\rm obs}(\tau) - 1\right]
-    - \left|g^{(1)}_{\rm obs}(\tau)\right|^2,
-  \label{eq:SextDef}
-\end{equation}
-where $g^{(2)}_{\rm obs}(\tau)-1$ is given by Eq.~\eqref{eq:g2obsExt} and
-$|g^{(1)}_{\rm obs}(\tau)|^2 = |g^{(1)}_{\rm src}(\tau)|^2\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$.
-Within the $\Phi_{\rm eff}$ approximation, at $\tau=0$:
-\begin{equation}
-  \mathcal{S}(0)
-  = \left[g^{(2)}_{\rm obs}(0) - 1\right] - 1
-  = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right) - 1
-  = -\,\delta g^{(2)} < 0.
-  \label{eq:S0ext}
-\end{equation}
-Here $g^{(1)}_{\rm obs}(0)=1$ exactly by the spatial-incoherence argument of
-Section~\ref{sec:extended}, independently of the $\Phi_{\rm eff}$ approximation,
-which affects only $g^{(2)}_{\rm obs}$ through $\sigma_0$.
-The Siegert discrepancy at zero lag therefore equals minus the bunching-peak
-suppression and is negative for $s>0$.
-For a point source ($\Phi_{\rm eff}=1$, $s=0$), $\mathcal{S}(0)=0$, recovering
-the point-source result.
-
-The negative value of $\mathcal{S}(0)$ does not violate any fundamental inequality.
+The non-positive value of $\mathcal{S}(0)$ does not violate any fundamental inequality.
 The bound $\mathcal{S}(\tau)\geq 0$ was established in Section~\ref{sec:siegert}
 for a point source, where the Cauchy--Schwarz argument applies to a single ray.
 For an extended source, the cross-ray differential jitter introduces spatial
@@ -1093,6 +1057,26 @@ Physically, $g^{(2)}_{\rm obs}(0)$ is suppressed below 2 by the cross-ray spatia
 jitter (an envelope-level effect), while $|g^{(1)}_{\rm obs}(0)|^2 = 1$ exactly,
 so these two observables are controlled by different physical mechanisms and their
 difference can be negative.
+
+The dependence of $\delta g^{(2)}$ on $\Phi_{\rm eff}$ (and hence on $r_\perp$)
+has a transparent physical interpretation.
+The zero-lag suppression arises from a purely spatial mechanism: even at $\tau = 0$,
+photon pairs from different sky directions
+$\boldsymbol{\theta} \neq \boldsymbol{\theta}'$ accumulate independent
+instantaneous jitters $\delta t(t;\boldsymbol{\theta}) \neq
+\delta t(t;\boldsymbol{\theta}')$ when $b \gg r_\perp$.
+Their relative offset blurs the $g^{(2)}(0)$ measurement even though $\tau = 0$.
+This is a purely spatial effect with no analogue in the point-source case.
+
+For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
+and the sensitivity parameter
+$s = \sigma_0/\tau_c
+ = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi\cdot(\Delta\lambda/\lambda)$
+is small across all realistic observational bandwidths.
+For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
+that even at a high spectral resolution
+$R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
+The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
 
 \begin{table}[h]
 \centering
@@ -1173,10 +1157,17 @@ second-order observables are characteristically smaller at ${\sim}10^{-11}$. The
 of the second-order approach lies not in raw sensitivity but in two distinct features: the 
 Siegert discrepancy is self-calibrating, being constructed from simultaneous measurements of 
 $g^{(1)}$ and $g^{(2)}$ on the same dataset without requiring prior knowledge of intrinsic 
-source properties; and for extended sources, the zero-lag bunching suppression $\delta g^{(2)}$ 
-scales linearly with the parameter $s = \sigma_0/\tau_c$, providing progressively greater 
-probative power as next-generation optical intensity interferometers push toward the 
+source properties; and for extended sources, the zero-lag bunching suppression $\delta g^{(2)}$
+scales linearly with the parameter $s = \sigma_0/\tau_c$, providing progressively greater
+probative power as next-generation optical intensity interferometers push toward the
 $10^{-10}$--$10^{-12}$ shot-noise floor.
+Notably, for sources with a Lorentzian line profile the leading correction to
+$g^{(2)}_{\rm obs}(0)$ enters at first order in $s$ --- a consequence of the
+cusp in $g^{(2)}_{\rm src}$ at zero lag (Section~\ref{sec:zerolag}) --- so that
+despite being a second-order coherence measurement, $\delta g^{(2)}$ is not
+doubly suppressed relative to the first-order observables.
+Observations targeting unresolved emission lines therefore maximize foam
+sensitivity in $\delta g^{(2)}$.
 
 The coherence observables also serve as discriminants against conventional
 propagation phase screens~\cite{Carlip2023}.
