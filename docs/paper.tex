@@ -1047,26 +1047,16 @@ observing an unresolved emission line, whose Lorentzian profile preserves the
 cusp in $g^{(2)}_{\rm src}$, is therefore preferable for maximizing foam
 sensitivity in $\delta g^{(2)}$.
 
-The non-positive value of $\mathcal{S}(0)$ does not violate any fundamental inequality.
-The bound $\mathcal{S}(\tau)\geq 0$ was established in Section~\ref{sec:siegert}
-for a point source, where the Cauchy--Schwarz argument applies to a single ray.
-For an extended source, the cross-ray differential jitter introduces spatial
-correlations that decouple $g^{(2)}_{\rm obs}(0)$ from $|g^{(1)}_{\rm obs}(0)|^2$,
-allowing $\mathcal{S}(0)<0$.
-Physically, $g^{(2)}_{\rm obs}(0)$ is suppressed below 2 by the cross-ray spatial
-jitter (an envelope-level effect), while $|g^{(1)}_{\rm obs}(0)|^2 = 1$ exactly,
-so these two observables are controlled by different physical mechanisms and their
-difference can be negative.
-
-The dependence of $\delta g^{(2)}$ on $\Phi_{\rm eff}$ (and hence on $r_\perp$)
-has a transparent physical interpretation.
-The zero-lag suppression arises from a purely spatial mechanism: even at $\tau = 0$,
-photon pairs from different sky directions
-$\boldsymbol{\theta} \neq \boldsymbol{\theta}'$ accumulate independent
-instantaneous jitters $\delta t(t;\boldsymbol{\theta}) \neq
-\delta t(t;\boldsymbol{\theta}')$ when $b \gg r_\perp$.
-Their relative offset blurs the $g^{(2)}(0)$ measurement even though $\tau = 0$.
-This is a purely spatial effect with no analogue in the point-source case.
+The suppression $\delta g^{(2)}$ arises from a purely spatial mechanism with no
+analogue in the point-source case: even at $\tau=0$, photon pairs from different
+sky directions $\boldsymbol{\theta}\neq\boldsymbol{\theta}'$ accumulate independent
+instantaneous jitters $\delta t(t;\boldsymbol{\theta})\neq\delta t(t;\boldsymbol{\theta}')$
+when $b\gg r_\perp$, and their relative offset blurs the $g^{(2)}(0)$ measurement.
+Because $|g^{(1)}_{\rm obs}(0)|^2=1$ exactly is unaffected by this spatial jitter,
+the two observables are controlled by different mechanisms and $\mathcal{S}(0)<0$.
+This does not violate any fundamental inequality: the bound $\mathcal{S}\geq 0$
+established in Section~\ref{sec:siegert} applies to a single ray, and the
+angular mixture of an extended source need not satisfy it.
 
 For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
 and the sensitivity parameter
@@ -1077,31 +1067,6 @@ For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
 that even at a high spectral resolution
 $R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
 The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
-
-\begin{table}[h]
-\centering
-\caption{Bunching suppression $\delta g^{(2)}$ from Eq.~\eqref{eq:deltag2} and
-sensitivity parameter $s = \sigma_0/\tau_c$ for an extended source in the fully
-resolved limit $\Phi_{\rm eff} \to 0$, using the fiducial parameters of
-Table~\ref{tab:comparison}: $D = 1\,\mathrm{Gpc}$, $\lambda = 500\,\mathrm{nm}$,
-$\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$, $C_\alpha \to 0$.
-The $\alpha = 1/2$ case is observationally excluded~\cite{Perlman2015};
-$\alpha = 2/3$ (holographic) is the most sensitive surviving model.
-For $\alpha = 1/2$, the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$
-overestimates the exact value by a factor of $\sim$1.5 because $s=0.40$ is outside
-the small-$s$ regime; the full expression Eq.~\eqref{eq:deltag2} must be used.}
-\label{tab:bunching}
-\begin{tabular}{lcc}
-\hline\hline
-Quantity & $\alpha = 1/2$ (excluded) & $\alpha = 2/3$ \\
-\hline
-$\sigma_\phi$ & \multicolumn{1}{c}{$2.81 \times 10^2$} & \multicolumn{1}{c}{$2.52 \times 10^{-8}$} \\
-$s = \sigma_0/\tau_c$ & $3.97 \times 10^{-1}$ & $3.56 \times 10^{-11}$ \\
-$\delta g^{(2)}$ [Eq.~\eqref{eq:deltag2}, exact] & $4.14 \times 10^{-1}$ & $5.69 \times 10^{-11}$ \\
-$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ [small-$s$] & $6.33 \times 10^{-1}$ & $5.68 \times 10^{-11}$ \\
-\hline\hline
-\end{tabular}
-\end{table}
 
 \subsection{Two Distinct Signatures}
 
@@ -1199,11 +1164,38 @@ be used for precision work. Critically, this case ($\alpha = 1/2$) is already ex
 fringe-visibility measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}. For the 
 holographic model $\alpha = 2/3$ with the same parameters, $\sigma_\phi \sim 10^{-8}$, so 
 temporal point-source observables are negligibly small with current instrumentation. However, 
-as shown in Table~\ref{tab:bunching}, the extended-source zero-lag bunching suppression 
+as shown in Table~\ref{tab:bunching} (evaluated in the fully resolved limit
+$\Phi_{\rm eff}\to 0$), the extended-source zero-lag bunching suppression 
 scales linearly rather than quadratically with the small parameter $s = \sigma_0/\tau_c$, 
 and in the limit $\Phi_{\rm eff} \to 0$ (corresponding to $D\Delta\theta \gg r_\perp$)
 yields $\delta g^{(2)} \approx 5.7\times10^{-11}$, directly within the shot-noise floor of
 next-generation optical intensity interferometers.
+
+\begin{table}[h]
+\centering
+\caption{Bunching suppression $\delta g^{(2)}$ from Eq.~\eqref{eq:deltag2} and
+sensitivity parameter $s = \sigma_0/\tau_c$ for an extended source in the fully
+resolved limit $\Phi_{\rm eff} \to 0$, using the fiducial parameters of
+Table~\ref{tab:comparison}: $D = 1\,\mathrm{Gpc}$, $\lambda = 500\,\mathrm{nm}$,
+$\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$, $C_\alpha \to 0$.
+The $\alpha = 1/2$ case is observationally excluded~\cite{Perlman2015};
+$\alpha = 2/3$ (holographic) is the most sensitive surviving model.
+For $\alpha = 1/2$, the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$
+overestimates the exact value by a factor of $\sim$1.5 because $s=0.40$ is outside
+the small-$s$ regime; the full expression Eq.~\eqref{eq:deltag2} must be used.}
+\label{tab:bunching}
+\begin{tabular}{lcc}
+\hline\hline
+Quantity & $\alpha = 1/2$ (excluded) & $\alpha = 2/3$ \\
+\hline
+$\sigma_\phi$ & \multicolumn{1}{c}{$2.81 \times 10^2$} & \multicolumn{1}{c}{$2.52 \times 10^{-8}$} \\
+$s = \sigma_0/\tau_c$ & $3.97 \times 10^{-1}$ & $3.56 \times 10^{-11}$ \\
+$\delta g^{(2)}$ [Eq.~\eqref{eq:deltag2}, exact] & $4.14 \times 10^{-1}$ & $5.69 \times 10^{-11}$ \\
+$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ [small-$s$] & $6.33 \times 10^{-1}$ & $5.68 \times 10^{-11}$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
 These figures are evaluated at the fiducial $\Delta\lambda/\lambda = 10^{-3}$; since
 $s\propto\Delta\lambda/\lambda$, broader-band observations would increase $\delta g^{(2)}$
 proportionally.
