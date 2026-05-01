@@ -32,8 +32,10 @@ through this foam, and we ask whether this jitter is detectable through the stat
 properties of the light itself.
 We show that the jitter affects the field-amplitude correlations ($g^{(1)}$) and
 intensity correlations ($g^{(2)}$) differently, breaking the Siegert relation ---
-an equality that holds for all Gaussian chaotic sources --- in a way that requires
-no prior knowledge of the intrinsic source properties to interpret.
+an equality that holds for all Gaussian chaotic sources --- in a way that
+requires no separate model of the intrinsic source spectrum to detect, but
+does require it for quantitative inference of $\alpha$ and $D$ from the
+magnitude of $\mathcal{S}(\tau)$.
 For a spatially resolved source, pairs of rays from different directions accumulate
 independent jitters, providing an additional handle on the transverse structure of
 the foam that is inaccessible to single-aperture imaging.
@@ -45,6 +47,9 @@ hypothesized foam models --- from values already excluded by existing observatio
 at one extreme, to effects that are observationally inconsequential at the other.
 For the holographic model the predicted signals lie at the $10^{-11}$ level, making
 competitive headway into the currently unconstrained parameter space.
+These estimates are evaluated in the dynamical limit $C_\alpha\to 0$, which maximizes
+the predicted signal; they are conditional upper bounds, not predictions of a fully
+specified foam model.
 \end{abstract}
 
 \maketitle
@@ -274,6 +279,14 @@ In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam cohere
 across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
 interest and every temporal observable vanishes.
 
+All numerical estimates in Sections~\ref{sec:g1}--\ref{sec:extended} are evaluated
+in the dynamical limit $C_\alpha\to 0$, which maximizes the predicted signal at any
+given lag; the computed signals are therefore conditional upper bounds, not predictions
+of a fully specified foam model.
+The parameters $A_\alpha$, $C_\alpha(\tau;D)$, $\tau_{\rm foam}$, $r_\perp$, and
+$\Phi_{\rm eff}$ are convenient parameterizations of distinct physical effects ---
+single-ray variance, temporal foam dynamics, transverse coherence, and source angular
+structure --- and are not claimed to be simultaneously determined by any single observation.
 
 The full spatiotemporal covariance between two rays separated by transverse
 distance $b$ takes the factorized form
@@ -298,6 +311,12 @@ This product form — separating the total variance from the normalized
 spatiotemporal shape — is a structural assumption of the model, not a consequence
 of Eq.~\eqref{eq:NgPerlmanVar}; in a general stationary process the variance and
 the normalized correlation functions can carry independent $D$-dependence.
+The factorization defines a class of foam models within which the analytic framework
+is exact, analogous to the use of factorized kernels in turbulence phenomenology.
+Violations of factorization could in principle be detected as a failure of the
+predicted joint $D$-scaling between $\mathcal{S}(\tau)$ and $\delta g^{(2)}$;
+we are not aware of a specific quantum-gravity calculation that either confirms
+or refutes this ansatz.
 The two principal observables developed below --- the Siegert
 discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
 $\delta g^{(2)}$ --- therefore both descend from the single scaling relation
@@ -456,6 +475,9 @@ giving, for $\tau > 0$:
     \right].
   \label{eq:g1obs_voigt}
 \end{equation}
+The normalization $g^{(1)}_{\rm obs}(0)=1$ is preserved: as $\sigma_\Delta\to 0$,
+$\tilde\sigma_1/\sigma_\Delta\to 1$, the exponential prefactors approach unity, and
+the erfc combination gives 1.
 In the limit $\tau_G\to\infty$ (pure Lorentzian), $\tilde\sigma_1\to\sigma_\Delta$ and
 $\mu_1\to\tau$, so Eq.~\eqref{eq:g1obs_voigt} reduces to Eq.~\eqref{eq:g1obs_erfc}.
 In the limit $\tau_L\to\infty$ (pure Gaussian), the erfc terms combine to unity and
@@ -480,7 +502,10 @@ a carrier phase modulation; the observed field takes the form
 (Corrections to the envelope approximation are of order $(\sigma_\ell/c\tau_c)^2$;
 for $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$
 this parameter is $\approx 0.28$, so the exact convolution Eq.~\eqref{eq:g1obs_erfc}
-should be used instead.)
+should be used instead.
+For $\alpha=2/3$ the analogous parameter is ${\sim}10^{-11}$
+(Table~\ref{tab:comparison}), so Eq.~\eqref{eq:g1narrowband} is exact to any
+practical precision in the holographic case.)
 Since $A(t)$ and $\delta t(t)$ are independent, the first-order coherence
 factorizes.
 The jitter contribution is the characteristic function of $\Delta(\tau)$
@@ -985,6 +1010,10 @@ across the source brightness distribution.
 A precise bound requires knowledge of the functional form of $\Phi$
 and the source profile; for the purposes of this paper the $\Phi_{\rm eff}$
 reduction is used as a tractable approximation.
+The accuracy of this approximation at intermediate angular sizes has not been
+quantified in the present work; it must be assessed jointly with the CLT
+breakdown already noted in Section~\ref{sec:differential_jitter}, since both
+occur in the same regime $b\sim r_\perp$.
 
 \subsection{Extended-Source Siegert Discrepancy and Zero-Lag Bunching}
 \label{sec:zerolag}
@@ -1152,7 +1181,8 @@ $D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$), whereas a thin intervening
 screen scales as $D$ and Kolmogorov turbulence as $D^{11/6}$; the holographic
 and conservative foam models predict sub-linear or flat growth qualitatively
 different from any known astrophysical screen.
-Geometrically, foam jitter is achromatic ($\delta t=\Delta\ell/c$ independent
+Geometrically, the arrival-time jitter induced by spacetime foam (foam jitter)
+is achromatic ($\delta t=\Delta\ell/c$ independent
 of $\lambda$), in contrast to plasma-based effects which scale as $\lambda^2$.
 The Fermi and H.E.S.S.\ time-of-flight analyses~\cite{Fermi2009,HESS2008} rule
 out deterministic, energy-ordered LIV dispersion as a class of quantum-gravity
@@ -1161,8 +1191,12 @@ here (Section~\ref{sec:intro}); the principal chromatic alternative that the
 achromaticity discriminant addresses is therefore plasma propagation.
 In practice, the intrinsic source visibility $V_{\rm src}(\tau)$ introduces a
 degeneracy with foam suppression, but this is mitigated by the self-calibrating character of the Siegert
-discrepancy — constructed from $g^{(1)}$ and $g^{(2)}$ measurements on the same dataset,
-so common-mode source properties partially cancel.
+discrepancy — constructed from $g^{(1)}$ and $g^{(2)}$ measurements on the same dataset.
+The overall source flux cancels in the ratio $g^{(2)}-1$, but the shape of
+$\mathcal{S}(\tau)$ retains dependence on $|g^{(1)}_{\rm src}(\tau)|^2$; the
+self-calibrating property is that no separate flux calibration or source model is
+needed to detect a non-zero $\mathcal{S}(\tau)$, not that the source spectrum is
+irrelevant to its quantitative interpretation.
 
 % ==============================================================
 \section{Conclusions}
@@ -1181,8 +1215,9 @@ space: the first-order tests probe effects at the ${\sim}10^{-8}$ level, while t
 second-order observables are characteristically smaller at ${\sim}10^{-11}$. The advantage
 of the second-order approach lies not in raw sensitivity but in two distinct features: the Siegert discrepancy is self-calibrating — any deviation of
 $\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$ from zero is
-unambiguously non-thermal, with no need to model or subtract the intrinsic
-source spectrum (Section~\ref{sec:siegert}); and for extended sources,
+unambiguously non-Gaussian-chaotic, requiring no separate flux calibration or
+source model to detect (though the source coherence function is needed for
+quantitative inference; Section~\ref{sec:siegert}); and for extended sources,
 the zero-lag bunching suppression $\delta g^{(2)}$
 scales linearly with the parameter $s = \sigma_0/\tau_c$, providing progressively greater
 probative power as next-generation optical intensity interferometers push toward the
@@ -1215,7 +1250,8 @@ $D\Delta\theta \gg r_\perp$), the extended-source zero-lag bunching suppression
 scales linearly rather than quadratically with the small parameter $s = \sigma_0/\tau_c$
 and yields $\delta g^{(2)} \approx 5.7\times10^{-11}$, directly within the shot-noise
 floor of next-generation optical intensity interferometers.
-This estimate assumes $r_\perp \ll D\,\Delta\theta_{\rm source}$; if the foam
+This estimate is evaluated in the dynamical limit $C_\alpha\to 0$ (a conditional
+upper bound) and assumes $r_\perp \ll D\,\Delta\theta_{\rm source}$; if the foam
 transverse coherence length exceeds the angular-size scale $D\,\Delta\theta_{\rm source}$
 (of order $\mu$as at Gpc distances for compact AGN), then $\Phi_{\rm eff}\to 1$,
 $\delta g^{(2)}\to 0$, and the bunching suppression vanishes regardless of $\alpha$.
@@ -1235,7 +1271,7 @@ decomposition underlying the Siegert violation is no longer rigorous.
 A controlled calculation in the broadband regime is required and may modify this
 estimate significantly.
 We flag broadband Hanbury Brown--Twiss (HBT) photon-correlation measurements as a
-promising avenue for future observational work, pending such a treatment.
+potentially promising avenue for future observational work, pending such a treatment.
 Whether the broadband signal level is achieved in practice depends on
 the unknown transverse coherence length $r_\perp$, which is itself constrained by the
 angular-size dependence of $\delta g^{(2)}$ across sources at the same redshift, subject to
