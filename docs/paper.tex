@@ -49,10 +49,6 @@ competitive headway into the currently unconstrained parameter space.
 
 \maketitle
 
-% ==============================================================
-% Introduction for "First- and Second-Order Coherence Through Spacetime Foam"
-% Inserted ahead of Section \ref{sec:model}.
-% ==============================================================
 \section{Introduction}
 \label{sec:intro}
 
@@ -404,8 +400,9 @@ convolved with the Gaussian differential-jitter kernel.
 
 \subsection{Closed Form for a Lorentzian Source}
 
-Astronomical emission lines generally have  a Lorentzian line profile, which 
-corresponds to an exponential coherence function via the Wiener-Khinchin theorem, so
+As a representative case admitting a closed-form result, we take a Lorentzian
+line profile, which corresponds to an exponential coherence function via the
+Wiener--Khinchin theorem:
 \begin{equation}
   g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c},
   \label{eq:g1src_lorentz}
@@ -1096,8 +1093,8 @@ existing Fermi and H.E.S.S.\ time-of-flight limits~\cite{Fermi2009,HESS2008}
 already exploit this channel, and the coherence-based approach is complementary.
 In practice, the intrinsic source visibility $V_{\rm src}(\tau)$ introduces a
 degeneracy with foam suppression, but this is mitigated by the self-calibrating character of the Siegert
-discrepancy — constructed from simultaneous $g^{(1)}$ and $g^{(2)}$ measurements
-on the same dataset, so common-mode source properties partially cancel.
+discrepancy — constructed from $g^{(1)}$ and $g^{(2)}$ measurements on the same dataset,
+so common-mode source properties partially cancel.
 
 % ==============================================================
 \section{Conclusions}
@@ -1106,7 +1103,7 @@ on the same dataset, so common-mode source properties partially cancel.
 We have developed a theoretical framework for the imprint of spacetime foam, characterized 
 by the Ng--Perlman exponent $\alpha$, on both first- and second-order optical coherence. The 
 central finding is that foam-induced arrival-time jitter produces two classes of observable 
-violation of relations that hold for all chaotic astronomical sources: a deviation from the 
+violation of relations that hold for all Gaussian chaotic sources: a deviation from the 
 Siegert relation, $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$, and a suppression of the zero-lag 
 bunching peak below its canonical value of $g^{(2)}(0) = 2$. These second-order observables 
 are complementary to the fringe visibility and Strehl ratio tests based on first-order 
