@@ -1022,12 +1022,40 @@ giving
   \mathcal{S}(0) = -\,\delta g^{(2)} \leq 0.
   \label{eq:S0ext}
 \end{equation}
+This sign is qualitatively distinct from the point-source result
+$\mathcal{S}(\tau\neq 0)\geq 0$ of Section~\ref{sec:siegert}: a negative
+zero-lag Siegert discrepancy is therefore a sign-flip diagnostic that
+distinguishes spatially resolved from unresolved foam signatures.
 In the point-source limit $\Phi_{\rm eff}\to 1$, $\sigma_0\to 0$,
 $\delta g^{(2)}\to 0$, and $\mathcal{S}(0)\to 0$, recovering the point-source result.
 Since $\sigma_0^2\propto(1-\Phi_{\rm eff})$ and $\Phi_{\rm eff}$ decreases
 as the source angular diameter increases at fixed $D$ and $r_\perp$, more
 extended sources experience greater suppression of the bunching peak and a
 more negative Siegert discrepancy at zero lag.
+
+For an astrophysically more representative Voigt profile --- a Lorentzian of
+width $\tau_L$ convolved with a Gaussian of width $\tau_G$ (modelling natural
+plus Doppler/turbulent broadening) --- the coherence function is
+$g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$,
+giving $g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_L}\,e^{-\tau^2/\tau_G^2}$.
+The zero-lag convolution over $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ combines the
+source Gaussian with the jitter kernel into an effective width
+\begin{equation}
+  \tilde\sigma^2 = \frac{\sigma_0^2\,\tau_G^2}{2\sigma_0^2+\tau_G^2},
+  \label{eq:sigmatilde}
+\end{equation}
+yielding
+\begin{equation}
+  g^{(2)}_{\rm obs}(0) - 1
+  = \frac{\tilde\sigma}{\sigma_0}\,e^{2\tilde{s}^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,\tilde{s}\right),
+  \qquad \tilde{s}\equiv\tilde\sigma/\tau_L.
+  \label{eq:g2zero_voigt}
+\end{equation}
+In the limit $\tau_G\to\infty$ (pure Lorentzian), $\tilde\sigma\to\sigma_0$ and
+Eq.~\eqref{eq:g2zero_voigt} reduces to Eq.~\eqref{eq:g2zero}.
+In the limit $\tau_L\to\infty$ (pure Gaussian), $\tilde{s}\to 0$ and
+$g^{(2)}_{\rm obs}(0)-1 = \tilde\sigma/\sigma_0 = \tau_G/\sqrt{2\sigma_0^2+\tau_G^2}$,
+with no O(s) correction.
 
 In the narrow-band limit $\sigma_\ell/(c\tau_c)\ll 1$
 (Section~\ref{sec:narrowband}), $\sigma_0\ll\tau_c$ for any $\Phi_{\rm eff}$.
@@ -1040,21 +1068,30 @@ $s=\sigma_0/\tau_c$:
           + \sqrt{\tfrac{2}{\pi}}\,\sigma_0\,g^{(2)\prime}_{\rm src}(0^+),
   \label{eq:g2zero_nb}
 \end{equation}
-where $g^{(2)\prime}_{\rm src}(0^+)$ is the right-derivative of $g^{(2)}_{\rm src}$
-at zero lag.
+where $g^{(2)\prime}_{\rm src}(0^+)$ denotes the right-derivative of $g^{(2)}_{\rm src}$
+at zero lag (the function is non-differentiable at $\tau=0$ for cusped profiles such
+as the Lorentzian, so the symmetric derivative does not exist there).
 For sources with a smooth (even) profile the right-derivative vanishes and the
 leading correction is $O(\sigma_0^2)$; for a Lorentzian,
 $g^{(2)\prime}_{\rm src}(0^+) = -2/\tau_c$, recovering
 $\delta g^{(2)}\approx 2\sqrt{2/\pi}\,s$, consistent with the small-$s$
 expansion of Eq.~\eqref{eq:deltag2}.
+For a Voigt profile, the same expansion gives
+$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,\sigma_0/\tau_L + (\sigma_0/\tau_G)^2 + \cdots$:
+the O(s) term is controlled solely by the Lorentzian component $\tau_L$, and
+Gaussian broadening (Doppler or instrumental) enters only at O(s$^2$).
+The O(s) scaling therefore survives whenever the line has any Lorentzian component,
+provided the line is spectrally resolved at the scale of $\tau_L$.
 This is consistent with the sensitivity-scale hierarchy of Section~\ref{sec:scales}:
 the zero-lag suppression is small in the narrow-band regime.
 Observationally, this implies that a spectrograph transmitting a nearly flat
 bandpass (e.g.\ continuum), whose $g^{(2)}_{\rm src}$ is smooth at zero lag,
-suppresses the first-order contribution, leaving only an $O(s^2)$ residual;
-observing an unresolved emission line, whose Lorentzian profile preserves the
-cusp in $g^{(2)}_{\rm src}$, is therefore preferable for maximizing foam
-sensitivity in $\delta g^{(2)}$.
+suppresses the first-order contribution, leaving only an $O(s^2)$ residual.
+Maximizing foam sensitivity in $\delta g^{(2)}$ therefore favours emission lines
+with a significant Lorentzian component (natural or pressure broadening) that is
+spectrally resolved by the instrument; if the line is unresolved, the observed
+profile is the instrumental response (approximately Gaussian), the cusp is erased,
+and the leading correction reverts to O(s$^2$).
 
 The suppression $\delta g^{(2)}$ arises from a purely spatial mechanism with no
 analogue in the point-source case: even at $\tau=0$, photon pairs from different
@@ -1088,9 +1125,12 @@ screen scales as $D$ and Kolmogorov turbulence as $D^{11/6}$; the holographic
 and conservative foam models predict sub-linear or flat growth qualitatively
 different from any known astrophysical screen.
 Geometrically, foam jitter is achromatic ($\delta t=\Delta\ell/c$ independent
-of $\lambda$), in contrast to plasma-based effects which scale as $\lambda^2$;
-existing Fermi and H.E.S.S.\ time-of-flight limits~\cite{Fermi2009,HESS2008}
-already exploit this channel, and the coherence-based approach is complementary.
+of $\lambda$), in contrast to plasma-based effects which scale as $\lambda^2$.
+The Fermi and H.E.S.S.\ time-of-flight analyses~\cite{Fermi2009,HESS2008} rule
+out deterministic, energy-ordered LIV dispersion as a class of quantum-gravity
+effect, but do not constrain the stochastic achromatic foam jitter considered
+here (Section~\ref{sec:intro}); the principal chromatic alternative that the
+achromaticity discriminant addresses is therefore plasma propagation.
 In practice, the intrinsic source visibility $V_{\rm src}(\tau)$ introduces a
 degeneracy with foam suppression, but this is mitigated by the self-calibrating character of the Siegert
 discrepancy — constructed from $g^{(1)}$ and $g^{(2)}$ measurements on the same dataset,
@@ -1119,13 +1159,16 @@ the zero-lag bunching suppression $\delta g^{(2)}$
 scales linearly with the parameter $s = \sigma_0/\tau_c$, providing progressively greater
 probative power as next-generation optical intensity interferometers push toward the
 $10^{-10}$--$10^{-12}$ shot-noise floor.
-Notably, for sources with a Lorentzian line profile the leading correction to
-$g^{(2)}_{\rm obs}(0)$ enters at first order in $s$ --- a consequence of the
-cusp in $g^{(2)}_{\rm src}$ at zero lag (Section~\ref{sec:zerolag}) --- so that
-despite being a second-order coherence measurement, $\delta g^{(2)}$ is not
-doubly suppressed relative to the first-order observables.
-Observations targeting unresolved emission lines therefore maximize foam
-sensitivity in $\delta g^{(2)}$.
+Notably, for sources whose line profile has a Lorentzian component (natural or
+pressure broadening) the leading correction to $g^{(2)}_{\rm obs}(0)$ enters at
+first order in $s = \sigma_0/\tau_L$ --- a consequence of the cusp in
+$g^{(2)}_{\rm src}$ at zero lag controlled by the Lorentzian width $\tau_L$
+(Section~\ref{sec:zerolag}) --- so that despite being a second-order coherence
+measurement, $\delta g^{(2)}$ is not doubly suppressed relative to the
+first-order observables.
+Gaussian broadening (Doppler or instrumental) enters only at O(s$^2$) and does not
+eliminate the O(s) enhancement; however, this requires the Lorentzian component
+to be spectrally resolved by the instrument.
 Joint measurements of point-like and extended sources at the same redshift
 can constrain $\{\alpha,\sigma_\ell(D),r_\perp\}$ simultaneously: the
 point-source Siegert discrepancy probes $\alpha$ and $D$ with no sensitivity
@@ -1144,6 +1187,10 @@ $D\Delta\theta \gg r_\perp$), the extended-source zero-lag bunching suppression
 scales linearly rather than quadratically with the small parameter $s = \sigma_0/\tau_c$
 and yields $\delta g^{(2)} \approx 5.7\times10^{-11}$, directly within the shot-noise
 floor of next-generation optical intensity interferometers.
+This estimate assumes $r_\perp \ll D\,\Delta\theta_{\rm source}$; if the foam
+transverse coherence length exceeds the angular-size scale $D\,\Delta\theta_{\rm source}$
+(of order $\mu$as at Gpc distances for compact AGN), then $\Phi_{\rm eff}\to 1$,
+$\delta g^{(2)}\to 0$, and the bunching suppression vanishes regardless of $\alpha$.
 
 These figures are evaluated at the fiducial $\Delta\lambda/\lambda = 10^{-3}$; since
 $s\propto\Delta\lambda/\lambda$, broader-band observations would increase $\delta g^{(2)}$
@@ -1152,13 +1199,15 @@ For the holographic model the narrow-band validity condition
 $\sigma_\phi\cdot(\Delta\lambda/\lambda)\ll 1$ is trivially satisfied at any
 physically realizable bandwidth ($\sigma_\phi\sim 10^{-8}$), so there is no
 approximation barrier to exploiting a broader bandpass.
-Pushing from $\Delta\lambda/\lambda = 10^{-3}$ to order unity would boost $s$ and hence
-$\delta g^{(2)}$ by three orders of magnitude, bringing the signal to $\sim 10^{-8}$ without any
-improvement in telescope area or detector technology.
+A naive linear extrapolation of the narrow-band result to $\Delta\lambda/\lambda \sim 1$
+would boost $s$ and hence $\delta g^{(2)}$ by three orders of magnitude, suggesting
+a signal of $\sim 10^{-8}$; however, at order-unity bandwidth the envelope
+approximation $A(t-\delta t)\approx A(t)$ breaks down and the carrier/envelope
+decomposition underlying the Siegert violation is no longer rigorous.
+A controlled calculation in the broadband regime is required and may modify this
+estimate significantly.
 We flag broadband Hanbury Brown--Twiss (HBT) photon-correlation measurements as a
-promising avenue for future observational work, noting that a
-rigorous treatment will require extending the present quasi-monochromatic framework to the
-broadband regime.
+promising avenue for future observational work, pending such a treatment.
 Whether the broadband signal level is achieved in practice depends on
 the unknown transverse coherence length $r_\perp$, which is itself constrained by the
 angular-size dependence of $\delta g^{(2)}$ across sources at the same redshift, subject to
@@ -1173,6 +1222,11 @@ $\delta g^{(2)}_{\rm floor} \sim 10^{-10}$--$10^{-12}$.
 The foam detectability condition $\sigma_0/\tau_c \gtrsim M^{-1}$ should therefore
 be quoted alongside any observational upper bound on $\sigma_\ell(D)$ derived from
 a non-detection.
+The $M^{-1}$ floor is an idealized lower bound assuming purely Poisson statistics;
+in practice, systematic contributions from detector afterpulsing, dark counts,
+electronic crosstalk, and timing jitter in SNSPD-based setups place realistic
+floors at $\sim 10^{-9}$--$10^{-10}$, above which the quantum-gravity signal
+must rise to be detectable.
 
 A deeper question left open by the present framework is whether spacetime foam should be 
 treated as a static medium or whether its statistical properties evolve on cosmological 
