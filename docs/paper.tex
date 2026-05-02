@@ -32,10 +32,10 @@ through this foam, and we ask whether this jitter is detectable through the stat
 properties of the light itself.
 We show that the jitter affects the field-amplitude correlations ($g^{(1)}$) and
 intensity correlations ($g^{(2)}$) differently, breaking the Siegert relation ---
-an equality that holds for all Gaussian chaotic sources --- in a way that
-requires no separate model of the intrinsic source spectrum to detect, but
-does require it for quantitative inference of $\alpha$ and $D$ from the
-magnitude of $\mathcal{S}(\tau)$.
+an equality that holds for all Gaussian chaotic sources.
+A non-zero discrepancy $\mathcal{S}(\tau)$ can be detected without modeling the
+intrinsic source spectrum, though quantitative inference of $\alpha$ and $D$
+from its magnitude does require it.
 For a spatially resolved source, pairs of rays from different directions accumulate
 independent jitters, providing an additional handle on the transverse structure of
 the foam that is inaccessible to single-aperture imaging.
@@ -119,9 +119,9 @@ constraints while retaining large $\sigma_\ell(D)$~\cite{LeeZurekChen2024}.
 The second channel uses energy-dependent time-of-flight measurements of
 high-energy astrophysical transients: gamma-ray bursts observed by
 Fermi~\cite{Fermi2009} and TeV blazar flares observed by
-H.E.S.S.~\cite{HESS2008}, with leading current limits from
-LHAASO observations of GRB\,221009A~\cite{LHAASO2024}, constrain the linear
-and quadratic dispersion that some quantum-gravity models predict.
+H.E.S.S.~\cite{HESS2008} constrain the linear and quadratic dispersion that
+some quantum-gravity models predict, with LHAASO observations of
+GRB\,221009A~\cite{LHAASO2024} providing the current leading limits.
 Together the two channels have winnowed the parameter space but not eliminated
 it, and several proposed scalings -- including the holographic $\alpha = 2/3$
 -- remain unconstrained at any wavelength accessible to current instrumentation.
@@ -138,7 +138,7 @@ The time-of-flight tests, conversely, rely on a chromatic dispersion signature
 that is precisely what is \emph{not} expected from a geometric-optics
 path-length fluctuation, for which the timing offset $\delta t = \Delta\ell/c$
 is frequency-independent.
-The Fermi and H.E.S.S.\ analyses specifically seek a Lorentz-invariance-violating
+The Fermi, H.E.S.S., and LHAASO analyses specifically seek a Lorentz-invariance-violating
 (LIV) dispersion of the form $\delta t \propto E^n/E_{\rm QG}^n$: a deterministic,
 energy-ordered delay.
 A stochastic, energy-independent geometric jitter produces no such signal, so
@@ -1197,9 +1197,9 @@ $D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$), whereas a thin intervening
 screen scales as $D$ and Kolmogorov turbulence as $D^{11/6}$; the holographic
 and conservative foam models predict sub-linear or flat growth qualitatively
 different from any known astrophysical screen.
-Geometrically, the arrival-time jitter induced by spacetime foam (foam jitter)
-is achromatic ($\delta t=\Delta\ell/c$ independent
-of $\lambda$), in contrast to plasma-based effects which scale as $\lambda^2$.
+Geometrically, foam jitter ($\delta t=\Delta\ell/c$) is achromatic ---
+independent of $\lambda$ --- in contrast to plasma-based effects which scale
+as $\lambda^2$.
 The Fermi, H.E.S.S., and LHAASO time-of-flight analyses~\cite{Fermi2009,HESS2008,LHAASO2024} rule
 out deterministic, energy-ordered LIV dispersion as a class of quantum-gravity
 effect, but do not constrain the stochastic achromatic foam jitter considered
@@ -1227,9 +1227,10 @@ bunching peak below its canonical value of $g^{(2)}(0) = 2$. These second-order 
 are complementary to the fringe visibility and Strehl ratio tests based on first-order 
 coherence that have already been applied to constrain foam models. For the holographic model
 ($\alpha = 2/3$), all such observables sit at the edge of the currently accessible parameter
-space (a recent analysis of GRB\,221009A claims consistency with holographic foam
-blurring~\cite{SteinbringNg2026}, though without formal statistical significance): the first-order tests probe effects at the ${\sim}10^{-8}$ level, while the 
-second-order observables are characteristically smaller at ${\sim}10^{-11}$. The advantage
+space: the first-order tests probe effects at the ${\sim}10^{-8}$ level, while the
+second-order observables are characteristically smaller at ${\sim}10^{-11}$
+(a recent analysis of GRB\,221009A claims consistency with holographic foam
+blurring~\cite{SteinbringNg2026}, though without formal statistical significance). The advantage
 of the second-order approach lies not in raw sensitivity but in two distinct features: the Siegert discrepancy is self-calibrating — any deviation of
 $\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$ from zero is
 unambiguously non-Gaussian-chaotic, requiring no separate flux calibration or
