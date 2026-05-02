@@ -113,6 +113,9 @@ nuclei with the Hubble Space Telescope and ground-based instruments
 together with stellar interferometry, exclude $\alpha \lesssim 2/3$ at optical
 wavelengths for $D \sim 1$--$10$~Gpc, leaving the holographic and conservative
 cases as the only quantitatively viable scalings.
+These exclusions assume transverse foam correlations are negligible on aperture
+scales; models with long-range transverse correlations can evade blurring
+constraints while retaining large $\sigma_\ell(D)$~\cite{LeeZurekChen2024}.
 The second channel uses energy-dependent time-of-flight measurements of
 high-energy astrophysical transients: gamma-ray bursts observed by
 Fermi~\cite{Fermi2009} and TeV blazar flares observed by
@@ -121,6 +124,8 @@ some quantum-gravity models predict.
 Together the two channels have winnowed the parameter space but not eliminated
 it, and several proposed scalings -- including the holographic $\alpha = 2/3$
 -- remain unconstrained at any wavelength accessible to current instrumentation.
+A recent analysis of GRB\,221009A claims consistency with holographic foam
+blurring~\cite{SteinbringNg2026}, though without formal statistical significance.
 
 Both existing channels share a structural limitation that motivates the
 present work.
@@ -258,6 +263,13 @@ Accordingly, $r_\perp$ is treated as an independent free parameter in
 Section~\ref{sec:extended}.
 We denote the normalized transverse coherence function by $\Phi(b/r_\perp)$,
 satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
+The functional form of $\Phi$ depends on the specific foam model;
+Lee, Zurek \& Chen~\cite{LeeZurekChen2024} derive it for the pixellon model,
+finding that long-range transverse correlations strongly suppress image blurring
+relative to the uncorrelated case.
+In the present framework $\Phi$ is treated as a free function, with $r_\perp$
+constrained empirically by the angular-size dependence of $\delta g^{(2)}$
+(Section~\ref{sec:extended}).
 
 Turning to the temporal dimension, quantum foam models posit that each Planck-scale cell of spacetime along the line
 of sight fluctuates in time.
@@ -1173,6 +1185,9 @@ The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
 
 Beyond raw detectability, the coherence observables serve as discriminants
 against conventional propagation phase screens~\cite{Carlip2023}.
+Furthermore, for foam models with long-range transverse correlations image
+blurring is strongly suppressed~\cite{LeeZurekChen2024}, making the coherence
+observables developed here potentially the only channel sensitive to such models.
 The mathematical structure of the foam suppression factor $\mathcal{F}_{\rm foam}$
 is identical to that of any Gaussian random phase screen, but two signatures
 distinguish foam: distance scaling and achromaticity.
@@ -1209,9 +1224,10 @@ violation of relations that hold for all Gaussian chaotic sources: a deviation f
 Siegert relation, $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$, and a suppression of the zero-lag 
 bunching peak below its canonical value of $g^{(2)}(0) = 2$. These second-order observables 
 are complementary to the fringe visibility and Strehl ratio tests based on first-order 
-coherence that have already been applied to constrain foam models. For the holographic model 
-($\alpha = 2/3$), all such observables sit at the edge of the currently accessible parameter 
-space: the first-order tests probe effects at the ${\sim}10^{-8}$ level, while the 
+coherence that have already been applied to constrain foam models. For the holographic model
+($\alpha = 2/3$), all such observables sit at the edge of the currently accessible parameter
+space (a recent analysis of GRB\,221009A claims consistency with holographic foam
+blurring~\cite{SteinbringNg2026}, though without formal statistical significance): the first-order tests probe effects at the ${\sim}10^{-8}$ level, while the 
 second-order observables are characteristically smaller at ${\sim}10^{-11}$. The advantage
 of the second-order approach lies not in raw sensitivity but in two distinct features: the Siegert discrepancy is self-calibrating — any deviation of
 $\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$ from zero is
