@@ -423,7 +423,7 @@ $v - u = \tau - \Delta(\tau)$, stationarity of $E_{\rm src}$ gives
 Since $\delta t$ is independent of $E_{\rm src}$, averaging over the jitter
 yields
 \begin{equation}
-  \boxed{g^{(1)}_{\rm obs}(\tau)
+  {g^{(1)}_{\rm obs}(\tau)
     = \big\langle g^{(1)}_{\rm src}(\tau - \Delta(\tau))\big\rangle_{\delta t}
     = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
       g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.}
@@ -535,9 +535,9 @@ independent; in the dynamical limit $\tau_{\rm foam} \ll \tau_c$ the condition
 is satisfied at all observationally relevant lags.
 Substituting $\omega_0 = 2\pi c/\lambda$ and Eq.~\eqref{eq:diffVar}:
 \begin{equation}
-  \boxed{g^{(1)}_{\rm obs}(\tau)
+  g^{(1)}_{\rm obs}(\tau)
     = g^{(1)}_{\rm src}(\tau)\cdot
-      \exp\!\left(-\sigma_\phi^2\big[1 - C_\alpha(\tau;D)\big]\right),}
+      \exp\!\left(-\sigma_\phi^2\big[1 - C_\alpha(\tau;D)\big]\right),
   \label{eq:g1narrowband}
 \end{equation}
 where we define the rms accumulated phase
@@ -717,10 +717,10 @@ and the intrinsic Siegert relation $g^{(2)}_{\rm src}-1 = |g^{(1)}_{\rm src}|^2$
 \end{equation}
 Averaging over the jitter distribution:
 \begin{equation}
-  \boxed{g^{(2)}_{\rm obs}(\tau) - 1
+  g^{(2)}_{\rm obs}(\tau) - 1
     = \big\langle g^{(2)}_{\rm src}(\tau-\Delta(\tau))-1\big\rangle_{\delta t}
     = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
-      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta.}
+      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta.
   \label{eq:g2obs}
 \end{equation}
 This Gaussian kernel relies on the CLT argument of
@@ -973,7 +973,7 @@ The four-fold angular integral therefore collapses to a double integral
 over ray pairs $(\boldsymbol{\theta},\boldsymbol{\theta}')$, each pair
 contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
 \begin{equation}
-  \boxed{g^{(2)}_{\rm obs}(\tau) - 1
+  {g^{(2)}_{\rm obs}(\tau) - 1
   = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
     I(\boldsymbol{\theta})I(\boldsymbol{\theta}')
     \int_{-\infty}^{\infty}
@@ -1077,7 +1077,7 @@ which gives $1$ as $s\to 0$ (no suppression) and $\to 0$ as $s\to\infty$
 via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
 (full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
 \begin{equation}
-  \boxed{g^{(2)}_{\rm obs}(0)
+  {g^{(2)}_{\rm obs}(0)
     = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
     \qquad s\equiv\sigma_0/\tau_c,}
   \label{eq:g2zero}
