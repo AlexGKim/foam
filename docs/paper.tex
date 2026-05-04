@@ -264,16 +264,10 @@ accumulation.
 Accordingly, $r_\perp$ is treated as an independent free parameter in
 Section~\ref{sec:extended}.
 We denote the normalized transverse coherence function by $\Phi(b/r_\perp)$,
-satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
-The functional form of $\Phi$ depends on the specific foam model.
-For the pixellon model, Lee, Zurek \& Chen~\cite{LeeZurekChen2024} find that
-the transverse correlation structure involves long-range angular correlations
-(a Legendre polynomial series in aperture-plane angle) that do not reduce to
-a simple $\Phi(b/r_\perp)$ ansatz, but whose long-range character strongly
-suppresses image blurring relative to the uncorrelated case.
-In the present framework $\Phi$ is treated as a free function, with $r_\perp$
-constrained empirically by the angular-size dependence of $\delta g^{(2)}$
-(Section~\ref{sec:extended}).
+satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$, and
+treat it as a free function with $r_\perp$ constrained empirically by the
+angular-size dependence of $\delta g^{(2)}$ (Section~\ref{sec:extended});
+its model-dependence is discussed below.
 
 Turning to the temporal dimension, quantum foam models posit that each Planck-scale cell of spacetime along the line
 of sight fluctuates in time.
@@ -304,24 +298,21 @@ $\Phi_{\rm eff}$ are convenient parameterizations of distinct physical effects -
 single-ray variance, temporal foam dynamics, transverse coherence, and source angular
 structure --- and are not claimed to be simultaneously determined by any single observation.
 
-The functional forms of $C_\alpha(\tau;D)$ and $\Phi(b/r_\perp)$ are not pinned by
-Eq.~\eqref{eq:NgPerlmanVar} alone, and different foam models populate this space
-differently.
-The original Ng--Perlman construction~\cite{NgPerlman2022,Ng2003,Ng2001} constrains
-only the cumulative variance, leaving both correlation functions effectively free.
-The pixellon model~\cite{LeeZurekChen2024} predicts a transverse correlation
-structure with long-range angular components that does not factorize as
-$\Phi(b/r_\perp)$, as noted above, while holographic interferometric proposals in
-the Verlinde--Zurek class~\cite{Verlinde:2019xfb} tie the metric-fluctuation noise
-spectrum to the geometry of the propagation region through the holographic
-principle, implying model-specific predictions for the temporal correlation
-structure.
-Within this paper $C_\alpha$ and $\Phi$ are kept as free functions, with the
-factorized form Eq.~\eqref{eq:pathcov} below defining a tractable class within
-which our analysis is exact; quantitative comparison with specific model-predicted
-kernels would require evaluating the convolution integrals of
-Sections~\ref{sec:g1}--\ref{sec:extended} with those shapes, which we leave to
-future work.
+The Ng--Perlman variance scaling Eq.~\eqref{eq:NgPerlmanVar} does not pin the
+functional forms of $C_\alpha(\tau;D)$ and $\Phi(b/r_\perp)$, and specific foam
+models predict different shapes.
+The pixellon model~\cite{LeeZurekChen2024} gives a transverse structure with
+long-range angular components that does not factorize as $\Phi(b/r_\perp)$
+(Legendre polynomial series in aperture-plane angle, with the long-range
+character strongly suppressing image blurring relative to the uncorrelated
+case); holographic interferometric proposals in the Verlinde--Zurek
+class~\cite{Verlinde:2019xfb} tie the metric-fluctuation noise spectrum to
+the geometry of the propagation region through the holographic principle,
+implying model-specific temporal correlation structure.
+We keep $C_\alpha$ and $\Phi$ as free functions; quantitative comparison with
+specific model-predicted kernels would require evaluating the convolution
+integrals of Sections~\ref{sec:g1}--\ref{sec:extended} with those shapes,
+which we leave to future work.
 
 The full spatiotemporal covariance between two rays separated by transverse
 distance $b$ takes the factorized form
