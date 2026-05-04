@@ -1314,16 +1314,17 @@ must rise to be detectable.
 
 The $g^{(2)}(0)$ observable developed here is already routinely computed in radio astronomy
 under different names: spectral kurtosis~\cite{NitaGary2007,NitaGary2010}, used for
-real-time RFI excision at the VLA, GBT, LOFAR, and CHIME, satisfies
-$\mathrm{SK} = g^{(2)}(0)-1$ for the channelized voltage stream, as does the modulation
-index $m^2 = g^{(2)}(0)-1$ used to characterize single-pulse intensity statistics of
-pulsars and FRBs~\cite{Weltevrede2006}.
+real-time RFI excision at the VLA, GBT, LOFAR, and CHIME, is constructed to estimate
+$g^{(2)}(0)-1$ from channelized power samples (returning unity in expectation for a
+stationary Gaussian field, up to finite-sample bias corrections), as does the modulation
+index $m^2 \equiv \mathrm{Var}(I)/\langle I\rangle^2$, which equals $g^{(2)}(0)-1$
+for stationary, noise-corrected intensity samples and is used to characterize single-pulse
+intensity statistics of pulsars and FRBs~\cite{Weltevrede2006}.
 The Siegert-violation framework developed here therefore translates directly to existing
 radio data products.
 The achievable sensitivity at radio wavelengths is set by the same combination
 $s \propto \sigma_\ell(D)\,\Delta\nu/c$ that controls the optical case, but with a
-modal shot-noise floor and systematic floor (RFI residuals, digitizer nonlinearity)
-whose detailed assessment we leave to future work.
+modal shot-noise floor and systematic floor (RFI residuals, digitizer nonlinearity).
 
 A deeper question left open by the present framework is whether spacetime foam should be 
 treated as a static medium or whether its statistical properties evolve on cosmological 
