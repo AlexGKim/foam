@@ -185,13 +185,10 @@ correlations and is blind to that carrier phase. The two observables
 therefore decouple, and the algebraic relation between them --- the
 Siegert relation --- is broken in a foam-specific way.
 
-We note that the second-order observable proposed here is already routinely
-computed in radio astronomy under different names --- the spectral kurtosis
-estimator~\cite{NitaGary2007,NitaGary2010} used for real-time RFI excision at
-the VLA, GBT, LOFAR, and CHIME, and the modulation index used to characterize
-single-pulse intensity statistics of pulsars and FRBs~\cite{Weltevrede2006},
-both estimate $g^{(2)}(0)-1$ from channelized power samples --- so the
-framework translates directly to existing data products (Sec.~\ref{sec:conclusions}).
+The second-order observable proposed here is already routinely computed in
+radio astronomy under different names (spectral kurtosis, modulation index;
+Section~\ref{sec:radio}), so the framework translates directly to existing
+data products.
 
 The remainder of the paper is organized as follows.
 Section~\ref{sec:model} develops the model: the spatiotemporal covariance of
@@ -246,11 +243,6 @@ propagation effects.
 
 \subsection{Spatial and Temporal Fluctuations of Spacetime Foam}
 \label{sec:Calpha_origin}
-
-The single-ray path-length variance is given by the Ng--Perlman scaling
-Eq.~\eqref{eq:NgPerlmanIntro}, with $\alpha\in\{1,\,2/3,\,1/2\}$ for the
-conservative, holographic, and random-walk cases respectively
-(Sec.~\ref{sec:intro}).
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
@@ -546,13 +538,6 @@ $\mu_1\to\tau$, so Eq.~\eqref{eq:g1obs_voigt} reduces to Eq.~\eqref{eq:g1obs_erf
 In the limit $\tau_L\to\infty$ (pure Gaussian), the erfc terms combine to unity and
 $g^{(1)}_{\rm obs}(\tau) = (\tilde\sigma_1/\sigma_\Delta)\,e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}$:
 the observed coherence is a Gaussian whose width is broadened in quadrature by the jitter.
-The same Voigt convolution structure --- with subscript ``1'' replaced by
-``2,'' the differential-jitter variance $\sigma_\Delta^2$ replaced by the
-extended-source $\sigma_0^2$ defined in Section~\ref{sec:zerolag}, and the
-factor $\sigma_\Delta^2+\tau_G^2$ in the denominator replaced by
-$2\sigma_0^2+\tau_G^2$ to account for the Lorentzian-width doubling
-$g^{(2)}_{\rm src}-1 \propto e^{-2|\tau|/\tau_L}$ --- recurs at zero lag in
-Eqs.~\eqref{eq:sigmatilde}--\eqref{eq:g2zero_voigt} below.
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
@@ -620,19 +605,16 @@ and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 \subsection{Regime Summary}
 \label{sec:regime_summary}
 
-Eq.~\eqref{eq:g1obs} is always valid (exact within the model assumptions);
-Eq.~\eqref{eq:g1obs_erfc} is its closed form for a Lorentzian source and is
-likewise exact.
-Eq.~\eqref{eq:g1weak} (weak-jitter expansion) requires
-$\sigma_\Delta(\tau)/\tau_c \ll 1$ at each lag of interest.
-Eq.~\eqref{eq:g1narrowband} (narrow-band, carrier-phase result) requires
-$\sigma_\ell/(c\tau_c) \ll 1$; it captures the dominant physics when
-$\sigma_\phi \gtrsim 1$ but $\sigma_\phi \ll \lambda/\Delta\lambda$.
-These conditions are compatible: the narrow-band condition controls whether
-the amplitude envelope is displaced by the jitter, while the weak-jitter
-condition controls whether the carrier-phase suppression is small.
-When neither approximation applies (i.e.\ $\sigma_\ell/(c\tau_c) \sim 1$),
-the full convolution Eq.~\eqref{eq:g1obs} must be evaluated.
+The exact convolution Eq.~\eqref{eq:g1obs} (and its Lorentzian closed form
+Eq.~\eqref{eq:g1obs_erfc}) is always valid within the model.
+The weak-jitter expansion Eq.~\eqref{eq:g1weak} requires
+$\sigma_\Delta(\tau)/\tau_c\ll 1$;
+the narrow-band carrier-phase result Eq.~\eqref{eq:g1narrowband} requires
+$\sigma_\ell/(c\tau_c)\ll 1$ and captures the dominant physics when
+$\sigma_\phi\gtrsim 1$ but $\sigma_\phi\ll\lambda/\Delta\lambda$.
+The two conditions are compatible and govern distinct effects (envelope
+displacement vs.\ carrier-phase suppression); when neither holds,
+Eq.~\eqref{eq:g1obs} must be evaluated directly.
 
 % ==============================================================
 \subsection{Connection to Fringe Visibility and Strehl Ratio}
@@ -869,17 +851,15 @@ thresholds in Fig.~\ref{fig:observability}.
 \begin{table}[h]
 \centering
 \caption{Sensitivity scales at $D=1$~Gpc, $\lambda=500$~nm,
-         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, $C_\alpha\to 0$. The
-         $\delta g^{(2)}$ row is evaluated in the resolved limit $\Phi_{\rm
-         eff}\to 0$ for a Lorentzian source. The $\alpha=1/2$ column is
-         observationally excluded~\cite{Perlman2015} \emph{and} sits at the
-         edge of narrow-band validity ($\sigma_\phi\,\Delta\lambda/\lambda
-         \sim 0.3$); the $\alpha=0.55$ column is shown as a representative
-         in-domain case (formally excluded by aperture-coherence imaging
-         tests, but viable for foam models with long-range transverse
-         correlations~\cite{LeeZurekChen2024}); the $\alpha=2/3$ holographic
-         column is the most sensitive surviving model but lies far below
-         current systematic floors.}
+         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, $C_\alpha\to 0$.
+         The $\delta g^{(2)}$ row is evaluated in the resolved limit
+         $\Phi_{\rm eff}\to 0$ for a Lorentzian source.
+         The $\alpha=1/2$ column is observationally
+         excluded~\cite{Perlman2015} and at the edge of narrow-band
+         validity; the $\alpha=0.55$ column illustrates an in-domain case
+         viable for foam models with long-range transverse
+         correlations~\cite{LeeZurekChen2024}; $\alpha=2/3$ is the
+         holographic case.}
 \begin{tabular}{lccc}
 \toprule
 Scale & $\alpha=1/2$ (excluded) & $\alpha=0.55$ (in-domain) & $\alpha=2/3$ \\
@@ -1092,21 +1072,13 @@ The two limits are:
 $\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg D\,\Delta\theta$)
 recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
 $r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
-The approximation becomes exact in both limits, and the relative error is
-controlled by $\mathrm{Var}_{(\boldsymbol{\theta},\boldsymbol{\theta}')}
-[\Phi(b/r_\perp)]/\Phi_{\rm eff}^2$, where the variance is taken over the
-source brightness distribution. Because $\Phi(x)\in[0,1]$, this variance is
-bounded by $\Phi_{\rm eff}(1-\Phi_{\rm eff})$ and the relative error of the
-single-kernel approximation is therefore at most of order
+The approximation becomes exact in both limits; the relative error of the
+single-kernel approximation is bounded above by
 $(1-\Phi_{\rm eff})/\Phi_{\rm eff}$, peaking at $\sim 50\%$ near
-$\Phi_{\rm eff}=1/2$ --- equivalently $D\theta_{\rm src}\sim r_\perp$ ---
-and falling off rapidly toward both limits. A tighter bound requires
-specifying the functional form of $\Phi$ and the source profile; we have
-not pursued this here, since the same intermediate-resolution regime is
-where the cross-ray Gaussian approximation also degrades
-(Section~\ref{sec:approx}). For the resolved-limit applications discussed
-in Section~\ref{sec:rperp_inversion}, $\Phi_{\rm eff}\ll 1$ and the
-single-kernel approximation is controlled.
+$\Phi_{\rm eff}=1/2$ ($D\theta_{\rm src}\sim r_\perp$) where the cross-ray
+Gaussian approximation also degrades (Section~\ref{sec:approx}). For the
+resolved-limit applications of Section~\ref{sec:rperp_inversion},
+$\Phi_{\rm eff}\ll 1$ and the single-kernel approximation is controlled.
 
 \subsection{Extended-Source Siegert Discrepancy and Zero-Lag Bunching}
 \label{sec:zerolag}
@@ -1258,15 +1230,9 @@ This does not violate any fundamental inequality: the bound $\mathcal{S}\geq 0$
 established in Section~\ref{sec:siegert} applies to a single ray, and the
 angular mixture of an extended source need not satisfy it.
 
-For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
-and the sensitivity parameter
-$s = \sigma_0/\tau_c
- = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi\cdot(\Delta\lambda/\lambda)$
-is small across all realistic observational bandwidths.
-For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
-that even at a high spectral resolution
-$R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
-The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
+The sensitivity parameter for $\delta g^{(2)}$ is
+$s = \sigma_0/\tau_c = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi(\Delta\lambda/\lambda)$;
+numerical values across $\alpha$ are tabulated in Table~\ref{tab:comparison}.
 
 \subsection{Inversion Procedure for $r_\perp$}
 \label{sec:rperp_inversion}
@@ -1440,24 +1406,13 @@ modal shot-noise floor and systematic floor (RFI residuals, digitizer nonlineari
 \subsection{Cosmological Evolution and Future Directions}
 \label{sec:cosmo_outlook}
 
-A deeper question left open by the present framework is whether spacetime foam should be
-treated as a static medium or whether its statistical properties evolve on cosmological
-timescales.
-Throughout this paper we have treated $\sigma^2_\ell(D)$ as a fixed parameter, an
-assumption justified by the negligible fractional change $H_0 T \sim 10^{-10}$ in the
-propagation distance over any realistic observation duration.
-Over cosmological lookback times, however, the foam may track the expansion of the
-universe in a non-trivial way.
-If the Ng--Perlman exponent $\alpha$ or the coefficient $A_\alpha$ itself carries a
-redshift dependence, then observations of sources at different redshifts would no longer
-trace a simple power-law $\sigma_\phi(D)$, and the distance-scaling discriminant of
-Section~\ref{sec:extended} would need to be generalized.
-More speculatively, if the foam undergoes a phase transition or qualitative change in its
-structure at some epoch --- analogous to other symmetry-breaking transitions in the early
-universe --- this could in principle be imprinted on the coherence of light from sources
-bracketing that epoch, providing a novel cosmological probe.
-We flag these possibilities as motivation for developing a fully non-stationary,
-redshift-resolved treatment of foam coherence in future work.
+We have treated $\sigma_\ell^2(D)$ as static, justified by the negligible
+fractional change $H_0 T\sim 10^{-10}$ over realistic observation
+durations. If $\alpha$ or $A_\alpha$ carries a redshift dependence,
+sources at different redshifts will not trace a simple power-law
+$\sigma_\phi(D)$, and the distance-scaling discriminants of
+Section~\ref{sec:extended} generalize to a non-stationary,
+redshift-resolved framework that we leave to future work.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
