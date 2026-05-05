@@ -407,13 +407,22 @@ consequence: in the weak-jitter limit $\sigma_\phi\ll 1$, both the point-source
 Siegert discrepancy $\mathcal{S}(\tau)$ (Section~\ref{sec:siegert}) and the
 extended-source bunching suppression $\delta g^{(2)}$ (Section~\ref{sec:zerolag})
 inherit their entire $D$-dependence from the single variance factor
-$\sigma_\phi^2(D)\propto D^{2(1-\alpha)}$, modulated only by source-dependent
-shape factors that do not themselves scale with $D$ at fixed source angular size
-and fixed $r_\perp$. Sources observed at a common $\alpha$ but distributed in
-$D$ should therefore trace a single power-law in both observables with the same
-exponent $2(1-\alpha)$; a measured discrepancy between the $D$-exponents of
-$\mathcal{S}(\tau)$ and $\delta g^{(2)}$ at fixed $\alpha$ would falsify
-factorization without requiring a specific non-factorized model.
+$\sigma_\phi^2(D)\propto D^{2(1-\alpha)}$.
+Because $\mathcal{S}(\tau)$ enters linearly in $\sigma_\phi^2$ while
+$\delta g^{(2)}$ enters linearly in $\sigma_0\propto\sigma_\phi$
+(Section~\ref{sec:zerolag}), factorization predicts
+$\mathcal{S}(\tau)\propto D^{2(1-\alpha)}$ and
+$\delta g^{(2)}\propto D^{1-\alpha}$ in the fully resolved limit
+$\Phi_{\rm eff}\to 0$, where the geometric prefactor $1-\Phi_{\rm eff}\to 1$
+is itself $D$-independent.
+For partially resolved sources $\Phi_{\rm eff}$ depends on $D$ only through
+the dimensionless combination $D\theta_{\rm src}/r_\perp$
+(Section~\ref{sec:PhiEff}), so this combination must be held fixed when
+distance-scanning a sample.
+Subject to that condition, sources at a common $\alpha$ distributed in $D$
+should trace two power laws whose $D$-exponents stand in the fixed ratio
+$2:1$; a measured ratio inconsistent with $2:1$ at fixed $\alpha$ would
+falsify factorization without requiring a specific non-factorized model.
 
 \emph{Gaussianity and CLT breakdown.} The Gaussian kernel Eq.~\eqref{eq:kernel}
 relies on the cells contributing to $\Delta_{\boldsymbol{\theta},
@@ -430,8 +439,13 @@ of the same order; they must be assessed jointly.
 % ==============================================================
 
 In Sections~\ref{sec:g1}--\ref{sec:siegert} we restrict to a point source ($b=0$),
-for which the single-ray differential jitter variance reduces to
-Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$:
+for which the cross-ray differential jitter of Eq.~\eqref{eq:DeltaExt}
+reduces to the single-ray differential jitter
+\begin{equation}
+  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
+  \label{eq:DeltaDef}
+\end{equation}
+with variance obtained from Eq.~\eqref{eq:diffVarExt} at $\Phi(0)=1$:
 \begin{align}
   \sigma_\Delta^2(\tau;D)
   &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
@@ -456,10 +470,10 @@ $v - u = \tau - \Delta(\tau)$, stationarity of $E_{\rm src}$ gives
 Since $\delta t$ is independent of $E_{\rm src}$, averaging over the jitter
 yields
 \begin{equation}
-  {g^{(1)}_{\rm obs}(\tau)
+  g^{(1)}_{\rm obs}(\tau)
     = \big\langle g^{(1)}_{\rm src}(\tau - \Delta(\tau))\big\rangle_{\delta t}
     = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
-      g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.}
+      g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.
   \label{eq:g1obs}
 \end{equation}
 The observed first-order coherence is the intrinsic coherence function
@@ -1034,12 +1048,12 @@ The four-fold angular integral therefore collapses to a double integral
 over ray pairs $(\boldsymbol{\theta},\boldsymbol{\theta}')$, each pair
 contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
 \begin{equation}
-  {g^{(2)}_{\rm obs}(\tau) - 1
+  g^{(2)}_{\rm obs}(\tau) - 1
   = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
     I(\boldsymbol{\theta})I(\boldsymbol{\theta}')
     \int_{-\infty}^{\infty}
       \mathcal{N}\!\left(\Delta;0,\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right)\,
-      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,}
+      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,
   \label{eq:g2obsExt}
 \end{equation}
 where $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$ is from
@@ -1078,7 +1092,7 @@ The two limits are:
 $\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg D\,\Delta\theta$)
 recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
 $r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
-The approximation is exact at both limits and the relative error is
+The approximation becomes exact in both limits, and the relative error is
 controlled by $\mathrm{Var}_{(\boldsymbol{\theta},\boldsymbol{\theta}')}
 [\Phi(b/r_\perp)]/\Phi_{\rm eff}^2$, where the variance is taken over the
 source brightness distribution. Because $\Phi(x)\in[0,1]$, this variance is
@@ -1141,9 +1155,9 @@ which gives $1$ as $s\to 0$ (no suppression) and $\to 0$ as $s\to\infty$
 via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
 (full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
 \begin{equation}
-  {g^{(2)}_{\rm obs}(0)
+  g^{(2)}_{\rm obs}(0)
     = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
-    \qquad s\equiv\sigma_0/\tau_c,}
+    \qquad s\equiv\sigma_0/\tau_c,
   \label{eq:g2zero}
 \end{equation}
 and the zero-lag bunching peak is suppressed below its ideal value of 2 by
@@ -1317,8 +1331,10 @@ D^{2(1-\alpha)}$ ($D^1$ for $\alpha=1/2$, $D^{2/3}$ for $\alpha=2/3$, $D^0$ for
 $\alpha=1$), whereas a thin intervening screen scales as $D$ and Kolmogorov
 turbulence as $D^{11/6}$; the holographic and conservative foam cases predict
 sub-linear or flat growth qualitatively different from any known astrophysical
-screen. Both $\mathcal{S}(\tau)$ and $\delta g^{(2)}$ inherit this scaling
-through the variance factor $\sigma_\phi^2$ (Section~\ref{sec:approx}).
+screen. $\mathcal{S}(\tau)$ inherits the full $D^{2(1-\alpha)}$ scaling
+through the variance factor $\sigma_\phi^2$, while $\delta g^{(2)}\propto
+\sigma_\phi$ scales as $D^{1-\alpha}$; the resulting $2:1$ exponent ratio at
+fixed $\alpha$ provides the falsifiability test of Section~\ref{sec:approx}.
 
 \emph{Achromaticity.} Geometrically, spacetime foam jitter ($\delta
 t=\Delta\ell/c$) is independent of $\lambda$, in contrast to plasma-based
