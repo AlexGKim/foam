@@ -1,0 +1,12 @@
+# Python virtual environment used to generate figures
+docs/.venv-fig/
+
+# LaTeX build artifacts
+docs/*.aux
+docs/*.bbl
+docs/*.blg
+docs/*.fdb_latexmk
+docs/*.fls
+docs/*.log
+docs/*.out
+docs/*.toc
