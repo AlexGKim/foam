@@ -1107,7 +1107,7 @@ of $\Delta$ (both halves contributing equally by symmetry of $|\Delta|$),
   = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:zerolagavg}
 \end{equation}
-which gives $1$ as $s\to 0$ (no suppression) and $\to 0$ as $s\to\infty$
+which equals $1$ as $s\to 0$ (no suppression) and $0$ as $s\to\infty$
 via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
 (full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
 \begin{equation}
@@ -1123,6 +1123,8 @@ and the zero-lag bunching peak is suppressed below its ideal value of 2 by
   = 1 - e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:deltag2}
 \end{equation}
+In the small-$s$ limit, $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s + O(s^2)$,
+so the suppression is linear in $s$ for a Lorentzian source.
 giving
 \begin{equation}
   \mathcal{S}(0) = -\,\delta g^{(2)} \leq 0.
@@ -1157,11 +1159,10 @@ yielding
   \qquad \tilde{s}\equiv\tilde\sigma/\tau_L.
   \label{eq:g2zero_voigt}
 \end{equation}
-In the limit $\tau_G\to\infty$ (pure Lorentzian), $\tilde\sigma\to\sigma_0$ and
-Eq.~\eqref{eq:g2zero_voigt} reduces to Eq.~\eqref{eq:g2zero}.
-In the limit $\tau_L\to\infty$ (pure Gaussian), $\tilde{s}\to 0$ and
-$g^{(2)}_{\rm obs}(0)-1 = \tilde\sigma/\sigma_0 = \tau_G/\sqrt{2\sigma_0^2+\tau_G^2}$,
-with no O(s) correction.
+For any Voigt profile with finite $\tau_L$, the parameter $\tilde{s} > 0$
+and an O($s$) term is present, controlled by the Lorentzian component.
+A purely Gaussian source ($\tau_L\to\infty$, $\tilde{s}\to 0$) has no O($s$)
+correction: $g^{(2)}_{\rm obs}(0)-1 = 1/\sqrt{1+2s^2(\tau_c/\tau_G)^2}$.
 
 In the narrow-band limit $\sigma_\ell/(c\tau_c)\ll 1$
 (Section~\ref{sec:narrowband}), $\sigma_0\ll\tau_c$ for any $\Phi_{\rm eff}$.
@@ -1184,20 +1185,10 @@ $\delta g^{(2)}\approx 2\sqrt{2/\pi}\,s$, consistent with the small-$s$
 expansion of Eq.~\eqref{eq:deltag2}.
 For a Voigt profile, the same expansion gives
 $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,\sigma_0/\tau_L + (\sigma_0/\tau_G)^2 + \cdots$:
-the O(s) term is controlled solely by the Lorentzian component $\tau_L$, and
-Gaussian broadening (Doppler or instrumental) enters only at O(s$^2$).
-The O(s) scaling therefore survives whenever the line has any Lorentzian component,
-provided the line is spectrally resolved at the scale of $\tau_L$.
-This is consistent with the sensitivity-scale hierarchy of Section~\ref{sec:scales}:
-the zero-lag suppression is small in the narrow-band regime.
-Observationally, this implies that a spectrograph transmitting a nearly flat
-bandpass (e.g.\ continuum), whose $g^{(2)}_{\rm src}$ is smooth at zero lag,
-suppresses the first-order contribution, leaving only an $O(s^2)$ residual.
-Maximizing foam sensitivity in $\delta g^{(2)}$ therefore favours emission lines
-with a significant Lorentzian component (natural or pressure broadening) that is
-spectrally resolved by the instrument; if the line is unresolved, the observed
-profile is the instrumental response (approximately Gaussian), the cusp is erased,
-and the leading correction reverts to O(s$^2$).
+the O($s$) term is controlled solely by the Lorentzian component $\tau_L$;
+maximizing foam sensitivity therefore favours spectrally resolved emission lines
+with a Lorentzian component, since an unresolved line or a pure continuum erases
+the cusp and reverts to O($s^2$).
 
 The suppression $\delta g^{(2)}$ arises from a purely spatial mechanism with no
 analogue in the point-source case: even at $\tau=0$, photon pairs from different
@@ -1218,13 +1209,17 @@ is small across all realistic observational bandwidths.
 For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
 that even at a high spectral resolution
 $R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
-The foam signal $\delta g^{(2)}$ is therefore small throughout this regime.
+In this regime the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$
+is essentially exact.
 
 Beyond raw detectability, the coherence observables serve as discriminants
 against conventional propagation phase screens~\cite{Carlip2023}.
 Furthermore, for foam models with long-range transverse correlations image
 blurring is strongly suppressed~\cite{LeeZurekChen2024}, making the coherence
 observables developed here potentially the only channel sensitive to such models.
+The source-size dependence of $\delta g^{(2)}$ through $\Phi_{\rm eff}$ provides
+a direct probe of $r_\perp$ with no analogue in a featureless propagation screen,
+which carries no transverse coherence structure.
 The mathematical structure of the foam suppression factor $\mathcal{F}_{\rm foam}$
 is identical to that of any Gaussian random phase screen, but two signatures
 distinguish foam: distance scaling and achromaticity.
@@ -1242,13 +1237,11 @@ effect, but do not constrain the stochastic achromatic foam jitter considered
 here (Section~\ref{sec:intro}); the principal chromatic alternative that the
 achromaticity discriminant addresses is therefore plasma propagation.
 In practice, the intrinsic source visibility $V_{\rm src}(\tau)$ introduces a
-degeneracy with foam suppression, but this is mitigated by the self-calibrating character of the Siegert
-discrepancy — constructed from $g^{(1)}$ and $g^{(2)}$ measurements on the same dataset.
-The overall source flux cancels in the ratio $g^{(2)}-1$, but the shape of
-$\mathcal{S}(\tau)$ retains dependence on $|g^{(1)}_{\rm src}(\tau)|^2$; the
-self-calibrating property is that no separate flux calibration or source model is
-needed to detect a non-zero $\mathcal{S}(\tau)$, not that the source spectrum is
-irrelevant to its quantitative interpretation.
+degeneracy with foam suppression, but the Siegert discrepancy
+$\mathcal{S}(\tau) = g^{(2)}_{\rm obs}(\tau) - 1 - |g^{(1)}_{\rm obs}(\tau)|^2$
+is constructed directly from the data: a detection of $\mathcal{S}\neq 0$
+requires no explicit model of the source spectrum, since $g^{(1)}_{\rm src}(\tau)$
+can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 
 % ==============================================================
 \section{Conclusions}
@@ -1267,21 +1260,22 @@ currently inaccessible parameter space: the first-order tests probe effects at t
 ${\sim}10^{-8}$ level, while the second-order observables are characteristically smaller
 at ${\sim}10^{-11}$ (a recent analysis of GRB\,221009A claims consistency with holographic
 foam blurring~\cite{SteinbringNg2026}, though without formal statistical significance).
-The predicted signals approach but do not clearly exceed the systematic floors of
-${\sim}10^{-9}$--$10^{-10}$ anticipated for next-generation optical intensity
-interferometers, and detection would require both favorable foam parameters and
-significant advances in controlling detector systematics.
+For the holographic model the predicted signals at ${\sim}10^{-11}$ lie well
+below the sensitivity of current and near-term instrumentation; foam models
+with $1/2 \ll  \alpha < 2/3$ predict larger signals and may be within reach.
 
 The advantage of the second-order approach lies not in raw sensitivity but in two distinct
-features: the Siegert discrepancy is self-calibrating --- any deviation of
-$\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$ from zero is
-unambiguously non-Gaussian-chaotic, requiring no separate flux calibration or
-source model to detect; and for extended sources whose line profile has a
-Lorentzian component (natural or pressure broadening), the zero-lag bunching
-suppression $\delta g^{(2)}$ scales linearly with $s = \sigma_0/\tau_L$ --- a
-consequence of the cusp in $g^{(2)}_{\rm src}$ at zero lag --- so that despite
-being a second-order coherence measurement, $\delta g^{(2)}$ is not doubly
-suppressed relative to the first-order observables.
+features.
+First, the Siegert discrepancy $\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$
+is constructed directly from the data; a detection of $\mathcal{S}\neq 0$
+can use the measured source spectrum to obtain $g^{(1)}_{\rm src}(\tau)$
+via the Wiener--Khinchin theorem, without a separate source model.
+Second, for extended sources whose line profile has a Lorentzian component
+(natural or pressure broadening), the zero-lag bunching suppression $\delta g^{(2)}$
+scales linearly with $s = \sigma_0/\tau_L$ --- a consequence of the cusp in
+$g^{(2)}_{\rm src}$ at zero lag --- so that despite being a second-order coherence
+measurement, $\delta g^{(2)}$ is not doubly suppressed relative to the first-order
+observables.
 
 For the fiducial parameters $D = 1$~Gpc, $\lambda = 500$~nm,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$: the $\alpha = 1/2$ case gives
@@ -1318,9 +1312,6 @@ for stationary, noise-corrected intensity samples and is used to characterize si
 intensity statistics of pulsars and FRBs~\cite{Weltevrede2006}.
 The Siegert-violation framework developed here therefore translates directly to existing
 radio data products.
-The achievable sensitivity at radio wavelengths is set by the same combination
-$s \propto \sigma_\ell(D)\,\Delta\nu/c$ that controls the optical case, but with a
-modal shot-noise floor and systematic floor (RFI residuals, digitizer nonlinearity).
 
 A deeper question left open by the present framework is whether spacetime foam should be 
 treated as a static medium or whether its statistical properties evolve on cosmological 
