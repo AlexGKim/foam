@@ -34,9 +34,10 @@ For spatially extended sources, cross-ray jitter between independent directions
 additionally suppresses the zero-lag bunching peak $g^{(2)}(0)$.
 The Siegert violation inherits the wavelength dependence of $g^{(1)}$ and is
 therefore chromatic, while the zero-lag $g^{(2)}(0)$ suppression for extended
-sources is achromatic; together with their distance scaling, the two
-distinguish foam from plasma and turbulence and are complementary to existing
-imaging and time-of-flight tests.
+sources is achromatic and depends on the source angular size in units of the
+foam transverse coherence scale; combined with their distance scaling, these
+signatures distinguish foam from plasma and turbulence and are complementary
+to existing imaging and time-of-flight tests.
 Together they open a new observational window on the path-length variance predicted
 by the Ng--Perlman foam model.
 \end{abstract}
@@ -63,9 +64,9 @@ body of phenomenological work over the past two
 decades~\cite{Carlip2023,NgPerlman2022}.
 
 A widely studied parametrization, due to Ng and
-collaborators~\cite{Ng2001,Ng2003,NgPerlman2022}, assigns the cumulative
-line-of-sight path-length variance acquired by light traversing a distance $D$
-the power-law form
+collaborators~\cite{Ng2001,Ng2003,NgPerlman2022} and referred to here as the
+Ng--Perlman model, assigns the cumulative line-of-sight path-length variance
+acquired by light traversing a distance $D$ the power-law form
 \begin{equation}
   \sigma_\ell^2(D) \;=\; A_\alpha\, D^{2(1-\alpha)}\, \ell_{\rm P}^{2\alpha},
   \label{eq:NgPerlmanIntro}
@@ -147,7 +148,7 @@ The first-order coherence -- the field--field autocorrelation, equivalently
 the fringe visibility at delay $\tau$ -- inherits a foam suppression that
 interpolates continuously between unity and the Lieu--Hillman fringe-erasure
 limit~\cite{LieuHillman2003}, recovering the Strehl and fringe-visibility
-tests as limiting cases of a single observable.
+tests as limiting cases of the same statistic.
 The second-order coherence -- the intensity--intensity autocorrelation
 measured in a Hanbury Brown--Twiss experiment~\cite{HBT1956} -- is to leading
 order blind to the carrier-phase modulation that suppresses $g^{(1)}$, but
@@ -175,18 +176,23 @@ point-source Siegert discrepancy is sensitive to $\alpha$ and $D$ with no
 sensitivity to $r_\perp$, while the zero-lag bunching suppression for an
 extended source is sensitive to $r_\perp$ largely independently of the
 intrinsic source spectrum.
+Crucially, their consistency provides a test of whether any observed
+signatures are jointly consistent with the predictions of the foam model,
+rather than a common instrumental or astrophysical systematic.
 
 The remainder of the paper is organized as follows.
 Section~\ref{sec:model} develops the model: the spatiotemporal covariance of
 the foam-induced path-length fluctuation field, the differential-jitter
 distribution at a single ray, and its generalization to ray pairs.
-Section~\ref{sec:g1} computes the foam suppression of first-order coherence
-and connects it to the published Strehl and fringe-visibility tests.
+Section~\ref{sec:g1} computes the foam suppression of first-order coherence,
+derives closed-form results for Lorentzian and Voigt line profiles, and
+connects it to the published Strehl and fringe-visibility tests.
 Section~\ref{sec:g2} develops the second-order coherence, including the
 conditional Siegert relation and its narrow-band limit.
 Section~\ref{sec:siegert} quantifies the resulting Siegert violation.
 Section~\ref{sec:extended} extends the analysis to spatially resolved sources,
-derives the suppression of the zero-lag HBT bunching peak, identifies the
+derives the suppression of the zero-lag HBT bunching peak evaluated for
+Lorentzian and Voigt profiles, identifies the
 distance scaling and achromaticity as discriminants against conventional
 propagation phase screens, and shows how detection of both point-like and
 extended-source signals would jointly probe $\{\alpha,\sigma_\ell(D),r_\perp\}$.
