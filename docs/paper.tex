@@ -588,8 +588,15 @@ $\mathcal{F}_{\rm foam}$ of Eq.~\eqref{eq:Ffoam}, because the underlying
 phase variance $\sigma_\phi^2$ is common to the temporal and spatial
 projections of the full coherence function; this unifies the published
 constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,2003ApJ...587L...1R}
-within a single framework, and in the subsubsections below we adopt the
-temporal notation while noting the correspondence to the spatial channel.
+within a single framework.
+Where the temporal $g^{(1)}$ fails --- quasi-static foam ($C_\alpha \approx 1$,
+no variation in time) --- the spatial probes succeed; where the spatial probes
+fail --- transversely coherent foam ($r_\perp \gg D_{\rm tel}$, no variation
+across the aperture) --- the temporal $g^{(1)}$ succeeds.
+The failure modes are complements because each probe samples the dimension the
+other does not.
+In the subsubsections below we adopt the temporal notation while noting the
+correspondence to the spatial channel.
 
 \subsubsection{Fringe Visibility and the Lieu--Hillman Condition}
 
@@ -801,7 +808,7 @@ cross-ray differential jitter can drive $\mathcal{S}(0)<0$
 The Siegert violation is not a non-classical signature: the foam-modified field
 remains a classical stochastic process, and the classical inequalities
 $g^{(2)}(0)\geq g^{(2)}(\tau)$ and $g^{(2)}(0)>1$ are preserved; it is only
-the Gaussian-statistics identity relating $g^{(2)}$ to $g^{(1)}$ that is broken.
+the Gaussian-statistics identity relating $g^{(2)}$ to $g^{(1)}$ that is broken, due to the stochastic phase accumulated along the propagation path.
 
 \subsection{Sensitivity Scale Decoupling}
 \label{sec:scales}
@@ -827,8 +834,7 @@ using $\omega_0\tau_c = \lambda/\Delta\lambda$.
 The factor $\Delta\lambda/\lambda \ll 1$ means that even when $\sigma_\phi \gg 1$
 (fringes erased), $\sigma_\Delta(\tau)/\tau_c$ can be small — so $g^{(2)}$ remains
 near its intrinsic value while $g^{(1)}$ is suppressed.
-This decoupling is the physical root of the Siegert violation, and is only
-possible within the narrow-band regime discussed in Section~\ref{sec:narrowband}.
+This decoupling is the physical root of the Siegert violation.
 Numerical values of both scales are given in Table~\ref{tab:comparison}
 (evaluated at the dynamical limit $C_\alpha\to 0$; for quasi-static foam
 $C_\alpha\approx 1$ the ratio vanishes at all lags); the corresponding
