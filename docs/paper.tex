@@ -17,11 +17,9 @@
 \email{agkim@lbl.gov}
 \affiliation{Physics Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, USA}
 \author{P.\ E.\ Nugent}
-\affiliation{Applied Mathematics and Computational Research Division, Lawrence Berkeley National Laboratory
-Berkeley, California 94720, USA}
+\affiliation{Applied Mathematics and Computational Research Division, Lawrence Berkeley National Laboratory, Berkeley, California 94720, USA}
 \author{L.\ Wang}
-\affiliation{Department of Physics and Astronomy 4242 TAMU
-College Station, Texas 77843-4242, USA}
+\affiliation{Department of Physics and Astronomy, 4242 TAMU, College Station, Texas 77843-4242, USA}
 
 \date{\today}
 
@@ -34,8 +32,10 @@ $g^{(1)}$ and $g^{(2)}$, differently, breaking the Siegert relation
 $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that holds for all Gaussian chaotic sources.
 For spatially extended sources, cross-ray jitter between independent directions
 additionally suppresses the zero-lag bunching peak $g^{(2)}(0)$.
-These signatures arise from an achromatic jitter mechanism and follow a distance
-scaling distinct from plasma or turbulence, making them complementary to existing
+The Siegert violation inherits the wavelength dependence of $g^{(1)}$ and is
+therefore chromatic, while the zero-lag $g^{(2)}(0)$ suppression for extended
+sources is achromatic; together with their distance scaling, the two
+distinguish foam from plasma and turbulence and are complementary to existing
 imaging and time-of-flight tests.
 Together they open a new observational window on the path-length variance predicted
 by the Ng--Perlman foam model.
@@ -169,12 +169,12 @@ VERITAS~\cite{Abeysekara2020,Acharyya2024} --- both increase collecting area
 and improve signal-to-noise for nearby resolved sources, while the temporal
 $g^{(1)}$ channel is accessible to high-resolution spectroscopy of distant
 quasars.
-Joint measurements of point-like and extended sources at the same redshift
-can constrain $\{\alpha,\sigma_\ell(D),r_\perp\}$ simultaneously: the
-point-source Siegert discrepancy probes $\alpha$ and $D$ with no sensitivity
-to $r_\perp$, while the zero-lag bunching suppression for an extended source
-provides a direct handle on $r_\perp$, largely independently of the intrinsic
-source spectrum.
+Detection of both point-like and extended-source signals at the same
+redshift would jointly probe $\{\alpha,\sigma_\ell(D),r_\perp\}$: the
+point-source Siegert discrepancy is sensitive to $\alpha$ and $D$ with no
+sensitivity to $r_\perp$, while the zero-lag bunching suppression for an
+extended source is sensitive to $r_\perp$ largely independently of the
+intrinsic source spectrum.
 
 The remainder of the paper is organized as follows.
 Section~\ref{sec:model} develops the model: the spatiotemporal covariance of
@@ -188,8 +188,8 @@ Section~\ref{sec:siegert} quantifies the resulting Siegert violation.
 Section~\ref{sec:extended} extends the analysis to spatially resolved sources,
 derives the suppression of the zero-lag HBT bunching peak, identifies the
 distance scaling and achromaticity as discriminants against conventional
-propagation phase screens, and shows how joint measurements of point-like and
-extended sources simultaneously constrain $\{\alpha,\sigma_\ell(D),r_\perp\}$.
+propagation phase screens, and shows how detection of both point-like and
+extended-source signals would jointly probe $\{\alpha,\sigma_\ell(D),r_\perp\}$.
 
 % ==============================================================
 \section{Model}
@@ -261,8 +261,8 @@ the transverse correlation structure involves long-range angular correlations
 (a Legendre polynomial series in aperture-plane angle) that do not reduce to
 a simple $\Phi(b/r_\perp)$ ansatz, but whose long-range character strongly
 suppresses image blurring relative to the uncorrelated case.
-In the present framework $\Phi$ is treated as a free function, with $r_\perp$
-constrained empirically by the angular-size dependence of $\delta g^{(2)}$
+In the present framework $\Phi$ is treated as a free function; a foam
+signal would manifest as an angular-size dependence of $\delta g^{(2)}$
 (Section~\ref{sec:extended}).
 
 Turning to the temporal dimension, quantum foam models posit that each Planck-scale cell of spacetime along the line
@@ -388,8 +388,13 @@ order and must be assessed jointly.
 % ==============================================================
 
 In Sections~\ref{sec:g1}--\ref{sec:siegert} we restrict to a point source ($b=0$),
-for which the single-ray differential jitter variance reduces to
-Eq.~\eqref{eq:diffVarExt} with $\Phi(0)=1$:
+for which the cross-ray differential jitter of Eq.~\eqref{eq:DeltaExt}
+reduces to the single-ray differential jitter
+\begin{equation}
+  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
+  \label{eq:DeltaDef}
+\end{equation}
+with variance obtained from Eq.~\eqref{eq:diffVarExt} at $\Phi(0)=1$:
 \begin{align}
   \sigma_\Delta^2(\tau;D)
   &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
@@ -414,10 +419,10 @@ $v - u = \tau - \Delta(\tau)$, stationarity of $E_{\rm src}$ gives
 Since $\delta t$ is independent of $E_{\rm src}$, averaging over the jitter
 yields
 \begin{equation}
-  {g^{(1)}_{\rm obs}(\tau)
+  g^{(1)}_{\rm obs}(\tau)
     = \big\langle g^{(1)}_{\rm src}(\tau - \Delta(\tau))\big\rangle_{\delta t}
     = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
-      g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.}
+      g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.
   \label{eq:g1obs}
 \end{equation}
 The observed first-order coherence is the intrinsic coherence function
@@ -906,9 +911,9 @@ cross-covariance integral involves an average over $0\leq z\leq D$;
 setting $b = D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$ evaluates the separation
 at the source plane.
 Because $r_\perp$ is treated as an effective free parameter, the $O(1)$ geometric
-factor from the $z$-integral is absorbed into its definition; its value is
-constrained empirically by the angular-size dependence of $\delta g^{(2)}$,
-derived in Section~\ref{sec:PhiEff}.
+factor from the $z$-integral is absorbed into its definition; the angular-size
+dependence of $\delta g^{(2)}$ derived in Section~\ref{sec:PhiEff} is the
+corresponding observational signature.
 
 \subsection{First-Order Coherence is Unchanged}
 
@@ -964,12 +969,12 @@ The four-fold angular integral therefore collapses to a double integral
 over ray pairs $(\boldsymbol{\theta},\boldsymbol{\theta}')$, each pair
 contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
 \begin{equation}
-  {g^{(2)}_{\rm obs}(\tau) - 1
+  g^{(2)}_{\rm obs}(\tau) - 1
   = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
     I(\boldsymbol{\theta})I(\boldsymbol{\theta}')
     \int_{-\infty}^{\infty}
       \mathcal{N}\!\left(\Delta;0,\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right)\,
-      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,}
+      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,
   \label{eq:g2obsExt}
 \end{equation}
 where $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$ is from
@@ -1008,7 +1013,7 @@ The two limits are:
 $\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg D\,\Delta\theta$)
 recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
 $r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
-The approximation is exact at both limits.
+The approximation becomes exact in both limits.
 At intermediate angular sizes ($r_\perp \sim D\,\Delta\theta$), $\Phi(b/r_\perp)$
 varies across ray pairs and replacing the full double integral by a single
 kernel introduces errors proportional to the variance of $\Phi(b/r_\perp)$
@@ -1068,9 +1073,9 @@ which gives $1$ as $s\to 0$ (no suppression) and $\to 0$ as $s\to\infty$
 via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
 (full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
 \begin{equation}
-  {g^{(2)}_{\rm obs}(0)
+  g^{(2)}_{\rm obs}(0)
     = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
-    \qquad s\equiv\sigma_0/\tau_c,}
+    \qquad s\equiv\sigma_0/\tau_c,
   \label{eq:g2zero}
 \end{equation}
 and the zero-lag bunching peak is suppressed below its ideal value of 2 by
