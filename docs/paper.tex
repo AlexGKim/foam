@@ -462,9 +462,8 @@ is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
   \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_c^2} + \mathcal{O}(\sigma_\Delta^4)\right].
   \label{eq:g1weak}
 \end{equation}
-Here $\sigma_\Delta \equiv \sigma_\Delta(\tau)$ is $\tau$-dependent through $C_\alpha(\tau)$;
-the expansion is in $\sigma_\Delta(\tau)/\tau_c$ at fixed $\tau$, and its validity
-requires $\sigma_\Delta(\tau) \ll \tau_c$ at each lag of interest.
+Here $\sigma_\Delta(\tau)$ is $\tau$-dependent through $C_\alpha(\tau)$,
+and the expansion is in $\sigma_\Delta(\tau)/\tau_c$ at fixed $\tau$.
 The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
 Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
@@ -562,8 +561,8 @@ and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 \label{sec:regime_summary}
 
 Eq.~\eqref{eq:g1obs} is always valid (exact within the model assumptions);
-Eq.~\eqref{eq:g1obs_erfc} is its closed form for a Lorentzian source and is
-likewise exact.
+Eq.~\eqref{eq:g1obs_erfc} is its closed form for a Lorentzian source and
+Eq.~\eqref{eq:g1obs_voigt} for a Voigt source, both likewise exact.
 Eq.~\eqref{eq:g1weak} (weak-jitter expansion) requires
 $\sigma_\Delta(\tau)/\tau_c \ll 1$ at each lag of interest.
 Eq.~\eqref{eq:g1narrowband} (narrow-band, carrier-phase result) requires
@@ -580,11 +579,17 @@ the full convolution Eq.~\eqref{eq:g1obs} must be evaluated.
 \label{sec:connection}
 % ==============================================================
 
-The fringe visibility and Strehl ratio are the observables through which
-published constraints on spacetime foam have been obtained~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
-Both are direct consequences of the first-order coherence $g^{(1)}_{\rm obs}(\tau)$
-derived above, and the foam suppression factor $\mathcal{F}_{\rm foam}(\tau)$
-of Eq.~\eqref{eq:Ffoam} unifies them in a single framework.
+The fringe visibility and Strehl ratio are spatial-coherence observables ---
+they probe phase variations across an aperture or between two separated
+telescopes --- while $g^{(1)}_{\rm obs}(\tau)$ derived above describes
+temporal coherence along a single line of sight.
+Nevertheless, both are governed by the same foam suppression factor
+$\mathcal{F}_{\rm foam}$ of Eq.~\eqref{eq:Ffoam}, because the underlying
+phase variance $\sigma_\phi^2$ is common to the temporal and spatial
+projections of the full coherence function; this unifies the published
+constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,2003ApJ...587L...1R}
+within a single framework, and in the subsubsections below we adopt the
+temporal notation while noting the correspondence to the spatial channel.
 
 \subsubsection{Fringe Visibility and the Lieu--Hillman Condition}
 
@@ -646,12 +651,7 @@ underlying physics: the spatial description sums independent phase contributions
 across the mirror at a single instant, while the temporal description tracks
 how the phase along a single ray decorrelates as the lag $\tau$ grows large
 enough that $C_\alpha(\tau;D)\to 0$ and the two time samples become independent.
-Both involve the same rms phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$,
-but the correspondence is asymmetric: the temporal result $\mathcal{F}_{\rm foam}(\tau\to\infty)=e^{-\sigma_\phi^2}$
-is exact for all $\sigma_\phi$, while the spatial Maréchal formula is an
-approximation valid only for $\sigma_\phi \lesssim 1$.
-For $\sigma_\phi \gg 1$ both give $S \approx 0$, so they agree numerically,
-but only the temporal result is theoretically exact in that regime.
+Both involve the same rms phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$.
 For quasi-static foam ($C_\alpha\approx 1$), $\mathcal{F}_{\rm foam}(\infty)\to 1$
 consistently with $S\to 1$ in the $r_\perp \gg D_{\rm tel}$ limit discussed below.
 
