@@ -210,8 +210,9 @@ intrinsic source field:
   E_{\rm obs}(t) = E_{\rm src}\!\left(t - \delta t(t)\right),
   \label{eq:Eobs}
 \end{equation}
-where $E_{\rm src}(t)$ is a stationary zero-mean complex Gaussian process
-(a single chaotic/thermal mode) and $\delta t(t)$ is the foam-induced
+where $E_{\rm src}(t)$ is a single spatial mode of a stationary zero-mean
+complex Gaussian process (chaotic light, appropriate for virtually all known
+astrophysical sources) and $\delta t(t)$ is the foam-induced
 arrival-time jitter, a stationary stochastic process statistically independent
 of $E_{\rm src}$.
 The jitter arises from cumulative path-length fluctuations along the
@@ -291,14 +292,15 @@ In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam cohere
 across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
 interest and every temporal observable vanishes.
 
-All numerical estimates in Sections~\ref{sec:g1}--\ref{sec:extended} are evaluated
-in the dynamical limit $C_\alpha\to 0$, which maximizes the predicted signal at any
-given lag; the computed signals are therefore conditional upper bounds, not predictions
-of a fully specified foam model.
+All numerical estimates that depend on $C_\alpha$ in
+Sections~\ref{sec:g1}--\ref{sec:extended} are evaluated in the dynamical limit
+$C_\alpha\to 0$, which maximizes the predicted signal at any given lag; the
+computed signals are therefore conditional upper bounds, not predictions of a
+fully specified foam model.
 The parameters $A_\alpha$, $C_\alpha(\tau;D)$, $\tau_{\rm foam}$, $r_\perp$, and
 $\Phi_{\rm eff}$ are convenient parameterizations of distinct physical effects ---
 single-ray variance, temporal foam dynamics, transverse coherence, and source angular
-structure --- and are not claimed to be simultaneously determined by any single observation.
+structure --- and each governs a distinct aspect of the signal's detectability.
 
 The full spatiotemporal covariance between two rays separated by transverse
 distance $b$ takes the factorized form
@@ -319,19 +321,13 @@ $\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$):
   = \sigma_\ell^2(D)\,C_\alpha(\tau;D).
   \label{eq:pathcov1ray}
 \end{equation}
-This product form — separating the total variance from the normalized
-spatiotemporal shape — is a structural assumption of the model, not a consequence
-of Eq.~\eqref{eq:NgPerlmanVar}; in a general stationary process the variance and
-the normalized correlation functions can carry independent $D$-dependence.
-The factorization defines a class of foam models within which the analytic framework
-is exact, analogous to the use of factorized kernels in turbulence phenomenology.
-Violations of factorization could in principle be detected as a failure of the
-predicted joint $D$-scaling between $\mathcal{S}(\tau)$ and $\delta g^{(2)}$;
-we are not aware of a specific quantum-gravity calculation that either confirms
-or refutes this ansatz.
+This product form --- separating the total variance from the normalized
+spatiotemporal shape --- is a structural assumption, not a consequence of
+Eq.~\eqref{eq:NgPerlmanVar}, that defines a tractable class of foam models
+within which the analytic framework is exact.
 The two principal observables developed below --- the Siegert
 discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
-$\delta g^{(2)}$ --- therefore both descend from the single scaling relation
+$\delta g^{(2)}$ --- both descend from the single scaling relation
 Eq.~(\ref{eq:NgPerlmanVar}), with Sections~\ref{sec:g1}--\ref{sec:siegert}
 probing its longitudinal projection and Section~\ref{sec:extended} its transverse
 projection.
@@ -368,7 +364,10 @@ Expanding the square and applying Eq.~\eqref{eq:pathcov}:
 \end{align}
 For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
 $2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
-absent in the point-source case.
+absent in the point-source case, and one that is independent of the temporal
+fluctuation structure of the foam (i.e.\ independent of $C_\alpha$).
+In the dynamical limit $C_\alpha\to 0$ this result holds for all separations
+$b$, independently of $\Phi$.
 
 By the central limit theorem, $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
 is a sum of contributions from many foam cells and is therefore Gaussian with zero mean:
