@@ -859,22 +859,32 @@ $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
     threshold $\sigma_\ell = \lambda/(2\pi)$ at $\lambda = 500$~nm; the
     shaded region above it is excluded by extragalactic imaging
     tests~\cite{LieuHillman2003,2003ApJ...587L...1R,Christiansen2011,Perlman2015}.
-    The shaded green band is the next-generation HBT detectability range
-    at fiducial bandwidth $\Delta\lambda/\lambda = 10^{-3}$ in the fully
-    resolved limit ($\Phi_{\rm eff}\to 0$), corresponding to
-    $\delta g^{(2)} \in [10^{-12},10^{-9}]$ between the modal shot-noise
-    floor and the projected systematic floor.
+    The shaded green band is the HBT Siegert-violation accessible regime,
+    $\sigma_\ell \in [6, 64]$~nm: the upper edge corresponds to
+    $\sigma_\phi \lesssim 0.8$, achievable on cosmological-distance sources
+    ($V \sim 14$--17 AGN/blazars/GRB optical afterglows) by a multi-source
+    ground campaign with a 10\,m-class telescope pair and $\sim 30$\,ps
+    single-photon timing jitter~\cite{2025PhRvD.111h3047K}; the lower edge
+    corresponds to $\sigma_\phi \lesssim 0.15$, achievable from a
+    space-based UV campaign at $\lambda \sim 250$~nm exploiting the
+    $\sigma_\phi \propto 1/\lambda$ scaling of the Siegert violation.
+    Foam is achromatic so the $\sigma_\ell$ thresholds are
+    wavelength-independent. This regime is complementary to the imaging
+    tests: it accesses foam models with long-range transverse correlations
+    that imaging tests cannot constrain~\cite{LeeZurekChen2024}.
     The vertical grey band marks the AGN/quasar redshift range
     $D \sim 1$--$10$~Gpc.
-    The random-walk exponent $\alpha = 1/2$ crosses the imaging exclusion
-    at $D \sim 13$~kpc and is therefore ruled out for any extragalactic
-    target. The holographic exponent $\alpha = 2/3$ sits within the HBT
-    detectability band over the AGN regime, indicating that the
-    second-order observables developed in
-    Sections~\ref{sec:siegert}--\ref{sec:extended} approach the boundary
-    of next-generation HBT instrumentation. The conservative exponent
-    $\alpha = 1$ has $\sigma_\ell = \ell_{\rm P}$ regardless of $D$ and
-    lies far below all current and projected sensitivity floors.
+    The random-walk exponent $\alpha = 1/2$ is excluded by imaging at
+    $D > 13$~kpc and by the proposed HBT campaign at $D > 73$~pc to
+    $D > 8$~kpc (depending on whether the space-UV or ground exclusion
+    applies). The holographic exponent $\alpha = 2/3$ predicts
+    $\sigma_\ell \sim 10^{-15}$~m at AGN distances --- far below the HBT
+    accessible regime --- and is the natural target of tabletop
+    holographic-noise interferometers~\cite{2021PhLB..82236663V} rather than
+    astrophysical coherence measurements (see Conclusions). The
+    conservative exponent $\alpha = 1$ has $\sigma_\ell = \ell_{\rm P}$
+    regardless of $D$ and lies far below all current and projected
+    sensitivity floors.
     \label{fig:observability}}
 \end{figure}
 
@@ -1280,28 +1290,56 @@ suppressed relative to the first-order observables.
 
 For the fiducial parameters $D = 1$~Gpc, $\lambda = 500$~nm,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$: the $\alpha = 1/2$ case gives
-$\sigma_\phi \approx 280$ (fringes completely erased) and is already excluded by
+$\sigma_\phi \approx 280$ (fringes completely erased) and is excluded by
 fringe-visibility measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
-For the holographic model $\alpha = 2/3$, $\sigma_\phi \sim 10^{-8}$, so
-temporal point-source observables are negligibly small with current instrumentation.
-However, in the fully resolved limit $\Phi_{\rm eff} \to 0$ (corresponding to
-$D\Delta\theta \gg r_\perp$), the extended-source zero-lag bunching suppression
-scales linearly rather than quadratically with the small parameter $s = \sigma_0/\tau_c$
-and yields $\delta g^{(2)} \approx 5.7\times10^{-11}$, evaluated in the dynamical
-limit $C_\alpha\to 0$ (a conditional upper bound). Since $s\propto\Delta\lambda/\lambda$,
-broader-band observations would increase $\delta g^{(2)}$ proportionally; for the
-holographic model the narrow-band validity condition
-$\sigma_\phi\cdot(\Delta\lambda/\lambda)\ll 1$ is trivially satisfied at any
-physically realizable bandwidth, so there is no approximation barrier to exploiting
-a broader bandpass, though a controlled calculation in the broadband regime ---
-where the carrier/envelope decomposition underlying the Siegert violation is no
-longer rigorous --- remains an open problem.
+The holographic case $\alpha = 2/3$ gives $\sigma_\phi \sim 10^{-8}$ --- six
+orders of magnitude below the $\sigma_\phi \sim 1$ imaging exclusion ---
+predicting $\mathcal{S}/|g^{(1)}_{\rm src}|^2 \sim 10^{-15}$ for the
+point-source Siegert violation and $\delta g^{(2)} \sim 5.7\times 10^{-11}$
+for the extended-source bunching suppression in the fully resolved limit
+$\Phi_{\rm eff} \to 0$ (with $\delta g^{(2)}$ inheriting a linear rather
+than quadratic scaling in $s = \sigma_0/\tau_c$ from the cusp in
+$g^{(2)}_{\rm src}$ at zero lag for sources with a Lorentzian line component).
 
-In any intensity interferometry measurement, a finite number $M$ of collected
-spatiotemporal modes contributes a shot-noise floor $\delta g^{(2)}_{\rm floor}
-\sim M^{-1}$, and the foam detectability condition $\sigma_0/\tau_c \gtrsim M^{-1}$
-should be quoted alongside any observational upper bound on $\sigma_\ell(D)$
-derived from a non-detection.
+The achievable sensitivity is set by the photon-counting noise on the source.
+For a 10\,m-class telescope pair with single-photon detectors at timing
+jitter $\sigma_t \sim 30$\,ps FWHM, the noise on the second-order coherence
+in the timing-jitter-dominated regime is~\cite{2025PhRvD.111h3047K}
+\begin{equation}
+  \sigma_{V^2}^{-1} = \epsilon\,A\,n_\nu\sqrt{T/\sigma_t}\,(128\pi)^{-1/4},
+  \label{eq:sigVsq}
+\end{equation}
+where $\epsilon$ is system throughput, $A$ effective collecting area, and
+$n_\nu$ photon flux at the detector. The achievable $\sigma_{V^2}$ on a
+$V = 12$ source in $T = 1$\,hr is of order unity. Scaling to
+cosmological-distance sources, realistic $5\sigma$ exclusion levels are:
+$\sigma_\phi \lesssim 0.8$ from a $\sim 10^4$\,hr ground multi-blazar
+campaign at $V \sim 15$; $\sigma_\phi \lesssim 0.5$ from a single GRB
+optical afterglow at $z \sim 1$ with $V$ declining from $\sim 6$ to
+$\sim 17$ over hours (e.g., GRB~080319B); and $\sigma_\phi \lesssim 0.15$
+from a corresponding space-based UV campaign at $\lambda \sim 250$\,nm,
+exploiting the $\sigma_\phi \propto 1/\lambda$ scaling to gain a factor of
+four in the Siegert-violation amplitude at fixed $\sigma_\ell$. The figure
+of merit on $\sigma_\ell$ runs from $\sim 80$\,nm (current imaging) to
+$\sim 6$\,nm (space-UV); this is the second-order coherence regime
+accessible to point-source Siegert tests but not to imaging when transverse
+foam correlations are large~\cite{LeeZurekChen2024} (Fig.~\ref{fig:observability}).
+
+The holographic prediction $\sigma_\phi \sim 10^{-8}$ lies six orders of
+magnitude below the most aggressive HBT projection. Closing this gap by
+photon counting on any astrophysical source would require photon flux
+$\sim 10^{20}$ greater than from a luminous quasar, which is not available.
+The holographic regime is the natural target of tabletop holographic-noise
+interferometers~\cite{2021PhLB..82236663V} that interfere quantum-coherent
+fields across small arm-length differences and so bypass the
+photon-counting penalty, not of astrophysical coherence measurements. The
+astrophysical contribution of the framework developed here is therefore the
+closure of the imaging-test loophole for foam models with long-range
+transverse correlations, the wavelength-dependence discriminant against
+chromatic plasma scattering (the Siegert violation inherits the
+$\sigma_\phi \propto 1/\lambda$ scaling), and the extended-source
+$r_\perp$ inversion via $\delta g^{(2)}$ on nearby AGN whose broad
+emission lines have Lorentzian components.
 
 The $g^{(2)}(0)$ observable developed here is already routinely computed in radio astronomy
 under different names: spectral kurtosis~\cite{NitaGary2007,NitaGary2010}, used for
