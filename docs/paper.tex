@@ -1257,14 +1257,18 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 \subsection{Zero-Lag Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
 
-The forecasts below assume a Lorentzian source spectrum (a tractable fiducial;
+A particularly compelling observational signature is the breaking of the Siegert
+relation at zero lag for extended sources (Section~\ref{sec:zerolag}): the
+zero-lag bunching peak $g^{(2)}(0)$ is suppressed below its ideal value of 2
+by cross-ray differential jitter, producing a negative Siegert discrepancy
+$\mathcal{S}(0) = -\,\delta g^{(2)} \leq 0$ that is sign-distinct from all
+point-source foam signatures and is absent in standard astrophysical sources.
+This section quantifies the observational reach of this effect.
+The forecasts assume a Lorentzian source spectrum (a tractable fiducial;
 cf.\ Section~\ref{sec:zerolag}) and the fully resolved limit $\Phi_{\rm eff}\to 0$
 (foam transverse coherence length $r_\perp$ much smaller than the projected
 baseline $b = D\,\Delta\theta$), which maximises $\sigma_0^2 = 2\sigma_\ell^2(D)/c^2$
-(Eq.~\ref{eq:sigma0}).
-The observable is the zero-lag Siegert discrepancy
-$\mathcal{S}(0) = -\,\delta g^{(2)}$ (Eq.~\ref{eq:S0ext}); in the small-$s$
-regime ($s \equiv \sigma_0/\tau_c \ll 1$),
+(Eq.~\ref{eq:sigma0}); in the small-$s$ regime ($s \equiv \sigma_0/\tau_c \ll 1$),
 $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ (Eq.~\ref{eq:deltag2}).
 
 Coincident photon pairs within a timing window $\sigma_t$ estimate $g^{(2)}(0)-1$.
