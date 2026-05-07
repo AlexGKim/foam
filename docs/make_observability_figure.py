@@ -32,19 +32,15 @@ sig_one  = ell_P * np.ones_like(D)         # alpha = 1   (conservative)
 # sigma_phi = 2 pi sigma_ell / lambda = 1  =>  sigma_ell = lambda/(2 pi)
 sigma_LH = lam / (2 * np.pi)
 
-# -- HBT detectability band at fiducial bandwidth, fully resolved limit
-# delta g^(2) = (4/sqrt(pi)) * sigma_phi * (Delta_lambda/lambda)
-#   (Eq. 47 with Lorentzian source, fully resolved Phi_eff -> 0)
-# Invert: sigma_phi = (sqrt(pi)/4) * dg2 / (Delta_lambda/lambda)
-#         sigma_ell = sigma_phi * lambda / (2 pi)
-def sig_ell_for_dg2(dg2):
-    sigma_phi = (np.sqrt(np.pi) / 4) * dg2 / dlam_over_lam
-    return sigma_phi * lam / (2 * np.pi)
-
-dg2_ceiling = 1e-9    # current/projected HBT systematic ceiling
-dg2_floor   = 1e-12   # next-generation modal shot-noise floor
-sig_ceiling = sig_ell_for_dg2(dg2_ceiling)
-sig_floor   = sig_ell_for_dg2(dg2_floor)
+# -- HBT Siegert-violation accessible regime --------------------------
+# Achievable sigma_phi exclusions from photon-counting-limited HBT
+# campaigns on cosmological-distance sources (V~14-17 AGN/blazars/GRB
+# afterglows) with a 10m-class telescope pair and ~30 ps single-photon
+# detector timing jitter (Kim, Nugent, Chen, O'Brien 2025).
+# sigma_ell = sigma_phi * lambda / (2 pi); foam is achromatic so the
+# sigma_ell threshold is independent of the observation wavelength.
+sig_ground   = 0.8  * lam / (2 * np.pi)        # ground multi-blazar (sigma_phi < 0.8 at lam=500nm)
+sig_space_uv = 0.15 * 250e-9 / (2 * np.pi)     # space UV (sigma_phi < 0.15 at lam=250nm)
 
 # -- Plot --------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(7.0, 5.2))
@@ -52,8 +48,8 @@ fig, ax = plt.subplots(figsize=(7.0, 5.2))
 # Excluded region above Lieu-Hillman
 ax.fill_between(D_Mpc, sigma_LH, 1e-3, color='#d62728', alpha=0.07,
                 zorder=0)
-# HBT detectability band
-ax.fill_between(D_Mpc, sig_floor, sig_ceiling, color='#2ca02c', alpha=0.16,
+# HBT Siegert-violation accessible regime (between ground and space-UV thresholds)
+ax.fill_between(D_Mpc, sig_space_uv, sig_ground, color='#2ca02c', alpha=0.16,
                 zorder=0)
 # AGN/quasar D regime
 ax.axvspan(1e3, 1e4, color='gray', alpha=0.10, zorder=0)
@@ -77,14 +73,14 @@ ax.text(2.5e-3, 3e-5,
         'imaging-excluded\nat optical wavelengths',
         ha='left', va='center', fontsize=8.5, color='#7a1d1d',
         style='italic')
-ax.text(2.5e-3, np.sqrt(sig_floor * sig_ceiling),
-        'next-generation HBT detectability',
+ax.text(2.5e-3, np.sqrt(sig_ground * sig_space_uv),
+        'HBT Siegert-violation accessible',
         ha='left', va='center', fontsize=8.5, color='#1d4d1d',
         style='italic')
-ax.text(2.5e-3, 8e-18,
-        (r'($\delta g^{(2)} \in [10^{-12},10^{-9}]$,'
-         r' $\Delta\lambda/\lambda = 10^{-3}$,'
-         ' fully resolved)'),
+ax.text(2.5e-3, sig_space_uv * 0.25,
+        (r'($\sigma_\phi \in [0.15, 0.8]$;'
+         '\n ground multi-blazar to space UV;'
+         r' long-$r_\perp$ models)'),
         ha='left', va='top', fontsize=8.5, color='#1d4d1d',
         style='italic')
 ax.text(np.sqrt(1e3 * 1e4), 1e-22, 'AGN / quasar', ha='center', va='bottom',
