@@ -1282,6 +1282,12 @@ The noise window is set by the detector timing resolution $\sigma_t$, not the
 source coherence time $\tau_c$: at $\lambda = 500$\,nm and
 $\Delta\lambda/\lambda = 10^{-3}$, $\tau_c \approx 1.7$\,ps while
 $\sigma_t = 30$\,ps FWHM --- firmly detector-limited ($\sigma_t \approx 18\,\tau_c$).
+Equation~\eqref{eq:hbt_snr} is the SNR for an HBT intensity-correlation measurement.
+A direct photon arrival-time experiment would achieve a higher SNR by exploiting
+the full timing information per photon, but requires knowledge of the intrinsic
+emission time; HBT instead compares two simultaneously detected intensity streams,
+making it immune to atmospheric phase fluctuations and requiring no phase-stable
+optical path between telescopes.
 
 We consider as a baseline the instrumental configuration of \citet{Kim2025}:
 telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$),
