@@ -1257,40 +1257,31 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 \subsection{Zero-Lag Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
 
-The forecasts in this section assume a Lorentzian source spectrum and the fully
-resolved limit $\Phi_{\rm eff}\to 0$.
-The Lorentzian assumption is a tractable fiducial; other spectral shapes give
-qualitatively similar results (cf.\ Section~\ref{sec:zerolag}).
-The limit $\Phi_{\rm eff}\to 0$ applies when the foam transverse coherence
-length $r_\perp$ is much smaller than the projected baseline
-$b = D\,\Delta\theta$ for any ray pair from the extended blazar, and it
-maximises the signal: $\sigma_0^2 = 2\sigma_\ell^2(D)/c^2$
+The forecasts below assume a Lorentzian source spectrum (a tractable fiducial;
+cf.\ Section~\ref{sec:zerolag}) and the fully resolved limit $\Phi_{\rm eff}\to 0$
+(foam transverse coherence length $r_\perp$ much smaller than the projected
+baseline $b = D\,\Delta\theta$), which maximises $\sigma_0^2 = 2\sigma_\ell^2(D)/c^2$
 (Eq.~\ref{eq:sigma0}).
-Under these conditions the observable is the zero-lag Siegert discrepancy
-$\mathcal{S}(0) = -\,\delta g^{(2)}$ (Eq.~\ref{eq:S0ext}), with signal amplitude
-$\delta g^{(2)}$ given by Eq.~\eqref{eq:deltag2}, which for a
-Lorentzian in the small-$s$ regime ($s \equiv \sigma_0/\tau_c \ll 1$) reduces to
-$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$.
+The observable is the zero-lag Siegert discrepancy
+$\mathcal{S}(0) = -\,\delta g^{(2)}$ (Eq.~\ref{eq:S0ext}); in the small-$s$
+regime ($s \equiv \sigma_0/\tau_c \ll 1$),
+$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ (Eq.~\ref{eq:deltag2}).
 
-For a photon-counting HBT experiment the zero-lag bunching peak $g^{(2)}(0)-1$
-is estimated from coincident photon pairs within a timing window $\sigma_t$.
-In time $T_{\rm obs}$, the number of detected pairs in the window is
-$R^2\,\sigma_t\,T_{\rm obs}$ (where $R$ is the single-detector photon rate),
-against a Poisson background of the same magnitude; the signal-to-noise ratio
-for a fractional excess $\mathcal{S} = \delta g^{(2)}$ is therefore
+Coincident photon pairs within a timing window $\sigma_t$ estimate $g^{(2)}(0)-1$.
+In time $T_{\rm obs}$, the expected pair count is $R^2\,\sigma_t\,T_{\rm obs}$
+($R$ the single-detector rate), against a Poisson background of the same
+magnitude, giving
 \begin{equation}
   \mathrm{SNR}
-  = \mathcal{S}\cdot R\,\sqrt{\sigma_t\,T_{\rm obs}},
+  = \delta g^{(2)}\cdot R\,\sqrt{\sigma_t\,T_{\rm obs}},
   \label{eq:hbt_snr}
 \end{equation}
 with $R = \epsilon\,A\,\dot{n}$, where $\dot{n}$ is the source photon flux per
-unit area at the telescope, $\epsilon$ the end-to-end throughput, and $A$ the
-collecting area.
-The noise is set by the detector timing resolution $\sigma_t$, not by the
-source coherence time $\tau_c$: for the \citet{Kim2025} configuration,
-$\tau_c = \lambda^2/(c\,\Delta\lambda) \approx 1.7$\,ps at $\lambda = 500$\,nm
-and $\Delta\lambda/\lambda = 10^{-3}$, while $\sigma_t = 30$\,ps FWHM ---
-the experiment is firmly in the detector-limited regime ($\sigma_t \approx 18\,\tau_c$).
+unit area, $\epsilon$ the end-to-end throughput, and $A$ the collecting area.
+The noise window is set by the detector timing resolution $\sigma_t$, not the
+source coherence time $\tau_c$: at $\lambda = 500$\,nm and
+$\Delta\lambda/\lambda = 10^{-3}$, $\tau_c \approx 1.7$\,ps while
+$\sigma_t = 30$\,ps FWHM --- firmly detector-limited ($\sigma_t \approx 18\,\tau_c$).
 
 We consider as a baseline the instrumental configuration of \citet{Kim2025}:
 telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$),
@@ -1299,7 +1290,7 @@ efficiency $0.60$, total throughput $\epsilon = 0.39$, and timing
 resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms).
 
 Because $A \propto d^2$, the SNR scales as $d^2\sqrt{T_{\rm obs}}$.
-In the small-$s$ regime, $\mathcal{S} \propto s \propto \sigma_\phi$, so
+In the small-$s$ regime, $\delta g^{(2)} \propto s \propto \sigma_\phi$, so
 $\mathrm{SNR} \propto \sigma_\phi\,d^2\sqrt{T_{\rm obs}}$, and the minimum
 detectable phase amplitude scales as
 \begin{equation}
