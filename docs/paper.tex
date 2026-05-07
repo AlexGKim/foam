@@ -29,17 +29,19 @@ scale --- a ``foam'' that imprints a tiny achromatic arrival-time jitter on ligh
 from distant sources.
 We show that this jitter affects first- and second-order temporal coherence,
 $g^{(1)}$ and $g^{(2)}$, differently, breaking the Siegert relation
-$g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that holds for all Gaussian chaotic sources.
+$g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that holds for all Gaussian chaotic sources
+when the foam fluctuates on timescales shorter than the optical coherence time.
 For spatially extended sources, cross-ray jitter between independent directions
-additionally suppresses the zero-lag bunching peak $g^{(2)}(0)$.
-The Siegert violation inherits the wavelength dependence of $g^{(1)}$ and is
-therefore chromatic, while the zero-lag $g^{(2)}(0)$ suppression for extended
+additionally suppresses the zero-lag bunching peak $g^{(2)}(0)$ through a mechanism
+that depends only on $\sigma_\ell^2(D)$ and is independent of the foam's temporal dynamics.
+The Siegert violation inherits the wavelength dependence of $g^{(1)}$, while
+the zero-lag $g^{(2)}(0)$ suppression for extended
 sources is achromatic and depends on the source angular size in units of the
 foam transverse coherence scale; combined with their distance scaling, these
 signatures distinguish foam from plasma and turbulence and are complementary
 to existing imaging and time-of-flight tests.
 Together they open a new observational window on the path-length variance predicted
-by the Ng--Perlman foam model.
+by the $\alpha$-foam model.
 \end{abstract}
 
 \maketitle
@@ -65,7 +67,7 @@ decades~\cite{Carlip2023,NgPerlman2022}.
 
 A widely studied parametrization, due to Ng and
 collaborators~\cite{Ng2001,Ng2003,NgPerlman2022} and referred to here as the
-Ng--Perlman model, assigns the cumulative line-of-sight path-length variance
+$\alpha$-foam model, assigns the cumulative line-of-sight path-length variance
 acquired by light traversing a distance $D$ the power-law form
 \begin{equation}
   \sigma_\ell^2(D) \;=\; A_\alpha\, D^{2(1-\alpha)}\, \ell_{\rm P}^{2\alpha},
@@ -99,7 +101,7 @@ $S \approx \exp(-\sigma_\phi^2)$ and degrading the diffraction-limited
 point-spread function.
 Detections of crisp, near-diffraction-limited images of distant active galactic
 nuclei with the Hubble Space Telescope and ground-based instruments
-\cite{LieuHillman2003,2003ApJ...587L...1R,Christiansen2011,Perlman2015},
+\cite{LieuHillman2003,Ragazzoni2003,Christiansen2011,Perlman2015},
 together with stellar interferometry, exclude $\alpha \lesssim 2/3$ at optical
 wavelengths for $D \sim 1$--$10$~Gpc, leaving the holographic and conservative
 cases as the only quantitatively viable scalings.
@@ -133,7 +135,7 @@ The Fermi, H.E.S.S., and LHAASO analyses specifically seek a Lorentz-invariance-
 energy-ordered delay.
 A stochastic, energy-independent geometric jitter produces no such signal, so
 the absence of a detected LIV dispersion in GRB or blazar data leaves the
-Ng--Perlman foam entirely unconstrained by those measurements.
+foam entirely unconstrained by those measurements.
 A foam model whose accumulated phase variance lies below the imaging threshold
 but whose timing jitter is achromatic is therefore invisible to both channels.
 Whether observables exist that bridge this gap -- sensitive to a phase variance
@@ -158,6 +160,10 @@ The two together violate the Siegert relation
 $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$~\cite{Siegert1943} in a foam-specific
 way, providing a discriminant that does not require the intrinsic source
 visibility to be modeled.
+The Siegert violation requires the foam to fluctuate on timescales shorter than
+the optical coherence time; the zero-lag bunching suppression $\delta g^{(2)}$
+for extended sources, by contrast, depends only on $\sigma_\ell^2(D)$ and is
+independent of the foam's temporal dynamics.
 For spatially resolved sources, transverse foam coherence produces an
 additional, geometrically distinct effect: a suppression of the zero-lag
 HBT bunching peak that depends on the source angular size and provides a direct
@@ -244,20 +250,12 @@ and $A_\alpha$ is a dimensionless coefficient of order unity.
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
-applies equally to transverse baselines. For two rays separated by a transverse
-distance $b$, the Ng--Perlman scaling gives a characteristic transverse
-coherence length
-\begin{equation}
-  r_\perp \sim A_\alpha^{1/2}\,b^{1-\alpha}\,\ell_{\rm P}^{\alpha},
-  \label{eq:rperp}
-\end{equation}
-by dimensional analogy with Eq.~(\ref{eq:NgPerlmanVar}).
-This analogy motivates the \emph{existence} of a transverse scale but does not
-derive its value: in the longitudinal case $D$ counts the number of cells
-traversed along the ray, while in the transverse case $b$ is a separation between
-rays that share cells along the line of sight — the number of shared cells depends
-on both $b$ and $D$ in a way that is geometrically distinct from the single-ray
-accumulation.
+motivates the existence of a characteristic transverse coherence length $r_\perp$.
+However, the longitudinal and transverse cases are geometrically distinct: in the
+longitudinal case $D$ counts the number of cells traversed along the ray, while in
+the transverse case $b$ is a separation between rays that share cells along the line
+of sight --- the number of shared cells depends on both $b$ and $D$ in a way that is
+not captured by a simple dimensional analogy.
 Accordingly, $r_\perp$ is treated as an independent free parameter in
 Section~\ref{sec:extended}.
 We denote the normalized transverse coherence function by $\Phi(b/r_\perp)$,
@@ -272,8 +270,7 @@ In the present framework $\Phi$ is treated as a free function; a foam
 signal would manifest as an angular-size dependence of $\delta g^{(2)}$
 (Section~\ref{sec:extended}).
 
-Turning to the temporal dimension, quantum foam models posit that each Planck-scale cell of spacetime along the line
-of sight fluctuates in time.
+Turning to the temporal evolution of spacetime foam --- an aspect not specified by Eq.~\eqref{eq:NgPerlmanVar} --- quantum foam models posit that each Planck-scale cell along the line of sight fluctuates in time.
 Two photons traversing the same cell at coordinate times separated by $\tau$
 experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
 but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
@@ -283,7 +280,7 @@ of the per-cell path-length fluctuation, integrated over the $\sim D/\ell_{\rm P
 cells along the line of sight (where $\ell_{\rm P} = \sqrt{\hbar G/c^3}
 \simeq 1.616\times10^{-35}$~m is the Planck length).
 The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
-not fixed by the Ng--Perlman variance relation alone.
+not fixed by the $\alpha$-model variance relation alone.
 If $\tau_{\rm foam}$ is of order the Planck time,
 $\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
 accessible lags: the foam is fully decorrelated on any observable timescale, the most
@@ -291,12 +288,6 @@ optimistic scenario for detection.
 In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
 across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
 interest and every temporal observable vanishes.
-
-All numerical estimates that depend on $C_\alpha$ in
-Sections~\ref{sec:g1}--\ref{sec:extended} are evaluated in the dynamical limit
-$C_\alpha\to 0$, which maximizes the predicted signal at any given lag; the
-computed signals are therefore conditional upper bounds, not predictions of a
-fully specified foam model.
 The parameters $A_\alpha$, $C_\alpha(\tau;D)$, $\tau_{\rm foam}$, $r_\perp$, and
 $\Phi_{\rm eff}$ are convenient parameterizations of distinct physical effects ---
 single-ray variance, temporal foam dynamics, transverse coherence, and source angular
@@ -325,6 +316,11 @@ This product form --- separating the total variance from the normalized
 spatiotemporal shape --- is a structural assumption, not a consequence of
 Eq.~\eqref{eq:NgPerlmanVar}, that defines a tractable class of foam models
 within which the analytic framework is exact.
+Observationally, factorization predicts that the ratio
+$[g^{(2)}_{\rm obs}(\tau)-1]_{\rm extended}/[g^{(2)}_{\rm obs}(\tau)-1]_{\rm point}$
+equals $\Phi_{\rm eff}$ and is independent of both $\tau$ and $D$; any
+dependence of this ratio on lag or source redshift would falsify the
+factorization ansatz.
 The two principal observables developed below --- the Siegert
 discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
 $\delta g^{(2)}$ --- both descend from the single scaling relation
@@ -587,7 +583,7 @@ Nevertheless, both are governed by the same foam suppression factor
 $\mathcal{F}_{\rm foam}$ of Eq.~\eqref{eq:Ffoam}, because the underlying
 phase variance $\sigma_\phi^2$ is common to the temporal and spatial
 projections of the full coherence function; this unifies the published
-constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,2003ApJ...587L...1R}
+constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,Ragazzoni2003}
 within a single framework.
 Where the temporal $g^{(1)}$ fails --- quasi-static foam ($C_\alpha \approx 1$,
 no variation in time) --- the spatial probes succeed; where the spatial probes
@@ -653,11 +649,10 @@ This equality is an exact result of the Gaussian characteristic function,
 independent of the Mar\'{e}chal approximation, but holds only in the
 dynamical limit $C_\alpha(\infty;D)\to 0$; for foam that does not
 fully decorrelate on any accessible timescale the two sides differ.
-It reflects a correspondence between two descriptions of the same
-underlying physics: the spatial description sums independent phase contributions
-across the mirror at a single instant, while the temporal description tracks
-how the phase along a single ray decorrelates as the lag $\tau$ grows large
-enough that $C_\alpha(\tau;D)\to 0$ and the two time samples become independent.
+The equality holds when both conditions are satisfied: $r_\perp \ll D_{\rm tel}$
+(so aperture elements sample independent foam realizations) and
+$C_\alpha(\infty;D)\to 0$ (so the single ray fully decorrelates at large lag);
+in either limit alone the two expressions differ.
 Both involve the same rms phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$.
 For quasi-static foam ($C_\alpha\approx 1$), $\mathcal{F}_{\rm foam}(\infty)\to 1$
 consistently with $S\to 1$ in the $r_\perp \gg D_{\rm tel}$ limit discussed below.
@@ -845,11 +840,13 @@ thresholds in Fig.~\ref{fig:observability}.
 \centering
 \caption{Sensitivity scales at $D=1$~Gpc, $\lambda=500$~nm,
          $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, $C_\alpha\to 0$.
-         The $\alpha=1/2$ case is observationally excluded~\cite{Perlman2015};
+         The $\alpha=1/2$ case is excluded by imaging under the standard assumption
+         of short-range transverse foam correlations~\cite{Perlman2015}; models with
+         long-range correlations evade this bound~\cite{LeeZurekChen2024}.
          $\alpha=2/3$ (holographic) is the most sensitive surviving model.}
 \begin{tabular}{lcc}
 \toprule
-Scale & $\alpha=1/2$ (excluded) & $\alpha=2/3$ \\
+Scale & $\alpha=1/2$ & $\alpha=2/3$ \\
 \midrule
 $\sigma_\phi$ & $280$ & $2.5\times10^{-8}$ \\
 $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
@@ -863,19 +860,19 @@ $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
   \includegraphics[width=0.92\linewidth]{observability.pdf}
   \caption{%
     Foam-induced rms path-length amplitude $\sigma_\ell(D)$ for the three
-    Ng--Perlman exponents (taking $A_\alpha = 1$ in the path-length variance
+    $\alpha$-model exponents (taking $A_\alpha = 1$ in the path-length variance
     Eq.~\eqref{eq:NgPerlmanIntro}), shown against the principal optical
     sensitivity thresholds.
     The horizontal dashed line is the Lieu--Hillman fringe-erasure
     threshold $\sigma_\ell = \lambda/(2\pi)$ at $\lambda = 500$~nm; the
     shaded region above it is excluded by extragalactic imaging
-    tests~\cite{LieuHillman2003,2003ApJ...587L...1R,Christiansen2011,Perlman2015}.
+    tests~\cite{LieuHillman2003,Ragazzoni2003,Christiansen2011,Perlman2015}.
     The shaded green band is the HBT Siegert-violation accessible regime,
     $\sigma_\ell \in [6, 64]$~nm: the upper edge corresponds to
     $\sigma_\phi \lesssim 0.8$, achievable on cosmological-distance sources
     ($V \sim 14$--17 AGN/blazars/GRB optical afterglows) by a multi-source
     ground campaign with a 10\,m-class telescope pair and $\sim 30$\,ps
-    single-photon timing jitter~\cite{2025PhRvD.111h3047K}; the lower edge
+    single-photon timing jitter~\cite{Kim2025}; the lower edge
     corresponds to $\sigma_\phi \lesssim 0.15$, achievable from a
     space-based UV campaign at $\lambda \sim 250$~nm exploiting the
     $\sigma_\phi \propto 1/\lambda$ scaling of the Siegert violation.
@@ -891,7 +888,7 @@ $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
     applies). The holographic exponent $\alpha = 2/3$ predicts
     $\sigma_\ell \sim 10^{-15}$~m at AGN distances --- far below the HBT
     accessible regime --- and is the natural target of tabletop
-    holographic-noise interferometers~\cite{2021PhLB..82236663V} rather than
+    holographic-noise interferometers~\cite{VerlindeZurek2021} rather than
     astrophysical coherence measurements (see Conclusions). The
     conservative exponent $\alpha = 1$ has $\sigma_\ell = \ell_{\rm P}$
     regardless of $D$ and lies far below all current and projected
@@ -1072,7 +1069,7 @@ At intermediate angular sizes ($r_\perp \sim D\,\Delta\theta$), $\Phi(b/r_\perp)
 varies across ray pairs and the $\Phi_{\rm eff}$ reduction introduces errors
 that have not been quantified here; they must be assessed jointly with the CLT
 breakdown of Section~\ref{sec:differential_jitter}, since both occur in the
-same regime $b\sim r_\perp$.
+same regime $b\sim r_\perp$, and we leave a worked numerical comparison to future work.
 
 \subsection{Extended-Source Siegert Discrepancy and Zero-Lag Bunching}
 \label{sec:zerolag}
@@ -1135,7 +1132,6 @@ and the zero-lag bunching peak is suppressed below its ideal value of 2 by
 \end{equation}
 In the small-$s$ limit, $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s + O(s^2)$,
 so the suppression is linear in $s$ for a Lorentzian source.
-giving
 \begin{equation}
   \mathcal{S}(0) = -\,\delta g^{(2)} \leq 0.
   \label{eq:S0ext}
@@ -1258,11 +1254,13 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 \label{sec:conclusions}
 
 We have developed a theoretical framework for the imprint of spacetime foam, characterized 
-by the Ng--Perlman exponent $\alpha$, on both first- and second-order optical coherence. The 
-central finding is that foam-induced arrival-time jitter produces two classes of observable 
-violation of relations that hold for all Gaussian chaotic sources: a deviation from the 
-Siegert relation, $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$, and a suppression of the zero-lag 
-bunching peak below its canonical value of $g^{(2)}(0) = 2$. These second-order observables 
+by the foam exponent $\alpha$, on both first- and second-order optical coherence. The 
+central finding is that foam-induced arrival-time jitter produces two classes of observable
+violation of relations that hold for all Gaussian chaotic sources: a deviation from the
+Siegert relation, $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$, which requires the foam to be
+dynamically active ($\tau_{\rm foam}$ short relative to the optical coherence time), and a
+suppression of the zero-lag bunching peak below its canonical value of $g^{(2)}(0) = 2$,
+which depends only on $\sigma_\ell^2(D)$ and is independent of $\tau_{\rm foam}$. These second-order observables 
 are complementary to the fringe visibility and Strehl ratio tests based on first-order 
 coherence that have already been applied to constrain foam models.
 For the holographic model ($\alpha = 2/3$), all such observables lie well within the
@@ -1290,20 +1288,21 @@ observables.
 For the fiducial parameters $D = 1$~Gpc, $\lambda = 500$~nm,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$: the $\alpha = 1/2$ case gives
 $\sigma_\phi \approx 280$ (fringes completely erased) and is excluded by
-fringe-visibility measurements~\cite{Perlman2015,Christiansen2011,2003ApJ...587L...1R}.
+fringe-visibility measurements~\cite{Perlman2015,Christiansen2011,Ragazzoni2003}.
 The holographic case $\alpha = 2/3$ gives $\sigma_\phi \sim 10^{-8}$ --- six
 orders of magnitude below the $\sigma_\phi \sim 1$ imaging exclusion ---
 predicting $\mathcal{S}/|g^{(1)}_{\rm src}|^2 \sim 10^{-15}$ for the
-point-source Siegert violation and $\delta g^{(2)} \sim 5.7\times 10^{-11}$
+point-source Siegert violation and $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s \sim 5.7\times 10^{-11}$
 for the extended-source bunching suppression in the fully resolved limit
-$\Phi_{\rm eff} \to 0$ (with $\delta g^{(2)}$ inheriting a linear rather
+$\Phi_{\rm eff} \to 0$, where $s = \sqrt{2}\,\sigma_\phi\,(\Delta\lambda/\lambda) \sim 3.5\times10^{-11}$
+(with $\delta g^{(2)}$ inheriting a linear rather
 than quadratic scaling in $s = \sigma_0/\tau_c$ from the cusp in
 $g^{(2)}_{\rm src}$ at zero lag for sources with a Lorentzian line component).
 
 The achievable sensitivity is set by the photon-counting noise on the source.
 For a 10\,m-class telescope pair with single-photon detectors at timing
 jitter $\sigma_t \sim 30$\,ps FWHM, the noise on the second-order coherence
-in the timing-jitter-dominated regime is~\cite{2025PhRvD.111h3047K}
+in the timing-jitter-dominated regime is~\cite{Kim2025}
 \begin{equation}
   \sigma_{V^2}^{-1} = \epsilon\,A\,n_\nu\sqrt{T/\sigma_t}\,(128\pi)^{-1/4},
   \label{eq:sigVsq}
@@ -1324,21 +1323,18 @@ $\sim 6$\,nm (space-UV); this is the second-order coherence regime
 accessible to point-source Siegert tests but not to imaging when transverse
 foam correlations are large~\cite{LeeZurekChen2024} (Fig.~\ref{fig:observability}).
 
-The holographic prediction $\sigma_\phi \sim 10^{-8}$ lies six orders of
-magnitude below the most aggressive HBT projection. Closing this gap by
-photon counting on any astrophysical source would require photon flux
-$\sim 10^{20}$ greater than from a luminous quasar, which is not available.
+The astrophysical contribution of the framework developed here is threefold:
+it closes the imaging-test loophole for foam models with long-range transverse
+correlations, it provides a wavelength-dependence discriminant against chromatic
+plasma scattering (the Siegert violation inherits the $\sigma_\phi \propto 1/\lambda$
+scaling), and it enables $r_\perp$ inversion via $\delta g^{(2)}$ on nearby AGN
+whose broad emission lines have Lorentzian components.
+What HBT-on-AGN cannot do is reach the holographic prediction
+$\sigma_\phi \sim 10^{-8}$, which lies six orders of magnitude below the most
+aggressive HBT projection; closing this gap would require photon flux $\sim 10^{20}$
+greater than from a luminous quasar.
 The holographic regime is the natural target of tabletop holographic-noise
-interferometers~\cite{2021PhLB..82236663V} that interfere quantum-coherent
-fields across small arm-length differences and so bypass the
-photon-counting penalty, not of astrophysical coherence measurements. The
-astrophysical contribution of the framework developed here is therefore the
-closure of the imaging-test loophole for foam models with long-range
-transverse correlations, the wavelength-dependence discriminant against
-chromatic plasma scattering (the Siegert violation inherits the
-$\sigma_\phi \propto 1/\lambda$ scaling), and the extended-source
-$r_\perp$ inversion via $\delta g^{(2)}$ on nearby AGN whose broad
-emission lines have Lorentzian components.
+interferometers~\cite{VerlindeZurek2021} that bypass the photon-counting penalty.
 
 The $g^{(2)}(0)$ observable developed here is already routinely computed in radio astronomy
 under different names: spectral kurtosis~\cite{NitaGary2007,NitaGary2010}, used for
@@ -1351,21 +1347,12 @@ intensity statistics of pulsars and FRBs~\cite{Weltevrede2006}.
 The Siegert-violation framework developed here therefore translates directly to existing
 radio data products.
 
-A deeper question left open by the present framework is whether spacetime foam should be 
-treated as a static medium or whether its statistical properties evolve on cosmological 
-timescales. Throughout this paper we have treated $\sigma^2_\ell(D)$ as a fixed parameter, 
-an assumption justified by the negligible fractional change $H_0 T \sim 10^{-10}$ in the 
-propagation distance over any realistic observation duration. Over cosmological lookback 
-times, however, the foam may track the expansion of the universe in a non-trivial way. If 
-the Ng--Perlman exponent $\alpha$ or the coefficient $A_\alpha$ itself carries a redshift 
-dependence, then observations of sources at different redshifts would no longer trace a 
-simple power-law $\sigma_\phi(D)$, and the distance-scaling discriminant of Section~\ref{sec:extended} would need to be generalized. More speculatively, if the 
-foam undergoes a phase transition or qualitative change in its structure at some epoch --- 
-analogous to other symmetry-breaking transitions in the early universe --- this could in 
-principle be imprinted on the coherence of light from sources bracketing that epoch, 
-providing a novel cosmological probe. We flag these possibilities as motivation for 
-developing a fully non-stationary, redshift-resolved treatment of foam coherence in future 
-work.
+A deeper question left open by the present framework is whether the foam exponent $\alpha$
+or coefficient $A_\alpha$ carries a redshift dependence. If so, observations of sources at
+different redshifts would deviate from the simple power-law $\sigma_\phi(D)$ predicted here,
+and the distance-scaling discriminant of Section~\ref{sec:extended} would need to be
+generalized; such a deviation would itself be a cosmological signal. We flag this as
+motivation for a redshift-resolved treatment of foam coherence in future work.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
