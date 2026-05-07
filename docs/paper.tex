@@ -1271,10 +1271,16 @@ baseline $b = D\,\Delta\theta$), which maximises $\sigma_0^2 = 2\sigma_\ell^2(D)
 (Eq.~\ref{eq:sigma0}); in the small-$s$ regime ($s \equiv \sigma_0/\tau_c \ll 1$),
 $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ (Eq.~\ref{eq:deltag2}).
 
-Coincident photon pairs within a timing window $\sigma_t$ estimate $g^{(2)}(0)-1$.
-In time $T_{\rm obs}$, the expected pair count is $R^2\,\sigma_t\,T_{\rm obs}$
-($R$ the single-detector rate), against a Poisson background of the same
-magnitude, giving
+$g^{(2)}$ is commonly measured via the Hanbury Brown--Twiss (HBT) effect~\cite{HBT1956}:
+coincident photon pairs within a timing window $\sigma_t$ estimate $g^{(2)}(0)-1$.
+While a direct photon arrival-time experiment would be more statistically efficient
+by exploiting the full timing information per photon, HBT offers important systematic
+advantages --- it compares two simultaneously detected intensity streams, requiring
+no phase-stable optical path between telescopes and being immune to atmospheric
+phase fluctuations.
+For HBT, the expected pair count in time $T_{\rm obs}$ is $R^2\,\sigma_t\,T_{\rm obs}$
+($R$ the single-detector rate), against a Poisson background of the same magnitude,
+giving
 \begin{equation}
   \mathrm{SNR}
   = \delta g^{(2)}\cdot R\,\sqrt{\sigma_t\,T_{\rm obs}},
@@ -1286,12 +1292,6 @@ The noise window is set by the detector timing resolution $\sigma_t$, not the
 source coherence time $\tau_c$: at $\lambda = 500$\,nm and
 $\Delta\lambda/\lambda = 10^{-3}$, $\tau_c \approx 1.7$\,ps while
 $\sigma_t = 30$\,ps FWHM --- firmly detector-limited ($\sigma_t \approx 18\,\tau_c$).
-Equation~\eqref{eq:hbt_snr} is the SNR for an HBT intensity-correlation measurement.
-A direct photon arrival-time experiment would achieve a higher SNR by exploiting
-the full timing information per photon, but requires knowledge of the intrinsic
-emission time; HBT instead compares two simultaneously detected intensity streams,
-making it immune to atmospheric phase fluctuations and requiring no phase-stable
-optical path between telescopes.
 
 We consider as a baseline the instrumental configuration of \citet{Kim2025}:
 telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$),
