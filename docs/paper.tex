@@ -893,6 +893,12 @@ $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
     conservative exponent $\alpha = 1$ has $\sigma_\ell = \ell_{\rm P}$
     regardless of $D$ and lies far below all current and projected
     sensitivity floors.
+    The green band's upper edge was computed for a broadband ($\lambda = 500$~nm,
+    $\Delta\lambda/\lambda = 10^{-3}$) scenario; the H$\alpha$-optimised
+    10\,m campaign of Table~\ref{tab:aperture} reaches
+    $\sigma_{\ell,\rm min} \approx 117$~nm (just above the band for a
+    Lorentzian profile, $\approx 73$~nm for a Gaussian), while a
+    40\,m aperture reaches $\sigma_{\ell,\rm min} \approx 18$~nm, well within it.
     \label{fig:observability}}
 \end{figure}
 
@@ -1282,7 +1288,8 @@ In the weak-foam limit ($\sigma_\phi \ll 1$), $\mathcal{S}(\tau_c) \approx 2e^{-
 in the strong-foam limit ($\sigma_\phi \gg 1$), $\mathcal{S}(\tau_c) \to e^{-2} \approx 0.135$
 and the signal saturates.
 
-$g^{(2)}$ is commonly measured via the Hanbury Brown--Twiss (HBT) effect~\cite{HBT1956}.
+Measuring $\mathcal{S}(\tau_c)$ is most naturally done via the Hanbury Brown--Twiss
+(HBT) effect~\cite{HBT1956}.
 While a direct photon arrival-time experiment would be more statistically efficient,
 HBT has important systematic advantages: it requires no phase-stable optical
 path between telescopes and is immune to atmospheric phase fluctuations.
@@ -1307,10 +1314,15 @@ $\Delta\lambda < \lambda^2/(c\,\sigma_t)$.
 For the \citet{Kim2025} timing resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms)
 and the H$\alpha$ line ($\lambda = 6563$\,\AA), the threshold filter width is
 $\Delta\lambda \approx 1.1$\,\AA, giving $\tau_c \approx 13$\,ps.
-This is the optimal filter: the figure of merit $R\sqrt{\tau_c}$ that enters
-Eq.~\eqref{eq:hbt_snr} scales as $\sqrt{\Delta\lambda}$ for a continuum source,
-so \emph{narrower filters reduce sensitivity}; the widest filter satisfying
-$\tau_c \geq \sigma_t$ maximises the SNR.
+This is the optimal filter.
+For a broad emission line observed through a filter narrower than the line
+FWHM, $R$ is approximately independent of $\Delta\lambda$ (the filter captures
+roughly the same line flux), so $R\sqrt{\tau_c} \propto 1/\sqrt{\Delta\lambda}$
+--- narrower would improve SNR were it not for the source-limited constraint
+$\tau_c \geq \sigma_t$.
+The threshold filter $\Delta\lambda \approx \lambda^2/(c\,\sigma_t)$ is therefore
+the optimum: it is as narrow as possible while remaining in the source-limited
+regime.
 
 Bright broad-line AGN and quasars are the optimal target class.
 Their permitted emission lines (H$\alpha$, H$\beta$, Mg\,\textsc{ii}, C\,\textsc{iv})
@@ -1333,15 +1345,18 @@ $R \approx 1110$\,cps on a 10\,m telescope with $\epsilon = 0.39$.
 (A Gaussian profile of the same FWHM would give $\approx 0.81\%$ and
 $R \approx 1630$\,cps; the profile-shape uncertainty changes $R$ by
 $\lesssim 1.5\times$ and $\sigma_{\phi,\rm min}$ by $\lesssim 25\%$.)
-In the weak-foam limit, the minimum detectable phase amplitude scales as
+In the weak-foam limit, with the threshold filter $\tau_c = \sigma_t$ always
+optimal, the minimum detectable phase amplitude scales as
 \begin{equation}
-  \sigma_{\phi,\rm min} \;\propto\; \frac{1}{d}\cdot T_{\rm obs}^{-1/4},
+  \sigma_{\phi,\rm min} \;\propto\; \frac{1}{d}\cdot \sigma_t^{1/4} \cdot T_{\rm obs}^{-1/4},
   \label{eq:sphi_min_scale}
 \end{equation}
-and Table~\ref{tab:aperture} gives $\sigma_{\phi,\rm min}$ at $3\sigma$ for
+so faster detectors improve sensitivity as $\sigma_t^{1/4}$ in addition to the
+aperture and time scaling.
+Table~\ref{tab:aperture} gives $\sigma_{\phi,\rm min}$ at $3\sigma$ for
 apertures $d = 10$, $40$, and $1000$\,m with $T_{\rm obs} = 10^4$\,hr
 (Lorentzian profile assumed throughout).
-A 2\,m aperture cannot reach $3\sigma$ on a 3C~273-class target in $10^4$\,hr;
+A 2\,m aperture ($R \approx 70$\,cps) saturates $\mathcal{S}(\tau_c) \to e^{-2}$ well below $3\sigma$ on a 3C~273-class target in $10^4$\,hr;
 a brighter nearby Seyfert~1 (e.g.\ NGC~4151,
 $F_{\rm H\alpha} \approx 5\times10^{-11}$\,erg\,s$^{-1}$\,cm$^{-2}$, ${\sim}25\times$
 brighter) would reach the same $\sigma_{\phi,\rm min}$ in $\sim 600\times$ less
@@ -1422,6 +1437,15 @@ For $\alpha = 0.54$, $\sigma_\phi$ crosses unity over the sample, producing
 a measurable variation in $\mathcal{S}(\tau_c)$ that encodes the $D$-scaling.
 NGC~4151 and Mrk~509 are nearby Seyfert~1 calibrators (small $\sigma_\phi$);
 the quasars provide the cosmological baseline.
+The $\sigma_\phi$ and $\mathcal{S}(\tau_c)$ values are computed at a uniform
+reference wavelength $\lambda = 6563$\,\AA\ for all sources to isolate the
+$D$-scaling from wavelength variation; the Line column indicates the practical
+observational proxy (H$\alpha$ for $z \lesssim 0.5$ where H$\alpha$ remains in
+the optical, C\,\textsc{iv} for higher-$z$ sources where H$\alpha$ has redshifted
+to the near-IR).
+$\sigma_\phi$ at the actual observed wavelength scales as $1/\lambda_{\rm obs}$;
+for Q~0054$-$284 observed in C\,\textsc{iv} at $\lambda_{\rm obs} \approx 3266$\,\AA,
+$\sigma_\phi \approx 3.4$, larger by $6563/3266 \approx 2\times$.
 Distances from $D = cz/H_0$, $H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$.}
 \label{tab:blazars}
 \begin{tabular}{lcccccc}
