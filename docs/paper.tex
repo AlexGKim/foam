@@ -1231,7 +1231,7 @@ requires no explicit model of the source spectrum, since $g^{(1)}_{\rm src}(\tau
 can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 
 % ==============================================================
-\section{Observational Prospects}
+\section{HBT Siegert-Violation: Sensitivity and Target Selection}
 \label{sec:prospects}
 % ==============================================================
 
@@ -1290,6 +1290,10 @@ For the \citet{Kim2025} timing resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms
 and the H$\alpha$ line ($\lambda = 6563$\,\AA), the threshold filter width is
 $\Delta\lambda \approx 1.1$\,\AA, giving $\tau_c \approx 13$\,ps.
 This is the optimal filter.
+We adopt as the baseline instrumental configuration that of \citet{Kim2025}:
+telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$), mirror reflectivity $0.73$,
+filter transmission $0.90$, detector quantum efficiency $0.60$, total throughput
+$\epsilon = 0.39$, and timing resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms).
 For a broad emission line observed through a filter narrower than the line
 FWHM, $R$ is approximately independent of $\Delta\lambda$ (the filter captures
 roughly the same line flux), so $R\sqrt{\tau_c} \propto 1/\sqrt{\Delta\lambda}$
@@ -1309,6 +1313,9 @@ more distant sources yield lower SNR at fixed luminosity, with the penalty
 steeper for larger $\alpha$.
 In the strong-foam limit ($\sigma_\phi \gg 1$),
 $\mathcal{S}(\tau_c) \to e^{-2}$ saturates and $\mathrm{SNR} \propto D^{-2}$.
+A nearby source of modest luminosity but high apparent flux can therefore be competitive
+with a more luminous but distant source: the higher photon rate $R$ at close range
+can compensate for the reduced foam signal $\mathcal{S}(\tau_c)$.
 
 \subsection{Candidate Sources}
 \label{sec:candidate_sources}
