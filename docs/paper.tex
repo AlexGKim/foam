@@ -860,45 +860,20 @@ $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
   \includegraphics[width=0.92\linewidth]{observability.pdf}
   \caption{%
     Foam-induced rms path-length amplitude $\sigma_\ell(D)$ for the three
-    $\alpha$-model exponents (taking $A_\alpha = 1$ in the path-length variance
-    Eq.~\eqref{eq:NgPerlmanIntro}), shown against the principal optical
-    sensitivity thresholds.
-    The horizontal dashed line is the Lieu--Hillman fringe-erasure
-    threshold $\sigma_\ell = \lambda/(2\pi)$ at $\lambda = 500$~nm; the
-    shaded region above it is excluded by extragalactic imaging
-    tests~\cite{LieuHillman2003,Ragazzoni2003,Christiansen2011,Perlman2015}.
-    The shaded green band is the HBT Siegert-violation accessible regime,
-    $\sigma_\ell \in [6, 64]$~nm: the upper edge corresponds to
-    $\sigma_\phi \lesssim 0.8$, achievable on cosmological-distance sources
-    ($V \sim 14$--17 AGN/blazars/GRB optical afterglows) by a multi-source
-    ground campaign with a 10\,m-class telescope pair and $\sim 30$\,ps
-    single-photon timing jitter~\cite{Kim2025}; the lower edge
-    corresponds to $\sigma_\phi \lesssim 0.15$, achievable from a
-    space-based UV campaign at $\lambda \sim 250$~nm exploiting the
-    $\sigma_\phi \propto 1/\lambda$ scaling of the Siegert violation.
-    Foam is achromatic so the $\sigma_\ell$ thresholds are
-    wavelength-independent. This regime is complementary to the imaging
-    tests: it accesses foam models with long-range transverse correlations
-    that imaging tests cannot constrain~\cite{LeeZurekChen2024}.
-    The vertical grey band marks the AGN/quasar redshift range
-    $D \sim 1$--$10$~Gpc.
-    The random-walk exponent $\alpha = 1/2$ is excluded by imaging at
-    $D > 13$~kpc and by the proposed HBT campaign at $D > 73$~pc to
-    $D > 8$~kpc (depending on whether the space-UV or ground exclusion
-    applies). The holographic exponent $\alpha = 2/3$ predicts
-    $\sigma_\ell \sim 10^{-15}$~m at AGN distances --- far below the HBT
-    accessible regime --- and is the natural target of tabletop
-    holographic-noise interferometers~\cite{VerlindeZurek2021} rather than
-    astrophysical coherence measurements (see Conclusions). The
-    conservative exponent $\alpha = 1$ has $\sigma_\ell = \ell_{\rm P}$
-    regardless of $D$ and lies far below all current and projected
-    sensitivity floors.
-    The green band's upper edge was computed for a broadband ($\lambda = 500$~nm,
-    $\Delta\lambda/\lambda = 10^{-3}$) scenario; the H$\alpha$-optimised
-    10\,m campaign of Table~\ref{tab:aperture} reaches
-    $\sigma_{\ell,\rm min} \approx 117$~nm (Lorentzian profile) to $\approx 96$~nm
-    (Gaussian profile), bracketing the band's upper edge, while a
-    40\,m aperture reaches $\sigma_{\ell,\rm min} \approx 18$~nm, well within it.
+    $\alpha$-model exponents ($A_\alpha = 1$).
+    The dashed line is the Lieu--Hillman threshold $\sigma_\ell = \lambda/(2\pi)$
+    at $\lambda = 500$~nm; the shaded region above it is excluded by
+    imaging~\cite{LieuHillman2003,Ragazzoni2003,Christiansen2011,Perlman2015}
+    under the standard short-$r_\perp$ assumption.
+    Long-range-correlated foam~\cite{LeeZurekChen2024} evades this bound and
+    is the target of the HBT framework developed here, whose accessible regime
+    $\sigma_\ell \in [6, 64]$~nm is the green band; an H$\alpha$-optimised
+    10\,m campaign reaches the upper edge and a 40\,m aperture reaches
+    ${\sim}18$\,nm well within it (Table~\ref{tab:aperture}).
+    The grey vertical band marks the AGN/quasar range $D \sim 1$--$10$~Gpc.
+    See Section~\ref{sec:conclusions} for photon-counting sensitivities and
+    discussion of the holographic ($\alpha = 2/3$) and conservative
+    ($\alpha = 1$) cases.
     \label{fig:observability}}
 \end{figure}
 
@@ -1521,7 +1496,10 @@ observables.
 For the fiducial parameters $D = 1$~Gpc, $\lambda = 500$~nm,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$: the $\alpha = 1/2$ case gives
 $\sigma_\phi \approx 280$ (fringes completely erased) and is excluded by
-fringe-visibility measurements~\cite{Perlman2015,Christiansen2011,Ragazzoni2003}.
+fringe-visibility measurements~\cite{Perlman2015,Christiansen2011,Ragazzoni2003}
+under the standard assumption of short-range transverse foam correlations;
+long-range-correlated random-walk foam~\cite{LeeZurekChen2024} evades this
+bound and remains a target of the present framework.
 The holographic case $\alpha = 2/3$ gives $\sigma_\phi \sim 10^{-8}$ --- six
 orders of magnitude below the $\sigma_\phi \sim 1$ imaging exclusion ---
 predicting $\mathcal{S}/|g^{(1)}_{\rm src}|^2 \sim 10^{-15}$ for the
@@ -1590,6 +1568,50 @@ DE-AC02-05CH11231.
 
 The authors used Claude (Anthropic) to assist with drafting and editing portions of this manuscript. All content was reviewed and verified by the authors, who take full responsibility for the work.
 \end{acknowledgments}
+
+\appendix
+
+\section{Voigt-Profile Convolution}
+\label{app:voigt}
+
+Equations~\eqref{eq:voigt_params}--\eqref{eq:g1obs_voigt} follow from
+evaluating Eq.~\eqref{eq:g1obs} with the Voigt source coherence
+$g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$:
+\begin{equation}
+  g^{(1)}_{\rm obs}(\tau)
+  = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2)\,
+    e^{-|\tau-\Delta|/\tau_L}\,e^{-(\tau-\Delta)^2/2\tau_G^2}\,d\Delta.
+  \label{eq:voigt_app_start}
+\end{equation}
+The two Gaussian factors $\mathcal{N}(\Delta;0,\sigma_\Delta^2)$ and
+$e^{-(\tau-\Delta)^2/2\tau_G^2}$ combine into a single Gaussian in $\Delta$;
+completing the square gives the effective mean and variance
+\begin{equation}
+  \tilde\sigma_1^2 = \frac{\sigma_\Delta^2\,\tau_G^2}{\sigma_\Delta^2+\tau_G^2},
+  \qquad
+  \mu_1(\tau) = \frac{\tau_G^2\,\tau}{\sigma_\Delta^2+\tau_G^2},
+\end{equation}
+together with the multiplicative prefactor
+$(\tilde\sigma_1/\sigma_\Delta)\,e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}$.
+The remaining Lorentzian--Gaussian convolution
+$\int\mathcal{N}(\Delta;\mu_1,\tilde\sigma_1^2)\,e^{-|\tau-\Delta|/\tau_L}\,d\Delta$
+is split at $\Delta=\tau$; each half-line integral is of the standard form
+$\int_0^\infty e^{-x/\tau_L}\,e^{-(x-a)^2/2\tilde\sigma_1^2}dx
+\propto e^{\tilde\sigma_1^2/2\tau_L^2 \mp a/\tau_L}\,
+\mathrm{erfc}\!\left((\tilde\sigma_1/\tau_L \mp a/\tilde\sigma_1)/\sqrt{2}\right)$
+after completing the square in the exponent, and the two halves combine into
+Eq.~\eqref{eq:g1obs_voigt}.
+The pure-Lorentzian closed form Eq.~\eqref{eq:g1obs_erfc} follows in the limit
+$\tau_G\to\infty$, for which $\tilde\sigma_1\to\sigma_\Delta$, $\mu_1\to\tau$,
+and the prefactor reduces to unity.
+
+The zero-lag Voigt result Eq.~\eqref{eq:g2zero_voigt} for the second-order
+coherence is obtained by the same procedure applied to
+$g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_L}\,e^{-\tau^2/\tau_G^2}$:
+the factor-of-two changes in the exponents of both the Lorentzian and
+Gaussian factors propagate through, yielding the zero-lag effective width
+$\tilde\sigma^2 = \sigma_0^2\tau_G^2/(2\sigma_0^2+\tau_G^2)$ of
+Eq.~\eqref{eq:sigmatilde}.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
