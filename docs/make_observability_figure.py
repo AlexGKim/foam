@@ -58,6 +58,10 @@ ax.fill_between(D_Mpc, sigma_LH, ymax, color=C_EXCL, alpha=0.10, zorder=0)
 # HBT Siegert-violation accessible: between space-UV and ground thresholds
 ax.fill_between(D_Mpc, sig_space_uv, sig_ground,
                 color=C_HBT, alpha=0.20, zorder=0)
+# Galactic transient distance band (eta Car at 2.3 kpc, hypothetical SN at 2 kpc)
+ax.axvspan(1.5e-3, 3.5e-3, color='gray', alpha=0.09, zorder=0)
+# M31 distance band (785 kpc)
+ax.axvspan(0.55, 1.15, color='gray', alpha=0.09, zorder=0)
 # AGN / quasar distance range (1-10 Gpc)
 ax.axvspan(1e3, 1e4, color='gray', alpha=0.09, zorder=0)
 
@@ -96,6 +100,14 @@ ax.text(30, np.sqrt(sig_ground * sig_space_uv) * 0.55,
         ha='center', va='center', fontsize=8.5, color=C_HBT_DK,
         style='italic', zorder=5)
 
+# Galactic transient label
+ax.text(np.sqrt(1.5e-3 * 3.5e-3), 4e-12, r'Galactic ($\eta$ Car / SN)',
+        ha='center', va='center', fontsize=9, color=C_GRAY,
+        rotation=90, zorder=5)
+# M31 label
+ax.text(np.sqrt(0.55 * 1.15), 4e-12, 'M31',
+        ha='center', va='center', fontsize=9, color=C_GRAY,
+        rotation=90, zorder=5)
 # AGN / quasar band label: rotated, in the empty mid-vertical region
 ax.text(np.sqrt(1e3 * 1e4), 4e-12, 'AGN / quasar',
         ha='center', va='center', fontsize=10, color=C_GRAY,
