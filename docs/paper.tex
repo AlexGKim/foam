@@ -1267,8 +1267,8 @@ The extended-source zero-lag bunching suppression $\delta g^{(2)}$ derived in
 Section~\ref{sec:zerolag} is a genuine prediction of the model but is not
 directly accessible to picosecond-timing HBT\@.
 The foam modifies $g^{(2)}(\tau)$ only on the attosecond timescale
-$\sigma_0 = \sqrt{2}\,\sigma_\ell(D)/c$; for $\sigma_\ell \sim 70$\,nm
-(the 10\,m HBT threshold, see below), $\sigma_0 \approx 330$\,as.
+$\sigma_0 = \sqrt{2}\,\sigma_\ell(D)/c$; for $\sigma_\ell \sim 117$\,nm
+(the 10\,m HBT threshold, see below), $\sigma_0 \approx 550$\,as.
 Because convolution preserves the area under $g^{(2)}(\tau)-1$, the
 foam-induced suppression at $\tau = 0$ is exactly compensated by enhanced
 wings at $|\tau| \lesssim \sigma_0$ --- both of which lie far inside any
@@ -1308,7 +1308,7 @@ diluted by $\tau_c/\sigma_t$ and the SNR degrades to
 $\mathcal{S}(\tau_c)\cdot R\cdot\tau_c\cdot\sqrt{T_{\rm obs}/\sigma_t}$;
 it is therefore essential to observe in the source-limited regime.
 
-The key to reaching $\tau_c > \sigma_t$ with a continuum source is a sufficiently
+The key to reaching $\tau_c > \sigma_t$ is a sufficiently
 narrow filter: $\tau_c = \lambda^2/(c\,\Delta\lambda) > \sigma_t$ requires
 $\Delta\lambda < \lambda^2/(c\,\sigma_t)$.
 For the \citet{Kim2025} timing resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms)
@@ -1338,7 +1338,7 @@ correction for accidental coincidences is small~\cite{Brouri2000}.
 We adopt 3C~273 (broad H$\alpha$, $F \approx 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
 FWHM $\approx 127$\,\AA) as the reference target~\cite{Boroson1992}.
 Broad permitted lines in luminous quasars are empirically well described by
-Lorentzian profiles; for a Lorentzian of FWHM $= 127$\,\AA, a $1.1$\,\AA\
+Lorentzian profiles~\cite{Kollatschny2013}; for a Lorentzian of FWHM $= 127$\,\AA, a $1.1$\,\AA\
 filter centred on the peak passes a fraction
 $(2/\pi)\arctan(1.1/127) \approx 0.55\%$ of the total line flux, giving
 $R \approx 1110$\,cps on a 10\,m telescope with $\epsilon = 0.39$.
@@ -1420,10 +1420,9 @@ direct test of the distance scaling $\sigma_\phi \propto D^{1/2-\alpha}$ predict
 by the $\alpha$-foam model.
 Table~\ref{tab:blazars} lists representative targets spanning $z \approx 0.003$
 to $z \approx 1.1$ (propagation distances $D \sim 14$\,Mpc to $\sim 4.7$\,Gpc,
-a factor of $\sim 340$ in $D$), with the point-source Siegert discrepancy
-$\mathcal{S}(\tau_c)$ predicted by Eq.~\eqref{eq:Stc} for $\alpha = 1/2$ and
-$\alpha = 0.54$ at H$\alpha$ ($\lambda = 6563$\,\AA, $A_\alpha = 1$,
-$C_\alpha \to 0$).
+a factor of $\sim 340$ in $D$), with the predicted point-source Siegert
+discrepancy $\mathcal{S}(\tau_c)$ (Eq.~\eqref{eq:Stc}) for $\alpha = 1/2$ and
+$\alpha = 0.54$ (see Table~\ref{tab:blazars} caption for parameters).
 
 \begin{table}[h]
 \centering
