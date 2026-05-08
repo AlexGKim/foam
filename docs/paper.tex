@@ -1325,33 +1325,39 @@ correction for accidental coincidences is small~\cite{Brouri2000}.
 
 We adopt 3C~273 (broad H$\alpha$, $F \approx 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
 FWHM $\approx 127$\,\AA) as the reference target~\cite{Boroson1992}.
-A $1.1$\,\AA\ filter at H$\alpha$ passes $\approx 0.87\%$ of the total line flux,
-giving a detected photon rate $R \approx 1760$\,cps on a 10\,m telescope with
-$\epsilon = 0.39$.
+Broad permitted lines in luminous quasars are empirically well described by
+Lorentzian profiles; for a Lorentzian of FWHM $= 127$\,\AA, a $1.1$\,\AA\
+filter centred on the peak passes a fraction
+$(2/\pi)\arctan(1.1/127) \approx 0.55\%$ of the total line flux, giving
+$R \approx 1110$\,cps on a 10\,m telescope with $\epsilon = 0.39$.
+(A Gaussian profile of the same FWHM would give $\approx 0.81\%$ and
+$R \approx 1630$\,cps; the profile-shape uncertainty changes $R$ by
+$\lesssim 1.5\times$ and $\sigma_{\phi,\rm min}$ by $\lesssim 25\%$.)
 In the weak-foam limit, the minimum detectable phase amplitude scales as
 \begin{equation}
   \sigma_{\phi,\rm min} \;\propto\; \frac{1}{d}\cdot T_{\rm obs}^{-1/4},
   \label{eq:sphi_min_scale}
 \end{equation}
 and Table~\ref{tab:aperture} gives $\sigma_{\phi,\rm min}$ at $3\sigma$ for
-apertures $d = 10$, $40$, and $1000$\,m with $T_{\rm obs} = 10^4$\,hr.
-A 2\,m aperture ($R \approx 70$\,cps) cannot reach $3\sigma$ on a 3C~273-class
-target in $10^4$\,hr; a brighter nearby Seyfert~1 (e.g.\ NGC~4151,
+apertures $d = 10$, $40$, and $1000$\,m with $T_{\rm obs} = 10^4$\,hr
+(Lorentzian profile assumed throughout).
+A 2\,m aperture cannot reach $3\sigma$ on a 3C~273-class target in $10^4$\,hr;
+a brighter nearby Seyfert~1 (e.g.\ NGC~4151,
 $F_{\rm H\alpha} \approx 5\times10^{-11}$\,erg\,s$^{-1}$\,cm$^{-2}$, ${\sim}25\times$
 brighter) would reach the same $\sigma_{\phi,\rm min}$ in $\sim 600\times$ less
-integration time, but at $D \approx 14$\,Mpc the foam signal is too small to
-detect ($\sigma_\phi \approx 0.12$ for $\alpha = 0.54$); such sources serve as
-systematic-calibration targets rather than primary detection targets.
+integration time, but at $D \approx 14$\,Mpc the foam signal is negligible
+($\sigma_\phi \approx 0.12$ for $\alpha = 0.54$); such sources serve as
+systematic-calibration targets.
 
 \begin{table}[h]
 \centering
 \caption{Minimum detectable rms phase variance $\sigma_\phi$ and path-length
 amplitude $\sigma_\ell$ at $3\sigma$ significance, from Eq.~\eqref{eq:hbt_snr}
 with $T = 10^4$\,hr on a 3C~273-class broad-line quasar (H$\alpha$,
-$F = 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, through a $1.1$\,\AA\ filter,
-$R \approx 1760$\,cps on a 10\,m telescope), throughput $\epsilon = 0.39$,
-timing resolution $\sigma_t = 30$\,ps FWHM~\cite{Kim2025}, and $C_\alpha \to 0$
-(dynamical foam).
+$F = 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, Lorentzian profile,
+through a $1.1$\,\AA\ filter, $R \approx 1110$\,cps on a 10\,m telescope),
+throughput $\epsilon = 0.39$, timing resolution $\sigma_t = 30$\,ps FWHM~\cite{Kim2025},
+and $C_\alpha \to 0$ (dynamical foam).
 The signal is the point-source Siegert violation $\mathcal{S}(\tau_c)$
 (Eq.~\ref{eq:Stc}).
 The foam exponent limit $\alpha_{\rm lim}$ is derived from
@@ -1364,9 +1370,9 @@ The Lieu--Hillman (LH) imaging exclusion at H$\alpha$ corresponds to $\sigma_\ph
 \toprule
 Aperture & $\sigma_{\phi,\rm min}$ & $\sigma_{\ell,\rm min}$ (nm) & $\alpha_{\rm lim}$ ($D=1$\,Gpc) & $\alpha_{\rm lim}$ ($D=5$\,Gpc) \\
 \midrule
-10\,m    & 0.66  & 69   & 0.542 & 0.547 \\
-40\,m    & 0.13  & 14   & 0.553 & 0.558 \\
-1000\,m  & 0.01  & 0.6  & 0.576 & 0.581 \\
+10\,m    & 1.12  & 117  & 0.538 & 0.543 \\
+40\,m    & 0.17  & 18   & 0.551 & 0.557 \\
+1000\,m  & 0.01  & 1    & 0.575 & 0.580 \\
 \midrule
 LH imaging & 1.0  & 105 & 0.539 & 0.544 \\
 \bottomrule
@@ -1374,13 +1380,17 @@ LH imaging & 1.0  & 105 & 0.539 & 0.544 \\
 \end{table}
 
 Several features are noteworthy.
-First, a 10\,m telescope ($\sigma_{\phi,\rm min} \approx 0.66$, $\sigma_{\ell,\rm min} \approx 69$\,nm)
-is comparable to the Lieu--Hillman imaging floor ($\sigma_\ell \approx 105$\,nm
-at H$\alpha$), and a 40\,m aperture reaches well below it ($\sigma_\ell \approx 14$\,nm)
-in the same campaign.
+First, a 10\,m telescope ($\sigma_{\phi,\rm min} \approx 1.1$) just reaches the
+Lieu--Hillman imaging floor ($\sigma_\phi = 1$, $\sigma_\ell \approx 105$\,nm
+at H$\alpha$) in a $10^4$\,hr campaign, while a 40\,m aperture surpasses it
+substantially ($\sigma_\ell \approx 18$\,nm, nearly $6\times$ below the
+imaging floor).
+(For a Gaussian line profile the 10\,m reaches $\sigma_{\phi,\rm min} \approx 0.70$,
+comfortably below the LH floor; the profile-shape uncertainty brackets the
+10\,m case.)
 Second, a 1\,km class array would reach $\sigma_\ell \lesssim 1$\,nm in $10^4$\,hr.
 Third, as before, the advance in excluded foam exponent is modest: even a 1\,km
-aperture moves $\alpha_{\rm lim}$ from $0.542$ to $0.576$ at $D = 1$\,Gpc, still
+aperture moves $\alpha_{\rm lim}$ from $0.538$ to $0.575$ at $D = 1$\,Gpc, still
 far from the holographic $\alpha = 2/3$.
 This reflects the extreme sensitivity of $\sigma_\phi$ to $\alpha$: at $D = 1$\,Gpc,
 $\sigma_\phi$ spans ten orders of magnitude as $\alpha$ runs from $1/2$ to $2/3$
@@ -1508,11 +1518,12 @@ isolating H$\alpha$ or other permitted lines.
 For a 10\,m-class telescope (throughput $\epsilon = 0.39$, timing resolution
 $\sigma_t = 30$\,ps FWHM~\cite{Kim2025}) with a $1.1$\,\AA\ filter at H$\alpha$,
 a $10^4$\,hr campaign on a 3C~273-class quasar reaches
-$\sigma_{\phi,\rm min} \approx 0.66$ ($\sigma_\ell \approx 69$\,nm, $3\sigma$),
-comparable to the Lieu--Hillman imaging floor at H$\alpha$ ($\sigma_\ell \approx 105$\,nm);
-a 40\,m aperture reaches $\sigma_\ell \approx 14$\,nm, well below it.
+$\sigma_{\phi,\rm min} \approx 1.1$ ($\sigma_\ell \approx 117$\,nm, $3\sigma$,
+assuming a Lorentzian line profile), just at the Lieu--Hillman imaging floor
+($\sigma_\ell \approx 105$\,nm at H$\alpha$); a 40\,m aperture reaches
+$\sigma_\ell \approx 18$\,nm, well below it.
 The figure of merit on $\sigma_\ell$ runs from $\sim 105$\,nm (current imaging at H$\alpha$)
-to $\sim 70$\,nm (10\,m HBT) to $\sim 14$\,nm (40\,m HBT); this is
+to $\sim 117$\,nm (10\,m HBT, Lorentzian) to $\sim 18$\,nm (40\,m HBT); this is
 the second-order coherence regime accessible to point-source Siegert tests but
 not to imaging when transverse foam correlations are
 large~\cite{LeeZurekChen2024} (Fig.~\ref{fig:observability}).
