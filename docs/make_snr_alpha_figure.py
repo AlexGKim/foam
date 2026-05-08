@@ -72,8 +72,6 @@ for src in sources:
     ax.semilogy(alpha, src['SNR'], color=src['color'], lw=2.2,
                 label=src['label'])
 
-ax.axhline(3, color='#d62728', lw=1.2, ls='--', label=r'$3\sigma$')
-ax.axhline(1, color='#d62728', lw=0.8, ls=':',  label=r'$1\sigma$')
 
 for a_mark, label in [(0.54, r'$\alpha=0.54$'), (2/3, r'$\alpha=2/3$')]:
     ax.axvline(a_mark, color='gray', lw=1.0, ls='--', alpha=0.6)
