@@ -1893,21 +1893,44 @@ $z$ is the spectroscopic redshift; $D$ is the luminosity distance for
 $H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m_V$ is the apparent visual magnitude;
 line fluxes $F$ are integrated over the emission line;
 FWHM is the observed-frame full width at half maximum of the broad emission
-line component; profile shape is the empirical characterisation from
-the literature.}
+line component.}
 \label{tab:source_agn}
-\begin{tabular}{llcccccc}
+\begin{tabular}{llccccc}
 \toprule
-Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & Profile \\
+Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) \\
 \midrule
-3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$ & 127 & Lorentzian~\cite{Boroson1992,Kollatschny2013} \\
-Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28 & Lorentzian~\cite{Kollatschny2013} \\
-I\,Zw\,1 & 0.061 & 261 & 14.0 & H$\alpha$ & \ldots            &  27 & Lorentzian~\cite{Kollatschny2013} \\
-NGC~4151 & 0.003 &  14 & 11.5 & H$\alpha$ & $5\times10^{-11}$ & \ldots & \ldots \\
-Mrk~509  & 0.034 & 146 & 13.1 & H$\alpha$ & \ldots            & \ldots & \ldots \\
+3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992} & 127~\cite{Boroson1992} \\
+Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28~\cite{Kollatschny2013} \\
+I\,Zw\,1 & 0.061 & 261 & 14.0 & H$\alpha$ & \ldots            &  27~\cite{Kollatschny2013} \\
+NGC~4151 & 0.003 &  14 & 11.5 & H$\alpha$ & $5\times10^{-11}$ & \ldots \\
+Mrk~509  & 0.034 & 146 & 13.1 & H$\alpha$ & \ldots            & \ldots \\
 \bottomrule
 \end{tabular}
 \end{table*}
+
+\subsection*{Broad-line profile shapes}
+
+The profile shape of the broad emission line determines the fraction of line
+flux transmitted through a narrow filter and the functional form of
+$g^{(2)}_{\rm src}(\tau)$ at zero lag (Section~\ref{sec:zerolag}).
+
+Sulentic et al.~\cite{2002ApJ...566L..71S} and Zamfir et al.~\cite{2010MNRAS.403.1759Z}
+establish an empirical division of AGN into two populations based on
+FWHM(H$\beta$): \emph{Population~A} sources with FWHM $\lesssim 4000$\,km\,s$^{-1}$
+have broad H$\beta$ profiles that are well described by a single Lorentzian,
+while \emph{Population~B} sources with FWHM $\gtrsim 4000$\,km\,s$^{-1}$
+require a double-Gaussian (a classical broad component plus a very
+broad, redshifted component) and are not well described by a single Lorentzian.
+
+Mrk~766 has FWHM $\approx 1300$\,km\,s$^{-1}$, placing it firmly in
+Population~A; its broad H$\alpha$ profile is well described by a
+Lorentzian~\cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}.
+
+3C~273 has FWHM $\approx 6800$\,km\,s$^{-1}$ (rest-frame velocity equivalent of
+the 127\,\AA\ observed-frame H$\beta$ width at $z = 0.158$~\cite{Boroson1992}),
+placing it in Population~B.
+Its broad H$\beta$ profile is not well described by a single Lorentzian and
+instead requires a double-Gaussian decomposition~\cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}.
 
 \begin{table*}[t]
 \centering
