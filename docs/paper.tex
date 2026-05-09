@@ -1235,6 +1235,11 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 \label{sec:prospects}
 % ==============================================================
 
+This section examines the detectability of one of the central findings of
+this paper: the extended-source Siegert discrepancy and its zero-lag bunching
+suppression $\delta g^{(2)} \equiv 2 - g^{(2)}(0)$
+(Section~\ref{sec:zerolag}).
+
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
 
@@ -1635,6 +1640,13 @@ scales linearly with $s = \sigma_0/\tau_L$ --- a consequence of the cusp in
 $g^{(2)}_{\rm src}$ at zero lag --- so that despite being a second-order coherence
 measurement, $\delta g^{(2)}$ is not doubly suppressed relative to the first-order
 observables.
+Physically, the $\delta g^{(2)}$ suppression reflects the two-photon character of HBT
+bunching: the zero-lag peak is built from photon pairs arriving from different sky
+directions $\boldsymbol{\theta}\neq\boldsymbol{\theta}'$, which propagate through
+distinct transverse regions of the foam and accumulate independent jitters
+$\delta t(t;\boldsymbol{\theta})\neq\delta t(t;\boldsymbol{\theta}')$ when
+$b\gg r_\perp$; their relative offset blurs $g^{(2)}(0)$ below its canonical value
+of 2 (cf.\ Section~\ref{sec:zerolag}).
 
 For the fiducial parameters $D = 1$~Gpc, $\lambda = 500$~nm,
 $\Delta\lambda/\lambda = 10^{-3}$, $A_\alpha = 1$: the $\alpha = 1/2$ case gives
