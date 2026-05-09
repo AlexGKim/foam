@@ -10,6 +10,7 @@ Outputs: snr_vs_alpha.pdf, snr_vs_alpha.png
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
 from scipy.special import erfc
 
 plt.rcParams['text.usetex'] = True
@@ -88,6 +89,9 @@ for src in sources:
     sigma_g2  = 1.0 / (R * np.sqrt(tau_c * T_obs))   # Eq. hbt_sigma
     src['SNR'] = S / sigma_g2                          # Eq. hbt_snr
     src['R']   = R
+    idx_lim = np.argmin(np.abs(s - 0.3))
+    src['alpha_lim'] = alpha[idx_lim]
+    src['SNR_lim']   = src['SNR'][idx_lim]
 
 # ---------------------------------------------------------------
 # Plot
@@ -99,6 +103,10 @@ for src in sources:
                 label=src['label'])
 
 
+for src in sources:
+    ax.plot(src['alpha_lim'], src['SNR_lim'], 'o', color=src['color'],
+            ms=7, mec='black', mew=0.8)
+
 for a_mark, label in [(0.54, r'$\alpha=0.54$'), (2/3, r'$\alpha=2/3$')]:
     ax.axvline(a_mark, color='gray', lw=1.0, ls='--', alpha=0.6)
     ax.text(a_mark + 0.003, 2e-15, label,
@@ -108,8 +116,12 @@ ax.set_xlim(0.50, 0.75)
 ax.set_ylim(1e-15, 1e8)
 ax.set_xlabel(r'Foam exponent $\alpha$', fontsize=12)
 ax.set_ylabel(r'SNR  ($T_{\rm obs} = 10\,{\rm hr}$)', fontsize=12)
-ax.set_title(r'H$\alpha$, 10\,m baseline (Kim et al.\ 2025), $T=10$\,hr', fontsize=11)
-ax.legend(fontsize=9, loc='upper center', bbox_to_anchor=(0.413, 0.98),
+validity_marker = mlines.Line2D([], [], marker='o', color='gray', ls='none',
+                                ms=7, mec='black', mew=0.8,
+                                label=r'$s=0.3$ (weak-foam limit)')
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(handles + [validity_marker], labels + [r'$s=0.3$ (weak-foam limit)'],
+          fontsize=9, loc='upper center', bbox_to_anchor=(0.413, 0.98),
           framealpha=0.95)
 ax.grid(True, which='major', alpha=0.25)
 ax.grid(True, which='minor', alpha=0.08)
