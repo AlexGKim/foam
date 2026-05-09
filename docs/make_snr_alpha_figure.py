@@ -23,6 +23,7 @@ ell_P  = 1.616e-35    # Planck length [m]
 Mpc    = 3.086e22     # 1 Mpc [m]
 h_erg  = 6.626e-27    # erg·s
 c_cgs  = 3.0e10       # cm/s
+c_si   = 3.0e8        # m/s
 lam_cm = 6563e-8      # Hα [cm]
 lam_m  = 6563e-10     # Hα [m]
 E_phot = h_erg * c_cgs / lam_cm   # photon energy [erg]
@@ -82,7 +83,6 @@ for src in sources:
     R   = src['F'] * f_L * A_tel_cm2 / E_phot * eps
     sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
     sigma_ell = sigma_phi * lam_m / (2 * np.pi)          # σ_ℓ(D) [m]
-    c_si      = 3.0e8                                     # m/s
     sigma_0   = np.sqrt(2) * sigma_ell / c_si             # Φ_eff=0 limit [s]
     s         = sigma_0 / tau_c
     S         = 1.0 - np.exp(2*s**2) * erfc(np.sqrt(2)*s)

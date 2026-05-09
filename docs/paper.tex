@@ -902,6 +902,15 @@ $g^{(1)}_{\rm obs}$ and $g^{(2)}_{\rm obs}$ are measurable from the same
 dataset — and the modulation beyond the prefactor $|g^{(1)}_{\rm src}(\tau)|^2$
 is controlled solely by $\alpha$, $D$, and $C_\alpha(\tau;D)$, independently
 of the unknown source spectrum.
+For a Lorentzian source, $|g^{(1)}_{\rm src}(\tau_c)|^2 = e^{-2}$, and in the
+dynamical limit $C_\alpha\to 0$, Eq.~\eqref{eq:Sexplicit} reduces to
+\begin{equation}
+  \mathcal{S}(\tau_c) = e^{-2}\!\left(1-e^{-2\sigma_\phi^2}\right),
+  \label{eq:Stc}
+\end{equation}
+the detection observable used in Tables~\ref{tab:aperture} and~\ref{tab:blazars}.
+In the weak-foam limit $\sigma_\phi\ll 1$ this is $\approx 2e^{-2}\sigma_\phi^2$;
+in the strong-foam limit $\sigma_\phi\gg 1$ it saturates at $e^{-2}\approx 0.135$.
 
 % ==============================================================
 \section{Extended Sources: Transverse Foam Coherence}
@@ -1250,11 +1259,12 @@ All these targets are physically large and are thus extended sources, even thoug
 
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
-Measuring $\mathcal{S}(0)$ requires resolving the bunching peak of $g^{(2)}_{\rm obs}(\tau)$ near $\tau = 0$, where $\tau \sim \tau_c$ is of order picoseconds. A single-detector autocorrelation cannot access this regime: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) blinds the instrument to precisely the coincidences that build the bunching peak. The Hanbury Brown--Twiss configuration~\cite{HBT1956} circumvents this by splitting the beam onto two independent detectors and forming the cross-correlation $\langle I_A(t)\, I_B(t+\tau)\rangle$: the two photons of a near-coincident pair are routed to detectors with statistically independent dead times, recovering access to lags $\tau \ll \tau_d$. The split-beam geometry also suppresses afterpulsing artifacts (which would mimic a foam-induced deficit), halves the per-detector rate to extend the linear counting regime, and rejects correlated electronic and time-tagger artifacts as common mode --- the reasons essentially all modern photon-counting $g^{(2)}$ measurements use this geometry, which we adopt as the baseline configuration throughout.
+Measuring $\mathcal{S}(0)$ requires resolving the bunching peak of $g^{(2)}_{\rm obs}(\tau)$ near $\tau = 0$, where $\tau \sim \tau_c$ is of order picoseconds. A single-detector autocorrelation cannot access this regime: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) blinds the instrument to precisely the coincidences that build the bunching peak. The Hanbury Brown--Twiss configuration~\cite{HBT1956} circumvents this by splitting the beam onto two independent detectors and forming the cross-correlation $\langle I_A(t)\, I_B(t+\tau)\rangle$: the two photons of a near-coincident pair are routed to detectors with statistically independent dead times, recovering access to lags $\tau \ll \tau_d$.
+The split-beam geometry also suppresses afterpulsing artifacts (which would mimic a foam-induced deficit), halves the per-detector rate to extend the linear counting regime, and rejects correlated electronic and time-tagger artifacts as common mode --- the reasons essentially all modern photon-counting $g^{(2)}$ measurements use this geometry, which we adopt as the baseline configuration throughout.
 
 The HBT observable is $g^{(2)}_{\rm obs}(0)$, whose foam-free value for a thermal
 source is $2$.
-For an extended source with transverse coherence factor $\Phi_{\rm eff}<1$, the
+For an extended source with transverse coherence factor $\Phi_{\rm eff} \approx 0$, the
 zero-lag bunching peak is suppressed to $g^{(2)}_{\rm obs}(0) = 1 + e^{2s^2}\mathrm{erfc}(\sqrt{2}\,s)$
 (Eq.~\eqref{eq:g2zero}), where $s \equiv \sigma_0/\tau_c$ and
 $\sigma_0^2 = 2\sigma_\ell^2(D)(1-\Phi_{\rm eff})/c^2$ (Eq.~\eqref{eq:sigma0}).
@@ -1297,14 +1307,14 @@ it is therefore essential to observe in the source-limited regime.
 The key to reaching $\tau_c > \sigma_t$ is a sufficiently
 narrow filter: $\tau_c = \lambda^2/(c\,\Delta\lambda) > \sigma_t$ requires
 $\Delta\lambda < \lambda^2/(c\,\sigma_t)$.
-For the \citet{Kim2025} timing resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms)
+For the \citet{Kim2025} timing resolution FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms)
 and the H$\alpha$ line ($\lambda = 6563$\,\AA), the threshold filter width is
 $\Delta\lambda \approx 1.1$\,\AA, giving $\tau_c \approx 13$\,ps.
 This is the optimal filter.
 We adopt as the baseline instrumental configuration that of \citet{Kim2025}:
 telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$), mirror reflectivity $0.73$,
 filter transmission $0.90$, detector quantum efficiency $0.60$, total throughput
-$\epsilon = 0.39$, and timing resolution $\sigma_t = 30$\,ps FWHM ($13$\,ps rms).
+$\epsilon = 0.39$, and timing resolution FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms).
 For a filter much narrower than the emission-line FWHM, the photon rate scales
 linearly with the filter width, $R \propto \Delta\lambda$ (since the line flux
 density is approximately constant across the filter), while $\tau_c \propto
@@ -1423,6 +1433,9 @@ integration time, but at $D \approx 14$\,Mpc the foam signal is negligible
 ($\sigma_\phi \approx 0.12$ for $\alpha = 0.54$); such sources serve as
 systematic-calibration targets.
 
+% TODO: table uses point-source S(tau_c) (Phi_eff->1) but surrounding text
+% develops extended-source S(0). Add bridging sentence or convert to
+% extended-source delta g^(2) table.
 \begin{table}[h]
 \centering
 \caption{Minimum detectable rms phase variance $\sigma_\phi$ and path-length
@@ -1430,7 +1443,7 @@ amplitude $\sigma_\ell$ at $3\sigma$ significance, from Eq.~\eqref{eq:hbt_snr}
 with $T = 10^4$\,hr on a 3C~273-class broad-line quasar (H$\alpha$,
 $F = 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, Lorentzian profile,
 through a $1.1$\,\AA\ filter, $R \approx 1110$\,cps on a 10\,m telescope),
-throughput $\epsilon = 0.39$, timing resolution $\sigma_t = 30$\,ps FWHM~\cite{Kim2025},
+throughput $\epsilon = 0.39$, timing resolution FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms)~\cite{Kim2025},
 and $C_\alpha \to 0$ (dynamical foam).
 The detection threshold is set by the Siegert discrepancy
 $\mathcal{S}(\tau_c)$ in the $\Phi_{\rm eff}\to 1$ limit
@@ -1777,7 +1790,7 @@ The observable is the Siegert violation $\mathcal{S}(\tau_c)$
 using bright broad-line AGN and quasars observed through narrow-band filters
 isolating H$\alpha$ or other permitted lines.
 For a 10\,m-class telescope (throughput $\epsilon = 0.39$, timing resolution
-$\sigma_t = 30$\,ps FWHM~\cite{Kim2025}) with a $1.1$\,\AA\ filter at H$\alpha$,
+FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms)~\cite{Kim2025}) with a $1.1$\,\AA\ filter at H$\alpha$,
 a $10^4$\,hr campaign on a 3C~273-class quasar reaches
 $\sigma_{\phi,\rm min} \approx 0.7$--$1.1$ ($\sigma_\ell \approx 74$--$117$\,nm,
 $3\sigma$, bracketing Gaussian and Lorentzian line profile assumptions),
