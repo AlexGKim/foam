@@ -1893,17 +1893,19 @@ $z$ is the spectroscopic redshift; $D$ is the luminosity distance for
 $H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m_V$ is the apparent visual magnitude;
 line fluxes $F$ are integrated over the emission line;
 FWHM is the observed-frame full width at half maximum of the broad emission
-line component.}
+line component;
+$\tau_c = \lambda_{\rm obs}^2/(c\,\Delta\lambda_{\rm FWHM})$ is the
+coherence time of the unfiltered line.}
 \label{tab:source_agn}
-\begin{tabular}{llccccc}
+\begin{tabular}{llcccccc}
 \toprule
-Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) \\
+Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_c$ (ps) \\
 \midrule
-3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992} & 127~\cite{Boroson1992} \\
-Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28~\cite{Kollatschny2013} \\
-I\,Zw\,1 & 0.061 & 261 & 14.0 & H$\alpha$ & \ldots            &  27~\cite{Kollatschny2013} \\
-NGC~4151 & 0.003 &  14 & 11.5 & H$\alpha$ & $5\times10^{-11}$ & \ldots \\
-Mrk~509  & 0.034 & 146 & 13.1 & H$\alpha$ & \ldots            & \ldots \\
+3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992} & 127~\cite{Boroson1992} & 0.15 \\
+Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28~\cite{Kollatschny2013} & 0.53 \\
+I\,Zw\,1 & 0.061 & 261 & 14.0 & H$\alpha$ & \ldots            &  27~\cite{Kollatschny2013} & 0.60 \\
+NGC~4151 & 0.003 &  14 & 11.5 & H$\alpha$ & $5\times10^{-11}$ & \ldots & \ldots \\
+Mrk~509  & 0.034 & 146 & 13.1 & H$\alpha$ & \ldots            & \ldots & \ldots \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -1940,17 +1942,19 @@ $D = 2.3$\,kpc~\cite{2001ApJ...553..837H}.
 FWHM values are for the broad H$\alpha$ emission component; the bulk outflow
 speed characterises the P~Cygni absorption trough or the dominant spectral
 feature at each epoch.
+$\tau_c = \lambda^2/(c\,\Delta\lambda_{\rm FWHM})$ at H$\alpha$
+($\lambda = 6563$\,\AA) assuming a Lorentzian profile.
 The eruption reached $m_V \approx -1$ at peak (1843--1858).
 Later phases also show very broad emission wings with velocities
 $\gtrsim 10{,}000$\,km\,s$^{-1}$~\cite{2018MNRAS.480.1466S}.}
 \label{tab:source_etacar}
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \toprule
-Eruption epoch & Bulk outflow (km\,s$^{-1}$) & H$\alpha$ FWHM (km\,s$^{-1}$) & Ref. \\
+Eruption epoch & Bulk outflow (km\,s$^{-1}$) & H$\alpha$ FWHM (km\,s$^{-1}$) & $\tau_c$ (ps) & Ref. \\
 \midrule
-Pre-plateau (early)  & $\sim 150$ & $\sim 150$ & \cite{2018MNRAS.480.1466S} \\
-Plateau              & $\sim 400$ & $\sim 400$ & \cite{2014ApJ...787L...8P} \\
-Plateau peak         & $\sim 600$ & $\sim 600$ & \cite{2018MNRAS.480.1466S} \\
+Pre-plateau (early)  & $\sim 150$ & $\sim 150$ & 4.38 & \cite{2018MNRAS.480.1466S} \\
+Plateau              & $\sim 400$ & $\sim 400$ & 1.64 & \cite{2014ApJ...787L...8P} \\
+Plateau peak         & $\sim 600$ & $\sim 600$ & 1.09 & \cite{2018MNRAS.480.1466S} \\
 \bottomrule
 \end{tabular}
 \end{table*}
