@@ -1,6 +1,8 @@
 r"""
-Figure: SNR vs foam exponent alpha for 3C 273 and Mrk 766 (NLS1),
-Kim 2025 baseline instrument (10 m, ε=0.39, σ_t=30 ps FWHM), T=10 hr.
+Figure: SNR vs foam exponent alpha for 3C 273, Mrk 766 (NLS1), an
+eta Car-class LBV giant eruption, a Galactic Type IIn supernova, and
+an M31 Type IIn supernova, Kim 2025 baseline instrument
+(10 m, ε=0.39, σ_t=30 ps FWHM), T=10 hr.
 
 Run:  python make_snr_alpha_figure.py
 Outputs: snr_vs_alpha.pdf, snr_vs_alpha.png
@@ -8,6 +10,9 @@ Outputs: snr_vs_alpha.pdf, snr_vs_alpha.png
 
 import numpy as np
 import matplotlib.pyplot as plt
+
+plt.rcParams['text.usetex'] = True
+plt.rcParams['font.family'] = 'serif'
 
 # ---------------------------------------------------------------
 # Physical constants
@@ -35,13 +40,28 @@ tau_c     = sig_t         # threshold filter: tau_c = sig_t (optimum)
 # ---------------------------------------------------------------
 dlam = 1.1   # threshold filter width [Å]
 
+# kpc in Mpc
+kpc_in_Mpc = 1e-3
+
 # 3C 273 (Boroson & Green 1992): broad-line quasar
+# Mrk 766 (Kollatschny & Zetzl 2013): bright NLS1, FWHM ~1300 km/s = 28 Å at Hα
+# Eta Car: LBV giant eruption (m_V ~ -1), Hα FWHM ~700 km/s = 15 Å, D = 2.3 kpc
+# Galactic SN IIn: m_V ~ -5 at peak, electron-scattering Lorentzian core
+#   FWHM ~2500 km/s = 55 Å, D ~ 2 kpc.  CSM-interaction Hα emission throughout
+#   the ~200 d bright phase makes it source-limited (cf. paper §IX.D).
+# M31 SN IIn: same intrinsic luminosity as the galactic IIn, scaled to D = 785 kpc
+#   (m_V ~ +7), F(Hα) ~ 5e-5 * (2/785)^2 ~ 3.2e-10 erg/s/cm^2.
 sources = [
-    dict(label=r'3C\,273 (BLQ, $D=677$\,Mpc)',
+    dict(label=r'3C\,273 (BLQ, 677\,Mpc)',
          F=2e-12, FWHM=127.0, D_Mpc=677.0, color='#08306b'),
-    # Mrk 766: bright NLS1, FWHM~1300 km/s = 28 Å at Hα (Kollatschny & Zetzl 2013)
-    dict(label=r'Mrk\,766 (NLS1, $D=53$\,Mpc)',
+    dict(label=r'Mrk\,766 (NLS1, 53\,Mpc)',
          F=5e-13, FWHM=28.0,  D_Mpc=53.0,  color='#2ca02c'),
+    dict(label=r'M31 SN\,IIn (785\,kpc)',
+         F=3.2e-10, FWHM=55.0, D_Mpc=785.0*kpc_in_Mpc, color='#9467bd'),
+    dict(label=r'$\eta$\,Car eruption (2.3\,kpc)',
+         F=1e-6,  FWHM=15.0,  D_Mpc=2.3*kpc_in_Mpc, color='#ad3803'),
+    dict(label=r'Galactic SN\,IIn (2\,kpc)',
+         F=5e-5,  FWHM=55.0,  D_Mpc=2.0*kpc_in_Mpc, color='#d62728'),
 ]
 
 # ---------------------------------------------------------------
@@ -59,7 +79,7 @@ for src in sources:
     f_L = (2 / np.pi) * np.arctan(dlam / src['FWHM'])
     R   = src['F'] * f_L * A_tel_cm2 / E_phot * eps
     sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
-    S         = np.exp(-2.0) * (1.0 - np.exp(-2.0 * sigma_phi**2))
+    S         = np.exp(-2.0) * (-np.expm1(-2.0 * sigma_phi**2))
     src['SNR'] = S * R * np.sqrt(tau_c * T_obs)
     src['R']   = R
 
@@ -75,15 +95,16 @@ for src in sources:
 
 for a_mark, label in [(0.54, r'$\alpha=0.54$'), (2/3, r'$\alpha=2/3$')]:
     ax.axvline(a_mark, color='gray', lw=1.0, ls='--', alpha=0.6)
-    ax.text(a_mark + 0.003, 2e-14, label,
+    ax.text(a_mark + 0.003, 2e-15, label,
             fontsize=9, color='gray', va='bottom')
 
 ax.set_xlim(0.50, 0.75)
-ax.set_ylim(1e-14, 1e3)
+ax.set_ylim(1e-15, 1e8)
 ax.set_xlabel(r'Foam exponent $\alpha$', fontsize=12)
 ax.set_ylabel(r'SNR  ($T_{\rm obs} = 10\,{\rm hr}$)', fontsize=12)
 ax.set_title(r'H$\alpha$, 10\,m baseline (Kim et al.\ 2025), $T=10$\,hr', fontsize=11)
-ax.legend(fontsize=10, loc='upper left')
+ax.legend(fontsize=9, loc='upper center', bbox_to_anchor=(0.413, 0.98),
+          framealpha=0.95)
 ax.grid(True, which='major', alpha=0.25)
 ax.grid(True, which='minor', alpha=0.08)
 
