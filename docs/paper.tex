@@ -35,7 +35,7 @@ For spatially extended sources, cross-ray jitter between independent directions
 additionally suppresses the zero-lag bunching peak $g^{(2)}(0)$ through a mechanism
 that depends only on $\sigma_\ell^2(D)$ and is independent of the foam's temporal dynamics.
 The Siegert violation inherits the wavelength dependence of $g^{(1)}$, while
-the zero-lag $g^{(2)}(0)$ suppression for extended
+the zero-lag $g^{(2)}(0)<2$ suppression for extended
 sources is achromatic and depends on the source angular size in units of the
 foam transverse coherence scale; combined with their distance scaling, these
 signatures distinguish foam from plasma and turbulence and are complementary
@@ -1259,7 +1259,17 @@ All these targets are physically large and are thus extended sources, even thoug
 
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
-Measuring $\mathcal{S}(0)$ requires resolving the bunching peak of $g^{(2)}_{\rm obs}(\tau)$ near $\tau = 0$, where $\tau \sim \tau_c$ is of order picoseconds. A single-detector autocorrelation cannot access this regime: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) blinds the instrument to precisely the coincidences that build the bunching peak. The Hanbury Brown--Twiss configuration~\cite{HBT1956} circumvents this by splitting the beam onto two independent detectors and forming the cross-correlation $\langle I_A(t)\, I_B(t+\tau)\rangle$: the two photons of a near-coincident pair are routed to detectors with statistically independent dead times, recovering access to lags $\tau \ll \tau_d$.
+Measuring $\mathcal{S}(0)$ requires resolving the bunching peak of $g^{(2)}_{\rm obs}(\tau)$ near $\tau = 0$, where $\tau \sim \tau_c$ is of order picoseconds.
+The sources we consider --- broad-line quasars, narrow-line Seyfert~1 galaxies,
+and Galactic emission-line stars (detailed in Section~\ref{sec:candidate_sources})
+--- have permitted emission lines with observed widths spanning
+FWHM $\sim 10$--$10^3$\,\AA, giving coherence times
+$\tau_c = \lambda^2/(c\,\Delta\lambda)$ in the range $\sim 1$--$100$\,ps
+through a threshold narrowband filter.
+Throughout this section we adopt H$\alpha$ through a $\Delta\lambda \approx 1.1$\,\AA\
+filter ($\tau_c \approx 13$\,ps) as the reference case, matched to the timing
+resolution of the baseline instrument described below.
+A single-detector autocorrelation cannot access this regime: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) blinds the instrument to precisely the coincidences that build the bunching peak. The Hanbury Brown--Twiss configuration~\cite{HBT1956} circumvents this by splitting the beam onto two independent detectors and forming the cross-correlation $\langle I_A(t)\, I_B(t+\tau)\rangle$: the two photons of a near-coincident pair are routed to detectors with statistically independent dead times, recovering access to lags $\tau \ll \tau_d$.
 The split-beam geometry also suppresses afterpulsing artifacts (which would mimic a foam-induced deficit), halves the per-detector rate to extend the linear counting regime, and rejects correlated electronic and time-tagger artifacts as common mode --- the reasons essentially all modern photon-counting $g^{(2)}$ measurements use this geometry, which we adopt as the baseline configuration throughout.
 
 The HBT observable is $g^{(2)}_{\rm obs}(0)$, whose foam-free value for a thermal
@@ -1304,26 +1314,7 @@ diluted by $\tau_c/\sigma_t$ and $\sigma[g^{(2)}]$ degrades by
 $\sqrt{\sigma_t/\tau_c}$;
 it is therefore essential to observe in the source-limited regime.
 
-The key to reaching $\tau_c > \sigma_t$ is a sufficiently
-narrow filter: $\tau_c = \lambda^2/(c\,\Delta\lambda) > \sigma_t$ requires
-$\Delta\lambda < \lambda^2/(c\,\sigma_t)$.
-For the \citet{Kim2025} timing resolution FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms)
-and the H$\alpha$ line ($\lambda = 6563$\,\AA), the threshold filter width is
-$\Delta\lambda \approx 1.1$\,\AA, giving $\tau_c \approx 13$\,ps.
-This is the optimal filter.
-We adopt as the baseline instrumental configuration that of \citet{Kim2025}:
-telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$), mirror reflectivity $0.73$,
-filter transmission $0.90$, detector quantum efficiency $0.60$, total throughput
-$\epsilon = 0.39$, and timing resolution FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms).
-For a filter much narrower than the emission-line FWHM, the photon rate scales
-linearly with the filter width, $R \propto \Delta\lambda$ (since the line flux
-density is approximately constant across the filter), while $\tau_c \propto
-1/\Delta\lambda$, so $R\sqrt{\tau_c} \propto \sqrt{\Delta\lambda}$ --- a wider
-filter improves SNR up to the source-limited bound $\tau_c \geq \sigma_t$,
-equivalently $\Delta\lambda \leq \lambda^2/(c\,\sigma_t)$.
-The threshold filter $\Delta\lambda \approx \lambda^2/(c\,\sigma_t)$ is therefore
-the optimum: it is as wide as possible while remaining in the source-limited
-regime.
+The source-limited regime requires $\tau_c > \sigma_t$, which selects emission lines whose narrow-band coherence time exceeds the timing resolution of modern photon-counting detectors. With $\tau_c = \lambda^2/(c\,\Delta\lambda)$, this translates to a filter bandwidth $\Delta\lambda < \lambda^2/(c\,\sigma_t)$. We adopt as the baseline instrumental configuration that of Kim \emph{et al.}~\cite{Kim2025}: telescope diameter $d = 9.96$\,m ($A = 77.9$\,m$^2$), mirror reflectivity 0.73, filter transmission 0.90, detector quantum efficiency 0.60, total throughput $\epsilon = 0.39$, and timing resolution FWHM $= 30$\,ps ($\sigma_t = 13$\,ps rms). At this timing resolution the H$\alpha$ line ($\lambda = 6563$\,\AA) is well matched: a $\Delta\lambda \approx 1.1$\,\AA\ filter yields $\tau_c \approx 13$\,ps, comfortably in the source-limited regime. More generally, for a filter much narrower than the emission-line FWHM the photon rate scales linearly with filter width, $R \propto \Delta\lambda$ (since the line flux density is approximately constant across the filter), while $\tau_c \propto 1/\Delta\lambda$, so $R\sqrt{\tau_c} \propto \sqrt{\Delta\lambda}$ --- a wider filter improves SNR up to the source-limited bound $\tau_c \geq \sigma_t$, equivalently $\Delta\lambda \leq \lambda^2/(c\,\sigma_t)$. The threshold filter $\Delta\lambda \approx \lambda^2/(c\,\sigma_t)$ is therefore the optimum for any line of interest: it is as wide as possible while remaining in the source-limited regime.
 
 The distance dependence of the SNR follows directly from Eq.~\eqref{eq:hbt_snr}.
 For a source of fixed luminosity, $R \propto D^{-2}$.
@@ -1885,6 +1876,110 @@ the factor-of-two changes in the exponents of both the Lorentzian and
 Gaussian factors propagate through, yielding the zero-lag effective width
 $\tilde\sigma^2 = \sigma_0^2\tau_G^2/(2\sigma_0^2+\tau_G^2)$ of
 Eq.~\eqref{eq:sigmatilde}.
+
+% ==============================================================
+\section{Source Spectral Properties and Coherence Times}
+\label{app:sources}
+% ==============================================================
+
+Table~\ref{tab:source_tauc} summarises the spectral line properties and coherence
+times for the three representative source classes discussed in
+Section~\ref{sec:candidate_sources}: the broad-line quasar 3C~273, the
+narrow-line Seyfert~1 galaxy Mrk~766, and $\eta$~Car during a Great-Eruption
+episode.
+In every case the unfiltered line coherence time $\tau_c^{\rm line} = \lambda^2/(c\,\Delta\lambda_{\rm FWHM})$
+falls below the baseline detector timing resolution $\sigma_t = 13$\,ps, so the
+measurement must be carried out with a narrowband threshold filter
+$\Delta\lambda_f \approx \lambda^2/(c\,\sigma_t)$ that sets $\tau_c = \sigma_t$
+and places the instrument in the source-limited regime
+(Section~\ref{sec:snr_scaling}).
+
+\begin{table*}[t]
+\centering
+\caption{Spectral line properties and coherence times for the three representative
+source classes.
+$\lambda_{\rm obs}$ is the observed-frame line wavelength;
+$\Delta\lambda_{\rm FWHM}$ is the intrinsic (source) line FWHM in the observed frame;
+$\tau_c^{\rm line} = \lambda_{\rm obs}^2/(c\,\Delta\lambda_{\rm FWHM})$ is the
+coherence time of the unfiltered line;
+$\Delta\lambda_f = 1.1$\,\AA\ is the threshold filter optimised for
+$\sigma_t = 13$\,ps at H$\alpha$ (Section~\ref{sec:snr_scaling}),
+giving $\tau_c^{\rm filt} = 13$\,ps in all cases;
+the filter fraction $f$ is the fraction of total line flux transmitted
+through $\Delta\lambda_f$, evaluated for a Lorentzian profile as
+$(2/\pi)\arctan(\Delta\lambda_f/\Delta\lambda_{\rm FWHM})$.
+References: $^a$\cite{Boroson1992}; $^b$\cite{Kollatschny2013};
+$^c$\cite{2018MNRAS.480.1466S}; $^d$\cite{2014ApJ...787L...8P}.}
+\label{tab:source_tauc}
+\begin{tabular}{llcccccc}
+\toprule
+Source & Line & $\lambda_{\rm obs}$ (\AA) & $\Delta\lambda_{\rm FWHM}$ & $v_{\rm FWHM}$ (km\,s$^{-1}$) & $\tau_c^{\rm line}$ & $\tau_c^{\rm filt}$ & $f$ \\
+\midrule
+3C~273 ($z=0.158$) & H$\beta$ & 5629 & 127\,\AA$^a$ & 6800 & 0.08\,ps & 13\,ps & 0.55\% \\
+Mrk~766 ($z=0.012$) & H$\alpha$ & 6644 & 28.8\,\AA$^b$ & 1300 & 0.51\,ps & 13\,ps & 2.4\% \\
+$\eta$\,Car eruption (early) & H$\alpha$ & 6563 & 3.3\,\AA$^c$ & 150 & 4.4\,ps & 13\,ps & 21\% \\
+$\eta$\,Car eruption (plateau) & H$\alpha$ & 6563 & 8.8\,\AA$^d$ & 400 & 1.6\,ps & 13\,ps & 8.0\% \\
+$\eta$\,Car eruption (peak) & H$\alpha$ & 6563 & 13.1\,\AA$^c$ & 600 & 1.1\,ps & 13\,ps & 5.3\% \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection*{3C~273}
+
+3C~273 ($z = 0.158$, $D = 677$\,Mpc) is the canonical reference target.
+The broad H$\beta$ emission line has an observed-frame FWHM of
+$127$\,\AA\ ($\approx 6800$\,km\,s$^{-1}$)~\cite{Boroson1992},
+corresponding to an intrinsic coherence time
+$\tau_c^{\rm line} = \lambda_{\rm obs}^2/(c\,\Delta\lambda) \approx 0.08$\,ps.
+The same velocity width at the observed-frame H$\alpha$ (7600\,\AA) gives
+$\Delta\lambda \approx 171$\,\AA\ and $\tau_c^{\rm line} \approx 0.15$\,ps.
+Both are $\sim 100\times$ shorter than $\sigma_t = 13$\,ps, so the measurement
+is entirely detector-limited on the unfiltered line.
+A 1.1\,\AA\ threshold filter recovers the source-limited regime
+($\tau_c = 13$\,ps) while transmitting $0.55\%$ of the Lorentzian line flux,
+giving $R \approx 1110$\,cps on a 10\,m telescope with $\epsilon = 0.39$.
+
+\subsection*{Mrk~766}
+
+Mrk~766 ($z = 0.012$, $D = 53$\,Mpc) is the representative narrow-line
+Seyfert~1 (NLS1) target.
+Its H$\alpha$ emission has an observed-frame FWHM $\approx 28.8$\,\AA\
+($\approx 1300$\,km\,s$^{-1}$), consistent with the NLS1 definition
+FWHM(H$\beta$) $\leq 2000$\,km\,s$^{-1}$, and is empirically
+well described by a Lorentzian profile~\cite{Kollatschny2013}.
+The unfiltered coherence time is $\tau_c^{\rm line} \approx 0.51$\,ps,
+still detector-limited.
+The 1.1\,\AA\ threshold filter transmits $2.4\%$ of the Lorentzian line flux,
+about $4\times$ more than for 3C~273, boosting the photon rate relative to
+the line flux.
+The smaller distance reduces $\sigma_\phi$, but the higher filter fraction
+and Lorentzian line purity make Mrk~766 competitive for $\delta g^{(2)}$
+measurements exploiting the linear-in-$s$ cusp (Section~\ref{sec:zerolag}).
+
+\subsection*{$\eta$\,Carinae Great Eruption}
+
+During an $\eta$\,Car-class LBV giant eruption the H$\alpha$ emission profile
+evolves significantly over the eruption duration.
+Light-echo spectroscopy of the 19th-century Great Eruption provides direct
+access to this evolution~\cite{2018MNRAS.480.1466S,2014ApJ...787L...8P}.
+The bulk outflow velocity increases from $\sim 150$\,km\,s$^{-1}$ in the
+pre-plateau phase to $\sim 600$\,km\,s$^{-1}$ at the plateau peak, with
+the emission FWHM $\sim 400$\,km\,s$^{-1}$ at intermediate epochs.
+The corresponding H$\alpha$ FWHM spans $3.3$--$13.1$\,\AA\ and
+$\tau_c^{\rm line}$ spans $1.1$--$4.4$\,ps, all below $\sigma_t = 13$\,ps.
+
+The practical consequence is that \emph{all $\eta$\,Car eruption epochs require
+the threshold filter} to reach the source-limited regime, just as the quasar
+targets do.
+The filter fraction ranges from $5\%$ (plateau peak) to $21\%$ (early phase),
+reflecting the narrower line at early times.
+Importantly, $21\%$ is $\sim 40\times$ larger than the $0.55\%$ fraction for
+3C~273, so the effective per-filter-bandwidth photon rate is dramatically higher
+for $\eta$\,Car even before accounting for the brightness advantage
+($m_V \approx -1$ at peak versus $V \approx 12.9$ for 3C~273).
+As noted in Section~\ref{sec:local_transients}, the 1.1\,\AA\ filter is
+3--12$\times$ narrower than the emission line at all eruption epochs, making
+it technologically straightforward to implement in a rapid-response configuration.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
