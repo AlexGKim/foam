@@ -1235,10 +1235,21 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 \label{sec:prospects}
 % ==============================================================
 
-This section examines the detectability of one of the central findings of
-this paper: the extended-source Siegert discrepancy and its zero-lag bunching
-suppression $\delta g^{(2)} \equiv 2 - g^{(2)}(0)$
-(Section~\ref{sec:zerolag}).
+This section examines the detectability of the Siegert violation
+$\mathcal{S}(\tau_c)$ (Eq.~\eqref{eq:Sexplicit}) via the HBT effect and
+surveys candidate astrophysical sources: broad-line AGN and quasars,
+Galactic and Local-Group transients, and nearby stars observed in absorption.
+All these targets are angularly compact, and their angular extent enters the
+coherence calculation only through the cross-ray differential jitter
+(Section~\ref{sec:extended}); that contribution is negligible whenever
+$\Phi_{\rm eff}\approx 1$, i.e.\ the source angular diameter satisfies
+$D\,\Delta\theta \ll r_\perp$.
+The analysis here uses $\mathcal{S}(\tau_c)$, which depends on $\sigma_\ell(D)$
+through $\sigma_\phi$ and is insensitive to the source angular structure in this
+regime.
+The complementary extended-source bunching suppression $\delta g^{(2)}$ of
+Section~\ref{sec:zerolag}, which encodes the angular-size dependence directly,
+requires sub-femtosecond temporal resolution and is left to future work.
 
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
@@ -1256,8 +1267,9 @@ single picosecond detector bin.
 Direct measurement of $\delta g^{(2)}$ would therefore require sub-femtosecond
 temporal resolution, which is left to future work.
 
-The observable accessible to ps-timing HBT is instead the \emph{point-source}
-Siegert violation at lag $\tau \sim \tau_c$ (Eq.~\eqref{eq:Sexplicit}).
+The observable accessible to ps-timing HBT is instead the Siegert violation
+$\mathcal{S}(\tau_c)$ (Eq.~\eqref{eq:Sexplicit}), which reduces to the
+single-ray result of Section~\ref{sec:siegert} whenever $\Phi_{\rm eff}\approx 1$.
 For a Lorentzian source in the dynamical foam limit ($C_\alpha \to 0$),
 evaluated at $\tau = \tau_c$:
 \begin{equation}
@@ -1447,8 +1459,9 @@ $F = 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, Lorentzian profile,
 through a $1.1$\,\AA\ filter, $R \approx 1110$\,cps on a 10\,m telescope),
 throughput $\epsilon = 0.39$, timing resolution $\sigma_t = 30$\,ps FWHM~\cite{Kim2025},
 and $C_\alpha \to 0$ (dynamical foam).
-The detection threshold is set by the point-source Siegert discrepancy
-$\mathcal{S}(\tau_c)$ (Eq.~\ref{eq:Stc}), the minimum excess of
+The detection threshold is set by the Siegert discrepancy
+$\mathcal{S}(\tau_c)$ in the $\Phi_{\rm eff}\to 1$ limit
+(Eq.~\ref{eq:Stc}), the minimum excess of
 $g^{(2)}_{\rm obs}(\tau_c)$ above its Siegert prediction detectable at
 $3\sigma$.
 The foam exponent limit $\alpha_{\rm lim}$ is derived from
@@ -1496,8 +1509,8 @@ direct test of the distance scaling $\sigma_\phi \propto D^{1-\alpha}$ predicted
 by the $\alpha$-foam model.
 Table~\ref{tab:blazars} lists representative targets spanning $z \approx 0.003$
 to $z \approx 1.1$ (propagation distances $D \sim 14$\,Mpc to $\sim 4.7$\,Gpc,
-a factor of $\sim 340$ in $D$), with the predicted point-source Siegert
-discrepancy $\mathcal{S}(\tau_c)$ (Eq.~\eqref{eq:Stc}) for $\alpha = 1/2$ and
+a factor of $\sim 340$ in $D$), with the predicted Siegert discrepancy
+$\mathcal{S}(\tau_c)$ (Eq.~\eqref{eq:Stc}, $\Phi_{\rm eff}\to 1$) for $\alpha = 1/2$ and
 $\alpha = 0.54$ (see Table~\ref{tab:blazars} caption for parameters).
 
 \begin{table}[h]
@@ -1575,8 +1588,8 @@ eruptions --- where the photon-flux advantage at $\sim$kpc--Mpc distances
 dramatically exceeds that of any cosmological-distance source, even after
 derating for source luminosity, duty cycle, and event probability.
 
-For a standard candle of fixed luminosity, the SNR of the point-source Siegert
-violation $\mathcal{S}(\tau_c)$ scales as $L\,D^{-2\alpha}\sqrt{T_{\rm eff}}$.
+For a standard candle of fixed luminosity, the SNR of the Siegert violation
+$\mathcal{S}(\tau_c)$ ($\Phi_{\rm eff}\approx 1$) scales as $L\,D^{-2\alpha}\sqrt{T_{\rm eff}}$.
 For $\alpha = 2/3$ this is $\propto D^{-4/3}$: closer is dramatically better.
 Type~Ia supernovae --- the brightest cosmological-distance standard candles ---
 are nevertheless poor targets at peak because their spectra are continuum-dominated
@@ -1786,8 +1799,8 @@ $g^{(2)}_{\rm src}$ at zero lag for sources with a Lorentzian line component).
 
 The achievable sensitivity and its scaling with telescope aperture and source
 redshift are analyzed in detail in Section~\ref{sec:prospects}.
-The observable is the point-source Siegert violation $\mathcal{S}(\tau_c)$
-(Eq.~\ref{eq:Stc}), measured in the source-limited HBT regime ($\tau_c > \sigma_t$)
+The observable is the Siegert violation $\mathcal{S}(\tau_c)$
+(Eq.~\ref{eq:Stc}, $\Phi_{\rm eff}\approx 1$), measured in the source-limited HBT regime ($\tau_c > \sigma_t$)
 using bright broad-line AGN and quasars observed through narrow-band filters
 isolating H$\alpha$ or other permitted lines.
 For a 10\,m-class telescope (throughput $\epsilon = 0.39$, timing resolution
@@ -1800,7 +1813,7 @@ straddling the Lieu--Hillman imaging floor
 $\sigma_\ell \approx 18$\,nm, well below it.
 The figure of merit on $\sigma_\ell$ runs from $\sim 105$\,nm (current imaging at H$\alpha$)
 to $74$--$117$\,nm (10\,m HBT, Gaussian to Lorentzian profile) to $\sim 18$\,nm (40\,m HBT); this is
-the second-order coherence regime accessible to point-source Siegert tests but
+the second-order coherence regime accessible to Siegert tests ($\Phi_{\rm eff}\approx 1$) but
 not to imaging when transverse foam correlations are
 large~\cite{LeeZurekChen2024} (Fig.~\ref{fig:observability}).
 
