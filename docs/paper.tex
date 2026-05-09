@@ -1269,8 +1269,7 @@ through a threshold narrowband filter.
 Throughout this section we adopt H$\alpha$ through a $\Delta\lambda \approx 1.1$\,\AA\
 filter ($\tau_c \approx 13$\,ps) as the reference case, matched to the timing
 resolution of the baseline instrument described below.
-A single-detector autocorrelation cannot access this regime: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) blinds the instrument to precisely the coincidences that build the bunching peak. The Hanbury Brown--Twiss configuration~\cite{HBT1956} circumvents this by splitting the beam onto two independent detectors and forming the cross-correlation $\langle I_A(t)\, I_B(t+\tau)\rangle$: the two photons of a near-coincident pair are routed to detectors with statistically independent dead times, recovering access to lags $\tau \ll \tau_d$.
-The split-beam geometry also suppresses afterpulsing artifacts (which would mimic a foam-induced deficit), halves the per-detector rate to extend the linear counting regime, and rejects correlated electronic and time-tagger artifacts as common mode --- the reasons essentially all modern photon-counting $g^{(2)}$ measurements use this geometry, which we adopt as the baseline configuration throughout.
+We use the Hanbury Brown--Twiss (HBT) split-beam configuration~\cite{HBT1956} throughout, as essentially all modern photon-counting $g^{(2)}$ measurements do: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) makes a single-detector autocorrelation blind to the ps-scale lags that build the bunching peak.
 
 The HBT observable is $g^{(2)}_{\rm obs}(0)$, whose foam-free value for a thermal
 source is $2$.
