@@ -1245,18 +1245,12 @@ Lorentzian line profile throughout, which we adopt as the default for the
 broad and narrow permitted lines considered here; deviations from a pure
 Lorentzian (e.g., a Voigt core) modify the photon-rate fraction
 through the threshold filter and the cusp structure of $g^{(2)}_{\rm src}$
-at zero lag, changing $\sigma_{\phi,\rm min}$ by factors of order unity
-(cf.\ Sections~\ref{sec:g1} and \ref{sec:zerolag}).
-All these targets are physically large and are thus extended sources, even though they are difficult to resolve from Earth; as extended sources, they are sensitive to spacetime foam whose transverse coherence length satisfies $r_\perp \lesssim D\,\Delta\theta$ (equivalently $\Phi_{\rm eff} < 1$), through the cross-ray differential jitter mechanism.
+at zero lag.
+All these targets are physically large and are thus extended sources, even though they are difficult to resolve from Earth; as extended sources, they are sensitive to spacetime foam whose transverse coherence length satisfies $r_\perp \lesssim D\,\Delta\theta$ (equivalently $\Phi_{\rm eff} \approx 0$), through the cross-ray differential jitter mechanism.
 
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
-
-Measuring $\mathcal{S}(0)$ is most naturally done via the Hanbury Brown--Twiss
-(HBT) effect~\cite{HBT1956}.
-While a direct photon arrival-time experiment would be more statistically efficient,
-HBT has important systematic advantages: it requires no phase-stable optical
-path between telescopes and is immune to atmospheric phase fluctuations.
+Measuring $\mathcal{S}(0)$ requires resolving the bunching peak of $g^{(2)}_{\rm obs}(\tau)$ near $\tau = 0$, where $\tau \sim \tau_c$ is of order picoseconds. A single-detector autocorrelation cannot access this regime: detector dead time (tens of ns for SPADs, $\sim$1\,ns for SNSPDs) blinds the instrument to precisely the coincidences that build the bunching peak. The Hanbury Brown--Twiss configuration~\cite{HBT1956} circumvents this by splitting the beam onto two independent detectors and forming the cross-correlation $\langle I_A(t)\, I_B(t+\tau)\rangle$: the two photons of a near-coincident pair are routed to detectors with statistically independent dead times, recovering access to lags $\tau \ll \tau_d$. The split-beam geometry also suppresses afterpulsing artifacts (which would mimic a foam-induced deficit), halves the per-detector rate to extend the linear counting regime, and rejects correlated electronic and time-tagger artifacts as common mode --- the reasons essentially all modern photon-counting $g^{(2)}$ measurements use this geometry, which we adopt as the baseline configuration throughout.
 
 The HBT observable is $g^{(2)}_{\rm obs}(0)$, whose foam-free value for a thermal
 source is $2$.
