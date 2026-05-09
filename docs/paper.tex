@@ -1878,108 +1878,59 @@ $\tilde\sigma^2 = \sigma_0^2\tau_G^2/(2\sigma_0^2+\tau_G^2)$ of
 Eq.~\eqref{eq:sigmatilde}.
 
 % ==============================================================
-\section{Source Spectral Properties and Coherence Times}
+\section{Source Properties}
 \label{app:sources}
 % ==============================================================
 
-Table~\ref{tab:source_tauc} summarises the spectral line properties and coherence
-times for the three representative source classes discussed in
-Section~\ref{sec:candidate_sources}: the broad-line quasar 3C~273, the
-narrow-line Seyfert~1 galaxy Mrk~766, and $\eta$~Car during a Great-Eruption
-episode.
-In every case the unfiltered line coherence time $\tau_c^{\rm line} = \lambda^2/(c\,\Delta\lambda_{\rm FWHM})$
-falls below the baseline detector timing resolution $\sigma_t = 13$\,ps, so the
-measurement must be carried out with a narrowband threshold filter
-$\Delta\lambda_f \approx \lambda^2/(c\,\sigma_t)$ that sets $\tau_c = \sigma_t$
-and places the instrument in the source-limited regime
-(Section~\ref{sec:snr_scaling}).
+Tables~\ref{tab:source_agn} and~\ref{tab:source_etacar} collect the observed
+properties of the principal candidate sources used in
+Section~\ref{sec:prospects}.
 
 \begin{table*}[t]
 \centering
-\caption{Spectral line properties and coherence times for the three representative
-source classes.
-$\lambda_{\rm obs}$ is the observed-frame line wavelength;
-$\Delta\lambda_{\rm FWHM}$ is the intrinsic (source) line FWHM in the observed frame;
-$\tau_c^{\rm line} = \lambda_{\rm obs}^2/(c\,\Delta\lambda_{\rm FWHM})$ is the
-coherence time of the unfiltered line;
-$\Delta\lambda_f = 1.1$\,\AA\ is the threshold filter optimised for
-$\sigma_t = 13$\,ps at H$\alpha$ (Section~\ref{sec:snr_scaling}),
-giving $\tau_c^{\rm filt} = 13$\,ps in all cases;
-the filter fraction $f$ is the fraction of total line flux transmitted
-through $\Delta\lambda_f$, evaluated for a Lorentzian profile as
-$(2/\pi)\arctan(\Delta\lambda_f/\Delta\lambda_{\rm FWHM})$.
-References: $^a$\cite{Boroson1992}; $^b$\cite{Kollatschny2013};
-$^c$\cite{2018MNRAS.480.1466S}; $^d$\cite{2014ApJ...787L...8P}.}
-\label{tab:source_tauc}
+\caption{Observed properties of the AGN/quasar candidate sources.
+$z$ is the spectroscopic redshift; $D$ is the luminosity distance for
+$H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m_V$ is the apparent visual magnitude;
+line fluxes $F$ are integrated over the emission line;
+FWHM is the observed-frame full width at half maximum of the broad emission
+line component; profile shape is the empirical characterisation from
+the literature.}
+\label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
-Source & Line & $\lambda_{\rm obs}$ (\AA) & $\Delta\lambda_{\rm FWHM}$ & $v_{\rm FWHM}$ (km\,s$^{-1}$) & $\tau_c^{\rm line}$ & $\tau_c^{\rm filt}$ & $f$ \\
+Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & Profile \\
 \midrule
-3C~273 ($z=0.158$) & H$\beta$ & 5629 & 127\,\AA$^a$ & 6800 & 0.08\,ps & 13\,ps & 0.55\% \\
-Mrk~766 ($z=0.012$) & H$\alpha$ & 6644 & 28.8\,\AA$^b$ & 1300 & 0.51\,ps & 13\,ps & 2.4\% \\
-$\eta$\,Car eruption (early) & H$\alpha$ & 6563 & 3.3\,\AA$^c$ & 150 & 4.4\,ps & 13\,ps & 21\% \\
-$\eta$\,Car eruption (plateau) & H$\alpha$ & 6563 & 8.8\,\AA$^d$ & 400 & 1.6\,ps & 13\,ps & 8.0\% \\
-$\eta$\,Car eruption (peak) & H$\alpha$ & 6563 & 13.1\,\AA$^c$ & 600 & 1.1\,ps & 13\,ps & 5.3\% \\
+3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$ & 127 & Lorentzian~\cite{Boroson1992,Kollatschny2013} \\
+Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28 & Lorentzian~\cite{Kollatschny2013} \\
+I\,Zw\,1 & 0.061 & 261 & 14.0 & H$\alpha$ & \ldots            &  27 & Lorentzian~\cite{Kollatschny2013} \\
+NGC~4151 & 0.003 &  14 & 11.5 & H$\alpha$ & $5\times10^{-11}$ & \ldots & \ldots \\
+Mrk~509  & 0.034 & 146 & 13.1 & H$\alpha$ & \ldots            & \ldots & \ldots \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
-\subsection*{3C~273}
-
-3C~273 ($z = 0.158$, $D = 677$\,Mpc) is the canonical reference target.
-The broad H$\beta$ emission line has an observed-frame FWHM of
-$127$\,\AA\ ($\approx 6800$\,km\,s$^{-1}$)~\cite{Boroson1992},
-corresponding to an intrinsic coherence time
-$\tau_c^{\rm line} = \lambda_{\rm obs}^2/(c\,\Delta\lambda) \approx 0.08$\,ps.
-The same velocity width at the observed-frame H$\alpha$ (7600\,\AA) gives
-$\Delta\lambda \approx 171$\,\AA\ and $\tau_c^{\rm line} \approx 0.15$\,ps.
-Both are $\sim 100\times$ shorter than $\sigma_t = 13$\,ps, so the measurement
-is entirely detector-limited on the unfiltered line.
-A 1.1\,\AA\ threshold filter recovers the source-limited regime
-($\tau_c = 13$\,ps) while transmitting $0.55\%$ of the Lorentzian line flux,
-giving $R \approx 1110$\,cps on a 10\,m telescope with $\epsilon = 0.39$.
-
-\subsection*{Mrk~766}
-
-Mrk~766 ($z = 0.012$, $D = 53$\,Mpc) is the representative narrow-line
-Seyfert~1 (NLS1) target.
-Its H$\alpha$ emission has an observed-frame FWHM $\approx 28.8$\,\AA\
-($\approx 1300$\,km\,s$^{-1}$), consistent with the NLS1 definition
-FWHM(H$\beta$) $\leq 2000$\,km\,s$^{-1}$, and is empirically
-well described by a Lorentzian profile~\cite{Kollatschny2013}.
-The unfiltered coherence time is $\tau_c^{\rm line} \approx 0.51$\,ps,
-still detector-limited.
-The 1.1\,\AA\ threshold filter transmits $2.4\%$ of the Lorentzian line flux,
-about $4\times$ more than for 3C~273, boosting the photon rate relative to
-the line flux.
-The smaller distance reduces $\sigma_\phi$, but the higher filter fraction
-and Lorentzian line purity make Mrk~766 competitive for $\delta g^{(2)}$
-measurements exploiting the linear-in-$s$ cusp (Section~\ref{sec:zerolag}).
-
-\subsection*{$\eta$\,Carinae Great Eruption}
-
-During an $\eta$\,Car-class LBV giant eruption the H$\alpha$ emission profile
-evolves significantly over the eruption duration.
-Light-echo spectroscopy of the 19th-century Great Eruption provides direct
-access to this evolution~\cite{2018MNRAS.480.1466S,2014ApJ...787L...8P}.
-The bulk outflow velocity increases from $\sim 150$\,km\,s$^{-1}$ in the
-pre-plateau phase to $\sim 600$\,km\,s$^{-1}$ at the plateau peak, with
-the emission FWHM $\sim 400$\,km\,s$^{-1}$ at intermediate epochs.
-The corresponding H$\alpha$ FWHM spans $3.3$--$13.1$\,\AA\ and
-$\tau_c^{\rm line}$ spans $1.1$--$4.4$\,ps, all below $\sigma_t = 13$\,ps.
-
-The practical consequence is that \emph{all $\eta$\,Car eruption epochs require
-the threshold filter} to reach the source-limited regime, just as the quasar
-targets do.
-The filter fraction ranges from $5\%$ (plateau peak) to $21\%$ (early phase),
-reflecting the narrower line at early times.
-Importantly, $21\%$ is $\sim 40\times$ larger than the $0.55\%$ fraction for
-3C~273, so the effective per-filter-bandwidth photon rate is dramatically higher
-for $\eta$\,Car even before accounting for the brightness advantage
-($m_V \approx -1$ at peak versus $V \approx 12.9$ for 3C~273).
-As noted in Section~\ref{sec:local_transients}, the 1.1\,\AA\ filter is
-3--12$\times$ narrower than the emission line at all eruption epochs, making
-it technologically straightforward to implement in a rapid-response configuration.
+\begin{table*}[t]
+\centering
+\caption{Observed properties of $\eta$\,Carinae during the Great Eruption,
+from light-echo spectroscopy~\cite{2018MNRAS.480.1466S,2014ApJ...787L...8P}.
+$D = 2.3$\,kpc~\cite{2001ApJ...553..837H}.
+FWHM values are for the broad H$\alpha$ emission component; the bulk outflow
+speed characterises the P~Cygni absorption trough or the dominant spectral
+feature at each epoch.
+The eruption reached $m_V \approx -1$ at peak (1843--1858).
+Later phases also show very broad emission wings with velocities
+$\gtrsim 10{,}000$\,km\,s$^{-1}$~\cite{2018MNRAS.480.1466S}.}
+\label{tab:source_etacar}
+\begin{tabular}{lccc}
+\toprule
+Eruption epoch & Bulk outflow (km\,s$^{-1}$) & H$\alpha$ FWHM (km\,s$^{-1}$) & Ref. \\
+\midrule
+Pre-plateau (early)  & $\sim 150$ & $\sim 150$ & \cite{2018MNRAS.480.1466S} \\
+Plateau              & $\sim 400$ & $\sim 400$ & \cite{2014ApJ...787L...8P} \\
+Plateau peak         & $\sim 600$ & $\sim 600$ & \cite{2018MNRAS.480.1466S} \\
+\bottomrule
+\end{tabular}
+\end{table*}
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
