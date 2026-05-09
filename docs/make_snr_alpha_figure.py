@@ -10,6 +10,7 @@ Outputs: snr_vs_alpha.pdf, snr_vs_alpha.png
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.special import erfc
 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
@@ -79,7 +80,11 @@ for src in sources:
     f_L = (2 / np.pi) * np.arctan(dlam / src['FWHM'])
     R   = src['F'] * f_L * A_tel_cm2 / E_phot * eps
     sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
-    S         = np.exp(-2.0) * (-np.expm1(-2.0 * sigma_phi**2))
+    sigma_ell = sigma_phi * lam_m / (2 * np.pi)          # σ_ℓ(D) [m]
+    c_si      = 3.0e8                                     # m/s
+    sigma_0   = np.sqrt(2) * sigma_ell / c_si             # Φ_eff=0 limit [s]
+    s         = sigma_0 / tau_c
+    S         = 1.0 - np.exp(2*s**2) * erfc(np.sqrt(2)*s)
     sigma_g2  = 1.0 / (R * np.sqrt(tau_c * T_obs))   # Eq. hbt_sigma
     src['SNR'] = S / sigma_g2                          # Eq. hbt_snr
     src['R']   = R
