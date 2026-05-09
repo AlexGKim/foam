@@ -1254,24 +1254,9 @@ requires sub-femtosecond temporal resolution and is left to future work.
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
 
-The extended-source zero-lag bunching suppression $\delta g^{(2)}$ derived in
-Section~\ref{sec:zerolag} is a genuine prediction of the model but is not
-directly accessible to picosecond-timing HBT\@.
-The foam modifies $g^{(2)}(\tau)$ only on the attosecond timescale
-$\sigma_0 = \sqrt{2}\,\sigma_\ell(D)/c$; for $\sigma_\ell \sim 117$\,nm
-(the 10\,m HBT threshold, see below), $\sigma_0 \approx 550$\,as.
-Because convolution preserves the area under $g^{(2)}(\tau)-1$, the
-foam-induced suppression at $\tau = 0$ is exactly compensated by enhanced
-wings at $|\tau| \lesssim \sigma_0$ --- both of which lie far inside any
-single picosecond detector bin.
-Direct measurement of $\delta g^{(2)}$ would therefore require sub-femtosecond
-temporal resolution, which is left to future work.
-
-The observable accessible to ps-timing HBT is instead the Siegert violation
-$\mathcal{S}(\tau_c)$ (Eq.~\eqref{eq:Sexplicit}), which reduces to the
-single-ray result of Section~\ref{sec:siegert} whenever $\Phi_{\rm eff}\approx 1$.
-For a Lorentzian source in the dynamical foam limit ($C_\alpha \to 0$),
-evaluated at $\tau = \tau_c$:
+The Siegert violation $\mathcal{S}(\tau_c)$ of Eq.~\eqref{eq:Sexplicit},
+evaluated at lag $\tau = \tau_c$ in the dynamical foam limit ($C_\alpha \to 0$)
+for a Lorentzian source, takes the closed form
 \begin{equation}
   \mathcal{S}(\tau_c) = e^{-2}\!\left(1 - e^{-2\sigma_\phi^2}\right).
   \label{eq:Stc}
