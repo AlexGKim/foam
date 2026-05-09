@@ -1243,7 +1243,7 @@ Galactic and Local-Group transients, and nearby stars.
 The sensitivity estimates that follow are idealized in that they assume a
 Lorentzian line profile throughout, which we adopt as the default for the
 broad and narrow permitted lines considered here; deviations from a pure
-Lorentzian (e.g., a Gaussian or Voigt core) modify the photon-rate fraction
+Lorentzian (e.g., a Voigt core) modify the photon-rate fraction
 through the threshold filter and the cusp structure of $g^{(2)}_{\rm src}$
 at zero lag, changing $\sigma_{\phi,\rm min}$ by factors of order unity
 (cf.\ Sections~\ref{sec:g1} and \ref{sec:zerolag}).
@@ -1252,54 +1252,49 @@ All these targets are physically large and are thus extended sources, even thoug
 \subsection{Sensitivity and Aperture Scaling}
 \label{sec:snr_scaling}
 
-The Siegert violation $\mathcal{S}(\tau_c)$ of Eq.~\eqref{eq:Sexplicit},
-evaluated at lag $\tau = \tau_c$ in the dynamical foam limit ($C_\alpha \to 0$)
-for a Lorentzian source, takes the closed form
-\begin{equation}
-  \mathcal{S}(\tau_c) = e^{-2}\!\left(1 - e^{-2\sigma_\phi^2}\right).
-  \label{eq:Stc}
-\end{equation}
-In the weak-foam limit ($\sigma_\phi \ll 1$), $\mathcal{S}(\tau_c) \approx 2e^{-2}\sigma_\phi^2$;
-in the strong-foam limit ($\sigma_\phi \gg 1$), $\mathcal{S}(\tau_c) \to e^{-2} \approx 0.135$
-and the signal saturates.
-
-Measuring $\mathcal{S}(\tau_c)$ is most naturally done via the Hanbury Brown--Twiss
+Measuring $\mathcal{S}(0)$ is most naturally done via the Hanbury Brown--Twiss
 (HBT) effect~\cite{HBT1956}.
 While a direct photon arrival-time experiment would be more statistically efficient,
 HBT has important systematic advantages: it requires no phase-stable optical
 path between telescopes and is immune to atmospheric phase fluctuations.
 
-The HBT observable is $g^{(2)}_{\rm obs}(\tau_c) \approx 1 + |g^{(1)}_{\rm src}(\tau_c)|^2$
-(for a Lorentzian, $\approx 1 + e^{-2}$), unchanged from the intrinsic bunching peak
-in the narrow-band limit (Section~\ref{sec:g2}).
-The foam signature $\mathcal{S}(\tau_c)$ is not counted directly but inferred by
-comparing this to the Siegert prediction $1 + |g^{(1)}_{\rm obs}(\tau_c)|^2$
-built from the source spectrum via the Wiener--Khinchin theorem; the measured
-$g^{(2)}_{\rm obs}$ exceeds this prediction by $\mathcal{S}(\tau_c)$.
-The challenge is therefore not detecting the bunching peak itself --- which sits at
-$\approx 1 + e^{-2} \approx 1.135$ and is readily visible --- but measuring it with
-sufficient precision ($\sigma[g^{(2)}] \ll \mathcal{S}(\tau_c)$) to resolve the excess.
+The HBT observable is $g^{(2)}_{\rm obs}(0)$, whose foam-free value for a thermal
+source is $2$.
+For an extended source with transverse coherence factor $\Phi_{\rm eff}<1$, the
+zero-lag bunching peak is suppressed to $g^{(2)}_{\rm obs}(0) = 1 + e^{2s^2}\mathrm{erfc}(\sqrt{2}\,s)$
+(Eq.~\eqref{eq:g2zero}), where $s \equiv \sigma_0/\tau_c$ and
+$\sigma_0^2 = 2\sigma_\ell^2(D)(1-\Phi_{\rm eff})/c^2$ (Eq.~\eqref{eq:sigma0}).
+The foam signal is the zero-lag Siegert discrepancy
+$\mathcal{S}(0) = g^{(2)}_{\rm obs}(0) - 2 \leq 0$ (Eq.~\eqref{eq:S0ext}), a
+\emph{deficit} relative to the Siegert prediction $g^{(2)}_{\rm src}(0) = 2$.
+The foam signature is not counted directly but inferred by comparing
+$g^{(2)}_{\rm obs}(0)$ to the Siegert prediction built from the source spectrum
+via the Wiener--Khinchin theorem; the measured $g^{(2)}_{\rm obs}(0)$ falls short
+of this prediction by $|\mathcal{S}(0)|$.
+The challenge is therefore not detecting the bunching peak itself --- which sits near
+$2$ and is readily visible --- but measuring it with sufficient precision
+($\sigma[g^{(2)}] \ll |\mathcal{S}(0)|$) to resolve the deficit.
 A detection of foam at $n$-$\sigma$ requires
-$\sigma[g^{(2)}_{\rm obs}(\tau_c)] \leq \mathcal{S}(\tau_c)/n$.
+$\sigma[g^{(2)}_{\rm obs}(0)] \leq |\mathcal{S}(0)|/n$.
 In the \emph{source-limited} regime ($\tau_c > \sigma_t$, where $\sigma_t$ is the
 detector timing resolution), the standard HBT photon-counting result
 is~\cite{Foellmi2009,Dravins2013,Guerin2017}
 \begin{equation}
-  \sigma\!\left[g^{(2)}_{\rm obs}(\tau_c)\right]
+  \sigma\!\left[g^{(2)}_{\rm obs}(0)\right]
   = \frac{1}{R\,\sqrt{\tau_c\,T_{\rm obs}}},
   \label{eq:hbt_sigma}
 \end{equation}
 with $R = \epsilon\,A\,\dot{n}$, where $\dot{n}$ is the source photon flux per
 unit area, $\epsilon$ the end-to-end throughput, and $A$ the collecting area.
-The corresponding signal-to-noise for a detection of $\mathcal{S}(\tau_c)$ is
+The corresponding signal-to-noise for a detection of $\mathcal{S}(0)$ is
 \begin{equation}
   \mathrm{SNR}
-  \equiv \frac{\mathcal{S}(\tau_c)}{\sigma[g^{(2)}]}
-  = \mathcal{S}(\tau_c)\cdot R\,\sqrt{\tau_c\,T_{\rm obs}},
+  \equiv \frac{|\mathcal{S}(0)|}{\sigma[g^{(2)}]}
+  = |\mathcal{S}(0)|\cdot R\,\sqrt{\tau_c\,T_{\rm obs}},
   \label{eq:hbt_snr}
 \end{equation}
 so the $n$-$\sigma$ minimum detectable Siegert discrepancy is
-$\mathcal{S}_{\rm min} = n/(R\sqrt{\tau_c\,T_{\rm obs}})$.
+$|\mathcal{S}(0)|_{\rm min} = n/(R\sqrt{\tau_c\,T_{\rm obs}})$.
 In the detector-limited regime ($\sigma_t > \tau_c$) the bunching peak is
 diluted by $\tau_c/\sigma_t$ and $\sigma[g^{(2)}]$ degrades by
 $\sqrt{\sigma_t/\tau_c}$;
@@ -1328,17 +1323,18 @@ regime.
 
 The distance dependence of the SNR follows directly from Eq.~\eqref{eq:hbt_snr}.
 For a source of fixed luminosity, $R \propto D^{-2}$.
-In the weak-foam limit ($\sigma_\phi \ll 1$),
-$\mathcal{S}(\tau_c) \approx 2e^{-2}\sigma_\phi^2 \propto D^{2(1-\alpha)}$
-(Eq.~\ref{eq:sigmaphi}), so
-$\mathrm{SNR} \propto D^{2(1-\alpha)}\cdot D^{-2} = D^{-2\alpha}$:
+Since $\sigma_0 \propto \sigma_\ell(D) \propto D^{1-\alpha}$ (Eq.~\ref{eq:sigmaphi})
+and $s = \sigma_0/\tau_c$, in the weak-foam limit ($s \ll 1$),
+$|\mathcal{S}(0)| \approx 2\sqrt{2/\pi}\,s \propto D^{1-\alpha}$
+(Eq.~\eqref{eq:deltag2}), so
+$\mathrm{SNR} \propto D^{1-\alpha}\cdot D^{-2} = D^{-(1+\alpha)}$:
 more distant sources yield lower SNR at fixed luminosity, with the penalty
 steeper for larger $\alpha$.
-In the strong-foam limit ($\sigma_\phi \gg 1$),
-$\mathcal{S}(\tau_c) \to e^{-2}$ saturates and $\mathrm{SNR} \propto D^{-2}$.
+In the strong-foam limit ($s \gg 1$),
+$|\mathcal{S}(0)| \to 1$ saturates and $\mathrm{SNR} \propto D^{-2}$.
 A nearby source of modest luminosity but high apparent flux can therefore be competitive
 with a more luminous but distant source: the higher photon rate $R$ at close range
-can compensate for the reduced foam signal $\mathcal{S}(\tau_c)$.
+can compensate for the reduced foam signal $|\mathcal{S}(0)|$.
 
 \subsection{Candidate Sources}
 \label{sec:candidate_sources}
