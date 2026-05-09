@@ -1273,19 +1273,41 @@ Measuring $\mathcal{S}(\tau_c)$ is most naturally done via the Hanbury Brown--Tw
 While a direct photon arrival-time experiment would be more statistically efficient,
 HBT has important systematic advantages: it requires no phase-stable optical
 path between telescopes and is immune to atmospheric phase fluctuations.
+
+The HBT observable is $g^{(2)}_{\rm obs}(\tau_c) \approx 1 + |g^{(1)}_{\rm src}(\tau_c)|^2$
+(for a Lorentzian, $\approx 1 + e^{-2}$), unchanged from the intrinsic bunching peak
+in the narrow-band limit (Section~\ref{sec:g2}).
+The foam signature $\mathcal{S}(\tau_c)$ is not counted directly but inferred by
+comparing this to the Siegert prediction $1 + |g^{(1)}_{\rm obs}(\tau_c)|^2$
+built from the source spectrum via the Wiener--Khinchin theorem; the measured
+$g^{(2)}_{\rm obs}$ exceeds this prediction by $\mathcal{S}(\tau_c)$.
+The challenge is therefore not detecting the bunching peak itself --- which sits at
+$\approx 1 + e^{-2} \approx 1.135$ and is readily visible --- but measuring it with
+sufficient precision ($\sigma[g^{(2)}] \ll \mathcal{S}(\tau_c)$) to resolve the excess.
+A detection of foam at $n$-$\sigma$ requires
+$\sigma[g^{(2)}_{\rm obs}(\tau_c)] \leq \mathcal{S}(\tau_c)/n$.
 In the \emph{source-limited} regime ($\tau_c > \sigma_t$, where $\sigma_t$ is the
-detector timing resolution), the standard HBT signal-to-noise
+detector timing resolution), the standard HBT photon-counting result
 is~\cite{Foellmi2009,Dravins2013,Guerin2017}
 \begin{equation}
-  \mathrm{SNR}
-  = \mathcal{S}(\tau_c)\cdot R\,\sqrt{\tau_c\,T_{\rm obs}},
-  \label{eq:hbt_snr}
+  \sigma\!\left[g^{(2)}_{\rm obs}(\tau_c)\right]
+  = \frac{1}{R\,\sqrt{\tau_c\,T_{\rm obs}}},
+  \label{eq:hbt_sigma}
 \end{equation}
 with $R = \epsilon\,A\,\dot{n}$, where $\dot{n}$ is the source photon flux per
 unit area, $\epsilon$ the end-to-end throughput, and $A$ the collecting area.
+The corresponding signal-to-noise for a detection of $\mathcal{S}(\tau_c)$ is
+\begin{equation}
+  \mathrm{SNR}
+  \equiv \frac{\mathcal{S}(\tau_c)}{\sigma[g^{(2)}]}
+  = \mathcal{S}(\tau_c)\cdot R\,\sqrt{\tau_c\,T_{\rm obs}},
+  \label{eq:hbt_snr}
+\end{equation}
+so the $n$-$\sigma$ minimum detectable Siegert discrepancy is
+$\mathcal{S}_{\rm min} = n/(R\sqrt{\tau_c\,T_{\rm obs}})$.
 In the detector-limited regime ($\sigma_t > \tau_c$) the bunching peak is
-diluted by $\tau_c/\sigma_t$ and the SNR degrades to
-$\mathcal{S}(\tau_c)\cdot R\cdot\tau_c\cdot\sqrt{T_{\rm obs}/\sigma_t}$;
+diluted by $\tau_c/\sigma_t$ and $\sigma[g^{(2)}]$ degrades by
+$\sqrt{\sigma_t/\tau_c}$;
 it is therefore essential to observe in the source-limited regime.
 
 The key to reaching $\tau_c > \sigma_t$ is a sufficiently
@@ -1425,8 +1447,10 @@ $F = 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, Lorentzian profile,
 through a $1.1$\,\AA\ filter, $R \approx 1110$\,cps on a 10\,m telescope),
 throughput $\epsilon = 0.39$, timing resolution $\sigma_t = 30$\,ps FWHM~\cite{Kim2025},
 and $C_\alpha \to 0$ (dynamical foam).
-The signal is the point-source Siegert violation $\mathcal{S}(\tau_c)$
-(Eq.~\ref{eq:Stc}).
+The detection threshold is set by the point-source Siegert discrepancy
+$\mathcal{S}(\tau_c)$ (Eq.~\ref{eq:Stc}), the minimum excess of
+$g^{(2)}_{\rm obs}(\tau_c)$ above its Siegert prediction detectable at
+$3\sigma$.
 The foam exponent limit $\alpha_{\rm lim}$ is derived from
 $\sigma_\ell = \sigma_{\phi,\rm min}\,\lambda/(2\pi)$ and Eq.~\eqref{eq:NgPerlmanVar}
 at $D = 1$ and $5$\,Gpc.

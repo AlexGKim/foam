@@ -80,7 +80,8 @@ for src in sources:
     R   = src['F'] * f_L * A_tel_cm2 / E_phot * eps
     sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
     S         = np.exp(-2.0) * (-np.expm1(-2.0 * sigma_phi**2))
-    src['SNR'] = S * R * np.sqrt(tau_c * T_obs)
+    sigma_g2  = 1.0 / (R * np.sqrt(tau_c * T_obs))   # Eq. hbt_sigma
+    src['SNR'] = S / sigma_g2                          # Eq. hbt_snr
     src['R']   = R
 
 # ---------------------------------------------------------------
