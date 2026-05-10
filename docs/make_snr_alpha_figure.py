@@ -36,13 +36,10 @@ A_tel_m2  = 77.9          # collecting area [m²]
 A_tel_cm2 = A_tel_m2 * 1e4
 eps       = 0.39          # end-to-end throughput
 sig_t     = 13e-12        # timing resolution, rms [s]  (30 ps FWHM)
-tau_c     = sig_t         # threshold filter: tau_c = sig_t (optimum)
 
 # ---------------------------------------------------------------
 # Sources
 # ---------------------------------------------------------------
-dlam = 1.1   # threshold filter width [Å]
-
 # kpc in Mpc
 kpc_in_Mpc = 1e-3
 
@@ -78,17 +75,22 @@ T_obs = 10 * 3600.0   # 10 hr [s]
 alpha = np.linspace(0.50, 0.75, 500)
 
 for src in sources:
-    D_m = src['D_Mpc'] * Mpc
-    f_L = (2 / np.pi) * np.arctan(dlam / src['FWHM'])
-    R   = src['F'] * f_L * A_tel_cm2 / E_phot * eps
+    D_m   = src['D_Mpc'] * Mpc
+    # Wide filter: pass full line, so tau_L = intrinsic line coherence time
+    tau_L = lam_m**2 / (c_si * src['FWHM'] * 1e-10)     # FWHM in Å → m
+    R     = src['F'] * A_tel_cm2 / E_phot * eps           # full-line photon rate
     sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
-    sigma_ell = sigma_phi * lam_m / (2 * np.pi)          # σ_ℓ(D) [m]
-    sigma_0   = np.sqrt(2) * sigma_ell / c_si             # Φ_eff=0 limit [s]
-    s         = sigma_0 / tau_c
-    S         = 1.0 - np.exp(2*s**2) * erfc(np.sqrt(2)*s)
-    sigma_g2  = 1.0 / (R * np.sqrt(tau_c * T_obs))   # Eq. hbt_sigma
-    src['SNR'] = S / sigma_g2                          # Eq. hbt_snr
+    sigma_ell = sigma_phi * lam_m / (2 * np.pi)           # σ_ℓ(D) [m]
+    sigma_0   = np.sqrt(2) * sigma_ell / c_si              # Φ_eff=0 limit [s]
+    s = sigma_0 / tau_L
+    S = 1.0 - np.exp(2*s**2) * erfc(np.sqrt(2)*s)
+    # Eq. snr_src_ext (source-limited) or snr_det_ext (detector-limited)
+    if tau_L > sig_t:
+        src['SNR'] = S * R * np.sqrt(tau_L * T_obs)
+    else:
+        src['SNR'] = (tau_L / sig_t) * S * R * np.sqrt(sig_t * T_obs)
     src['R']   = R
+    src['tau_L'] = tau_L
     idx_lim = np.argmin(np.abs(s - 0.3))
     src['alpha_lim'] = alpha[idx_lim]
     src['SNR_lim']   = src['SNR'][idx_lim]
