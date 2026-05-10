@@ -78,7 +78,9 @@ for src in sources:
     D_m   = src['D_Mpc'] * Mpc
     # Wide filter: pass full line, so tau_L = intrinsic line coherence time
     tau_L = lam_m**2 / (c_si * src['FWHM'] * 1e-10)     # FWHM in Å → m
-    R     = src['F'] * A_tel_cm2 / E_phot * eps           # full-line photon rate
+    # Filter width = 2×FWHM captures (2/pi)*arctan(2) ≈ 70% of Lorentzian flux
+    f_L   = (2 / np.pi) * np.arctan(2.0)
+    R     = src['F'] * f_L * A_tel_cm2 / E_phot * eps    # photon rate through wide filter
     sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
     sigma_ell = sigma_phi * lam_m / (2 * np.pi)           # σ_ℓ(D) [m]
     sigma_0   = np.sqrt(2) * sigma_ell / c_si              # Φ_eff=0 limit [s]
