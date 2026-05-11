@@ -1277,6 +1277,8 @@ A detection at $n$-$\sigma$
 requires a signal uncertainty $\sigma[g^{(2)}_{\rm obs}] \le |\textrm{discrepancy}|/n$, where the discrepancy
 amplitude and the relevant lag depend on which variant is being measured.
 
+[Claude: insert a paragraph with the SNR equation for the TFR with references and remove them from the ensuing subsections. Discuss the equation for the source and detector noise limit. Consider whether which limit we are at given $\sigma_t = 13$ ps rms of the detector and the sources described in Section Candidate Sources]
+
 The photon-counting rate is $R = \epsilon\, A\, \dot{n}$, where $\dot{n}$ is the
 source photon flux per unit area within the filter bandpass, $\epsilon$ the
 end-to-end throughput, and $A$ the collecting area. We adopt the baseline
@@ -1291,12 +1293,13 @@ summarize the comparison at the end of the section.
 \subsubsection{Point-source variant}
 \label{sec:sens-point}
 
-For a point-like source ($\Phi_{\rm eff}\to 1$, equivalently
-$D\Delta\theta\ll r_\perp$), the cross-ray jitter mechanism vanishes:
-$\sigma_0\to 0$, $\delta g^{(2)}(0)\to 0$, and the zero-lag bunching peak is
-restored to its canonical value of 2. The foam signature instead manifests as a
-Siegert discrepancy at finite lag $\tau\sim\tau_c$, given for a Lorentzian
-source by Eq.~\ref{eq:Stc}:
+For a point-like source,
+the foam signature manifests as a
+Siegert discrepancy at finite lag $\tau \ne 0$.
+Considering a Lorentzian source at the dynamical limit
+$C_\alpha(\tau_c;D)\to 0$, the discrepancy at
+$\tau =\tau\sim\tau_c$ is given
+by Eq.~\ref{eq:Stc}:
 \begin{equation}
 \mathcal{S}(\tau_c) \;=\; e^{-2}\!\left(1 - e^{-2\sigma_\phi^2}\right),
 \label{eq:siegert_pt_repeat}
@@ -1304,31 +1307,9 @@ source by Eq.~\ref{eq:Stc}:
 where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$ is the rms accumulated phase
 (Eq.~\ref{eq:sigmaphi}). The signal is \emph{quadratic} in $\sigma_\phi$ in the
 weak-foam limit, $\mathcal{S}(\tau_c)\approx 2e^{-2}\sigma_\phi^2$, and saturates
-at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$ --- smaller than the
-extended-source saturation value of unity, but reached at a much lower foam
-amplitude because $\sigma_\phi=2\pi\sigma_\ell/\lambda$ converts geometric
-displacements to phase via the optical wavelength rather than the coherence
-length.
+at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$.
 
-Two structural conditions distinguish this variant from the extended-source
-case and must be satisfied for the signal to exist.
-
-\paragraph{Dynamical foam requirement.}
-Eq.~\ref{eq:siegert_pt_repeat} assumes the dynamical limit
-$C_\alpha(\tau_c;D)\to 0$ (Section~\ref{sec:Calpha_origin}); for general
-$C_\alpha$, the suppression factor $\exp[-2\sigma_\phi^2(1-C_\alpha)]$ replaces
-$\exp(-2\sigma_\phi^2)$ in Eq.~\ref{eq:siegert_pt_repeat}. The quasi-static
-limit $C_\alpha\to 1$ gives $\mathcal{S}(\tau_c)\to 0$ and the variant becomes
-insensitive to foam at any amplitude. The extended-source variant of
-Section~\ref{sec:sens-extended} carries no analogous restriction: its zero-lag
-suppression $\delta g^{(2)}(0)$ depends only on $\sigma_\ell^2(D)$ and is
-independent of $C_\alpha$. The two variants therefore probe distinct corners of
-the foam parameter space, with the point-source channel uniquely sensitive to
-the foam temporal dynamics encoded in $\tau_{\rm foam}$.
-
-\paragraph{Filter strategy.}
-Unlike the extended-source variant, the point-source signal does not depend on
-a cusp in $g^{(2)}_{\rm src}$ at the origin: the relevant feature is the
+The relevant feature is the
 exponential decay of $|g^{(1)}_{\rm src}|^2 = e^{-2|\tau|/\tau_c}$ at lag
 $\tau_c$. Filtering narrower than the intrinsic linewidth is therefore
 permitted, with $\tau_c$ replaced by the post-filter coherence time
