@@ -1253,13 +1253,14 @@ We use the Hanbury Brown--Twiss (HBT) split-beam configuration~\cite{HBT1956} th
 The sensitivity estimates that follow assume a Lorentzian line profile
 throughout, which we adopt as the default for the broad and narrow permitted
 lines considered here, with the filter chosen wide enough to preserve the
-intrinsic line shape ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}_{\rm line}$);
-deviations from a pure Lorentzian (e.g., a Voigt core) modify the cusp
-structure of $g^{(2)}_{\rm src}$ at zero lag and hence the linear-in-$s$ scaling
-of Eq.~\eqref{eq:deltag2}.
+intrinsic line shape ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}_{\rm line}$).
+The pure-Lorentzian cusp in $g^{(2)}_{\rm src}$ at $\tau=0$ maximizes the
+linear-in-$s$ scaling of Eq.~\eqref{eq:deltag2}; any departure from a pure
+Lorentzian (e.g., a Voigt core from thermal or instrumental broadening) rounds
+the cusp and reverts the discrepancy to $O(s^2)$. The SNR estimates below
+should therefore be read as notional optimistic limits, realised only to the
+extent that the observed line core is genuinely Lorentzian.
 All these targets are physically large and are thus extended sources, even though they are difficult to resolve from Earth; as extended sources, they are sensitive to spacetime foam whose transverse coherence length satisfies $r_\perp \lesssim D\,\Delta\theta$ (equivalently $\Phi_{\rm eff} \approx 0$), through the cross-ray differential jitter mechanism.
-[Claude: Fold in that the calculations, as using assuming Lorentzian, are
-notional optimistic limits.]
 
 \subsection{Sensitivity and Aperture Scaling}
 
@@ -1277,8 +1278,6 @@ A detection at $n$-$\sigma$
 requires a signal uncertainty $\sigma[g^{(2)}_{\rm obs}] \le |\textrm{discrepancy}|/n$, where the discrepancy
 amplitude and the relevant lag depend on which variant is being measured.
 
-[Claude: insert a paragraph with the SNR equation for the TFR with references and remove them from the ensuing subsections. Discuss the equation for the source and detector noise limit. Consider whether which limit we are at given $\sigma_t = 13$ ps rms of the detector and the sources described in Section Candidate Sources]
-
 The photon-counting rate is $R = \epsilon\, A\, \dot{n}$, where $\dot{n}$ is the
 source photon flux per unit area within the filter bandpass, $\epsilon$ the
 end-to-end throughput, and $A$ the collecting area. We adopt the baseline
@@ -1286,9 +1285,21 @@ instrumental configuration of Kim \emph{et al.}~\cite{Kim2025}: telescope
 diameter $d=9.96\,$m ($A=77.9\,$m$^2$), mirror reflectivity 0.73, filter
 transmission 0.90, detector quantum efficiency 0.60, total throughput
 $\epsilon=0.39$, and timing resolution FWHM $=30\,$ps ($\sigma_t=13\,$ps rms).
-The two variants differ in their observable, their signal scaling with the foam
-amplitude, and their distance and aperture dependence; we treat each in turn and
-summarize the comparison at the end of the section.
+Every source considered in Section~\ref{sec:candidate_sources} has an
+intrinsic coherence time $\tau_L \lesssim 1$\,ps (down to $\sim 0.1$\,ps for
+broad-line quasars), so $\sigma_t \gg \tau_L$ for the baseline instrument and
+the measurement sits firmly in the detector-limited regime: an unresolved
+foam feature of width $\tau_L$ (or $\tau_c$) is diluted to
+$(\tau_L/\sigma_t)\,|\mathcal{S}|$ in a time bin of width $\sigma_t$, with
+statistical noise
+$\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. Entering the
+source-limited regime $\tau_L \gtrsim \sigma_t$ would require sub-ps timing
+($\sigma_t \lesssim 0.1$\,ps for broad-line quasars, $\sigma_t \lesssim 0.5$\,ps
+for NLS1-class lines); we present the detector-limited SNR as the primary case
+throughout and quote the source-limited limit only as the gain that
+next-generation detectors would unlock. The two variants differ in their
+observable, their signal scaling with the foam amplitude, and their distance
+and aperture dependence; we treat each in turn.
 
 \subsubsection{Point-source variant}
 \label{sec:sens-point}
@@ -1309,30 +1320,15 @@ where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$ is the rms accumulated phase
 weak-foam limit, $\mathcal{S}(\tau_c)\approx 2e^{-2}\sigma_\phi^2$, and saturates
 at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$.
 
-The relevant feature is the
-exponential decay of $|g^{(1)}_{\rm src}|^2 = e^{-2|\tau|/\tau_c}$ at lag
-$\tau_c$. Filtering narrower than the intrinsic linewidth is therefore
-permitted, with $\tau_c$ replaced by the post-filter coherence time
-$\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$ throughout the
-SNR expressions below. Narrow filtering can be advantageous when it lifts
-$\tau_{c,\rm filt}$ above the detector resolution $\sigma_t$ and moves the
-measurement from the detector-limited to the source-limited regime. The
-trade-off is a reduction in photon rate $R$ proportional to the in-band line
-fraction; the optimal filter width balances these against each other for a
-given source profile and instrument configuration.
+The relevant feature is the exponential decay of $|g^{(1)}_{\rm src}|^2 =
+e^{-2|\tau|/\tau_c}$ at lag $\tau_c$. Filtering narrower than the intrinsic
+linewidth is permitted, with $\tau_c$ replaced by the post-filter coherence
+time $\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$ in the
+SNR below, at a cost in photon rate proportional to the in-band line fraction.
 
-\paragraph{SNR expressions.}
-Two operating regimes arise depending on whether the detector timing resolution
-$\sigma_t$ resolves the source coherence time $\tau_c$. In the
-\emph{source-limited} regime ($\tau_c>\sigma_t$),
-\begin{equation}
-\textrm{SNR}_{\rm src}^{\rm pt}
-\;=\; |\mathcal{S}(\tau_c)|\cdot R\sqrt{\tau_c T_{\rm obs}}
-\;\xrightarrow{\sigma_\phi\ll 1}\;
-2e^{-2}\sigma_\phi^2\, R\sqrt{\tau_c T_{\rm obs}},
-\label{eq:snr_src_pt}
-\end{equation}
-and in the detector-limited regime ($\sigma_t>\tau_c$),
+\paragraph{Detector-limited SNR.}
+With $\sigma_t \gg \tau_c$ for all sources of interest, the bunching feature
+of width $\tau_c$ is unresolved in a time bin of width $\sigma_t$, and
 \begin{equation}
 \textrm{SNR}_{\rm det}^{\rm pt}
 \;=\; \frac{\tau_c}{\sigma_t}|\mathcal{S}(\tau_c)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
@@ -1340,14 +1336,16 @@ and in the detector-limited regime ($\sigma_t>\tau_c$),
 2e^{-2}\sigma_\phi^2\, R\,\frac{\tau_c}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
 \label{eq:snr_det_pt}
 \end{equation}
-The two regimes connect continuously at $\tau_c=\sigma_t$, with a
-detector-limited penalty $\sqrt{\tau_c/\sigma_t}$ relative to source-limited
-operation at the same $\tau_c$.
+The detector-limited form carries a $\sqrt{\tau_c/\sigma_t}$ penalty relative
+to source-limited operation
+($\textrm{SNR}_{\rm src}^{\rm pt} = |\mathcal{S}(\tau_c)|\,R\sqrt{\tau_c T_{\rm obs}}$);
+reaching the source-limited limit on broad-line quasars requires
+$\sigma_t \lesssim \tau_c \sim 0.1$\,ps.
 
 \paragraph{Distance and aperture scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
-$\sigma_\phi^2\propto D^{2(1-\alpha)}$ into Eqs.~\ref{eq:snr_src_pt}--\ref{eq:snr_det_pt}
-gives, in the weak-foam limit,
+$\sigma_\phi^2\propto D^{2(1-\alpha)}$ into Eq.~\ref{eq:snr_det_pt} gives, in
+the weak-foam limit,
 \begin{equation}
 \textrm{SNR}^{\rm pt} \;\propto\; D^{2(1-\alpha)}\cdot D^{-2} \;=\; D^{-2\alpha},
 \label{eq:dist_scaling_pt}
@@ -1360,23 +1358,19 @@ relative to nearby targets for the point-source channel than for the
 extended-source channel.
 
 The minimum detectable path-length amplitude follows from inverting
-Eqs.~\ref{eq:snr_src_pt}--\ref{eq:snr_det_pt} with the quadratic signal
-dependence $|\mathcal{S}(\tau_c)|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
+Eq.~\ref{eq:snr_det_pt} with the quadratic signal dependence
+$|\mathcal{S}(\tau_c)|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
 \begin{equation}
 \sigma_{\ell,\rm min}^{\rm pt} \;\propto\;
-\begin{cases}
-\dfrac{\lambda}{d}\!\left(\dfrac{1}{\tau_c T_{\rm obs}}\right)^{1/4}
-& (\textrm{source-limited},\ \sigma_t<\tau_c), \\[10pt]
-\dfrac{\lambda}{d}\!\left(\dfrac{\sigma_t}{\tau_c^2 T_{\rm obs}}\right)^{1/4}
-& (\textrm{detector-limited},\ \sigma_t>\tau_c).
-\end{cases}
+\frac{\lambda}{d}\!\left(\frac{\sigma_t}{\tau_c^2\, T_{\rm obs}}\right)^{\!1/4},
 \label{eq:sigma_ell_min_pt}
 \end{equation}
-Aperture scales as $d^{-1}$ rather than $d^{-2}$, and observing-time scales as
-$T_{\rm obs}^{-1/4}$ rather than $T_{\rm obs}^{-1/2}$ --- both costs of the
-quadratic dependence on $\sigma_\phi$. Each additional decade of sensitivity in
-$\sigma_\ell$ requires four decades of integration time, compared with two for
-the extended-source variant.
+where $R\propto d^2$ has been used. Aperture scales as $d^{-1}$ rather than
+$d^{-2}$, and observing time as $T_{\rm obs}^{-1/4}$ rather than
+$T_{\rm obs}^{-1/2}$ --- both costs of the quadratic dependence on
+$\sigma_\phi$. Each additional decade of sensitivity in $\sigma_\ell$ requires
+four decades of integration time, compared with two for the extended-source
+variant.
 
 \paragraph{Numerical comparison.}
 For the 3C\,273 reference parameters
@@ -1405,7 +1399,7 @@ mechanism is inactive.
     as a function of foam exponent $\alpha$, in the dynamical-foam limit
     $C_\alpha \to 0$.
     Same instrument, targets, and $T_{\rm obs}$ as Fig.~\ref{fig:snr_vs_alpha_ext}.
-    SNR computed from Eqs.~\ref{eq:snr_src_pt}--\ref{eq:snr_det_pt}
+    SNR computed from Eq.~\ref{eq:snr_det_pt}
     (detector-limited regime, $\sigma_t \gg \tau_c$ for all sources shown),
     using the same $2\times\mathrm{FWHM}_{\rm line}$ wide filter as
     Fig.~\ref{fig:snr_vs_alpha_ext} for a direct comparison.
@@ -1489,30 +1483,14 @@ so that the post-filter coherence time equals the intrinsic line coherence time
 $\tau_L=\lambda^2/(c\,\textrm{FWHM}_{\rm line})$. This is a stricter
 requirement than the point-source variant, which admits narrower filtering.
 
-\paragraph{SNR expressions.}
-Two operating regimes arise depending on whether the detector timing
-resolution $\sigma_t$ resolves the intrinsic coherence time $\tau_L$. In the
-\emph{source-limited} regime ($\tau_L>\sigma_t$), the detector resolves the
-bunching peak and the standard HBT photon-counting result~\cite{Foellmi2009,
-Dravins2013, Guerin2017} applies:
-\begin{equation}
-\sigma\!\left[g^{(2)}_{\rm obs}(0)\right] \;=\; \frac{1}{R\sqrt{\tau_L T_{\rm obs}}},
-\label{eq:hbt_noise_src}
-\end{equation}
-giving signal-to-noise
-\begin{equation}
-\textrm{SNR}_{\rm src}^{\rm ext}
-\;=\; |\mathcal{S}(0)|\cdot R\sqrt{\tau_L T_{\rm obs}}
-\;\xrightarrow{s\ll 1}\;
-2\sqrt{\tfrac{2}{\pi}}\,\sigma_0\, R\sqrt{T_{\rm obs}/\tau_L}.
-\label{eq:snr_src_ext}
-\end{equation}
-In the \emph{detector-limited} regime ($\sigma_t>\tau_L$), the bunching peak
-(width $\sim\tau_L$) is unresolved: the measured zero-lag excess in a time bin
+\paragraph{Detector-limited SNR.}
+With $\sigma_t \gg \tau_L$ for all sources of interest, the bunching peak of
+width $\sim\tau_L$ is unresolved: the measured zero-lag excess in a time bin
 of width $\sigma_t$ is diluted to
-$|\mathcal{S}(0)|_{\rm meas}=(\tau_L/\sigma_t)|\mathcal{S}(0)|$, with statistical
-noise $\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. The
-signal-to-noise is therefore
+$|\mathcal{S}(0)|_{\rm meas}=(\tau_L/\sigma_t)|\mathcal{S}(0)|$, with
+statistical noise
+$\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$~\cite{Foellmi2009,
+Dravins2013, Guerin2017}, so
 \begin{equation}
 \textrm{SNR}_{\rm det}^{\rm ext}
 \;=\; \frac{\tau_L}{\sigma_t}|\mathcal{S}(0)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
@@ -1520,19 +1498,16 @@ signal-to-noise is therefore
 2\sqrt{\tfrac{2}{\pi}}\,\sigma_0\, R\sqrt{T_{\rm obs}/\sigma_t}.
 \label{eq:snr_det_ext}
 \end{equation}
-The two regimes connect continuously at $\tau_L=\sigma_t$. At fixed $\sigma_0$,
-$R$, and $T_{\rm obs}$, the SNR scales as $1/\sqrt{\tau_L}$ in the
-source-limited regime (broader lines are better: the cusp signal $\propto
-1/\tau_L$ grows faster than the noise $\propto 1/\sqrt{\tau_L}$), while in the
-detector-limited regime the SNR is independent of $\tau_L$ (the cusp growth
-$1/\tau_L$ is exactly cancelled by the $\tau_L/\sigma_t$ dilution factor). The
-penalty for operating in the detector-limited regime relative to source-limited
-at the same $\tau_L$ is $\sqrt{\tau_L/\sigma_t}$.
+The SNR in this regime is independent of $\tau_L$: the cusp signal $\propto
+1/\tau_L$ is cancelled by the $\tau_L/\sigma_t$ dilution factor. The penalty
+relative to source-limited operation
+($\textrm{SNR}_{\rm src}^{\rm ext} = |\mathcal{S}(0)|\,R\sqrt{\tau_L T_{\rm obs}}$,
+attainable only when $\sigma_t \lesssim \tau_L$) is $\sqrt{\tau_L/\sigma_t}$.
 
 \paragraph{Distance and aperture scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
-$\sigma_0\propto\sigma_\ell(D)\propto D^{1-\alpha}$ into
-Eqs.~\ref{eq:snr_src_ext}--\ref{eq:snr_det_ext} gives, in the weak-foam limit,
+$\sigma_0\propto\sigma_\ell(D)\propto D^{1-\alpha}$ into Eq.~\ref{eq:snr_det_ext}
+gives, in the weak-foam limit,
 \begin{equation}
 \textrm{SNR}^{\rm ext} \;\propto\; D^{1-\alpha}\cdot D^{-2} \;=\; D^{-(1+\alpha)},
 \label{eq:dist_scaling_ext}
@@ -1545,24 +1520,16 @@ luminous but distant source: the higher photon rate $R$ at close range can
 compensate for the reduced foam signal $|\mathcal{S}(0)|$.
 
 The minimum detectable path-length amplitude follows from inverting
-Eqs.~\ref{eq:snr_src_ext}--\ref{eq:snr_det_ext} with the linear signal
-dependence $|\mathcal{S}(0)|\propto\sigma_0\propto\sigma_\ell$:
+Eq.~\ref{eq:snr_det_ext} with the linear signal dependence
+$|\mathcal{S}(0)|\propto\sigma_0\propto\sigma_\ell$:
 \begin{equation}
 \sigma_{\ell,\rm min}^{\rm ext} \;\propto\;
-\begin{cases}
-\dfrac{\sqrt{\tau_L}}{d^2\sqrt{T_{\rm obs}}}
-& (\textrm{source-limited},\ \sigma_t<\tau_L), \\[10pt]
-\dfrac{\sigma_t}{d^2\sqrt{\tau_L T_{\rm obs}}}
-& (\textrm{detector-limited},\ \sigma_t>\tau_L),
-\end{cases}
+\frac{\sigma_t}{d^2\sqrt{\tau_L T_{\rm obs}}},
 \label{eq:sigma_ell_min_ext}
 \end{equation}
-where $R\propto d^2$ has been used. In the source-limited regime, faster
-detectors do not improve sensitivity (the coherence time $\tau_L$ sets the
-measurement); in the detector-limited regime sensitivity improves linearly with
-$\sigma_t$. In both regimes, sensitivity scales as $d^{-2}$ (collecting area)
-and as $T_{\rm obs}^{-1/2}$ --- both reflecting the linear dependence of the
-signal on $\sigma_\ell$, and both more favourable than the corresponding
+where $R\propto d^2$ has been used: sensitivity improves linearly with
+$\sigma_t$ in the detector-limited regime and scales as $d^{-2}$ (collecting
+area) and as $T_{\rm obs}^{-1/2}$, both more favourable than the corresponding
 $d^{-1}$ and $T_{\rm obs}^{-1/4}$ scalings of the point-source variant.
 Importantly, this variant is independent of the foam temporal correlation
 $C_\alpha$: the cross-ray differential jitter that drives $\delta g^{(2)}(0)$
@@ -1571,29 +1538,29 @@ in contrast to the point-source variant which requires
 $\tau_{\rm foam}\lesssim\tau_c$.
 
 \paragraph{Current- and next-generation sensitivity.}
-With current instrumentation ($\sigma_t=13\,$ps), broad-line quasars
-($\tau_L\sim 0.1\,$ps) operate deeply in the detector-limited regime. From
-Eq.~\ref{eq:snr_det_ext} at $3\sigma$ on 3C\,273 ($R\approx 1.4\times 10^5\,$cps,
-$\tau_L\approx 0.11\,$ps, $T_{\rm obs}=10^4\,$hr): $\sigma_{\ell,\rm min}\approx
-1.7\,\mu$m. This is far above the Lieu--Hillman imaging floor
-($\sigma_\ell\approx 105\,$nm at H$\alpha$), reflecting the intrinsic weakness
-of the envelope-timing observable $\delta g^{(2)}(0)$ relative to the
-carrier-phase observable $\sigma_\phi=2\pi\sigma_\ell/\lambda$ that governs
-fringe visibility.
+With current instrumentation ($\sigma_t=13\,$ps), the broad-line quasar
+3C\,273 ($\tau_L\approx 0.11\,$ps) operates deeply in the detector-limited
+regime. From Eq.~\ref{eq:snr_det_ext} at $3\sigma$
+($R\approx 1.4\times 10^5\,$cps, $T_{\rm obs}=10^4\,$hr):
+$\sigma_{\ell,\rm min}\approx 1.7\,\mu$m. This is far above the Lieu--Hillman
+imaging floor ($\sigma_\ell\approx 105\,$nm at H$\alpha$), reflecting the
+intrinsic weakness of the envelope-timing observable $\delta g^{(2)}(0)$
+relative to the carrier-phase observable $\sigma_\phi=2\pi\sigma_\ell/\lambda$
+that governs fringe visibility.
 
-The detector-limited penalty $\sqrt{\tau_L/\sigma_t}$ vanishes when $\sigma_t$
-is reduced below $\tau_L$. Superconducting nanowire detectors achieving timing
-jitter $\sigma_t\lesssim 0.1\,$ps are under active development; at
-$\sigma_t=0.05\,$ps, broad-line quasars ($\tau_L\sim 0.1\,$ps) enter the
-source-limited regime, and NLS1s ($\tau_L\sim 0.5\,$ps) are deeply source-limited.
-In the source-limited regime from Eq.~\ref{eq:snr_src_ext} at $3\sigma$ on
-3C\,273: $\sigma_{\ell,\rm min}\approx 160\,$nm (10\,m), 10\,nm (40\,m),
-0.02\,nm (1\,km array). A 40\,m-class telescope with sub-ps timing resolution
-would reach well below the Lieu--Hillman floor via $\delta g^{(2)}(0)$ alone,
-and a kilometre-baseline intensity-interferometer array would achieve
-sub-nanometre sensitivity --- placing the random-walk model $\alpha=1/2$ with
-long-range transverse correlations~\cite{LeeZurekChen2024} firmly within reach
-across the full AGN/quasar redshift range.
+The detector-limited penalty $\sqrt{\tau_L/\sigma_t}$ vanishes only when
+$\sigma_t$ is reduced below $\tau_L$, which for broad-line quasars demands
+sub-0.1\,ps timing. Superconducting nanowire detectors achieving such jitter
+are under active development; at $\sigma_t=0.05\,$ps, broad-line quasars enter
+the source-limited regime and NLS1s ($\tau_L\sim 0.5\,$ps) are deeply
+source-limited, giving $\sigma_{\ell,\rm min}\approx 160\,$nm (10\,m),
+$10\,$nm (40\,m), $0.02\,$nm (1\,km array) on 3C\,273. A 40\,m-class
+telescope with sub-ps timing would reach well below the Lieu--Hillman floor
+via $\delta g^{(2)}(0)$ alone, and a kilometre-baseline intensity-interferometer
+array would achieve sub-nanometre sensitivity --- placing the random-walk
+model $\alpha=1/2$ with long-range transverse
+correlations~\cite{LeeZurekChen2024} firmly within reach across the full
+AGN/quasar redshift range.
 
 \begin{figure}[t]
   \centering
@@ -1621,17 +1588,19 @@ across the full AGN/quasar redshift range.
 \subsection{Candidate Sources}
 \label{sec:candidate_sources}
 
-Two source properties enter Eqs.~\eqref{eq:hbt_snr}--\eqref{eq:hbt_snr_det}:
-the photon rate $R$, set by the total line flux captured within the wide filter,
-and the foam signal $|\mathcal{S}(0)| = \delta g^{(2)} \approx 2\sqrt{2/\pi}\,\sigma_0/\tau_L$,
-which depends on the source distance (through $\sigma_0$) and the intrinsic line
-coherence time $\tau_L = \lambda^2/(c\,\mathrm{FWHM}_{\rm line})$.
-The line profile shape plays a critical role: a genuinely Lorentzian line core
-gives a cusp in $g^{(2)}_{\rm src}$ at zero lag that produces a linear-in-$s$
-suppression rather than the quadratic-in-$s$ result for smooth profiles
-(Section~\ref{sec:zerolag}).
-Narrower lines (shorter $\tau_L$) yield a larger cusp parameter $s = \sigma_0/\tau_L$
-per unit foam amplitude and are therefore preferred targets.
+Three source properties drive target selection for the extended-source
+observable of Eq.~\eqref{eq:snr_det_ext}: the photon rate $R$, set by the
+total line flux captured within the wide filter; the source distance, which
+sets $\sigma_0$ and hence $|\mathcal{S}(0)| = \delta g^{(2)} \approx
+2\sqrt{2/\pi}\,\sigma_0/\tau_L$; and the line profile, which must retain a
+Lorentzian core to preserve the cusp in $g^{(2)}_{\rm src}$ at zero lag and
+hence the linear-in-$s$ scaling (Section~\ref{sec:zerolag}).
+Narrower lines (shorter $\tau_L$) yield a larger cusp parameter
+$s = \sigma_0/\tau_L$ per unit foam amplitude and are therefore preferred
+targets at fixed photon rate. All sources discussed below have intrinsic
+coherence times $\tau_L \lesssim 1$\,ps, well below the baseline timing
+resolution $\sigma_t = 13$\,ps; the measurement therefore operates in the
+detector-limited regime throughout.
 
 \textit{Broad-line quasars.}
 Luminous broad-line quasars (BLQs) combine large $\sigma_0$ (from cosmological
@@ -1693,50 +1662,11 @@ Their role is therefore as \textit{systematic calibrators}: a non-detection on a
 bright nearby source with a well-characterised Lorentzian line profile confirms
 the absence of instrumental artefacts in the $g^{(2)}(0)$ measurement.
 
-In the weak-foam limit ($s \ll 1$), the minimum detectable path-length amplitude
-from Eqs.~\eqref{eq:hbt_snr}--\eqref{eq:hbt_snr_det} scales as
-\begin{equation}
-  \sigma_{\ell,\rm min} \;\propto\;
-  \begin{cases}
-    \dfrac{\sqrt{\tau_L}}{d^2\,\sqrt{T_{\rm obs}}}
-      & \text{(source-limited, $\sigma_t < \tau_L$)}, \\[8pt]
-    \dfrac{\sigma_t}{d^2\,\sqrt{\tau_L\,T_{\rm obs}}}
-      & \text{(detector-limited, $\sigma_t > \tau_L$)},
-  \end{cases}
-  \label{eq:sell_min_scale}
-\end{equation}
-where $R \propto d^2$ has been used.
-In the source-limited regime, faster detectors do not improve sensitivity (the
-coherence time $\tau_L$ sets the measurement); in the detector-limited regime
-sensitivity improves linearly with $\sigma_t$.
-In both regimes, sensitivity scales as $d^{-2}$ (collecting area), reflecting
-the quadratic dependence of the coincidence rate on photon flux.
-
-\paragraph{Current-generation sensitivity.}
-With current instrumentation ($\sigma_t = 13$\,ps), broad-line quasars
-($\tau_L \sim 0.1$\,ps) operate deeply in the detector-limited regime.
-From Eq.~\eqref{eq:hbt_snr_det} at $3\sigma$ on 3C~273
-($R \approx 1.4\times10^5$\,cps, $\tau_L \approx 0.11$\,ps,
-$T_{\rm obs} = 10^4$\,hr):
-$\sigma_{\ell,\rm min} \approx 1.7\,\mu$m.
-This is far above the Lieu--Hillman imaging floor
-($\sigma_\ell \approx 105$\,nm at H$\alpha$), reflecting the intrinsic
-weakness of the envelope-timing observable $\delta g^{(2)}(0)$ relative to
-the carrier-phase observable $\sigma_\phi = 2\pi\sigma_\ell/\lambda$ that
-governs fringe visibility.
-
-\paragraph{Next-generation sensitivity.}
-The detector-limited penalty $\sqrt{\tau_L/\sigma_t}$ vanishes when $\sigma_t$
-is reduced below $\tau_L$.
-Superconducting nanowire detectors achieving timing jitter
-$\sigma_t \lesssim 1$\,ps are under active development; at $\sigma_t = 0.5$\,ps,
-broad-line quasars ($\tau_L \sim 0.1$\,ps) enter the source-limited regime, and
-NLS1s ($\tau_L \sim 0.5$\,ps) are deeply source-limited.
-In the source-limited regime from Eq.~\eqref{eq:hbt_snr} at $3\sigma$ on 3C~273:
-$\sigma_{\ell,\rm min} \approx 160\,$nm (10\,m),
-$10$\,nm (40\,m), $0.02$\,nm (1\,km array).
-A 40\,m-class telescope with sub-ps timing resolution would reach well below
-the Lieu--Hillman floor via $\delta g^{(2)}(0)$ alone.
+Sensitivity scalings $\sigma_{\ell,\rm min}^{\rm ext}$ and the current/
+next-generation numerical sensitivities for 3C\,273 and NLS1-class targets
+are given in Section~\ref{sec:sens-extended}
+(Eqs.~\ref{eq:snr_det_ext}--\ref{eq:sigma_ell_min_ext}); we do not repeat them
+here.
 
 % PROMPT FOR TABLE GENERATION:
 % Generate a table (label: tab:aperture) of minimum detectable sigma_ell
@@ -1801,17 +1731,21 @@ dramatically exceeds that of any cosmological-distance source, even after
 derating for source luminosity, duty cycle, and event probability.
 
 For a standard candle of fixed luminosity, $\mathrm{SNR} \propto D^{-(1+\alpha)}$
-in the weak-foam limit (Section~\ref{sec:snr_scaling}).
+in the weak-foam limit (Section~\ref{sec:sens-extended}).
 For $\alpha = 2/3$ this is $\propto D^{-5/3}$: closer is dramatically better.
 Type~Ia supernovae --- the brightest cosmological-distance standard candles ---
 are nevertheless poor targets at peak because their spectra are continuum-dominated
 with no narrow emission line: no Lorentzian cusp is available to drive the
 linear-in-$s$ signal.
 Type~IIn supernovae and LBV giant eruptions, by contrast, exhibit strong narrow
-H$\alpha$ (and He) emission throughout their bright phase from circumstellar-material
-interaction, with intrinsic coherence times $\tau_L \sim 0.1$--$0.5$\,ps that, with
-next-generation detectors ($\sigma_t \lesssim 0.1$\,ps), would enter the
-source-limited regime.
+H$\alpha$ (and He) emission throughout their bright phase from
+circumstellar-material interaction, with intrinsic coherence times
+$\tau_L \sim 0.3$--$1$\,ps (e.g.\ $\tau_L \approx 0.26$\,ps for a 55\,\AA\
+FWHM SN~IIn line, $\tau_L \approx 0.95$\,ps for the 15\,\AA\ FWHM core of
+$\eta$\,Car) that, with next-generation detectors ($\sigma_t \lesssim 0.1$\,ps,
+i.e.\ $\sigma_t \lesssim \tau_L$), would enter the source-limited regime; the
+baseline instrument with $\sigma_t = 13$\,ps remains firmly detector-limited
+even for these narrower lines.
 
 For a galactic transient at $D \sim 2$\,kpc with $\alpha = 1/2$ and long
 transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm lands inside the
@@ -1921,7 +1855,7 @@ $M = A_{\rm tel}/A_{\rm coh} \approx 4\times10^{10}$ independent spatial modes
 (coherence area $A_{\rm coh} = (\lambda/\theta_\odot)^2 \approx 1.8\times10^{-9}$\,m$^2$
 for angular diameter $\theta_\odot \approx 9.3$\,mrad), each contributing an independent
 foam phase.
-The SNR formula (Eq.~\ref{eq:hbt_snr}) therefore applies with the per-mode rate
+The SNR formula (Eq.~\ref{eq:snr_det_ext}) therefore applies with the per-mode rate
 $r = R_{\rm total}/M = 2\bar{n}(\lambda)\,\Delta\nu\,\epsilon$
 (Section~\ref{sec:extended}), where
 $\bar{n}(\lambda_K) = [e^{hc/\lambda_K k_B T}-1]^{-1} \approx 1.8\times10^{-3}$
