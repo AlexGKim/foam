@@ -2004,48 +2004,6 @@ The authors used Claude (Anthropic) to assist with drafting and editing portions
 
 \appendix
 
-\section{Voigt-Profile Convolution}
-\label{app:voigt}
-
-Equations~\eqref{eq:voigt_params}--\eqref{eq:g1obs_voigt} follow from
-evaluating Eq.~\eqref{eq:g1obs} with the Voigt source coherence
-$g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$:
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau)
-  = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2)\,
-    e^{-|\tau-\Delta|/\tau_L}\,e^{-(\tau-\Delta)^2/2\tau_G^2}\,d\Delta.
-  \label{eq:voigt_app_start}
-\end{equation}
-The two Gaussian factors $\mathcal{N}(\Delta;0,\sigma_\Delta^2)$ and
-$e^{-(\tau-\Delta)^2/2\tau_G^2}$ combine into a single Gaussian in $\Delta$;
-completing the square gives the effective mean and variance
-\begin{equation}
-  \tilde\sigma_1^2 = \frac{\sigma_\Delta^2\,\tau_G^2}{\sigma_\Delta^2+\tau_G^2},
-  \qquad
-  \mu_1(\tau) = \frac{\tau_G^2\,\tau}{\sigma_\Delta^2+\tau_G^2},
-\end{equation}
-together with the multiplicative prefactor
-$(\tilde\sigma_1/\sigma_\Delta)\,e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}$.
-The remaining Lorentzian--Gaussian convolution
-$\int\mathcal{N}(\Delta;\mu_1,\tilde\sigma_1^2)\,e^{-|\tau-\Delta|/\tau_L}\,d\Delta$
-is split at $\Delta=\tau$; each half-line integral is of the standard form
-$\int_0^\infty e^{-x/\tau_L}\,e^{-(x-a)^2/2\tilde\sigma_1^2}dx
-\propto e^{\tilde\sigma_1^2/2\tau_L^2 \mp a/\tau_L}\,
-\mathrm{erfc}\!\left((\tilde\sigma_1/\tau_L \mp a/\tilde\sigma_1)/\sqrt{2}\right)$
-after completing the square in the exponent, and the two halves combine into
-Eq.~\eqref{eq:g1obs_voigt}.
-The pure-Lorentzian closed form Eq.~\eqref{eq:g1obs_erfc} follows in the limit
-$\tau_G\to\infty$, for which $\tilde\sigma_1\to\sigma_\Delta$, $\mu_1\to\tau$,
-and the prefactor reduces to unity.
-
-The zero-lag Voigt result Eq.~\eqref{eq:g2zero_voigt} for the second-order
-coherence is obtained by the same procedure applied to
-$g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_L}\,e^{-\tau^2/\tau_G^2}$:
-the factor-of-two changes in the exponents of both the Lorentzian and
-Gaussian factors propagate through, yielding the zero-lag effective width
-$\tilde\sigma^2 = \sigma_0^2\tau_G^2/(2\sigma_0^2+\tau_G^2)$ of
-Eq.~\eqref{eq:sigmatilde}.
-
 % ==============================================================
 \section{Source Properties}
 \label{app:sources}
