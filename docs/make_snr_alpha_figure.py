@@ -126,7 +126,7 @@ def finish_figure(ax, results, marker_label):
                                     ms=7, mec='black', mew=0.8, label=marker_label)
     handles, labels_ = ax.get_legend_handles_labels()
     ax.legend(handles + [validity_marker], labels_ + [marker_label],
-              fontsize=9, loc='upper center', bbox_to_anchor=(0.413, 0.98),
+              fontsize=9, loc='upper right',
               framealpha=0.95)
     plt.tight_layout()
 

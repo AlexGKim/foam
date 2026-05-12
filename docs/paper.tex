@@ -1271,8 +1271,8 @@ at finite lag for point sources (Section~\ref{sec:siegert}), and a suppression
 of the zero-lag bunching peak for spatially extended sources
 (Section~\ref{sec:extended}).
 Both are inferred by comparing the measured $g^{(2)}_{\rm obs}$ to the Siegert
-prediction $g^{(2)}_{\rm src}-1=|g^{(1)}_{\rm src}|^2$ built from the source
-spectrum via the Wiener--Khinchin theorem for $\tau \ne 0$; neither requires a separate model of
+prediction $g^{(2)}_{\rm src}-1=|g^{(1)}_{\rm src}|^2$, built from the source
+spectrum via the Wiener--Khinchin theorem for the case of $\tau \ne 0$; neither requires a separate model of
 the source.
 A detection at $n$-$\sigma$
 requires a signal uncertainty $\sigma[g^{(2)}_{\rm obs}] \le |\textrm{discrepancy}|/n$, where the discrepancy
@@ -1285,19 +1285,16 @@ instrumental configuration of Kim \emph{et al.}~\cite{Kim2025}: telescope
 diameter $d=9.96\,$m ($A=77.9\,$m$^2$), mirror reflectivity 0.73, filter
 transmission 0.90, detector quantum efficiency 0.60, total throughput
 $\epsilon=0.39$, and timing resolution FWHM $=30\,$ps ($\sigma_t=13\,$ps rms).
-Every source considered in Section~\ref{sec:candidate_sources} has an
-intrinsic coherence time $\tau_L \lesssim 1$\,ps (down to $\sim 0.1$\,ps for
-broad-line quasars), so $\sigma_t \gg \tau_L$ for the baseline instrument and
+The astrophysical targets of interest have intrinsic coherence times
+$\tau_L \lesssim 1$\,ps, so $\sigma_t \gg \tau_L$ for the baseline instrument and
 the measurement sits firmly in the detector-limited regime: an unresolved
 foam feature of width $\tau_L$ (or $\tau_c$) is diluted to
 $(\tau_L/\sigma_t)\,|\mathcal{S}|$ in a time bin of width $\sigma_t$, with
 statistical noise
-$\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. Entering the
-source-limited regime $\tau_L \gtrsim \sigma_t$ would require sub-ps timing
-($\sigma_t \lesssim 0.1$\,ps for broad-line quasars, $\sigma_t \lesssim 0.5$\,ps
-for NLS1-class lines); we present the detector-limited SNR as the primary case
-throughout and quote the source-limited limit only as the gain that
-next-generation detectors would unlock. The two variants differ in their
+$\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. We present the
+detector-limited SNR as the primary case throughout and quote the source-limited
+limit ($\tau_L \gtrsim \sigma_t$, requiring sub-ps timing) only as the gain
+that next-generation detectors would unlock. The two variants differ in their
 observable, their signal scaling with the foam amplitude, and their distance
 and aperture dependence; we treat each in turn.
 
@@ -1320,12 +1317,6 @@ where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$ is the rms accumulated phase
 weak-foam limit, $\mathcal{S}(\tau_c)\approx 2e^{-2}\sigma_\phi^2$, and saturates
 at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$.
 
-The relevant feature is the exponential decay of $|g^{(1)}_{\rm src}|^2 =
-e^{-2|\tau|/\tau_c}$ at lag $\tau_c$. Filtering narrower than the intrinsic
-linewidth is permitted, with $\tau_c$ replaced by the post-filter coherence
-time $\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$ in the
-SNR below, at a cost in photon rate proportional to the in-band line fraction.
-
 \paragraph{Detector-limited SNR.}
 With $\sigma_t \gg \tau_c$ for all sources of interest, the bunching feature
 of width $\tau_c$ is unresolved in a time bin of width $\sigma_t$, and
@@ -1342,6 +1333,28 @@ to source-limited operation
 reaching the source-limited limit on broad-line quasars requires
 $\sigma_t \lesssim \tau_c \sim 0.1$\,ps.
 
+\paragraph{Filter strategy.}
+Unlike the extended-source variant, preserving the intrinsic line cusp is not
+required: the point-source Siegert discrepancy $\mathcal{S}(\tau_c)$ depends
+only on $\sigma_\phi$, not on the spectral shape that sets the coherence time.
+Filtering narrower than the intrinsic linewidth is therefore permitted, with
+$\tau_c$ replaced by the post-filter coherence time
+$\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$.
+In the detector-limited regime the SNR scales as $R\,\tau_c/\sqrt{\sigma_t}$
+(Eq.~\ref{eq:snr_det_pt}); for a Lorentzian emission line the transmitted
+fraction scales as $\Delta\lambda_{\rm filter}/\Delta\lambda_{\rm line}$ in the
+narrow-filter limit, so $R\,\tau_c$ is approximately constant and the SNR is
+insensitive to filter width.
+The same holds for a flat continuum source where
+$R\propto\Delta\lambda_{\rm filter}$ and
+$\tau_c\propto\Delta\lambda_{\rm filter}^{-1}$.
+The practical bound on filter width is set by sky background: widening the
+filter beyond the emission line adds sky photons without increasing source
+signal, degrading the signal-to-background ratio.
+For continuum sources the sky background constrains the maximum useful
+$\Delta\lambda_{\rm filter}$; the optimal width is therefore set by the
+sky-limited signal-to-background ratio rather than by coherence considerations.
+
 \paragraph{Distance and aperture scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
 $\sigma_\phi^2\propto D^{2(1-\alpha)}$ into Eq.~\ref{eq:snr_det_pt} gives, in
@@ -1350,12 +1363,8 @@ the weak-foam limit,
 \textrm{SNR}^{\rm pt} \;\propto\; D^{2(1-\alpha)}\cdot D^{-2} \;=\; D^{-2\alpha},
 \label{eq:dist_scaling_pt}
 \end{equation}
-saturating at $\textrm{SNR}\propto D^{-2}$ in the strong-foam limit. The
-distance dependence is therefore softer than the extended-source variant's
-$D^{-(1+\alpha)}$ for $\alpha<1$ (e.g.\ $D^{-4/3}$ vs.\ $D^{-5/3}$ at
-$\alpha=2/3$): cosmological-baseline AGN are correspondingly more attractive
-relative to nearby targets for the point-source channel than for the
-extended-source channel.
+saturating at $\textrm{SNR}\propto D^{-2}$ in the strong-foam limit.
+Since $\alpha > 0$, the SNR increases toward smaller $D$: nearby targets are preferred.
 
 The minimum detectable path-length amplitude follows from inverting
 Eq.~\ref{eq:snr_det_pt} with the quadratic signal dependence
@@ -1372,23 +1381,34 @@ $\sigma_\phi$. Each additional decade of sensitivity in $\sigma_\ell$ requires
 four decades of integration time, compared with two for the extended-source
 variant.
 
-\paragraph{Numerical comparison.}
-For the 3C\,273 reference parameters
-($R\approx 1.4\times 10^5\,$cps, $\tau_c\approx 0.11\,$ps, $T_{\rm obs}=10^4\,$hr,
-$\lambda=H\alpha$, $D=677\,$Mpc) and the random-walk model $\alpha=1/2$ with
-short-range transverse correlations relaxed, $\sigma_\phi(D,\lambda)\approx 230$
-saturates the point-source signal at $\mathcal{S}(\tau_c)\to e^{-2}$, giving
-$\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm in the saturated regime --- comparable
-to the Lieu--Hillman fringe-erasure threshold itself, and consistent with the
-fact that the point-source observable accesses $\sigma_\phi$ directly. For the
-holographic model $\alpha=2/3$, $\sigma_\phi\sim 10^{-8}$ gives
-$\mathcal{S}(\tau_c)\sim 10^{-16}$, five orders of magnitude below the
-extended-source signal $\delta g^{(2)}(0)\sim 10^{-11}$ on the same target. The
-point-source variant is therefore not competitive with the extended-source
-variant for raw sensitivity to the holographic model, but it provides the only
-HBT channel sensitive to the foam temporal dynamics $\tau_{\rm foam}$, and it
-can be applied to spatially unresolved sources for which the extended-source
-mechanism is inactive.
+\paragraph{Continuum sources in the narrow-band limit.}
+For a continuum source whose spectrum is flat within the bandpass, the
+coherence function is set entirely by the filter: a filter of width
+$\Delta\lambda$ gives $\tau_c = \lambda^2/(c\,\Delta\lambda)$, and the
+narrow-band Siegert discrepancy (Eq.~\ref{eq:siegert_pt_repeat}) applies with
+this filter-defined $\tau_c$.
+The Sun, observed through a single spatial coherence cell, illustrates the
+point-source case at extreme proximity.
+At $D = 1$\,AU and $\lambda = 500$\,nm,
+$\sigma_\phi(\alpha=1/2) \approx 2\times10^{-5}$, giving
+$\mathcal{S}(\tau_c) \approx 1.1\times10^{-10}$.
+With a 1\,\AA\ filter ($\tau_c\approx 8$\,ps, comparable to $\sigma_t$), the
+per-mode photon rate on a 10\,m telescope is $r\sim 10^8$\,cps ---
+enormous compared to any extragalactic target.
+The single-channel source-limited SNR is
+$|\mathcal{S}|\,r\sqrt{\tau_c T_{\rm obs}} \sim 2\times10^{-4}$
+for $T_{\rm obs}=10^4$\,hr.
+A spectrograph that disperses the light into $N$ independent channels of width
+$\Delta\lambda$ measures $g^{(2)}$ in each channel independently and combines
+them for a $\sqrt{N}$ gain; with $N = 3000$ channels spanning the optical band,
+the combined SNR improves by $\sim 55\times$ to $\sim 10^{-2}$ --- still well
+below detection.
+The product $r\tau_c$ in each channel is fixed by the per-mode occupation number
+and is independent of the channel width, so no single-channel filter optimization
+helps; only the multiplexing gain $\sqrt{N}$ is available.
+The deficit is set entirely by the small
+$\sigma_\phi^2\propto D^{2(1-\alpha)}$ at 1\,AU, which is $\sim 10^{16}$ times
+smaller than at 1\,Gpc.
 
 \begin{figure}[t]
   \centering
@@ -1398,22 +1418,21 @@ mechanism is inactive.
     $\mathcal{S}(\tau_c) = e^{-2}(1 - e^{-2\sigma_\phi^2})$ (Eq.~\ref{eq:Stc})
     as a function of foam exponent $\alpha$, in the dynamical-foam limit
     $C_\alpha \to 0$.
-    Same instrument, targets, and $T_{\rm obs}$ as Fig.~\ref{fig:snr_vs_alpha_ext}.
+    Instrument: Kim~et~al.\ \cite{Kim2025} baseline (10\,m aperture, $\epsilon = 0.39$,
+    $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr, filter width $2\times\mathrm{FWHM}_{\rm line}$.
     SNR computed from Eq.~\ref{eq:snr_det_pt}
-    (detector-limited regime, $\sigma_t \gg \tau_c$ for all sources shown),
-    using the same $2\times\mathrm{FWHM}_{\rm line}$ wide filter as
-    Fig.~\ref{fig:snr_vs_alpha_ext} for a direct comparison.
+    (detector-limited regime, $\sigma_t \gg \tau_c$ for all sources shown).
     Filled circles mark the $\sigma_\phi = 0.3$ validity boundary of the
     weak-foam quadratic approximation
     $\mathcal{S}(\tau_c) \approx 2e^{-2}\sigma_\phi^2$; curves to the right
     saturate at $e^{-2} \approx 0.135$.
-    Vertical dashed lines indicate $\alpha = 0.54$ and $\alpha = 2/3$ (holographic).
-    Compare with Fig.~\ref{fig:snr_vs_alpha_ext}: the point-source SNR tracks
-    $D^{-2\alpha}$ (Eq.~\ref{eq:dist_scaling_pt}) versus the extended-source
-    $D^{-(1+\alpha)}$, favouring cosmological-baseline AGN relatively more,
-    but the absolute sensitivity is orders of magnitude lower because
-    $\sigma_\phi \propto \sigma_\ell/\lambda$ is $10^{12}$ times smaller than
-    $\sigma_0/\tau_L \propto \sigma_\ell/c\tau_L$ for optical lines.
+    Vertical dashed lines indicate $\alpha = 0.54$, the Lieu--Hillman imaging
+    exclusion boundary ($\sigma_\phi = 1$ at $D = 1$\,Gpc, $\lambda = 500$\,nm,
+    under the standard short-$r_\perp$ assumption), and $\alpha = 2/3$ (holographic).
+    The point-source SNR tracks $D^{-2\alpha}$ (Eq.~\ref{eq:dist_scaling_pt});
+    its absolute sensitivity is orders of magnitude lower than the extended-source
+    variant because $\sigma_\phi \propto \sigma_\ell/\lambda$ is $10^{12}$ times
+    smaller than $\sigma_0/\tau_L \propto \sigma_\ell/c\tau_L$ for optical lines.
     Figure generated by \texttt{make\_snr\_alpha\_figure.py}.%
     \label{fig:snr_vs_alpha_pt}}
 \end{figure}
@@ -1461,27 +1480,15 @@ $D\Delta\theta$ is the principal observational handle on $r_\perp$
 (Section~\ref{sec:extended}).
 
 \paragraph{Filter strategy: preserving the intrinsic cusp.}
-The linear-in-$s$ scaling of $\delta g^{(2)}$ requires that
-$g^{(2)}_{\rm src}(\tau)$ retain its cusp at $\tau=0$, inherited from the
-Lorentzian wings of the emission-line profile. Spectral filtering is a linear
-operation on the detected field: the post-filter power spectrum is
-$S_{\rm filt}(\nu)=|H(\nu)|^2 S_{\rm src}(\nu)$, where $H(\nu)$ is the filter
-transfer function; the post-filter coherence function
-$g^{(1)}(\tau)=\mathcal{F}^{-1}[\hat{S}_{\rm filt}]$ and, via the Siegert
-relation, the cusp in $g^{(2)}_{\rm src}(\tau)$ at $\tau=0$ are determined by
-whichever spectral feature is narrowest --- the emission line or the filter
-bandpass. If $\Delta\lambda_{\rm filter}\ll\textrm{FWHM}_{\rm line}$, the
-post-filter spectrum is set by the (smooth) filter profile; the resulting
-$g^{(2)}_{\rm src}$ is analytic at zero lag, the cusp is destroyed, and
-$\delta g^{(2)}$ reverts to $O(s^2)$. To preserve the linear-in-$s$ signal, the
-filter must pass the full emission line:
+The linear-in-$s$ scaling of $\delta g^{(2)}$ requires that the filter pass
+the full emission line,
 \begin{equation}
 \Delta\lambda_{\rm filter} \;\ge\; \textrm{FWHM}_{\rm line},
 \label{eq:filter_cusp}
 \end{equation}
-so that the post-filter coherence time equals the intrinsic line coherence time
-$\tau_L=\lambda^2/(c\,\textrm{FWHM}_{\rm line})$. This is a stricter
-requirement than the point-source variant, which admits narrower filtering.
+so that the post-filter coherence time is set by the intrinsic Lorentzian line
+width rather than the (smooth) filter profile; a narrower filter destroys the
+cusp in $g^{(2)}_{\rm src}$ at zero lag and reverts $\delta g^{(2)}$ to $O(s^2)$.
 
 \paragraph{Detector-limited SNR.}
 With $\sigma_t \gg \tau_L$ for all sources of interest, the bunching peak of
@@ -1562,6 +1569,24 @@ model $\alpha=1/2$ with long-range transverse
 correlations~\cite{LeeZurekChen2024} firmly within reach across the full
 AGN/quasar redshift range.
 
+\paragraph{Comparison of the two variants.}
+For the 3C\,273 reference parameters
+($R\approx 1.4\times 10^5\,$cps, $\tau_c\approx 0.11\,$ps, $T_{\rm obs}=10^4\,$hr,
+$\lambda=\mathrm{H}\alpha$, $D=677\,$Mpc), the random-walk model $\alpha=1/2$
+with short-range transverse correlations relaxed gives $\sigma_\phi\approx 230$,
+saturating the point-source signal at $\mathcal{S}(\tau_c)\to e^{-2}$ and
+$\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm --- comparable to the
+Lieu--Hillman fringe-erasure threshold, consistent with the point-source
+observable accessing $\sigma_\phi$ directly.
+For the holographic model $\alpha=2/3$, $\sigma_\phi\sim 10^{-8}$ gives
+$\mathcal{S}(\tau_c)\sim 10^{-16}$, five orders of magnitude below the
+extended-source signal $\delta g^{(2)}(0)\sim 10^{-11}$ on the same target.
+The point-source variant is therefore not competitive with the extended-source
+variant for raw sensitivity to the holographic model, but it provides the only
+HBT channel sensitive to the foam temporal dynamics $\tau_{\rm foam}$ and can
+be applied to spatially unresolved sources for which the extended-source
+mechanism is inactive.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.92\linewidth]{snr_vs_alpha_extended.png}
@@ -1601,6 +1626,10 @@ targets at fixed photon rate. All sources discussed below have intrinsic
 coherence times $\tau_L \lesssim 1$\,ps, well below the baseline timing
 resolution $\sigma_t = 13$\,ps; the measurement therefore operates in the
 detector-limited regime throughout.
+The source classes surveyed below are illustrative rather than exhaustive;
+systematic searches through existing AGN flux catalogues and emission-line
+surveys will likely identify superior targets with higher photon rates,
+more purely Lorentzian line profiles, or more favorable distance-to-flux ratios.
 
 \textit{Broad-line quasars.}
 Luminous broad-line quasars (BLQs) combine large $\sigma_0$ (from cosmological
