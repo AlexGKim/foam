@@ -1369,35 +1369,6 @@ $\sigma_\phi$. Each additional decade of sensitivity in $\sigma_\ell$ requires
 four decades of integration time, compared with two for the extended-source
 variant.
 
-\paragraph{Continuum sources in the narrow-band limit.}
-For a continuum source whose spectrum is flat within the bandpass, the
-coherence function is set entirely by the filter: a filter of width
-$\Delta\lambda$ gives $\tau_c = \lambda^2/(c\,\Delta\lambda)$, and the
-narrow-band Siegert discrepancy (Eq.~\ref{eq:siegert_pt_repeat}) applies with
-this filter-defined $\tau_c$.
-The Sun, observed through a single spatial coherence cell, illustrates the
-point-source case at extreme proximity.
-At $D = 1$\,AU and $\lambda = 500$\,nm,
-$\sigma_\phi(\alpha=1/2) \approx 2\times10^{-5}$, giving
-$\mathcal{S}(\tau_c) \approx 1.1\times10^{-10}$.
-With a 1\,\AA\ filter ($\tau_c\approx 8$\,ps, comparable to $\sigma_t$), the
-per-mode photon rate on a 10\,m telescope is $r\sim 10^8$\,cps ---
-enormous compared to any extragalactic target.
-The single-channel source-limited SNR is
-$|\mathcal{S}|\,r\sqrt{\tau_c T_{\rm obs}} \sim 2\times10^{-4}$
-for $T_{\rm obs}=10^4$\,hr.
-A spectrograph that disperses the light into $N$ independent channels of width
-$\Delta\lambda$ measures $g^{(2)}$ in each channel independently and combines
-them for a $\sqrt{N}$ gain; with $N = 3000$ channels spanning the optical band,
-the combined SNR improves by $\sim 55\times$ to $\sim 10^{-2}$ --- still well
-below detection.
-The product $r\tau_c$ in each channel is fixed by the per-mode occupation number
-and is independent of the channel width, so no single-channel filter optimization
-helps; only the multiplexing gain $\sqrt{N}$ is available.
-The deficit is set entirely by the small
-$\sigma_\phi^2\propto D^{2(1-\alpha)}$ at 1\,AU, which is $\sim 10^{16}$ times
-smaller than at 1\,Gpc.
-
 \subsubsection{Transverse Decorrelation -- Zero-lag variant}
 \label{sec:sens-extended}
 
@@ -1817,6 +1788,31 @@ A standing rapid-response HBT plan for $\eta$\,Car, for any galactic
 core-collapse supernova, and for any nearby ($D \lesssim 30$\,Mpc) Type~IIn
 discovered by transient surveys would let the framework take advantage of
 these high-yield events without prior allocation.
+
+\subsection{The Sun as a Continuum Source}
+\label{sec:sun_continuum}
+
+For a continuum source whose spectrum is flat within the bandpass, the
+coherence function is set entirely by the filter: a filter of width
+$\Delta\lambda$ gives $\tau_c = \lambda^2/(c\,\Delta\lambda)$, and the
+narrow-band Siegert discrepancy (Eq.~\ref{eq:siegert_pt_repeat}) applies with
+this filter-defined $\tau_c$.
+The Sun, observed through a single spatial coherence cell, illustrates the
+finite-lag point-source case at extreme proximity.
+At $D = 1$\,AU and $\lambda = 500$\,nm,
+$\sigma_\phi(\alpha=1/2) \approx 2\times10^{-5}$, giving
+$\mathcal{S}(\tau_c) \approx 1.1\times10^{-10}$.
+With a 1\,\AA\ filter ($\tau_c\approx 8$\,ps, comparable to $\sigma_t$), the
+per-mode photon rate on a 10\,m telescope is $r\sim 10^8$\,cps ---
+enormous compared to any extragalactic target.
+The single-channel source-limited SNR is
+$|\mathcal{S}|\,r\sqrt{\tau_c T_{\rm obs}} \sim 2\times10^{-4}$
+for $T_{\rm obs}=10^4$\,hr.
+Even multiplexing with a high-resolution spectrograph ($N\sim3000$ channels,
+$\sqrt{N}\sim55$ gain) raises the SNR only to $\sim10^{-2}$, still far below
+detection: the deficit is set entirely by the small
+$\sigma_\phi^2\propto D^{2(1-\alpha)}$ at 1\,AU, which is $\sim 10^{16}$ times
+smaller than at 1\,Gpc.
 
 \subsection{Absorption-Line Sources}
 \label{sec:absorption_lines}
