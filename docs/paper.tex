@@ -832,9 +832,7 @@ near its intrinsic value while $g^{(1)}$ is suppressed.
 This decoupling is the physical root of the Siegert violation.
 Numerical values of both scales are given in Table~\ref{tab:comparison}
 (evaluated at the dynamical limit $C_\alpha\to 0$; for quasi-static foam
-$C_\alpha\approx 1$ the ratio vanishes at all lags); the corresponding
-foam-amplitude curves are shown against the principal sensitivity
-thresholds in Fig.~\ref{fig:observability}.
+$C_\alpha\approx 1$ the ratio vanishes at all lags).
 
 \begin{table}[h]
 \centering
@@ -855,27 +853,6 @@ $\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
 \label{tab:comparison}
 \end{table}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.92\linewidth]{observability.pdf}
-  \caption{%
-    Foam-induced rms path-length amplitude $\sigma_\ell(D)$ for the three
-    $\alpha$-model exponents ($A_\alpha = 1$).
-    The dashed line is the Lieu--Hillman threshold $\sigma_\ell = \lambda/(2\pi)$
-    at $\lambda = 500$~nm; the shaded region above it is excluded by
-    imaging~\cite{LieuHillman2003,Ragazzoni2003,Christiansen2011,Perlman2015}
-    under the standard short-$r_\perp$ assumption.
-    Long-range-correlated foam~\cite{LeeZurekChen2024} evades this bound and
-    is the target of the HBT framework developed here, whose accessible regime
-    $\sigma_\ell \in [6, 64]$~nm is the green band; with next-generation timing
-    ($\sigma_t \lesssim 0.1$\,ps), a 40\,m aperture reaches
-    ${\sim}10$\,nm well within it.
-    The grey vertical band marks the AGN/quasar range $D \sim 1$--$10$~Gpc.
-    See Section~\ref{sec:conclusions} for photon-counting sensitivities and
-    discussion of the holographic ($\alpha = 2/3$) and conservative
-    ($\alpha = 1$) cases.
-    \label{fig:observability}}
-\end{figure}
 
 \subsection{Explicit Form and Properties in the Narrow-Band Limit}
 
@@ -1266,13 +1243,13 @@ surveys candidate astrophysical sources: broad-line AGN and quasars,
 Galactic and Local-Group transients, and nearby stars.
 We use the Hanbury Brown--Twiss (HBT) split-beam configuration~\cite{HBT1956} throughout, as essentially all modern photon-counting $g^{(2)}$ measurements do: detector dead time makes a single-detector autocorrelation blind to the ps-scale lags that build the bunching peak.
 The sensitivity estimates that follow assume a Lorentzian line profile,
-adopted as the default for the broad and narrow permitted lines considered here.
+adopted as the default for the broad and narrow permitted lines considered here.  Two variants are considered: the temporal decorrelation/non-zero lag; transverse decorrelation/zero lag.
 The pure-Lorentzian cusp in $g^{(2)}_{\rm src}$ at $\tau=0$ maximizes the
 linear-in-$s$ scaling of Eq.~\eqref{eq:deltag2}; any departure from a pure
 Lorentzian rounds the cusp and reverts the extended-source discrepancy to
 $O(s^2)$, so the SNR estimates for that variant should be read as optimistic
-limits. Filter strategy differs between the two variants and is discussed
-in each subsubsection in turn.
+limits. Filter strategy differs between the finite-lag ($\tau\neq 0$) and zero-lag
+($\tau=0$) variants and is discussed in each subsubsection in turn.
 All these targets are physically large and are thus extended sources, even though they are difficult to resolve from Earth; as extended sources, they are sensitive to spacetime foam whose transverse coherence length satisfies $r_\perp \lesssim D\,\Delta\theta$ (equivalently $\Phi_{\rm eff} \approx 0$), through the cross-ray differential jitter mechanism.
 
 \subsection{Sensitivity and Aperture Scaling}
@@ -1307,11 +1284,11 @@ statistical noise
 $\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. We present the
 detector-limited SNR as the primary case throughout and quote the source-limited
 limit ($\tau_L \gtrsim \sigma_t$, requiring sub-ps timing) only as the gain
-that next-generation detectors would unlock. The two variants differ in their
+that next-generation detectors would unlock with precision optics. The two variants differ in their
 observable, their signal scaling with the foam amplitude, and their distance
 and aperture dependence; we treat each in turn.
 
-\subsubsection{Finite-lag variant}
+\subsubsection{Temporal Decorrelation -- Finite-lag variant}
 \label{sec:sens-point}
 
 For a point-like source,
@@ -1450,7 +1427,7 @@ smaller than at 1\,Gpc.
     \label{fig:snr_vs_alpha_pt}}
 \end{figure}
 
-\subsubsection{Zero-lag variant}
+\subsubsection{Transverse Decorrelation -- Zero-lag variant}
 \label{sec:sens-extended}
 
 For a spatially extended source whose angular size satisfies
@@ -1790,8 +1767,7 @@ baseline instrument with $\sigma_t = 13$\,ps remains firmly detector-limited
 even for these narrower lines.
 
 For a galactic transient at $D \sim 2$\,kpc with $\alpha = 1/2$ and long
-transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm lands inside the
-HBT-accessible band of Fig.~\ref{fig:observability} and the photon flux is so high
+transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm and the photon flux is so high
 that the first-detection or exclusion is essentially instantaneous once
 sub-ps timing is available.
 For $\alpha = 2/3$, the $D^{2/3}$ signal penalty is offset by the photon-flux
@@ -1822,8 +1798,7 @@ in an unusual brightening state since the mid-twentieth century, and giant
 LBV eruptions are now routinely identified in nearby galaxies
 (SN\,2009ip and analogs).
 For both galactic sources, the $\sigma_\ell \approx 30$\,nm prediction at
-$\alpha = 1/2$ with long-range transverse correlations lands inside the
-HBT-accessible band of Fig.~\ref{fig:observability}: a near-instant test
+$\alpha = 1/2$ with long-range transverse correlations is within reach of the HBT framework: a near-instant test
 of the long-$r_\perp$ random-walk variant.
 The M31 case is intermediate: the $\alpha = 1/2$ short-$r_\perp$ prediction
 ($\sigma_\ell \approx 625$\,nm) is already incompatible with existing
@@ -1990,8 +1965,7 @@ Lieu--Hillman imaging floor ($\sigma_\ell \approx 105$\,nm at H$\alpha$).
 With next-generation timing ($\sigma_t \lesssim 0.1$\,ps, entering the
 source-limited regime), a 40\,m aperture reaches
 $\sigma_\ell \approx 10$\,nm, well below the imaging floor; a 1\,km-class
-intensity-interferometer array would reach sub-nm sensitivity
-(Fig.~\ref{fig:observability}).
+intensity-interferometer array would reach sub-nm sensitivity.
 
 The astrophysical contribution of the framework developed here is threefold:
 it closes the imaging-test loophole for foam models with long-range transverse
