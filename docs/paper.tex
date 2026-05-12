@@ -435,32 +435,32 @@ As a representative case admitting a closed-form result, we take a Lorentzian
 line profile, which corresponds to an exponential coherence function via the
 Wiener--Khinchin theorem:
 \begin{equation}
-  g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c},
+  g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L},
   \label{eq:g1src_lorentz}
 \end{equation}
-where $\tau_c$ is the coherence time.
+where $\tau_L$ is the coherence time.
 Evaluating Eq.~\eqref{eq:g1obs} by completing the square and splitting on the
 sign of $\tau-\Delta$ gives, for $\tau > 0$:
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau)
-  = e^{\sigma_\Delta^2/2\tau_c^2}
+  = e^{\sigma_\Delta^2/2\tau_L^2}
     \cdot\frac{1}{2}\left[
-      e^{-\tau/\tau_c}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_c - \tau/\sigma_\Delta}{\sqrt{2}}\right)
-      + e^{\tau/\tau_c}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_c + \tau/\sigma_\Delta}{\sqrt{2}}\right)
+      e^{-\tau/\tau_L}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_L - \tau/\sigma_\Delta}{\sqrt{2}}\right)
+      + e^{\tau/\tau_L}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_L + \tau/\sigma_\Delta}{\sqrt{2}}\right)
     \right].
   \label{eq:g1obs_erfc}
 \end{equation}
-In the weak-jitter limit $\sigma_\Delta \ll \tau_c$, the Gaussian average of
-$e^{-|\tau-\Delta|/\tau_c}$ over $\Delta\sim\mathcal{N}(0,\sigma_\Delta^2)$
+In the weak-jitter limit $\sigma_\Delta \ll \tau_L$, the Gaussian average of
+$e^{-|\tau-\Delta|/\tau_L}$ over $\Delta\sim\mathcal{N}(0,\sigma_\Delta^2)$
 is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
 \begin{equation}
-  g^{(1)}_{\rm obs}(\tau) \approx e^{-|\tau|/\tau_c}
-  \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_c^2} + \mathcal{O}(\sigma_\Delta^4)\right].
+  g^{(1)}_{\rm obs}(\tau) \approx e^{-|\tau|/\tau_L}
+  \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_L^2} + \mathcal{O}(\sigma_\Delta^4)\right].
   \label{eq:g1weak}
 \end{equation}
 Here $\sigma_\Delta(\tau)$ is $\tau$-dependent through $C_\alpha(\tau)$,
-and the expansion is in $\sigma_\Delta(\tau)/\tau_c$ at fixed $\tau$.
-The correction is positive because $e^{-|\tau|/\tau_c}$ is convex and
+and the expansion is in $\sigma_\Delta(\tau)/\tau_L$ at fixed $\tau$.
+The correction is positive because $e^{-|\tau|/\tau_L}$ is convex and
 Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
 
@@ -879,13 +879,13 @@ $g^{(1)}_{\rm obs}$ and $g^{(2)}_{\rm obs}$ are measurable from the same
 dataset — and the modulation beyond the prefactor $|g^{(1)}_{\rm src}(\tau)|^2$
 is controlled solely by $\alpha$, $D$, and $C_\alpha(\tau;D)$, independently
 of the unknown source spectrum.
-For a Lorentzian source, $|g^{(1)}_{\rm src}(\tau_c)|^2 = e^{-2}$, and in the
+For a Lorentzian source, $|g^{(1)}_{\rm src}(\tau_L)|^2 = e^{-2}$, and in the
 dynamical limit $C_\alpha\to 0$, Eq.~\eqref{eq:Sexplicit} reduces to
 \begin{equation}
-  \mathcal{S}(\tau_c) = e^{-2}\!\left(1-e^{-2\sigma_\phi^2}\right),
+  \mathcal{S}(\tau_L) = e^{-2}\!\left(1-e^{-2\sigma_\phi^2}\right),
   \label{eq:Stc}
 \end{equation}
-the detection observable at lag $\tau_c$.
+the detection observable at lag $\tau_L$.
 In the weak-foam limit $\sigma_\phi\ll 1$ this is $\approx 2e^{-2}\sigma_\phi^2$;
 in the strong-foam limit $\sigma_\phi\gg 1$ it saturates at $e^{-2}\approx 0.135$.
 Although derived here for a point source, Eq.~\eqref{eq:Sexplicit} applies
@@ -1084,15 +1084,15 @@ Evaluating the zero-lag effective variance with $C_\alpha(0;D)=1$ gives
 which is strictly positive whenever $\Phi_{\rm eff}<1$, so the ray-pair mixture
 reduces to a single Gaussian kernel of width $\sigma_0$.
 
-For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_c}$,
-so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_c}$.
+For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}$,
+so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_L}$.
 The zero-lag convolution over $\Delta \sim \mathcal{N}(0, \sigma_0^2)$
-then becomes, setting $s \equiv \sigma_0/\tau_c$ and splitting on the sign
+then becomes, setting $s \equiv \sigma_0/\tau_L$ and splitting on the sign
 of $\Delta$ (both halves contributing equally by symmetry of $|\Delta|$),
 \begin{equation}
-  \big\langle e^{-2|\Delta|/\tau_c}\big\rangle
+  \big\langle e^{-2|\Delta|/\tau_L}\big\rangle
   = \frac{2}{\sqrt{2\pi}\,\sigma_0}\int_0^\infty
-    e^{-2\Delta/\tau_c}e^{-\Delta^2/2\sigma_0^2}d\Delta
+    e^{-2\Delta/\tau_L}e^{-\Delta^2/2\sigma_0^2}d\Delta
   = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
   \label{eq:zerolagavg}
 \end{equation}
@@ -1102,7 +1102,7 @@ via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
 \begin{equation}
   g^{(2)}_{\rm obs}(0)
     = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
-    \qquad s\equiv\sigma_0/\tau_c,
+    \qquad s\equiv\sigma_0/\tau_L,
   \label{eq:g2zero}
 \end{equation}
 and the zero-lag bunching peak is suppressed below its ideal value of 2 by
@@ -1168,7 +1168,7 @@ at zero lag (the function is non-differentiable at $\tau=0$ for cusped profiles 
 as the Lorentzian, so the symmetric derivative does not exist there).
 For sources with a smooth (even) profile the right-derivative vanishes and the
 leading correction is $O(\sigma_0^2)$; for a Lorentzian,
-$g^{(2)\prime}_{\rm src}(0^+) = -2/\tau_c$, recovering
+$g^{(2)\prime}_{\rm src}(0^+) = -2/\tau_L$, recovering
 $\delta g^{(2)}\approx 2\sqrt{2/\pi}\,s$, consistent with the small-$s$
 expansion of Eq.~\eqref{eq:deltag2}.
 For a Voigt profile, the same expansion gives
@@ -1278,7 +1278,7 @@ $\epsilon=0.39$, and timing resolution FWHM $=30\,$ps ($\sigma_t=13\,$ps rms).
 The astrophysical targets of interest have intrinsic coherence times
 $\tau_L \lesssim 1$\,ps, so $\sigma_t \gg \tau_L$ for the baseline instrument and
 the measurement sits firmly in the detector-limited regime: an unresolved
-foam feature of width $\tau_L$ (or $\tau_c$) is diluted to
+foam feature of width $\tau_L$ is diluted to
 $(\tau_L/\sigma_t)\,|\mathcal{S}|$ in a time bin of width $\sigma_t$, with
 statistical noise
 $\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. We present the
@@ -1295,43 +1295,43 @@ For a point-like source,
 the foam signature manifests as a
 Siegert discrepancy at finite lag $\tau \ne 0$.
 Considering a Lorentzian source at the dynamical limit
-$C_\alpha(\tau_c;D)\to 0$, the discrepancy at
-$\tau =\tau\sim\tau_c$ is given
+$C_\alpha(\tau_L;D)\to 0$, the discrepancy at
+$\tau =\tau\sim\tau_L$ is given
 by Eq.~\ref{eq:Stc}:
 \begin{equation}
-\mathcal{S}(\tau_c) \;=\; e^{-2}\!\left(1 - e^{-2\sigma_\phi^2}\right),
+\mathcal{S}(\tau_L) \;=\; e^{-2}\!\left(1 - e^{-2\sigma_\phi^2}\right),
 \label{eq:siegert_pt_repeat}
 \end{equation}
 where $\sigma_\phi = 2\pi\sigma_\ell(D)/\lambda$ is the rms accumulated phase
 (Eq.~\ref{eq:sigmaphi}). The signal is \emph{quadratic} in $\sigma_\phi$ in the
-weak-foam limit, $\mathcal{S}(\tau_c)\approx 2e^{-2}\sigma_\phi^2$, and saturates
+weak-foam limit, $\mathcal{S}(\tau_L)\approx 2e^{-2}\sigma_\phi^2$, and saturates
 at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$.
 
 \paragraph{Detector-limited SNR.}
-With $\sigma_t \gg \tau_c$ for all sources of interest, the bunching feature
-of width $\tau_c$ is unresolved in a time bin of width $\sigma_t$, and
+With $\sigma_t \gg \tau_L$ for all sources of interest, the bunching feature
+of width $\tau_L$ is unresolved in a time bin of width $\sigma_t$, and
 \begin{equation}
 \textrm{SNR}_{\rm det}^{\rm pt}
-\;=\; \frac{\tau_c}{\sigma_t}|\mathcal{S}(\tau_c)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
+\;=\; \frac{\tau_L}{\sigma_t}|\mathcal{S}(\tau_L)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
 \;\xrightarrow{\sigma_\phi\ll 1}\;
-2e^{-2}\sigma_\phi^2\, R\,\frac{\tau_c}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
+2e^{-2}\sigma_\phi^2\, R\,\frac{\tau_L}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
 \label{eq:snr_det_pt}
 \end{equation}
-The detector-limited form carries a $\sqrt{\tau_c/\sigma_t}$ penalty relative
+The detector-limited form carries a $\sqrt{\tau_L/\sigma_t}$ penalty relative
 to source-limited operation
-($\textrm{SNR}_{\rm src}^{\rm pt} = |\mathcal{S}(\tau_c)|\,R\sqrt{\tau_c T_{\rm obs}}$);
+($\textrm{SNR}_{\rm src}^{\rm pt} = |\mathcal{S}(\tau_L)|\,R\sqrt{\tau_L T_{\rm obs}}$);
 reaching the source-limited limit on broad-line quasars requires
-$\sigma_t \lesssim \tau_c \sim 0.1$\,ps.
+$\sigma_t \lesssim \tau_L \sim 0.1$\,ps.
 
 \paragraph{Filter strategy.}
-Since $\mathcal{S}(\tau_c)$ depends only on $\sigma_\phi$, the filter
-choice affects the SNR only through $R\,\tau_c$; filtering narrower than
-the intrinsic linewidth simply replaces $\tau_c$ with the post-filter
-coherence time $\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$.
-In the detector-limited regime the SNR scales as $R\,\tau_c/\sqrt{\sigma_t}$
+Since $\mathcal{S}(\tau_L)$ depends only on $\sigma_\phi$, the filter
+choice affects the SNR only through $R\,\tau_L$; filtering narrower than
+the intrinsic linewidth simply replaces $\tau_L$ with the post-filter
+coherence time $\tau_c = \lambda^2/(c\,\Delta\lambda_{\rm filter})$.
+In the detector-limited regime the SNR scales as $R\,\tau_L/\sqrt{\sigma_t}$
 (Eq.~\ref{eq:snr_det_pt}); for a Lorentzian emission line the transmitted
 fraction scales as $\Delta\lambda_{\rm filter}/\Delta\lambda_{\rm line}$ in the
-narrow-filter limit, so $R\,\tau_c$ is approximately constant and the SNR is
+narrow-filter limit, so $R\,\tau_L$ is approximately constant and the SNR is
 insensitive to filter width.
 The same holds for a flat continuum source where
 $R\propto\Delta\lambda_{\rm filter}$ and
@@ -1356,10 +1356,10 @@ Since $\alpha > 0$, the SNR increases toward smaller $D$: nearby targets are pre
 
 The minimum detectable path-length amplitude follows from inverting
 Eq.~\ref{eq:snr_det_pt} with the quadratic signal dependence
-$|\mathcal{S}(\tau_c)|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
+$|\mathcal{S}(\tau_L)|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
 \begin{equation}
 \sigma_{\ell,\rm min}^{\rm pt} \;\propto\;
-\frac{\lambda}{d}\!\left(\frac{\sigma_t}{\tau_c^2\, T_{\rm obs}}\right)^{\!1/4},
+\frac{\lambda}{d}\!\left(\frac{\sigma_t}{\tau_L^2\, T_{\rm obs}}\right)^{\!1/4},
 \label{eq:sigma_ell_min_pt}
 \end{equation}
 where $R\propto d^2$ has been used. Aperture scales as $d^{-1}$ rather than
@@ -1474,7 +1474,7 @@ Importantly, this variant is independent of the foam temporal correlation
 $C_\alpha$: the cross-ray differential jitter that drives $\delta g^{(2)}(0)$
 operates regardless of whether the foam is dynamically active or quasi-static,
 in contrast to the finite-lag variant which requires
-$\tau_{\rm foam}\lesssim\tau_c$.
+$\tau_{\rm foam}\lesssim\tau_L$.
 
 \paragraph{Current- and next-generation sensitivity.}
 With current instrumentation ($\sigma_t=13\,$ps), the broad-line quasar
@@ -1503,15 +1503,15 @@ AGN/quasar redshift range.
 
 \paragraph{Comparison of the two variants.}
 For the 3C\,273 reference parameters
-($R\approx 1.4\times 10^5\,$cps, $\tau_c\approx 0.11\,$ps, $T_{\rm obs}=10^4\,$hr,
+($R\approx 1.4\times 10^5\,$cps, $\tau_L\approx 0.11\,$ps, $T_{\rm obs}=10^4\,$hr,
 $\lambda=\mathrm{H}\alpha$, $D=677\,$Mpc), the random-walk model $\alpha=1/2$
 with short-range transverse correlations relaxed gives $\sigma_\phi\approx 230$,
-saturating the finite-lag signal at $\mathcal{S}(\tau_c)\to e^{-2}$ and
+saturating the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}$ and
 $\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm --- comparable to the
 Lieu--Hillman fringe-erasure threshold, consistent with the finite-lag
 observable accessing $\sigma_\phi$ directly.
 For the holographic model $\alpha=2/3$, $\sigma_\phi\sim 10^{-8}$ gives
-$\mathcal{S}(\tau_c)\sim 10^{-16}$, five orders of magnitude below the
+$\mathcal{S}(\tau_L)\sim 10^{-16}$, five orders of magnitude below the
 zero-lag signal $\delta g^{(2)}(0)\sim 10^{-11}$ on the same target.
 The finite-lag variant is therefore not competitive with the zero-lag
 variant for raw sensitivity to the holographic model, but it provides the only
@@ -1628,16 +1628,16 @@ the absence of instrumental artefacts in the $g^{(2)}(0)$ measurement.
   \includegraphics[width=0.92\linewidth]{snr_vs_alpha_pointsource.png}
   \caption{%
     Signal-to-noise ratio for detecting the finite-lag Siegert discrepancy
-    $\mathcal{S}(\tau_c) = e^{-2}(1 - e^{-2\sigma_\phi^2})$ (Eq.~\ref{eq:Stc})
+    $\mathcal{S}(\tau_L) = e^{-2}(1 - e^{-2\sigma_\phi^2})$ (Eq.~\ref{eq:Stc})
     as a function of foam exponent $\alpha$, in the dynamical-foam limit
     $C_\alpha \to 0$.
     Instrument: Kim~et~al.\ \cite{Kim2025} baseline (10\,m aperture, $\epsilon = 0.39$,
     $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr, filter width $2\times\mathrm{FWHM}_{\rm line}$.
     SNR computed from Eq.~\ref{eq:snr_det_pt}
-    (detector-limited regime, $\sigma_t \gg \tau_c$ for all sources shown).
+    (detector-limited regime, $\sigma_t \gg \tau_L$ for all sources shown).
     Filled circles mark the $\sigma_\phi = 0.3$ validity boundary of the
     weak-foam quadratic approximation
-    $\mathcal{S}(\tau_c) \approx 2e^{-2}\sigma_\phi^2$; curves to the right
+    $\mathcal{S}(\tau_L) \approx 2e^{-2}\sigma_\phi^2$; curves to the right
     saturate at $e^{-2} \approx 0.135$.
     Vertical dashed lines indicate $\alpha = 0.54$, the Lieu--Hillman imaging
     exclusion boundary ($\sigma_\phi = 1$ at $D = 1$\,Gpc, $\lambda = 500$\,nm,
@@ -1936,7 +1936,7 @@ finite-lag Siegert violation and $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s \sim 5
 for the extended-source bunching suppression in the fully resolved limit
 $\Phi_{\rm eff} \to 0$, where $s = \sqrt{2}\,\sigma_\phi\,(\Delta\lambda/\lambda) \sim 3.5\times10^{-11}$
 (with $\delta g^{(2)}$ inheriting a linear rather
-than quadratic scaling in $s = \sigma_0/\tau_c$ from the cusp in
+than quadratic scaling in $s = \sigma_0/\tau_L$ from the cusp in
 $g^{(2)}_{\rm src}$ at zero lag for sources with a Lorentzian line component).
 
 The achievable sensitivity and its scaling with telescope aperture and source
@@ -2017,12 +2017,12 @@ $H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m_V$ is the apparent visual magnitude;
 line fluxes $F$ are integrated over the emission line;
 FWHM is the observed-frame full width at half maximum of the broad emission
 line component;
-$\tau_c = \lambda_{\rm obs}^2/(c\,\Delta\lambda_{\rm FWHM})$ is the
+$\tau_L = \lambda_{\rm obs}^2/(c\,\Delta\lambda_{\rm FWHM})$ is the
 coherence time of the unfiltered line.}
 \label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
-Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_c$ (ps) \\
+Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
 \midrule
 3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992} & 127~\cite{Boroson1992} & 0.15 \\
 Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28~\cite{Kollatschny2013} & 0.53 \\
@@ -2065,7 +2065,7 @@ $D = 2.3$\,kpc~\cite{2001ApJ...553..837H}.
 FWHM values are for the broad H$\alpha$ emission component; the bulk outflow
 speed characterises the P~Cygni absorption trough or the dominant spectral
 feature at each epoch.
-$\tau_c = \lambda^2/(c\,\Delta\lambda_{\rm FWHM})$ at H$\alpha$
+$\tau_L = \lambda^2/(c\,\Delta\lambda_{\rm FWHM})$ at H$\alpha$
 ($\lambda = 6563$\,\AA) assuming a Lorentzian profile.
 The eruption reached $m_V \approx -1$ at peak (1843--1858).
 Later phases also show very broad emission wings with velocities
@@ -2073,7 +2073,7 @@ $\gtrsim 10{,}000$\,km\,s$^{-1}$~\cite{2018MNRAS.480.1466S}.}
 \label{tab:source_etacar}
 \begin{tabular}{lcccc}
 \toprule
-Eruption epoch & Bulk outflow (km\,s$^{-1}$) & H$\alpha$ FWHM (km\,s$^{-1}$) & $\tau_c$ (ps) & Ref. \\
+Eruption epoch & Bulk outflow (km\,s$^{-1}$) & H$\alpha$ FWHM (km\,s$^{-1}$) & $\tau_L$ (ps) & Ref. \\
 \midrule
 Pre-plateau (early)  & $\sim 150$ & $\sim 150$ & 4.38 & \cite{2018MNRAS.480.1466S} \\
 Plateau              & $\sim 400$ & $\sim 400$ & 1.64 & \cite{2014ApJ...787L...8P} \\
