@@ -1324,12 +1324,10 @@ reaching the source-limited limit on broad-line quasars requires
 $\sigma_t \lesssim \tau_c \sim 0.1$\,ps.
 
 \paragraph{Filter strategy.}
-Unlike the zero-lag variant, preserving the intrinsic line cusp is not
-required: the finite-lag Siegert discrepancy $\mathcal{S}(\tau_c)$ depends
-only on $\sigma_\phi$, not on the spectral shape that sets the coherence time.
-Filtering narrower than the intrinsic linewidth is therefore permitted, with
-$\tau_c$ replaced by the post-filter coherence time
-$\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$.
+Since $\mathcal{S}(\tau_c)$ depends only on $\sigma_\phi$, the filter
+choice affects the SNR only through $R\,\tau_c$; filtering narrower than
+the intrinsic linewidth simply replaces $\tau_c$ with the post-filter
+coherence time $\tau_{c,\rm filt} = \lambda^2/(c\,\Delta\lambda_{\rm filter})$.
 In the detector-limited regime the SNR scales as $R\,\tau_c/\sqrt{\sigma_t}$
 (Eq.~\ref{eq:snr_det_pt}); for a Lorentzian emission line the transmitted
 fraction scales as $\Delta\lambda_{\rm filter}/\Delta\lambda_{\rm line}$ in the
