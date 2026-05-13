@@ -1236,21 +1236,23 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 \label{sec:prospects}
 % ==============================================================
 
-This section examines the detectability of 
-Siegert violation 
-via the HBT effect and
-surveys candidate astrophysical sources: broad-line AGN and quasars,
+This section examines the detectability of Siegert violation via the HBT effect
+and surveys candidate astrophysical sources: broad-line AGN and quasars,
 Galactic and Local-Group transients, and nearby stars.
-We use the Hanbury Brown--Twiss (HBT) split-beam configuration~\cite{HBT1956} throughout, as essentially all modern photon-counting $g^{(2)}$ measurements do: detector dead time makes a single-detector autocorrelation blind to the ps-scale lags that build the bunching peak.
-The sensitivity estimates that follow assume a Lorentzian line profile,
-adopted as the default for the broad and narrow permitted lines considered here.  Two variants are considered: the temporal decorrelation/non-zero lag; transverse decorrelation/zero lag.
+We use the Hanbury Brown--Twiss (HBT) split-beam configuration~\cite{HBT1956}
+throughout, as essentially all modern photon-counting $g^{(2)}$ measurements
+do: detector dead time makes a single-detector autocorrelation blind to the
+ps-scale lags that build the bunching peak.
+
+The sensitivity estimates that follow assume a Lorentzian line profile, adopted
+as the default for the broad and narrow permitted lines considered here.
+Two variants are considered: temporal decorrelation at finite lag and transverse
+decorrelation at zero lag.
 The pure-Lorentzian cusp in $g^{(2)}_{\rm src}$ at $\tau=0$ maximizes the
 linear-in-$s$ scaling of Eq.~\eqref{eq:deltag2}; any departure from a pure
 Lorentzian rounds the cusp and reverts the extended-source discrepancy to
 $O(s^2)$, so the SNR estimates for that variant should be read as optimistic
-limits. Filter strategy differs between the finite-lag ($\tau\neq 0$) and zero-lag
-($\tau=0$) variants and is discussed in each subsubsection in turn.
-All these targets are physically large and are thus extended sources, even though they are difficult to resolve from Earth; as extended sources, they are sensitive to spacetime foam whose transverse coherence length satisfies $r_\perp \lesssim D\,\Delta\theta$ (equivalently $\Phi_{\rm eff} \approx 0$), through the cross-ray differential jitter mechanism.
+limits.
 
 \subsection{Sensitivity and Aperture Scaling}
 
@@ -1262,11 +1264,8 @@ sources, and a suppression of the zero-lag bunching peak specific to spatially
 extended sources (Section~\ref{sec:extended}).
 Both are inferred by comparing the measured $g^{(2)}_{\rm obs}$ to the Siegert
 prediction $g^{(2)}_{\rm src}-1=|g^{(1)}_{\rm src}|^2$, built from the source
-spectrum via the Wiener--Khinchin theorem for the case of $\tau \ne 0$; neither requires a separate model of
+spectrum via the Wiener--Khinchin theorem; neither requires a separate model of
 the source.
-A detection at $n$-$\sigma$
-requires a signal uncertainty $\sigma[g^{(2)}_{\rm obs}] \le |\textrm{discrepancy}|/n$, where the discrepancy
-amplitude and the relevant lag depend on which variant is being measured.
 
 The photon-counting rate is $R = \epsilon\, A\, \dot{n}$, where $\dot{n}$ is the
 source photon flux per unit area within the filter bandpass, $\epsilon$ the
@@ -1284,9 +1283,7 @@ statistical noise
 $\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. We present the
 detector-limited SNR as the primary case throughout and quote the source-limited
 limit ($\tau_L \gtrsim \sigma_t$, requiring sub-ps timing) only as the gain
-that next-generation detectors would unlock with precision optics. The two variants differ in their
-observable, their signal scaling with the foam amplitude, and their distance
-and aperture dependence; we treat each in turn.
+that next-generation detectors would unlock with precision optics.
 
 \subsubsection{Temporal Decorrelation -- Finite-lag variant}
 \label{sec:sens-point}
@@ -1295,8 +1292,7 @@ For a point-like source,
 the foam signature manifests as a
 Siegert discrepancy at finite lag $\tau \ne 0$.
 Considering a Lorentzian source at the dynamical limit
-$C_\alpha(\tau_L;D)\to 0$, the discrepancy at
-$\tau =\tau\sim\tau_L$ is given
+$C_\alpha(\tau_L;D)\to 0$, the discrepancy at $\tau \sim \tau_L$ is given
 by Eq.~\ref{eq:Stc}:
 \begin{equation}
 \mathcal{S}(\tau_L) \;=\; e^{-2}\!\left(1 - e^{-2\sigma_\phi^2}\right),
@@ -1339,9 +1335,6 @@ $\tau_c\propto\Delta\lambda_{\rm filter}^{-1}$.
 The practical bound on filter width is set by sky background: widening the
 filter beyond the emission line adds sky photons without increasing source
 signal, degrading the signal-to-background ratio.
-For continuum sources the sky background constrains the maximum useful
-$\Delta\lambda_{\rm filter}$; the optimal width is therefore set by the
-sky-limited signal-to-background ratio rather than by coherence considerations.
 
 \paragraph{Distance and aperture scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
@@ -1400,6 +1393,11 @@ Two structural conditions distinguish this variant from the finite-lag case
 and govern its applicability.
 
 \paragraph{Source-size requirement.}
+The candidate targets are physically large and thus extended sources, even
+though they are difficult to resolve from Earth; as extended sources, they are
+sensitive to spacetime foam whose transverse coherence length satisfies
+$r_\perp \lesssim D\,\Delta\theta$ (equivalently $\Phi_{\rm eff} \approx 0$),
+through the cross-ray differential jitter mechanism.
 The mechanism requires $\Phi_{\rm eff}<1$, equivalently
 $D\Delta\theta\gtrsim r_\perp$: rays from different sky directions must sample
 distinct transverse regions of the foam to accumulate independent jitters. For
@@ -1488,41 +1486,36 @@ retain a Lorentzian core to preserve the cusp in $g^{(2)}_{\rm src}$ at zero
 lag and hence the linear-in-$s$ scaling (Section~\ref{sec:zerolag}); narrower
 lines (shorter $\tau_L$) yield a larger cusp parameter $s = \sigma_0/\tau_L$
 per unit foam amplitude and are therefore preferred targets at fixed photon rate.
-The finite-lag observable depends on $\sigma_\phi = 2\pi\sigma_\ell/\lambda$
-rather than $\sigma_0 = \sqrt{2}\,\sigma_\ell/c$, and does not require a
-Lorentzian line profile; it is applicable to any spatially unresolved source. All sources discussed below have intrinsic
-coherence times $\tau_L \lesssim 1$\,ps, well below the baseline timing
-resolution $\sigma_t = 13$\,ps; the measurement therefore operates in the
-detector-limited regime throughout.
+The finite-lag observable imposes no line-profile constraint and is applicable
+to any spatially unresolved source.
+All sources discussed below have intrinsic coherence times $\tau_L \lesssim 1$\,ps,
+well below the baseline timing resolution $\sigma_t = 13$\,ps; the measurements
+therefore operate in the detector-limited regime throughout.
 The source classes surveyed below are illustrative rather than exhaustive;
 systematic searches through existing AGN flux catalogues and emission-line
 surveys will likely identify superior targets with higher photon rates,
 more purely Lorentzian line profiles, or more favorable distance-to-flux ratios.
+Observed properties and references for the principal candidates are collected
+in Tables~\ref{tab:source_agn} and~\ref{tab:source_etacar}.
 
 \textit{Broad-line quasars.}
-Luminous broad-line quasars (BLQs) combine large $\sigma_0$ (from cosmological
-distances) with high line flux.
-Their permitted emission lines (H$\alpha$, H$\beta$, Mg\,\textsc{ii}, C\,\textsc{iv})
-concentrate photons into a narrow wavelength range; a wide filter
-($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}$) captures the full line flux,
-giving photon rates far exceeding those of a continuum source at the same apparent
-magnitude.
-Sky background is negligible because the moderate filter width and small field of
-view suppress continuum sky to well below the source rate;
-detector dark counts ($\lesssim 25$\,cps for premium SPADs, $\lesssim 1$\,cps for
-SNSPDs) are well below typical bright AGN line rates, so the Brouri~et~al.\
-correction for accidental coincidences is small~\cite{Brouri2000}.
+Luminous broad-line quasars (BLQs) combine large cosmological distances ---
+maximising both $\sigma_\phi$ (finite-lag) and $\sigma_0$ (zero-lag) --- with
+high emission-line flux.
+Their broad permitted lines (H$\alpha$, H$\beta$, Mg\,\textsc{ii}, C\,\textsc{iv})
+are empirically well described by Lorentzian profiles~\cite{Kollatschny2013},
+satisfying the zero-lag cusp requirement of Section~\ref{sec:candidate_sources}.
+A wide filter ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}$) captures the full
+line flux, giving photon rates far exceeding those of a continuum source at the
+same apparent magnitude; sky background and detector dark counts are negligible
+relative to the source rate, so the Brouri~et~al.\ correction for accidental
+coincidences is small~\cite{Brouri2000}.
 We adopt 3C~273 (broad H$\alpha$, $F \approx 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
 FWHM $\approx 127$\,\AA, $D = 677$\,Mpc) as the reference target~\cite{Boroson1992}.
-Broad permitted lines in luminous quasars are empirically well described by
-Lorentzian profiles~\cite{Kollatschny2013}.
-With a $\sim 200$\,\AA\ filter (capturing $\approx 70\%$ of a Lorentzian of
-FWHM $= 127$\,\AA), the photon rate on a 10\,m telescope with $\epsilon = 0.39$ is
-$R \approx 1.4\times10^5$\,cps.
-The intrinsic coherence time is $\tau_L = \lambda^2/(c\,\mathrm{FWHM})
-= (6563\,\text{\AA})^2/(3\times10^{10}\,\text{cm\,s}^{-1}\cdot 127\,\text{\AA})
-\approx 0.11$\,ps, placing the measurement deeply in the detector-limited regime
-($\tau_L \ll \sigma_t = 13$\,ps) with current instrumentation.
+With a $\sim 200$\,\AA\ filter (capturing $\approx 70\%$ of the Lorentzian line flux),
+the photon rate on a 10\,m telescope with $\epsilon = 0.39$ is $R \approx 1.4\times10^5$\,cps
+and the intrinsic coherence time is $\tau_L \approx 0.11$\,ps, placing the measurement
+deeply in the detector-limited regime ($\tau_L \ll \sigma_t = 13$\,ps).
 
 \textit{Narrow-line Seyfert 1 galaxies.}
 Narrow-line Seyfert 1 galaxies (NLS1s) have permitted lines with FWHM $\lesssim 2000$\,km\,s$^{-1}$,
@@ -1531,85 +1524,32 @@ A narrower line yields a shorter intrinsic coherence time $\tau_L$ and hence a
 larger cusp parameter $s = \sigma_0/\tau_L$ per unit foam amplitude:
 for FWHM $\sim 1300$\,km\,s$^{-1}$ ($\sim 28$\,\AA\ at H$\alpha$),
 $\tau_L \approx 0.51$\,ps, compared with $\tau_L \approx 0.11$\,ps for 3C~273.
-For representative NLS1s with H$\alpha$ line fluxes
-$F \sim 5\times10^{-13}$--$10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$ at
-$D \sim 50$--$260$\,Mpc, photon rates with a wide filter on a 10\,m telescope are
-$R \sim 10^4$--$10^5$\,cps.
 Because NLS1 distances are smaller, their $\sigma_0$ is correspondingly smaller,
 but the genuinely Lorentzian core and the high photon rates make them competitive
-targets for the $\delta g^{(2)}$ measurement: the Lorentzian purity
-maximises the linear-in-$s$ cusp advantage of Section~\ref{sec:zerolag},
-and NLS1s with $\tau_L \gtrsim \sigma_t$ can operate in the source-limited regime
+targets for the $\delta g^{(2)}$ measurement, and NLS1s with
+$\tau_L \gtrsim \sigma_t$ can operate in the source-limited regime
 with next-generation detectors.
-Bright examples include Mrk~766 ($V = 13.6$, $D = 53$\,Mpc,
-FWHM $\approx 1300$\,km\,s$^{-1}$) and I\,Zw\,1 ($V = 14.0$, $D = 261$\,Mpc,
-FWHM $\approx 1240$\,km\,s$^{-1}$).
+Mrk~766 ($V = 13.6$, $D = 53$\,Mpc, FWHM $\approx 1300$\,km\,s$^{-1}$,
+$F \approx 5\times10^{-13}$\,erg\,s$^{-1}$\,cm$^{-2}$, $\tau_L \approx 0.51$\,ps)
+is a well-studied example~\cite{Kollatschny2013}.
 
 \textit{Galactic emission-line sources as calibrators.}
-Galactic sources --- Wolf-Rayet stars with electron-scattering-broadened emission
-lines (e.g.\ $\gamma^2$\,Vel, $D \approx 340$\,pc; WR\,6, $D \approx 1.7$\,kpc),
-luminous blue variables (e.g.\ $\eta$\,Car, P\,Cyg), and symbiotic binaries with
-Stark-broadened H$\alpha$ (e.g.\ R\,Aqr, CH\,Cyg, $D \lesssim 1$\,kpc) ---
-can provide high photon rates and in several cases genuinely Lorentzian line
-cores from pressure or electron-scattering broadening.
-However, even for the most optimistic foam model ($\alpha = 1/2$), these sources
-have $\sigma_\phi \lesssim 0.3$ at kiloparsec distances: the foam signal is far
-below saturation and the predicted $\delta g^{(2)}$ is negligible.
-Their role is therefore as \textit{systematic calibrators}: a non-detection on a
-bright nearby source with a well-characterised Lorentzian line profile confirms
-the absence of instrumental artefacts in the $g^{(2)}(0)$ measurement.
+Bright Galactic sources --- Wolf-Rayet stars (e.g.\ $\gamma^2$\,Vel, WR\,6),
+luminous blue variables, and symbiotic binaries --- can provide high photon rates
+with genuinely Lorentzian line cores from pressure or electron-scattering broadening.
 
 \textit{Galactic and Local-Group transients.}
-Rare local transients with strong narrow Balmer emission ---
-specifically Type~IIn supernovae and luminous-blue-variable (LBV) giant
-eruptions --- offer a photon-flux advantage at $\sim$kpc--Mpc distances
-that dramatically exceeds any cosmological-distance source, even after
-derating for source luminosity, duty cycle, and event probability.
+Type~IIn supernovae and LBV giant eruptions exhibit strong narrow H$\alpha$
+emission throughout their bright phase from circumstellar-material interaction,
+with intrinsic coherence times $\tau_L \sim 0.3$--$1$\,ps that, with
+next-generation detectors ($\sigma_t \lesssim \tau_L$), enter the
+source-limited regime.
+A representative SN~IIn line has FWHM $\approx 55$\,\AA\
+($\tau_L \approx 0.26$\,ps); the nearby LBV $\eta$\,Car ($D \approx 2.3$\,kpc,
+FWHM $\approx 15$\,\AA, $\tau_L \approx 0.95$\,ps) reached $m_V \approx -1$
+during its 1840s eruption --- briefly the brightest star in the sky.
 
-For a standard candle of fixed luminosity, $\mathrm{SNR} \propto D^{-(1+\alpha)}$
-in the weak-foam limit (Section~\ref{sec:sens-extended}).
-For $\alpha = 2/3$ this is $\propto D^{-5/3}$: closer is dramatically better.
-Type~Ia supernovae --- the brightest cosmological-distance standard candles ---
-are nevertheless poor targets at peak because their spectra are continuum-dominated
-with no narrow emission line: no Lorentzian cusp is available to drive the
-linear-in-$s$ signal.
-Type~IIn supernovae and LBV giant eruptions, by contrast, exhibit strong narrow
-H$\alpha$ (and He) emission throughout their bright phase from
-circumstellar-material interaction, with intrinsic coherence times
-$\tau_L \sim 0.3$--$1$\,ps (e.g.\ $\tau_L \approx 0.26$\,ps for a 55\,\AA\
-FWHM SN~IIn line, $\tau_L \approx 0.95$\,ps for the 15\,\AA\ FWHM core of
-$\eta$\,Car) that, with next-generation detectors ($\sigma_t \lesssim 0.1$\,ps,
-i.e.\ $\sigma_t \lesssim \tau_L$), would enter the source-limited regime; the
-baseline instrument with $\sigma_t = 13$\,ps remains firmly detector-limited
-even for these narrower lines.
-
-For a galactic transient at $D \sim 2$\,kpc with $\alpha = 1/2$ and long
-transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm and the photon flux is so high
-that the first-detection or exclusion is essentially instantaneous once
-sub-ps timing is available.
-For $\alpha = 2/3$, the $D^{2/3}$ signal penalty is offset by the photon-flux
-gain, with a galactic SN~IIn or LBV eruption returning a $10^3$--$10^4\times$
-SNR improvement over the persistent-AGN baseline.
-
-The galactic SN~IIn case yields the largest single-event SNR --- ${\sim}10^4$
-times the 3C~273 baseline --- but its $\sim$millennial recurrence makes it
-a ``drop-everything'' opportunity rather than a campaign target; the most
-recent confirmed Galactic core-collapse supernova was Cassiopeia~A
-(${\sim}1680$, Type~IIb).
-The $\eta$\,Car case sacrifices a factor of $\sim 10$ in SNR but offers a
-recurrence plausibly within a working career: $\eta$\,Car itself has been
-in an unusual brightening state since the mid-twentieth century, and giant
-LBV eruptions are now routinely identified in nearby galaxies
-(SN\,2009ip and analogs).
-For both galactic sources, the $\sigma_\ell \approx 30$\,nm prediction at
-$\alpha = 1/2$ with long-range transverse correlations is within reach of the HBT framework: a near-instant test
-of the long-$r_\perp$ random-walk variant.
-The M31 case is intermediate: the $\alpha = 1/2$ short-$r_\perp$ prediction
-($\sigma_\ell \approx 625$\,nm) is already incompatible with existing
-imaging of M31, but the long-$r_\perp$ variant remains viable, and the
-$\alpha = 2/3$ photon-flux advantage is real if modest.
-
-Two caveats apply specifically to $\eta$\,Car.
+Two caveats apply to $\eta$\,Car.
 The Homunculus Nebula scatters substantial flux into the line of sight, so the
 observed coherence is partially set by scattering geometry rather than the
 central engine; this must be modeled to credit the photon count correctly.
@@ -1621,10 +1561,6 @@ does cleanly support the Section~\ref{sec:extended} extended-source
 $\delta g^{(2)}$ test, with a directly imageable angular structure to anchor
 $\Phi_{\rm eff}$.
 
-A standing rapid-response HBT plan for $\eta$\,Car, for any galactic
-core-collapse supernova, and for any nearby ($D \lesssim 30$\,Mpc) Type~IIn
-discovered by transient surveys would let the framework take advantage of
-these high-yield events without prior allocation.
 
 \begin{figure}[t]
   \centering
@@ -1741,6 +1677,30 @@ mechanism is inactive.
 % Also include LH imaging floor row: sigma_ell=105 nm.
 % T_obs = 10^4 hr = 3.6e7 s.
 
+For a galactic transient at $D \sim 2$\,kpc with $\alpha = 1/2$ and long
+transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm and the
+photon flux is so high that detection or exclusion is essentially instantaneous
+once sub-ps timing is available.
+For $\alpha = 2/3$, a galactic SN~IIn or LBV eruption returns a
+$10^3$--$10^4\times$ SNR improvement over the persistent-AGN baseline.
+The galactic SN~IIn case yields the largest single-event SNR --- ${\sim}10^4$
+times the 3C~273 baseline --- but its $\sim$millennial recurrence makes it
+a ``drop-everything'' opportunity rather than a campaign target; the most
+recent confirmed Galactic core-collapse supernova was Cassiopeia~A
+(${\sim}1680$, Type~IIb).
+The $\eta$\,Car case sacrifices a factor of $\sim 10$ in SNR but offers a
+recurrence plausibly within a working career: $\eta$\,Car itself has been
+in an unusual brightening state since the mid-twentieth century, and giant
+LBV eruptions are now routinely identified in nearby galaxies
+(SN\,2009ip and analogs).
+For both galactic sources, the $\alpha = 1/2$ prediction with long-range
+transverse correlations is within reach of the HBT framework: a near-instant
+test of the long-$r_\perp$ random-walk variant.
+The M31 case is intermediate: the $\alpha = 1/2$ short-$r_\perp$ prediction
+($\sigma_\ell \approx 625$\,nm) is already incompatible with existing
+imaging of M31, but the long-$r_\perp$ variant remains viable, and the
+$\alpha = 2/3$ photon-flux advantage is real if modest.
+
 \subsection{Sources Investigated but Not Competitive}
 \label{sec:not_competitive}
 
@@ -1772,16 +1732,10 @@ smaller than at 1\,Gpc.
 \subsubsection{Absorption-Line Sources}
 \label{sec:absorption_lines}
 
-The framework applies without modification to sources observed in absorption.
-Absorption is a linear spectral filter applied to the continuum: the transmitted
-field amplitude is multiplied by a frequency-dependent real factor, which preserves
-the Gaussian chaotic character of the light.
-The transmitted power spectrum is $S_{\rm obs}(\nu) = S_{\rm cont}(\nu)\,T(\nu)$,
-where $T(\nu) = e^{-\tau(\nu)}$ is the transmission (for weak absorption,
-$T \approx 1 - \tau$, but the Sirius~B example below has $\tau_{\rm central} \approx 1.2$).
-Via the Wiener--Khinchin theorem, $g^{(1)}(\tau)$ is the Fourier transform of
-$S_{\rm obs}$, and the Siegert relation and its foam violation apply exactly as
-before (Eq.~\ref{eq:Stc}).
+The framework applies without modification to sources observed in absorption:
+absorption is a linear spectral filter that preserves the Gaussian chaotic
+character of the light, so the Siegert relation and its foam violation apply
+exactly as before (Eq.~\ref{eq:Stc}).
 For $\mathcal{S}(\tau_c)$ the relevant observable is $\sigma_\phi(D)$, which depends
 only on the source distance and foam model, not on whether the source is observed in
 emission or absorption.
@@ -1938,21 +1892,20 @@ intensity statistics of pulsars and FRBs~\cite{Weltevrede2006}.
 The Siegert-violation framework developed here therefore translates directly to existing
 radio data products.
 
-A next-generation programme observing broad-line AGN and quasars across a wide redshift
-baseline ($z \approx 0.003$--$1.1$, $D \sim 14$\,Mpc to $\sim 4.7$\,Gpc) could directly
-test the predicted $D$-scaling $\sigma_0 \propto D^{1-\alpha}$ and separate the foam
-exponent $\alpha$ from the coefficient $A_\alpha$ without assuming either.
-The ratio $\delta g^{(2)}(D_{\rm far})/\delta g^{(2)}(D_{\rm near})$ encodes the
-$D$ dependence; it discriminates volumetric foam ($\sigma_\ell \propto D^{1-\alpha}$,
-$\alpha > 1/2$) from a localized thin-screen scatterer ($\sigma_\ell \propto D^{1/2}$)
-independently of the absolute normalization.
-
-A deeper question left open by the present framework is whether the foam exponent $\alpha$
-or coefficient $A_\alpha$ carries a redshift dependence. If so, observations of sources at
-different redshifts would deviate from the simple power-law $\sigma_\phi(D)$ predicted here,
-and the distance-scaling discriminant of Section~\ref{sec:extended} would need to be
-generalized; such a deviation would itself be a cosmological signal. We flag this as
-motivation for a redshift-resolved treatment of foam coherence in future work.
+Beyond persistent AGN campaigns, the framework identifies a class of
+high-priority targets of opportunity: nearby high-luminosity transients ---
+Type~IIn supernovae and LBV giant eruptions --- that offer $10^3$--$10^4\times$
+the SNR of the persistent-AGN baseline for the same observing time
+(Section~\ref{sec:snr_results}).
+These events are rare and unpredictable, but their scientific yield is
+exceptional: a galactic SN~IIn or an $\eta$\,Car-class eruption with
+sub-ps timing available would provide an essentially instantaneous test of
+the $\alpha = 1/2$ random-walk foam model with long-range transverse
+correlations.
+A standing rapid-response HBT plan --- covering $\eta$\,Car, any galactic
+core-collapse supernova, and any nearby ($D \lesssim 30$\,Mpc) Type~IIn
+identified by transient surveys --- would enable the framework to exploit
+these high-yield events without requiring prior allocation.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
@@ -2020,6 +1973,12 @@ the 127\,\AA\ observed-frame H$\beta$ width at $z = 0.158$~\cite{Boroson1992}),
 placing it in Population~B.
 Its broad H$\beta$ profile is not well described by a single Lorentzian and
 instead requires a double-Gaussian decomposition~\cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}.
+
+A standing rapid-response HBT plan for $\eta$\,Car, for any galactic
+core-collapse supernova, and for any nearby ($D \lesssim 30$\,Mpc) Type~IIn
+discovered by transient surveys would let the framework take advantage of
+these high-yield events without prior allocation.
+
 
 \begin{table*}[t]
 \centering
