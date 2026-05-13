@@ -68,13 +68,12 @@ flux_ratio_SNIa = 10**(19.3 / 2.5)
 R_SNIa = R0_star * flux_ratio_SNIa * (D0_star_m / D_m)**2
 
 # -- Broad-line AGN / quasar (3C 273-class, Hα Lorentzian)
-#    R(677 Mpc) = 1285 cps for a Δλ = 1.1 Å filter on the 10 m baseline
-#    using observed-frame λ_obs = 6563(1+z) Å with z = 0.158 (the (1+z)
-#    factor lifts the rest-frame result of 1110 cps by 1.158 because
-#    E_phot = hc/λ_obs is correspondingly smaller). σ_φ is computed
-#    elsewhere with rest-frame λ since the foam phase accumulates at
-#    the source-frame wavelength.
-R_AGN = 1285.0 * (677.0 / D_Mpc)**2
+#    R(782 Mpc) = 1285 cps for a Δλ = 1.1 Å filter on the 10 m baseline,
+#    where 782 Mpc is the Planck 2018 luminosity distance for z = 0.158
+#    [Aghanim et al. 2020]. Photon energy uses observed-frame
+#    λ_obs = 6563(1+z) Å. σ_φ is computed elsewhere with rest-frame λ
+#    since the foam phase accumulates at the source-frame wavelength.
+R_AGN = 1285.0 * (782.0 / D_Mpc)**2
 
 # ---------------------------------------------------------------
 # SNR per sqrt(T/hr)

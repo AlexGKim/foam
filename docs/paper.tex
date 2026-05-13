@@ -1548,8 +1548,9 @@ same apparent magnitude; sky background and detector dark counts are negligible
 relative to the source rate, so the Brouri~et~al.\ correction for accidental
 coincidences is small~\cite{Brouri2000}.
 We adopt 3C~273 (broad H$\alpha$, $F \approx 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
-FWHM $\approx 172$\,\AA\ observed-frame, $D = 677$\,Mpc) as the reference
-target~\cite{Boroson1992}.  Boroson \& Green report the H$\beta$ width as
+FWHM $\approx 172$\,\AA\ observed-frame, $D_L = 782$\,Mpc at $z = 0.158$ in
+flat $\Lambda$CDM with the Planck 2018 cosmology~\cite{Aghanim2020}) as the
+reference target~\cite{Boroson1992}.  Boroson \& Green report the H$\beta$ width as
 127\,\AA\ observed-frame ($\sim 6800$\,km\,s$^{-1}$); H$\alpha$ has the
 same velocity width, giving an observed-frame $\Delta\lambda$ of $(6800/c)\cdot 6563\cdot(1+z)
 \approx 172$\,\AA. The Balmer decrement makes H$\alpha$ the higher-photon-flux
@@ -1572,7 +1573,7 @@ but the genuinely Lorentzian core and the high photon rates make them competitiv
 targets for the $\delta g^{(2)}$ measurement, and NLS1s with
 $\tau_L \gtrsim \sigma_t$ can operate in the source-limited regime
 with next-generation detectors.
-Mrk~766 ($V = 13.6$, $D = 53$\,Mpc, FWHM $\approx 1300$\,km\,s$^{-1}$,
+Mrk~766 ($V = 13.6$, $D_L = 59$\,Mpc at $z = 0.013$~\cite{Aghanim2020}, FWHM $\approx 1300$\,km\,s$^{-1}$,
 $F \approx 2.8\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, $\tau_L \approx 0.17$\,ps)
 is a well-studied example~\cite{Kollatschny2013}.
 
@@ -1698,8 +1699,8 @@ AGN/quasar redshift range.
 \paragraph{Comparison of the two variants.}
 For the 3C\,273 reference parameters
 ($R\approx 1.6\times 10^5\,$cps, $\tau_L\approx 0.036\,$ps, $T_{\rm obs}=10^4\,$hr,
-$\lambda=\mathrm{H}\alpha$, $D=677\,$Mpc), the random-walk model $\alpha=1/2$
-with short-range transverse correlations relaxed gives $\sigma_\phi\approx 230$,
+$\lambda=\mathrm{H}\alpha$, $D=782\,$Mpc~\cite{Aghanim2020}), the random-walk model $\alpha=1/2$
+with short-range transverse correlations relaxed gives $\sigma_\phi\approx 247$,
 saturating the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}$ and
 $\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm --- comparable to the
 Lieu--Hillman fringe-erasure threshold, consistent with the finite-lag
@@ -1990,8 +1991,10 @@ Section~\ref{sec:prospects}.
 \begin{table*}[t]
 \centering
 \caption{Observed properties of the candidate sources.
-$z$ is the spectroscopic redshift; $D$ is the luminosity distance for
-$H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m$ is the apparent magnitude
+$z$ is the spectroscopic redshift; $D$ is the luminosity distance computed
+in flat $\Lambda$CDM with the Planck 2018 cosmology
+($H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.315$,
+$\Omega_\Lambda = 0.685$)~\cite{Aghanim2020}; $m$ is the apparent magnitude
 ($V$-band for the AGN and $\eta$\,Car rows, $r$-band for the Type~IIn rows);
 line fluxes $F$ are integrated over the emission line;
 FWHM is the observed-frame full width at half maximum of the broad emission
@@ -2009,8 +2012,8 @@ scaled by inverse-square distance.}
 \toprule
 Source & $z$ & $D$ (Mpc) & $m$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
 \midrule
-3C~273           & 0.158 & 677                 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992}                              & 172\footnotemark[1]      & 0.036 \\
-Mrk~766          & 0.013 &  53                 & 13.6 & H$\alpha$ & $2.8\times10^{-12}$~\cite{RodriguezArdila2006}                    &  28~\cite{Kollatschny2013} & 0.17  \\
+3C~273           & 0.158 & 782                 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992}                              & 172\footnotemark[1]      & 0.036 \\
+Mrk~766          & 0.013 &  59                 & 13.6 & H$\alpha$ & $2.8\times10^{-12}$~\cite{RodriguezArdila2006}                    &  28~\cite{Kollatschny2013} & 0.17  \\
 $\eta$\,Car (1843) & 0   & $2.3\times10^{-3}$  & $-1$   & H$\alpha$ & ${\sim}5\times10^{-7}$~\cite{2018MNRAS.480.1466S}                  &  15~\cite{2018MNRAS.480.1466S} & 0.30  \\
 Gal.\ SN~IIn     & 0     & $2\times10^{-3}$    & $-7.6$ & H$\alpha$ & ${\sim}2\times10^{-4}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
 M31 SN~IIn       & 0     & $0.78$              & $5.3$  & H$\alpha$ & ${\sim}1.4\times10^{-9}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\

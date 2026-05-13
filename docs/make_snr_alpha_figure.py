@@ -45,6 +45,8 @@ sig_t     = 13e-12        # timing resolution, rms [s]  (30 ps FWHM)
 kpc_in_Mpc = 1e-3
 
 # All F(Hα), FWHM, D values match Table II in paper.tex (tab:source_agn).
+# AGN luminosity distances use Planck 2018 cosmology (Aghanim et al. 2020,
+# A&A 641, A6): H_0=67.36, Ω_m=0.315, Ω_Λ=0.685.
 # 3C 273 (Boroson & Green 1992): broad-line quasar, z = 0.158.
 #   Hα FWHM = 172 Å observed-frame: the Hβ rest-frame velocity width is
 #   ~6800 km/s [Boroson1992]; the same velocity width at Hα 6563 Å, scaled
@@ -69,11 +71,11 @@ kpc_in_Mpc = 1e-3
 #   distance: F(Hα, 2 kpc)   ≈ 2e-4 erg/s/cm²,
 #                F(Hα, 778 kpc) ≈ 1.4e-9 erg/s/cm².
 SOURCES = [
-    dict(label=r'3C\,273 (BLQ, 677\,Mpc)',
-         F=2e-12,    FWHM=172.0, D_Mpc=677.0,              z=0.158,
+    dict(label=r'3C\,273 (BLQ, 782\,Mpc)',
+         F=2e-12,    FWHM=172.0, D_Mpc=782.0,              z=0.158,
          color='#08306b'),
-    dict(label=r'Mrk\,766 (NLS1, 53\,Mpc)',
-         F=2.8e-12,  FWHM=28.0,  D_Mpc=53.0,               z=0.013,
+    dict(label=r'Mrk\,766 (NLS1, 59\,Mpc)',
+         F=2.8e-12,  FWHM=28.0,  D_Mpc=58.6,               z=0.013,
          color='#2ca02c'),
     dict(label=r'M31 SN\,IIn (778\,kpc)',
          F=1.4e-9,   FWHM=55.0,  D_Mpc=778.0*kpc_in_Mpc,   z=0.0,
