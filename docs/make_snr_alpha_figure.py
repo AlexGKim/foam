@@ -115,7 +115,7 @@ def make_axes():
     return fig, ax
 
 
-def finish_figure(ax, results, marker_label):
+def finish_figure(ax, results, marker_label, signal_label):
     for r in results:
         ax.semilogy(alpha, r['SNR'], color=r['color'], lw=2.2, label=r['label'])
     for r in results:
@@ -123,10 +123,21 @@ def finish_figure(ax, results, marker_label):
                 ms=7, mec='black', mew=0.8)
     validity_marker = mlines.Line2D([], [], marker='o', color='gray', ls='none',
                                     ms=7, mec='black', mew=0.8, label=marker_label)
+    solid_line = mlines.Line2D([], [], color='gray', lw=2.2, ls='-',
+                               label=r'solid: SNR (left axis)')
+    dashed_line = mlines.Line2D([], [], color='gray', lw=1.4, ls='--',
+                                label=r'dashed: Siegert discrepancy (right axis)')
     handles, labels_ = ax.get_legend_handles_labels()
-    ax.legend(handles + [validity_marker], labels_ + [marker_label],
+    ax.legend(handles + [validity_marker, solid_line, dashed_line],
+              labels_ + [marker_label, r'solid: SNR (left axis)',
+                         r'dashed: Siegert discrepancy (right axis)'],
               fontsize=9, loc='upper right',
               framealpha=0.95)
+    ax2 = ax.twinx()
+    for r in results:
+        ax2.semilogy(alpha, r['S'], color=r['color'], lw=1.4, ls='--')
+    ax2.set_ylabel(signal_label, fontsize=12)
+    ax2.set_ylim(1e-30, 1.0)
     plt.tight_layout()
 
 
@@ -152,13 +163,13 @@ def compute_extended(sources):
         snr       = snr_from_signal(S, R, tau_L)
         idx_lim   = np.argmin(np.abs(s - 0.3))
         results.append(dict(label=src['label'], color=src['color'],
-                            SNR=snr, alpha_lim=alpha[idx_lim], SNR_lim=snr[idx_lim]))
+                            SNR=snr, S=S, alpha_lim=alpha[idx_lim], SNR_lim=snr[idx_lim]))
     return results
 
 
 fig, ax = make_axes()
 ext_results = compute_extended(SOURCES)
-finish_figure(ax, ext_results, r'$s=0.3$ (weak-foam limit)')
+finish_figure(ax, ext_results, r'$s=0.3$ (weak-foam limit)', r'$|\mathcal{S}(0)|$')
 fig.savefig('snr_vs_alpha.pdf')
 fig.savefig('snr_vs_alpha.png', dpi=160)
 plt.close(fig)
@@ -187,13 +198,13 @@ def compute_pointsource(sources):
         snr          = snr_from_signal(S, R, tau_c)
         idx_lim      = np.argmin(np.abs(sigma_phi - 0.3))
         results.append(dict(label=src['label'], color=src['color'],
-                            SNR=snr, alpha_lim=alpha[idx_lim], SNR_lim=snr[idx_lim]))
+                            SNR=snr, S=S, alpha_lim=alpha[idx_lim], SNR_lim=snr[idx_lim]))
     return results
 
 
 fig, ax = make_axes()
 pt_results = compute_pointsource(SOURCES)
-finish_figure(ax, pt_results, r'$\sigma_\phi=0.3$ (weak-foam limit)')
+finish_figure(ax, pt_results, r'$\sigma_\phi=0.3$ (weak-foam limit)', r'$|\mathcal{S}(\tau_L)|$')
 fig.savefig('snr_vs_alpha_pointsource.pdf')
 fig.savefig('snr_vs_alpha_pointsource.png', dpi=160)
 plt.close(fig)
