@@ -1267,6 +1267,36 @@ prediction $g^{(2)}_{\rm src}-1=|g^{(1)}_{\rm src}|^2$, built from the source
 spectrum via the Wiener--Khinchin theorem; neither requires a separate model of
 the source.
 
+For a single-aperture HBT configuration using a 50/50 beamsplitter with
+unpolarized light, the fundamental signal-to-noise
+ratio~\cite{Guerin2025} is
+\begin{equation}
+\textrm{SNR}_{\rm unpol}
+\;=\; \frac{1}{4}\,\frac{R}{N_s}\,\tau_c\,
+\sqrt{\frac{T_{\rm obs}}{\tau_r}}\,,
+\label{eq:snr_hbt}
+\end{equation}
+where $R$ is the total incident photon count rate, $N_s$ the number of
+spatial modes captured by the aperture, $\tau_c$ the optical coherence time
+of the source, $\tau_r$ the timing resolution (correlation bin width) of the
+detectors, and $T_{\rm obs}$ the total observation time.  The prefactor
+$1/4 = 1/(2\,N_p)$ with $N_p = 2$ polarization modes reflects the fact that
+only photons sharing a polarization state contribute to the bunching signal,
+while the shot noise is set by the total (polarization-summed) count rate at
+each detector.  Equivalently one may write $\textrm{SNR} = \frac{1}{2}
+(R/N_s N_p)\,\tau_c\sqrt{T_{\rm obs}/\tau_r}$, grouping all mode dilution
+into a single factor.
+
+Achieving a statistically significant SNR is a necessary but not sufficient
+condition for a foam detection.  A separate and equally demanding challenge
+is controlling systematic errors---spurious correlations arising from
+detector afterpulsing, electronic crosstalk, optical reflections, and
+atmospheric scintillation---to levels below the expected foam signal
+$|\mathcal{S}|$.  Because the foam signatures are small ($|\mathcal{S}|\ll 1$
+for all viable foam models), even modest systematics can mimic or mask the
+effect; the experimental program must therefore pair SNR estimates with a
+careful systematic budget.
+
 The photon-counting rate is $R = \epsilon\, A\, \dot{n}$, where $\dot{n}$ is the
 source photon flux per unit area within the filter bandpass, $\epsilon$ the
 end-to-end throughput, and $A$ the collecting area. We adopt the baseline
@@ -1280,7 +1310,9 @@ the measurement sits firmly in the detector-limited regime: an unresolved
 foam feature of width $\tau_L$ is diluted to
 $(\tau_L/\sigma_t)\,|\mathcal{S}|$ in a time bin of width $\sigma_t$, with
 statistical noise
-$\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$. We present the
+$\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$; the full SNR
+additionally carries the $\tfrac{1}{4}$ mode-dilution prefactor of
+Eq.~\ref{eq:snr_hbt}. We present the
 detector-limited SNR as the primary case throughout and quote the source-limited
 limit ($\tau_L \gtrsim \sigma_t$, requiring sub-ps timing) only as the gain
 that next-generation detectors would unlock with precision optics.
@@ -1308,14 +1340,14 @@ With $\sigma_t \gg \tau_L$ for all sources of interest, the bunching feature
 of width $\tau_L$ is unresolved in a time bin of width $\sigma_t$, and
 \begin{equation}
 \textrm{SNR}_{\rm det}^{\rm pt}
-\;=\; \frac{\tau_L}{\sigma_t}|\mathcal{S}(\tau_L)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
+\;=\; \tfrac{1}{4}\,\frac{\tau_L}{\sigma_t}|\mathcal{S}(\tau_L)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
 \;\xrightarrow{\sigma_\phi\ll 1}\;
-2e^{-2}\sigma_\phi^2\, R\,\frac{\tau_L}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
+\tfrac{1}{2}e^{-2}\sigma_\phi^2\, R\,\frac{\tau_L}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
 \label{eq:snr_det_pt}
 \end{equation}
 The detector-limited form carries a $\sqrt{\tau_L/\sigma_t}$ penalty relative
 to source-limited operation
-($\textrm{SNR}_{\rm src}^{\rm pt} = |\mathcal{S}(\tau_L)|\,R\sqrt{\tau_L T_{\rm obs}}$);
+($\textrm{SNR}_{\rm src}^{\rm pt} = \tfrac{1}{4}\,|\mathcal{S}(\tau_L)|\,R\sqrt{\tau_L T_{\rm obs}}$);
 reaching the source-limited limit on broad-line quasars requires
 $\sigma_t \lesssim \tau_L \sim 0.1$\,ps.
 
@@ -1430,15 +1462,15 @@ $\sigma[g^{(2)}_{\rm meas}]=1/(R\sqrt{\sigma_t T_{\rm obs}})$~\cite{Foellmi2009,
 Dravins2013, Guerin2017}, so
 \begin{equation}
 \textrm{SNR}_{\rm det}^{\rm ext}
-\;=\; \frac{\tau_L}{\sigma_t}|\mathcal{S}(0)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
+\;=\; \tfrac{1}{4}\,\frac{\tau_L}{\sigma_t}|\mathcal{S}(0)|\cdot R\sqrt{\sigma_t T_{\rm obs}}
 \;\xrightarrow{s\ll 1}\;
-2\sqrt{\tfrac{2}{\pi}}\,\sigma_0\, R\sqrt{T_{\rm obs}/\sigma_t}.
+\tfrac{1}{2}\sqrt{\tfrac{2}{\pi}}\,\sigma_0\, R\sqrt{T_{\rm obs}/\sigma_t}.
 \label{eq:snr_det_ext}
 \end{equation}
 The SNR in this regime is independent of $\tau_L$: the cusp signal $\propto
 1/\tau_L$ is cancelled by the $\tau_L/\sigma_t$ dilution factor. The penalty
 relative to source-limited operation
-($\textrm{SNR}_{\rm src}^{\rm ext} = |\mathcal{S}(0)|\,R\sqrt{\tau_L T_{\rm obs}}$,
+($\textrm{SNR}_{\rm src}^{\rm ext} = \tfrac{1}{4}\,|\mathcal{S}(0)|\,R\sqrt{\tau_L T_{\rm obs}}$,
 attainable only when $\sigma_t \lesssim \tau_L$) is $\sqrt{\tau_L/\sigma_t}$.
 
 \paragraph{Distance and aperture scaling.}
@@ -1591,7 +1623,7 @@ $\Phi_{\rm eff}$.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.92\linewidth]{snr_vs_alpha_extended.png}
+  \includegraphics[width=0.92\linewidth]{snr_vs_alpha.png}
   \caption{%
     Signal-to-noise ratio for detecting the extended-source zero-lag bunching
     suppression $\delta g^{(2)}(0)$ as a function of foam exponent $\alpha$,

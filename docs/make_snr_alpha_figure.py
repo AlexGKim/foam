@@ -11,7 +11,7 @@ Outputs:
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
-from scipy.special import erfc
+from scipy.special import erfcx
 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
@@ -92,14 +92,13 @@ def foam_params(src):
 def snr_from_signal(S_arr, R, tau_c):
     """
     SNR for signal array S_arr, photon rate R, and coherence time tau_c.
-    Selects source-limited or detector-limited branch based on tau_c vs sig_t.
-    Eqs. snr_src_ext/snr_src_pt (source-limited) and snr_det_ext/snr_det_pt
-    (detector-limited) from paper §VII.A.
+    Includes 1/4 prefactor for 50/50 beamsplitter with unpolarized light
+    (Eq. snr_hbt). Selects source-limited or detector-limited branch.
     """
     if tau_c > sig_t:
-        return S_arr * R * np.sqrt(tau_c * T_obs)
+        return 0.25 * S_arr * R * np.sqrt(tau_c * T_obs)
     else:
-        return (tau_c / sig_t) * S_arr * R * np.sqrt(sig_t * T_obs)
+        return 0.25 * (tau_c / sig_t) * S_arr * R * np.sqrt(sig_t * T_obs)
 
 
 def make_axes():
@@ -147,7 +146,9 @@ def compute_extended(sources):
         _, sigma_ell = foam_params(src)
         sigma_0   = np.sqrt(2) * sigma_ell / c_si   # Phi_eff = 0
         s         = sigma_0 / tau_L
-        S         = 1.0 - np.exp(2*s**2) * erfc(np.sqrt(2)*s)
+        # Use weak-foam linear approx where erfcx rounds to 1 (s < ~1e-8)
+        x = np.sqrt(2) * s
+        S = np.where(x < 1e-8, 2.0 * np.sqrt(2.0 / np.pi) * s, 1.0 - erfcx(x))
         snr       = snr_from_signal(S, R, tau_L)
         idx_lim   = np.argmin(np.abs(s - 0.3))
         results.append(dict(label=src['label'], color=src['color'],
@@ -158,10 +159,10 @@ def compute_extended(sources):
 fig, ax = make_axes()
 ext_results = compute_extended(SOURCES)
 finish_figure(ax, ext_results, r'$s=0.3$ (weak-foam limit)')
-fig.savefig('snr_vs_alpha_extended.pdf')
-fig.savefig('snr_vs_alpha_extended.png', dpi=160)
+fig.savefig('snr_vs_alpha.pdf')
+fig.savefig('snr_vs_alpha.png', dpi=160)
 plt.close(fig)
-print('Wrote snr_vs_alpha_extended.pdf and snr_vs_alpha_extended.png')
+print('Wrote snr_vs_alpha.pdf and snr_vs_alpha.png')
 
 
 # ---------------------------------------------------------------
@@ -181,7 +182,8 @@ def compute_pointsource(sources):
         tau_c        = coherence_time(src)   # same as tau_L; wide filter used for fair comparison
         R            = photon_rate(src)
         sigma_phi, _ = foam_params(src)
-        S            = np.exp(-2) * (1.0 - np.exp(-2 * sigma_phi**2))
+        # Use weak-foam quadratic approx where exp rounds to 1 (sigma_phi < ~1e-8)
+        S            = np.exp(-2) * (-np.expm1(-2 * sigma_phi**2))
         snr          = snr_from_signal(S, R, tau_c)
         idx_lim      = np.argmin(np.abs(sigma_phi - 0.3))
         results.append(dict(label=src['label'], color=src['color'],
