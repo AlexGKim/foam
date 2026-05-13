@@ -1548,11 +1548,17 @@ same apparent magnitude; sky background and detector dark counts are negligible
 relative to the source rate, so the Brouri~et~al.\ correction for accidental
 coincidences is small~\cite{Brouri2000}.
 We adopt 3C~273 (broad H$\alpha$, $F \approx 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
-FWHM $\approx 127$\,\AA, $D = 677$\,Mpc) as the reference target~\cite{Boroson1992}.
+FWHM $\approx 172$\,\AA\ observed-frame, $D = 677$\,Mpc) as the reference
+target~\cite{Boroson1992}.  Boroson \& Green report the H$\beta$ width as
+127\,\AA\ observed-frame ($\sim 6800$\,km\,s$^{-1}$); H$\alpha$ has the
+same velocity width, giving an observed-frame $\Delta\lambda$ of $(6800/c)\cdot 6563\cdot(1+z)
+\approx 172$\,\AA. The Balmer decrement makes H$\alpha$ the higher-photon-flux
+choice (F(H$\alpha$)/F(H$\beta$) $\approx 3$–$4$ in broad-line AGN).
 With a $\sim 200$\,\AA\ filter (capturing $\approx 70\%$ of the Lorentzian line flux),
-the photon rate on a 10\,m telescope with $\epsilon = 0.39$ is $R \approx 1.4\times10^5$\,cps
-and the intrinsic coherence time is $\tau_L \approx 0.11$\,ps, placing the measurement
-deeply in the detector-limited regime ($\tau_L \ll \sigma_t = 13$\,ps).
+the photon rate on a 10\,m telescope with $\epsilon = 0.39$ is $R \approx 1.6\times10^5$\,cps
+(using the observed-frame photon energy $hc/\lambda_{\rm obs}$ with $\lambda_{\rm obs} =
+7600$\,\AA\ at $z = 0.158$) and the intrinsic coherence time is $\tau_L \approx 0.036$\,ps,
+placing the measurement deeply in the detector-limited regime ($\tau_L \ll \sigma_t = 13$\,ps).
 
 \textit{Narrow-line Seyfert 1 galaxies.}
 Narrow-line Seyfert 1 galaxies (NLS1s) have permitted lines with FWHM $\lesssim 2000$\,km\,s$^{-1}$,
@@ -1560,14 +1566,14 @@ empirically well described by a Lorentzian core~\cite{Kollatschny2013}.
 A narrower line yields a shorter intrinsic coherence time $\tau_L$ and hence a
 larger cusp parameter $s = \sigma_0/\tau_L$ per unit foam amplitude:
 for FWHM $\sim 1300$\,km\,s$^{-1}$ ($\sim 28$\,\AA\ at H$\alpha$),
-$\tau_L \approx 0.51$\,ps, compared with $\tau_L \approx 0.11$\,ps for 3C~273.
+$\tau_L \approx 0.17$\,ps, compared with $\tau_L \approx 0.036$\,ps for 3C~273.
 Because NLS1 distances are smaller, their $\sigma_0$ is correspondingly smaller,
 but the genuinely Lorentzian core and the high photon rates make them competitive
 targets for the $\delta g^{(2)}$ measurement, and NLS1s with
 $\tau_L \gtrsim \sigma_t$ can operate in the source-limited regime
 with next-generation detectors.
 Mrk~766 ($V = 13.6$, $D = 53$\,Mpc, FWHM $\approx 1300$\,km\,s$^{-1}$,
-$F \approx 5\times10^{-13}$\,erg\,s$^{-1}$\,cm$^{-2}$, $\tau_L \approx 0.51$\,ps)
+$F \approx 2.8\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, $\tau_L \approx 0.17$\,ps)
 is a well-studied example~\cite{Kollatschny2013}.
 
 \textit{Galactic emission-line sources as calibrators.}
@@ -1578,12 +1584,12 @@ with genuinely Lorentzian line cores from pressure or electron-scattering broade
 \textit{Galactic and Local-Group transients.}
 Type~IIn supernovae and LBV giant eruptions exhibit strong narrow H$\alpha$
 emission throughout their bright phase from circumstellar-material interaction,
-with intrinsic coherence times $\tau_L \sim 0.3$--$1$\,ps that, with
+with intrinsic coherence times $\tau_L \sim 0.1$--$0.3$\,ps that, with
 next-generation detectors ($\sigma_t \lesssim \tau_L$), enter the
 source-limited regime.
 A representative SN~IIn line has FWHM $\approx 55$\,\AA\
-($\tau_L \approx 0.26$\,ps); the nearby LBV $\eta$\,Car ($D \approx 2.3$\,kpc,
-FWHM $\approx 15$\,\AA, $\tau_L \approx 0.95$\,ps) reached $m_V \approx -1$
+($\tau_L \approx 0.083$\,ps); the nearby LBV $\eta$\,Car ($D \approx 2.3$\,kpc,
+FWHM $\approx 15$\,\AA, $\tau_L \approx 0.30$\,ps) reached $m_V \approx -1$
 during its 1840s eruption --- briefly the brightest star in the sky.
 
 Two caveats apply to $\eta$\,Car.
@@ -1641,6 +1647,10 @@ $\Phi_{\rm eff}$.
     with $s = \sigma_0/\tau_L$ (Eq.~\ref{eq:deltag2}), and the
     SNR is computed from Eq.~\ref{eq:snr_det_ext} (detector-limited regime,
     $\sigma_t \gg \tau_L$ for all sources shown).
+    All sources are evaluated in the fully resolved limit $\Phi_{\rm eff} = 0$
+    (maximally optimistic); for sources whose angular size is smaller than the
+    foam transverse coherence length $r_\perp$ the actual signal is suppressed
+    by the factor $\sqrt{1 - \Phi_{\rm eff}}$.
     Photon rates use a wide filter of width $2\times\mathrm{FWHM}_{\rm line}$,
     capturing $(2/\pi)\arctan(2)\approx 70\%$ of the Lorentzian line flux.
     Filled circles mark the $s = 0.3$ validity boundary of the weak-foam
@@ -1662,10 +1672,10 @@ and finite-lag variants respectively.
 
 \paragraph{Current- and next-generation sensitivity.}
 With current instrumentation ($\sigma_t=13\,$ps), the broad-line quasar
-3C\,273 ($\tau_L\approx 0.11\,$ps) operates deeply in the detector-limited
+3C\,273 ($\tau_L\approx 0.036\,$ps) operates deeply in the detector-limited
 regime. From Eq.~\ref{eq:snr_det_ext} at $3\sigma$
-($R\approx 1.4\times 10^5\,$cps, $T_{\rm obs}=10^4\,$hr):
-$\sigma_{\ell,\rm min}\approx 1.7\,\mu$m. This is far above the Lieu--Hillman
+($R\approx 1.6\times 10^5\,$cps, $T_{\rm obs}=10^4\,$hr):
+$\sigma_{\ell,\rm min}\approx 1.5\,\mu$m. This is far above the Lieu--Hillman
 imaging floor ($\sigma_\ell\approx 105\,$nm at H$\alpha$), reflecting the
 intrinsic weakness of the envelope-timing observable $\delta g^{(2)}(0)$
 relative to the carrier-phase observable $\sigma_\phi=2\pi\sigma_\ell/\lambda$
@@ -1673,11 +1683,11 @@ that governs fringe visibility.
 
 The detector-limited penalty $\sqrt{\tau_L/\sigma_t}$ vanishes only when
 $\sigma_t$ is reduced below $\tau_L$, which for broad-line quasars demands
-sub-0.1\,ps timing. Superconducting nanowire detectors achieving such jitter
-are under active development; at $\sigma_t=0.05\,$ps, broad-line quasars enter
-the source-limited regime and NLS1s ($\tau_L\sim 0.5\,$ps) are deeply
-source-limited, giving $\sigma_{\ell,\rm min}\approx 160\,$nm (10\,m),
-$10\,$nm (40\,m), $0.02\,$nm (1\,km array) on 3C\,273. A 40\,m-class
+sub-0.04\,ps timing. Superconducting nanowire detectors achieving such jitter
+are under active development; at $\sigma_t=0.02\,$ps, broad-line quasars enter
+the source-limited regime and NLS1s ($\tau_L\sim 0.2\,$ps) are deeply
+source-limited, giving $\sigma_{\ell,\rm min}\approx 78\,$nm (10\,m),
+$4.9\,$nm (40\,m), $0.0095\,$nm (1\,km array) on 3C\,273. A 40\,m-class
 telescope with sub-ps timing would reach well below the Lieu--Hillman floor
 via $\delta g^{(2)}(0)$ alone, and a kilometre-baseline intensity-interferometer
 array would achieve sub-nanometre sensitivity --- placing the random-walk
@@ -1687,7 +1697,7 @@ AGN/quasar redshift range.
 
 \paragraph{Comparison of the two variants.}
 For the 3C\,273 reference parameters
-($R\approx 1.4\times 10^5\,$cps, $\tau_L\approx 0.11\,$ps, $T_{\rm obs}=10^4\,$hr,
+($R\approx 1.6\times 10^5\,$cps, $\tau_L\approx 0.036\,$ps, $T_{\rm obs}=10^4\,$hr,
 $\lambda=\mathrm{H}\alpha$, $D=677\,$Mpc), the random-walk model $\alpha=1/2$
 with short-range transverse correlations relaxed gives $\sigma_\phi\approx 230$,
 saturating the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}$ and
@@ -1708,8 +1718,9 @@ mechanism is inactive.
 % at 3-sigma for delta_g^(2)(0) (extended-source, Phi_eff -> 0).
 % Observable: delta_g^(2) = 2*sqrt(2/pi)*sigma_0/tau_L,
 %   sigma_0 = sqrt(2)*sigma_ell/c.
-% Source: 3C 273 Halpha, F=2e-12 erg/s/cm^2, FWHM=127 Ang, tau_L=0.11 ps.
-%   Wide filter (~200 Ang, 2xFWHM), R=1.4e5 cps on 10m with epsilon=0.39.
+% Source: 3C 273 Halpha, F=2e-12 erg/s/cm^2, FWHM=172 Ang observed-frame,
+%   tau_L = lam_obs^2/(pi*c*FWHM) = 0.036 ps with lam_obs = 7600 Ang at z=0.158.
+%   Wide filter (~344 Ang, 2xFWHM), R=1.6e5 cps on 10m with epsilon=0.39.
 % SNR_src = 2*sqrt(2/pi)*sigma_0*R*sqrt(T/tau_L) [source-limited, tau_L > sig_t]
 % SNR_det = 2*sqrt(2/pi)*sigma_0*R*sqrt(T/sig_t) [det-limited, sig_t > tau_L]
 % Rows: apertures 10m, 40m, 1000m.
@@ -1897,16 +1908,16 @@ split-beam configuration using bright broad-line AGN and quasars observed
 through wide filters that preserve the intrinsic Lorentzian line cusp.
 The linear-in-$s$ scaling of $\delta g^{(2)}$ requires that the filter pass the
 full emission line ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}_{\rm line}$);
-this places bright quasars ($\tau_L \sim 0.1$\,ps) in the detector-limited regime
+this places bright quasars ($\tau_L \sim 0.04$\,ps) in the detector-limited regime
 with current timing resolution ($\sigma_t = 13$\,ps), with a
-$\sqrt{\tau_L/\sigma_t} \approx 0.09$ penalty relative to source-limited operation.
+$\sqrt{\tau_L/\sigma_t} \approx 0.05$ penalty relative to source-limited operation.
 For a 10\,m-class telescope~\cite{Kim2025} with $T_{\rm obs} = 10^4$\,hr on a
 3C~273-class quasar, the current-detector sensitivity is
-$\sigma_{\ell,\rm min} \approx 1.7\,\mu$m ($3\sigma$) --- above the
+$\sigma_{\ell,\rm min} \approx 1.5\,\mu$m ($3\sigma$) --- above the
 Lieu--Hillman imaging floor ($\sigma_\ell \approx 105$\,nm at H$\alpha$).
-With next-generation timing ($\sigma_t \lesssim 0.1$\,ps, entering the
+With next-generation timing ($\sigma_t \lesssim 0.04$\,ps, entering the
 source-limited regime), a 40\,m aperture reaches
-$\sigma_\ell \approx 10$\,nm, well below the imaging floor; a 1\,km-class
+$\sigma_\ell \approx 4.9$\,nm, well below the imaging floor; a 1\,km-class
 intensity-interferometer array would reach sub-nm sensitivity.
 
 The astrophysical contribution of the framework developed here is threefold:
@@ -1978,26 +1989,37 @@ Section~\ref{sec:prospects}.
 
 \begin{table*}[t]
 \centering
-\caption{Observed properties of the AGN/quasar candidate sources.
+\caption{Observed properties of the candidate sources.
 $z$ is the spectroscopic redshift; $D$ is the luminosity distance for
-$H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m_V$ is the apparent visual magnitude;
+$H_0 = 70$\,km\,s$^{-1}$\,Mpc$^{-1}$; $m$ is the apparent magnitude
+($V$-band for the AGN and $\eta$\,Car rows, $r$-band for the Type~IIn rows);
 line fluxes $F$ are integrated over the emission line;
 FWHM is the observed-frame full width at half maximum of the broad emission
 line component;
-$\tau_L = \lambda_{\rm obs}^2/(c\,\Delta\lambda_{\rm FWHM})$ is the
-coherence time of the unfiltered line.}
+$\tau_L = \lambda_{\rm obs}^2/(\pi\,c\,\Delta\lambda_{\rm FWHM})$ is the
+Lorentzian-line coherence time appearing in $g^{(1)}_{\rm src}(\tau) =
+\exp(-|\tau|/\tau_L)$ via Wiener--Khinchin.
+Type~IIn apparent magnitudes are computed from the sample-mean absolute
+magnitude $M_r = -19.16$~\cite{2025ApJ...987...13R};
+their H$\alpha$ fluxes assume a typical peak H$\alpha$ luminosity
+$L({\rm H}\alpha) = 10^{41}$\,erg\,s$^{-1}$~\cite{Taddia2013}
+scaled by inverse-square distance.}
 \label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
-Source & $z$ & $D$ (Mpc) & $m_V$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
+Source & $z$ & $D$ (Mpc) & $m$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
 \midrule
-3C~273   & 0.158 & 677 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992} & 127~\cite{Boroson1992} & 0.15 \\
-Mrk~766  & 0.013 &  53 & 13.6 & H$\alpha$ & \ldots            &  28~\cite{Kollatschny2013} & 0.53 \\
-I\,Zw\,1 & 0.061 & 261 & 14.0 & H$\alpha$ & \ldots            &  27~\cite{Kollatschny2013} & 0.60 \\
-NGC~4151 & 0.003 &  14 & 11.5 & H$\alpha$ & $5\times10^{-11}$ & \ldots & \ldots \\
-Mrk~509  & 0.034 & 146 & 13.1 & H$\alpha$ & \ldots            & \ldots & \ldots \\
+3C~273           & 0.158 & 677                 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992}                              & 172\footnotemark[1]      & 0.036 \\
+Mrk~766          & 0.013 &  53                 & 13.6 & H$\alpha$ & $2.8\times10^{-12}$~\cite{RodriguezArdila2006}                    &  28~\cite{Kollatschny2013} & 0.17  \\
+$\eta$\,Car (1843) & 0   & $2.3\times10^{-3}$  & $-1$   & H$\alpha$ & ${\sim}5\times10^{-7}$~\cite{2018MNRAS.480.1466S}                  &  15~\cite{2018MNRAS.480.1466S} & 0.30  \\
+Gal.\ SN~IIn     & 0     & $2\times10^{-3}$    & $-7.6$ & H$\alpha$ & ${\sim}2\times10^{-4}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
+M31 SN~IIn       & 0     & $0.78$              & $5.3$  & H$\alpha$ & ${\sim}1.4\times10^{-9}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
 \bottomrule
 \end{tabular}
+\footnotetext[1]{Boroson \& Green~\cite{Boroson1992} report the H$\beta$
+observed-frame width as 127\,\AA\ ($\sim 6800$\,km\,s$^{-1}$); the H$\alpha$
+width at the same velocity, redshifted to $\lambda_{\rm obs} = 6563\cdot(1+z)
+= 7600$\,\AA, is 172\,\AA.}
 \end{table*}
 
 \subsection*{Broad-line profile shapes}
@@ -2032,8 +2054,8 @@ $D = 2.3$\,kpc~\cite{2001ApJ...553..837H}.
 FWHM values are for the broad H$\alpha$ emission component; the bulk outflow
 speed characterises the P~Cygni absorption trough or the dominant spectral
 feature at each epoch.
-$\tau_L = \lambda^2/(c\,\Delta\lambda_{\rm FWHM})$ at H$\alpha$
-($\lambda = 6563$\,\AA) assuming a Lorentzian profile.
+$\tau_L = \lambda^2/(\pi\,c\,\Delta\lambda_{\rm FWHM})$ at H$\alpha$
+($\lambda = 6563$\,\AA) for a Lorentzian profile via Wiener--Khinchin.
 The eruption reached $m_V \approx -1$ at peak (1843--1858).
 Later phases also show very broad emission wings with velocities
 $\gtrsim 10{,}000$\,km\,s$^{-1}$~\cite{2018MNRAS.480.1466S}.}
@@ -2042,9 +2064,9 @@ $\gtrsim 10{,}000$\,km\,s$^{-1}$~\cite{2018MNRAS.480.1466S}.}
 \toprule
 Eruption epoch & Bulk outflow (km\,s$^{-1}$) & H$\alpha$ FWHM (km\,s$^{-1}$) & $\tau_L$ (ps) & Ref. \\
 \midrule
-Pre-plateau (early)  & $\sim 150$ & $\sim 150$ & 4.38 & \cite{2018MNRAS.480.1466S} \\
-Plateau              & $\sim 400$ & $\sim 400$ & 1.64 & \cite{2014ApJ...787L...8P} \\
-Plateau peak         & $\sim 600$ & $\sim 600$ & 1.09 & \cite{2018MNRAS.480.1466S} \\
+Pre-plateau (early)  & $\sim 150$ & $\sim 150$ & 1.39 & \cite{2018MNRAS.480.1466S} \\
+Plateau              & $\sim 400$ & $\sim 400$ & 0.52 & \cite{2014ApJ...787L...8P} \\
+Plateau peak         & $\sim 600$ & $\sim 600$ & 0.35 & \cite{2018MNRAS.480.1466S} \\
 \bottomrule
 \end{tabular}
 \end{table*}

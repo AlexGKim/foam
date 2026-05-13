@@ -68,8 +68,13 @@ flux_ratio_SNIa = 10**(19.3 / 2.5)
 R_SNIa = R0_star * flux_ratio_SNIa * (D0_star_m / D_m)**2
 
 # -- Broad-line AGN / quasar (3C 273-class, Hα Lorentzian)
-#    R(677 Mpc) = 1110 cps from paper
-R_AGN = 1110.0 * (677.0 / D_Mpc)**2
+#    R(677 Mpc) = 1285 cps for a Δλ = 1.1 Å filter on the 10 m baseline
+#    using observed-frame λ_obs = 6563(1+z) Å with z = 0.158 (the (1+z)
+#    factor lifts the rest-frame result of 1110 cps by 1.158 because
+#    E_phot = hc/λ_obs is correspondingly smaller). σ_φ is computed
+#    elsewhere with rest-frame λ since the foam phase accumulates at
+#    the source-frame wavelength.
+R_AGN = 1285.0 * (677.0 / D_Mpc)**2
 
 # ---------------------------------------------------------------
 # SNR per sqrt(T/hr)
@@ -132,10 +137,10 @@ ax.text(7e1,   ymax * 0.35, 'SNIa',   color=C_SNIA, fontsize=9, ha='center',
 ax.text(3e3,   ymax * 0.35, 'AGN',    color=C_AGN,  fontsize=9, ha='center',
         alpha=0.8, style='italic')
 
-# --- M31 distance line (770 kpc) -------------------------------
-D_M31_Mpc = 0.770
+# --- M31 distance line (778 kpc) -------------------------------
+D_M31_Mpc = 0.778
 ax.axvline(D_M31_Mpc, color='#888888', linestyle='--', lw=1.2, zorder=2)
-ax.text(D_M31_Mpc * 1.12, ymin * 3e2, 'M31\n(770 kpc)',
+ax.text(D_M31_Mpc * 1.12, ymin * 3e2, 'M31\n(778 kpc)',
         ha='left', va='bottom', fontsize=8.5, color='#555555', zorder=5)
 
 # --- alpha label -----------------------------------------------
