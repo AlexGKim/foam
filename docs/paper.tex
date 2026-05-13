@@ -35,9 +35,9 @@ For spatially extended sources, cross-ray jitter between independent directions
 additionally suppresses the zero-lag bunching peak $g^{(2)}(0)$ through a mechanism
 that depends only on $\sigma_\ell^2(D)$ and is independent of the foam's temporal dynamics.
 The Siegert violation inherits the wavelength dependence of $g^{(1)}$, while
-the zero-lag $g^{(2)}(0)<2$ suppression for extended
-sources is achromatic and depends on the source angular size in units of the
-foam transverse coherence scale; combined with their distance scaling, these
+the zero-lag suppression of $g^{(2)}(0)$ below its canonical value of 2 for
+extended sources is achromatic and depends on the source angular size in
+units of the foam transverse coherence scale; combined with their distance scaling, these
 signatures distinguish foam from plasma and turbulence and are complementary
 to existing imaging and time-of-flight tests.
 Together they open a new observational window on the path-length variance predicted
@@ -105,9 +105,9 @@ nuclei with the Hubble Space Telescope and ground-based instruments
 together with stellar interferometry, exclude $\alpha \lesssim 2/3$ at optical
 wavelengths for $D \sim 1$--$10$~Gpc, leaving the holographic and conservative
 cases as the only quantitatively viable scalings.
-These exclusions assume transverse foam correlations are negligible on aperture
-scales; models with long-range transverse correlations can evade blurring
-constraints while retaining large $\sigma_\ell(D)$~\cite{LeeZurekChen2024}.
+These exclusions assume spatial transverse foam correlations are negligible
+on aperture scales; models with long-range transverse correlations can evade
+blurring constraints while retaining large $\sigma_\ell(D)$~\cite{LeeZurekChen2024}.
 The second channel uses energy-dependent time-of-flight measurements of
 high-energy astrophysical transients: gamma-ray bursts observed by
 Fermi~\cite{Fermi2009} and TeV blazar flares observed by
@@ -287,7 +287,18 @@ accessible lags: the foam is fully decorrelated on any observable timescale, the
 optimistic scenario for detection.
 In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
 across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
-interest and every temporal observable vanishes.
+interest and every $C_\alpha$-dependent temporal observable vanishes: the
+finite-lag Siegert discrepancy $\mathcal{S}(\tau)$ is suppressed by
+$[1-C_\alpha(\tau)] \to 0$ (Eq.~\eqref{eq:Sexplicit}), and the
+single-ray $g^{(1)}_{\rm obs}$ recovers its intrinsic value because the
+foam suppression factor
+$\mathcal{F}_{\rm foam} = e^{-\sigma_\phi^2[1-C_\alpha]} \to 1$
+(Eq.~\eqref{eq:Ffoam}). The extended-source zero-lag bunching suppression
+$\delta g^{(2)}(0)$ is the one exception: it depends only on the
+single-ray variance $\sigma_\ell^2(D)$ through $\sigma_0^2$
+(Eq.~\eqref{eq:sigma0}) and is therefore independent of $C_\alpha$,
+remaining active even in the quasi-static limit. The two observables
+thus probe complementary aspects of the foam temporal dynamics.
 The parameters $A_\alpha$, $C_\alpha(\tau;D)$, $\tau_{\rm foam}$, $r_\perp$, and
 $\Phi_{\rm eff}$ are convenient parameterizations of distinct physical effects ---
 single-ray variance, temporal foam dynamics, transverse coherence, and source angular
@@ -316,15 +327,28 @@ This product form --- separating the total variance from the normalized
 spatiotemporal shape --- is a structural assumption, not a consequence of
 Eq.~\eqref{eq:NgPerlmanVar}, that defines a tractable class of foam models
 within which the analytic framework is exact.
+The factorization is consistent with phenomenologies in which the
+longitudinal path-length variance, the temporal decorrelation, and the
+transverse coherence arise from statistically independent
+mechanisms --- e.g.\ the simple cellular pictures of
+Refs.~\cite{Ng2001,Ng2003,NgPerlman2022} where each Planck-scale cell
+contributes an independent random kick. It is \emph{not} generic: the
+pixellon model of Lee, Zurek \& Chen~\cite{LeeZurekChen2024} has
+long-range angular correlations whose spatiotemporal covariance does
+not reduce cleanly to $\sigma_\ell^2(D)\,C_\alpha(\tau)\,\Phi(b/r_\perp)$;
+the framework here applies to that model only as a heuristic
+approximation in the regime where transverse correlations have
+decoupled.
 Observationally, factorization predicts that the ratio
 $[g^{(2)}_{\rm obs}(\tau)-1]_{\rm extended}/[g^{(2)}_{\rm obs}(\tau)-1]_{\rm point}$
 equals $\Phi_{\rm eff}$ and is independent of both $\tau$ and $D$; any
 dependence of this ratio on lag or source redshift would falsify the
-factorization ansatz.
+factorization ansatz and indicate that a non-factorizing model
+(e.g.\ pixellon) is required.
 The two principal observables developed below --- the Siegert
 discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
 $\delta g^{(2)}$ --- both descend from the single scaling relation
-Eq.~(\ref{eq:NgPerlmanVar}), with Sections~\ref{sec:g1}--\ref{sec:siegert}
+Eq.~\eqref{eq:NgPerlmanVar}, with Sections~\ref{sec:g1}--\ref{sec:siegert}
 probing its longitudinal projection and Section~\ref{sec:extended} its transverse
 projection.
 
@@ -375,13 +399,29 @@ is a sum of contributions from many foam cells and is therefore Gaussian with ze
 where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt}.
 
 The Gaussian approximation requires the elementary foam cells to be approximately
-independent.
-For the cross-ray case the two rays share foam cells along the line of sight, and
-independence requires $b \gg r_\perp$.
-In the intermediate regime $b \sim r_\perp$ (equivalently $r_\perp \sim D\Delta\theta$),
-the cross-ray Gaussian approximation and the $\Phi_{\rm eff}$ approximation of
-Section~\ref{sec:PhiEff} break down together; both introduce errors of the same
-order and must be assessed jointly.
+independent. Three sufficient conditions cover the regimes of interest in
+this paper.
+(i) The cell count along the line of sight $N_{\rm cells} \sim D/\ell_{\rm P}$
+must be large; for any source farther than $\sim 1$~AU
+($N_{\rm cells} \gtrsim 10^{46}$) this is amply satisfied, and the
+asymptotic CLT applies with negligible higher-cumulant correction.
+(ii) The per-cell path-length contributions must be approximately
+independent along the line of sight; the foam temporal correlation
+$C_\alpha(\tau;D)$ controls how strongly successive cells are linked
+within a single ray observed at lag $\tau$, but does not break the
+spatial independence of cells along the propagation direction.
+(iii) For the cross-ray case the two rays share foam cells along the
+line of sight, and independence requires $b \gg r_\perp$. In the
+intermediate regime $b \sim r_\perp$ (equivalently $r_\perp \sim D\Delta\theta$),
+the cross-ray Gaussian approximation and the $\Phi_{\rm eff}$ approximation
+of Section~\ref{sec:PhiEff} break down together; both introduce errors
+of the same order and must be assessed jointly.
+For the targets discussed in this paper --- AGN at cosmological distances,
+Galactic and Local-Group transients at $D \gtrsim 1$~kpc --- conditions
+(i) and (ii) are always satisfied; condition (iii) is satisfied in the
+fully resolved $\Phi_{\rm eff} \to 0$ limit adopted in
+Section~\ref{sec:prospects} and is the relevant assumption to revisit
+when interpreting source-size scans.
 
 % ==============================================================
 \section{First-Order Coherence}
@@ -654,8 +694,17 @@ The equality holds when both conditions are satisfied: $r_\perp \ll D_{\rm tel}$
 $C_\alpha(\infty;D)\to 0$ (so the single ray fully decorrelates at large lag);
 in either limit alone the two expressions differ.
 Both involve the same rms phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$.
+The equivalence is a spatio-temporal ergodic identification: in the
+$r_\perp \ll D_{\rm tel}$ limit, aperture-plane phases at different
+points $(x,y)$ are independent draws from the same single-ray
+distribution that the temporal correlator $\mathcal{F}_{\rm foam}$
+averages over at large lag, so a spatial mean across aperture elements
+and a temporal mean along one line of sight target the same ensemble
+expectation $\langle e^{-\sigma_\phi^2}\rangle$. The factorized covariance
+of Eq.~\eqref{eq:pathcov} guarantees that this ensemble is shared
+between the two channels.
 For quasi-static foam ($C_\alpha\approx 1$), $\mathcal{F}_{\rm foam}(\infty)\to 1$
-consistently with $S\to 1$ in the $r_\perp \gg D_{\rm tel}$ limit discussed below.
+consistent with $S\to 1$ in the $r_\perp \gg D_{\rm tel}$ limit discussed below.
 
 It is important to distinguish the role of the transverse coherence function
 $\Phi(b/r_\perp)$ from the
@@ -1185,9 +1234,25 @@ instantaneous jitters $\delta t(t;\boldsymbol{\theta})\neq\delta t(t;\boldsymbol
 when $b\gg r_\perp$, and their relative offset blurs the $g^{(2)}(0)$ measurement.
 Because $|g^{(1)}_{\rm obs}(0)|^2=1$ exactly is unaffected by this spatial jitter,
 the two observables are controlled by different mechanisms and $\mathcal{S}(0)<0$.
-This does not violate any fundamental inequality: the bound $\mathcal{S}\geq 0$
-established in Section~\ref{sec:siegert} applies to a single ray, and the
-angular mixture of an extended source need not satisfy it.
+This does not violate any fundamental inequality: the single-ray bound
+$\mathcal{S}\geq 0$ established in Section~\ref{sec:siegert} was obtained
+as a variance, $\mathcal{S} = \langle|X|^2\rangle - |\langle X\rangle|^2 \geq 0$
+with $X = g^{(1)}_{\rm src}(\tau-\Delta(\tau))$, and is therefore tied to
+a single random variable. For an extended source $g^{(2)}_{\rm obs}(0) - 1$
+becomes a positively-weighted angular integral
+$\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\,
+I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
+\langle g^{(2)}_{\rm src}(-\Delta_{\boldsymbol{\theta}\boldsymbol{\theta}'})
+- 1\rangle_{\delta t}$
+(Eq.~\ref{eq:g2obsExt}), in which independent ray pairs each contribute
+a single-ray-like kernel but with their own cross-ray jitter variance
+$\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$. The
+quantity that the single-ray Cauchy--Schwarz bound constrained ---
+$\langle|X|^2\rangle$ for one $X$ --- is replaced by an integral over
+ray-pair-dependent kernels that admit no analogous lower bound. The
+sign of $\mathcal{S}(0)$ therefore follows from the angular average
+itself, and $\mathcal{S}(0) \leq 0$ in the extended case is consistent
+with the framework rather than in tension with it.
 
 For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
 and the sensitivity parameter
@@ -1241,8 +1306,9 @@ and surveys candidate astrophysical sources: broad-line AGN and quasars,
 Galactic and Local-Group transients, and nearby stars.
 We use the Hanbury Brown--Twiss (HBT) split-beam configuration~\cite{HBT1956}
 throughout, as essentially all modern photon-counting $g^{(2)}$ measurements
-do: detector dead time makes a single-detector autocorrelation blind to the
-ps-scale lags that build the bunching peak.
+do~\cite{Foellmi2009,Dravins2013,Guerin2017}: detector dead time makes a
+single-detector autocorrelation blind to the ps-scale lags that build the
+bunching peak.
 
 The sensitivity estimates that follow assume a Lorentzian line profile, adopted
 as the default for the broad and narrow permitted lines considered here.
@@ -1271,6 +1337,24 @@ Both are inferred by comparing the measured $g^{(2)}_{\rm obs}$ to the Siegert
 prediction $g^{(2)}_{\rm src}-1=|g^{(1)}_{\rm src}|^2$, built from the source
 spectrum via the Wiener--Khinchin theorem; neither requires a separate model of
 the source.
+All numerical projections below adopt $A_\alpha = 1$ in
+Eq.~\eqref{eq:NgPerlmanVar} (the canonical Ng--Perlman normalization)
+and the dynamical-foam limit $C_\alpha(\tau_L; D) \to 0$ for the
+finite-lag observable; the quasi-static limit $C_\alpha \to 1$ would
+suppress the finite-lag Siegert discrepancy entirely (Section~\ref{sec:Calpha_origin}),
+while the extended-source zero-lag $\delta g^{(2)}(0)$ is independent
+of $C_\alpha$ and survives in either limit.
+The dimensionless prefactor is of order unity by the same dimensional
+argument that sets the rest of the foam variance, but individual foam
+models admit factor-of-few variations~\cite{NgPerlman2022,LeeZurekChen2024}.
+The signal scales as $\sigma_\ell \propto \sqrt{A_\alpha}$, so the
+detector-limited zero-lag sensitivity $\sigma_{\ell,\rm min}^{\rm ext}$
+inherits the scaling $\propto A_\alpha^{1/2}$ (extended-source variant)
+or $A_\alpha$ (point-source variant, where the observable is quadratic
+in $\sigma_\phi$ in the weak-foam limit). Translating the quoted
+$\sigma_{\ell,\rm min}$ values to a different foam normalization
+therefore amounts to a single multiplicative rescaling that does not
+shift the qualitative picture.
 
 For a single-aperture HBT configuration using a 50/50 beamsplitter with
 unpolarized light, the fundamental signal-to-noise
@@ -1289,7 +1373,7 @@ $1/4 = 1/(2\,N_p)$ with $N_p = 2$ polarization modes reflects the fact that
 only photons sharing a polarization state contribute to the bunching signal,
 while the shot noise is set by the total (polarization-summed) count rate at
 each detector.  Equivalently one may write $\textrm{SNR} = \frac{1}{2}
-(R/N_s N_p)\,\tau_c\sqrt{T_{\rm obs}/\tau_r}$, grouping all mode dilution
+R/(N_s\,N_p)\,\tau_c\sqrt{T_{\rm obs}/\tau_r}$, grouping all mode dilution
 into a single factor.
 
 Achieving a statistically significant SNR is a necessary but not sufficient
@@ -1446,6 +1530,19 @@ dependence of $\delta g^{(2)}$ across a sample of targets with varying
 $D\Delta\theta$ is the principal observational handle on $r_\perp$
 (Section~\ref{sec:extended}).
 
+Throughout the sensitivity analysis that follows we restrict to the
+limiting case $\Phi_{\rm eff} = 0$ per object --- equivalently, the
+fully-resolved limit $r_\perp \ll D\,\Delta\theta_{\rm source}$ --- so
+that $\sigma_0^2 = 2\sigma_\ell^2(D)/c^2$ and the SNR projections
+correspond to the maximum signal each target can produce. This is the
+appropriate working assumption for the present paper: the value of
+$r_\perp$ is the quantity that future multi-target campaigns aim to
+infer from the source-size dependence of $\delta g^{(2)}$, not a
+quantity that can be assumed in advance. For any target whose angular
+extent is smaller than $r_\perp$, the SNR projections below should be
+read as upper bounds, scaling by $\sqrt{1-\Phi_{\rm eff}}$ as $r_\perp$
+approaches and exceeds $D\,\Delta\theta_{\rm source}$.
+
 \paragraph{Filter strategy: preserving the intrinsic cusp.}
 The linear-in-$s$ scaling of $\delta g^{(2)}$ requires that the filter pass
 the full emission line,
@@ -1535,47 +1632,65 @@ more purely Lorentzian line profiles, or more favorable distance-to-flux ratios.
 Observed properties and references for the principal candidates are collected
 in Tables~\ref{tab:source_agn} and~\ref{tab:source_etacar}.
 
-\textit{Broad-line quasars.}
-Luminous broad-line quasars (BLQs) combine large cosmological distances ---
-maximising both $\sigma_\phi$ (finite-lag) and $\sigma_0$ (zero-lag) --- with
-high emission-line flux.
-Their broad permitted lines (H$\alpha$, H$\beta$, Mg\,\textsc{ii}, C\,\textsc{iv})
-are empirically well described by Lorentzian profiles~\cite{Kollatschny2013},
-satisfying the zero-lag cusp requirement of Section~\ref{sec:candidate_sources}.
-A wide filter ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}$) captures the full
-line flux, giving photon rates far exceeding those of a continuum source at the
-same apparent magnitude; sky background and detector dark counts are negligible
-relative to the source rate, so the Brouri~et~al.\ correction for accidental
-coincidences is small~\cite{Brouri2000}.
-We adopt 3C~273 (broad H$\alpha$, $F \approx 2\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
-FWHM $\approx 172$\,\AA\ observed-frame, $D_L = 782$\,Mpc at $z = 0.158$ in
-flat $\Lambda$CDM with the Planck 2018 cosmology~\cite{Aghanim2020}) as the
-reference target~\cite{Boroson1992}.  Boroson \& Green report the H$\beta$ width as
-127\,\AA\ observed-frame ($\sim 6800$\,km\,s$^{-1}$); H$\alpha$ has the
-same velocity width, giving an observed-frame $\Delta\lambda$ of $(6800/c)\cdot 6563\cdot(1+z)
-\approx 172$\,\AA. The Balmer decrement makes H$\alpha$ the higher-photon-flux
-choice (F(H$\alpha$)/F(H$\beta$) $\approx 3$–$4$ in broad-line AGN).
-With a $\sim 200$\,\AA\ filter (capturing $\approx 70\%$ of the Lorentzian line flux),
-the photon rate on a 10\,m telescope with $\epsilon = 0.39$ is $R \approx 1.6\times10^5$\,cps
-(using the observed-frame photon energy $hc/\lambda_{\rm obs}$ with $\lambda_{\rm obs} =
-7600$\,\AA\ at $z = 0.158$) and the intrinsic coherence time is $\tau_L \approx 0.036$\,ps,
-placing the measurement deeply in the detector-limited regime ($\tau_L \ll \sigma_t = 13$\,ps).
-
-\textit{Narrow-line Seyfert 1 galaxies.}
-Narrow-line Seyfert 1 galaxies (NLS1s) have permitted lines with FWHM $\lesssim 2000$\,km\,s$^{-1}$,
-empirically well described by a Lorentzian core~\cite{Kollatschny2013}.
-A narrower line yields a shorter intrinsic coherence time $\tau_L$ and hence a
-larger cusp parameter $s = \sigma_0/\tau_L$ per unit foam amplitude:
-for FWHM $\sim 1300$\,km\,s$^{-1}$ ($\sim 28$\,\AA\ at H$\alpha$),
-$\tau_L \approx 0.17$\,ps, compared with $\tau_L \approx 0.036$\,ps for 3C~273.
-Because NLS1 distances are smaller, their $\sigma_0$ is correspondingly smaller,
-but the genuinely Lorentzian core and the high photon rates make them competitive
-targets for the $\delta g^{(2)}$ measurement, and NLS1s with
-$\tau_L \gtrsim \sigma_t$ can operate in the source-limited regime
-with next-generation detectors.
-Mrk~766 ($V = 13.6$, $D_L = 59$\,Mpc at $z = 0.013$~\cite{Aghanim2020}, FWHM $\approx 1300$\,km\,s$^{-1}$,
-$F \approx 2.8\times10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$, $\tau_L \approx 0.17$\,ps)
-is a well-studied example~\cite{Kollatschny2013}.
+\textit{Narrow-line Seyfert 1 galaxies as headline AGN targets.}
+For the $\delta g^{(2)}(0)$ extended-source observable we require a
+source whose broad H$\alpha$ profile is Lorentzian-cored, since the
+linear-in-$s$ scaling of $\delta g^{(2)}$ depends on the cusp in
+$g^{(2)}_{\rm src}$ at $\tau = 0$
+(Section~\ref{sec:candidate_sources}; \cite{Kollatschny2013}).
+Narrow-line Seyfert~1 galaxies (NLS1s) are the natural AGN choice:
+their permitted broad lines have FWHM $\lesssim 4000$\,km\,s$^{-1}$ and
+fall in Population~A of the empirical Sulentic--Marziani--Zamfir
+classification, for which the broad H$\beta$ (and, by extension, H$\alpha$)
+profile is well described by a single Lorentzian~\cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}.
+We adopt two reference targets at complementary distances, both
+luminosity distances computed in flat $\Lambda$CDM with the Planck~2018
+cosmology~\cite{Aghanim2020}.
+Mrk~766 ($V = 13.6$, $D_L = 59$\,Mpc at $z = 0.013$, FWHM
+$\approx 1300$\,km\,s$^{-1}$ ${\sim}28$\,\AA\ at H$\alpha$,
+$F \approx 2.8\times 10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
+$\tau_L \approx 0.17$\,ps; \cite{RodriguezArdila2006,Kollatschny2013})
+is the nearby Pop~A reference.
+PHL~1811 ($V = 14.4$, $D_L = 971$\,Mpc at $z = 0.192$, FWHM
+$\approx 1752$\,km\,s$^{-1}$ ${\sim}46$\,\AA\ at H$\alpha$ observed-frame,
+$F \approx 1.0\times 10^{-12}$\,erg\,s$^{-1}$\,cm$^{-2}$,
+$\tau_L \approx 0.14$\,ps; \cite{Leighly2007}) is a cosmological-distance
+Pop~A complement, whose H$\alpha$ and H$\beta$ profiles are explicitly
+fit with a Lorentzian by Leighly~et~al.~2007 (their \S3) --- a direct
+empirical verification of the linear-in-$s$ cusp condition for this
+target.
+A wide filter ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}$) captures
+the full line flux, giving photon rates $R \approx 2.0\times 10^5$\,cps
+(Mrk~766) and $R \approx 8.5\times 10^4$\,cps (PHL~1811) on a 10\,m
+telescope with $\epsilon = 0.39$; sky background and detector dark
+counts are negligible relative to the source rates, so the Brouri~et~al.\
+correction for accidental coincidences is small~\cite{Brouri2000}.
+For both NLS1 targets the $2\times \mathrm{FWHM}_{\rm line}$ filter
+width (${\sim}56$\,\AA\ for Mrk~766, ${\sim}92$\,\AA\ for PHL~1811) is
+narrow enough that any underlying pseudo-continuum (Fe~II forest plus
+near-line continuum) passes through at a much lower per-\AA\ rate than
+the broad H$\alpha$ peak, so the line-to-continuum ratio
+$\gtrsim 10$:1 typical of these targets gives a cusp signal diluted
+by $\lesssim 10\%$. The continuum dilution does not change the
+qualitative SNR ordering but should be subtracted from the measured
+$g^{(2)}(\tau)$ as an additive constant when extracting
+$\delta g^{(2)}(0)$ in practice.
+The two targets span a factor of 16 in distance, exercising the
+$\sigma_\phi \propto D^{1-\alpha}$ scaling of the foam-vs-screen
+discriminant developed in Section~\ref{sec:zerolag}.
+With $\tau_L \approx 0.14$--$0.17$\,ps and current timing resolution
+$\sigma_t = 13$\,ps both measurements are detector-limited
+($\tau_L \ll \sigma_t$); source-limited operation is reached with
+sub-$0.17$\,ps timing for Mrk~766 and sub-$0.14$\,ps timing for PHL~1811.
+A note on technology readiness: 13~ps rms (30~ps FWHM) is achieved in
+present-generation single-photon avalanche diode (SPAD) arrays, while
+superconducting nanowire single-photon detectors (SNSPDs) routinely
+demonstrate $\sigma_t \approx 1$--$5$~ps in laboratory settings and
+have reached ${\sim}0.1$~ps in best-case devices; sub-0.1~ps SNSPDs
+are an active development goal (e.g., the photon-counting roadmap of
+Refs.~\cite{Kim2025}). The projections below should be read as targets
+that motivate continued detector development rather than as
+sensitivities accessible to today's deployed instruments.
 
 \textit{Galactic emission-line sources as calibrators.}
 Bright Galactic sources --- Wolf-Rayet stars (e.g.\ $\gamma^2$\,Vel, WR\,6),
@@ -1593,7 +1708,7 @@ A representative SN~IIn line has FWHM $\approx 55$\,\AA\
 FWHM $\approx 15$\,\AA, $\tau_L \approx 0.30$\,ps) reached $m_V \approx -1$
 during its 1840s eruption --- briefly the brightest star in the sky.
 
-Two caveats apply to $\eta$\,Car.
+Three caveats apply to $\eta$\,Car and other transient targets.
 The Homunculus Nebula scatters substantial flux into the line of sight, so the
 observed coherence is partially set by scattering geometry rather than the
 central engine; this must be modeled to credit the photon count correctly.
@@ -1604,6 +1719,16 @@ no longer a clean point for the Section~\ref{sec:siegert} Siegert test but
 does cleanly support the Section~\ref{sec:extended} extended-source
 $\delta g^{(2)}$ test, with a directly imageable angular structure to anchor
 $\Phi_{\rm eff}$.
+The framework assumes a stationary Gaussian source, which is the
+appropriate idealization across an integration short compared to the
+intrinsic variability timescale --- weeks-to-months for LBV eruptions
+and SN~IIn light-curves. For the per-event integrations of order
+$10$~hr adopted in the figures this stationarity is amply satisfied;
+extending to ${\sim}10^4$~hr campaigns on a single transient would
+require sub-dividing the integration into stationary epochs and
+co-adding the inferred $g^{(2)}(0)$ statistics across epochs, which
+preserves the SNR scaling but is operationally distinct from a
+continuous integration on a non-variable source.
 
 
 \begin{figure}[t]
@@ -1618,6 +1743,10 @@ $\Phi_{\rm eff}$.
     $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr, filter width $2\times\mathrm{FWHM}_{\rm line}$.
     SNR computed from Eq.~\ref{eq:snr_det_pt}
     (detector-limited regime, $\sigma_t \gg \tau_L$ for all sources shown).
+    The per-exposure $T_{\rm obs} = 10$\,hr is a representative single-night
+    integration; for the $10^4$\,hr campaign-scale integrations
+    quoted in the body text and conclusions multiply the displayed SNR
+    by $\sqrt{10^3} \approx 31.6$.
     Filled circles mark the $\sigma_\phi = 0.3$ validity boundary of the
     weak-foam quadratic approximation
     $\mathcal{S}(\tau_L) \approx 2e^{-2}\sigma_\phi^2$; curves to the right
@@ -1648,6 +1777,10 @@ $\Phi_{\rm eff}$.
     with $s = \sigma_0/\tau_L$ (Eq.~\ref{eq:deltag2}), and the
     SNR is computed from Eq.~\ref{eq:snr_det_ext} (detector-limited regime,
     $\sigma_t \gg \tau_L$ for all sources shown).
+    The per-exposure $T_{\rm obs} = 10$\,hr is a representative single-night
+    integration; multiply the displayed SNR by $\sqrt{10^3} \approx 31.6$
+    for the $10^4$\,hr campaign-scale integrations quoted elsewhere in
+    §VII and the conclusions.
     All sources are evaluated in the fully resolved limit $\Phi_{\rm eff} = 0$
     (maximally optimistic); for sources whose angular size is smaller than the
     foam transverse coherence length $r_\perp$ the actual signal is suppressed
@@ -1672,75 +1805,62 @@ Figs.~\ref{fig:snr_vs_alpha_ext} and~\ref{fig:snr_vs_alpha_pt} for the zero-lag
 and finite-lag variants respectively.
 
 \paragraph{Current- and next-generation sensitivity.}
-With current instrumentation ($\sigma_t=13\,$ps), the broad-line quasar
-3C\,273 ($\tau_L\approx 0.036\,$ps) operates deeply in the detector-limited
-regime. From Eq.~\ref{eq:snr_det_ext} at $3\sigma$
-($R\approx 1.6\times 10^5\,$cps, $T_{\rm obs}=10^4\,$hr):
-$\sigma_{\ell,\rm min}\approx 1.5\,\mu$m. This is far above the Lieu--Hillman
+With current instrumentation ($\sigma_t=13\,$ps), the NLS1 reference
+target Mrk~766 ($\tau_L\approx 0.17\,$ps) operates in the detector-limited
+regime ($\tau_L/\sigma_t \approx 0.013$). From Eq.~\ref{eq:snr_det_ext} at
+$3\sigma$ ($R\approx 2.0\times 10^5\,$cps, $T_{\rm obs}=10^4\,$hr):
+$\sigma_{\ell,\rm min}\approx 1.2\,\mu$m. This is far above the Lieu--Hillman
 imaging floor ($\sigma_\ell\approx 105\,$nm at H$\alpha$), reflecting the
 intrinsic weakness of the envelope-timing observable $\delta g^{(2)}(0)$
 relative to the carrier-phase observable $\sigma_\phi=2\pi\sigma_\ell/\lambda$
 that governs fringe visibility.
 
 The detector-limited penalty $\sqrt{\tau_L/\sigma_t}$ vanishes only when
-$\sigma_t$ is reduced below $\tau_L$, which for broad-line quasars demands
-sub-0.04\,ps timing. Superconducting nanowire detectors achieving such jitter
-are under active development; at $\sigma_t=0.02\,$ps, broad-line quasars enter
-the source-limited regime and NLS1s ($\tau_L\sim 0.2\,$ps) are deeply
-source-limited, giving $\sigma_{\ell,\rm min}\approx 78\,$nm (10\,m),
-$4.9\,$nm (40\,m), $0.0095\,$nm (1\,km array) on 3C\,273. A 40\,m-class
+$\sigma_t$ is reduced below $\tau_L$, which for Mrk~766 demands
+sub-$0.17\,$ps timing --- a regime that current superconducting nanowire
+detectors are beginning to access. At $\sigma_t \lesssim 0.1\,$ps, Mrk~766
+enters the source-limited regime, giving $\sigma_{\ell,\rm min}\approx
+139\,$nm (10\,m), $8.7\,$nm (40\,m), $0.017\,$nm (1\,km array). A 40\,m-class
 telescope with sub-ps timing would reach well below the Lieu--Hillman floor
 via $\delta g^{(2)}(0)$ alone, and a kilometre-baseline intensity-interferometer
 array would achieve sub-nanometre sensitivity --- placing the random-walk
 model $\alpha=1/2$ with long-range transverse
-correlations~\cite{LeeZurekChen2024} firmly within reach across the full
-AGN/quasar redshift range.
+correlations~\cite{LeeZurekChen2024} firmly within reach for NLS1 targets
+in the local universe.
 
 \paragraph{Comparison of the two variants.}
-For the 3C\,273 reference parameters
-($R\approx 1.6\times 10^5\,$cps, $\tau_L\approx 0.036\,$ps, $T_{\rm obs}=10^4\,$hr,
-$\lambda=\mathrm{H}\alpha$, $D=782\,$Mpc~\cite{Aghanim2020}), the random-walk model $\alpha=1/2$
-with short-range transverse correlations relaxed gives $\sigma_\phi\approx 247$,
-saturating the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}$ and
-$\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm --- comparable to the
-Lieu--Hillman fringe-erasure threshold, consistent with the finite-lag
-observable accessing $\sigma_\phi$ directly.
-For the holographic model $\alpha=2/3$, $\sigma_\phi\sim 10^{-8}$ gives
-$\mathcal{S}(\tau_L)\sim 10^{-16}$, five orders of magnitude below the
-zero-lag signal $\delta g^{(2)}(0)\sim 10^{-11}$ on the same target.
+For the Mrk~766 reference parameters
+($R\approx 2.0\times 10^5\,$cps, $\tau_L\approx 0.17\,$ps, $T_{\rm obs}=10^4\,$hr,
+$\lambda=\mathrm{H}\alpha$, $D=59\,$Mpc~\cite{Aghanim2020}), the random-walk
+model $\alpha=1/2$ with short-range transverse correlations relaxed gives
+$\sigma_\phi\approx 5.2$, saturating the finite-lag signal at
+$\mathcal{S}(\tau_L)\to e^{-2}$ and $\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm
+--- comparable to the Lieu--Hillman fringe-erasure threshold, consistent
+with the finite-lag observable accessing $\sigma_\phi$ directly.
+For the holographic model $\alpha=2/3$, $\sigma_\phi\sim 7.5\times 10^{-9}$
+gives $\mathcal{S}(\tau_L)\sim 10^{-17}$, six orders of magnitude below the
+zero-lag signal $\delta g^{(2)}(0)\sim 3.5\times10^{-11}$ on the same target.
 The finite-lag variant is therefore not competitive with the zero-lag
 variant for raw sensitivity to the holographic model, but it provides the only
 HBT channel sensitive to the foam temporal dynamics $\tau_{\rm foam}$ and can
 be applied to spatially unresolved sources for which the zero-lag
 mechanism is inactive.
 
-% PROMPT FOR TABLE GENERATION:
-% Generate a table (label: tab:aperture) of minimum detectable sigma_ell
-% at 3-sigma for delta_g^(2)(0) (extended-source, Phi_eff -> 0).
-% Observable: delta_g^(2) = 2*sqrt(2/pi)*sigma_0/tau_L,
-%   sigma_0 = sqrt(2)*sigma_ell/c.
-% Source: 3C 273 Halpha, F=2e-12 erg/s/cm^2, FWHM=172 Ang observed-frame,
-%   tau_L = lam_obs^2/(pi*c*FWHM) = 0.036 ps with lam_obs = 7600 Ang at z=0.158.
-%   Wide filter (~344 Ang, 2xFWHM), R=1.6e5 cps on 10m with epsilon=0.39.
-% SNR_src = 2*sqrt(2/pi)*sigma_0*R*sqrt(T/tau_L) [source-limited, tau_L > sig_t]
-% SNR_det = 2*sqrt(2/pi)*sigma_0*R*sqrt(T/sig_t) [det-limited, sig_t > tau_L]
-% Rows: apertures 10m, 40m, 1000m.
-% Columns: sigma_t=13ps (current), sigma_t=0.5ps (next-gen), sigma_t=0.1ps.
-% For each: sigma_ell_min (in nm or um), alpha_lim at D=1 Gpc.
-% Also include LH imaging floor row: sigma_ell=105 nm.
-% T_obs = 10^4 hr = 3.6e7 s.
-
 For a galactic transient at $D \sim 2$\,kpc with $\alpha = 1/2$ and long
 transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm and the
 photon flux is so high that detection or exclusion is essentially instantaneous
 once sub-ps timing is available.
 For $\alpha = 2/3$, a galactic SN~IIn or LBV eruption returns a
-$10^3$--$10^4\times$ SNR improvement over the persistent-AGN baseline.
-The galactic SN~IIn case yields the largest single-event SNR --- ${\sim}10^4$
-times the 3C~273 baseline --- but its $\sim$millennial recurrence makes it
-a ``drop-everything'' opportunity rather than a campaign target; the most
-recent confirmed Galactic core-collapse supernova was Cassiopeia~A
-(${\sim}1680$, Type~IIb).
+${\sim}10^4$--$10^6\times$ SNR improvement over the persistent-AGN baseline.
+The galactic SN~IIn case yields the largest single-event SNR --- ${\sim}2\times 10^6$
+times the Mrk~766 baseline --- but its recurrence rate makes it a
+``drop-everything'' opportunity rather than a campaign target.
+Smith~et~al.~2011~\cite{Smith2011} estimate that ${\sim}9\%$ of
+core-collapse supernovae are Type~IIn; combined with the Galactic
+core-collapse rate of $1.6\pm 0.5$ per century from Adams~et~al.~2013~\cite{Adams2013},
+this implies an expected Galactic IIn rate of roughly one per
+500--1500~yr. The most recent confirmed Galactic core-collapse supernova
+was Cassiopeia~A (${\sim}1680$, Type~IIb).
 The $\eta$\,Car case sacrifices a factor of $\sim 10$ in SNR but offers a
 recurrence plausibly within a working career: $\eta$\,Car itself has been
 in an unusual brightening state since the mid-twentieth century, and giant
@@ -1806,8 +1926,8 @@ $R_{\rm abs} \approx 2.6\times10^5$\,cps at line center.
 At $D = 2.64$\,pc and $\alpha = 1/2$, $\sigma_\phi \approx 0.011 \ll 1$, giving
 $\mathcal{S}(\tau_c) \approx 3.3\times10^{-5}$ and
 $\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \approx 1.9\times10^{-3}$ ---
-about $17\times$ smaller than a 3C~273-class AGN in the saturated regime
-($\mathcal{S} \to e^{-2}$, $\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \approx 3.3\times10^{-2}$).
+about $10\times$ smaller than a Mrk~766-class NLS1 in the saturated regime
+($\mathcal{S} \to e^{-2}$, $\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \approx 1.9\times10^{-2}$).
 For $\alpha = 2/3$, $\sigma_\phi \approx 2.7\times10^{-11}$ at 2.64\,pc:
 the foam signal is entirely negligible.
 Absorption-line sources are therefore not competitive as foam probes; their value
@@ -1904,21 +2024,26 @@ $g^{(2)}_{\rm src}$ at zero lag for sources with a Lorentzian line component).
 The achievable sensitivity and its scaling with telescope aperture and source
 redshift are analyzed in detail in Section~\ref{sec:prospects}.
 The observable is the zero-lag bunching suppression $\delta g^{(2)}(0)$
-(Eq.~\eqref{eq:deltag2}, $\Phi_{\rm eff}\approx 0$), measured via the HBT
-split-beam configuration using bright broad-line AGN and quasars observed
-through wide filters that preserve the intrinsic Lorentzian line cusp.
+(Eq.~\eqref{eq:deltag2}), measured via the HBT split-beam configuration
+using bright broad-line AGN and quasars observed through wide filters
+that preserve the intrinsic Lorentzian line cusp. We restrict the
+sensitivity analysis to the limiting case $\Phi_{\rm eff} = 0$ per
+object (fully-resolved limit, $r_\perp \ll D\,\Delta\theta_{\rm source}$),
+so that the quoted projections represent the maximum signal each target
+can produce; for $r_\perp$ approaching $D\,\Delta\theta_{\rm source}$
+the projected signals scale by $\sqrt{1-\Phi_{\rm eff}}$.
 The linear-in-$s$ scaling of $\delta g^{(2)}$ requires that the filter pass the
 full emission line ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}_{\rm line}$);
-this places bright quasars ($\tau_L \sim 0.04$\,ps) in the detector-limited regime
-with current timing resolution ($\sigma_t = 13$\,ps), with a
-$\sqrt{\tau_L/\sigma_t} \approx 0.05$ penalty relative to source-limited operation.
+this places bright NLS1 targets ($\tau_L \sim 0.17$\,ps) in the detector-limited
+regime with current timing resolution ($\sigma_t = 13$\,ps), with a
+$\sqrt{\tau_L/\sigma_t} \approx 0.11$ penalty relative to source-limited operation.
 For a 10\,m-class telescope~\cite{Kim2025} with $T_{\rm obs} = 10^4$\,hr on a
-3C~273-class quasar, the current-detector sensitivity is
-$\sigma_{\ell,\rm min} \approx 1.5\,\mu$m ($3\sigma$) --- above the
+Mrk~766-class NLS1, the current-detector sensitivity is
+$\sigma_{\ell,\rm min} \approx 1.2\,\mu$m ($3\sigma$) --- above the
 Lieu--Hillman imaging floor ($\sigma_\ell \approx 105$\,nm at H$\alpha$).
-With next-generation timing ($\sigma_t \lesssim 0.04$\,ps, entering the
+With next-generation timing ($\sigma_t \lesssim 0.17$\,ps, entering the
 source-limited regime), a 40\,m aperture reaches
-$\sigma_\ell \approx 4.9$\,nm, well below the imaging floor; a 1\,km-class
+$\sigma_\ell \approx 8.7$\,nm, well below the imaging floor; a 1\,km-class
 intensity-interferometer array would reach sub-nm sensitivity.
 
 The astrophysical contribution of the framework developed here is threefold:
@@ -1942,8 +2067,21 @@ stationary Gaussian field, up to finite-sample bias corrections), as does the mo
 index $m^2 \equiv \mathrm{Var}(I)/\langle I\rangle^2$, which equals $g^{(2)}(0)-1$
 for stationary, noise-corrected intensity samples and is used to characterize single-pulse
 intensity statistics of pulsars and FRBs~\cite{Weltevrede2006}.
-The Siegert-violation framework developed here therefore translates directly to existing
-radio data products.
+In radio data products, a foam signature would appear as a systematic
+\emph{depression} of the measured $g^{(2)}(0)$ (equivalently, of the
+spectral kurtosis or modulation index) below the Gaussian-stationary
+expectation, at a level $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ that
+scales with source distance and angular size in the manner described
+in Section~\ref{sec:extended}. The radio waveband caveat is that
+$\sigma_\phi = 2\pi\sigma_\ell/\lambda$ scales as $1/\lambda$, so at
+typical radio wavelengths $\lambda \gtrsim 1$\,cm the foam phase
+variance is $\sim 10^{10}\times$ smaller than at optical wavelengths
+for the same $\sigma_\ell$, making radio-band searches sensitive only
+to foam models with $\alpha \lesssim 0.55$ in the local universe. A
+dedicated reanalysis of archival spectral-kurtosis or modulation-index
+products at large $D$ (pulsars and FRBs at extragalactic distances)
+could provide a complementary cross-check on the random-walk model
+$\alpha = 1/2$.
 
 The SNR projections above represent a statistical floor under the assumption of
 pure shot noise.  In practice, systematic effects---detector afterpulsing,
@@ -2006,23 +2144,30 @@ Type~IIn apparent magnitudes are computed from the sample-mean absolute
 magnitude $M_r = -19.16$~\cite{2025ApJ...987...13R};
 their H$\alpha$ fluxes assume a typical peak H$\alpha$ luminosity
 $L({\rm H}\alpha) = 10^{41}$\,erg\,s$^{-1}$~\cite{Taddia2013}
-scaled by inverse-square distance.}
+scaled by inverse-square distance.
+The $\eta$\,Car peak H$\alpha$ flux $F \approx 5\times 10^{-7}$\,erg\,s$^{-1}$\,cm$^{-2}$
+is an order-of-magnitude estimate derived from the eruption peak magnitude
+$m_V \approx -1$ (Vega zero-point flux $f_{\lambda,0} \approx 3.6\times 10^{-9}$\,erg\,s$^{-1}$\,cm$^{-2}$\,\AA$^{-1}$,
+giving $f_\lambda(m_V = -1) \approx 9\times 10^{-9}$\,erg\,s$^{-1}$\,cm$^{-2}$\,\AA$^{-1}$)
+combined with an assumed H$\alpha$ equivalent width
+${\rm EW}({\rm H}\alpha) \sim 50$\,\AA\ typical of LBVs in eruption
+(Smith~2018~\cite{2018MNRAS.480.1466S} reports H$\alpha$ in the
+light-echo spectra at this approximate equivalent width). The flux is
+uncertain at the factor-of-a-few level because of Homunculus
+scattering geometry; this is the appropriate caveat to attach to all
+$\eta$\,Car SNR projections in this paper.}
 \label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
 Source & $z$ & $D$ (Mpc) & $m$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
 \midrule
-3C~273           & 0.158 & 782                 & 12.9 & H$\alpha$ & $2\times10^{-12}$~\cite{Boroson1992}                              & 172\footnotemark[1]      & 0.036 \\
 Mrk~766          & 0.013 &  59                 & 13.6 & H$\alpha$ & $2.8\times10^{-12}$~\cite{RodriguezArdila2006}                    &  28~\cite{Kollatschny2013} & 0.17  \\
+PHL\,1811        & 0.192 & 971                 & 14.4 & H$\alpha$ & $1.0\times10^{-12}$~\cite{Leighly2007}                            &  46~\cite{Leighly2007}     & 0.14  \\
 $\eta$\,Car (1843) & 0   & $2.3\times10^{-3}$  & $-1$   & H$\alpha$ & ${\sim}5\times10^{-7}$~\cite{2018MNRAS.480.1466S}                  &  15~\cite{2018MNRAS.480.1466S} & 0.30  \\
 Gal.\ SN~IIn     & 0     & $2\times10^{-3}$    & $-7.6$ & H$\alpha$ & ${\sim}2\times10^{-4}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
 M31 SN~IIn       & 0     & $0.78$              & $5.3$  & H$\alpha$ & ${\sim}1.4\times10^{-9}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
 \bottomrule
 \end{tabular}
-\footnotetext[1]{Boroson \& Green~\cite{Boroson1992} report the H$\beta$
-observed-frame width as 127\,\AA\ ($\sim 6800$\,km\,s$^{-1}$); the H$\alpha$
-width at the same velocity, redshifted to $\lambda_{\rm obs} = 6563\cdot(1+z)
-= 7600$\,\AA, is 172\,\AA.}
 \end{table*}
 
 \subsection*{Broad-line profile shapes}
@@ -2030,24 +2175,20 @@ width at the same velocity, redshifted to $\lambda_{\rm obs} = 6563\cdot(1+z)
 The profile shape of the broad emission line determines the fraction of line
 flux transmitted through a narrow filter and the functional form of
 $g^{(2)}_{\rm src}(\tau)$ at zero lag (Section~\ref{sec:zerolag}).
-
 Sulentic et al.~\cite{2002ApJ...566L..71S} and Zamfir et al.~\cite{2010MNRAS.403.1759Z}
-establish an empirical division of AGN into two populations based on
-FWHM(H$\beta$): \emph{Population~A} sources with FWHM $\lesssim 4000$\,km\,s$^{-1}$
-have broad H$\beta$ profiles that are well described by a single Lorentzian,
-while \emph{Population~B} sources with FWHM $\gtrsim 4000$\,km\,s$^{-1}$
-require a double-Gaussian (a classical broad component plus a very
-broad, redshifted component) and are not well described by a single Lorentzian.
-
-Mrk~766 has FWHM $\approx 1300$\,km\,s$^{-1}$, placing it firmly in
-Population~A; its broad H$\alpha$ profile is well described by a
-Lorentzian~\cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}.
-
-3C~273 has FWHM $\approx 6800$\,km\,s$^{-1}$ (rest-frame velocity equivalent of
-the 127\,\AA\ observed-frame H$\beta$ width at $z = 0.158$~\cite{Boroson1992}),
-placing it in Population~B.
-Its broad H$\beta$ profile is not well described by a single Lorentzian and
-instead requires a double-Gaussian decomposition~\cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}.
+establish an empirical division of AGN into two populations: \emph{Population~A}
+sources, with broad-line FWHM $\lesssim 4000$\,km\,s$^{-1}$, have permitted-line
+profiles well described by a single Lorentzian; \emph{Population~B} sources,
+with FWHM $\gtrsim 4000$\,km\,s$^{-1}$, require a double-Gaussian decomposition.
+Mrk~766 (FWHM $\approx 1300$\,km\,s$^{-1}$) is firmly in Population~A; its broad
+H$\alpha$ profile is well described by a Lorentzian~\cite{RodriguezArdila2006,2002ApJ...566L..71S,2010MNRAS.403.1759Z},
+satisfying the cusp condition that the linear-in-$s$ scaling of $\delta g^{(2)}$
+at zero lag requires (Section~\ref{sec:zerolag}).
+PHL\,1811 (FWHM $\approx 1752$\,km\,s$^{-1}$) is likewise in Population~A;
+its H$\alpha$ and H$\beta$ profiles are directly fit with a Lorentzian
+profile by Leighly et al.\ 2007~\cite{Leighly2007} (their \S3), providing
+independent empirical confirmation of the Lorentzian-core assumption for
+this target.
 
 \begin{table*}[t]
 \centering

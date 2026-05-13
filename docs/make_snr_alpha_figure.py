@@ -47,17 +47,19 @@ kpc_in_Mpc = 1e-3
 # All F(Hα), FWHM, D values match Table II in paper.tex (tab:source_agn).
 # AGN luminosity distances use Planck 2018 cosmology (Aghanim et al. 2020,
 # A&A 641, A6): H_0=67.36, Ω_m=0.315, Ω_Λ=0.685.
-# 3C 273 (Boroson & Green 1992): broad-line quasar, z = 0.158.
-#   Hα FWHM = 172 Å observed-frame: the Hβ rest-frame velocity width is
-#   ~6800 km/s [Boroson1992]; the same velocity width at Hα 6563 Å, scaled
-#   to z = 0.158, gives Δλ_obs(Hα) = (6800/c)·6563·(1+z) = 172.4 Å. F(Hα) =
-#   2e-12 erg/s/cm² is the line flux at Hα directly (the Balmer decrement
-#   F(Hα)/F(Hβ) ≈ 3–4 makes Hα the higher-photon-flux choice).
 # Mrk 766 (Rodríguez-Ardila & Mazzalay 2006): bright NLS1, FWHM ~1300 km/s
-#   = 28 Å at Hα [Kollatschny & Zetzl 2013], z = 0.013. F(Hα) = 2.8e-12
-#   erg/s/cm² is the nuclear total Hα flux tabulated by R-A & M 2006
-#   (281.1 ± 16.9 × 10⁻¹⁴), based on González Delgado & Pérez 1996
-#   spectrophotometry.
+#   = 28 Å at Hα [Kollatschny & Zetzl 2013], z = 0.013, D_L = 59 Mpc.
+#   F(Hα) = 2.8e-12 erg/s/cm² is the nuclear total Hα flux tabulated by
+#   R-A & M 2006 (281.1 ± 16.9 × 10⁻¹⁴), based on González Delgado &
+#   Pérez 1996 spectrophotometry. Pop A classification (FWHM < 4000 km/s)
+#   → Lorentzian-cored Hα profile (Sulentic 2002, Zamfir 2010) → the
+#   linear-in-s scaling of δg^(2) at zero lag rigorously applies.
+# PHL 1811 (Leighly et al. 2007, arXiv:0705.0940): NLS1 quasar, z = 0.192,
+#   D_L = 971 Mpc (Planck 2018). FWHM(Hα) = 1752 km/s = 46 Å observed-frame.
+#   F(Hα) = 100.6 × 10⁻¹⁴ = 1.006 × 10⁻¹² erg/s/cm² (Leighly 2007, Table 2).
+#   The Hα profile is explicitly fit with a Lorentzian (Leighly 2007 §3),
+#   providing direct empirical support for the linear-in-s scaling
+#   requirement. Acts as a cosmological-distance Pop A complement to Mrk 766.
 # Eta Car (Great Eruption peak, 1843): m_V ≈ -1 [Smith 2018,
 #   2018MNRAS.480.1466S], D = 2.3 kpc, Hα FWHM ~700 km/s = 15 Å.
 #   F(Hα) ≈ 5e-7 erg/s/cm² derives from m_V = -1 (Vega f_λ ≈ 9.1e-9
@@ -71,11 +73,11 @@ kpc_in_Mpc = 1e-3
 #   distance: F(Hα, 2 kpc)   ≈ 2e-4 erg/s/cm²,
 #                F(Hα, 778 kpc) ≈ 1.4e-9 erg/s/cm².
 SOURCES = [
-    dict(label=r'3C\,273 (BLQ, 782\,Mpc)',
-         F=2e-12,    FWHM=172.0, D_Mpc=782.0,              z=0.158,
-         color='#08306b'),
     dict(label=r'Mrk\,766 (NLS1, 59\,Mpc)',
          F=2.8e-12,  FWHM=28.0,  D_Mpc=58.6,               z=0.013,
+         color='#08306b'),
+    dict(label=r'PHL\,1811 (NLS1, 971\,Mpc)',
+         F=1.006e-12, FWHM=45.7, D_Mpc=971.0,              z=0.192,
          color='#2ca02c'),
     dict(label=r'M31 SN\,IIn (778\,kpc)',
          F=1.4e-9,   FWHM=55.0,  D_Mpc=778.0*kpc_in_Mpc,   z=0.0,

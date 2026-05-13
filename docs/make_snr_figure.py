@@ -1,6 +1,7 @@
 r"""
-Figure: HBT SNR per sqrt(T/hr) vs. propagation distance D for three astrophysical
-source types plus the Sun, for the holographic foam exponent alpha = 2/3.
+Figure: HBT SNR per sqrt(T/hr) vs. propagation distance D for stellar and
+SN Ia source classes plus the Sun reference, for the holographic foam
+exponent alpha = 2/3.
 
 Run:  python make_snr_figure.py
 Outputs: snr_vs_D.pdf, snr_vs_D.png
@@ -67,14 +68,6 @@ R_star = R0_star * (D0_star_m / D_m)**2
 flux_ratio_SNIa = 10**(19.3 / 2.5)
 R_SNIa = R0_star * flux_ratio_SNIa * (D0_star_m / D_m)**2
 
-# -- Broad-line AGN / quasar (3C 273-class, Hα Lorentzian)
-#    R(782 Mpc) = 1285 cps for a Δλ = 1.1 Å filter on the 10 m baseline,
-#    where 782 Mpc is the Planck 2018 luminosity distance for z = 0.158
-#    [Aghanim et al. 2020]. Photon energy uses observed-frame
-#    λ_obs = 6563(1+z) Å. σ_φ is computed elsewhere with rest-frame λ
-#    since the foam phase accumulates at the source-frame wavelength.
-R_AGN = 1285.0 * (782.0 / D_Mpc)**2
-
 # ---------------------------------------------------------------
 # SNR per sqrt(T/hr)
 # ---------------------------------------------------------------
@@ -83,7 +76,6 @@ def snr_per_sqrthr(S, R):
 
 snr_star = snr_per_sqrthr(S_23, R_star)
 snr_snia = snr_per_sqrthr(S_23, R_SNIa)
-snr_agn  = snr_per_sqrthr(S_23, R_AGN)
 
 # Sun point
 S_sun = S_tc(np.array([D_sun_m]), 2.0/3.0)[0]
@@ -94,7 +86,6 @@ snr_sun = snr_per_sqrthr(S_sun, R_sun_scalar)
 # ---------------------------------------------------------------
 C_STAR  = '#08306b'   # deep navy blue
 C_SNIA  = '#d62728'   # red
-C_AGN   = '#2ca02c'   # green
 C_SUN   = '#e6a817'   # amber/gold
 
 # ---------------------------------------------------------------
@@ -102,7 +93,7 @@ C_SUN   = '#e6a817'   # amber/gold
 # ---------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(7.5, 5.5))
 
-snr_max = max(snr_star[0], snr_snia[0], snr_agn[0], snr_sun)
+snr_max = max(snr_star[0], snr_snia[0], snr_sun)
 ymax = 10 ** (np.ceil(np.log10(snr_max)) + 0.5)
 ymin = 1e-32
 xmin = 1e-6
@@ -111,7 +102,6 @@ xmax = 1e4
 # --- source distance ranges ------------------------------------
 ax.axvspan(AU_in_Mpc, 3.0,   color=C_STAR, alpha=0.05, zorder=0)
 ax.axvspan(1.0,        5e3,   color=C_SNIA, alpha=0.05, zorder=0)
-ax.axvspan(10.0,       1e4,   color=C_AGN,  alpha=0.05, zorder=0)
 
 # --- foam curves (alpha = 2/3 only) ----------------------------
 lw = 2.2
@@ -119,8 +109,6 @@ ax.loglog(D_Mpc, snr_star, color=C_STAR, lw=lw, ls='-', zorder=3,
           label=r'Bright star ($V=0$)')
 ax.loglog(D_Mpc, snr_snia, color=C_SNIA, lw=lw, ls='-', zorder=3,
           label=r'SNIa at peak ($M_V=-19.3$)')
-ax.loglog(D_Mpc, snr_agn,  color=C_AGN,  lw=lw, ls='-', zorder=3,
-          label=r'AGN/quasar (H$\alpha$, 3C\,273-class)')
 
 # --- Sun horizontal line ---------------------------------------
 ax.axhline(snr_sun, color=C_SUN, linestyle='--', lw=1.4, zorder=4,
@@ -132,8 +120,6 @@ ax.text(xmax * 0.85, snr_sun * 2.5, r'Sun ($D=1\,$AU)',
 ax.text(3e-4,  ymax * 0.35, 'Stars',  color=C_STAR, fontsize=9, ha='center',
         alpha=0.8, style='italic')
 ax.text(7e1,   ymax * 0.35, 'SNIa',   color=C_SNIA, fontsize=9, ha='center',
-        alpha=0.8, style='italic')
-ax.text(3e3,   ymax * 0.35, 'AGN',    color=C_AGN,  fontsize=9, ha='center',
         alpha=0.8, style='italic')
 
 # --- M31 distance line (778 kpc) -------------------------------
