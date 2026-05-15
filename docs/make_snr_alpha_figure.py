@@ -24,11 +24,15 @@ Mpc    = 3.086e22     # 1 Mpc [m]
 h_erg  = 6.626e-27    # erg·s
 c_cgs  = 3.0e10       # cm/s
 c_si   = 3.0e8        # m/s
-lam_cm = 6563e-8      # Hα rest-frame [cm]
-lam_m  = 6563e-10     # Hα rest-frame [m]
+# Each source declares its own rest-frame line wavelength via src['lam_rest_A'];
+# defaults to 6563 Å (Hα) when unset for backward compatibility.
 # Per-source λ_obs = lam·(1+z) is used in coherence_time() and photon_rate();
-# foam_params() retains rest-frame λ because σ_φ = 2π σ_ℓ/λ refers to the
+# foam_params() uses rest-frame λ because σ_φ = 2π σ_ℓ/λ refers to the
 # wavelength at which the foam imprints the phase along the line of sight.
+LAM_REST_HA_M = 6563e-10      # default Hα rest-frame [m]
+
+def _lam_rest_m(src):
+    return src.get('lam_rest_A', 6563) * 1e-10
 
 # ---------------------------------------------------------------
 # Baseline instrument (Kim et al. 2025)
@@ -88,6 +92,24 @@ SOURCES = [
     dict(label=r'Galactic SN\,IIn (2\,kpc)',
          F=2e-4,     FWHM=55.0,  D_Mpc=2.0*kpc_in_Mpc,     z=0.0,
          color='#d62728'),
+    # J1330-0905 image A (Persephone's Torch): brightest of four lensed images of
+    # a quadruply-lensed quasar at z=2.2245 [Davies et al. 2026, arXiv:2604.13152].
+    # Total system magnification ≈ 56; image A magnification ≈ 16.4; observed flux
+    # ratios F_A:F_B:F_C:F_D = 1:0.74:0.70:0.08 give F_A ≈ 0.40 × system in the
+    # blended GAIA blob. F = Lyα line flux on image A = 5.1×10⁻¹³ erg/s/cm²,
+    # derived from the integrated GAIA DR3 XP spectrum (3700-4100 Å, source_id
+    # 3629934529823678720) scaled by the image-A fraction. The Lyα profile is
+    # NOT Lorentzian (resonant scattering + Lyα-forest absorption + Doppler
+    # broadening), so this entry is included ONLY in the point-source finite-lag
+    # figure; the zero-lag δg^(2) cusp condition is not satisfied.
+    # The intrinsic broad-line FWHM is not resolved by the XP spectrum
+    # (R ~ 30–100); we adopt 4000 km/s = 52 Å observed as a representative
+    # value for luminous broad-line quasars. lam_rest_A = 1216 (Lyα).
+    dict(label=r'J1330$-$0905 image\,A (lensed QSO, $z{=}2.22$)',
+         F=5.1e-13,  FWHM=52.0,  D_Mpc=18149.0,            z=2.2245,
+         lam_rest_A=1216.0,
+         include=('pointsource',),
+         color='#e377c2'),
 ]
 
 T_obs = 10 * 3600.0   # 10 hr [s]
@@ -102,7 +124,8 @@ def photon_rate(src):
     """Photon rate through a 2×FWHM wide filter (captures ~70% of Lorentzian).
     Uses observed-frame photon energy hc/λ_obs since the detector receives
     redshifted photons."""
-    lam_obs_cm = lam_cm * (1.0 + src['z'])
+    lam_rest_cm = _lam_rest_m(src) * 100   # m to cm
+    lam_obs_cm = lam_rest_cm * (1.0 + src['z'])
     E_phot_obs = h_erg * c_cgs / lam_obs_cm
     f_L = (2 / np.pi) * np.arctan(2.0)   # (2/π)·arctan(filter_half/fwhm_half) = (2/π)·arctan(2)
     return src['F'] * f_L * A_tel_cm2 / E_phot_obs * eps
@@ -116,7 +139,7 @@ def coherence_time(src):
     §6.5). Uses observed-frame λ because the detector receives redshifted
     light, and the observed FWHM in src['FWHM'] is likewise observed-frame.
     """
-    lam_obs = lam_m * (1.0 + src['z'])
+    lam_obs = _lam_rest_m(src) * (1.0 + src['z'])
     return lam_obs**2 / (np.pi * c_si * src['FWHM'] * 1e-10)
 
 
@@ -129,8 +152,9 @@ def foam_params(src):
     geometry, not of the detector.
     """
     D_m = src['D_Mpc'] * Mpc
-    sigma_phi = (2 * np.pi / lam_m) * D_m**(1 - alpha) * ell_P**alpha
-    sigma_ell = sigma_phi * lam_m / (2 * np.pi)
+    lam_m_src = _lam_rest_m(src)
+    sigma_phi = (2 * np.pi / lam_m_src) * D_m**(1 - alpha) * ell_P**alpha
+    sigma_ell = sigma_phi * lam_m_src / (2 * np.pi)
     return sigma_phi, sigma_ell
 
 
@@ -207,6 +231,8 @@ def compute_extended(sources):
     """
     results = []
     for src in sources:
+        if 'extended' not in src.get('include', ('extended', 'pointsource')):
+            continue
         tau_L     = coherence_time(src)
         R         = photon_rate(src)
         _, sigma_ell = foam_params(src)
@@ -254,6 +280,8 @@ def compute_pointsource(sources):
     """
     results = []
     for src in sources:
+        if 'pointsource' not in src.get('include', ('extended', 'pointsource')):
+            continue
         tau_c        = coherence_time(src)   # same as tau_L; wide filter used for fair comparison
         R            = photon_rate(src)
         sigma_phi, _ = foam_params(src)

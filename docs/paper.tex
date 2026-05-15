@@ -1417,6 +1417,10 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
     its absolute sensitivity is orders of magnitude lower than the zero-lag
     variant because $\sigma_\phi \propto \sigma_\ell/\lambda$ is $10^{12}$ times
     smaller than $\sigma_0/\tau_L \propto \sigma_\ell/c\tau_L$ for optical lines.
+    The lensed quasar J1330$-$0905~(Persephone's Torch, $z=2.22$) is
+    evaluated on broad Ly$\alpha$ measured from the GAIA~DR3 XP
+    spectrum~\cite{PersephonesTorch}; the finite-lag observable does
+    not require a Lorentzian line profile (Section~\ref{sec:candidate_sources}).
     Dashed curves (right axis) show the corresponding Siegert discrepancy
     amplitude $|\mathcal{S}(\tau_L)|$ for each source.%
     \label{fig:snr_vs_alpha_pt}}
@@ -1631,15 +1635,20 @@ rate while preserving the cosmological foam-variance lever arm at the source's
 intrinsic distance.
 The recently-discovered Persephone's Torch
 (J1330$-$0905, $z=2.22$, total magnification ${\sim}56$, brightest-image
-$i\approx 16$)~\cite{PersephonesTorch} is a concrete example: at $z=2.22$ the
-foam path length is ${\sim}20\times$ that of PHL\,1811 (Table~\ref{tab:source_agn}),
-and lensing magnification recovers a substantial fraction of the corresponding
-photon-rate penalty.
-The principal observational prerequisite is high-resolution near-infrared
-spectroscopy of H$\alpha$ or H$\beta$ to verify the Lorentzian-core cusp
-condition: at $z=2.22$ both Balmer lines fall in the near-infrared, and the
-optical-wavelength alternative Ly$\alpha$ is dominated by resonant scattering
-and Doppler broadening and does not satisfy the cusp condition.
+$i\approx 16$)~\cite{PersephonesTorch} is included in Table~\ref{tab:source_agn}
+on the basis of its broad Ly$\alpha$ emission line measured directly from
+its GAIA~DR3 XP spectrum (observed equivalent width 235\,\AA, integrated
+line flux $5.1\times10^{-13}$~erg\,s$^{-1}$\,cm$^{-2}$ on image~A).
+The Ly$\alpha$ profile is not Lorentzian --- resonant scattering, Doppler
+broadening, and Ly$\alpha$-forest absorption preclude the cusp condition ---
+so J1330$-$0905 is suitable only for the finite-lag observable
+(Section~\ref{sec:sens-point}), where the profile-shape constraint is absent.
+In that channel it is the most sensitive persistent-AGN target at
+$\alpha = 2/3$, exceeding PHL\,1811 by an order of magnitude
+(Figure~\ref{fig:snr_vs_alpha_pt}).
+Unlocking the zero-lag observable additionally would require near-infrared
+spectroscopy of H$\alpha$ or H$\beta$ (at $z=2.22$ both fall in the
+near-infrared) to verify a Lorentzian-cored Balmer profile.
 The multi-image lensing geometry further suggests a cross-image $g^{(2)}$
 observable not covered by the single-aperture framework developed here.
 
@@ -1697,7 +1706,21 @@ inverse-square distance (see text).
 The $\eta$\,Car H$\alpha$ flux is an order-of-magnitude estimate from
 the eruption peak $m_V \approx -1$ and an assumed
 ${\rm EW}({\rm H}\alpha)\sim 50$\,\AA; uncertain at the factor-of-a-few
-level due to Homunculus scattering geometry.}
+level due to Homunculus scattering geometry.
+For J1330$-$0905, $D$ is the luminosity distance in flat $\Lambda$CDM with
+Planck~2018 cosmology~\cite{Aghanim2020}, $m$ is the $i$-band magnitude of
+image~A (computed from the system $i=14.77$ and the observed flux ratios
+$F_B/F_A = 0.74$, $F_C/F_A = 0.70$, $F_D/F_A = 0.08$~\cite{PersephonesTorch}),
+and $F$ is the Ly$\alpha$ line flux on image~A
+(40\% of the integrated 3700--4100\,\AA\ line flux measured from the GAIA~DR3
+XP spectrum~\cite{PersephonesTorch}). The Ly$\alpha$ line is in absorption
+blueward of line center from the intervening Ly$\alpha$-forest; the integrated
+``line flux'' is the net emission excess over the power-law continuum
+extrapolated from longer wavelengths.
+$^{\dagger}$The XP spectral resolution ($R\sim 30$--$100$) does not resolve
+the intrinsic broad-line FWHM; we adopt a representative
+4000\,km\,s$^{-1}$ value (52\,\AA\ observed), with $\tau_L$ varying as
+FWHM$^{-1}$.}
 \label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
@@ -1708,6 +1731,7 @@ PHL\,1811        & 0.192 & 971                 & 14.4 & H$\alpha$ & $1.0\times10
 $\eta$\,Car (1843) & 0   & $2.3\times10^{-3}$~\cite{2001ApJ...553..837H}  & $-1$   & H$\alpha$ & ${\sim}5\times10^{-7}$~\cite{2018MNRAS.480.1466S}                  &  15~\cite{2018MNRAS.480.1466S} & 0.30  \\
 Gal.\ SN~IIn     & 0     & $2\times10^{-3}$    & $-7.6$ & H$\alpha$ & ${\sim}2\times10^{-4}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
 M31 SN~IIn       & 0     & $0.78$              & $5.3$  & H$\alpha$ & ${\sim}1.4\times10^{-9}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
+J1330$-$0905 (A) & 2.225 & $1.81\times10^{4}$  & $16.1$ & Ly$\alpha$ & $5.1\times10^{-13}$~\cite{PersephonesTorch} &  52$^{\dagger}$        & 0.031 \\
 \bottomrule
 \end{tabular}
 \end{table*}
