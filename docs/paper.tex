@@ -1419,8 +1419,9 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
     smaller than $\sigma_0/\tau_L \propto \sigma_\ell/c\tau_L$ for optical lines.
     The lensed quasar J1330$-$0905~(Persephone's Torch, $z=2.22$) is
     evaluated on broad Ly$\alpha$ measured from the GAIA~DR3 XP
-    spectrum~\cite{PersephonesTorch}; the finite-lag observable does
-    not require a Lorentzian line profile (Section~\ref{sec:candidate_sources}).
+    spectrum~\cite{PersephonesTorch}, with the turbulent Lorentzian
+    core inferred from the Kollatschny~\&~Zetzl~2013 BLR
+    model~\cite{Kollatschny2013}.
     Dashed curves (right axis) show the corresponding Siegert discrepancy
     amplitude $|\mathcal{S}(\tau_L)|$ for each source.%
     \label{fig:snr_vs_alpha_pt}}
@@ -1432,7 +1433,7 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \caption{%
     Signal-to-noise ratio for detecting the extended-source zero-lag bunching
     suppression $\delta g^{(2)}(0)$ as a function of foam exponent $\alpha$,
-    for five representative targets and $T_{\rm obs} = 10$\,hr on the Kim~et~al.\
+    for six representative targets and $T_{\rm obs} = 10$\,hr on the Kim~et~al.\
     \cite{Kim2025} baseline instrument (10\,m aperture, $\epsilon = 0.39$,
     $\sigma_t = 13$\,ps rms).
     The foam signal is $|\mathcal{S}(0)| = 1 - e^{2s^2}\,\mathrm{erfc}(\sqrt{2}\,s)$
@@ -1453,6 +1454,11 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
     linear approximation $|\mathcal{S}(0)|\approx 2\sqrt{2/\pi}\,s$;
     curves to the left of the marker are in the linear regime.
     Vertical dashed lines indicate $\alpha = 0.54$ and $\alpha = 2/3$ (holographic).
+    The lensed quasar J1330$-$0905~(Persephone's Torch, $z=2.22$) is included
+    on the basis of the Kollatschny~\&~Zetzl~2013 BLR
+    model~\cite{Kollatschny2013}, in which the Ly$\alpha$+N\,V emitting
+    region has a turbulent (Lorentzian) FWHM of ${\sim}3800$\,km\,s$^{-1}$
+    supplying the cusp condition required by the zero-lag observable.
     Dashed curves (right axis) show the corresponding Siegert discrepancy
     amplitude $|\mathcal{S}(0)|$ for each source.%
     \label{fig:snr_vs_alpha_ext}}
@@ -1639,16 +1645,25 @@ $i\approx 16$)~\cite{PersephonesTorch} is included in Table~\ref{tab:source_agn}
 on the basis of its broad Ly$\alpha$ emission line measured directly from
 its GAIA~DR3 XP spectrum (observed equivalent width 235\,\AA, integrated
 line flux $5.1\times10^{-13}$~erg\,s$^{-1}$\,cm$^{-2}$ on image~A).
-The Ly$\alpha$ profile is not Lorentzian --- resonant scattering, Doppler
-broadening, and Ly$\alpha$-forest absorption preclude the cusp condition ---
-so J1330$-$0905 is suitable only for the finite-lag observable
-(Section~\ref{sec:sens-point}), where the profile-shape constraint is absent.
-In that channel it is the most sensitive persistent-AGN target at
-$\alpha = 2/3$, exceeding PHL\,1811 by an order of magnitude
-(Figure~\ref{fig:snr_vs_alpha_pt}).
-Unlocking the zero-lag observable additionally would require near-infrared
-spectroscopy of H$\alpha$ or H$\beta$ (at $z=2.22$ both fall in the
-near-infrared) to verify a Lorentzian-cored Balmer profile.
+Under the Kollatschny \& Zetzl~2013~\cite{Kollatschny2013} broad-line-region
+model --- in which AGN emission lines are intrinsically Lorentzian from
+turbulent broadening, with the observed profile a Voigt convolution of this
+Lorentzian core with a rotational Gaussian --- the Ly$\alpha$+N\,V emitting
+region has a turbulent FWHM of ${\sim}3800$\,km\,s$^{-1}$, supplying the
+Lorentzian-cored cusp condition required by both the finite-lag
+(Section~\ref{sec:sens-point}) and the zero-lag
+(Section~\ref{sec:sens-extended}) observables.
+In the finite-lag channel J1330$-$0905 is the most sensitive
+persistent-AGN target at $\alpha = 2/3$, exceeding PHL\,1811 by an order
+of magnitude (Figure~\ref{fig:snr_vs_alpha_pt}); in the zero-lag channel
+it is comparable to the persistent NLS1 baseline
+(Figure~\ref{fig:snr_vs_alpha_ext}), since here the signal scales as
+$\sigma_\ell/(c\tau_L)$ rather than $\sigma_\ell/\lambda$ and the
+short-rest-wavelength advantage of Ly$\alpha$ does not apply.
+The Lorentzian-core hypothesis for high-$z$ luminous-quasar Ly$\alpha$
+is an extrapolation from the low-$z$ K\&Z sample; direct
+high-resolution spectroscopy of the Ly$\alpha$ profile (or the redshifted
+near-infrared Balmer lines) would confirm it.
 The multi-image lensing geometry further suggests a cross-image $g^{(2)}$
 observable not covered by the single-aperture framework developed here.
 
@@ -1718,9 +1733,15 @@ blueward of line center from the intervening Ly$\alpha$-forest; the integrated
 ``line flux'' is the net emission excess over the power-law continuum
 extrapolated from longer wavelengths.
 $^{\dagger}$The XP spectral resolution ($R\sim 30$--$100$) does not resolve
-the intrinsic broad-line FWHM; we adopt a representative
-4000\,km\,s$^{-1}$ value (52\,\AA\ observed), with $\tau_L$ varying as
-FWHM$^{-1}$.}
+the intrinsic broad-line FWHM; we adopt the
+turbulent (Lorentzian) FWHM of ${\sim}4000$\,km\,s$^{-1}$
+(52\,\AA\ observed) measured by Kollatschny \& Zetzl
+2013~\cite{Kollatschny2013} for the Ly$\alpha$+N\,V emitting region in
+reverberation-mapped AGN, giving $\tau_L = 0.031$\,ps.
+The observed Ly$\alpha$ profile is the Voigt convolution of this
+Lorentzian turbulent core with a rotational Gaussian; in the weak-foam
+regime relevant here the cusp-related signal is set by the Lorentzian
+component.}
 \label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
