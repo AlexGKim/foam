@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from scipy.special import erfcx
+from scipy.integrate import quad
 
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
@@ -24,15 +25,37 @@ Mpc    = 3.086e22     # 1 Mpc [m]
 h_erg  = 6.626e-27    # erg·s
 c_cgs  = 3.0e10       # cm/s
 c_si   = 3.0e8        # m/s
-# Each source declares its own rest-frame line wavelength via src['lam_rest_A'];
-# defaults to 6563 Å (Hα) when unset for backward compatibility.
-# Per-source λ_obs = lam·(1+z) is used in coherence_time() and photon_rate();
-# foam_params() uses rest-frame λ because σ_φ = 2π σ_ℓ/λ refers to the
-# wavelength at which the foam imprints the phase along the line of sight.
+# Each source declares its own rest-frame line wavelength via src['lam_rest_A']
+# (defaults to 6563 Å, Hα). For cosmological sources, foam_params() uses the
+# OBSERVED-frame wavelength (λ_obs = λ_rest·(1+z)) and integrates the foam
+# variance along the line of sight with a (1+z)² weighting in proper distance
+# (equivalently, (1+z) weighting in comoving distance) to account for the
+# z-dependent local wavelength at each foam cell.
 LAM_REST_HA_M = 6563e-10      # default Hα rest-frame [m]
 
 def _lam_rest_m(src):
     return src.get('lam_rest_A', 6563) * 1e-10
+
+# ---------------------------------------------------------------
+# Cosmology helpers (Planck 2018 flat ΛCDM)
+# ---------------------------------------------------------------
+H0_kmsMpc = 67.36
+Om0       = 0.315
+OL0       = 0.685
+c_kmps    = 299792.458
+D_H_Mpc   = c_kmps / H0_kmsMpc   # Hubble distance, ~4451 Mpc
+
+def E_z(z):
+    return np.sqrt(Om0*(1+z)**3 + OL0)
+
+def D_C_Mpc(z):
+    """Comoving distance [Mpc]"""
+    return D_H_Mpc * quad(lambda zp: 1/E_z(zp), 0, z)[0]
+
+def s_proper_Mpc(z):
+    """Cumulative local proper distance traveled by the photon from observer
+    to redshift z, in Mpc. s(z) = ∫₀^z D_H dz'/((1+z') E(z'))."""
+    return D_H_Mpc * quad(lambda zp: 1/((1+zp)*E_z(zp)), 0, z)[0]
 
 # ---------------------------------------------------------------
 # Baseline instrument (Kim et al. 2025)
@@ -154,15 +177,69 @@ def coherence_time(src):
 def foam_params(src):
     """Return sigma_phi and sigma_ell arrays over alpha grid.
 
-    σ_φ = 2π·σ_ℓ/λ retains rest-frame λ because the foam imprints the phase
-    at the wavelength of the propagating light along the line of sight; the
-    accumulated single-ray path-length variance σ_ℓ²(D) is a property of the
-    geometry, not of the detector.
+    Implements the cosmological (1+z) correction to the foam phase variance.
+    A foam cell at local redshift z imparts an observer-frame time delay
+    δt_obs = (1+z)·δℓ_local/c, so the observer-frame phase fluctuation is
+    δφ = (2π/λ_obs)·(1+z)·δℓ_local. For independent cell contributions:
+
+        σ_φ² = (2π/λ_obs)² · ∫₀^L_local (1+z(s))² · dσ_ℓ²/ds · ds
+             = (2π/λ_obs)² · A_α · 2(1-α) · ℓ_P^(2α) · ∫₀^D_C (1+z) · s(r_C)^(1-2α) · dr_C
+
+    where s(r_C) = ∫₀^r_C dr_C'/(1+z(r_C')) is the cumulative LOCAL proper
+    distance traveled by the photon up to comoving distance r_C, and the
+    α-model differential is dσ_ℓ²/ds = A_α · 2(1-α) · s^(1-2α) · ℓ_P^(2α).
+
+    The corresponding observer-frame path-length-equivalent variance is
+        σ_ell² ≡ σ_φ² · λ_obs² / (2π)²,
+    which is the input the σ_0 (extended-source) formula expects. (σ_0 enters
+    the cusp signal as s = σ_0/τ_L through the observed-frame time delay,
+    so σ_0 inherits the same cosmological correction as σ_φ.)
+
+    For z ≈ 0 (Galactic sources) the formula reduces analytically to the
+    flat-space form σ_φ² = (2π/λ_obs)² · A_α · D^(2(1-α)) · ℓ_P^(2α).
+    A_α = 1 is adopted throughout.
     """
-    D_m = src['D_Mpc'] * Mpc
-    lam_m_src = _lam_rest_m(src)
-    sigma_phi = (2 * np.pi / lam_m_src) * D_m**(1 - alpha) * ell_P**alpha
-    sigma_ell = sigma_phi * lam_m_src / (2 * np.pi)
+    z          = src.get('z', 0.0)
+    lam_rest_m = _lam_rest_m(src)
+    lam_obs_m  = lam_rest_m * (1.0 + z)
+    if z < 1e-6:
+        # Flat-space (Galactic) case: no cosmological correction needed.
+        D_m = src['D_Mpc'] * Mpc
+        sigma_phi = (2 * np.pi / lam_obs_m) * D_m**(1 - alpha) * ell_P**alpha
+    else:
+        # Cosmological case: integrate (1+z) · s(r_C)^(1-2α) over comoving distance
+        # using redshift as the integration variable (dr_C = D_H·Mpc/E(z) dz).
+        # Compute s(z) on a grid, then for each α perform the path integral.
+        z_grid = np.linspace(0.0, z, 401)
+        # Precompute s(z) on the grid (Mpc): cumulative trapezoidal
+        ds_dz = D_H_Mpc / ((1 + z_grid) * E_z(z_grid))
+        s_grid_Mpc = np.concatenate(([0.0], np.cumsum(0.5*(ds_dz[1:]+ds_dz[:-1])*np.diff(z_grid))))
+        s_grid_m = s_grid_Mpc * Mpc        # meters
+        # (1+z)/E(z) for the dr_C/dz part times (1+z) weighting collapsed:
+        # integrand_dz = (1+z) · s^(1-2α) · D_H·Mpc/E(z)
+        weight_dz = (1+z_grid) * D_H_Mpc * Mpc / E_z(z_grid)  # = (1+z) · dr_C/dz
+        # For each α we need s_grid_m**(1 - 2α). At z=0, s=0; for α<1/2 the
+        # integrand vanishes (s^positive), for α>1/2 it diverges as s^negative.
+        # For the α∈[1/2, 1) range plotted here, use s_grid_m raised to (1-2α)<=0:
+        # avoid 0^negative by skipping the z=0 endpoint (set its weight to 0,
+        # which is correct since the integral is well-defined for α∈[1/2, 1)).
+        alpha_arr = np.asarray(alpha)
+        sigma_phi = np.zeros_like(alpha_arr, dtype=float)
+        for i, a in enumerate(np.atleast_1d(alpha_arr)):
+            exp_s = 1 - 2*a
+            with np.errstate(divide='ignore', invalid='ignore'):
+                if exp_s == 0:
+                    integrand = weight_dz                              # α = 1/2 special case
+                else:
+                    integrand = weight_dz * s_grid_m**exp_s
+                    integrand[0] = 0.0    # ignore z=0 endpoint singularity (integrable)
+            integral_val = np.trapezoid(integrand, z_grid)
+            sigma_phi_sq = (2*np.pi/lam_obs_m)**2 * 2*(1-a) * ell_P**(2*a) * integral_val
+            sigma_phi[i] = np.sqrt(max(sigma_phi_sq, 0.0))
+        sigma_phi = sigma_phi.reshape(alpha_arr.shape)
+    # Observer-frame path-length-equivalent σ_ell: σ_φ · λ_obs / (2π).
+    # σ_0 = √2 σ_ell/c uses this corrected σ_ell.
+    sigma_ell = sigma_phi * lam_obs_m / (2 * np.pi)
     return sigma_phi, sigma_ell
 
 

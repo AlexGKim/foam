@@ -505,10 +505,27 @@ Substituting $\omega_0 = 2\pi c/\lambda$ and Eq.~\eqref{eq:diffVar}:
 \end{equation}
 where we define the rms accumulated phase
 \begin{equation}
-  \sigma_\phi \equiv \frac{2\pi\,\sigma_\ell(D)}{\lambda}
-  = \frac{2\pi\,\sqrt{A_\alpha}\,D^{1-\alpha}\,\ell_{\rm P}^\alpha}{\lambda}.
+  \sigma_\phi^2 \equiv \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^2
+  \int_0^{L} \big[1+z(s)\big]^2\,\frac{d\sigma_\ell^2}{ds}\,ds,
   \label{eq:sigmaphi}
 \end{equation}
+integrating the foam differential variance
+$d\sigma_\ell^2/ds = A_\alpha\,2(1-\alpha)\,s^{1-2\alpha}\,\ell_{\rm P}^{2\alpha}$
+along the photon's local proper path of total length $L$. The $(1+z)^2$
+weighting reflects that a foam cell at redshift $z$ imparts an observer-frame
+time delay $\delta t_{\rm obs} = (1+z)\,\delta\ell_{\rm local}/c$, and hence
+a phase $\delta\phi = (2\pi/\lambda_{\rm obs})\,(1+z)\,\delta\ell_{\rm local}$,
+because the photon's wavelength at $z$ is
+$\lambda_{\rm local}(z) = \lambda_{\rm obs}/(1+z)$.
+Switching integration variable to comoving distance via
+$ds = dr_{\rm C}/(1+z)$ yields the equivalent form
+$\sigma_\phi^2 = (2\pi/\lambda_{\rm obs})^2 \int_0^{D_{\rm C}}
+(1+z)\,(d\sigma_\ell^2/ds)\,dr_{\rm C}$.
+For $z \ll 1$ both forms reduce to the flat-space limit
+$\sigma_\phi = 2\pi\sqrt{A_\alpha}\,D^{1-\alpha}\,\ell_{\rm P}^\alpha/\lambda$.
+The extended-source observable inherits the same cosmological correction
+via the observed-frame time-delay variance entering
+$\sigma_0^2 = 2\sigma_{\tau,\rm obs}^2$ (Eq.~\ref{eq:sigma0}).
 We write the foam suppression factor as
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau) \equiv e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
@@ -1388,20 +1405,24 @@ finite-lag (Section~\ref{sec:sens-point}) and the zero-lag
 (Section~\ref{sec:sens-extended}) observables, with the Voigt reduction
 factor $\tilde\sigma/\sigma_0$ close to unity in the weak-foam regime
 relevant here.
-In the finite-lag channel the discrepancy signal
-$|\mathcal{S}|\propto\sigma_\phi^2\propto(D^{1-\alpha}/\lambda_{\rm rest})^2$
-benefits from two independent multiplicative gains relative to PHL\,1811:
-a factor of ${\sim}7$ at $\alpha = 2/3$ from the cosmological distance
-($D \approx 18$\,Gpc giving $(D_J/D_{\rm PHL})^{2/3} \approx 7$), and a
-factor of ${\sim}29$ from observing the shorter rest-frame wavelength
-($(\lambda_{\rm H\alpha}/\lambda_{\rm Ly\alpha})^2 \approx 29$); the product
-$\sim 200$ in $|\mathcal{S}|$ is partially offset by reduced photon rate
-and coherence time on image~A, giving an order-of-magnitude net SNR
-advantage over PHL\,1811 (Figure~\ref{fig:snr_vs_alpha_pt}).
-In the zero-lag channel J1330$-$0905 is only comparable to the persistent
-NLS1 baseline (Figure~\ref{fig:snr_vs_alpha_ext}), since here the signal
-scales as $\sigma_\ell/(c\tau_L)$ rather than $\sigma_\ell/\lambda$ and
-the short-rest-wavelength gain is absent.
+For cosmological sources the foam phase variance must be computed by
+integrating $(1+z(s))^2\,d\sigma_\ell^2/ds$ along the photon's proper path
+(Eq.~\ref{eq:sigmaphi}); this evaluates to a numerical correction factor
+$K \equiv (\sigma_\phi^2)_{\rm cosmo}/(\sigma_\phi^2)_{\rm naive}$ relative to the
+flat-space form with $\lambda = \lambda_{\rm rest}$ and $D = D_L$. For
+J1330$-$0905 at $\alpha = 2/3$ we obtain $K \approx 0.08$, decomposable as
+$K = K_\lambda \cdot K_{\rm integral}$ with
+$K_\lambda = (\lambda_{\rm rest}/\lambda_{\rm obs})^2 \approx 0.10$ from the
+redshift of Ly$\alpha$ to the observed frame and $K_{\rm integral}
+\approx 0.85$ from the line-of-sight integration measure
+($\int(1+z)dr_{\rm C} < (1+z_s)D_C = D_L$).
+Net result: in the finite-lag channel J1330$-$0905 is only modestly more
+sensitive than the persistent NLS1 baseline at $\alpha = 2/3$,
+exceeding PHL\,1811 by a factor of ${\sim}1.4$
+(Figure~\ref{fig:snr_vs_alpha_pt}). The zero-lag channel
+(Figure~\ref{fig:snr_vs_alpha_ext}) inherits only the $K_{\rm integral}$
+factor (no $\lambda_{\rm obs}$ enters $\sigma_0$), so J1330$-$0905 is
+comparable to but slightly below the NLS1 baseline there.
 The Lorentzian-core hypothesis for high-$z$ luminous-quasar Ly$\alpha$
 is an extrapolation from the low-$z$ K\&Z sample; direct
 high-resolution spectroscopy of the Ly$\alpha$ profile (or the redshifted
@@ -1690,9 +1711,11 @@ class (Section~\ref{sec:candidate_sources}); Persephone's Torch
 is the recent headline example, with its broad Ly$\alpha$ flux measured
 directly from the GAIA~DR3 XP spectrum.
 Under the Kollatschny~\&~Zetzl~2013~\cite{Kollatschny2013} broad-line-region
-model the Ly$\alpha$ profile satisfies the Lorentzian-cored cusp condition,
-making it the most sensitive persistent-AGN finite-lag target at
-$\alpha = 2/3$ while remaining comparable to the NLS1 baseline at zero lag.
+model the Ly$\alpha$ profile satisfies the Lorentzian-cored cusp condition.
+Once the cosmological $(1+z)^2$ weighting of foam-phase accumulation is
+applied (Eq.~\ref{eq:sigmaphi}), J1330$-$0905 is comparable to the NLS1
+baseline in both observables, with a modest ${\sim}1.4\times$ finite-lag
+advantage over PHL\,1811 at $\alpha = 2/3$.
 The multi-image geometry additionally suggests a cross-image $g^{(2)}$
 observable beyond the single-aperture framework developed here.
 
