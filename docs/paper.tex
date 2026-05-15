@@ -481,7 +481,7 @@ for $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$
 this parameter is $\approx 0.28$, so the exact convolution Eq.~\eqref{eq:g1obs_erfc}
 should be used instead.
 For $\alpha=2/3$ the analogous parameter is ${\sim}10^{-11}$
-(Table~\ref{tab:comparison}), so Eq.~\eqref{eq:g1narrowband} is exact to any
+(Section~\ref{sec:scales}), so Eq.~\eqref{eq:g1narrowband} is exact to any
 practical precision in the holographic case.)
 Since $A(t)$ and $\delta t(t)$ are independent, the first-order coherence
 factorizes.
@@ -703,29 +703,18 @@ The factor $\Delta\lambda/\lambda \ll 1$ means that even when $\sigma_\phi \gg 1
 (fringes erased), $\sigma_\Delta(\tau)/\tau_c$ can be small — so $g^{(2)}$ remains
 near its intrinsic value while $g^{(1)}$ is suppressed.
 This decoupling is the physical root of the Siegert violation.
-Numerical values of both scales are given in Table~\ref{tab:comparison}
-(evaluated at the dynamical limit $C_\alpha\to 0$; for quasi-static foam
-$C_\alpha\approx 1$ the ratio vanishes at all lags).
-
-[Claude: This table is short, assess whether the information is placed inline as text.]
-\begin{table}[h]
-\centering
-\caption{Sensitivity scales at $D=1$~Gpc, $\lambda=500$~nm,
-         $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, $C_\alpha\to 0$.
-         The $\alpha=1/2$ case is excluded by imaging under the standard assumption
-         of short-range transverse foam correlations~\cite{Perlman2015}; models with
-         long-range correlations evade this bound~\cite{LeeZurekChen2024}.
-         $\alpha=2/3$ (holographic) is the most sensitive surviving model.}
-\begin{tabular}{lcc}
-\toprule
-Scale & $\alpha=1/2$ & $\alpha=2/3$ \\
-\midrule
-$\sigma_\phi$ & $280$ & $2.5\times10^{-8}$ \\
-$\sigma_\Delta(\tau)/\tau_c$ & $0.40$ & $3.6\times10^{-11}$ \\
-\bottomrule
-\end{tabular}
-\label{tab:comparison}
-\end{table}
+At the fiducial parameters $D=1$~Gpc, $\lambda=500$~nm,
+$\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, and the dynamical limit
+$C_\alpha\to 0$, the random-walk model $\alpha=1/2$ gives
+$\sigma_\phi = 280$ and $\sigma_\Delta(\tau)/\tau_c = 0.40$, while the
+holographic model $\alpha=2/3$ gives $\sigma_\phi = 2.5\times 10^{-8}$ and
+$\sigma_\Delta(\tau)/\tau_c = 3.6\times 10^{-11}$.
+For quasi-static foam ($C_\alpha\approx 1$) the ratio
+$\sigma_\Delta(\tau)/\tau_c$ vanishes at all lags.
+The $\alpha=1/2$ case is excluded by imaging under the standard assumption
+of short-range transverse foam correlations~\cite{Perlman2015}; models with
+long-range correlations evade this bound~\cite{LeeZurekChen2024}, and
+$\alpha=2/3$ (holographic) is the most sensitive surviving model.
 
 
 \subsection{Explicit Form and Properties in the Narrow-Band Limit}
@@ -1068,7 +1057,6 @@ errors are likely to limit measurements before the shot-noise limit is reached,
 and a dedicated systematic budget will be required for any claimed detection.
 
 \subsection{Sensitivity and Aperture Scaling}
-[Claude: Do a careful check of the self-consistency of the math in this subsection.  Can you use the Wolfram Alpha API?]
 
 For a single-aperture HBT configuration using a 50/50 beamsplitter with
 unpolarized light~\cite{Guerin2025}, the per-lag noise on $g^{(2)}_{\rm obs}$ is
@@ -1372,16 +1360,6 @@ Both have $\tau_L \ll \sigma_t = 13$\,ps (Table~\ref{tab:source_agn}),
 placing the measurements in the detector-limited regime; source-limited
 operation requires sub-$\tau_L$ timing.
 
-\textit{Galactic emission-line sources as calibrators.}
-[Claude: Confirm that Wolf-Rayet stars have Lorentzian line
-core, judge which of $\gamma^2$\,Vel, WR\,6 has better SNR, research the
-literature and fill in Table II with its properties, include
-it in the calculations and plots of make_snr_alpha_figure.py, and
-insert results as appropriate in text.]
-Bright Galactic sources --- Wolf-Rayet stars (e.g.\ $\gamma^2$\,Vel, WR\,6),
-luminous blue variables, and symbiotic binaries --- can provide high photon rates
-with genuinely Lorentzian line cores from pressure or electron-scattering broadening.
-
 \textit{Galactic and Local-Group transients.}
 Type~IIn supernovae and LBV giant eruptions --- with $\eta$\,Car as the
 principal example --- combine high H$\alpha$ luminosity
@@ -1629,7 +1607,7 @@ already a standard data product: spectral kurtosis~\cite{NitaGary2007,NitaGary20
 (used for RFI excision at the VLA, GBT, LOFAR, and CHIME) and as the
 modulation index $m^2 \equiv \mathrm{Var}(I)/\langle I\rangle^2$, both
 of which estimate $g^{(2)}(0)-1$ from intensity samples and are applied
-to single-pulse statistics of pulsars and FRBs~\cite{Weltevrede2006}.
+to single-pulse statistics of pulsars and FRBs~\cite{Weltevrede2006,CordesMcLaughlin2003}.
 A foam signature would appear as a systematic depression of these
 quantities below their Gaussian-stationary expectation at the level
 $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ derived in
@@ -1665,8 +1643,6 @@ core-collapse supernova, and any nearby ($D \lesssim 30$\,Mpc) Type~IIn
 identified by transient surveys --- would enable the framework to exploit
 these high-yield events without requiring prior allocation.
 
-[Claude: Do you have suggestions on other things that belong in the conclusions?]
-
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
 High Energy Physics of the U.S.\ Department of Energy under Contract No.\
@@ -1686,7 +1662,6 @@ Table~\ref{tab:source_agn} collects the observed
 properties of the principal candidate sources used in
 Section~\ref{sec:prospects}.
 
-[Claude: Confirm the numbers come from the bibliographical references.]
 \begin{table*}[t]
 \centering
 \caption{Observed properties of the candidate sources.
@@ -1740,8 +1715,6 @@ its H$\alpha$ and H$\beta$ profiles are directly fit with a Lorentzian
 profile by Leighly et al.\ 2007~\cite{Leighly2007} (their \S3), providing
 independent empirical confirmation of the Lorentzian-core assumption for
 this target.
-
-[Claude: Confirm that each bibliographical citation is relevent to its surrounding text.]
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
