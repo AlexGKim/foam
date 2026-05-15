@@ -1323,44 +1323,28 @@ in Table~\ref{tab:source_agn}.
 
 \begin{table*}[t]
 \centering
-\caption{Observed properties of the candidate sources.
-$z$ is the spectroscopic redshift; $D$ is the luminosity distance computed
-in flat $\Lambda$CDM with the Planck 2018 cosmology
-($H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.315$,
-$\Omega_\Lambda = 0.685$)~\cite{Aghanim2020}; $m$ is the apparent magnitude
-($V$-band for the AGN and $\eta$\,Car rows, $r$-band for the Type~IIn rows);
-line fluxes $F$ are integrated over the emission line;
-FWHM is the observed-frame full width at half maximum of the broad emission
-line component;
-$\tau_L = \lambda_{\rm obs}^2/(\pi\,c\,\Delta\lambda_{\rm FWHM})$ is the
-Lorentzian-line coherence time appearing in $g^{(1)}_{\rm src}(\tau) =
-\exp(-|\tau|/\tau_L)$ via Wiener--Khinchin.
+\caption{Observed properties of the candidate sources used in the
+sensitivity analysis of Section~\ref{sec:prospects}.
+$z$ is the spectroscopic redshift; $D$ is the luminosity distance
+(flat $\Lambda$CDM, Planck~2018~\cite{Aghanim2020}); $m$ is the apparent
+magnitude ($V$-band for AGN and $\eta$\,Car, $r$-band for Type~IIn,
+$i$-band for J1330$-$0905 image~A); $F$ is the line flux integrated over
+the emission line; FWHM is the observed-frame full width at half
+maximum of the broad emission line component;
+$\tau_L = \lambda_{\rm obs}^2/(\pi c\,\Delta\lambda_{\rm FWHM})$ is the
+Lorentzian coherence time entering
+$g^{(1)}_{\rm src}(\tau) = \exp(-|\tau|/\tau_L)$.
 Type~IIn fluxes and magnitudes are sample-mean values scaled by
-inverse-square distance (see text).
-The $\eta$\,Car H$\alpha$ flux is an order-of-magnitude estimate from
-the eruption peak $m_V \approx -1$ and an assumed
-${\rm EW}({\rm H}\alpha)\sim 50$\,\AA; uncertain at the factor-of-a-few
-level due to Homunculus scattering geometry.
-For J1330$-$0905, $D$ is the luminosity distance in flat $\Lambda$CDM with
-Planck~2018 cosmology~\cite{Aghanim2020}, $m$ is the $i$-band magnitude of
-image~A (computed from the system $i=14.77$ and the observed flux ratios
-$F_B/F_A = 0.74$, $F_C/F_A = 0.70$, $F_D/F_A = 0.08$~\cite{PersephonesTorch}),
-and $F$ is the Ly$\alpha$ line flux on image~A
-(40\% of the integrated 3700--4100\,\AA\ line flux measured from the GAIA~DR3
-XP spectrum~\cite{PersephonesTorch}). The Ly$\alpha$ line is in absorption
-blueward of line center from the intervening Ly$\alpha$-forest; the integrated
-``line flux'' is the net emission excess over the power-law continuum
-extrapolated from longer wavelengths.
-$^{\dagger}$The XP spectral resolution ($R\sim 30$--$100$) does not resolve
-the intrinsic broad-line FWHM; we adopt the
-turbulent (Lorentzian) FWHM of ${\sim}4000$\,km\,s$^{-1}$
-(52\,\AA\ observed) measured by Kollatschny \& Zetzl
-2013~\cite{Kollatschny2013} for the Ly$\alpha$+N\,V emitting region in
-reverberation-mapped AGN, giving $\tau_L = 0.031$\,ps.
-The observed Ly$\alpha$ profile is the Voigt convolution of this
-Lorentzian turbulent core with a rotational Gaussian; in the weak-foam
-regime relevant here the cusp-related signal is set by the Lorentzian
-component.}
+inverse-square distance (Section~\ref{sec:candidate_sources}).
+The $\eta$\,Car H$\alpha$ flux is an order-of-magnitude eruption-peak
+estimate uncertain by a factor of a few due to Homunculus scattering
+geometry.
+J1330$-$0905 entries derive from the GAIA~DR3 XP spectrum scaled to the
+image-A fraction of total system flux (Section~\ref{sec:candidate_sources}).
+$^{\dagger}$The XP spectrum does not resolve the broad-line FWHM; we
+adopt the turbulent (Lorentzian) FWHM of ${\sim}3800$\,km\,s$^{-1}$ for
+the Ly$\alpha$+N\,V emitting region from Kollatschny~\&
+Zetzl~2013~\cite{Kollatschny2013}, giving $\tau_L = 0.031$\,ps.}
 \label{tab:source_agn}
 \begin{tabular}{llcccccc}
 \toprule
@@ -1416,8 +1400,11 @@ Persephone's Torch (J1330$-$0905, $z=2.22$, total magnification
 ${\sim}56$, brightest-image $i\approx 16$)~\cite{PersephonesTorch} is
 included in Table~\ref{tab:source_agn} on the basis of its broad
 Ly$\alpha$ emission line measured directly from its GAIA~DR3 XP spectrum
-(observed equivalent width 235\,\AA, integrated line flux
-$5.1\times10^{-13}$~erg\,s$^{-1}$\,cm$^{-2}$ on image~A).
+(observed equivalent width 235\,\AA, integrated 3700--4100\,\AA\ line
+flux $1.28\times10^{-12}$~erg\,s$^{-1}$\,cm$^{-2}$ for the GAIA blob;
+image~A carries a fraction 0.40 of the total system flux from the
+observed ratios $F_B/F_A = 0.74$, $F_C/F_A = 0.70$, $F_D/F_A = 0.08$,
+giving $5.1\times10^{-13}$~erg\,s$^{-1}$\,cm$^{-2}$ on image~A).
 Under the Kollatschny~\&~Zetzl~2013~\cite{Kollatschny2013}
 broad-line-region model the observed Ly$\alpha$ profile is a Voigt
 profile (Section~\ref{sec:zerolag}, Eq.~\eqref{eq:g2zero_voigt}): a
@@ -1479,36 +1466,24 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \centering
   \includegraphics[width=0.92\linewidth]{snr_vs_alpha_pointsource.png}
   \caption{%
-    Signal-to-noise ratio for detecting the finite-lag Siegert discrepancy
-    $\mathcal{S}(\tau_L) = e^{-2}(1 - e^{-2\sigma_\phi^2})$ (Eq.~\ref{eq:Stc})
-    as a function of foam exponent $\alpha$, in the dynamical-foam limit
-    $C_\alpha \to 0$.
-    Instrument: Kim~et~al.\ \cite{Kim2025} baseline (10\,m aperture, $\epsilon = 0.39$,
-    $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr, filter width $2\times\mathrm{FWHM}_{\rm line}$.
-    SNR computed from Eq.~\ref{eq:snr_det_pt}
-    (detector-limited regime, $\sigma_t \gg \tau_L$ for all sources shown).
-    The per-exposure $T_{\rm obs} = 10$\,hr is a representative single-night
-    integration; for the $10^4$\,hr campaign-scale integrations
-    quoted in the body text and conclusions multiply the displayed SNR
-    by $\sqrt{10^3} \approx 31.6$.
-    Filled circles mark the $\sigma_\phi = 0.3$ validity boundary of the
-    weak-foam quadratic approximation
-    $\mathcal{S}(\tau_L) \approx 2e^{-2}\sigma_\phi^2$; curves to the right
-    saturate at $e^{-2} \approx 0.135$.
-    Vertical dashed lines indicate $\alpha = 0.54$, the Lieu--Hillman imaging
-    exclusion boundary ($\sigma_\phi = 1$ at $D = 1$\,Gpc, $\lambda = 500$\,nm,
-    under the standard short-$r_\perp$ assumption), and $\alpha = 2/3$ (holographic).
-    The finite-lag SNR tracks $D^{-2\alpha}$ (Eq.~\ref{eq:dist_scaling_pt});
-    its absolute sensitivity is orders of magnitude lower than the zero-lag
-    variant because $\sigma_\phi \propto \sigma_\ell/\lambda$ is $10^{12}$ times
-    smaller than $\sigma_0/\tau_L \propto \sigma_\ell/c\tau_L$ for optical lines.
-    The lensed quasar J1330$-$0905~(Persephone's Torch, $z=2.22$) is
-    evaluated on broad Ly$\alpha$ measured from the GAIA~DR3 XP
-    spectrum~\cite{PersephonesTorch}, with the turbulent Lorentzian
-    core inferred from the Kollatschny~\&~Zetzl~2013 BLR
-    model~\cite{Kollatschny2013}.
-    Dashed curves (right axis) show the corresponding Siegert discrepancy
-    amplitude $|\mathcal{S}(\tau_L)|$ for each source.%
+    Finite-lag Siegert discrepancy SNR for
+    $\mathcal{S}(\tau_L) = e^{-2}(1 - e^{-2\sigma_\phi^2})$
+    (Eq.~\ref{eq:Stc}) as a function of foam exponent $\alpha$, in the
+    dynamical-foam limit $C_\alpha \to 0$.
+    Kim~et~al.~\cite{Kim2025} baseline (10\,m, $\epsilon = 0.39$,
+    $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr per exposure (multiply
+    SNR by $\sqrt{10^3} \approx 31.6$ for the $10^4$\,hr campaign quoted
+    in Sections~\ref{sec:snr_results} and~\ref{sec:conclusions});
+    detector-limited regime (Eq.~\ref{eq:snr_det_pt}).
+    Filled circles mark the $\sigma_\phi = 0.3$ weak-foam validity
+    boundary; curves to the right saturate at $e^{-2} \approx 0.135$.
+    Vertical dashed lines: $\alpha = 0.54$ (Lieu--Hillman imaging
+    exclusion at $D = 1$\,Gpc, $\lambda = 500$\,nm) and
+    $\alpha = 2/3$ (holographic).
+    J1330$-$0905 is evaluated on the GAIA~DR3 XP-measured Ly$\alpha$
+    flux with the Kollatschny~\&~Zetzl~2013 turbulent-Lorentzian core
+    (Section~\ref{sec:candidate_sources}).
+    Dashed curves (right axis): $|\mathcal{S}(\tau_L)|$.%
     \label{fig:snr_vs_alpha_pt}}
 \end{figure}
 
@@ -1516,34 +1491,22 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \centering
   \includegraphics[width=0.92\linewidth]{snr_vs_alpha.png}
   \caption{%
-    Signal-to-noise ratio for detecting the extended-source zero-lag bunching
-    suppression $\delta g^{(2)}(0)$ as a function of foam exponent $\alpha$,
-    for six representative targets and $T_{\rm obs} = 10$\,hr on the Kim~et~al.\
-    \cite{Kim2025} baseline instrument (10\,m aperture, $\epsilon = 0.39$,
-    $\sigma_t = 13$\,ps rms).
-    The foam signal is $|\mathcal{S}(0)| = 1 - e^{2s^2}\,\mathrm{erfc}(\sqrt{2}\,s)$
-    with $s = \sigma_0/\tau_L$ (Eq.~\ref{eq:deltag2}), and the
-    SNR is computed from Eq.~\ref{eq:snr_det_ext} (detector-limited regime,
-    $\sigma_t \gg \tau_L$ for all sources shown).
-    The per-exposure $T_{\rm obs} = 10$\,hr is a representative single-night
-    integration; multiply the displayed SNR by $\sqrt{10^3} \approx 31.6$
-    for the $10^4$\,hr campaign-scale integrations quoted elsewhere in
-    Section~\ref{sec:prospects} and the conclusions.
-    All sources are evaluated in the fully resolved limit $\Phi_{\rm eff} = 0$
-    (maximally optimistic); for sources whose angular size is smaller than the
-    foam transverse coherence length $r_\perp$ the actual signal is suppressed
-    by the factor $\sqrt{1 - \Phi_{\rm eff}}$.
-    Photon rates use a wide filter of width $2\times\mathrm{FWHM}_{\rm line}$,
-    capturing $(2/\pi)\arctan(2)\approx 70\%$ of the Lorentzian line flux.
-    Filled circles mark the $s = 0.3$ validity boundary of the weak-foam
-    linear approximation $|\mathcal{S}(0)|\approx 2\sqrt{2/\pi}\,s$;
-    curves to the left of the marker are in the linear regime.
-    Vertical dashed lines indicate $\alpha = 0.54$ and $\alpha = 2/3$ (holographic).
-    The lensed quasar J1330$-$0905~(Persephone's Torch, $z=2.22$) is included
-    on the basis of the Kollatschny~\&~Zetzl~2013 BLR
-    model~\cite{Kollatschny2013}, in which the Ly$\alpha$+N\,V emitting
-    region has a turbulent (Lorentzian) FWHM of ${\sim}3800$\,km\,s$^{-1}$
-    supplying the cusp condition required by the zero-lag observable.
+    Extended-source zero-lag bunching suppression $\delta g^{(2)}(0)$ SNR
+    for $|\mathcal{S}(0)| = 1 - e^{2s^2}\,\mathrm{erfc}(\sqrt{2}\,s)$ with
+    $s = \sigma_0/\tau_L$ (Eq.~\ref{eq:deltag2}), as a function of
+    foam exponent $\alpha$, on the six representative targets.
+    Instrument and integration as Figure~\ref{fig:snr_vs_alpha_pt}; SNR
+    from Eq.~\ref{eq:snr_det_ext}.
+    All sources are in the fully-resolved limit $\Phi_{\rm eff} = 0$
+    (signals scale by $\sqrt{1 - \Phi_{\rm eff}}$ for partially resolved
+    sources; Section~\ref{sec:sens-extended}).
+    Filled circles mark the $s = 0.3$ linear-approximation validity
+    boundary.
+    Vertical dashed lines: $\alpha = 0.54$ and $\alpha = 2/3$ (holographic).
+    J1330$-$0905 (Section~\ref{sec:candidate_sources}) is included on the
+    Kollatschny~\&~Zetzl~2013 turbulent-Lorentzian basis
+    (FWHM$_{\rm turb}\sim 3800$\,km\,s$^{-1}$ for the Ly$\alpha$+N\,V
+    emitting region~\cite{Kollatschny2013}).
     Dashed curves (right axis) show the corresponding Siegert discrepancy
     amplitude $|\mathcal{S}(0)|$ for each source.%
     \label{fig:snr_vs_alpha_ext}}
