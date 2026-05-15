@@ -431,8 +431,9 @@ Jensen's inequality applies.
 The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
 
 For a Voigt profile $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$
---- a Lorentzian of width $\tau_L$ convolved with a Gaussian of width $\tau_G$ modelling
-Doppler and turbulent broadening --- the jitter kernel combines with the source Gaussian
+--- a Lorentzian of width $\tau_L$ (from optically-thick electron scattering or
+BLR turbulent broadening) convolved with a Gaussian of width $\tau_G$ (from
+bulk Doppler motions) --- the jitter kernel combines with the source Gaussian
 into an effective width and mean,
 \begin{equation}
   \tilde\sigma_1^2 = \frac{\sigma_\Delta^2\,\tau_G^2}{\sigma_\Delta^2+\tau_G^2},
@@ -948,8 +949,12 @@ extended sources experience greater suppression of the bunching peak and a
 more negative Siegert discrepancy at zero lag.
 
 For an astrophysically more representative Voigt profile --- a Lorentzian of
-width $\tau_L$ convolved with a Gaussian of width $\tau_G$ (modelling natural
-plus Doppler/turbulent broadening) --- the coherence function is
+width $\tau_L$ convolved with a Gaussian of width $\tau_G$, where the
+Lorentzian component arises from optically-thick electron scattering in dense
+outflows (LBVs, Type~IIn supernovae, Population~A NLS1) or from broad-line-region
+turbulent broadening~\cite{Kollatschny2013}, and the Gaussian component
+arises from bulk kinematics (Keplerian rotation, thermal Doppler, outflows) --- the
+coherence function is
 $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$,
 giving $g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_L}\,e^{-\tau^2/\tau_G^2}$.
 The zero-lag convolution over $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ combines the
@@ -1372,13 +1377,17 @@ on the basis of its broad Ly$\alpha$ emission line measured directly from
 its GAIA~DR3 XP spectrum (observed equivalent width 235\,\AA, integrated
 line flux $5.1\times10^{-13}$~erg\,s$^{-1}$\,cm$^{-2}$ on image~A).
 Under the Kollatschny~\&~Zetzl~2013~\cite{Kollatschny2013}
-broad-line-region model --- in which AGN emission lines are intrinsically
-Lorentzian from turbulent broadening, with the observed profile a Voigt
-convolution of this Lorentzian core with a rotational Gaussian --- the
-Ly$\alpha$+N\,V emitting region has a turbulent FWHM of
-${\sim}3800$\,km\,s$^{-1}$, supplying the Lorentzian-cored cusp condition
-required by both the finite-lag (Section~\ref{sec:sens-point}) and the
-zero-lag (Section~\ref{sec:sens-extended}) observables.
+broad-line-region model the observed Ly$\alpha$ profile is a
+\textit{Voigt} profile (Section~\ref{sec:zerolag}, Eq.~\ref{eq:g2zero_voigt}):
+a Lorentzian core from BLR turbulent broadening
+(FWHM$_{\rm turb} \sim 3800$\,km\,s$^{-1}$ for the Ly$\alpha$+N\,V emitting
+region) convolved with a rotational Gaussian from the Keplerian BLR
+kinematics.
+The Lorentzian core supplies the cusp condition required by both the
+finite-lag (Section~\ref{sec:sens-point}) and the zero-lag
+(Section~\ref{sec:sens-extended}) observables, with the Voigt reduction
+factor $\tilde\sigma/\sigma_0$ close to unity in the weak-foam regime
+relevant here.
 In the finite-lag channel J1330$-$0905 is the most sensitive
 persistent-AGN target at $\alpha = 2/3$, exceeding PHL\,1811 by an order
 of magnitude (Figure~\ref{fig:snr_vs_alpha_pt}); in the zero-lag channel
