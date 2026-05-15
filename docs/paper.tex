@@ -1351,6 +1351,61 @@ more purely Lorentzian line profiles, or more favorable distance-to-flux ratios.
 Observed properties and references for the principal candidates are collected
 in Table~\ref{tab:source_agn}.
 
+\begin{table*}[t]
+\centering
+\caption{Observed properties of the candidate sources.
+$z$ is the spectroscopic redshift; $D$ is the luminosity distance computed
+in flat $\Lambda$CDM with the Planck 2018 cosmology
+($H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.315$,
+$\Omega_\Lambda = 0.685$)~\cite{Aghanim2020}; $m$ is the apparent magnitude
+($V$-band for the AGN and $\eta$\,Car rows, $r$-band for the Type~IIn rows);
+line fluxes $F$ are integrated over the emission line;
+FWHM is the observed-frame full width at half maximum of the broad emission
+line component;
+$\tau_L = \lambda_{\rm obs}^2/(\pi\,c\,\Delta\lambda_{\rm FWHM})$ is the
+Lorentzian-line coherence time appearing in $g^{(1)}_{\rm src}(\tau) =
+\exp(-|\tau|/\tau_L)$ via Wiener--Khinchin.
+Type~IIn fluxes and magnitudes are sample-mean values scaled by
+inverse-square distance (see text).
+The $\eta$\,Car H$\alpha$ flux is an order-of-magnitude estimate from
+the eruption peak $m_V \approx -1$ and an assumed
+${\rm EW}({\rm H}\alpha)\sim 50$\,\AA; uncertain at the factor-of-a-few
+level due to Homunculus scattering geometry.
+For J1330$-$0905, $D$ is the luminosity distance in flat $\Lambda$CDM with
+Planck~2018 cosmology~\cite{Aghanim2020}, $m$ is the $i$-band magnitude of
+image~A (computed from the system $i=14.77$ and the observed flux ratios
+$F_B/F_A = 0.74$, $F_C/F_A = 0.70$, $F_D/F_A = 0.08$~\cite{PersephonesTorch}),
+and $F$ is the Ly$\alpha$ line flux on image~A
+(40\% of the integrated 3700--4100\,\AA\ line flux measured from the GAIA~DR3
+XP spectrum~\cite{PersephonesTorch}). The Ly$\alpha$ line is in absorption
+blueward of line center from the intervening Ly$\alpha$-forest; the integrated
+``line flux'' is the net emission excess over the power-law continuum
+extrapolated from longer wavelengths.
+$^{\dagger}$The XP spectral resolution ($R\sim 30$--$100$) does not resolve
+the intrinsic broad-line FWHM; we adopt the
+turbulent (Lorentzian) FWHM of ${\sim}4000$\,km\,s$^{-1}$
+(52\,\AA\ observed) measured by Kollatschny \& Zetzl
+2013~\cite{Kollatschny2013} for the Ly$\alpha$+N\,V emitting region in
+reverberation-mapped AGN, giving $\tau_L = 0.031$\,ps.
+The observed Ly$\alpha$ profile is the Voigt convolution of this
+Lorentzian turbulent core with a rotational Gaussian; in the weak-foam
+regime relevant here the cusp-related signal is set by the Lorentzian
+component.}
+\label{tab:source_agn}
+\begin{tabular}{llcccccc}
+\toprule
+Source & $z$ & $D$ (Mpc) & $m$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
+\midrule
+Mrk~766          & 0.013 &  59                 & 13.6 & H$\alpha$ & $2.8\times10^{-12}$~\cite{RodriguezArdila2006}                    &  28~\cite{Kollatschny2013} & 0.17  \\
+PHL\,1811        & 0.192 & 971                 & 14.4 & H$\alpha$ & $1.0\times10^{-12}$~\cite{Leighly2007}                            &  46~\cite{Leighly2007}     & 0.14  \\
+$\eta$\,Car (1843) & 0   & $2.3\times10^{-3}$~\cite{2001ApJ...553..837H}  & $-1$   & H$\alpha$ & ${\sim}5\times10^{-7}$~\cite{2018MNRAS.480.1466S}                  &  15~\cite{2018MNRAS.480.1466S} & 0.30  \\
+Gal.\ SN~IIn     & 0     & $2\times10^{-3}$    & $-7.6$ & H$\alpha$ & ${\sim}2\times10^{-4}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
+M31 SN~IIn       & 0     & $0.78$              & $5.3$  & H$\alpha$ & ${\sim}1.4\times10^{-9}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
+J1330$-$0905 (A) & 2.225 & $1.81\times10^{4}$  & $16.1$ & Ly$\alpha$ & $5.1\times10^{-13}$~\cite{PersephonesTorch} &  52$^{\dagger}$        & 0.031 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
 \textit{Narrow-line Seyfert 1 galaxies as headline AGN targets.}
 NLS1s (Population~A; FWHM $\lesssim 4000$\,km\,s$^{-1}$;
 \cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}) have single-Lorentzian
@@ -1742,92 +1797,6 @@ DE-AC02-05CH11231.
 
 The authors used Claude (Anthropic) to assist with drafting and editing portions of this manuscript. All content was reviewed and verified by the authors, who take full responsibility for the work.
 \end{acknowledgments}
-
-\appendix
-
-% ==============================================================
-\section{Source Properties}
-\label{app:sources}
-% ==============================================================
-
-Table~\ref{tab:source_agn} collects the observed
-properties of the principal candidate sources used in
-Section~\ref{sec:prospects}.
-
-\begin{table*}[t]
-\centering
-\caption{Observed properties of the candidate sources.
-$z$ is the spectroscopic redshift; $D$ is the luminosity distance computed
-in flat $\Lambda$CDM with the Planck 2018 cosmology
-($H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.315$,
-$\Omega_\Lambda = 0.685$)~\cite{Aghanim2020}; $m$ is the apparent magnitude
-($V$-band for the AGN and $\eta$\,Car rows, $r$-band for the Type~IIn rows);
-line fluxes $F$ are integrated over the emission line;
-FWHM is the observed-frame full width at half maximum of the broad emission
-line component;
-$\tau_L = \lambda_{\rm obs}^2/(\pi\,c\,\Delta\lambda_{\rm FWHM})$ is the
-Lorentzian-line coherence time appearing in $g^{(1)}_{\rm src}(\tau) =
-\exp(-|\tau|/\tau_L)$ via Wiener--Khinchin.
-Type~IIn fluxes and magnitudes are sample-mean values scaled by
-inverse-square distance (see text).
-The $\eta$\,Car H$\alpha$ flux is an order-of-magnitude estimate from
-the eruption peak $m_V \approx -1$ and an assumed
-${\rm EW}({\rm H}\alpha)\sim 50$\,\AA; uncertain at the factor-of-a-few
-level due to Homunculus scattering geometry.
-For J1330$-$0905, $D$ is the luminosity distance in flat $\Lambda$CDM with
-Planck~2018 cosmology~\cite{Aghanim2020}, $m$ is the $i$-band magnitude of
-image~A (computed from the system $i=14.77$ and the observed flux ratios
-$F_B/F_A = 0.74$, $F_C/F_A = 0.70$, $F_D/F_A = 0.08$~\cite{PersephonesTorch}),
-and $F$ is the Ly$\alpha$ line flux on image~A
-(40\% of the integrated 3700--4100\,\AA\ line flux measured from the GAIA~DR3
-XP spectrum~\cite{PersephonesTorch}). The Ly$\alpha$ line is in absorption
-blueward of line center from the intervening Ly$\alpha$-forest; the integrated
-``line flux'' is the net emission excess over the power-law continuum
-extrapolated from longer wavelengths.
-$^{\dagger}$The XP spectral resolution ($R\sim 30$--$100$) does not resolve
-the intrinsic broad-line FWHM; we adopt the
-turbulent (Lorentzian) FWHM of ${\sim}4000$\,km\,s$^{-1}$
-(52\,\AA\ observed) measured by Kollatschny \& Zetzl
-2013~\cite{Kollatschny2013} for the Ly$\alpha$+N\,V emitting region in
-reverberation-mapped AGN, giving $\tau_L = 0.031$\,ps.
-The observed Ly$\alpha$ profile is the Voigt convolution of this
-Lorentzian turbulent core with a rotational Gaussian; in the weak-foam
-regime relevant here the cusp-related signal is set by the Lorentzian
-component.}
-\label{tab:source_agn}
-\begin{tabular}{llcccccc}
-\toprule
-Source & $z$ & $D$ (Mpc) & $m$ & Line & $F$ (erg\,s$^{-1}$\,cm$^{-2}$) & FWHM (\AA) & $\tau_L$ (ps) \\
-\midrule
-Mrk~766          & 0.013 &  59                 & 13.6 & H$\alpha$ & $2.8\times10^{-12}$~\cite{RodriguezArdila2006}                    &  28~\cite{Kollatschny2013} & 0.17  \\
-PHL\,1811        & 0.192 & 971                 & 14.4 & H$\alpha$ & $1.0\times10^{-12}$~\cite{Leighly2007}                            &  46~\cite{Leighly2007}     & 0.14  \\
-$\eta$\,Car (1843) & 0   & $2.3\times10^{-3}$~\cite{2001ApJ...553..837H}  & $-1$   & H$\alpha$ & ${\sim}5\times10^{-7}$~\cite{2018MNRAS.480.1466S}                  &  15~\cite{2018MNRAS.480.1466S} & 0.30  \\
-Gal.\ SN~IIn     & 0     & $2\times10^{-3}$    & $-7.6$ & H$\alpha$ & ${\sim}2\times10^{-4}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
-M31 SN~IIn       & 0     & $0.78$              & $5.3$  & H$\alpha$ & ${\sim}1.4\times10^{-9}$~\cite{Taddia2013,2025ApJ...987...13R} &  55~\cite{Taddia2013} & 0.083 \\
-J1330$-$0905 (A) & 2.225 & $1.81\times10^{4}$  & $16.1$ & Ly$\alpha$ & $5.1\times10^{-13}$~\cite{PersephonesTorch} &  52$^{\dagger}$        & 0.031 \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-\subsection*{Broad-line profile shapes}
-
-The profile shape of the broad emission line determines the fraction of line
-flux transmitted through a narrow filter and the functional form of
-$g^{(2)}_{\rm src}(\tau)$ at zero lag (Section~\ref{sec:zerolag}).
-Sulentic et al.~\cite{2002ApJ...566L..71S} and Zamfir et al.~\cite{2010MNRAS.403.1759Z}
-establish an empirical division of AGN into two populations: \emph{Population~A}
-sources, with broad-line FWHM $\lesssim 4000$\,km\,s$^{-1}$, have permitted-line
-profiles well described by a single Lorentzian; \emph{Population~B} sources,
-with FWHM $\gtrsim 4000$\,km\,s$^{-1}$, require a double-Gaussian decomposition.
-Mrk~766 (FWHM $\approx 1300$\,km\,s$^{-1}$) is firmly in Population~A; its broad
-H$\alpha$ profile is well described by a Lorentzian~\cite{RodriguezArdila2006,2002ApJ...566L..71S,2010MNRAS.403.1759Z},
-satisfying the cusp condition that the linear-in-$s$ scaling of $\delta g^{(2)}$
-at zero lag requires (Section~\ref{sec:zerolag}).
-PHL\,1811 (FWHM $\approx 1752$\,km\,s$^{-1}$) is likewise in Population~A;
-its H$\alpha$ and H$\beta$ profiles are directly fit with a Lorentzian
-profile by Leighly et al.\ 2007~\cite{Leighly2007} (their \S3), providing
-independent empirical confirmation of the Lorentzian-core assumption for
-this target.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
