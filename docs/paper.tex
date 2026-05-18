@@ -8,6 +8,7 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{aas_macros}
+\usepackage{changes}
 
 \begin{document}
 
@@ -1176,7 +1177,7 @@ The practical lower bound on filter width is sky background: widening the
 filter beyond the emission line adds sky photons without increasing the
 source signal.
 
-\paragraph{Distance and aperture scaling.}
+\paragraph{Distance scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
 $\sigma_\phi^2\propto D^{2(1-\alpha)}$ into Eq.~\ref{eq:snr_det_pt} gives, in
 the weak-foam limit,
@@ -1185,7 +1186,21 @@ the weak-foam limit,
 \label{eq:dist_scaling_pt}
 \end{equation}
 saturating at $\textrm{SNR}\propto D^{-2}$ in the strong-foam limit.
-Since $\alpha > 0$, the SNR increases toward smaller $D$: nearby targets are preferred.
+Since $\alpha > 0$, the SNR increases toward smaller $D$: nearby targets are
+preferred\added{, provided the flat-space ($z\ll 1$) limit of
+Eq.~\eqref{eq:sigmaphi} holds.
+At cosmological distances the $D$-dependence is modified by two competing
+effects.
+For a fixed rest-frame line, $\lambda_{\rm obs}=\lambda_{\rm rest}(1+z)$ grows
+with redshift, reducing $\sigma_\phi$ via the $1/\lambda_{\rm obs}^2$ prefactor
+in Eq.~\eqref{eq:sigmaphi}.
+Conversely, a fixed observer-frame bandpass accesses progressively bluer
+rest-frame transitions at higher redshift
+($\lambda_{\rm rest}=\lambda_{\rm obs}/(1+z)$); since
+$\sigma_\phi\propto 1/\lambda_{\rm rest}$, a source whose spectral line falls
+in the UV rest-frame accumulates substantially more phase than a lower-redshift
+counterpart observed at the same detector wavelength---potentially reversing the
+$D^{-2\alpha}$ preference.}
 
 The minimum detectable path-length amplitude follows from inverting
 Eq.~\ref{eq:snr_det_pt} with the quadratic signal dependence
@@ -1266,7 +1281,7 @@ relative to source-limited operation
 ($\textrm{SNR}_{\rm src}^{\rm ext} = \tfrac{1}{4}\,|\mathcal{S}(0)|\,R\sqrt{\tau_L T_{\rm obs}}$,
 attainable only when $\sigma_t \lesssim \tau_L$) is $\sqrt{\tau_L/\sigma_t}$.
 
-\paragraph{Distance and aperture scaling.}
+\paragraph{Distance scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
 $\sigma_0\propto\sigma_\ell(D)\propto D^{1-\alpha}$ into Eq.~\ref{eq:snr_det_ext}
 gives, in the weak-foam limit,
