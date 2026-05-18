@@ -144,7 +144,7 @@ SOURCES = [
 ]
 
 T_obs = 10 * 3600.0   # 10 hr [s]
-alpha = np.linspace(0.50, 0.75, 500)
+alpha = np.linspace(0.50, 0.80, 500)
 
 
 # ---------------------------------------------------------------
@@ -257,7 +257,7 @@ def snr_from_signal(S_arr, R, tau_c):
 
 def make_axes():
     fig, ax = plt.subplots(figsize=(7, 5))
-    ax.set_xlim(0.50, 0.75)
+    ax.set_xlim(0.50, 0.80)
     ax.set_ylim(1e-15, 1e8)
     ax.set_xlabel(r'Foam exponent $\alpha$', fontsize=12)
     ax.set_ylabel(r'SNR  ($T_{\rm obs} = 10\,{\rm hr}$)', fontsize=12)
