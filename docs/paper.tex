@@ -35,6 +35,10 @@ when the foam fluctuates on timescales shorter than the optical coherence time.
 For extended sources, cross-ray jitter additionally suppresses the zero-lag
 bunching peak $g^{(2)}(0)$ through a mechanism that depends only on
 $\sigma_\ell^2(D)$, independent of foam dynamics.
+Strongly lensed sources --- whether persistent or transient --- combine
+cosmological path length for maximum foam-variance accumulation with
+magnification-boosted photon rates, and represent the highest-priority
+targets when accessible.
 These observables provide constraints that are statistically competitive with and complementary to existing imaging tests, though exquisite control of systematic errors is required to reach the foam signal level.
 \end{abstract}
 
@@ -1187,7 +1191,7 @@ the weak-foam limit,
 \end{equation}
 saturating at $\textrm{SNR}\propto D^{-2}$ in the strong-foam limit.
 Since $\alpha > 0$, the SNR increases toward smaller $D$: nearby targets are
-preferred\added{, provided the flat-space ($z\ll 1$) limit of
+preferred, provided the flat-space ($z\ll 1$) limit of
 Eq.~\eqref{eq:sigmaphi} holds.
 At cosmological distances the $D$-dependence is modified by two competing
 effects.
@@ -1200,7 +1204,7 @@ rest-frame transitions at higher redshift
 $\sigma_\phi\propto 1/\lambda_{\rm rest}$, a source whose spectral line falls
 in the UV rest-frame accumulates substantially more phase than a lower-redshift
 counterpart observed at the same detector wavelength---potentially reversing the
-$D^{-2\alpha}$ preference.}
+$D^{-2\alpha}$ preference.
 
 The minimum detectable path-length amplitude follows from inverting
 Eq.~\ref{eq:snr_det_pt} with the quadratic signal dependence
@@ -1391,9 +1395,6 @@ when extracting $\delta g^{(2)}(0)$ in practice.
 The two targets span a factor of 16 in distance, exercising the
 $\sigma_\phi \propto D^{1-\alpha}$ scaling of the foam-vs-screen
 discriminant developed in Section~\ref{sec:zerolag}.
-Both have $\tau_L \ll \sigma_t = 13$\,ps (Table~\ref{tab:source_agn}),
-placing the measurements in the detector-limited regime; source-limited
-operation requires sub-$\tau_L$ timing.
 
 \textit{Strongly-lensed quasars.}
 Gravitational magnification by factors of ${\sim}10$--$60$ boosts the photon
@@ -1414,35 +1415,27 @@ broad-line-region model the observed Ly$\alpha$ profile is a Voigt
 profile (Section~\ref{sec:zerolag}, Eq.~\eqref{eq:g2zero_voigt}): a
 Lorentzian core from BLR turbulent broadening (FWHM$_{\rm turb} \sim
 3800$\,km\,s$^{-1}$) convolved with a rotational Gaussian, supplying the
-cusp condition for both observables with Voigt reduction factor
-$\tilde\sigma/\sigma_0 \approx 1$ in the weak-foam regime.
-The cosmological $(1+z)^2$ weighting of foam-phase accumulation
-(Eq.~\eqref{eq:sigmaphi}) yields a numerical correction factor
-$K \equiv (\sigma_\phi^2)_{\rm cosmo}/(\sigma_\phi^2)_{\rm naive}$. For
-J1330$-$0905 at $\alpha = 2/3$, $K \approx 0.08 = K_\lambda \cdot
-K_{\rm integral}$ with
-$K_\lambda = (\lambda_{\rm rest}/\lambda_{\rm obs})^2 \approx 0.10$ from
-the Ly$\alpha$ redshift to the observed frame and $K_{\rm integral}
-\approx 0.85$ from the line-of-sight integral
-($\int(1+z)dr_{\rm C} < D_L$).
+cusp condition for both observables; the Voigt reduction factor
+$\tilde\sigma/\sigma_0 = (1+2\sigma_0^2/\tau_G^2)^{-1/2} \approx 1$
+in the weak-foam regime ($\sigma_0 \ll \tau_G$), so the rotational
+Gaussian envelope does not suppress the signal and the Lorentzian-core
+formula applies directly.
 The net finite-lag SNR exceeds PHL\,1811 by ${\sim}1.4\times$ at
 $\alpha = 2/3$ (Figure~\ref{fig:snr_vs_alpha_pt}); the zero-lag channel
-inherits only $K_{\rm integral}$ (no $\lambda_{\rm obs}$ enters
-$\sigma_0$) and J1330$-$0905 is comparable to but slightly below the
-NLS1 baseline there (Figure~\ref{fig:snr_vs_alpha_ext}).
+is less suppressed because $\sigma_0 \propto \sigma_\ell/c$ depends on
+the path-length variance rather than $\lambda_{\rm obs}$, and
+J1330$-$0905 is comparable to but slightly below the NLS1 baseline there
+(Figure~\ref{fig:snr_vs_alpha_ext}).
 The Lorentzian-core hypothesis at high $z$ is an extrapolation from the
 low-$z$ K\&Z sample; direct high-resolution spectroscopy of Ly$\alpha$ (or
 the redshifted near-infrared Balmer lines) would confirm it.
-The multi-image lensing geometry further suggests a cross-image $g^{(2)}$
-observable beyond the single-aperture framework developed here.
 
 \textit{Galactic and Local-Group transients.}
 Type~IIn supernovae and LBV giant eruptions --- with $\eta$\,Car as the
 principal example --- combine high H$\alpha$ luminosity
 with narrow Lorentzian line cores ($\tau_L \sim 0.1$--$0.3$\,ps), yielding
 SNR advantages of $10^4$--$10^6\times$ over the persistent-AGN baseline at
-Galactic distances (Section~\ref{sec:snr_results}); with next-generation
-detectors ($\sigma_t \lesssim \tau_L$) they enter the source-limited regime.
+Galactic distances (Section~\ref{sec:snr_results}).
 Three target-specific caveats apply.
 \textit{Scattering geometry:} the Homunculus Nebula around $\eta$\,Car
 scatters substantial flux into the line of sight; the observed coherence
@@ -1624,6 +1617,19 @@ entirely~\cite{LeeZurekChen2024}, and supplies a chromatic discriminant
 against plasma scattering through the $\sigma_\phi \propto 1/\lambda$
 scaling.
 
+The framework identifies high-priority targets of opportunity: strongly
+lensed sources and nearby high-luminosity transients (Type~IIn supernovae
+and LBV giant eruptions) that for $\alpha = 2/3$ offer
+${\sim}10^4$--$10^6\times$ the SNR of the persistent-AGN baseline
+(Section~\ref{sec:snr_results}). A standing
+rapid-response HBT plan --- covering $\eta$\,Car, any galactic
+core-collapse supernova, and any nearby ($D \lesssim 30$\,Mpc) Type~IIn
+identified by transient surveys --- would let the framework exploit these
+high-yield events without prior allocation. Strongly-lensed quasars
+(Section~\ref{sec:candidate_sources}; J1330$-$0905, comparable to the NLS1
+baseline after cosmological correction) round out the persistent-AGN
+target class.
+
 The achievable sensitivities are derived in Section~\ref{sec:prospects}.
 For a 10\,m-class telescope~\cite{Kim2025} with $T_{\rm obs} = 10^4$\,hr on
 the Mrk~766-class NLS1 of Table~\ref{tab:source_agn}, current detectors
@@ -1635,35 +1641,11 @@ array to sub-nm, well below the imaging floor. What HBT-on-AGN cannot reach
 is the holographic prediction $\sigma_\phi \sim 10^{-8}$, six orders of
 magnitude below the most aggressive HBT projection and the natural target
 of tabletop holographic-noise interferometers~\cite{VerlindeZurek2021}.
+Realising these projections demands parallel investment in systematic-error
+control: null-test calibration sources with negligible predicted foam signal
+are essential to verify that instrumental artifacts do not limit sensitivity
+before photon statistics do.
 
-The framework identifies high-priority targets of opportunity: nearby
-high-luminosity transients (Type~IIn supernovae and LBV giant eruptions)
-that for $\alpha = 2/3$ offer ${\sim}10^4$--$10^6\times$ the SNR of the
-persistent-AGN baseline (Section~\ref{sec:snr_results}). A standing
-rapid-response HBT plan --- covering $\eta$\,Car, any galactic
-core-collapse supernova, and any nearby ($D \lesssim 30$\,Mpc) Type~IIn
-identified by transient surveys --- would let the framework exploit these
-high-yield events without prior allocation. Strongly-lensed quasars
-(Section~\ref{sec:candidate_sources}; J1330$-$0905, comparable to the NLS1
-baseline after cosmological correction) round out the persistent-AGN
-target class.
-
-The framework extends naturally to radio wavelengths, where $g^{(2)}(0)$ is
-already a standard data product: spectral kurtosis~\cite{NitaGary2007,NitaGary2010}
-(used for RFI excision at the VLA, GBT, LOFAR, and CHIME) and the modulation
-index $m^2 \equiv \mathrm{Var}(I)/\langle I\rangle^2$ both estimate
-$g^{(2)}(0)-1$ from intensity samples, and are routinely applied to
-single-pulse statistics of pulsars and
-FRBs~\cite{Weltevrede2006,CordesMcLaughlin2003}. A foam signature would
-appear as a systematic depression of these quantities below their
-Gaussian-stationary expectation at the
-$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ level of
-Section~\ref{sec:extended}. The $\sigma_\phi \propto 1/\lambda$ scaling
-imposes a ${\sim}10^{10}$ phase-variance penalty in radio, restricting
-sensitivity to $\alpha \lesssim 0.55$ in the local universe, but an
-archival reanalysis of spectral-kurtosis or modulation-index products at
-large $D$ could cross-check the random-walk model $\alpha = 1/2$ at zero
-additional observational cost.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
