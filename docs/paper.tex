@@ -32,7 +32,7 @@ $g^{(1)}$ and $g^{(2)}$, differently, breaking the Siegert relation
 $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that holds for all Gaussian chaotic sources
 when the foam fluctuates on timescales shorter than the optical coherence time.
 For extended sources, cross-ray jitter additionally suppresses the zero-lag
-bunching peak $g^{(2)}(0)$ through a mechanism that depends only on
+bunching peak $g^{(2)}(0)<2$ through a mechanism that depends only on
 $\sigma_\ell^2(D)$, independent of foam dynamics.
 Strongly lensed sources --- whether persistent or transient --- combine
 cosmological path length for maximum foam-variance accumulation with
@@ -457,9 +457,11 @@ giving, for $\tau > 0$:
     \right].
   \label{eq:g1obs_voigt}
 \end{equation}
-The normalization $g^{(1)}_{\rm obs}(0)=1$ is preserved: as $\sigma_\Delta\to 0$,
-$\tilde\sigma_1/\sigma_\Delta\to 1$, the exponential prefactors approach unity, and
-the erfc combination gives 1.
+The normalization $g^{(1)}_{\rm obs}(0)=1$ is preserved: recall
+$\sigma_\Delta = \sigma_\Delta(\tau)$ with $\sigma_\Delta(0)=0$
+(Eq.~\eqref{eq:diffVar}), so $\tilde\sigma_1(0)=0$, the exponential prefactors
+approach unity, and the erfc terms reduce to
+$\mathrm{erfc}(0)+\mathrm{erfc}(0)=2$.
 In the limit $\tau_G\to\infty$ (pure Lorentzian), $\tilde\sigma_1\to\sigma_\Delta$ and
 $\mu_1\to\tau$, so Eq.~\eqref{eq:g1obs_voigt} reduces to Eq.~\eqref{eq:g1obs_erfc}.
 In the limit $\tau_L\to\infty$ (pure Gaussian), the erfc terms combine to unity and
@@ -528,8 +530,9 @@ $\sigma_\phi^2 = (2\pi/\lambda_{\rm obs})^2 \int_0^{D_{\rm C}}
 For $z \ll 1$ both forms reduce to the flat-space limit
 $\sigma_\phi = 2\pi\sqrt{A_\alpha}\,D^{1-\alpha}\,\ell_{\rm P}^\alpha/\lambda$.
 The extended-source observable inherits the same cosmological correction
-via the observed-frame time-delay variance entering
-$\sigma_0^2 = 2\sigma_{\tau,\rm obs}^2$ (Eq.~\eqref{eq:sigma0}).
+via the observed-frame single-ray time-delay rms
+$\sigma_{\tau,\rm obs}\equiv\sigma_\ell(D)\sqrt{1-\Phi_{\rm eff}}/c$,
+so $\sigma_0^2 = 2\sigma_{\tau,\rm obs}^2$ (Eq.~\eqref{eq:sigma0}).
 We write the foam suppression factor as
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau) \equiv e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
@@ -926,7 +929,8 @@ which is strictly positive whenever $\Phi_{\rm eff}<1$, so the ray-pair mixture
 reduces to a single Gaussian kernel of width $\sigma_0$.
 
 For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}$,
-so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_L}$.
+so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_L}$
+(a cusp at $\tau=0$ with e-folding width $\tau_L/2$).
 The zero-lag convolution over $\Delta \sim \mathcal{N}(0, \sigma_0^2)$
 then becomes, setting $s \equiv \sigma_0/\tau_L$ and splitting on the sign
 of $\Delta$ (both halves contributing equally by symmetry of $|\Delta|$),
