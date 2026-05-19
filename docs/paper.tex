@@ -8,7 +8,6 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{aas_macros}
-\usepackage{changes}
 
 \begin{document}
 
@@ -287,7 +286,7 @@ decoupled.
 
 Observationally, factorization predicts that the ratio
 $[g^{(2)}_{\rm obs}(\tau)-1]_{\rm extended}/[g^{(2)}_{\rm obs}(\tau)-1]_{\rm point}$
-equals $\Phi_{\rm eff}$ and is independent of both $\tau$ and $D$; any
+equals $\Phi_{\rm eff}$ (Section~\ref{sec:extended}) and is independent of both $\tau$ and $D$; any
 dependence of this ratio on lag or source redshift would falsify the
 factorization ansatz and indicate that a non-factorizing model
 (e.g.\ pixellon) is required.
@@ -416,8 +415,8 @@ sign of $\tau-\Delta$ gives, for $\tau > 0$:
   g^{(1)}_{\rm obs}(\tau)
   = e^{\sigma_\Delta^2/2\tau_L^2}
     \cdot\frac{1}{2}\left[
-      e^{-\tau/\tau_L}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_L - \tau/\sigma_\Delta}{\sqrt{2}}\right)
-      + e^{\tau/\tau_L}\,{\rm erfc}\!\left(\frac{\sigma_\Delta/\tau_L + \tau/\sigma_\Delta}{\sqrt{2}}\right)
+      e^{-\tau/\tau_L}\,\mathrm{erfc}\!\left(\frac{\sigma_\Delta/\tau_L - \tau/\sigma_\Delta}{\sqrt{2}}\right)
+      + e^{\tau/\tau_L}\,\mathrm{erfc}\!\left(\frac{\sigma_\Delta/\tau_L + \tau/\sigma_\Delta}{\sqrt{2}}\right)
     \right].
   \label{eq:g1obs_erfc}
 \end{equation}
@@ -530,7 +529,7 @@ For $z \ll 1$ both forms reduce to the flat-space limit
 $\sigma_\phi = 2\pi\sqrt{A_\alpha}\,D^{1-\alpha}\,\ell_{\rm P}^\alpha/\lambda$.
 The extended-source observable inherits the same cosmological correction
 via the observed-frame time-delay variance entering
-$\sigma_0^2 = 2\sigma_{\tau,\rm obs}^2$ (Eq.~\ref{eq:sigma0}).
+$\sigma_0^2 = 2\sigma_{\tau,\rm obs}^2$ (Eq.~\eqref{eq:sigma0}).
 We write the foam suppression factor as
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau) \equiv e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
@@ -760,9 +759,10 @@ $\mathcal{S}\approx|g^{(1)}_{\rm src}(\tau)|^2$: $g^{(2)}_{\rm obs}-1$ retains
 its intrinsic value while $|g^{(1)}_{\rm obs}|^2\to 0$, producing a full violation.
 Quasi-static foam ($C_\alpha\approx 1$) gives $\mathcal{S}\approx 0$ at all lags
 — foam is invisible to all coherence observables in this limit.
-The discrepancy $\mathcal{S}(\tau)$ is obtained from
-two observable, 
-and the modulation beyond the prefactor $|g^{(1)}_{\rm src}(\tau)|^2$
+The discrepancy $\mathcal{S}(\tau)$ is constructed directly from
+the two measurable quantities $|g^{(1)}_{\rm obs}(\tau)|$ and
+$g^{(2)}_{\rm obs}(\tau)-1$ (or equivalently $\mathcal{S}(\nu)$
+in the spectral domain), and the modulation beyond the prefactor $|g^{(1)}_{\rm src}(\tau)|^2$
 is controlled solely by $\alpha$, $D$, and $C_\alpha(\tau;D)$, independently
 of the unknown source spectrum.
 For a Lorentzian source, $|g^{(1)}_{\rm src}(\tau_L)|^2 = e^{-2}$, and in the
@@ -998,6 +998,8 @@ A purely Gaussian source ($\tau_L\to\infty$, $\tilde{s}\to 0$) has no O($s$)
 correction: $g^{(2)}_{\rm obs}(0)-1 = 1/\sqrt{1+2s^2(\tau_c/\tau_G)^2}$.
 
 In the narrow-band limit ($\sigma_\ell/(c\tau_c)\ll 1$,
+where $\tau_c$ is the post-filter coherence time, equal to $\tau_L$
+when the filter passes the full Lorentzian line;
 Section~\ref{sec:narrowband}), a Taylor expansion of the convolution integral
 recovers the small-$s$ behaviour already visible in Eq.~\eqref{eq:deltag2}:
 sources with a smooth (even) profile have $g^{(2)\prime}_{\rm src}(0)=0$ and the
@@ -1030,7 +1032,7 @@ ray-pair kernels that admits no analogous lower bound.\footnote{%
   Explicitly, $g^{(2)}_{\rm obs}(0)-1 = \int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\,
   I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
   \langle g^{(2)}_{\rm src}(-\Delta_{\boldsymbol{\theta}\boldsymbol{\theta}'})-1\rangle_{\delta t}$
-  (Eq.~\ref{eq:g2obsExt}), where each ray pair contributes with its own cross-ray
+  (Eq.~\eqref{eq:g2obsExt}), where each ray pair contributes with its own cross-ray
   variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$;
   the Cauchy--Schwarz argument of Section~\ref{sec:siegert} does not apply.}
 
@@ -1169,7 +1171,7 @@ $\sigma_t \lesssim \tau_L \sim 0.1$\,ps.
 \paragraph{Filter strategy.}
 The foam signal $\mathcal{S}(\tau_L)$ depends only on $\sigma_\phi$, not on
 the filter width.
-The SNR (Eq.~\ref{eq:snr_det_pt}) scales as $R\,\tau_L$, and these two
+The SNR (Eq.~\eqref{eq:snr_det_pt}) scales as $R\,\tau_L$, and these two
 quantities trade off against each other as the filter is narrowed: a narrower
 filter reduces the transmitted flux $R$ but increases the post-filter
 coherence time $\tau_c = \lambda^2/(c\,\Delta\lambda_{\rm filter})$.
@@ -1183,7 +1185,7 @@ source signal.
 
 \paragraph{Distance scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
-$\sigma_\phi^2\propto D^{2(1-\alpha)}$ into Eq.~\ref{eq:snr_det_pt} gives, in
+$\sigma_\phi^2\propto D^{2(1-\alpha)}$ into Eq.~\eqref{eq:snr_det_pt} gives, in
 the weak-foam limit,
 \begin{equation}
 \textrm{SNR}^{\rm pt} \;\propto\; D^{2(1-\alpha)}\cdot D^{-2} \;=\; D^{-2\alpha},
@@ -1207,7 +1209,7 @@ counterpart observed at the same detector wavelength---potentially reversing the
 $D^{-2\alpha}$ preference.
 
 The minimum detectable path-length amplitude follows from inverting
-Eq.~\ref{eq:snr_det_pt} with the quadratic signal dependence
+Eq.~\eqref{eq:snr_det_pt} with the quadratic signal dependence
 $|\mathcal{S}(\tau_L)|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
 \begin{equation}
 \sigma_{\ell,\rm min}^{\rm pt} \;\propto\;
@@ -1287,7 +1289,7 @@ attainable only when $\sigma_t \lesssim \tau_L$) is $\sqrt{\tau_L/\sigma_t}$.
 
 \paragraph{Distance scaling.}
 Substituting $R\propto D^{-2}$ at fixed luminosity and
-$\sigma_0\propto\sigma_\ell(D)\propto D^{1-\alpha}$ into Eq.~\ref{eq:snr_det_ext}
+$\sigma_0\propto\sigma_\ell(D)\propto D^{1-\alpha}$ into Eq.~\eqref{eq:snr_det_ext}
 gives, in the weak-foam limit,
 \begin{equation}
 \textrm{SNR}^{\rm ext} \;\propto\; D^{1-\alpha}\cdot D^{-2} \;=\; D^{-(1+\alpha)},
@@ -1301,7 +1303,7 @@ luminous but distant source: the higher photon rate $R$ at close range can
 compensate for the reduced foam signal $|\mathcal{S}(0)|$.
 
 The minimum detectable path-length amplitude follows from inverting
-the weak-foam limit of Eq.~\ref{eq:snr_det_ext} with
+the weak-foam limit of Eq.~\eqref{eq:snr_det_ext} with
 $|\mathcal{S}(0)|\propto\sigma_0\propto\sigma_\ell$:
 \begin{equation}
 \sigma_{\ell,\rm min}^{\rm ext} \;\propto\;
@@ -1323,8 +1325,8 @@ $\tau_{\rm foam}\lesssim\tau_L$.
 
 Two source properties drive target selection for both variants: the photon rate
 $R$, set by the total line flux captured within the filter, and the source
-distance $D$, which sets $\sigma_\phi$ (finite-lag, Eq.~\ref{eq:snr_det_pt})
-and $\sigma_0$ (zero-lag, Eq.~\ref{eq:snr_det_ext}).
+distance $D$, which sets $\sigma_\phi$ (finite-lag, Eq.~\eqref{eq:snr_det_pt})
+and $\sigma_0$ (zero-lag, Eq.~\eqref{eq:snr_det_ext}).
 For the zero-lag observable a third property matters: the line profile must
 retain a Lorentzian core to preserve the cusp in $g^{(2)}_{\rm src}$ at zero
 lag and hence the linear-in-$s$ scaling (Section~\ref{sec:zerolag}).
@@ -1465,13 +1467,13 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \caption{%
     Finite-lag Siegert discrepancy SNR for
     $\mathcal{S}(\tau_L) = e^{-2}(1 - e^{-2\sigma_\phi^2})$
-    (Eq.~\ref{eq:Stc}) as a function of foam exponent $\alpha$, in the
+    (Eq.~\eqref{eq:Stc}) as a function of foam exponent $\alpha$, in the
     dynamical-foam limit $C_\alpha \to 0$.
     Kim~et~al.~\cite{Kim2025} baseline (10\,m, $\epsilon = 0.39$,
     $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr per exposure (multiply
     SNR by $\sqrt{10^3} \approx 31.6$ for the $10^4$\,hr campaign quoted
     in Sections~\ref{sec:snr_results} and~\ref{sec:conclusions});
-    detector-limited regime (Eq.~\ref{eq:snr_det_pt}).
+    detector-limited regime (Eq.~\eqref{eq:snr_det_pt}).
     Filled circles mark the $\sigma_\phi = 0.3$ weak-foam validity
     boundary; curves to the right saturate at $e^{-2} \approx 0.135$.
     Vertical dashed lines: $\alpha = 0.54$ (Lieu--Hillman imaging
@@ -1490,10 +1492,10 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \caption{%
     Extended-source zero-lag bunching suppression $\delta g^{(2)}(0)$ SNR
     for $|\mathcal{S}(0)| = 1 - e^{2s^2}\,\mathrm{erfc}(\sqrt{2}\,s)$ with
-    $s = \sigma_0/\tau_L$ (Eq.~\ref{eq:deltag2}), as a function of
+    $s = \sigma_0/\tau_L$ (Eq.~\eqref{eq:deltag2}), as a function of
     foam exponent $\alpha$, on the six representative targets.
     Instrument and integration as Figure~\ref{fig:snr_vs_alpha_pt}; SNR
-    from Eq.~\ref{eq:snr_det_ext}.
+    from Eq.~\eqref{eq:snr_det_ext}.
     All sources are in the fully-resolved limit $\Phi_{\rm eff} = 0$
     (signals scale by $\sqrt{1 - \Phi_{\rm eff}}$ for partially resolved
     sources; Section~\ref{sec:sens-extended}).
@@ -1523,8 +1525,8 @@ for a $10^4$\,hr campaign).
 \paragraph{Strong-foam regime ($\alpha\lesssim 0.54$).}
 At and below the Lieu--Hillman imaging exclusion both observables saturate:
 the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}\approx 0.135$
-(Eq.~\ref{eq:Stc}) and the zero-lag signal at $|\mathcal{S}(0)|\to 1$
-(Eq.~\ref{eq:deltag2}), producing the flattening of every SNR curve
+(Eq.~\eqref{eq:Stc}) and the zero-lag signal at $|\mathcal{S}(0)|\to 1$
+(Eq.~\eqref{eq:deltag2}), producing the flattening of every SNR curve
 visible in Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext} at
 small $\alpha$. On the plateau the SNR is set entirely by the photon rate
 $R$ and is independent of $\alpha$. For the highest-$R$ targets the
@@ -1674,12 +1676,13 @@ target class.
 
 The achievable sensitivities are derived in Section~\ref{sec:prospects}.
 For a 10\,m-class telescope~\cite{Kim2025} with $T_{\rm obs} = 10^4$\,hr on
-the Mrk~766-class NLS1 of Table~\ref{tab:source_agn}, current detectors
-($\sigma_t = 13$\,ps) reach $\sigma_{\ell,\rm min} \approx 1.2\,\mu$m
-($3\sigma$) --- above the Lieu--Hillman imaging floor of $\sim 105$\,nm at
-H$\alpha$. Next-generation sub-ps timing on a 40\,m aperture pushes
-$\sigma_{\ell,\rm min}$ to $\sim 9$\,nm, and a 1\,km intensity-interferometer
-array to sub-nm, well below the imaging floor. What HBT-on-AGN cannot reach
+the Mrk~766-class NLS1 of Table~\ref{tab:source_agn}, the zero-lag
+extended-source channel (Eq.~\eqref{eq:sigma_ell_min_ext}) with current
+detectors ($\sigma_t = 13$\,ps) reaches $\sigma_{\ell,\rm min}^{\rm ext}
+\approx 1.6\,\mu$m --- above the Lieu--Hillman imaging floor of $\sim 105$\,nm
+at H$\alpha$. Next-generation sub-ps timing on a 40\,m aperture pushes
+$\sigma_{\ell,\rm min}^{\rm ext}$ to $\sim 9$\,nm, and a 1\,km
+intensity-interferometer array to sub-nm, well below the imaging floor. What HBT-on-AGN cannot reach
 is the holographic prediction $\sigma_\phi \sim 10^{-8}$, six orders of
 magnitude below the most aggressive HBT projection and the natural target
 of tabletop holographic-noise interferometers~\cite{VerlindeZurek2021}.

@@ -248,8 +248,8 @@
   {\theta }'\protect \, I(\protect \boldsymbol {\theta })I(\protect \boldsymbol
   {\theta }')\protect \, \langle g^{(2)}_{\protect \rm src}(-\Delta _{\protect
   \boldsymbol {\theta }\protect \boldsymbol {\theta }'})-1\rangle _{\delta t}$
-  (Eq.~\ref {eq:g2obsExt}), where each ray pair contributes with its own
-  cross-ray variance $\sigma _\Delta ^2(\tau ;\protect \boldsymbol {\theta
+  (Eq.~\protect \eqref {eq:g2obsExt}), where each ray pair contributes with its
+  own cross-ray variance $\sigma _\Delta ^2(\tau ;\protect \boldsymbol {\theta
   },\protect \boldsymbol {\theta }')$; the Cauchy--Schwarz argument of
   Section~\ref {sec:siegert} does not apply.}\BibitemShut {Stop}%
 \bibitem [{\citenamefont {Foellmi}(2009)}]{Foellmi2009}%
