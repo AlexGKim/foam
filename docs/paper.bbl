@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{42}%
+\begin{thebibliography}{41}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -181,11 +181,14 @@
   }\textbf {\bibinfo {volume} {133}},\ \bibinfo {pages} {071501} (\bibinfo
   {year} {2024})},\ \Eprint {https://arxiv.org/abs/2402.06009}
   {arXiv:2402.06009} \BibitemShut {NoStop}%
-\bibitem [{Note1()}]{Note1}%
+\bibitem [{\citenamefont {Steinbring}\ and\ \citenamefont
+  {Ng}(2026)}]{SteinbringNg2026}%
   \BibitemOpen
-  \bibinfo {note} {A recent GRB\protect \,221009A analysis claims consistency
-  with holographic foam blurring~\cite {SteinbringNg2026}, though without
-  formal statistical significance.}\BibitemShut {Stop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Steinbring}}\ and\ \bibinfo {author} {\bibfnamefont {Y.~J.}\ \bibnamefont
+  {Ng}},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal} {arXiv
+  e-prints}\ } (\bibinfo {year} {2026})},\ \Eprint
+  {https://arxiv.org/abs/2603.18277} {arXiv:2603.18277} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Brown}\ and\ \citenamefont {Twiss}(1956)}]{HBT1956}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~H.}\ \bibnamefont
@@ -217,7 +220,7 @@
   {https://doi.org/10.3847/1538-4357/ad2df8} {\bibfield  {journal} {\bibinfo
   {journal} {The Astrophysical Journal}\ }\textbf {\bibinfo {volume} {966}},\
   \bibinfo {pages} {28} (\bibinfo {year} {2024})}\BibitemShut {NoStop}%
-\bibitem [{Note2()}]{Note2}%
+\bibitem [{Note1()}]{Note1}%
   \BibitemOpen
   \bibinfo {note} {The Mar\'{e}chal formula $S = e^{-\sigma _\phi ^2}$ (valid
   for $\sigma _\phi \lesssim 1$) and the temporal result $\protect \mathcal
@@ -241,7 +244,7 @@
   {journal} {\bibinfo  {journal} {Astronomy \& Astrophysics}\ }\textbf
   {\bibinfo {volume} {549}},\ \bibinfo {pages} {A100} (\bibinfo {year}
   {2013})}\BibitemShut {NoStop}%
-\bibitem [{Note3()}]{Note3}%
+\bibitem [{Note2()}]{Note2}%
   \BibitemOpen
   \bibinfo {note} {Explicitly, $g^{(2)}_{\protect \rm obs}(0)-1 = \DOTSI \intop
   \ilimits@ d\protect \boldsymbol {\theta }\protect \,d\protect \boldsymbol
@@ -523,12 +526,4 @@
   {\bibinfo {volume} {822}},\ \bibinfo {eid} {136663} (\bibinfo {year}
   {2021})},\ \Eprint {https://arxiv.org/abs/1902.08207} {arXiv:1902.08207
   [gr-qc]} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Steinbring}\ and\ \citenamefont
-  {Ng}(2026)}]{SteinbringNg2026}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
-  {Steinbring}}\ and\ \bibinfo {author} {\bibfnamefont {Y.~J.}\ \bibnamefont
-  {Ng}},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal} {arXiv
-  e-prints}\ } (\bibinfo {year} {2026})},\ \Eprint
-  {https://arxiv.org/abs/2603.18277} {arXiv:2603.18277} \BibitemShut {NoStop}%
 \end{thebibliography}%
