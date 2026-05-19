@@ -106,15 +106,15 @@ SOURCES = [
     dict(label=r'PHL\,1811 (NLS1, 971\,Mpc)',
          F=1.006e-12, FWHM=45.7, D_Mpc=971.0,              z=0.192,
          color='#2ca02c'),
-    dict(label=r'M31 SN\,IIn (778\,kpc)',
-         F=1.4e-9,   FWHM=55.0,  D_Mpc=778.0*kpc_in_Mpc,   z=0.0,
-         color='#9467bd'),
     dict(label=r'$\eta$\,Car eruption (2.3\,kpc)',
          F=5e-7,     FWHM=15.0,  D_Mpc=2.3*kpc_in_Mpc,     z=0.0,
          color='#ad3803'),
     dict(label=r'Galactic SN\,IIn (2\,kpc)',
          F=2e-4,     FWHM=55.0,  D_Mpc=2.0*kpc_in_Mpc,     z=0.0,
          color='#d62728'),
+    dict(label=r'M31 SN\,IIn (778\,kpc)',
+         F=1.4e-9,   FWHM=55.0,  D_Mpc=778.0*kpc_in_Mpc,   z=0.0,
+         color='#9467bd'),
     # J1330-0905 image A (Persephone's Torch): brightest of four lensed images of
     # a quadruply-lensed quasar at z=2.2245 [Davies et al. 2026, arXiv:2604.13152].
     # Total system magnification ≈ 56; image A magnification ≈ 16.4; observed flux

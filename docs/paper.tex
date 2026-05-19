@@ -1512,55 +1512,97 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
 \subsection{SNR Results}
 \label{sec:snr_results}
 
-SNR as a function of foam exponent $\alpha$ for the sources above is shown in
-Figs.~\ref{fig:snr_vs_alpha_pt} and~\ref{fig:snr_vs_alpha_ext} for the zero-lag
-and finite-lag variants respectively.
+SNR and signal amplitude as functions of the foam exponent $\alpha$ are
+shown in Fig.~\ref{fig:snr_vs_alpha_pt} (finite-lag variant) and
+Fig.~\ref{fig:snr_vs_alpha_ext} (zero-lag variant) for the six sources of
+Table~\ref{tab:source_agn} at the Kim~et~al.~\cite{Kim2025} baseline
+($d=9.96$\,m, $\epsilon=0.39$, $\sigma_t=13$\,ps rms) and
+$T_{\rm obs}=10$\,hr per exposure (multiply by $\sqrt{10^3}\approx 31.6$
+for a $10^4$\,hr campaign).
 
-\paragraph{Comparison of the two variants.}
-For the Mrk~766 reference parameters (Table~\ref{tab:source_agn};
-$R\approx 2.0\times 10^5\,$cps at $\epsilon = 0.39$, 10\,m,
-$T_{\rm obs}=10^4\,$hr), the random-walk
-model $\alpha=1/2$ with short-range transverse correlations relaxed gives
-$\sigma_\phi\approx 5.2$, saturating the finite-lag signal at
-$\mathcal{S}(\tau_L)\to e^{-2}$ and $\sigma_{\ell,\rm min}^{\rm pt}\sim 10^2\,$nm
---- comparable to the Lieu--Hillman fringe-erasure threshold, consistent
-with the finite-lag observable accessing $\sigma_\phi$ directly.
-For the holographic model $\alpha=2/3$, $\sigma_\phi\sim 7.5\times 10^{-9}$
-gives $\mathcal{S}(\tau_L)\sim 10^{-17}$, six orders of magnitude below the
-zero-lag signal $\delta g^{(2)}(0)\sim 3.5\times10^{-11}$ on the same target.
-The finite-lag variant is therefore not competitive with the zero-lag
-variant for raw sensitivity to the holographic model, but it provides the only
-HBT channel sensitive to the foam temporal dynamics $\tau_{\rm foam}$ and can
-be applied to spatially unresolved sources for which the zero-lag
-mechanism is inactive.
+\paragraph{Strong-foam regime ($\alpha\lesssim 0.54$).}
+At and below the Lieu--Hillman imaging exclusion both observables saturate:
+the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}\approx 0.135$
+(Eq.~\ref{eq:Stc}) and the zero-lag signal at $|\mathcal{S}(0)|\to 1$
+(Eq.~\ref{eq:deltag2}), producing the flattening of every SNR curve
+visible in Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext} at
+small $\alpha$. On the plateau the SNR is set entirely by the photon rate
+$R$ and is independent of $\alpha$. For the highest-$R$ targets the
+saturation level itself is detectable in $T_{\rm obs}=10$\,hr: a Galactic
+SN~IIn at $\alpha=0.54$ reaches SNR${}\sim 280$ in the zero-lag channel
+and ${\sim}15$ in the finite-lag channel, and an $\eta$\,Car-class
+eruption is at the threshold of detection (SNR ${\sim}0.7$ extended,
+${\sim}0.2$ finite-lag). The HBT framework is therefore statistically
+competitive with --- and methodologically complementary to --- the
+imaging tests that set the $\alpha=0.54$ boundary, with the advantage of
+sensitivity to foam models with long-range transverse correlations that
+evade those tests~\cite{LeeZurekChen2024}.
 
-For a galactic transient at $D \sim 2$\,kpc with $\alpha = 1/2$ and long
-transverse correlations, the predicted $\sigma_\ell \approx 30$\,nm and the
-photon flux is so high that detection or exclusion is essentially instantaneous
-once sub-ps timing is available.
-For $\alpha = 2/3$, a galactic SN~IIn or LBV eruption returns a
-${\sim}10^4$--$10^6\times$ SNR improvement over the persistent-AGN baseline.
-The galactic SN~IIn case yields the largest single-event SNR --- ${\sim}2\times 10^6$
-times the Mrk~766 baseline --- but its recurrence rate makes it a
-``drop-everything'' opportunity rather than a campaign target.
-Smith~et~al.~2011~\cite{Smith2011} estimate that ${\sim}9\%$ of
-core-collapse supernovae are Type~IIn; combined with the Galactic
-core-collapse rate of $1.6\pm 0.5$ per century from Adams~et~al.~2013~\cite{Adams2013},
-this implies an expected Galactic IIn rate of roughly one per
-500--1500~yr. The most recent confirmed Galactic core-collapse supernova
-was Cassiopeia~A (${\sim}1680$, Type~IIb).
-The $\eta$\,Car case sacrifices a factor of $\sim 10$ in SNR but offers a
-recurrence plausibly within a working career: $\eta$\,Car itself has been
-in an unusual brightening state since the mid-twentieth century, and giant
-LBV eruptions are now routinely identified in nearby galaxies
-(SN\,2009ip and analogs).
-For both galactic sources, the $\alpha = 1/2$ prediction with long-range
-transverse correlations is within reach of the HBT framework: a near-instant
-test of the long-$r_\perp$ random-walk variant.
-The M31 case is intermediate: the $\alpha = 1/2$ short-$r_\perp$ prediction
-($\sigma_\ell \approx 625$\,nm) is already incompatible with existing
-imaging of M31, but the long-$r_\perp$ variant remains viable, and the
-$\alpha = 2/3$ photon-flux advantage is real if modest.
+\paragraph{Holographic regime ($\alpha=2/3$).}
+All signals and SNRs lie many orders of magnitude below unity. On
+Mrk~766, $\sigma_\phi\sim 7.3\times 10^{-9}$ gives
+$\mathcal{S}(\tau_L)\sim 1.5\times 10^{-17}$ (finite-lag) and
+$\delta g^{(2)}(0)\sim 3.5\times 10^{-11}$ (zero-lag) --- a six-order-of-
+magnitude advantage of the zero-lag observable over the finite-lag one,
+mirrored in the SNRs (${\sim}1.6\times 10^{-11}$ vs.\ ${\sim}6.6\times 10^{-18}$
+at $T_{\rm obs}=10$\,hr). The extended-source channel is therefore the
+holographic-regime channel of choice; the finite-lag channel retains
+value as the only HBT probe sensitive to $\tau_{\rm foam}$ and to
+spatially unresolved sources, but is not competitive on raw amplitude.
+At $\alpha=2/3$ a Galactic SN~IIn or LBV eruption returns a
+${\sim}10^6\times$ (zero-lag) and ${\sim}10^4\times$ (finite-lag) SNR
+gain over the persistent-AGN baseline.
+
+\paragraph{Persistent AGN: Mrk~766 and PHL~1811.}
+The two NLS1 targets span a factor of $16$ in distance and trade off
+photon rate against cosmological lever arm. PHL~1811's $D^{1-\alpha}$
+boost in $\sigma_\ell$ at $\alpha=2/3$ approximately compensates its
+$D^{-2}$ flux deficit, leaving the two within ${\sim}10$\% of each other
+in both channels (Mrk~766 nominally higher in the finite-lag channel,
+PHL~1811 marginally higher in the zero-lag channel; see
+Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext}). Their
+near-degeneracy makes the pair a useful internal consistency check on
+the $\sigma_\phi\propto D^{1-\alpha}$ scaling of the foam-vs-screen
+discriminant (Section~\ref{sec:zerolag}).
+
+\paragraph{Lensed quasar J1330$-$0905: largest $|\mathcal{S}|$ of the
+persistent targets.}
+The strongly-lensed quasar carries the cosmological lever arm to
+$z=2.22$, giving $\sigma_\phi\approx 7.8\times 10^{-8}$ on image~A at
+$\alpha=2/3$ --- roughly $5\times$ that of PHL~1811. The resulting
+finite-lag signal $|\mathcal{S}(\tau_L)|\sim 1.7\times 10^{-15}$ is
+${\sim}25\times$ that of PHL~1811 and the largest of the six sources;
+the zero-lag amplitude $|\mathcal{S}(0)|\sim 1.2\times 10^{-9}$ exceeds
+PHL~1811's by a factor of ${\sim}11$ and is also the largest in the
+sample, despite the lower photon rate from a single magnified image
+(dashed curves, right axes of
+Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext}). For any
+HBT campaign that can absorb the photon-rate cost, J1330$-$0905 sets
+the high-water mark for foam signal amplitude among persistent targets.
+
+\paragraph{Galactic and Local-Group transients.}
+For a Galactic transient at $D\sim 2$\,kpc with $\alpha=1/2$ and
+long-range transverse correlations, the predicted
+$\sigma_\ell\approx 30$\,nm and the photon flux is so high that
+detection or exclusion is essentially instantaneous once sub-ps timing
+is available. The Galactic SN~IIn case yields the largest single-event
+SNR (${\sim}2\times 10^6$ times the Mrk~766 baseline at $\alpha=2/3$),
+but its recurrence rate makes it a ``drop-everything'' opportunity
+rather than a campaign target: Smith~et~al.~2011~\cite{Smith2011}
+estimate that ${\sim}9\%$ of core-collapse supernovae are Type~IIn, and
+combined with the Galactic core-collapse rate of $1.6\pm 0.5$ per
+century from Adams~et~al.~2013~\cite{Adams2013} this implies a Galactic
+IIn rate of roughly one per 500--1500\,yr; the most recent confirmed
+Galactic core-collapse supernova was Cassiopeia~A (${\sim}1680$,
+Type~IIb). The $\eta$\,Car case sacrifices a factor of ${\sim}10$ in
+SNR but offers a recurrence plausibly within a working career.
+The M31 SN~IIn is intermediate --- plotted adjacent to its Galactic
+counterpart in Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext}
+for direct comparison --- and degrades the Galactic SNR by the
+inverse-square-distance factor $(778/2)^2\approx 1.5\times 10^5$. Its
+$\alpha=1/2$ short-$r_\perp$ prediction ($\sigma_\ell\approx 625$\,nm)
+is already incompatible with existing imaging of M31, but the
+long-$r_\perp$ variant remains viable.
 
 \subsection{Sources Investigated but Not Competitive}
 \label{sec:not_competitive}
