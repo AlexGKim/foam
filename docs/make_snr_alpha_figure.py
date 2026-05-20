@@ -5,7 +5,7 @@ Kim 2025 baseline instrument (10 m, ε=0.39, σ_t=30 ps FWHM), T=10 hr.
 Run:  python make_snr_alpha_figure.py
 Outputs:
   snr_vs_alpha.pdf / .png             -- extended-source δg^(2)(0)
-  snr_vs_alpha_pointsource.pdf / .png -- point-source S(τ_L)
+  snr_vs_alpha_pointsource.pdf / .png -- point-source S(τ_max)
 """
 
 import numpy as np
@@ -347,21 +347,22 @@ print('Wrote snr_vs_alpha.pdf and snr_vs_alpha.png')
 
 # ---------------------------------------------------------------
 # Figure 2: Point-source variant
-#   Observable: S(tau_c) = e^{-2} * (1 - exp(-2*sigma_phi^2))    (Eq. eq:Stc)
+#   Observable: S(tau_max) ≈ 1 - exp(-2*sigma_phi^2)              (Eq. eq:Stc)
 #   Foam param: sigma_phi = 2*pi*sigma_ell(D)/lambda              (Eq. eq:sigmaphi)
 #   SNR:        Eqs. snr_src_pt / snr_det_pt  (§VII.A, source/detector-limited)
 #               Structure identical to extended-source with tau_L -> tau_c.
 #   Validity:   sigma_phi = 0.3  (boundary of quadratic weak-foam approximation
-#               S(tau_c) ≈ 2*e^{-2}*sigma_phi^2; signal saturates at e^{-2} ≈ 0.135)
+#               S(tau_max) ≈ 2*sigma_phi^2; signal saturates at 1)
 #   Filter:     same 2×FWHM wide filter as extended-source figure (for direct comparison)
 # ---------------------------------------------------------------
 
 def compute_pointsource(sources):
-    """Point-source Siegert discrepancy S(τ_L) and detector-limited SNR.
+    """Point-source Siegert discrepancy S(τ_max) and detector-limited SNR.
 
-    Evaluated in the dynamical-foam limit C_α(τ_L; D) → 0 of Eq. Stc, so
-    S(τ_L) = e^(-2) (1 - exp(-2 σ_φ²)). For quasi-static foam the signal
-    is suppressed by an additional factor [1 - C_α(τ_L)].
+    Evaluated at the peak lag τ_max in the fast-foam / dynamical limit
+    (τ_foam << τ_L, C_α(τ_max) → 0). In this limit |g^(1)_src(τ_max)|² → 1
+    and Eq. Stc reduces to S(τ_max) ≈ 1 - exp(-2 σ_φ²) — a factor of e² ≈ 7.4
+    larger than S(τ_L) = e^(-2)(1 - exp(-2 σ_φ²)) at every σ_φ.
     """
     results = []
     for src in sources:
@@ -371,7 +372,7 @@ def compute_pointsource(sources):
         R            = photon_rate(src)
         sigma_phi, _ = foam_params(src)
         # Use weak-foam quadratic approx where exp rounds to 1 (sigma_phi < ~1e-8)
-        S            = np.exp(-2) * (-np.expm1(-2 * sigma_phi**2))
+        S            = -np.expm1(-2 * sigma_phi**2)
         snr          = snr_from_signal(S, R, tau_c)
         idx_lim      = np.argmin(np.abs(sigma_phi - 0.3))
         results.append(dict(label=src['label'], color=src['color'],
@@ -383,8 +384,8 @@ fig, ax = make_axes()
 pt_results = compute_pointsource(SOURCES)
 finish_figure(ax, pt_results,
               r'$\sigma_\phi=0.3$ (weak-foam limit)',
-              r'$|\mathcal{S}(\tau_L)|$',
-              ylim2=(1e-26, 1e-3))
+              r'$|\mathcal{S}(\tau_{\max})|$',
+              ylim2=(1e-24, 2.0))
 fig.savefig('snr_vs_alpha_pointsource.pdf')
 fig.savefig('snr_vs_alpha_pointsource.png', dpi=160)
 plt.close(fig)

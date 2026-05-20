@@ -814,19 +814,10 @@ $g^{(2)}_{\rm obs}(\tau)-1$ (or equivalently $\mathcal{S}(\nu)$
 in the spectral domain), and the modulation beyond the prefactor $|g^{(1)}_{\rm src}(\tau)|^2$
 is controlled solely by $\alpha$, $D$, and $C_\alpha(\tau;D)$, independently
 of the unknown source spectrum.
-For a Lorentzian source, $|g^{(1)}_{\rm src}(\tau_L)|^2 = e^{-2}$, and in the
-dynamical limit $C_\alpha\to 0$, Eq.~\eqref{eq:Sexplicit} reduces to
-\begin{equation}
-  \mathcal{S}(\tau_L) = e^{-2}\!\left(1-e^{-2\sigma_\phi^2}\right),
-  \label{eq:Stc}
-\end{equation}
-the detection observable at lag $\tau_L$ (saturating at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$).
-
-The evaluation lag $\tau=\tau_L$ in Eq.~\eqref{eq:Stc} is representative but
-not optimal: $\mathcal{S}(\tau)$ peaks at a smaller lag set by the competition
-between the source-coherence falloff $e^{-2\tau/\tau_L}$ and the foam-induced
-rise $1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$. Differentiating
-Eq.~\eqref{eq:Sexplicit} for a Lorentzian source yields the implicit condition
+For a Lorentzian source, $\mathcal{S}(\tau)$ peaks at a lag set by the
+competition between the source-coherence falloff $e^{-2\tau/\tau_L}$ and
+the foam-induced rise $1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$.
+Differentiating Eq.~\eqref{eq:Sexplicit} yields the implicit condition
 \begin{equation}
   -\sigma_\phi^2\,C_\alpha'(\tau_{\max})\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau_{\max})]}
   = \frac{1}{\tau_L}\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau_{\max})]}\right).
@@ -841,11 +832,22 @@ For the canonical exponential decorrelation $C_\alpha(\tau)=e^{-\tau/\tau_{\rm f
 \end{equation}
 which interpolates between $\tau_{\max}\approx \tau_{\rm foam}\ln[\tau_L/(2\tau_{\rm foam})]$
 for fast foam ($\tau_{\rm foam}\ll\tau_L$) and $\tau_{\max}\to\tau_L/2$ for slow
-foam ($\tau_{\rm foam}\gg\tau_L$). In the strong-jitter / dynamical-foam
-limit ($\sigma_\phi^2\gg 1$, $C_\alpha\to 0$ above $\tau_{\rm foam}$),
-$\mathcal{S}(\tau)\to e^{-2\tau/\tau_L}$ is monotonically decreasing and the
-peak migrates to $\tau\to\tau_{\rm foam}^+$, where $\mathcal{S}_{\max}\to 1$
-when $\tau_{\rm foam}\ll\tau_L$.
+foam ($\tau_{\rm foam}\gg\tau_L$).
+
+In the fast-foam / dynamical limit
+($\tau_{\rm foam}\ll\tau_L$, $C_\alpha\to 0$ above $\tau_{\rm foam}$),
+$|g^{(1)}_{\rm src}(\tau_{\max})|^2\to 1$ and $1-C_\alpha(\tau_{\max})\to 1$,
+so Eq.~\eqref{eq:Sexplicit} reduces to
+\begin{equation}
+  \mathcal{S}(\tau_{\max}) \approx 1 - e^{-2\sigma_\phi^2},
+  \label{eq:Stc}
+\end{equation}
+the canonical detection observable: quadratic
+$\mathcal{S}(\tau_{\max})\approx 2\sigma_\phi^2$ in the weak-foam limit,
+saturating at $1$ for $\sigma_\phi\gg 1$. This is a factor of $e^2\approx 7.4$
+larger than $\mathcal{S}(\tau_L) = e^{-2}(1-e^{-2\sigma_\phi^2})$ at every
+$\sigma_\phi$, recovered by evaluating the discrepancy at the peak lag
+$\tau_{\max}\ll\tau_L$ rather than at the source coherence width.
 % ==============================================================
 \section{Extended Sources: Transverse Foam Coherence}
 \label{sec:extended}
@@ -1220,32 +1222,35 @@ systematics can mimic or mask the effect.
 \subsubsection{Temporal Decorrelation -- Finite-lag variant}
 \label{sec:sens-point}
 
-For a point-like Lorentzian source in the dynamical limit
-$C_\alpha(\tau_L;D)\to 0$, the Siegert discrepancy at $\tau \sim \tau_L$ is
-Eq.~\eqref{eq:Stc},
-$\mathcal{S}(\tau_L) = e^{-2}(1 - e^{-2\sigma_\phi^2})$ with
+For a point-like Lorentzian source in the fast-foam / dynamical limit
+($\tau_{\rm foam}\ll\tau_L$, $C_\alpha\to 0$ above $\tau_{\rm foam}$), the
+Siegert discrepancy evaluated at its peak lag $\tau_{\max}$
+(Eq.~\eqref{eq:taumax_exp}) is given by Eq.~\eqref{eq:Stc},
+$\mathcal{S}(\tau_{\max}) \approx 1 - e^{-2\sigma_\phi^2}$ with
 $\sigma_\phi$ the rms accumulated phase (Eq.~\eqref{eq:sigmaphi}): quadratic
 in $\sigma_\phi$ in the weak-foam limit
-($\mathcal{S}(\tau_L)\approx 2e^{-2}\sigma_\phi^2$) and saturating at
-$e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$.
+($\mathcal{S}(\tau_{\max})\approx 2\sigma_\phi^2$) and saturating at
+$1$ for $\sigma_\phi\gg 1$.
 
 \paragraph{Detector-limited SNR.}
-Substituting $\mathcal{S}(\tau_L)$ into Eq.~\eqref{eq:snr_det},
+Substituting $\mathcal{S}(\tau_{\max})$ into Eq.~\eqref{eq:snr_det},
 \begin{equation}
 \textrm{SNR}_{\rm det}^{\rm pt}
-\;=\; \frac{|\mathcal{S}(\tau_L)|\,R\,\tau_L}{4}\sqrt{\frac{T_{\rm obs}}{\sigma_t}}
+\;=\; \frac{|\mathcal{S}(\tau_{\max})|\,R\,\tau_L}{4}\sqrt{\frac{T_{\rm obs}}{\sigma_t}}
 \;\xrightarrow{\sigma_\phi\ll 1}\;
-\tfrac{1}{2}e^{-2}\sigma_\phi^2\, R\,\frac{\tau_L}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
+\tfrac{1}{2}\sigma_\phi^2\, R\,\frac{\tau_L}{\sqrt{\sigma_t}}\sqrt{T_{\rm obs}}.
 \label{eq:snr_det_pt}
 \end{equation}
+The $\tau_L$ factor here is the source coherence width (the natural HBT
+coincidence-bin scale), not the evaluation lag.
 The detector-limited form carries a $\sqrt{\tau_L/\sigma_t}$ penalty relative
 to source-limited operation
-($\textrm{SNR}_{\rm src}^{\rm pt} = \tfrac{1}{4}\,|\mathcal{S}(\tau_L)|\,R\sqrt{\tau_L T_{\rm obs}}$);
+($\textrm{SNR}_{\rm src}^{\rm pt} = \tfrac{1}{4}\,|\mathcal{S}(\tau_{\max})|\,R\sqrt{\tau_L T_{\rm obs}}$);
 reaching the source-limited limit on broad-line quasars requires
 $\sigma_t \lesssim \tau_L \sim 0.1$\,ps.
 
 \paragraph{Filter strategy.}
-The foam signal $\mathcal{S}(\tau_L)$ depends only on $\sigma_\phi$, not on
+The foam signal $\mathcal{S}(\tau_{\max})$ depends only on $\sigma_\phi$, not on
 the filter width.
 The SNR (Eq.~\eqref{eq:snr_det_pt}) scales as $R\,\tau_L$, and these two
 quantities trade off against each other as the filter is narrowed: a narrower
@@ -1286,7 +1291,7 @@ $D^{-2\alpha}$ preference.
 
 The minimum detectable path-length amplitude follows from inverting
 Eq.~\eqref{eq:snr_det_pt} with the quadratic signal dependence
-$|\mathcal{S}(\tau_L)|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
+$|\mathcal{S}(\tau_{\max})|\propto\sigma_\phi^2\propto\sigma_\ell^2$:
 \begin{equation}
 \sigma_{\ell,\rm min}^{\rm pt} \;\propto\;
 \frac{\lambda}{d}\!\left(\frac{\sigma_t}{\tau_L^2\, T_{\rm obs}}\right)^{\!1/4},
@@ -1542,23 +1547,23 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \includegraphics[width=0.92\linewidth]{snr_vs_alpha_pointsource.png}
   \caption{%
     Finite-lag Siegert discrepancy SNR for
-    $\mathcal{S}(\tau_L) = e^{-2}(1 - e^{-2\sigma_\phi^2})$
+    $\mathcal{S}(\tau_{\max}) \approx 1 - e^{-2\sigma_\phi^2}$
     (Eq.~\eqref{eq:Stc}) as a function of foam exponent $\alpha$, in the
-    dynamical-foam limit $C_\alpha \to 0$.
+    fast-foam / dynamical limit $C_\alpha \to 0$.
     Kim~et~al.~\cite{Kim2025} baseline (10\,m, $\epsilon = 0.39$,
     $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr per exposure (multiply
     SNR by $\sqrt{10^3} \approx 31.6$ for the $10^4$\,hr campaign quoted
     in Sections~\ref{sec:snr_results} and~\ref{sec:conclusions});
     detector-limited regime (Eq.~\eqref{eq:snr_det_pt}).
     Filled circles mark the $\sigma_\phi = 0.3$ weak-foam validity
-    boundary; curves to the right saturate at $e^{-2} \approx 0.135$.
+    boundary; curves to the right saturate at $1$.
     Vertical dashed lines: $\alpha = 0.54$ (Lieu--Hillman imaging
     exclusion at $D = 1$\,Gpc, $\lambda = 500$\,nm) and
     $\alpha = 2/3$ (holographic).
     J1330$-$0905 is evaluated on the GAIA~DR3 XP-measured Ly$\alpha$
     flux with the Kollatschny~\&~Zetzl~2013 turbulent-Lorentzian core
     (Section~\ref{sec:candidate_sources}).
-    Dashed curves (right axis): $|\mathcal{S}(\tau_L)|$.%
+    Dashed curves (right axis): $|\mathcal{S}(\tau_{\max})|$.%
     \label{fig:snr_vs_alpha_pt}}
 \end{figure}
 
@@ -1600,7 +1605,7 @@ for a $10^4$\,hr campaign).
 
 \paragraph{Strong-foam regime ($\alpha\lesssim 0.54$).}
 At and below the Lieu--Hillman imaging exclusion both observables saturate:
-the finite-lag signal at $\mathcal{S}(\tau_L)\to e^{-2}\approx 0.135$
+the finite-lag signal at $\mathcal{S}(\tau_{\max})\to 1$
 (Eq.~\eqref{eq:Stc}) and the zero-lag signal at $|\mathcal{S}(0)|\to 1$
 (Eq.~\eqref{eq:deltag2}), producing the flattening of every SNR curve
 visible in Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext} at
@@ -1608,9 +1613,9 @@ small $\alpha$. On the plateau the SNR is set entirely by the photon rate
 $R$ and is independent of $\alpha$. For the highest-$R$ targets the
 saturation level itself is detectable in $T_{\rm obs}=10$\,hr: a Galactic
 SN~IIn at $\alpha=0.54$ reaches SNR${}\sim 280$ in the zero-lag channel
-and ${\sim}15$ in the finite-lag channel, and an $\eta$\,Car-class
-eruption is at the threshold of detection (SNR ${\sim}0.7$ extended,
-${\sim}0.2$ finite-lag). The HBT framework is therefore statistically
+and ${\sim}110$ in the finite-lag channel, and an $\eta$\,Car-class
+eruption is detectable in the finite-lag channel (SNR ${\sim}1.2$,
+${\sim}0.7$ extended). The HBT framework is therefore statistically
 competitive with --- and methodologically complementary to --- the
 imaging tests that set the $\alpha=0.54$ boundary, with the advantage of
 sensitivity to foam models with long-range transverse correlations that
@@ -1619,10 +1624,10 @@ evade those tests~\cite{LeeZurekChen2024}.
 \paragraph{Holographic regime ($\alpha=2/3$).}
 All signals and SNRs lie many orders of magnitude below unity. On
 Mrk~766, $\sigma_\phi\sim 7.3\times 10^{-9}$ gives
-$\mathcal{S}(\tau_L)\sim 1.5\times 10^{-17}$ (finite-lag) and
-$\delta g^{(2)}(0)\sim 3.5\times 10^{-11}$ (zero-lag) --- a six-order-of-
+$\mathcal{S}(\tau_{\max})\sim 1.1\times 10^{-16}$ (finite-lag) and
+$\delta g^{(2)}(0)\sim 3.5\times 10^{-11}$ (zero-lag) --- a five-order-of-
 magnitude advantage of the zero-lag observable over the finite-lag one,
-mirrored in the SNRs (${\sim}1.6\times 10^{-11}$ vs.\ ${\sim}6.6\times 10^{-18}$
+mirrored in the SNRs (${\sim}1.6\times 10^{-11}$ vs.\ ${\sim}4.9\times 10^{-17}$
 at $T_{\rm obs}=10$\,hr). The extended-source channel is therefore the
 holographic-regime channel of choice; the finite-lag channel retains
 value as the only HBT probe sensitive to $\tau_{\rm foam}$ and to
@@ -1648,7 +1653,7 @@ persistent targets.}
 The strongly-lensed quasar carries the cosmological lever arm to
 $z=2.22$, giving $\sigma_\phi\approx 7.8\times 10^{-8}$ on image~A at
 $\alpha=2/3$ --- roughly $5\times$ that of PHL~1811. The resulting
-finite-lag signal $|\mathcal{S}(\tau_L)|\sim 1.7\times 10^{-15}$ is
+finite-lag signal $|\mathcal{S}(\tau_{\max})|\sim 1.2\times 10^{-14}$ is
 ${\sim}25\times$ that of PHL~1811 and the largest of the six sources;
 the zero-lag amplitude $|\mathcal{S}(0)|\sim 1.2\times 10^{-9}$ exceeds
 PHL~1811's by a factor of ${\sim}11$ and is also the largest in the
@@ -1693,14 +1698,14 @@ utterly negligible for $\alpha = 2/3$. Three illustrative cases bear this
 out.
 \textit{The Sun as a continuum source.} A 1\,\AA\ filter on a 10\,m
 telescope yields a per-mode rate $r \sim 10^8$\,cps but
-$\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \sim 2\times10^{-4}$; even
-$N \sim 3000$-channel spectrograph multiplexing reaches only ${\sim}10^{-2}$
+$\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \sim 1.5\times10^{-3}$; even
+$N \sim 3000$-channel spectrograph multiplexing reaches only ${\sim}7\times10^{-2}$
 at $T_{\rm obs} = 10^4$\,hr, far below detection.
 \textit{Sirius~B (best-case absorption-line target).} A broad absorption
 line can only \emph{reduce} $R$ relative to the unobscured continuum, so
 there is no photon-rate advantage from the absorption profile. The deep,
 Stark-broadened H$\alpha$ wing of this nearby DA white dwarf
-($D = 2.64$\,pc) gives $\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \approx 1.9\times10^{-3}$
+($D = 2.64$\,pc) gives $\mathrm{SNR}/\sqrt{T/\mathrm{hr}} \approx 1.4\times10^{-2}$
 at $\alpha = 1/2$ (${\sim}10\times$ below a Mrk~766-class NLS1) and is
 entirely negligible at $\alpha = 2/3$. Such targets remain useful for
 null-test calibration --- a nearby DA white dwarf has a Lorentzian
