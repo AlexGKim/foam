@@ -580,34 +580,48 @@ The fringe visibility and Strehl ratio are spatial-coherence observables
 --- they probe phase variations across an aperture or between two
 separated telescopes, described by $g^{(1)}_{\rm obs}(B)$ --- while
 $g^{(1)}_{\rm obs}(\tau)$ derived above describes temporal coherence
-along a single line of sight. The mathematics of the temporal case maps
-exactly to the spatial case with baseline $B$ replacing lag $\tau$. Both
-are governed by the same foam suppression factor $\mathcal{F}_{\rm foam}$
-of Eq.~\eqref{eq:Ffoam} because the underlying phase variance
-$\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ is common to the temporal
-and spatial projections of the full coherence function.
-
-The fringe visibility at baseline $B$ is
+along a single line of sight. The two cases are directly analogous: the
+temporal decorrelation $C_\alpha(\tau;D)$, measuring how the foam changes
+between two observations separated by time $\tau$, maps to the spatial
+decorrelation $\Phi(B/r_\perp)$ (Section~\ref{sec:model}), measuring how
+correlated the foam fluctuations are at two aperture points separated by
+baseline $B$. In both cases the foam suppression has the same form, with
+$C_\alpha$ replaced by $\Phi$:
 \begin{equation}
-  V(B) = V_{\rm src}(B)\cdot e^{-\sigma_\phi^2},
+  \mathcal{F}_{\rm foam}^{\rm spat}(B)
+    \equiv e^{-\sigma_\phi^2[1-\Phi(B/r_\perp)]}.
+  \label{eq:Ffoam_spat}
+\end{equation}
+This mirrors $\mathcal{F}_{\rm foam}(\tau)$ exactly: $\Phi(0)=1$ gives no
+suppression at zero baseline, while $\Phi(B/r_\perp)\to 0$ for
+$B\gg r_\perp$ gives maximum suppression $e^{-\sigma_\phi^2}$ --- just as
+$\mathcal{F}_{\rm foam}(0)=1$ and
+$\mathcal{F}_{\rm foam}(\infty)=e^{-\sigma_\phi^2}$.
+
+The fringe visibility at baseline $B$ is then
+\begin{equation}
+  V(B) = V_{\rm src}(B)\cdot\mathcal{F}_{\rm foam}^{\rm spat}(B)
+       = V_{\rm src}(B)\cdot e^{-\sigma_\phi^2[1-\Phi(B/r_\perp)]},
   \label{eq:visibility}
 \end{equation}
-where $V_{\rm src}(B) = |g^{(1)}_{\rm src}|$ evaluated at the angular
-scale $\lambda/B$, and the foam suppression $e^{-\sigma_\phi^2}$ is a
-baseline-independent multiplicative factor. Lieu \&
-Hillman~\cite{LieuHillman2003} argue that fringes are erased when the
-accumulated phase randomizes over $[0,2\pi)$, i.e.\
-$\sigma_\phi \gtrsim 1$ --- the limit $e^{-\sigma_\phi^2} \to 0$.
-Their condition $\Delta\phi \geq 2\pi$ with
+where $V_{\rm src}(B) = |g^{(1)}_{\rm src}|$ evaluated at angular scale
+$\lambda/B$. In the limit $B\gg r_\perp$ the two aperture points sample
+independent foam realizations and the suppression reaches its maximum
+$e^{-\sigma_\phi^2}$. Lieu \&
+Hillman~\cite{LieuHillman2003} implicitly assumed this limit: their
+erasure condition $\Delta\phi \geq 2\pi$ with
 $\Delta\phi \simeq 2\pi\sigma_\ell(D)/\lambda$~\cite{NgPerlman2022} is
-precisely $\sigma_\phi \geq 1$; the temporal channel $g^{(1)}_{\rm obs}(\tau)$
-extends this binary criterion to a continuous $\tau$-dependent suppression whose
-shape encodes the temporal decorrelation $C_\alpha(\tau;D)$.
+precisely $\sigma_\phi \geq 1$, the limit
+$\mathcal{F}_{\rm foam}^{\rm spat}\to 0$. Equation~\eqref{eq:visibility}
+extends their binary criterion to a continuous suppression curve whose
+shape encodes $\Phi(B/r_\perp)$ --- in direct analogy to how
+$g^{(1)}_{\rm obs}(\tau)$ encodes the temporal decorrelation
+$C_\alpha(\tau;D)$.
 
-The Strehl ratio similarly equals $e^{-\sigma_\phi^2}$ in the dynamical
-limit $C_\alpha(\infty;D)\to 0$ and when $r_\perp \ll D_{\rm tel}$ so
-that aperture-plane phases are independent draws from the single-ray
-distribution.\footnote{%
+The Strehl ratio for a single aperture of diameter $D_{\rm tel}$ follows
+the same logic with $B\sim D_{\rm tel}$: when $r_\perp\ll D_{\rm tel}$,
+aperture-plane phases are independent draws from the single-ray
+distribution and $S=e^{-\sigma_\phi^2}$.\footnote{%
   The Mar\'{e}chal formula $S = e^{-\sigma_\phi^2}$ (valid for
   $\sigma_\phi \lesssim 1$) and the temporal result
   $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2}$ are linked by a
@@ -621,9 +635,10 @@ distribution.\footnote{%
   the second-order coherence of extended sources (Section~\ref{sec:extended})
   but not the single-aperture Strehl ratio.}
 Both Strehl and fringe visibility therefore measure the same underlying
-$\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$, and the published
+$\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ in the large-baseline limit
+$B\gg r_\perp$, and the published
 constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,Ragazzoni2003}
-are unified within the single framework of $\mathcal{F}_{\rm foam}$.
+are unified within this framework.
 
 
 % ==============================================================
