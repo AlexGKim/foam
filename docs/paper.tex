@@ -65,10 +65,23 @@ decades~\cite{Carlip2023,NgPerlman2022}.
 A widely studied parametrization due to Ng and
 collaborators~\cite{Ng2001,Ng2003,NgPerlman2022}, the $\alpha$-foam model,
 encodes the foam dynamics in a power-law path-length variance
-$\sigma_\ell^2(D) \propto D^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}$;
-three benchmark values $\alpha = 1$ (conservative), $2/3$ (holographic),
-$1/2$ (random-walk) are conventional and are defined fully in
-Section~\ref{sec:model}.
+\begin{equation}
+  \sigma_\ell^2(D) = A_\alpha\,D^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
+  \label{eq:NgPerlmanVar}
+\end{equation}
+where $D$ is the proper distance to the source, $\alpha$ parametrizes the foam
+model, and $A_\alpha$ is a dimensionless coefficient of order unity.
+A photon traversing distance $D$ passes through approximately
+$N \sim D/\ell_{\rm P}$ independent Planck-scale spacetime cells, each imparting
+a tiny random displacement to the photon path; the exponent $\alpha$ controls
+how the per-cell displacements accumulate: for random-walk foam ($\alpha=1/2$),
+contributions add in quadrature ($\sigma_\ell \propto \sqrt{D\ell_{\rm P}}$);
+holographic foam ($\alpha=2/3$) grows more slowly, constrained by an area-law
+bound on the number of independent degrees of freedom per Planck area; and
+conservative foam ($\alpha=1$) yields a distance-independent
+$\sigma_\ell \propto \ell_{\rm P}$, corresponding to perfectly correlated cell
+contributions.
+
 Two complementary channels have been used to test foam models.
 The imaging channel exploits the stochastic aperture phase
 $\sigma_\phi = 2\pi\sigma_\ell/\lambda$, which degrades the PSF by
@@ -111,6 +124,31 @@ For spatially resolved sources, transverse foam coherence additionally
 suppresses the zero-lag HBT bunching peak below~2 --- a geometrically distinct
 effect that depends on the source angular size and the transverse foam
 coherence length $r_\perp$, with no requirement on the foam's temporal dynamics.
+
+The framework draws on a well-established phenomenology of phase screens
+acting on chaotic light. For a thermal point source viewed through a
+\emph{static} phase screen, $g^{(1)}$ is suppressed by the Strehl factor
+$e^{-\sigma_\phi^2}$ while $g^{(2)}$ is unchanged --- the principle behind
+Hanbury Brown \& Twiss's demonstration that intensity interferometry
+survives atmospheric phase distortions that erase Michelson
+fringes~\cite{HBT1956}. A \emph{dynamic} phase screen that fluctuates
+within the detection timing window imprints additional intensity
+correlations on $g^{(2)}(\tau)$, the principle exploited in
+Martienssen \& Spiller's pseudo-thermal light source~\cite{MartienssenSpiller1964}
+and a recurring theme in HBT-through-turbulence
+studies~\cite{Goodman2007,MandelWolf1995}. For an extended thermal source
+viewed through a transverse phase screen across its angular extent, the
+zero-lag bunching peak is diluted below 2 according to
+$g^{(2)}(0) = 1 + 1/M$, where $M$ counts the spatial coherence modes
+admitted by the screen --- the speckle-dilution formula of statistical
+optics~\cite{Goodman2007,MandelWolf1995}. Planck-scale foam acts as a
+phase screen distributed along the entire line of sight: its temporal
+dynamics determine whether $g^{(2)}$ acquires the dynamic-screen
+signature on point sources, and its transverse coherence sets the
+effective mode count for extended sources. The present work extends
+these three laboratory phenomena --- static-screen survival, dynamic-screen
+imprint, and mode dilution --- to cosmological propagation through
+spacetime foam.
 
 Intuitively, $g^{(1)}$ measures the phase modulation of the electric field by the
 foam. The second-order coherence $g^{(2)}$ measures the
@@ -186,28 +224,11 @@ propagation effects.
 \subsection{Spatial and Temporal Fluctuations of Spacetime Foam}
 \label{sec:Calpha_origin}
 
-Following Ng and collaborators~\cite{NgPerlman2022,Ng2003,Ng2001} (see also
-Ref.~\cite{Carlip2023} for a review of foam models and their observational
-constraints), the single-ray path-length variance obeys the power-law scaling
-\begin{equation}
-  \sigma_\ell^2(D) = A_\alpha\,D^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
-  \label{eq:NgPerlmanVar}
-\end{equation}
-where $D$ is the proper distance to the source,
-$\alpha$ parametrizes the foam model
-($\alpha=1$: conservative; $\alpha=2/3$: holographic; $\alpha=1/2$: random walk),
-$\ell_{\rm P} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m is the Planck length,
-and $A_\alpha$ is a dimensionless coefficient of order unity.
-Equation~\eqref{eq:NgPerlmanVar} describes
-a photon traveling from a source at distance $D$ that passes through approximately
-$N \sim D/\ell_{\rm P}$ independent Planck-scale spacetime cells, each imparting a
-tiny random displacement to the photon path. The exponent $\alpha$ controls how the
-per-cell displacements accumulate: for random-walk foam ($\alpha=1/2$), contributions
-add in quadrature like steps in a random walk ($\sigma_\ell \propto \sqrt{D\ell_{\rm P}}$);
-holographic foam ($\alpha=2/3$) grows more slowly, constrained by an area-law bound
-on the number of independent degrees of freedom per Planck area; and conservative
-foam ($\alpha=1$) yields a distance-independent $\sigma_\ell \propto \ell_{\rm P}$,
-corresponding to perfectly correlated cell contributions.
+The single-ray path-length variance $\sigma_\ell^2(D)$
+(Eq.~\eqref{eq:NgPerlmanVar}) is defined in the introduction;
+here we extend the model to describe the spatiotemporal covariance of
+the foam fluctuation field (see also Ref.~\cite{Carlip2023} for a review
+of foam models and observational constraints).
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
@@ -1769,22 +1790,13 @@ control: null-test calibration sources with negligible predicted foam signal
 are essential to verify that instrumental artifacts do not limit sensitivity
 before photon statistics do.
 
-A multi-baseline intensity interferometer provides a qualitatively new
-capability: it measures $g^{(2)}(\tau; B)$ as a joint function of lag $\tau$
-and telescope separation $B$, mapping the full spatiotemporal covariance of
-the foam without assuming the factorized form of Eq.~\eqref{eq:pathcov}.
-Under factorization, the ratio of the Siegert discrepancy at two baselines
-$\mathcal{S}(\tau; B_1)/\mathcal{S}(\tau; B_2)$ equals
-$[\Phi_{\rm eff}(B_1)-1]/[\Phi_{\rm eff}(B_2)-1]$ and is independent of
-both lag $\tau$ and source redshift $D$ --- a sharp, parameter-free
-prediction. Any observed $\tau$- or $D$-dependence of this ratio would
-falsify the factorization ansatz and point to a non-factorizing foam model
-such as the pixellon model of Lee, Zurek \& Chen~\cite{LeeZurekChen2024}.
-Single-aperture HBT accesses only the temporal projection at a fixed
-effective baseline set by the source angular extent; a multi-element array
-such as VERITAS~\cite{Abeysekara2020,Acharyya2024} or a future km-scale
-intensity interferometer would, for the first time, probe the joint
-spatiotemporal structure of spacetime foam.
+This analysis has focused on single-telescope observations, constraining foam models through the temporal statistics
+of intensity fluctuations. However, intensity interferometry with spatially separated telescopes on different baselines
+offers a complementary and more powerful probe. Cross-correlations between distant detectors encode both the
+temporal and spatial structure of spacetime foam, providing sensitivity to foam models whose fluctuations are not
+separable into independent temporal and spatial components. Such multi-baseline measurements would break degen-
+eracies inherent in single-telescope data and reveal the fundamental spacetime correlations underlying foam-induced
+decoherence.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
