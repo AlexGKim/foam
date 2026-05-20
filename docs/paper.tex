@@ -122,7 +122,12 @@ unaffected. A change in $g^{(2)}$ requires the two photons to experience
 \emph{different} foam: either they follow the same path but are separated in time by
 more than the foam coherence time $\tau_{\rm foam}$, so the foam has changed between
 their passages, or they travel different paths through spatially distinct foam
-regions. This is why $g^{(2)}$ probes foam temporal dynamics and transverse spatial
+regions. 
+Photons emitted at the same time (zero-lag) from the same sky position
+have their relative timing unchanged while photons from different sky positions
+can have their relative timing changed, an effect not captured by first-order
+coherence that leads to Siegert violation.
+This is why $g^{(2)}$ probes foam temporal dynamics and transverse spatial
 coherence in ways that $g^{(1)}$ cannot.
 
 Next-generation sensitivity is achievable via two complementary paths:
@@ -130,8 +135,7 @@ large-aperture single telescopes measuring the HBT effect, and multi-telescope
 intensity interferometer arrays such as
 VERITAS~\cite{Abeysekara2020,Acharyya2024} --- both increase collecting area
 and improve signal-to-noise for nearby resolved sources, while the temporal
-$g^{(1)}$ channel is accessible to high-resolution spectroscopy of distant
-quasars.
+$g^{(1)}$ channel is accessible to high-resolution spectroscopy.
 Should signals be detected in both point-like and extended sources, their combination would jointly probe $\{\alpha, r_\perp\}$ and provide a cross-check against common instrumental systematics.
 
 The remainder of the paper is organized as follows.
@@ -198,9 +202,8 @@ $\alpha$ parametrizes the foam model
 ($\alpha=1$: conservative; $\alpha=2/3$: holographic; $\alpha=1/2$: random walk),
 $\ell_{\rm P} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m is the Planck length,
 and $A_\alpha$ is a dimensionless coefficient of order unity.
-
-Equation~\eqref{eq:NgPerlmanVar} has a simple physical interpretation:
-a photon traveling from a source at distance $D$ passes through approximately
+Equation~\eqref{eq:NgPerlmanVar} describes
+a photon traveling from a source at distance $D$ that passes through approximately
 $N \sim D/\ell_{\rm P}$ independent Planck-scale spacetime cells, each imparting a
 tiny random displacement to the photon path. The exponent $\alpha$ controls how the
 per-cell displacements accumulate: for random-walk foam ($\alpha=1/2$), contributions
@@ -209,7 +212,6 @@ holographic foam ($\alpha=2/3$) grows more slowly, constrained by an area-law bo
 on the number of independent degrees of freedom per Planck area; and conservative
 foam ($\alpha=1$) yields a distance-independent $\sigma_\ell \propto \ell_{\rm P}$,
 corresponding to perfectly correlated cell contributions.
-Quantitative estimates for each case are given in Section~\ref{sec:scales}.
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
