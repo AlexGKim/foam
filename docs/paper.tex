@@ -28,12 +28,12 @@ Quantum gravity predicts that spacetime fluctuates stochastically at the Planck
 scale --- a ``foam'' that imprints a tiny achromatic arrival-time jitter on light
 from distant sources.
 We show that this jitter affects first- and second-order temporal coherence,
-$g^{(1)}$ and $g^{(2)}$, differently, breaking the Siegert relation
-$g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that holds for all Gaussian chaotic sources
-when the foam fluctuates on timescales shorter than the optical coherence time.
+$g^{(1)}$ and $g^{(2)}$, differently, producing a violation of the Siegert relation
+$g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that otherwise holds for all Gaussian chaotic
+sources, when the foam fluctuates on timescales shorter than the optical coherence time.
 For extended sources, cross-ray jitter additionally suppresses the zero-lag
-bunching peak $g^{(2)}(0)<2$ through a mechanism that depends only on
-the accumulated path-length variance, independent of foam dynamics.
+bunching peak, leading to $g^{(2)}(0)<2$, through a mechanism that depends only on
+the accumulated path-length variance, independent of the temporal dynamics of the foam.
 Strongly lensed sources --- whether persistent or transient --- combine
 cosmological path length for maximum foam-variance accumulation with
 magnification-boosted photon rates, and represent the highest-priority
@@ -69,8 +69,6 @@ $\sigma_\ell^2(D) \propto D^{2(1-\alpha)}\ell_{\rm P}^{2\alpha}$;
 three benchmark values $\alpha = 1$ (conservative), $2/3$ (holographic),
 $1/2$ (random-walk) are conventional and are defined fully in
 Section~\ref{sec:model}.
-The power-law form follows from a dimensional argument: a photon traversing distance $D$ samples $\sim D/\ell_{\rm P}$ independent Planck-scale cells, and the three benchmark exponents correspond to distinct assumptions about how cell contributions accumulate --- random-walk ($\alpha=1/2$), holographic ($\alpha=2/3$, reflecting an area-law bound on independent degrees of freedom), and conservative ($\alpha=1$, a distance-independent floor).
-
 Two complementary channels have been used to test foam models.
 The imaging channel exploits the stochastic aperture phase
 $\sigma_\phi = 2\pi\sigma_\ell/\lambda$, which degrades the PSF by
@@ -115,6 +113,18 @@ For spatially resolved sources, transverse foam coherence produces an
 additional, geometrically distinct effect: a suppression of the zero-lag
 HBT bunching peak that depends on the source size and 
 transverse foam coherence length $r_\perp$.
+
+Intuitively, $g^{(1)}$ measures the phase modulation of the electric field by the
+foam. The second-order coherence $g^{(2)}$ measures the
+differential arrival-time jitter between two photons. If both photons traverse
+identical foam fluctuations, their relative timing is unchanged and $g^{(2)}$ is
+unaffected. A change in $g^{(2)}$ requires the two photons to experience
+\emph{different} foam: either they follow the same path but are separated in time by
+more than the foam coherence time $\tau_{\rm foam}$, so the foam has changed between
+their passages, or they travel different paths through spatially distinct foam
+regions. This is why $g^{(2)}$ probes foam temporal dynamics and transverse spatial
+coherence in ways that $g^{(1)}$ cannot.
+
 Next-generation sensitivity is achievable via two complementary paths:
 large-aperture single telescopes measuring the HBT effect, and multi-telescope
 intensity interferometer arrays such as
@@ -183,11 +193,23 @@ constraints), the single-ray path-length variance obeys the power-law scaling
   \sigma_\ell^2(D) = A_\alpha\,D^{2(1-\alpha)}\,\ell_{\rm P}^{2\alpha},
   \label{eq:NgPerlmanVar}
 \end{equation}
-where
+where $D$ is the proper distance to the source,
 $\alpha$ parametrizes the foam model
 ($\alpha=1$: conservative; $\alpha=2/3$: holographic; $\alpha=1/2$: random walk),
 $\ell_{\rm P} = \sqrt{\hbar G/c^3} \simeq 1.616\times10^{-35}$~m is the Planck length,
 and $A_\alpha$ is a dimensionless coefficient of order unity.
+
+Equation~\eqref{eq:NgPerlmanVar} has a simple physical interpretation:
+a photon traveling from a source at distance $D$ passes through approximately
+$N \sim D/\ell_{\rm P}$ independent Planck-scale spacetime cells, each imparting a
+tiny random displacement to the photon path. The exponent $\alpha$ controls how the
+per-cell displacements accumulate: for random-walk foam ($\alpha=1/2$), contributions
+add in quadrature like steps in a random walk ($\sigma_\ell \propto \sqrt{D\ell_{\rm P}}$);
+holographic foam ($\alpha=2/3$) grows more slowly, constrained by an area-law bound
+on the number of independent degrees of freedom per Planck area; and conservative
+foam ($\alpha=1$) yields a distance-independent $\sigma_\ell \propto \ell_{\rm P}$,
+corresponding to perfectly correlated cell contributions.
+Quantitative estimates for each case are given in Section~\ref{sec:scales}.
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
@@ -554,40 +576,36 @@ evaluated.
 
 The fringe visibility and Strehl ratio are spatial-coherence observables
 --- they probe phase variations across an aperture or between two
-separated telescopes --- while $g^{(1)}_{\rm obs}(\tau)$ derived above
-describes temporal coherence along a single line of sight. Both are
-governed by the same foam suppression factor $\mathcal{F}_{\rm foam}$ of
-Eq.~\eqref{eq:Ffoam} because the underlying phase variance
+separated telescopes, described by $g^{(1)}_{\rm obs}(B)$ --- while
+$g^{(1)}_{\rm obs}(\tau)$ derived above describes temporal coherence
+along a single line of sight. The mathematics of the temporal case maps
+exactly to the spatial case with baseline $B$ replacing lag $\tau$. Both
+are governed by the same foam suppression factor $\mathcal{F}_{\rm foam}$
+of Eq.~\eqref{eq:Ffoam} because the underlying phase variance
 $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ is common to the temporal
-and spatial projections of the full coherence function; this unifies the
-published constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,Ragazzoni2003}
-within a single framework. The failure modes are complements: where the
-temporal $g^{(1)}$ fails (quasi-static foam, $C_\alpha \approx 1$), the
-spatial probes succeed; where the spatial probes fail (transversely
-coherent foam, $r_\perp \gg D_{\rm tel}$), the temporal $g^{(1)}$
-succeeds, with no assumption on $r_\perp$ relative to the aperture.
+and spatial projections of the full coherence function.
 
-The fringe visibility measured in a stellar interferometer at time delay
-$\tau$ is $V(\tau) = |g^{(1)}_{\rm obs}(\tau)|$. From
-Eq.~\eqref{eq:g1narrowband},
+The fringe visibility at baseline $B$ is
 \begin{equation}
-  V(\tau) = V_{\rm src}(\tau)\cdot\mathcal{F}_{\rm foam}(\tau),
+  V(B) = V_{\rm src}(B)\cdot e^{-\sigma_\phi^2},
   \label{eq:visibility}
 \end{equation}
-where $V_{\rm src}(\tau) = |g^{(1)}_{\rm src}(\tau)|$. Lieu \&
+where $V_{\rm src}(B) = |g^{(1)}_{\rm src}|$ evaluated at the angular
+scale $\lambda/B$, and the foam suppression $e^{-\sigma_\phi^2}$ is a
+baseline-independent multiplicative factor. Lieu \&
 Hillman~\cite{LieuHillman2003} argue that fringes are erased when the
 accumulated phase randomizes over $[0,2\pi)$, i.e.\
-$\sigma_\phi \gtrsim 1$ --- the limit $\mathcal{F}_{\rm foam} \to 0$.
+$\sigma_\phi \gtrsim 1$ --- the limit $e^{-\sigma_\phi^2} \to 0$.
 Their condition $\Delta\phi \geq 2\pi$ with
 $\Delta\phi \simeq 2\pi\sigma_\ell(D)/\lambda$~\cite{NgPerlman2022} is
-precisely $\sigma_\phi \geq 1$; our result extends this binary criterion
-to a continuous suppression curve $V(\tau)$ whose shape encodes the
-temporal decorrelation $C_\alpha(\tau;D)$.
+precisely $\sigma_\phi \geq 1$; the temporal channel $g^{(1)}_{\rm obs}(\tau)$
+extends this binary criterion to a continuous $\tau$-dependent suppression whose
+shape encodes the temporal decorrelation $C_\alpha(\tau;D)$.
 
-The Strehl ratio similarly equals $\mathcal{F}_{\rm foam}(\tau\to\infty)
-= e^{-\sigma_\phi^2}$ in the dynamical limit $C_\alpha(\infty;D)\to 0$
-and when $r_\perp \ll D_{\rm tel}$ so that aperture-plane phases are
-independent draws from the single-ray distribution.\footnote{%
+The Strehl ratio similarly equals $e^{-\sigma_\phi^2}$ in the dynamical
+limit $C_\alpha(\infty;D)\to 0$ and when $r_\perp \ll D_{\rm tel}$ so
+that aperture-plane phases are independent draws from the single-ray
+distribution.\footnote{%
   The Mar\'{e}chal formula $S = e^{-\sigma_\phi^2}$ (valid for
   $\sigma_\phi \lesssim 1$) and the temporal result
   $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2}$ are linked by a
@@ -618,6 +636,19 @@ Because the intensity $|E_{\rm obs}|^2$ is blind to the carrier phase
 $e^{i\omega_0\delta t}$, foam leaves $g^{(2)}$ nearly unchanged in the narrow-band
 limit while strongly suppressing $g^{(1)}$ --- the asymmetry that produces the
 Siegert violation developed in Section~\ref{sec:siegert}.
+
+The same argument makes $g^{(2)}$ practically immune to atmospheric seeing under
+current observing conditions, in contrast to $g^{(1)}$. Atmospheric turbulence
+introduces path-length changes of order $\Delta\ell_{\rm atm} \sim 0.1$--$1\,\rm mm$,
+far exceeding the optical wavelength; this randomizes the carrier phase and
+destroys fringe visibility without adaptive optics. However, $g^{(2)}$ is blind
+to this carrier-phase modulation, and the atmospheric coherence time
+$\tau_0 \sim 1\,\rm ms$ far exceeds the HBT correlation window $\tau_L \sim \rm ns$,
+so both photons in a coincidence traverse a frozen atmosphere and the differential
+atmospheric jitter is negligible. This advantage narrows as detector timing
+resolution approaches the atmospheric timing jitter
+$\Delta\ell_{\rm atm}/c \sim 1$--$3\,\rm ps$; sub-ps detectors will require
+atmospheric monitoring or site-selection to control this systematic.
 
 By the same argument as Eq.~\eqref{eq:g1obs} in Section~\ref{sec:g1}:
 conditioned on the jitter realization, the intrinsic Siegert relation gives
@@ -650,7 +681,7 @@ For $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$
 $\delta t_{\rm rms}/\tau_c \approx 0.28$, so corrections are at the ${\sim}8\%$
 level and the exact convolution Eq.~\eqref{eq:g2obs} should be used for precision
 work.
-For $\alpha=2/3$ the expansion parameter is $\sim 10^{-11}$ and
+For $\alpha=2/3$ the expansion parameter $\sigma_\ell/(c\tau_c)$ is $\sim 10^{-11}$ and
 Eq.~\eqref{eq:g2unchanged} is exact to any practical precision.
 
 By contrast, $g^{(1)}$ \emph{is} sensitive to the carrier phase because
