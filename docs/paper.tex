@@ -773,6 +773,31 @@ dynamical limit $C_\alpha\to 0$, Eq.~\eqref{eq:Sexplicit} reduces to
   \label{eq:Stc}
 \end{equation}
 the detection observable at lag $\tau_L$ (saturating at $e^{-2}\approx 0.135$ for $\sigma_\phi\gg 1$).
+
+The evaluation lag $\tau=\tau_L$ in Eq.~\eqref{eq:Stc} is representative but
+not optimal: $\mathcal{S}(\tau)$ peaks at a smaller lag set by the competition
+between the source-coherence falloff $e^{-2\tau/\tau_L}$ and the foam-induced
+rise $1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau)]}$. Differentiating
+Eq.~\eqref{eq:Sexplicit} for a Lorentzian source yields the implicit condition
+\begin{equation}
+  -\sigma_\phi^2\,C_\alpha'(\tau_{\max})\,e^{-2\sigma_\phi^2[1-C_\alpha(\tau_{\max})]}
+  = \frac{1}{\tau_L}\left(1-e^{-2\sigma_\phi^2[1-C_\alpha(\tau_{\max})]}\right).
+  \label{eq:taumax_general}
+\end{equation}
+In the weak-jitter limit ($\sigma_\phi^2\ll 1$) this reduces to the
+$\sigma_\phi$-independent statement $-C_\alpha'(\tau_{\max})/[1-C_\alpha(\tau_{\max})]=2/\tau_L$.
+For the canonical exponential decorrelation $C_\alpha(\tau)=e^{-\tau/\tau_{\rm foam}}$,
+\begin{equation}
+  \tau_{\max} = \tau_{\rm foam}\,\ln\!\left(1+\frac{\tau_L}{2\tau_{\rm foam}}\right),
+  \label{eq:taumax_exp}
+\end{equation}
+which interpolates between $\tau_{\max}\approx \tau_{\rm foam}\ln[\tau_L/(2\tau_{\rm foam})]$
+for fast foam ($\tau_{\rm foam}\ll\tau_L$) and $\tau_{\max}\to\tau_L/2$ for slow
+foam ($\tau_{\rm foam}\gg\tau_L$). In the strong-jitter / dynamical-foam
+limit ($\sigma_\phi^2\gg 1$, $C_\alpha\to 0$ above $\tau_{\rm foam}$),
+$\mathcal{S}(\tau)\to e^{-2\tau/\tau_L}$ is monotonically decreasing and the
+peak migrates to $\tau\to\tau_{\rm foam}^+$, where $\mathcal{S}_{\max}\to 1$
+when $\tau_{\rm foam}\ll\tau_L$.
 % ==============================================================
 \section{Extended Sources: Transverse Foam Coherence}
 \label{sec:extended}
