@@ -31,9 +31,11 @@ We show that this jitter affects first- and second-order temporal coherence,
 $g^{(1)}$ and $g^{(2)}$, differently, producing a violation of the Siegert relation
 $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$ that otherwise holds for all Gaussian chaotic
 sources, when the foam fluctuates on timescales shorter than the optical coherence time.
-For extended sources, cross-ray jitter additionally suppresses the zero-lag
-bunching peak, leading to $g^{(2)}(0)<2$, through a mechanism that depends only on
-the accumulated path-length variance, independent of the temporal dynamics of the foam.
+For an extended source the Siegert discrepancy is attenuated by an
+angular-size factor $\Phi_{\rm eff}(r_\perp)\in[0,1]$, so the
+point-source signal is the upper bound; the angular-size dependence
+itself provides a differential probe of the foam transverse coherence
+length $r_\perp$.
 Strongly lensed sources --- whether persistent or transient --- combine
 cosmological path length for maximum foam-variance accumulation with
 magnification-boosted photon rates, and represent the highest-priority
@@ -83,17 +85,17 @@ $\sigma_\ell \propto \ell_{\rm P}$, corresponding to perfectly correlated cell
 contributions.
 
 The primary observational probe of stochastic foam to date has been the imaging
-channel: the stochastic aperture phase $\sigma_\phi = 2\pi\sigma_\ell/\lambda$
-degrades the PSF by $S \approx \exp(-\sigma_\phi^2)$, and detections of near-diffraction-limited
-AGN images with HST and ground-based telescopes exclude $\alpha \lesssim 2/3$
-for $D \sim 1$--$10$~Gpc under the assumption of short-range transverse foam
-correlations~\cite{LieuHillman2003,Ragazzoni2003,Christiansen2011,Perlman2015};
-models with long-range correlations evade this
+channel. Spacetime foam accumulates a cumulative phase dispersion
+$\Delta\phi \simeq 2\pi\ell^{1-\alpha}\ell_{\rm P}^{\alpha}/\lambda$ across the
+entrance aperture, degrading PSF sharpness and erasing interference fringes once
+$\Delta\phi \gtrsim 2\pi$~\cite{LieuHillman2003}.
+For PKS\,1413$+$135 ($\ell = 1.216$~Gpc) observed with HST at $\lambda=1.6\,\mu$m,
+the random-walk model ($\alpha=1/2$) predicts $\Delta\phi \sim 10\times 2\pi$,
+so the detection of Airy rings in this image marginally rules out that model;
+the holographic model ($\alpha=2/3$) predicts $\Delta\phi \sim 10^{-9}\times 2\pi$
+and is obviously not ruled out~\cite{NgPerlman2022,Christiansen2011,Perlman2015}.
+Models with long-range transverse correlations evade even the random-walk
 bound~\cite{LeeZurekChen2024}.
-The test also saturates once fringes are fully erased.
-A foam model below the imaging threshold --- or one with long-range transverse
-correlations --- is invisible to this probe, leaving the holographic case
-$\alpha = 2/3$ unconstrained.
 
 We develop a framework based on the first- and second-order coherence
 functions $g^{(1)}(\tau)$ and $g^{(2)}(\tau)$ of light from astrophysical
@@ -113,11 +115,26 @@ $g^{(2)}(\tau) - 1 = |g^{(1)}(\tau)|^2$~\cite{Siegert1943} in a foam-specific
 way, providing a discriminant that does not require the intrinsic source
 visibility to be modeled.
 The finite-lag Siegert violation requires the foam to fluctuate on timescales
-shorter than the optical coherence time.
-For spatially resolved sources, transverse foam coherence additionally
-suppresses the zero-lag HBT bunching peak below~2 --- a geometrically distinct
-effect that depends on the source angular size and the transverse foam
-coherence length $r_\perp$, with no requirement on the foam's temporal dynamics.
+shorter than the optical coherence time; in the quasi-static limit
+$\tau_{\rm foam}\to\infty$ the signal vanishes.  For an extended source the
+Siegert discrepancy is further attenuated by an angular-size factor
+$\Phi_{\rm eff}(r_\perp)\in[0,1]$, with the point-source limit
+($\Phi_{\rm eff}=1$) saturating the upper bound; the source-size
+dependence is itself a discriminant for the foam transverse coherence
+length $r_\perp$.
+
+Intuitively, $g^{(1)}$ measures the phase modulation of the electric field by the
+foam. The second-order coherence $g^{(2)}$ measures the
+differential arrival-time jitter between two photons. If both photons traverse
+identical foam fluctuations, their relative timing is unchanged and $g^{(2)}$ is
+unaffected. A change in $g^{(2)}$ requires the two photons to experience
+\emph{different} foam: typically they follow the same path but are separated
+in time by more than the foam coherence time $\tau_{\rm foam}$, so the foam
+has changed between their passages.  This temporal mechanism drives the
+finite-lag Siegert violation; at zero lag two photons from the same sky
+position experience identical foam (their relative timing is unchanged),
+and the single-mode bunching identity $g^{(2)}(0) = 2$ is preserved
+exactly even for extended sources (Section~\ref{sec:extended}).
 
 The framework draws on a well-established phenomenology of phase screens
 acting on chaotic light. For a thermal point source viewed through a
@@ -130,41 +147,25 @@ within the detection timing window imprints additional intensity
 correlations on $g^{(2)}(\tau)$, the principle exploited in
 Martienssen \& Spiller's pseudo-thermal light source~\cite{MartienssenSpiller1964}
 and a recurring theme in HBT-through-turbulence
-studies~\cite{Goodman2007,MandelWolf1995}. For an extended thermal source
-viewed through a transverse phase screen across its angular extent, the
-zero-lag bunching peak is diluted below 2 according to
-$g^{(2)}(0) = 1 + 1/M$, where $M$ counts the spatial coherence modes
-admitted by the screen --- the speckle-dilution formula of statistical
-optics~\cite{Goodman2007,MandelWolf1995}. Planck-scale foam acts as a
-phase screen distributed along the entire line of sight: its temporal
-dynamics determine whether $g^{(2)}$ acquires the dynamic-screen
-signature on point sources, and its transverse coherence sets the
-effective mode count for extended sources. The present work extends
-these three laboratory phenomena --- static-screen survival, dynamic-screen
-imprint, and mode dilution --- to cosmological propagation through
-spacetime foam.
-
-Intuitively, $g^{(1)}$ measures the phase modulation of the electric field by the
-foam. The second-order coherence $g^{(2)}$ measures the
-differential arrival-time jitter between two photons. If both photons traverse
-identical foam fluctuations, their relative timing is unchanged and $g^{(2)}$ is
-unaffected. A change in $g^{(2)}$ requires the two photons to experience
-\emph{different} foam: either they follow the same path but are separated in time by
-more than the foam coherence time $\tau_{\rm foam}$, so the foam has changed between
-their passages, or they travel different paths through spatially distinct foam
-regions. 
-Photons emitted at the same time (zero-lag) from the same sky position
-have their relative timing unchanged while photons from different sky positions
-can have their relative timing changed, an effect not captured by first-order
-coherence that leads to Siegert violation.
+studies~\cite{Goodman2007,MandelWolf1995}. Planck-scale foam acts as a
+dynamic phase screen distributed along the entire line of sight: when
+$\tau_{\rm foam}\lesssim\tau_L$ it produces a finite-lag Siegert
+discrepancy on point-like targets, attenuated by $\Phi_{\rm eff}$ for
+sources whose angular extent resolves the foam transverse coherence
+scale $r_\perp$.  The present work extends these laboratory phenomena
+--- static-screen survival and dynamic-screen imprint --- to
+cosmological propagation through spacetime foam.
 
 Next-generation sensitivity is achievable via two complementary paths:
 large-aperture single telescopes measuring the HBT effect, and multi-telescope
 intensity interferometer arrays such as
 VERITAS~\cite{Abeysekara2020,Acharyya2024} --- both increase collecting area
-and improve signal-to-noise for nearby resolved sources, while the temporal
+and improve signal-to-noise for nearby sources, while the temporal
 $g^{(1)}$ channel is accessible to high-resolution spectroscopy.
-Should signals be detected in both point-like and extended sources, their combination would jointly probe $\{\alpha, r_\perp\}$ and provide a cross-check against common instrumental systematics.
+A detection campaign across targets of varying angular size would
+jointly probe $\{\alpha, r_\perp\}$ through the angular-size dependence
+of the Siegert discrepancy, providing a cross-check against common
+instrumental systematics.
 
 The remainder of the paper is organized as follows.
 Section~\ref{sec:model} develops the model: the spatiotemporal covariance of
@@ -176,17 +177,21 @@ line profiles; second-order coherence and its narrow-band insensitivity to
 carrier phase; the resulting Siegert violation and its canonical detection
 observable; and the connection to the published Strehl and fringe-visibility
 tests.
-Section~\ref{sec:extended} extends the analysis to spatially resolved sources,
-derives the suppression of the zero-lag HBT bunching peak, and identifies
-distance scaling and achromaticity as discriminants against conventional
-propagation phase screens.
+Section~\ref{sec:extended} extends the analysis to spatially resolved
+sources, derives the angular-size suppression of the Siegert discrepancy
+by $\Phi_{\rm eff}$, shows that no foam-induced zero-lag bunching
+suppression arises in this model, and identifies distance scaling and
+achromaticity as discriminants against conventional propagation phase
+screens.
 Section~\ref{sec:prospects} assesses detectability via single-aperture HBT
-measurements, derives aperture and signal-to-noise scaling for both
-detection channels, and surveys candidate astrophysical targets.
+measurements, derives aperture and signal-to-noise scaling, and surveys
+candidate astrophysical targets.
 Section~\ref{sec:conclusions} summarizes the main results.
+The corrected $g^{(2)}_{\rm obs}$ derivation underlying §\ref{sec:extended}
+is given in Appendix~\ref{app:g2ext}.
 
 % ==============================================================
-\section{Model}
+\section{Spacetime Foam Model}
 \label{sec:model}
 % ==============================================================
 
@@ -218,11 +223,12 @@ propagation effects.
 \subsection{Spatial and Temporal Fluctuations of Spacetime Foam}
 \label{sec:Calpha_origin}
 
-The single-ray path-length variance $\sigma_\ell^2(D)$
-(Eq.~\eqref{eq:NgPerlmanVar}) is defined in the introduction;
-here we extend the model to describe the spatiotemporal covariance of
-the foam fluctuation field (see also Ref.~\cite{Carlip2023} for a review
-of foam models and observational constraints).
+The scalar variance $\sigma_\ell^2(D)$ (Eq.~\eqref{eq:NgPerlmanVar})
+characterizes the amplitude of foam-induced path-length fluctuations along
+a single ray; here we describe how those fluctuations are correlated across
+ray pairs (spatial coherence) and across time (temporal decorrelation),
+both of which enter the HBT observables (see also Ref.~\cite{Carlip2023}
+for a review of foam models and observational constraints).
 
 Because foam is a property of spacetime rather than of any preferred direction,
 the same dimensional logic that governs longitudinal path-length fluctuations
@@ -243,7 +249,8 @@ the transverse correlation structure involves long-range angular correlations
 a simple $\Phi(b/r_\perp)$ ansatz, but whose long-range character strongly
 suppresses image blurring relative to the uncorrelated case.
 In the present framework $\Phi$ is treated as a free function; a foam
-signal would manifest as an angular-size dependence of $\delta g^{(2)}$
+signal would manifest as an angular-size dependence of
+$\mathcal{S}(\tau)$ through the suppression factor $\Phi_{\rm eff}$
 (Section~\ref{sec:extended}).
 
 Turning to the temporal evolution of spacetime foam --- an aspect not specified by Eq.~\eqref{eq:NgPerlmanVar} --- quantum foam models posit that each Planck-scale cell along the line of sight fluctuates in time.
@@ -269,12 +276,9 @@ $[1-C_\alpha(\tau)] \to 0$ (Eq.~\eqref{eq:Sexplicit}), and the
 single-ray $g^{(1)}_{\rm obs}$ recovers its intrinsic value because the
 foam suppression factor
 $\mathcal{F}_{\rm foam} = e^{-\sigma_\phi^2[1-C_\alpha]} \to 1$
-(Eq.~\eqref{eq:Ffoam}). The extended-source zero-lag bunching suppression
-$\delta g^{(2)}(0)$ is the one exception: it depends only on the
-single-ray variance $\sigma_\ell^2(D)$ through $\sigma_0^2$
-(Eq.~\eqref{eq:sigma0}) and is therefore independent of $C_\alpha$,
-remaining active even in the quasi-static limit. The two observables
-thus probe complementary aspects of the foam temporal dynamics.
+(Eq.~\eqref{eq:Ffoam}).  In this quasi-static limit the HBT framework
+loses sensitivity altogether and the foam manifests only through the
+imaging-channel $g^{(1)}$ suppression on time-averaged exposures.
 The full spatiotemporal covariance between two rays separated by transverse
 distance $b$ takes the factorized form
 \begin{equation}
@@ -317,18 +321,19 @@ the framework here applies to that model only as a heuristic
 approximation in the regime where transverse correlations have
 decoupled.
 
-Observationally, factorization predicts that the ratio
-$[g^{(2)}_{\rm obs}(\tau)-1]_{\rm extended}/[g^{(2)}_{\rm obs}(\tau)-1]_{\rm point}$
-equals $\Phi_{\rm eff}$ (Section~\ref{sec:extended}) and is independent of both $\tau$ and $D$; any
-dependence of this ratio on lag or source redshift would falsify the
-factorization ansatz and indicate that a non-factorizing model
-(e.g.\ pixellon) is required.
-The two principal observables developed below --- the Siegert
-discrepancy $\mathcal{S}(\tau)$ and the zero-lag bunching suppression
-$\delta g^{(2)}$ --- both descend from the single scaling relation
-Eq.~\eqref{eq:NgPerlmanVar}, with Sections~\ref{sec:g1}--\ref{sec:siegert}
-probing its longitudinal projection and Section~\ref{sec:extended} its transverse
-projection.
+Observationally, factorization predicts that the extended-source Siegert
+discrepancy is suppressed relative to its point-source value by the
+angular-size factor $\Phi_{\rm eff}(r_\perp)$:
+$\mathcal{S}_{\rm ext}(\tau) \approx \Phi_{\rm eff}\,\mathcal{S}_{\rm pt}(\tau)$
+in the weak-foam regime (Section~\ref{sec:extended}), independent of both
+$\tau$ and $D$.  A dependence of this ratio on lag or source redshift
+would falsify the factorization ansatz and indicate that a non-factorizing
+model (e.g.\ pixellon) is required.
+The single observable developed below --- the Siegert discrepancy
+$\mathcal{S}(\tau)$ --- descends from Eq.~\eqref{eq:NgPerlmanVar}, with
+Sections~\ref{sec:g1}--\ref{sec:siegert} probing its longitudinal
+projection (single-ray temporal jitter) and Section~\ref{sec:extended}
+its transverse projection (cross-ray $\Phi_{\rm eff}$ suppression).
 
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
@@ -565,10 +570,6 @@ $\sigma_\phi^2 = (2\pi/\lambda_{\rm obs})^2 \int_0^{D_{\rm C}}
 (1+z)\,(d\sigma_\ell^2/ds)\,dr_{\rm C}$.
 For $z \ll 1$ both forms reduce to the flat-space limit
 $\sigma_\phi = 2\pi\sqrt{A_\alpha}\,D^{1-\alpha}\,\ell_{\rm P}^\alpha/\lambda$.
-The extended-source observable inherits the same cosmological correction
-via the observed-frame single-ray time-delay rms
-$\sigma_{\tau,\rm obs}\equiv\sigma_\ell(D)\sqrt{1-\Phi_{\rm eff}}/c$,
-so $\sigma_0^2 = 2\sigma_{\tau,\rm obs}^2$ (Eq.~\eqref{eq:sigma0}).
 We write the foam suppression factor as
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau) \equiv e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
@@ -611,19 +612,21 @@ resolution approaches the atmospheric timing jitter
 $\Delta\ell_{\rm atm}/c \sim 1$--$3\,\rm ps$; sub-ps detectors will require
 atmospheric monitoring or site-selection to control this systematic.
 
-By the same argument as Eq.~\eqref{eq:g1obs} in Section~\ref{sec:g1}:
-conditioned on the jitter realization, the intrinsic Siegert relation gives
-$g^{(2)}_{\rm obs}(\tau\mid\delta t)-1 = g^{(2)}_{\rm src}(\tau-\Delta(\tau))-1$,
-and averaging over the Gaussian jitter distribution yields
+The Wick-contraction derivation of Appendix~\ref{app:g2ext}, specialized
+to a point source ($\Phi = 1$, $X = Y \equiv \Delta(\tau)$), yields
 \begin{equation}
   g^{(2)}_{\rm obs}(\tau) - 1
     = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
-      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta.
+      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,
   \label{eq:g2obs}
 \end{equation}
-The Gaussian kernel requires $\tau \gg \tau_{\rm foam}$; for
-$\tau \lesssim \tau_{\rm foam}$ Eq.~\eqref{eq:g2obs} should be regarded as
-approximate (Section~\ref{sec:Calpha_origin}).
+with $\sigma_\Delta^2(\tau) = (2\sigma_\ell^2(D)/c^2)[1-C_\alpha(\tau;D)]$
+the same single-ray differential variance that enters Eq.~\eqref{eq:g1obs}.
+The structure is the same as the $g^{(1)}$ result: a Gaussian jitter
+kernel convolves the intrinsic source coherence. The Gaussian kernel
+requires $\tau \gg \tau_{\rm foam}$; for $\tau \lesssim \tau_{\rm foam}$
+Eq.~\eqref{eq:g2obs} should be regarded as approximate
+(Section~\ref{sec:Calpha_origin}).
 
 The intensity $I_{\rm obs}(t)=|E_{\rm obs}(t)|^2$ is blind to the carrier phase
 $e^{i\omega_0\delta t(t)}$: only the envelope matters.
@@ -715,9 +718,14 @@ These two scales are related by
 \end{equation}
 using $\omega_0\tau_c = \lambda/\Delta\lambda$.
 The factor $\Delta\lambda/\lambda \ll 1$ means that even when $\sigma_\phi \gg 1$
-(fringes erased), $\sigma_\Delta(\tau)/\tau_c$ can be small — so $g^{(2)}$ remains
-near its intrinsic value while $g^{(1)}$ is suppressed.
-This decoupling is the physical root of the Siegert violation.
+(fringes erased), $\sigma_\Delta(\tau)/\tau_c$ can be small --- so for a
+\emph{point source} $g^{(2)}$ remains near its intrinsic value while
+$g^{(1)}$ is suppressed.  This decoupling is the physical root of the
+Siegert violation.  For an extended source the decoupling is incomplete:
+at finite lag $g^{(2)}_{\rm obs}$ picks up the carrier-phase scale
+$\sigma_\phi$ through the cross-direction factor $\mathcal{F}_{\rm cross}$
+of Eq.~\eqref{eq:Fcross}, attenuating the Siegert discrepancy by the
+angular-size factor $\Phi_{\rm eff}$ (Section~\ref{sec:extended}).
 At the fiducial parameters $D=1$~Gpc, $\lambda=500$~nm,
 $\Delta\lambda/\lambda=10^{-3}$, $A_\alpha=1$, and the dynamical limit
 $C_\alpha\to 0$, the random-walk model $\alpha=1/2$ gives
@@ -861,17 +869,23 @@ constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,Rag
 are unified within this framework.
 
 % ==============================================================
-\section{Extended Sources: Transverse Foam Coherence and Zero-Lag Bunching}
+\section{Extended Sources: Finite-Lag Suppression of the Siegert Discrepancy}
 \label{sec:extended}
 % ==============================================================
 
 We now generalize from a point source to an extended incoherent source.
-The first-order coherence $g^{(1)}_{\rm obs}$ turns out to be unchanged from the
-point-source result, because $g^{(1)}$ probes only single-ray statistics.
-The second-order coherence $g^{(2)}_{\rm obs}$, however, acquires new structure
-through cross-ray differential jitter between rays arriving from different sky
-directions, producing a suppression of the zero-lag bunching peak that directly
-probes the transverse foam coherence length $r_\perp$.
+Three results emerge: (i) the first-order coherence $g^{(1)}_{\rm obs}$ is
+unchanged from the point-source case; (ii) the second-order coherence at
+zero lag is exactly $g^{(2)}_{\rm obs}(0) = 2$ --- a single-mode detector
+observing chaotic light from an extended source develops no foam-induced
+suppression of the zero-lag bunching peak; and (iii) at finite lag the
+extended-source Siegert discrepancy is \emph{suppressed} relative to the
+point-source value by an angular-size factor $\Phi_{\rm eff} \in [0,1]$,
+so the point-source Siegert discrepancy is the maximum-signal upper bound
+for the foam signature in this framework.  The angular-size dependence is
+itself a discriminant for the foam transverse coherence length $r_\perp$
+across targets of varying angular size.  The full pedestrian derivation is
+given in Appendix~\ref{app:g2ext}; this section presents the key results.
 
 \subsection{Field Model and Spatiotemporal Covariance}
 
@@ -909,251 +923,185 @@ diagonal to contribute, and the angular integral over $I$ gives unity, so
 identical to Eq.~\eqref{eq:g1narrowband}. The transverse foam structure
 leaves no imprint on $g^{(1)}$.
 
-\subsection{Second-Order Coherence for an Extended Source}
-
-The unnormalized intensity correlator is
-$\langle I(t)I(t+\tau)\rangle = \langle E^*(t)E(t)E^*(t+\tau)E(t+\tau)\rangle$,
-where $E \equiv E_{\rm obs}$ is the field of Eq.~\eqref{eq:EobsExt}.
-Expanding the double angular integral and applying the Wick (moment) theorem
-to the four-point function of the zero-mean complex Gaussian field
-$E_{\boldsymbol{\theta}}$ produces two pairings (the $I^{1/2}$ weight factors
-enter the angular integral and are suppressed here for clarity):
-\begin{align}
-  &\langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}
-            E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_4}\rangle
-  =
-  \langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_2}\rangle
-  \langle E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_4}\rangle
-  +
-  \langle E^*_{\boldsymbol{\theta}_1}E_{\boldsymbol{\theta}_4}\rangle
-  \langle E^*_{\boldsymbol{\theta}_3}E_{\boldsymbol{\theta}_2}\rangle.
-  \label{eq:Wick}
-\end{align}
-The first pairing contributes $\langle I(t)\rangle\langle I(t+\tau)\rangle$
-(the disconnected term, which cancels when forming $g^{(2)}-1$).
-The second pairing gives the connected contribution.
-Because different source directions are spatially incoherent,
-$\langle E^*_{\boldsymbol{\theta}}(s)\,E_{\boldsymbol{\theta}'}(s')\rangle
-\propto \delta(\boldsymbol{\theta}-\boldsymbol{\theta}')$,
-so the connected pairing requires $\boldsymbol{\theta}_1=\boldsymbol{\theta}_4$
-and $\boldsymbol{\theta}_3=\boldsymbol{\theta}_2$.
-The four-fold angular integral therefore collapses to a double integral
-over ray pairs $(\boldsymbol{\theta},\boldsymbol{\theta}')$, each pair
-contributing its own jitter-convolved $g^{(2)}_{\rm src}$:
-\begin{equation}
-  g^{(2)}_{\rm obs}(\tau) - 1
-  = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-    I(\boldsymbol{\theta})I(\boldsymbol{\theta}')
-    \int_{-\infty}^{\infty}
-      \mathcal{N}\!\left(\Delta;0,\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right)\,
-      \big[g^{(2)}_{\rm src}(\tau-\Delta)-1\big]\,d\Delta,
-  \label{eq:g2obsExt}
-\end{equation}
-where $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$ is from
-Eq.~\eqref{eq:diffVarExt} (Section~\ref{sec:differential_jitter}).
-The key new feature relative to the point-source case is that for $b\gg r_\perp$,
-$\Phi\to 0$ and $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ at all lags, including
-$\tau=0$.
-In the limit $\Phi\equiv 1$ (all rays transversely coherent),
-every kernel reduces to the single-ray $\mathcal{N}(0,\sigma_\Delta^2(\tau))$ and
-Eq.~\eqref{eq:g2obsExt} reduces to the point-source result Eq.~\eqref{eq:g2obs}.
-
-\subsection{Effective Transverse Coherence Factor}
-\label{sec:PhiEff}
-
-To reduce Eq.~\eqref{eq:g2obsExt} to a tractable form, define the
-effective transverse coherence factor:
+It is convenient to define the effective transverse coherence factor
+weighting $\Phi(b/r_\perp)$ by the source brightness distribution:
 \begin{equation}
   \Phi_{\rm eff}
   \equiv \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
          I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
-         \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right).
+         \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
   \label{eq:PhiEff}
 \end{equation}
-This replaces the ray-dependent differential variance with a single effective
-variance:
-\begin{equation}
-  \sigma_{\tau,\rm eff}^2(\tau)
-  \equiv \frac{2\sigma_\ell^2(D)}{c^2}
-         \Big[1 - C_\alpha(\tau;D)\,\Phi_{\rm eff}\Big],
-  \label{eq:sigmaEff}
-\end{equation}
-and allows Eq.~\eqref{eq:g2obsExt} to be approximated by the simpler
-1D convolution of Eq.~\eqref{eq:g2obs} with $\sigma_\Delta^2$ replaced by
-$\sigma_{\tau,\rm eff}^2$.
-The two limits are:
-$\Phi_{\rm eff}\to 1$ (point-like source or $r_\perp\gg D\,\Delta\theta$)
-recovers the single-ray result; $\Phi_{\rm eff}\to 0$ (fully incoherent,
-$r_\perp\ll D\,\Delta\theta$) maximizes the effective variance.
-The approximation becomes exact in both limits.
-At intermediate angular sizes ($r_\perp \sim D\,\Delta\theta$), $\Phi(b/r_\perp)$
-varies across ray pairs and the $\Phi_{\rm eff}$ reduction introduces errors
-that have not been quantified here; they must be assessed jointly with the CLT
-breakdown of Section~\ref{sec:differential_jitter}, since both occur in the
-same regime $b\sim r_\perp$.
+with limits $\Phi_{\rm eff}\to 1$ (point-like source, or
+$r_\perp\gg D\,\Delta\theta$) and $\Phi_{\rm eff}\to 0$ (fully resolved,
+$r_\perp\ll D\,\Delta\theta$).
 
-\subsection{Extended-Source Siegert Discrepancy and Zero-Lag Bunching}
+\subsection{Second-Order Coherence: Connected Wick Pairing}
+\label{sec:g2ext}
+
+The unnormalized intensity correlator $\langle I(t)\,I(t+\tau)\rangle$ is a
+four-point function in $E_{\rm obs}$.  Conditioning on the realization of
+$\delta t$ and applying Wick's theorem to the independent zero-mean
+complex-Gaussian $E_{\boldsymbol{\theta}}$ produces two pairings; spatial
+incoherence then collapses the four-fold angular integral to a double
+integral over ray pairs.  The disconnected pairing
+($\boldsymbol{\theta}_1=\boldsymbol{\theta}_2$,
+$\boldsymbol{\theta}_3=\boldsymbol{\theta}_4$) contributes
+$\langle I(t)\rangle\langle I(t+\tau)\rangle$ and cancels in $g^{(2)}-1$.
+The connected pairing forces $\boldsymbol{\theta}_1=\boldsymbol{\theta}_4
+\equiv\boldsymbol{\theta}$ and $\boldsymbol{\theta}_3=\boldsymbol{\theta}_2
+\equiv\boldsymbol{\theta}'$, and yields two surviving two-point functions
+evaluated at retarded-time differences that depend on \emph{two
+same-direction jitter increments}:
+\begin{equation}
+  X \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}),
+  \qquad
+  Y \equiv \delta t(t+\tau;\boldsymbol{\theta}') - \delta t(t;\boldsymbol{\theta}').
+  \label{eq:XYdef}
+\end{equation}
+$X$ is the temporal jitter increment along direction $\boldsymbol{\theta}$;
+$Y$ is the analogous increment along direction $\boldsymbol{\theta}'$.
+Neither involves a cross-direction sample of $\delta t$; the transverse
+coherence enters only through their joint distribution.  Using
+$g^{(1)}_{\rm src}(-u) = g^{(1)*}_{\rm src}(u)$, the connected piece is
+\begin{equation}
+  g^{(2)}_{\rm obs}(\tau) - 1
+    = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
+      I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\;
+      \big\langle g^{(1)}_{\rm src}(\tau - X)\,
+                 g^{(1)*}_{\rm src}(\tau - Y)\big\rangle_{X,Y}.
+  \label{eq:g2ext_correct}
+\end{equation}
+The full Wick contraction is carried out in Appendix~\ref{app:g2ext}.
+
+$X$ and $Y$ are linear functionals of the Gaussian process $\delta t$,
+hence jointly Gaussian and zero-mean, with
+\begin{equation}
+  \operatorname{Var}(X) = \operatorname{Var}(Y)
+    = \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big], \qquad
+  \operatorname{Cov}(X,Y)
+    = \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big]\,
+       \Phi(b/r_\perp),
+  \label{eq:XYvar}
+\end{equation}
+so the correlation coefficient is $\rho = \Phi(b/r_\perp)$.
+
+Equation~\eqref{eq:g2ext_correct} is a 2D average over the joint
+distribution of $(X,Y)$, not a 1D convolution with a single jitter
+variable.  It collapses to a 1D convolution only at $\Phi = 1$ (point
+source, or $b\ll r_\perp$): there $X = Y$ almost surely,
+$g^{(1)}_{\rm src}(\tau-X)\,g^{(1)*}_{\rm src}(\tau-X) =
+|g^{(1)}_{\rm src}(\tau-X)|^2 = g^{(2)}_{\rm src}(\tau-X) - 1$, and the
+point-source formula Eq.~\eqref{eq:g2obs} is recovered with
+$\sigma_\Delta^2 = \operatorname{Var}(X) =
+(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau)]$.
+
+\subsection{Finite-Lag Suppression}
 \label{sec:zerolag}
 
-The qualitatively new physics is at $\tau=0$, where the cusp in
-$g^{(2)}_{\rm src}$ converts cross-ray differential jitter into a
-first-order (linear-in-$s$) foam signature absent in the point-source case.
-At finite lag, the cross-ray correction is $O((\sigma_{\rm eff}/\tau_c)^2)$
-in the narrow-band limit and $\mathcal{S}(\tau\neq 0)$ reduces to the
-point-source result Eq.~\eqref{eq:Sexplicit}.
-
-At $\tau=0$, $g^{(1)}_{\rm obs}(0)=1$ exactly by the spatial-incoherence argument of
-Section~\ref{sec:extended}, so $\mathcal{S}(0) = g^{(2)}_{\rm obs}(0) - 2$.
-Evaluating the zero-lag effective variance with $C_\alpha(0;D)=1$ gives
+\paragraph{Zero lag.}
+At $\tau=0$ each of the increments in Eq.~\eqref{eq:XYdef} is the
+difference of a random variable with itself: $X = 0$ and $Y = 0$
+\emph{identically}, for every realization of $\delta t$ and every
+$(\boldsymbol{\theta},\boldsymbol{\theta}')$ --- independent of $\Phi$,
+$C_\alpha$, $\sigma_\ell$, and $D$.  Equation~\eqref{eq:g2ext_correct}
+reduces to $\int\!\!\int I\,I'\,|g^{(1)}_{\rm src}(0)|^2 = 1$, so
 \begin{equation}
-  \sigma_0^2
-  \equiv \frac{2\sigma_\ell^2(D)}{c^2}(1-\Phi_{\rm eff}),
-  \label{eq:sigma0}
+  g^{(2)}_{\rm obs}(0) = 2 \qquad \text{exactly,}
+  \label{eq:g2zero_exact}
 \end{equation}
-which is strictly positive whenever $\Phi_{\rm eff}<1$, so the ray-pair mixture
-reduces to a single Gaussian kernel of width $\sigma_0$.
+and $\mathcal{S}(0) = g^{(2)}_{\rm obs}(0) - 2 = 0$ for any extended source
+in this model.  The conditional Gaussianity of $E_{\rm obs}(t)$ given
+$\delta t$ (see Appendix~\ref{app:g2ext}) preserves the single-mode
+bunching peak exactly; foam imprints itself on multi-time correlations
+but not on the single-time amplitude statistics.
 
-For a Lorentzian source, $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}$,
-so the Siegert relation gives $g^{(2)}_{\rm src}(\tau) - 1 = e^{-2|\tau|/\tau_L}$
-(a cusp at $\tau=0$ with e-folding width $\tau_L/2$).
-The zero-lag convolution over $\Delta \sim \mathcal{N}(0, \sigma_0^2)$
-then becomes, setting $s \equiv \sigma_0/\tau_L$ and splitting on the sign
-of $\Delta$ (both halves contributing equally by symmetry of $|\Delta|$),
+\paragraph{Finite lag.}
+For $\tau \neq 0$ the joint $(X,Y)$ average develops nontrivial structure.
+Splitting $g^{(1)}_{\rm src}(\tau)=e^{i\omega_0\tau}V_{\rm src}(\tau)$ into
+carrier and envelope and changing variables to $U \equiv (X+Y)/2$ and
+$V \equiv X-Y$ (independent Gaussians of variances
+$\sigma_U^2 = (\sigma_\ell^2/c^2)[1-C_\alpha](1+\Phi)$ and
+$\sigma_V^2 = (4\sigma_\ell^2/c^2)[1-C_\alpha](1-\Phi)$; see
+Appendix~\ref{app:g2ext}), the narrow-band reduction yields
 \begin{equation}
-  \big\langle e^{-2|\Delta|/\tau_L}\big\rangle
-  = \frac{2}{\sqrt{2\pi}\,\sigma_0}\int_0^\infty
-    e^{-2\Delta/\tau_L}e^{-\Delta^2/2\sigma_0^2}d\Delta
-  = e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
-  \label{eq:zerolagavg}
+  g^{(2)}_{\rm obs}(\tau) - 1
+  = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\,
+    I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
+    \mathcal{F}_{\rm cross}(\tau;b)\,
+    \int dU\,\mathcal{N}(U;0,\sigma_U^2)\,V_{\rm src}^2(\tau-U),
+  \label{eq:g2ext_corrected}
 \end{equation}
-which equals $1$ as $s\to 0$ (no suppression) and $0$ as $s\to\infty$
-via the standard asymptotic $e^{x^2}\mathrm{erfc}(x)\sim 1/(x\sqrt{\pi})$
-(full suppression, $g^{(2)}_{\rm obs}(0)\to 1$). So
+with the \emph{cross-direction carrier-phase factor}
 \begin{equation}
-  g^{(2)}_{\rm obs}(0)
-    = 1 + e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
-    \qquad s\equiv\sigma_0/\tau_L,
-  \label{eq:g2zero}
+  \mathcal{F}_{\rm cross}(\tau;b)
+  \equiv \exp\!\Big(-2\sigma_\phi^2(D)\,[1-C_\alpha(\tau;D)]\,
+                    [1-\Phi(b/r_\perp)]\Big),
+  \label{eq:Fcross}
 \end{equation}
-and the zero-lag bunching peak is suppressed below its ideal value of 2 by
-\begin{equation}
-  \delta g^{(2)}
-  \equiv 2 - g^{(2)}_{\rm obs}(0)
-  = 1 - e^{2s^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,s\right),
-  \label{eq:deltag2}
-\end{equation}
-In the small-$s$ limit, $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s + O(s^2)$,
-so the suppression is linear in $s$ for a Lorentzian source.
-\begin{equation}
-  \mathcal{S}(0) = -\,\delta g^{(2)} \leq 0.
-  \label{eq:S0ext}
-\end{equation}
-This sign is qualitatively distinct from the point-source result
-$\mathcal{S}(\tau\neq 0)\geq 0$ of Section~\ref{sec:siegert}: a negative
-zero-lag Siegert discrepancy is therefore a sign-flip diagnostic that
-distinguishes spatially resolved from unresolved foam signatures.
-In the point-source limit $\Phi_{\rm eff}\to 1$, $\sigma_0\to 0$,
-$\delta g^{(2)}\to 0$, and $\mathcal{S}(0)\to 0$, recovering the point-source result.
-Since $\sigma_0^2\propto(1-\Phi_{\rm eff})$ and $\Phi_{\rm eff}$ decreases
-as the source angular diameter increases at fixed $D$ and $r_\perp$, more
-extended sources experience greater suppression of the bunching peak and a
-more negative Siegert discrepancy at zero lag.
+which reduces to unity at $\tau=0$ (recovering Eq.~\eqref{eq:g2zero_exact}),
+at $\Phi=1$ (recovering the point-source formula
+Eq.~\eqref{eq:g2obs}), and in the quasi-static foam limit $C_\alpha\to 1$.
+The decoupling between the imaging-channel scale $\sigma_\phi$ and the
+HBT scale $\sigma_\Delta/\tau_c$ established in
+Section~\ref{sec:scales} is exact only for a point source: an extended
+source viewed at finite lag picks up $\sigma_\phi$ in $g^{(2)}$ through
+$\mathcal{F}_{\rm cross}$.
 
-For an astrophysically more representative Voigt profile --- a Lorentzian of
-width $\tau_L$ convolved with a Gaussian of width $\tau_G$, where the
-Lorentzian component arises from optically-thick electron scattering in dense
-outflows (LBVs, Type~IIn supernovae, Population~A NLS1) or from broad-line-region
-turbulent broadening~\cite{Kollatschny2013}, and the Gaussian component
-arises from bulk kinematics (Keplerian rotation, thermal Doppler, outflows) --- the
-coherence function is
-$g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$,
-giving $g^{(2)}_{\rm src}(\tau)-1 = e^{-2|\tau|/\tau_L}\,e^{-\tau^2/\tau_G^2}$.
-The zero-lag convolution over $\Delta\sim\mathcal{N}(0,\sigma_0^2)$ combines the
-source Gaussian with the jitter kernel into an effective width
+\paragraph{Siegert discrepancy.}
+Inserting Eqs.~\eqref{eq:g2ext_corrected} and \eqref{eq:g1ext} into the
+Siegert-discrepancy definition $\mathcal{S}(\tau) \equiv [g^{(2)}_{\rm obs}(\tau)-1]
+- |g^{(1)}_{\rm obs}(\tau)|^2$, expanding in the weak-foam regime
+$\sigma_\phi^2[1-C_\alpha(\tau)] \ll 1$, and performing the angular
+integral gives
 \begin{equation}
-  \tilde\sigma^2 = \frac{\sigma_0^2\,\tau_G^2}{2\sigma_0^2+\tau_G^2},
-  \label{eq:sigmatilde}
+  \mathcal{S}_{\rm ext}(\tau)
+  \approx \Phi_{\rm eff}\cdot\mathcal{S}_{\rm pt}(\tau),
+  \label{eq:SiegertExt}
 \end{equation}
-yielding
-\begin{equation}
-  g^{(2)}_{\rm obs}(0) - 1
-  = \frac{\tilde\sigma}{\sigma_0}\,e^{2\tilde{s}^2}\,\mathrm{erfc}\!\left(\sqrt{2}\,\tilde{s}\right),
-  \qquad \tilde{s}\equiv\tilde\sigma/\tau_L.
-  \label{eq:g2zero_voigt}
-\end{equation}
-For any Voigt profile with finite $\tau_L$, the parameter $\tilde{s} > 0$
-and an O($s$) term is present, controlled by the Lorentzian component.
-A purely Gaussian source ($\tau_L\to\infty$, $\tilde{s}\to 0$) has no O($s$)
-correction: $g^{(2)}_{\rm obs}(0)-1 = 1/\sqrt{1+2s^2(\tau_c/\tau_G)^2}$.
+where $\mathcal{S}_{\rm pt}(\tau) \approx 2\sigma_\phi^2[1-C_\alpha(\tau)]\,
+V_{\rm src}^2(\tau)$ is the point-source Siegert discrepancy of
+Section~\ref{sec:siegert}.  The extended-source Siegert discrepancy is
+therefore \emph{suppressed} by $\Phi_{\rm eff}\in[0,1]$ relative to the
+point-source value: the point-source result is the upper bound on the
+foam signature in this framework.  Targets believed to be intrinsically
+compact ($D\Delta\theta \ll r_\perp$ for any plausible $r_\perp$) saturate
+the upper bound and are the safest detection candidates; partially
+resolved targets degrade the SNR by the same factor $\Phi_{\rm eff}$,
+and the angular-size dependence is itself a positive discriminant ---
+comparing $\mathcal{S}(\tau)$ across targets of varying angular size at
+fixed $D$ probes $r_\perp$ through the profile $\Phi(b/r_\perp)$.
 
-In the narrow-band limit ($\sigma_\ell/(c\tau_c)\ll 1$,
-where $\tau_c$ is the post-filter coherence time, equal to $\tau_L$
-when the filter passes the full Lorentzian line;
-Section~\ref{sec:narrowband}), a Taylor expansion of the convolution integral
-recovers the small-$s$ behaviour already visible in Eq.~\eqref{eq:deltag2}:
-sources with a smooth (even) profile have $g^{(2)\prime}_{\rm src}(0)=0$ and the
-correction is $O(\sigma_0^2)$, while for a Lorentzian the cusp
-$g^{(2)\prime}_{\rm src}(0^+)=-2/\tau_L$ gives the linear term already noted.
-For a Voigt profile the expansion yields
-$\delta g^{(2)} \approx 2\sqrt{2/\pi}\,\sigma_0/\tau_L + (\sigma_0/\tau_G)^2 + \cdots$:
-the O($s$) sensitivity is set entirely by $\tau_L$, so spectrally resolved
-Lorentzian-component lines are the preferred targets.
+\subsection{Discriminants Against Conventional Phase Screens}
 
-For the region $\alpha > 1/2$ that experiments seek to probe, $\sigma_\phi \ll 1$
-and the sensitivity parameter
-$s = \sigma_0/\tau_c
- = \sqrt{2(1-\Phi_{\rm eff})}\,\sigma_\phi\cdot(\Delta\lambda/\lambda)$
-is small across all realistic observational bandwidths.
-For the holographic model ($\alpha = 2/3$), $\sigma_\phi \sim 10^{-8}$, so
-that even at a high spectral resolution
-$R = \lambda/\Delta\lambda \sim 10^4$, one finds $s \sim 10^{-12}$.
-In this regime the linear approximation $\delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$
-is essentially exact.
-
-The suppression $\delta g^{(2)}$ arises from a purely spatial mechanism: photon
-pairs from directions $\boldsymbol{\theta}\neq\boldsymbol{\theta}'$ accumulate
-independent jitters when $b\gg r_\perp$, blurring $g^{(2)}(0)$ below~2, while
-$|g^{(1)}_{\rm obs}(0)|^2=1$ exactly is unaffected --- hence $\mathcal{S}(0)<0$.
-This sign does not violate the single-ray bound $\mathcal{S}\geq 0$ of
-Section~\ref{sec:siegert}, which is a variance for one random variable; for an
-extended source $g^{(2)}_{\rm obs}(0)-1$ is an angular integral over independent
-ray-pair kernels that admits no analogous lower bound.\footnote{%
-  Explicitly, $g^{(2)}_{\rm obs}(0)-1 = \int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\,
-  I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
-  \langle g^{(2)}_{\rm src}(-\Delta_{\boldsymbol{\theta}\boldsymbol{\theta}'})-1\rangle_{\delta t}$
-  (Eq.~\eqref{eq:g2obsExt}), where each ray pair contributes with its own cross-ray
-  variance $\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')$;
-  the Cauchy--Schwarz argument of Section~\ref{sec:siegert} does not apply.}
-
-The coherence observables developed here serve as discriminants against
-conventional propagation phase screens~\cite{Carlip2023}, and for foam models
-with long-range transverse correlations --- where image blurring is strongly
-suppressed~\cite{LeeZurekChen2024} --- they may be the only sensitive channel.
-The source-size dependence of $\delta g^{(2)}$ through $\Phi_{\rm eff}$ provides
-a direct probe of $r_\perp$ with no analogue in a featureless propagation screen,
-which carries no transverse coherence structure.
-The mathematical structure of the foam suppression factor $\mathcal{F}_{\rm foam}$
-is identical to that of any Gaussian random phase screen, but two signatures
-distinguish foam: distance scaling and achromaticity.
-For spacetime foam $\sigma_\phi^2\propto D^{2(1-\alpha)}$ ($D^1$ for $\alpha=1/2$,
-$D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$), whereas a thin intervening
-screen scales as $D$ and Kolmogorov turbulence as $D^{11/6}$; the holographic
-and conservative foam models predict sub-linear or flat growth qualitatively
-different from any known astrophysical screen.
-Geometrically, foam jitter ($\delta t=\Delta\ell/c$) is achromatic ---
-independent of $\lambda$ --- in contrast to plasma-based effects which scale
-as $\lambda^2$.
-The Fermi, H.E.S.S., and LHAASO time-of-flight analyses~\cite{Fermi2009,HESS2008,LHAASO2024} rule
-out deterministic, energy-ordered LIV dispersion as a class of quantum-gravity
-effect, but do not constrain the stochastic achromatic foam jitter considered
-here (Section~\ref{sec:intro}); the principal chromatic alternative that the
-achromaticity discriminant addresses is therefore plasma propagation.
-In practice, the intrinsic source visibility $V_{\rm src}(\tau)$ introduces a
-degeneracy with foam suppression, but the Siegert discrepancy
-$\mathcal{S}(\tau) = g^{(2)}_{\rm obs}(\tau) - 1 - |g^{(1)}_{\rm obs}(\tau)|^2$
-is constructed directly from the data: a detection of $\mathcal{S}\neq 0$
-requires no explicit model of the source spectrum, since $g^{(1)}_{\rm src}(\tau)$
-can be obtained from the source spectrum via the Wiener--Khinchin theorem.
+The Siegert observable serves as a discriminant against conventional
+propagation phase screens~\cite{Carlip2023}; for foam models with
+long-range transverse correlations --- where image blurring is strongly
+suppressed~\cite{LeeZurekChen2024} --- it may be the only sensitive
+channel.  The mathematical structure of the foam suppression factor
+$\mathcal{F}_{\rm foam}$ is identical to that of any Gaussian random
+phase screen, but two signatures distinguish foam: distance scaling and
+achromaticity.  For spacetime foam
+$\sigma_\phi^2\propto D^{2(1-\alpha)}$ ($D^1$ for $\alpha=1/2$,
+$D^{2/3}$ for $\alpha=2/3$, $D^0$ for $\alpha=1$), whereas a thin
+intervening screen scales as $D$ and Kolmogorov turbulence as
+$D^{11/6}$; the holographic and conservative foam models predict
+sub-linear or flat growth qualitatively different from any known
+astrophysical screen.  Geometrically, foam jitter
+($\delta t=\Delta\ell/c$) is achromatic --- independent of $\lambda$ ---
+in contrast to plasma-based effects which scale as $\lambda^2$.  The
+Fermi, H.E.S.S., and LHAASO time-of-flight analyses~\cite{Fermi2009,HESS2008,LHAASO2024}
+rule out deterministic, energy-ordered LIV dispersion as a class of
+quantum-gravity effect but do not constrain the stochastic achromatic
+foam jitter considered here (Section~\ref{sec:intro}); the principal
+chromatic alternative the achromaticity discriminant addresses is
+therefore plasma propagation.  In practice, the intrinsic source
+visibility $V_{\rm src}(\tau)$ introduces a degeneracy with foam
+suppression, but the Siegert discrepancy $\mathcal{S}(\tau)$ is
+constructed directly from the data: a detection of $\mathcal{S}\neq 0$
+requires no explicit model of the source spectrum, since
+$g^{(1)}_{\rm src}(\tau)$ can be obtained from the source spectrum via
+the Wiener--Khinchin theorem.
 
 % ==============================================================
 \section{Siegert-Violation: Sensitivity and Target Selection}
@@ -1163,9 +1111,12 @@ can be obtained from the source spectrum via the Wiener--Khinchin theorem.
 This section examines the detectability of Siegert violation via the HBT
 split-beam configuration~\cite{HBT1956,Foellmi2009,Dravins2013,Guerin2017}
 and surveys candidate sources with Lorentzian (or Lorentzian-dominated)
-emission lines for which the sensitivity estimates apply directly. We
-consider two observables --- temporal decorrelation at finite lag and
-transverse decorrelation at zero lag --- and treat the resulting SNR
+emission lines for which the sensitivity estimates apply directly. The
+single foam observable is the finite-lag Siegert discrepancy
+$\mathcal{S}(\tau)$ of Section~\ref{sec:siegert}; the point-source case
+of Section~\ref{sec:sens-point} gives its maximum-signal limit, and the
+extended-source case of Section~\ref{sec:sens-extended} reports the same
+observable scaled by $\Phi_{\rm eff}$.  We treat the resulting SNR
 figures as a statistical floor; in practice systematic errors will set
 the binding limit and a dedicated systematic budget is required for any
 claimed detection.
@@ -1196,8 +1147,10 @@ within the bin of width $\tau_r$ --- is then
 \end{equation}
 
 All numerical projections adopt $A_\alpha = 1$ and the dynamical-foam limit
-$C_\alpha(\tau_L; D) \to 0$; the extended-source zero-lag $\delta g^{(2)}(0)$
-is independent of $C_\alpha$ and survives in either limit.
+$C_\alpha(\tau_L; D) \to 0$.  The Siegert observable requires
+$\tau_{\rm foam}\lesssim\tau_L$ so that $1-C_\alpha(\tau_L)$ is of order
+unity; in the quasi-static limit $C_\alpha\to 1$ the signal vanishes for
+all targets and the channel becomes inoperative.
 
 The photon-counting rate is $R = \epsilon\, A\, \dot{n}$, where $\dot{n}$ is the
 source photon flux per unit area within the filter bandpass, $\epsilon$ the
@@ -1316,115 +1269,76 @@ $\sigma_\phi$. Each additional decade of sensitivity in $\sigma_\ell$ requires
 four decades of integration time, compared with two for the extended-source
 variant.
 
-\subsection{Zero-Lag Channel: Extended Sources}
+\subsection{Finite-Lag Channel: Extended Sources}
 \label{sec:sens-extended}
 
-For a spatially extended source whose angular size satisfies
-$D\Delta\theta\gtrsim r_\perp$ (equivalently $\Phi_{\rm eff}\to 0$), photon
-pairs from different sky directions accumulate independent foam jitters and
-the zero-lag bunching peak is suppressed below 2 according to
-Eq.~\eqref{eq:g2zero}, with $s \equiv \sigma_0/\tau_L$ and
-$\sigma_0^2 = 2\sigma_\ell^2(D)(1-\Phi_{\rm eff})/c^2$
-(Eq.~\eqref{eq:sigma0}).
-The foam signal is the zero-lag Siegert discrepancy
-$\mathcal{S}(0) = g^{(2)}_{\rm obs}(0) - 2 \le 0$, a deficit relative to the
-Siegert prediction $g^{(2)}_{\rm src}(0)=2$. In the weak-foam limit
-$s\ll 1$ --- the regime relevant to all viable foam models ---
-$|\mathcal{S}(0)| = \delta g^{(2)} \approx 2\sqrt{2/\pi}\,s$ scales
-\emph{linearly} in $s$, a consequence of the cusp in $g^{(2)}_{\rm src}$ at
-$\tau=0$ for Lorentzian-cored sources (Eq.~\eqref{eq:deltag2},
-Section~\ref{sec:zerolag}); the signal saturates at $|\mathcal{S}(0)|\to 1$
-for $s\gg 1$.
-
-Two structural conditions distinguish this variant from the finite-lag case
-and govern its applicability.
-
-\paragraph{Source-size requirement.}
-The cross-ray differential-jitter mechanism requires
-$D\Delta\theta\gtrsim r_\perp$ (equivalently $\Phi_{\rm eff} < 1$); for
-sources unresolved on the foam transverse scale ($\Phi_{\rm eff}\to 1$),
-$\sigma_0\to 0$ and the variant becomes inactive, leaving the finite-lag
-variant of Section~\ref{sec:sens-point} as the only HBT channel.
-Because $r_\perp$ is an unknown foam-model parameter, the source-size
-dependence of $\delta g^{(2)}$ across targets with varying $D\Delta\theta$
-is the principal observational handle on $r_\perp$
-(Section~\ref{sec:extended}). The sensitivity analysis below adopts the
-fully-resolved limit $\Phi_{\rm eff} = 0$
-($\sigma_0^2 = 2\sigma_\ell^2(D)/c^2$), giving the maximum signal each
-target can produce; for partially resolved targets the SNR scales by
-$\sqrt{1-\Phi_{\rm eff}}$.
-
-\paragraph{Filter strategy: preserving the intrinsic cusp.}
-The linear-in-$s$ scaling of $\delta g^{(2)}$ requires that the filter pass
-the full emission line,
+For an extended source viewed at finite lag, the Siegert discrepancy is
+suppressed relative to the point-source value by the angular-size factor
+$\Phi_{\rm eff}$ of Eq.~\eqref{eq:PhiEff}.  In the weak-foam regime
+relevant to all viable foam models, Eq.~\eqref{eq:SiegertExt} gives
 \begin{equation}
-\Delta\lambda_{\rm filter} \;\ge\; \textrm{FWHM}_{\rm line},
-\label{eq:filter_cusp}
+  \mathcal{S}_{\rm ext}(\tau_{\max})
+  \;\approx\; \Phi_{\rm eff}\cdot\mathcal{S}_{\rm pt}(\tau_{\max})
+  \;\approx\; 2\,\Phi_{\rm eff}\,\sigma_\phi^2,
+  \label{eq:SiegertExtPeak}
 \end{equation}
-so that the post-filter coherence time is set by the intrinsic Lorentzian line
-width rather than the (smooth) filter profile; a narrower filter destroys the
-cusp in $g^{(2)}_{\rm src}$ at zero lag and reverts $\delta g^{(2)}$ to $O(s^2)$.
-
-\paragraph{Detector-limited SNR.}
-Substituting $\mathcal{S}(0)$ into Eq.~\eqref{eq:snr_det},
+and the detector-limited SNR follows by scaling Eq.~\eqref{eq:snr_det_pt}:
 \begin{equation}
-\textrm{SNR}_{\rm det}^{\rm ext}
-\;=\; \frac{|\mathcal{S}(0)|\,R\,\tau_L}{4}\sqrt{\frac{T_{\rm obs}}{\sigma_t}}
-\;\xrightarrow{s\ll 1}\;
-\tfrac{1}{2}\sqrt{\tfrac{2}{\pi}}\,\sigma_0\, R\sqrt{T_{\rm obs}/\sigma_t}.
-\label{eq:snr_det_ext}
+  \textrm{SNR}_{\rm det}^{\rm ext}
+  \;=\; \Phi_{\rm eff}\cdot\textrm{SNR}_{\rm det}^{\rm pt}.
+  \label{eq:snr_det_ext}
 \end{equation}
-The SNR in this regime is independent of $\tau_L$: the cusp signal $\propto
-1/\tau_L$ is cancelled by the $\tau_L/\sigma_t$ dilution factor. The penalty
-relative to source-limited operation
-($\textrm{SNR}_{\rm src}^{\rm ext} = \tfrac{1}{4}\,|\mathcal{S}(0)|\,R\sqrt{\tau_L T_{\rm obs}}$,
-attainable only when $\sigma_t \lesssim \tau_L$) is $\sqrt{\tau_L/\sigma_t}$.
+The point-source SNR of Section~\ref{sec:sens-point} is the
+\emph{maximum-signal upper bound} for the foam observable in this
+framework; no target gives SNR above the point-source value.  The
+extended-source factor $\Phi_{\rm eff}\in[0,1]$ scales this upper bound
+down for partially resolved targets and depends on the unknown foam
+transverse coherence length $r_\perp$:
+$\Phi_{\rm eff}\to 1$ when $D\Delta\theta \ll r_\perp$ (the source is
+unresolved by the foam, recovering the upper bound), and
+$\Phi_{\rm eff}\to 0$ when $D\Delta\theta \gg r_\perp$ (the source is
+fully resolved, signal vanishes).
+
+\paragraph{Caveat on $r_\perp$.}
+Because $r_\perp$ is an unknown foam-model parameter, the
+extended-source SNR is reported as a band over plausible $r_\perp$
+rather than as a single number.  Targets believed to be intrinsically
+compact (e.g., narrow-line AGN cores with $D\Delta\theta$ smaller than
+any plausible $r_\perp$) saturate the point-source bound and provide
+the most conservative detection candidates; partially resolved targets
+degrade the SNR by $\Phi_{\rm eff}$, and a non-detection in such a
+target is consistent either with foam below threshold or with $r_\perp$
+small enough to resolve the source.
+
+\paragraph{Angular-size discriminant.}
+Should a signal be detected, the source-size dependence of
+$\mathcal{S}(\tau)$ across targets of varying $D\Delta\theta$ is a
+positive observational handle on $r_\perp$, with no analogue in a
+featureless propagation screen (Section~\ref{sec:extended}).  A
+multi-target campaign probes $r_\perp$ through the profile
+$\Phi(b/r_\perp)$ even when no individual measurement does.
 
 \paragraph{Distance scaling.}
-Substituting $R\propto D^{-2}$ at fixed luminosity and
-$\sigma_0\propto\sigma_\ell(D)\propto D^{1-\alpha}$ into Eq.~\eqref{eq:snr_det_ext}
-gives, in the weak-foam limit,
-\begin{equation}
-\textrm{SNR}^{\rm ext} \;\propto\; D^{1-\alpha}\cdot D^{-2} \;=\; D^{-(1+\alpha)},
-\label{eq:dist_scaling_ext}
-\end{equation}
-with the penalty steeper for larger $\alpha$ ($D^{-3/2}$ for $\alpha=1/2$,
-$D^{-5/3}$ for $\alpha=2/3$). In the strong-foam limit $|\mathcal{S}(0)|\to 1$
-saturates and $\textrm{SNR}\propto D^{-2}$. A nearby source of modest
-luminosity but high apparent flux can therefore be competitive with a more
-luminous but distant source: the higher photon rate $R$ at close range can
-compensate for the reduced foam signal $|\mathcal{S}(0)|$.
-
-The minimum detectable path-length amplitude follows from inverting
-the weak-foam limit of Eq.~\eqref{eq:snr_det_ext} with
-$|\mathcal{S}(0)|\propto\sigma_0\propto\sigma_\ell$:
-\begin{equation}
-\sigma_{\ell,\rm min}^{\rm ext} \;\propto\;
-\frac{\sqrt{\sigma_t}}{d^2\sqrt{T_{\rm obs}}},
-\label{eq:sigma_ell_min_ext}
-\end{equation}
-where $R\propto d^2$ has been used: sensitivity improves as $\sqrt{\sigma_t}$
-in the detector-limited regime and scales as $d^{-2}$ (collecting
-area) and as $T_{\rm obs}^{-1/2}$, both more favourable than the corresponding
-$d^{-1}$ and $T_{\rm obs}^{-1/4}$ scalings of the finite-lag variant.
-Importantly, this variant is independent of the foam temporal correlation
-$C_\alpha$: the cross-ray differential jitter that drives $\delta g^{(2)}(0)$
-operates regardless of whether the foam is dynamically active or quasi-static,
-in contrast to the finite-lag variant which requires
-$\tau_{\rm foam}\lesssim\tau_L$.
+The distance scaling of Eq.~\eqref{eq:dist_scaling_pt} is unchanged for
+extended targets up to the $\Phi_{\rm eff}$ prefactor:
+$\textrm{SNR}^{\rm ext}\propto \Phi_{\rm eff}\cdot D^{-2\alpha}$ in the
+weak-foam limit.  Filter strategy, $\tau_L$ scaling, and the minimum
+detectable path-length amplitude all carry over directly from
+Section~\ref{sec:sens-point} with an overall $\Phi_{\rm eff}$ factor in
+the signal.
 
 \subsection{Candidate Sources}
 \label{sec:candidate_sources}
 
-Two source properties drive target selection for both variants: the photon rate
-$R$, set by the total line flux captured within the filter, and the source
-distance $D$, which sets $\sigma_\phi$ (finite-lag, Eq.~\eqref{eq:snr_det_pt})
-and $\sigma_0$ (zero-lag, Eq.~\eqref{eq:snr_det_ext}).
-For the zero-lag observable a third property matters: the line profile must
-retain a Lorentzian core to preserve the cusp in $g^{(2)}_{\rm src}$ at zero
-lag and hence the linear-in-$s$ scaling (Section~\ref{sec:zerolag}).
-The finite-lag observable imposes no line-profile constraint and is applicable
-to any spatially unresolved source.
+Two source properties drive target selection: the photon rate $R$, set by
+the total line flux captured within the filter, and the source distance
+$D$, which sets $\sigma_\phi$ via Eq.~\eqref{eq:sigmaphi} and hence the
+signal amplitude $\mathcal{S}(\tau_{\max}) \approx 1-e^{-2\sigma_\phi^2}$
+of Eq.~\eqref{eq:Stc}.  For partially resolved targets the signal is
+further suppressed by $\Phi_{\rm eff}$ (Section~\ref{sec:sens-extended}),
+which depends on the unknown foam transverse coherence length $r_\perp$;
+the entries below quote the point-source upper bound and flag $\Phi_{\rm eff}$
+caveats where the source has substantial angular extent.
 All sources discussed below have intrinsic coherence times $\tau_L \lesssim 1$\,ps,
 well below the baseline timing resolution $\sigma_t = 13$\,ps; the measurements
 therefore operate in the detector-limited regime throughout.
@@ -1466,14 +1380,17 @@ J1330$-$0905 (A) & 2.225 & $1.81\times10^{4}$  & $16.1$ & Ly$\alpha$ & $5.1\time
 \textit{Narrow-line Seyfert 1 galaxies as headline AGN targets.}
 NLS1s (Population~A; FWHM $\lesssim 4000$\,km\,s$^{-1}$;
 \cite{2002ApJ...566L..71S,2010MNRAS.403.1759Z}) have single-Lorentzian
-broad lines satisfying the cusp condition of Section~\ref{sec:candidate_sources}.
+broad lines and intrinsically compact broad-line regions, both
+favourable for the Siegert observable.  The NLS1 BLR has angular size
+$\sim 10^{-6}$~arcsec at cosmological distances, far below any
+plausible $r_\perp$, so $\Phi_{\rm eff}\approx 1$ and these targets
+saturate the point-source upper bound.
 We adopt two reference targets at complementary distances --- the nearby
 Mrk~766 and the cosmological PHL~1811 (Table~\ref{tab:source_agn};
 luminosity distances in flat $\Lambda$CDM with the Planck~2018
 cosmology~\cite{Aghanim2020}); the H$\alpha$ and H$\beta$ profiles of
 PHL~1811 are explicitly Lorentzian-fit by Leighly~et~al.~2007 (their
-\S3)~\cite{Leighly2007}, providing direct empirical verification of the
-cusp condition for this target.
+\S3)~\cite{Leighly2007}.
 A wide filter ($\Delta\lambda_{\rm filter} \geq \mathrm{FWHM}$) captures
 the full line flux, giving photon rates $R \approx 2.0\times 10^5$\,cps
 (Mrk~766) and $R \approx 8.5\times 10^4$\,cps (PHL~1811) on a 10\,m
@@ -1482,14 +1399,14 @@ counts are negligible relative to the source rates, so the Brouri~et~al.\
 correction for accidental coincidences is small~\cite{Brouri2000}.
 For both targets the $2\times \mathrm{FWHM}_{\rm line}$ filter width is
 narrow enough that the underlying pseudo-continuum (Fe~II forest plus
-near-line continuum) dilutes the cusp signal by $\lesssim 10\%$ given
+near-line continuum) dilutes the signal by $\lesssim 10\%$ given
 the line-to-continuum ratio $\gtrsim 10$:1 typical of these objects;
 the dilution does not change the qualitative SNR ordering but should be
 subtracted from the measured $g^{(2)}(\tau)$ as an additive constant
-when extracting $\delta g^{(2)}(0)$ in practice.
+when extracting $\mathcal{S}(\tau)$ in practice.
 The two targets span a factor of 16 in distance, exercising the
 $\sigma_\phi \propto D^{1-\alpha}$ scaling of the foam-vs-screen
-discriminant developed in Section~\ref{sec:zerolag}.
+discriminant developed in Section~\ref{sec:extended}.
 
 \textit{Strongly-lensed quasars.}
 Gravitational magnification by factors of ${\sim}10$--$60$ boosts the photon
@@ -1507,41 +1424,45 @@ observed ratios $F_B/F_A = 0.74$, $F_C/F_A = 0.70$, $F_D/F_A = 0.08$,
 giving $5.1\times10^{-13}$~erg\,s$^{-1}$\,cm$^{-2}$ on image~A).
 Under the Kollatschny~\&~Zetzl~2013~\cite{Kollatschny2013}
 broad-line-region model the observed Ly$\alpha$ profile is a Voigt
-profile (Section~\ref{sec:zerolag}, Eq.~\eqref{eq:g2zero_voigt}): a
-Lorentzian core from BLR turbulent broadening (FWHM$_{\rm turb} \sim
-3800$\,km\,s$^{-1}$) convolved with a rotational Gaussian, supplying the
-cusp condition for both observables; the Voigt reduction factor
-$\tilde\sigma/\sigma_0 = (1+2\sigma_0^2/\tau_G^2)^{-1/2} \approx 1$
-in the weak-foam regime ($\sigma_0 \ll \tau_G$), so the rotational
-Gaussian envelope does not suppress the signal and the Lorentzian-core
-formula applies directly.
+profile with a Lorentzian core from BLR turbulent broadening
+(FWHM$_{\rm turb} \sim 3800$\,km\,s$^{-1}$) convolved with a rotational
+Gaussian; the Lorentzian core sets the coherence time $\tau_L$ relevant
+for the finite-lag Siegert observable.  The BLR angular size at $z=2.2$
+is $\sim 10^{-7}$~arcsec, far below any plausible $r_\perp$, so
+$\Phi_{\rm eff}\approx 1$ and this target saturates the point-source
+upper bound.
 The net finite-lag SNR exceeds PHL\,1811 by ${\sim}1.4\times$ at
-$\alpha = 2/3$ (Figure~\ref{fig:snr_vs_alpha_pt}); the zero-lag channel
-is less suppressed because $\sigma_0 \propto \sigma_\ell/c$ depends on
-the path-length variance rather than $\lambda_{\rm obs}$, and
-J1330$-$0905 is comparable to but slightly below the NLS1 baseline there
-(Figure~\ref{fig:snr_vs_alpha_ext}).
+$\alpha = 2/3$ (Figure~\ref{fig:snr_vs_alpha_pt}).
 The Lorentzian-core hypothesis at high $z$ is an extrapolation from the
 low-$z$ K\&Z sample; direct high-resolution spectroscopy of Ly$\alpha$ (or
 the redshifted near-infrared Balmer lines) would confirm it.
 
 \textit{Galactic and Local-Group transients.}
 Type~IIn supernovae and LBV giant eruptions --- with $\eta$\,Car as the
-principal example --- combine high H$\alpha$ luminosity
-with narrow Lorentzian line cores ($\tau_L \sim 0.1$--$0.3$\,ps), yielding
-SNR advantages of $10^4$--$10^6\times$ over the persistent-AGN baseline at
-Galactic distances (Section~\ref{sec:snr_results}).
-Three target-specific caveats apply.
+principal example --- combine high H$\alpha$ luminosity with narrow
+Lorentzian line cores ($\tau_L \sim 0.1$--$0.3$\,ps).  The point-source
+upper-bound SNR scales as $\sigma_\phi^2\propto D^{2(1-\alpha)}$ and is
+small at kpc--Mpc distances; however, the giant photon rate $R$ at close
+range partially compensates, and the resulting SNR remains competitive
+for $\alpha\to 1$ (conservative foam).  At smaller $\alpha$ these
+nearby targets lose the cosmological lever arm and fall below the AGN
+baselines (Section~\ref{sec:snr_results}).
+Two additional target-specific caveats apply.
+\textit{Source extent:} a Galactic SN~IIn or LBV ejecta photosphere has
+angular extent $\sim 10^{-5}$--$10^{-3}$~arcsec, which can exceed
+$D\Delta\theta\sim r_\perp$ for small $r_\perp$; the SNR is then
+suppressed by $\Phi_{\rm eff}(r_\perp)$ and the point-source bound is
+not necessarily saturated.
 \textit{Scattering geometry:} the Homunculus Nebula around $\eta$\,Car
 scatters substantial flux into the line of sight; the observed coherence
-is partially set by scattering geometry and must be modeled before crediting
-the photon count.
+is partially set by scattering geometry and must be modeled before
+crediting the photon count.
 \textit{Stationarity:} the framework assumes a stationary Gaussian source,
 valid for integrations short relative to the variability timescale
 (weeks-to-months for LBV eruptions and SN~IIn light-curves); the
-$10$\,hr per-event integrations used in the figures satisfy this comfortably,
-while $10^4$\,hr campaign-scale totals require co-adding over stationary
-epochs (Section~\ref{sec:snr_results}).
+$10$\,hr per-event integrations used in the figures satisfy this
+comfortably, while $10^4$\,hr campaign-scale totals require co-adding
+over stationary epochs (Section~\ref{sec:snr_results}).
 
 \textit{Type IIn supernovae.}
 Rather than a specific event, we adopt a representative Type~IIn source
@@ -1558,10 +1479,13 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
   \centering
   \includegraphics[width=0.92\linewidth]{snr_vs_alpha_pointsource.png}
   \caption{%
-    Finite-lag Siegert discrepancy SNR for
+    Maximum-signal (point-source) finite-lag Siegert discrepancy SNR for
     $\mathcal{S}(\tau_{\max}) \approx 1 - e^{-2\sigma_\phi^2}$
     (Eq.~\eqref{eq:Stc}) as a function of foam exponent $\alpha$, in the
     fast-foam / dynamical limit $C_\alpha \to 0$.
+    The values shown are the upper bound for each target; partially
+    resolved targets ($D\Delta\theta\gtrsim r_\perp$) are suppressed by
+    $\Phi_{\rm eff}\in[0,1]$ (Section~\ref{sec:sens-extended}).
     Kim~et~al.~\cite{Kim2025} baseline (10\,m, $\epsilon = 0.39$,
     $\sigma_t = 13$\,ps rms), $T_{\rm obs} = 10$\,hr per exposure (multiply
     SNR by $\sqrt{10^3} \approx 31.6$ for the $10^4$\,hr campaign quoted
@@ -1579,125 +1503,100 @@ at $D = 778$\,kpc (Table~\ref{tab:source_agn}).
     \label{fig:snr_vs_alpha_pt}}
 \end{figure}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.92\linewidth]{snr_vs_alpha.png}
-  \caption{%
-    Extended-source zero-lag bunching suppression $\delta g^{(2)}(0)$ SNR
-    for $|\mathcal{S}(0)| = 1 - e^{2s^2}\,\mathrm{erfc}(\sqrt{2}\,s)$ with
-    $s = \sigma_0/\tau_L$ (Eq.~\eqref{eq:deltag2}), as a function of
-    foam exponent $\alpha$, on the six representative targets.
-    Instrument and integration as Figure~\ref{fig:snr_vs_alpha_pt}; SNR
-    from Eq.~\eqref{eq:snr_det_ext}.
-    All sources are in the fully-resolved limit $\Phi_{\rm eff} = 0$
-    (signals scale by $\sqrt{1 - \Phi_{\rm eff}}$ for partially resolved
-    sources; Section~\ref{sec:sens-extended}).
-    Filled circles mark the $s = 0.3$ linear-approximation validity
-    boundary.
-    Vertical dashed lines: $\alpha = 0.54$ and $\alpha = 2/3$ (holographic).
-    J1330$-$0905 (Section~\ref{sec:candidate_sources}) is included on the
-    Kollatschny~\&~Zetzl~2013 turbulent-Lorentzian basis
-    (FWHM$_{\rm turb}\sim 3800$\,km\,s$^{-1}$ for the Ly$\alpha$+N\,V
-    emitting region~\cite{Kollatschny2013}).
-    Dashed curves (right axis) show the corresponding Siegert discrepancy
-    amplitude $|\mathcal{S}(0)|$ for each source.%
-    \label{fig:snr_vs_alpha_ext}}
-\end{figure}
-
 \subsection{SNR Results}
 \label{sec:snr_results}
 
-SNR and signal amplitude as functions of the foam exponent $\alpha$ are
-shown in Fig.~\ref{fig:snr_vs_alpha_pt} (finite-lag variant) and
-Fig.~\ref{fig:snr_vs_alpha_ext} (zero-lag variant) for the six sources of
+The maximum-signal (point-source) finite-lag Siegert discrepancy SNR as
+a function of the foam exponent $\alpha$ is shown in
+Fig.~\ref{fig:snr_vs_alpha_pt} for the six sources of
 Table~\ref{tab:source_agn} at the Kim~et~al.~\cite{Kim2025} baseline
 ($d=9.96$\,m, $\epsilon=0.39$, $\sigma_t=13$\,ps rms) and
 $T_{\rm obs}=10$\,hr per exposure (multiply by $\sqrt{10^3}\approx 31.6$
-for a $10^4$\,hr campaign).
+for a $10^4$\,hr campaign).  For partially resolved targets the SNR is
+suppressed by the angular-size factor $\Phi_{\rm eff}\in[0,1]$, which
+depends on the unknown foam transverse coherence length $r_\perp$
+(Section~\ref{sec:sens-extended}); the values plotted are upper bounds
+saturated by intrinsically compact targets (NLS1 cores, lensed-quasar
+BLRs) and degraded by $\Phi_{\rm eff}$ for nearby transients with
+substantial angular extent.
 
 \paragraph{Strong-foam regime ($\alpha\lesssim 0.54$).}
-At and below the Lieu--Hillman imaging exclusion both observables saturate:
-the finite-lag signal at $\mathcal{S}(\tau_{\max})\to 1$
-(Eq.~\eqref{eq:Stc}) and the zero-lag signal at $|\mathcal{S}(0)|\to 1$
-(Eq.~\eqref{eq:deltag2}), producing the flattening of every SNR curve
-visible in Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext} at
-small $\alpha$. On the plateau the SNR is set entirely by the photon rate
-$R$ and is independent of $\alpha$. For the highest-$R$ targets the
-saturation level itself is detectable in $T_{\rm obs}=10$\,hr: a Galactic
-SN~IIn at $\alpha=0.54$ reaches SNR${}\sim 280$ in the zero-lag channel
-and ${\sim}110$ in the finite-lag channel, and an $\eta$\,Car-class
-eruption is detectable in the finite-lag channel (SNR ${\sim}1.2$,
-${\sim}0.7$ extended). The HBT framework is therefore statistically
-competitive with --- and methodologically complementary to --- the
-imaging tests that set the $\alpha=0.54$ boundary, with the advantage of
-sensitivity to foam models with long-range transverse correlations that
-evade those tests~\cite{LeeZurekChen2024}.
+At and below the Lieu--Hillman imaging exclusion the signal saturates at
+$\mathcal{S}(\tau_{\max})\to 1$ (Eq.~\eqref{eq:Stc}), producing the
+flattening of every SNR curve visible in Fig.~\ref{fig:snr_vs_alpha_pt}
+at small $\alpha$. On the plateau the SNR is set entirely by the photon
+rate $R$ and is independent of $\alpha$. For the highest-$R$ targets
+the saturation level itself is detectable in $T_{\rm obs}=10$\,hr: a
+Galactic SN~IIn at $\alpha=0.54$ reaches SNR${}\sim 110$, and an
+$\eta$\,Car-class eruption is detectable at SNR${}\sim 1.2$ (each
+modulo $\Phi_{\rm eff}$ for substantial angular extent). The HBT
+framework is therefore statistically competitive with --- and
+methodologically complementary to --- the imaging tests that set the
+$\alpha=0.54$ boundary, with the advantage of sensitivity to foam
+models with long-range transverse correlations that evade those
+tests~\cite{LeeZurekChen2024}.
 
 \paragraph{Holographic regime ($\alpha=2/3$).}
 All signals and SNRs lie many orders of magnitude below unity. On
 Mrk~766, $\sigma_\phi\sim 7.3\times 10^{-9}$ gives
-$\mathcal{S}(\tau_{\max})\sim 1.1\times 10^{-16}$ (finite-lag) and
-$\delta g^{(2)}(0)\sim 3.5\times 10^{-11}$ (zero-lag) --- a five-order-of-
-magnitude advantage of the zero-lag observable over the finite-lag one,
-mirrored in the SNRs (${\sim}1.6\times 10^{-11}$ vs.\ ${\sim}4.9\times 10^{-17}$
-at $T_{\rm obs}=10$\,hr). The extended-source channel is therefore the
-holographic-regime channel of choice; the finite-lag channel retains
-value as the only HBT probe sensitive to $\tau_{\rm foam}$ and to
-spatially unresolved sources, but is not competitive on raw amplitude.
-At $\alpha=2/3$ a Galactic SN~IIn or LBV eruption returns a
-${\sim}10^6\times$ (zero-lag) and ${\sim}10^4\times$ (finite-lag) SNR
-gain over the persistent-AGN baseline.
+$\mathcal{S}(\tau_{\max})\sim 1.1\times 10^{-16}$, and the SNR at
+$T_{\rm obs}=10$\,hr is ${\sim}4.9\times 10^{-17}$.  The finite-lag
+channel is therefore the only HBT probe in this regime and is not
+competitive with the imaging upper bounds on its own; gains come from
+photon-rate-leading targets (high-$R$ transients) or from
+ultra-long campaigns combined with sub-ps timing.
 
 \paragraph{Persistent AGN: Mrk~766 and PHL~1811.}
 The two NLS1 targets span a factor of $16$ in distance and trade off
 photon rate against cosmological lever arm. PHL~1811's $D^{1-\alpha}$
 boost in $\sigma_\ell$ at $\alpha=2/3$ approximately compensates its
-$D^{-2}$ flux deficit, leaving the two within ${\sim}10$\% of each other
-in both channels (Mrk~766 nominally higher in the finite-lag channel,
-PHL~1811 marginally higher in the zero-lag channel; see
-Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext}). Their
-near-degeneracy makes the pair a useful internal consistency check on
-the $\sigma_\phi\propto D^{1-\alpha}$ scaling of the foam-vs-screen
-discriminant (Section~\ref{sec:zerolag}).
+$D^{-2}$ flux deficit, leaving the two within ${\sim}10$\% of each
+other (Mrk~766 nominally higher; see
+Fig.~\ref{fig:snr_vs_alpha_pt}). Their near-degeneracy makes the pair
+a useful internal consistency check on the $\sigma_\phi\propto D^{1-\alpha}$
+scaling of the foam-vs-screen discriminant (Section~\ref{sec:extended}).
+Both are intrinsically compact ($\Phi_{\rm eff}\approx 1$) and saturate
+the upper bound.
 
 \paragraph{Lensed quasar J1330$-$0905: largest $|\mathcal{S}|$ of the
 persistent targets.}
 The strongly-lensed quasar carries the cosmological lever arm to
 $z=2.22$, giving $\sigma_\phi\approx 7.8\times 10^{-8}$ on image~A at
 $\alpha=2/3$ --- roughly $5\times$ that of PHL~1811. The resulting
-finite-lag signal $|\mathcal{S}(\tau_{\max})|\sim 1.2\times 10^{-14}$ is
-${\sim}25\times$ that of PHL~1811 and the largest of the six sources;
-the zero-lag amplitude $|\mathcal{S}(0)|\sim 1.2\times 10^{-9}$ exceeds
-PHL~1811's by a factor of ${\sim}11$ and is also the largest in the
-sample, despite the lower photon rate from a single magnified image
-(dashed curves, right axes of
-Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext}). For any
-HBT campaign that can absorb the photon-rate cost, J1330$-$0905 sets
-the high-water mark for foam signal amplitude among persistent targets.
+signal $|\mathcal{S}(\tau_{\max})|\sim 1.2\times 10^{-14}$ is
+${\sim}25\times$ that of PHL~1811 and the largest of the six sources,
+despite the lower photon rate from a single magnified image (dashed
+curves, right axis of Fig.~\ref{fig:snr_vs_alpha_pt}).  As with the
+nearby NLS1s, the BLR is intrinsically compact and saturates the
+upper bound.  For any HBT campaign that can absorb the photon-rate
+cost, J1330$-$0905 sets the high-water mark for foam signal amplitude
+among persistent targets.
 
 \paragraph{Galactic and Local-Group transients.}
-For a Galactic transient at $D\sim 2$\,kpc with $\alpha=1/2$ and
-long-range transverse correlations, the predicted
-$\sigma_\ell\approx 30$\,nm and the photon flux is so high that
-detection or exclusion is essentially instantaneous once sub-ps timing
-is available. The Galactic SN~IIn case yields the largest single-event
-SNR (${\sim}2\times 10^6$ times the Mrk~766 baseline at $\alpha=2/3$),
-but its recurrence rate makes it a ``drop-everything'' opportunity
-rather than a campaign target: Smith~et~al.~2011~\cite{Smith2011}
-estimate that ${\sim}9\%$ of core-collapse supernovae are Type~IIn, and
+For a Galactic transient at $D\sim 2$\,kpc, the modest cosmological
+lever arm makes the upper-bound signal small in absolute terms, but
+the giant photon rate $R$ can compensate. The Galactic SN~IIn case
+yields the largest single-event upper-bound SNR
+(${\sim}2\times 10^6$ times the Mrk~766 baseline at $\alpha=2/3$); the
+recurrence rate makes it a ``drop-everything'' opportunity rather
+than a campaign target. Smith~et~al.~2011~\cite{Smith2011} estimate
+that ${\sim}9\%$ of core-collapse supernovae are Type~IIn, and
 combined with the Galactic core-collapse rate of $1.6\pm 0.5$ per
 century from Adams~et~al.~2013~\cite{Adams2013} this implies a Galactic
 IIn rate of roughly one per 500--1500\,yr; the most recent confirmed
 Galactic core-collapse supernova was Cassiopeia~A (${\sim}1680$,
 Type~IIb). The $\eta$\,Car case sacrifices a factor of ${\sim}10$ in
 SNR but offers a recurrence plausibly within a working career.
-The M31 SN~IIn is intermediate --- plotted adjacent to its Galactic
-counterpart in Figs.~\ref{fig:snr_vs_alpha_pt}--\ref{fig:snr_vs_alpha_ext}
-for direct comparison --- and degrades the Galactic SNR by the
-inverse-square-distance factor $(778/2)^2\approx 1.5\times 10^5$. Its
-$\alpha=1/2$ short-$r_\perp$ prediction ($\sigma_\ell\approx 625$\,nm)
-is already incompatible with existing imaging of M31, but the
-long-$r_\perp$ variant remains viable.
+The M31 SN~IIn is intermediate (plotted adjacent to its Galactic
+counterpart in Fig.~\ref{fig:snr_vs_alpha_pt} for direct comparison)
+and degrades the Galactic SNR by the inverse-square-distance factor
+$(778/2)^2\approx 1.5\times 10^5$.
+All three transients have ejecta-photosphere angular sizes that may
+exceed $r_\perp$ for small-$r_\perp$ foam models, in which case the
+actual SNR is suppressed by $\Phi_{\rm eff}<1$ below the upper bounds
+plotted; a non-detection in these targets does not by itself rule out
+foam, since it is degenerate with small $r_\perp$
+(Section~\ref{sec:sens-extended}).
 
 \subsection{Sources Investigated but Not Competitive}
 \label{sec:not_competitive}
@@ -1732,57 +1631,58 @@ $10^4\times$ below the AGN reference.
 \section{Conclusions}
 \label{sec:conclusions}
 
-Two second-order coherence observables of spacetime foam emerge from this
-framework: a finite-lag Siegert violation $\mathcal{S}(\tau)$, requiring
-dynamically active foam, and a zero-lag bunching suppression
-$\delta g^{(2)}(0)$, requiring only $\sigma_\ell^2(D)$ and finite source
-angular size. Their value lies not in raw sensitivity --- both signals are
-at ${\sim}10^{-11}$ for the holographic $\alpha = 2/3$ model, well below
-current reach --- but in three structural advantages over existing
-fringe-visibility and Strehl-ratio tests:
-(i) $\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$ is constructed
-directly from the data, with $g^{(1)}_{\rm src}(\tau)$ obtained from the
-source spectrum via Wiener--Khinchin, so a detection requires no separate
-source model;
-(ii) the cusp in $g^{(2)}_{\rm src}$ at zero lag for Lorentzian-cored sources
-makes $\delta g^{(2)}$ scale linearly in $s = \sigma_0/\tau_L$
-(Section~\ref{sec:zerolag}), avoiding the double suppression suffered by
-first-order observables;
+A single second-order coherence observable of spacetime foam emerges from
+this framework: the finite-lag Siegert discrepancy
+$\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$, present when foam
+fluctuates on timescales shorter than the optical coherence time
+($\tau_{\rm foam}\lesssim\tau_L$).  No foam-induced zero-lag bunching
+suppression arises in this model: at $\tau = 0$ the same-direction jitter
+increments vanish identically and $g^{(2)}_{\rm obs}(0) = 2$ for any
+extended source viewed by a single-mode detector
+(Section~\ref{sec:extended}; Appendix~\ref{app:g2ext}).  Its value lies
+not in raw sensitivity --- the signal is at ${\sim}10^{-16}$ for the
+holographic $\alpha = 2/3$ model, well below current reach --- but in
+three structural advantages over existing fringe-visibility and
+Strehl-ratio tests:
+(i) $\mathcal{S}(\tau)$ is constructed directly from the data, with
+$g^{(1)}_{\rm src}(\tau)$ obtained from the source spectrum via
+Wiener--Khinchin, so a detection requires no separate source model;
+(ii) for an extended source the Siegert discrepancy is attenuated by an
+angular-size factor $\Phi_{\rm eff}(r_\perp)\in[0,1]$, providing a
+differential probe of the foam transverse coherence length $r_\perp$ at
+finite lag --- the point-source value is the maximum-signal upper bound;
 (iii) the framework remains sensitive to foam models with long-range
 transverse correlations that evade imaging tests
 entirely~\cite{LeeZurekChen2024}, and supplies a chromatic discriminant
 against plasma scattering through the $\sigma_\phi \propto 1/\lambda$
 scaling.
 
-The framework identifies high-priority targets of opportunity: strongly
-lensed sources and nearby high-luminosity transients (Type~IIn supernovae
-and LBV giant eruptions) that for $\alpha = 2/3$ offer
-${\sim}10^4$--$10^6\times$ the SNR of the persistent-AGN baseline
-(Section~\ref{sec:snr_results}). A standing
-rapid-response HBT plan --- covering $\eta$\,Car, any galactic
-core-collapse supernova, and any nearby ($D \lesssim 30$\,Mpc) Type~IIn
-identified by transient surveys --- would let the framework exploit these
-high-yield events without prior allocation. Strongly-lensed quasars
-(Section~\ref{sec:candidate_sources}; J1330$-$0905, comparable to the NLS1
-baseline after cosmological correction) round out the persistent-AGN
+The framework identifies high-priority targets: intrinsically compact
+emitters that saturate the upper bound regardless of $r_\perp$
+(narrow-line Seyfert~1 cores, lensed-quasar BLRs), and high-flux
+transients (Type~IIn supernovae, LBV giant eruptions) whose
+photon-rate advantage compensates for the modest cosmological lever arm
+at kpc--Mpc distances.  A standing rapid-response HBT plan --- covering
+$\eta$\,Car, any galactic core-collapse supernova, and any nearby
+($D \lesssim 30$\,Mpc) Type~IIn identified by transient surveys ---
+would let the framework exploit such high-yield events without prior
+allocation; transient targets with substantial angular extent contribute
+to the $r_\perp$ discriminant via $\Phi_{\rm eff}$.  Strongly-lensed
+quasars (Section~\ref{sec:candidate_sources}; J1330$-$0905, comparable to
+the NLS1 baseline after cosmological correction) round out the persistent
 target class.
 
 The achievable sensitivities are derived in Section~\ref{sec:prospects}.
-For a 10\,m-class telescope~\cite{Kim2025} with $T_{\rm obs} = 10^4$\,hr on
-the Mrk~766-class NLS1 of Table~\ref{tab:source_agn}, the zero-lag
-extended-source channel (Eq.~\eqref{eq:sigma_ell_min_ext}) with current
-detectors ($\sigma_t = 13$\,ps) reaches $\sigma_{\ell,\rm min}^{\rm ext}
-\approx 1.6\,\mu$m --- above the Lieu--Hillman imaging floor of $\sim 105$\,nm
-at H$\alpha$. Next-generation sub-ps timing on a 40\,m aperture pushes
-$\sigma_{\ell,\rm min}^{\rm ext}$ to $\sim 9$\,nm, and a 1\,km
-intensity-interferometer array to sub-nm, well below the imaging floor. What HBT-on-AGN cannot reach
-is the holographic prediction $\sigma_\phi \sim 10^{-8}$, six orders of
-magnitude below the most aggressive HBT projection and the natural target
-of tabletop holographic-noise interferometers~\cite{VerlindeZurek2021}.
-Realising these projections demands parallel investment in systematic-error
-control: null-test calibration sources with negligible predicted foam signal
-are essential to verify that instrumental artifacts do not limit sensitivity
-before photon statistics do.
+The single finite-lag channel applies to point-like and extended
+targets alike, the latter scaled by $\Phi_{\rm eff}$.  What HBT-on-AGN
+cannot reach is the holographic prediction $\sigma_\phi \sim 10^{-8}$,
+many orders of magnitude below the most aggressive HBT projection and
+the natural target of tabletop holographic-noise
+interferometers~\cite{VerlindeZurek2021}.  Realising these projections
+demands parallel investment in systematic-error control: null-test
+calibration sources with negligible predicted foam signal are essential
+to verify that instrumental artifacts do not limit sensitivity before
+photon statistics do.
 
 This analysis has focused on single-telescope observations, constraining foam models through the temporal statistics
 of intensity fluctuations. However, intensity interferometry with spatially separated telescopes on different baselines
@@ -1801,6 +1701,261 @@ The authors used Claude (Anthropic) and Valency Systems to assist with drafting 
 
 We thank Robin Kaiser for helpful comments.
 \end{acknowledgments}
+
+\appendix
+
+\section{Pedestrian derivation of $g^{(2)}_{\rm obs}(\tau)$}
+\label{app:g2ext}
+
+This appendix carries out the four-point function calculation underlying
+Section~\ref{sec:extended} step by step.  The aim is to expose how the
+random variables $(X,Y)$ that enter the connected Wick pairing arise, and
+to identify the regime in which the 2D average of Eq.~\eqref{eq:g2ext_correct}
+collapses to a 1D convolution (the point-source limit $\Phi=1$) versus
+the regime in which the cross-direction carrier-phase factor
+$\mathcal{F}_{\rm cross}$ of Eq.~\eqref{eq:Fcross} appears.
+
+\subsection{Setup}
+
+The observed field is Eq.~\eqref{eq:EobsExt},
+\begin{equation}
+  E_{\rm obs}(t) = \int d\boldsymbol{\theta}\, I^{1/2}(\boldsymbol{\theta})\,
+    E_{\boldsymbol{\theta}}\!\big(t - \delta t(t;\boldsymbol{\theta})\big),
+  \label{eq:Eobs_app}
+\end{equation}
+with three statistical inputs:
+\begin{enumerate}
+  \item Each $E_{\boldsymbol{\theta}}$ is a stationary, zero-mean,
+    complex-Gaussian (analytic-signal) process with unit mean intensity
+    $\langle |E_{\boldsymbol{\theta}}(s)|^2 \rangle = 1$.
+  \item Source spatial incoherence:
+    $\langle E^*_{\boldsymbol{\theta}}(s)\,E_{\boldsymbol{\theta}'}(s')\rangle
+    = g^{(1)}_{\rm src}(s'-s)\,\delta(\boldsymbol{\theta}-\boldsymbol{\theta}')$,
+    with anomalous pairings $\langle EE\rangle$ and $\langle E^*E^*\rangle$
+    vanishing.
+  \item $\delta t$ is independent of $E$, and its joint distribution at
+    distinct $(t,\boldsymbol{\theta})$ is the Gaussian process whose
+    covariance is Eq.~\eqref{eq:pathcov} divided by $c^2$.
+\end{enumerate}
+The brightness distribution is normalized,
+$\int I(\boldsymbol{\theta})\,d\boldsymbol{\theta} = 1$, so
+$\langle I_{\rm obs}\rangle = 1$ throughout this appendix.
+
+\subsection{Mean intensity}
+
+Plugging Eq.~\eqref{eq:Eobs_app} into $\langle|E_{\rm obs}(t)|^2\rangle$
+and using spatial incoherence to collapse the angular integral to the
+diagonal,
+\begin{align}
+  \langle |E_{\rm obs}(t)|^2 \rangle
+  &= \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\,
+    I^{1/2}(\boldsymbol{\theta})I^{1/2}(\boldsymbol{\theta}')\,
+    \big\langle E^*_{\boldsymbol{\theta}}(t-\delta t_{1})\,
+                E_{\boldsymbol{\theta}'}(t-\delta t_{2})\big\rangle \notag\\
+  &= \int d\boldsymbol{\theta}\, I(\boldsymbol{\theta})\,
+    \big\langle |E_{\boldsymbol{\theta}}(t-\delta t(t;\boldsymbol{\theta}))|^2 \big\rangle
+    = \int d\boldsymbol{\theta}\, I(\boldsymbol{\theta}) = 1,
+\end{align}
+where $\delta t_1 = \delta t(t;\boldsymbol{\theta})$ and
+$\delta t_2 = \delta t(t;\boldsymbol{\theta}')$.  By stationarity, the
+random retarded time does not change the marginal second moment of each
+$E_{\boldsymbol{\theta}}$, so the foam preserves the mean intensity
+exactly: $\langle |E_{\rm obs}|^2 \rangle = \langle |E_{\rm src}|^2\rangle$.
+
+\subsection{Four-point function and Wick contraction}
+
+The intensity autocorrelation is
+$\langle I(t)\,I(t+\tau)\rangle = \langle E^*_{\rm obs}(t)\,E_{\rm obs}(t)\,
+E^*_{\rm obs}(t+\tau)\,E_{\rm obs}(t+\tau)\rangle$.  Expanding each
+$E_{\rm obs}$ as in Eq.~\eqref{eq:Eobs_app} introduces four direction
+labels $\boldsymbol{\theta}_1,\ldots,\boldsymbol{\theta}_4$ and four
+retarded times
+\begin{equation}
+\begin{aligned}
+  s_1 &= t - \delta t(t;\boldsymbol{\theta}_1), &\quad
+  s_2 &= t - \delta t(t;\boldsymbol{\theta}_2), \\
+  s_3 &= t+\tau - \delta t(t+\tau;\boldsymbol{\theta}_3), &\quad
+  s_4 &= t+\tau - \delta t(t+\tau;\boldsymbol{\theta}_4).
+\end{aligned}
+\end{equation}
+Conditioning on a realization of $\delta t$, the four-point function of
+the independent zero-mean complex-Gaussian $E_{\boldsymbol{\theta}}$
+obeys Wick's (Isserlis') theorem:
+\begin{equation}
+  \langle E^*_{\boldsymbol{\theta}_1}(s_1)\,E_{\boldsymbol{\theta}_2}(s_2)\,
+    E^*_{\boldsymbol{\theta}_3}(s_3)\,E_{\boldsymbol{\theta}_4}(s_4)\rangle_{E}
+  = \langle E^*_1 E_2\rangle\langle E^*_3 E_4\rangle
+  + \langle E^*_1 E_4\rangle\langle E^*_3 E_2\rangle.
+  \label{eq:Wick_app}
+\end{equation}
+
+\paragraph{Disconnected pairing.}
+The first term in Eq.~\eqref{eq:Wick_app} forces
+$\boldsymbol{\theta}_1=\boldsymbol{\theta}_2$ and
+$\boldsymbol{\theta}_3=\boldsymbol{\theta}_4$ via the spatial-incoherence
+delta.  With $\boldsymbol{\theta}_1=\boldsymbol{\theta}_2$ the retarded
+times coincide ($s_1=s_2$), so the two-point function is
+$g^{(1)}_{\rm src}(0)=1$; the same holds for the
+$\boldsymbol{\theta}_3,\boldsymbol{\theta}_4$ pair.  The contribution is
+$\int I(\boldsymbol{\theta}_1)d\boldsymbol{\theta}_1 \int
+I(\boldsymbol{\theta}_3)d\boldsymbol{\theta}_3 = 1 =
+\langle I(t)\rangle\langle I(t+\tau)\rangle$, which subtracts cleanly
+when forming $g^{(2)}-1$.
+
+\paragraph{Connected pairing.}
+The second term forces $\boldsymbol{\theta}_1=\boldsymbol{\theta}_4\equiv
+\boldsymbol{\theta}$ and $\boldsymbol{\theta}_3=\boldsymbol{\theta}_2\equiv
+\boldsymbol{\theta}'$.  The two surviving two-point functions are
+evaluated at retarded-time differences
+\begin{equation}
+  s_4 - s_1 = \tau - X,\qquad
+  s_2 - s_3 = -(\tau - Y),
+\end{equation}
+with the two \emph{same-direction temporal increments}
+\begin{equation}
+  X \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}),
+  \qquad
+  Y \equiv \delta t(t+\tau;\boldsymbol{\theta}') - \delta t(t;\boldsymbol{\theta}')
+\end{equation}
+[Eq.~\eqref{eq:XYdef} of the body].
+Using $g^{(1)}_{\rm src}(-u) = g^{(1)*}_{\rm src}(u)$, the connected
+contribution to $g^{(2)}_{\rm obs}-1$ is
+\begin{equation*}
+  \boxed{\;
+  g^{(2)}_{\rm obs}(\tau) - 1
+    = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
+      I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\;
+      \big\langle g^{(1)}_{\rm src}(\tau - X)\,
+                 g^{(1)*}_{\rm src}(\tau - Y)\big\rangle_{X,Y}.
+  \;}
+\end{equation*}
+This is Eq.~\eqref{eq:g2ext_correct} of the body.
+
+\subsection{Joint distribution of $(X,Y)$}
+
+$X$ and $Y$ are linear functionals of the Gaussian process $\delta t$,
+hence jointly Gaussian and zero-mean.  Using
+Eq.~\eqref{eq:pathcov} and $C_\alpha$ even in $\tau$,
+\begin{align}
+  \operatorname{Var}(X) = \operatorname{Var}(Y)
+    &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big],
+    \label{eq:varX}\\
+  \operatorname{Cov}(X,Y)
+    &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big]\,
+       \Phi\!\left(b/r_\perp\right),
+    \label{eq:covXY}
+\end{align}
+so the correlation coefficient is $\rho = \Phi(b/r_\perp)$.
+
+The structural point: $X$ is the temporal jitter increment
+\emph{along direction $\boldsymbol{\theta}$}, and $Y$ is the increment
+\emph{along direction $\boldsymbol{\theta}'$}.  Neither involves a
+cross-direction sample of $\delta t$; the transverse coherence factor
+$\Phi$ enters only through their correlation.  Equation~\eqref{eq:g2ext_correct}
+is therefore a 2D average over the joint distribution of $(X,Y)$, not a
+1D convolution with a single variable $\Delta$.
+
+It collapses to a 1D convolution only when $\rho = 1$, i.e.\ when
+$\Phi = 1$ (point source, or the transversely-coherent limit
+$b\ll r_\perp$).  In that case $X = Y$ almost surely,
+$g^{(1)}_{\rm src}(\tau-X)g^{(1)*}_{\rm src}(\tau-X) =
+|g^{(1)}_{\rm src}(\tau-X)|^2 = g^{(2)}_{\rm src}(\tau-X)-1$, and the
+point-source formula Eq.~\eqref{eq:g2obs} is recovered with
+$\sigma_\Delta^2 = \operatorname{Var}(X) =
+(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau)]$.
+
+\subsection{Zero lag: $g^{(2)}_{\rm obs}(0) = 2$ exactly}
+
+At $\tau=0$ each of the increments in Eq.~\eqref{eq:XYdef} is the
+difference of a random variable with itself:
+\begin{equation}
+  X\big|_{\tau=0} = 0,\qquad Y\big|_{\tau=0} = 0,
+\end{equation}
+for every realization of $\delta t$ and every pair
+$(\boldsymbol{\theta},\boldsymbol{\theta}')$.  This is independent of
+$\Phi$, $C_\alpha$, $\sigma_\ell$, and $D$.  Equation~\eqref{eq:g2ext_correct} reduces to
+\begin{equation}
+  g^{(2)}_{\rm obs}(0) - 1
+  = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
+    I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
+    |g^{(1)}_{\rm src}(0)|^2 = 1,
+\end{equation}
+so $g^{(2)}_{\rm obs}(0) = 2$ exactly.
+
+The same conclusion follows from a direct argument that bypasses the
+Wick contraction.  Conditioning on $\delta t$,
+$E_{\rm obs}(t) = \int d\boldsymbol{\theta}\,I^{1/2}(\boldsymbol{\theta})\,
+\widetilde E_{\boldsymbol{\theta}}$ with
+$\widetilde E_{\boldsymbol{\theta}} \equiv
+E_{\boldsymbol{\theta}}(t-\delta t(t;\boldsymbol{\theta}))$.  By
+stationarity each $\widetilde E_{\boldsymbol{\theta}}$ has the same
+distribution as $E_{\boldsymbol{\theta}}(t)$; since the $E_{\boldsymbol{\theta}}$
+are independent across $\boldsymbol{\theta}$, so are the
+$\widetilde E_{\boldsymbol{\theta}}$.  Hence $E_{\rm obs}(t)$ is a linear
+combination of independent zero-mean complex Gaussians with fixed
+weights $I^{1/2}(\boldsymbol{\theta})$, and is itself a zero-mean complex
+Gaussian.  The Gaussian-moment identity gives
+\begin{equation}
+  \big\langle |E_{\rm obs}(t)|^4 \,\big|\, \delta t \big\rangle
+  = 2\,\big\langle |E_{\rm obs}(t)|^2 \,\big|\, \delta t \big\rangle^2 = 2
+\end{equation}
+for every $\delta t$, so $g^{(2)}_{\rm obs}(0) = \langle I^2\rangle/\langle
+I\rangle^2 = 2$ unconditionally.  Foam imprints itself on multi-time
+correlations of $E_{\rm obs}$ but not on its single-time amplitude
+statistics; the standard Gaussian identity $g^{(2)}(0)=2$ for any
+zero-mean complex Gaussian field is preserved.
+
+\subsection{Finite lag: narrow-band reduction}
+
+For $\tau\neq 0$, split $g^{(1)}_{\rm src}$ into carrier and envelope
+(Section~\ref{sec:narrowband}),
+$g^{(1)}_{\rm src}(\tau) = e^{i\omega_0\tau}\,V_{\rm src}(\tau)$ with
+$V_{\rm src}$ real and slowly varying on the carrier scale, so
+\begin{equation}
+  g^{(1)}_{\rm src}(\tau-X)\,g^{(1)*}_{\rm src}(\tau-Y)
+  = e^{-i\omega_0(X-Y)}\,V_{\rm src}(\tau-X)\,V_{\rm src}(\tau-Y).
+\end{equation}
+Change variables in the joint Gaussian average to the sum and difference
+\begin{equation}
+  U \equiv \tfrac{1}{2}(X+Y),\qquad V \equiv X - Y,
+\end{equation}
+which (because $X,Y$ have the same variance) are independent zero-mean
+Gaussians with
+\begin{equation}
+  \sigma_U^2 = \frac{\sigma_\ell^2(D)}{c^2}\big[1-C_\alpha(\tau;D)\big](1+\Phi),
+  \qquad
+  \sigma_V^2 = \frac{4\sigma_\ell^2(D)}{c^2}\big[1-C_\alpha(\tau;D)\big](1-\Phi).
+  \label{eq:sigmaUV}
+\end{equation}
+In the narrow-band regime $\sigma_V\ll\tau_L$, so
+$V_{\rm src}(\tau-U-V/2)\,V_{\rm src}(\tau-U+V/2) \approx
+V_{\rm src}^2(\tau-U)$, and the $V$ integral is the characteristic
+function of a Gaussian:
+\begin{equation}
+  \int dV\,\mathcal{N}(V;0,\sigma_V^2)\,e^{-i\omega_0 V}
+  = e^{-\omega_0^2\sigma_V^2/2}
+  = \exp\!\Big(-2\sigma_\phi^2(D)\,[1-C_\alpha(\tau;D)]\,[1-\Phi]\Big),
+\end{equation}
+with $\sigma_\phi = \omega_0\sigma_\ell/c$ the rms accumulated carrier
+phase along a single ray.  The result reproduces Eq.~\eqref{eq:g2ext_corrected}
+of the body, with the cross-direction carrier-phase factor
+$\mathcal{F}_{\rm cross}(\tau;b)$ of Eq.~\eqref{eq:Fcross}.
+
+\subsection{Summary}
+
+Equations~\eqref{eq:g2ext_correct} and \eqref{eq:g2ext_corrected} of the
+body are the key results of this pedestrian derivation.  Two structural
+features deserve emphasis: a cross-direction carrier-phase factor
+$\mathcal{F}_{\rm cross}$ controlled by the imaging-channel scale
+$\sigma_\phi$ appears (so the $\sigma_\phi$/$\sigma_\Delta/\tau_c$
+decoupling of Section~\ref{sec:scales} is exact only for a point source);
+and the envelope-convolution variance is $\sigma_U^2 =
+(\sigma_\ell^2/c^2)[1-C_\alpha](1+\Phi)$ rather than the point-source
+$\sigma_\Delta^2 = (2\sigma_\ell^2/c^2)[1-C_\alpha]$, the two coinciding
+only at $\Phi=1$.  At $\tau=0$ both $\mathcal{F}_{\rm cross}$ and
+$\sigma_U^2$ trivialize ($C_\alpha(0)=1$), reproducing the rigorous
+single-time identity $g^{(2)}_{\rm obs}(0) = 2$ for any
+$\Phi_{\rm eff}\in[0,1]$.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
