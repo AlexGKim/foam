@@ -101,9 +101,11 @@ We develop a framework based on the first- and second-order coherence
 functions $g^{(1)}(\tau)$ and $g^{(2)}(\tau)$ of light from astrophysical
 sources.
 The first-order coherence -- the field--field autocorrelation, equivalently
-the fringe visibility at delay $\tau$ -- inherits a foam suppression that
-interpolates continuously between unity and the Lieu--Hillman fringe-erasure
-limit~\cite{LieuHillman2003}, recovering the Strehl and fringe-visibility
+the fringe visibility at delay $\tau$ -- inherits a foam suppression factor
+that decreases continuously from unity toward complete fringe erasure as
+the accumulated phase variance $\sigma_\phi^2$ grows, extending the binary
+Lieu--Hillman erasure criterion~\cite{LieuHillman2003} ($\sigma_\phi\gtrsim 1$)
+to a continuous curve and recovering the Strehl and fringe-visibility
 tests as limiting cases of the same statistic.
 The second-order coherence -- the intensity--intensity autocorrelation
 measured in a Hanbury Brown--Twiss experiment~\cite{HBT1956} -- is to leading
@@ -131,26 +133,23 @@ unaffected. A change in $g^{(2)}$ requires the two photons to experience
 \emph{different} foam: typically they follow the same path but are separated
 in time by more than the foam coherence time $\tau_{\rm foam}$, so the foam
 has changed between their passages.
+When the two photons arrive from sky directions separated enough to
+experience different foam fluctuations, $g^{(2)}$ is further suppressed.
 
-The framework draws on a well-established phenomenology of phase screens
-acting on chaotic light. For a thermal point source viewed through a
-\emph{static} phase screen, $g^{(1)}$ is suppressed by the Strehl factor
-$e^{-\sigma_\phi^2}$ while $g^{(2)}$ is unchanged --- the principle behind
-Hanbury Brown \& Twiss's demonstration that intensity interferometry
-survives atmospheric phase distortions that erase Michelson
-fringes~\cite{HBT1956}. A \emph{dynamic} phase screen that fluctuates
-within the detection timing window imprints additional intensity
-correlations on $g^{(2)}(\tau)$, the principle exploited in
+The framework draws on a well-established phenomenology of dynamic phase
+screens acting on chaotic light.
+A phase screen that fluctuates within the detection timing window imprints
+intensity correlations on $g^{(2)}(\tau)$, the principle exploited in
 Martienssen \& Spiller's pseudo-thermal light source~\cite{MartienssenSpiller1964}
 and a recurring theme in HBT-through-turbulence
-studies~\cite{Goodman2007,MandelWolf1995}. Planck-scale foam acts as a
-dynamic phase screen distributed along the entire line of sight: when
-$\tau_{\rm foam}\lesssim\tau_L$ it produces a finite-lag Siegert
-discrepancy on point-like targets, attenuated by $\Phi_{\rm eff}$ for
-sources whose angular extent resolves the foam transverse coherence
-scale $r_\perp$.  The present work extends these laboratory phenomena
---- static-screen survival and dynamic-screen imprint --- to
-cosmological propagation through spacetime foam.
+studies~\cite{Goodman2007,MandelWolf1995}.
+Planck-scale foam acts as a dynamic phase screen distributed along the
+entire line of sight: when $\tau_{\rm foam}\lesssim\tau_L$ it produces a
+finite-lag Siegert discrepancy on point-like targets, attenuated by
+$\Phi_{\rm eff}$ for sources whose angular extent resolves the foam
+transverse coherence scale $r_\perp$.
+The present work extends this laboratory phenomenon --- dynamic-screen
+imprinting on $g^{(2)}$ --- to cosmological propagation through spacetime foam.
 
 Next-generation sensitivity is achievable via two complementary paths:
 large-aperture single telescopes measuring the HBT effect, and multi-telescope
