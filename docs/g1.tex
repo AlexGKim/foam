@@ -1137,18 +1137,70 @@ limit is $\Delta I/B \propto -\mu/x \propto \nu^{-1}$, which is shape-degenerate
 $1/\nu$-distributed pedestal. The current placeholder kernel $K_\nu^{\rm fast} \propto 1/(\nu \ln[\nu_{\rm max}/\nu_{\rm min}])$
 is precisely this form, maximizing the foam-$\mu$ correlation.
 
-Fisher matrix analysis (Appendix materials) quantifies this: the marginal correlation
-between foam amplitude and $\mu$ is $\rho(A_{\rm eff}, \mu) = 0.976$, nearly perfect degeneracy.
-Marginalizing over $\mu$ (and $T_0$) degrades the foam amplitude uncertainty by a factor of
-$\sim 6$. In contrast, the $y$-distortion template has opposite-sign RJ/Wien structure
-relative to foam, giving $\rho(A_{\rm eff}, y) = 0.010$ — foam is essentially uncorrelated
-with $y$, and the $y$ constraint provides negligible help in separating the foam signal.
+A Fisher matrix analysis (code: \texttt{fisher\_firas.py}) using the linearized templates,
+diagonal FIRAS noise $\sigma_\nu = 0.01$\,MJy/sr per channel, and 43 uniform channels from
+60 to 600\,GHz gives the correlation matrix shown in Table~\ref{tab:fisher_corr} and the
+marginal uncertainties
+\begin{equation}
+  \sigma(A_{\rm eff}) = 1.5\times10^{-17}\,{\rm m}^2 \quad \text{(marginal, all params free)},
+  \qquad
+  \sigma(A_{\rm eff})\big|_{\mu,y\,\text{fixed}} = 2.6\times10^{-18}\,{\rm m}^2.
+  \label{eq:sigma_Aeff}
+\end{equation}
+Marginalizing over $\mu$ and $T_0$ therefore degrades the foam amplitude uncertainty by a factor
+of $\sim 6$, driven almost entirely by the foam--$\mu$ degeneracy.
 
-\textit{Action item:} Compute the full Fisher correlation matrix $\rho_{\alpha\mu}$, $\rho_{\alpha y}$,
-and $\rho_{\mu y}$ using the FIRAS noise-plus-calibration covariance matrix (Fixsen 1996) and
-the full nonlinear foam template (Section~\ref{sec:FIRAS_derivation}) \emph{before} running
-MCMC sampling. The correlation with $\mu$ may be reduced if the pedestal kernel is determined
-by a specific $C_\alpha$ model rather than the current placeholder.
+\begin{table}[h]
+\centering
+\caption{Linearized Fisher matrix correlation coefficients $\rho_{ij}$ for the FIRAS foam
+analysis with parameters $\boldsymbol{\theta} = (A_{\rm eff}, T_0, \mu, y)$.
+Computed using the placeholder pedestal kernel $K_\nu^{\rm fast} \propto 1/\nu$;
+the dominant foam--$\mu$ degeneracy ($\rho = 0.976$) will change once a physical
+$C_\alpha$ model replaces this kernel.}
+\label{tab:fisher_corr}
+\begin{tabular}{lcccc}
+\hline\hline
+ & $A_{\rm eff}$ & $T_0$ & $\mu$ & $y$ \\
+\hline
+$A_{\rm eff}$ & $1.000$ & $0.937$ & $\mathbf{0.976}$ & $0.010$ \\
+$T_0$         & $0.937$ & $1.000$ & $0.969$          & $-0.212$ \\
+$\mu$         & $\mathbf{0.976}$ & $0.969$ & $1.000$ & $-0.127$ \\
+$y$           & $0.010$ & $-0.212$ & $-0.127$        & $1.000$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:fisher_snr} gives the marginal detection SNR as a function of $\alpha$
+(with $A_\alpha = 1$), showing that sensitivity falls below 1$\sigma$ at $\alpha \approx 0.57$.
+
+\begin{table}[h]
+\centering
+\caption{Marginal detection SNR for the foam amplitude $A_{\rm eff}$ as a function of foam
+exponent $\alpha$ (with $A_\alpha = 1$, $D_C = 13.87$\,Gpc). ``Marginal'' marginalizes
+over $T_0, \mu, y$; ``conditional'' holds $\mu, y$ fixed.}
+\label{tab:fisher_snr}
+\begin{tabular}{ccccc}
+\hline\hline
+$\alpha$ & $A_{\rm eff}$ (m$^2$) & $\sigma_\phi^2(150\,\text{GHz})$ & SNR (marginal) & SNR ($\mu,y$ fixed) \\
+\hline
+$0.50$ & $6.9\times10^{-9}$  & $6.8\times10^{-2}$ & $4.6\times10^{8}$ & $2.7\times10^{9}$ \\
+$0.55$ & $5.0\times10^{-15}$ & $4.9\times10^{-8}$ & $330$             & $1920$            \\
+$0.56$ & $2.9\times10^{-16}$ & $2.9\times10^{-9}$ & $19$              & $113$             \\
+$0.57$ & $1.7\times10^{-17}$ & $1.7\times10^{-10}$ & $\mathbf{1.1}$  & $6.7$             \\
+$0.58$ & $1.0\times10^{-18}$ & $1.0\times10^{-11}$ & $0.07$           & $0.40$            \\
+$0.59$ & $6.1\times10^{-20}$ & $6.0\times10^{-13}$ & $0.004$          & $0.024$           \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+These results use the placeholder kernel; the actual sensitivity limit depends on the
+physical pedestal shape. The foam--$y$ correlation $\rho = 0.010$ is negligible: the
+$y$-distortion measurement provides essentially no help in separating the foam signal.
+
+\textit{Action item:} Repeat this Fisher analysis using (i) the FIRAS noise-plus-calibration
+covariance matrix from Fixsen (1996) in place of the diagonal approximation, and (ii) the
+full nonlinear foam template once $C_\alpha(\tau)$ is specified. Both changes will alter the
+correlations quantitatively, particularly the foam--$\mu$ degeneracy.
 
 \subsection{Parameter Degeneracy Within the Foam Template}
 
