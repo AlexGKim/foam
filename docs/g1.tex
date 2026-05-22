@@ -398,10 +398,9 @@ $\tau_G\to\infty$.  Unlike the Lorentzian case, the correction factor can
 change sign: for $\tau < \tau_G\sqrt{1-\tau_G/\tau_L}$ the
 second-order term is negative, so foam jitter \emph{suppresses}
 short-lag coherence.
-Note that both closed forms in the weak-jigger limit share the general product structure
+Note that both closed forms in the weak-jitter limit share the general product structure
 $g^{(1)}_{\rm obs}(\tau)=g^{(1)}_{\rm src}(\tau)\,F_{\rm foam}(\tau)$.
 
-% [Author: I doubt Narrow-Band limit is needed in this article]
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
 
@@ -645,7 +644,7 @@ In this section we consider these two possibilies.
 
 The two-component line-profile decomposition of
 Eq.~\eqref{eq:Sobs_conv} admits a direct application as a spectroscopic
-analogue of the Ng--Perlman Strehl-ratio bound~\cite{NgPerlman2022}:
+analogue of the Strehl-ratio bound~\cite{NgPerlman2022}:
 just as the observation of a diffraction-limited point-spread function
 at wavelength $\lambda$ and distance $D$ requires the Strehl ratio
 $\mathcal{S}\simeq e^{-\sigma_\phi^2}$ (Eq.~\eqref{eq:strehl}) to
@@ -665,14 +664,23 @@ whether that fraction is read off the on-axis PSF intensity or off the
 spectral line core.  They share the same threshold criterion and the
 same parametric dependence on $\{D,\lambda,\alpha\}$.
 
-As a representative target we take BzK\,4892 at $z_s=2.578$,
-in which
-multiple narrow rest-UV emission lines
-(Ly$\alpha$, C\,\textsc{iv}, He\,\textsc{ii}, C\,\textsc{iii})
-have been spectroscopically detected~\cite{Szokoly2004,Vanzella2006};
-the source also hosts a Compton-thick AGN resolved by strong Iron
-K$\alpha$ 6.4\,keV emission in the \textit{Chandra} 4\,Ms
-data~\cite{Feruglio2011}.
+BzK\,4892 is a massive ($M_\star\approx 5\times 10^{10}\,M_\odot$),
+infrared-luminous, dust-obscured star-forming \textit{BzK} galaxy in
+the CDF-S at spectroscopic redshift $z_s=2.578$, hosting a heavily
+obscured, intrinsically quasar-luminous
+($L_{2\text{--}10\,\mathrm{keV}}\gtrsim 10^{44.5}\,\mathrm{erg\,s^{-1}}$)
+AGN behind a Compton-thick absorber with
+$N_{\rm H}\sim 10^{24.5\text{--}25}\,\mathrm{cm^{-2}}$~\cite{Feruglio2011}.
+Because the direct hard X-ray continuum is suppressed by photoelectric
+absorption and Compton down-scattering, the X-ray spectrum is
+reflection-dominated and the 6.4\,keV Iron K$\alpha$ fluorescence line---
+produced by the obscurer reprocessing the buried AGN continuum---emerges
+with exceptionally large rest-frame equivalent width,
+$\mathrm{EW}\simeq 2.3$\,keV, detected at $\gtrsim 4\sigma$ in the
+\textit{Chandra} 4\,Ms CDF-S exposure~\cite{Feruglio2011}.
+The redshift is independently confirmed by multiple narrow rest-UV
+emission lines (Ly$\alpha$, C\,\textsc{iv}, He\,\textsc{ii}, C\,\textsc{iii})
+detected in VLT/FORS spectroscopy~\cite{Szokoly2004,Vanzella2006}.
 Adopting the flat $\Lambda$CDM cosmology used in Ng--Perlman
 ($\Omega_M=0.27$, $\Omega_\Lambda=0.73$, $H_0=70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$),
 the line-of-sight comoving distance is
@@ -683,18 +691,49 @@ redshifted to an observed energy of $6.4/(1+z_s)\approx 1.79$\,keV
 probe wavelength for this estimate; the short rest-frame wavelength
 ($\lambda_{\rm rest}\approx 1.94$\,\AA) makes the foam variance
 $\sigma_\phi^2\propto\lambda_{\rm obs}^{-2}$ much larger than for any
-optical line at the same distance, yielding the strongest available
-spectroscopic constraint.
+optical line at the same distance, yielding the most constraining
+spectroscopic bound available at this redshift.
+
+The threshold condition $\sigma_\phi^2\lesssim 1$ for the coherent line
+core of Eq.~\eqref{eq:Sobs_conv} to remain detectable above the foam-broadened
+pedestal --- the spectral-Strehl criterion introduced above, mirroring
+the imaging Strehl bound of Eq.~\eqref{eq:strehl} --- depends on the intrinsic source
+profile $S_{\rm src}(\nu)$ only through its characteristic width
+$\Delta\nu_{\rm src}$, and not through its detailed functional form.
+For the fluorescent Iron K$\alpha$ line in BzK\,4892 the natural width
+and fine-structure splitting are negligible compared to the velocity
+broadening of the Compton-thick reprocessor
+($\mathrm{FWHM}\sim 10^{3}\text{--}10^{4}\,\mathrm{km\,s^{-1}}$, i.e.\
+$\Delta\nu_{\rm src}/\nu_{\rm src}\sim 10^{-3}\text{--}10^{-2}$), and
+the line is in any case instrumentally unresolved at
+\textit{Chandra}/ACIS spectral resolution. We therefore adopt the
+narrow-line idealisation $\Delta\nu_{\rm src}\ll\nu_{\rm src}$, under
+which the coherent core and the foam-broadened pedestal of Eq.~\eqref{eq:Sobs_conv}
+are spectrally separable; profile refinements (Voigt wings, Compton
+shoulder) would shift the threshold $\sigma_\phi^2\lesssim 1$ by at
+most factors of order unity.
 
 In the dynamical foam limit the suppression factor
 Eq.~\eqref{eq:Ffoam} reduces to $\mathcal{F}_{\rm foam}(\infty)=
 e^{-\sigma_\phi^2}$, which is the coherent fraction of the observed
 line profile via Eq.~\eqref{eq:Sobs_conv}.  Detecting the Iron
 K$\alpha$ feature requires $e^{-\sigma_\phi^2}\gtrsim e^{-1}$,
-i.e.\ $\sigma_\phi^2\lesssim 1$.  The cumulative phase variance follows
+i.e.\ $\sigma_\phi^2\lesssim 1$.  At this threshold the coherent line
+core carries fraction $e^{-1}\approx 37\%$ of the intrinsic flux ---
+the minimum for a line detection not dominated by the broad pedestal,
+and intentionally conservative relative to the Maréchal criterion
+$\sigma_\phi^2\lesssim 0.2$.
+The cumulative phase variance follows
 from the Ng--Perlman path-length model~\eqref{eq:NgPerlmanVar} via the
-global phase conversion $\sigma_\phi=2\pi\sigma_\ell(D_C)/\lambda_{\rm obs}$,
-reproducing Ng \& Perlman~\cite{NgPerlman2022} Eq.~(4):
+global phase conversion $\sigma_\phi=2\pi\sigma_\ell(D_C)/\lambda_{\rm obs}$.
+The narrow-band condition $\sigma_\ell/(c\tau_c)\ll 1$ underlying
+Eq.~\eqref{eq:Sobs_conv} is satisfied here: at $\alpha=0.59$ one has
+$\sigma_\ell\approx 1.2\times10^{-10}$\,m while the X-ray coherence
+length $c\tau_c = \lambda_{\rm obs}^2/(2\pi\Delta\lambda)\approx
+3\times10^{-8}$\,m for FWHM $\sim10^3\,{\rm km\,s^{-1}}$, giving
+$\sigma_\ell/(c\tau_c)\approx 4\times10^{-3}$; the envelope
+approximation is accurate to better than $10^{-4}$.
+The phase variance, reproducing Ng \& Perlman~\cite{NgPerlman2022} Eq.~(4), is
 \begin{equation}
   \sigma_\phi^2 \;\simeq\; (2\pi)^2\,
     \frac{D_C^{\,2(1-\alpha)}\,\ell_P^{\,2\alpha}}{\lambda_{\rm obs}^{\,2}},
@@ -719,20 +758,28 @@ $\ln(D_C/\ell_P)\approx 140.6$, hence
 $\alpha \gtrsim 0.59$.
 
 This bound, $\alpha\gtrsim 0.59$, is substantially tighter than the
-optical entry $\alpha>0.53$ of Ref.~\cite{NgPerlman2022} Table~1
-(evaluated at $\lambda=5000$~\AA\ and $D=10$~Gpc).  The improvement
-is not incidental: because $\sigma_\phi^2\propto\lambda_{\rm obs}^{-2}$,
+optical entry of Ref.~\cite{NgPerlman2022} Table~1. Applying the
+present threshold $\sigma_\phi^2\lesssim 1$ (rms phase $\lesssim 1$\,rad)
+at $\lambda=5000$\,\AA\ and $D=10$\,Gpc gives $\alpha\gtrsim 0.55$,
+compared to their $\alpha>0.53$ obtained with the equivalent threshold
+$\sigma_\ell\lesssim\lambda/(2\pi)$; both reflect the same physics but
+differ by the $2\pi$ convention in the phase definition.
+The improvement from 0.55 to 0.59 is not incidental: because $\sigma_\phi^2\propto\lambda_{\rm obs}^{-2}$,
 using the X-ray Fe\,K$\alpha$ line at $\lambda_{\rm obs}\approx 6.93\times
 10^{-10}$~m instead of a typical optical line at $\sim 5\times 10^{-7}$~m
 increases the variance by a factor $\sim 5\times 10^5$, making the
 threshold $\sigma_\phi^2\lesssim 1$ far more constraining.  Within the
 X-ray band, the bound is insensitive to the exact line chosen:
 substituting any X-ray line at the same redshift shifts $\alpha$ by
-$|\Delta\alpha|\lesssim 0.01$.  The result does not rule out the
+$|\Delta\alpha|\lesssim 0.01$
+($\partial\alpha/\partial\ln\lambda_{\rm obs} = -1/\ln(D_C/\ell_P)\approx -7\times10^{-3}$,
+so a factor-of-two energy shift changes $\alpha$ by only $0.005$).  The result does not rule out the
 holographic value $\alpha=2/3$, consistent with all current optical and
 infrared imaging constraints, including those of Ref.~\cite{Perlman2015}
 and the GRAVITY interferometric observation of
-3C\,273~\cite{GRAVITY2018}.  Methodologically the test is independent of imaging: it operates
+3C\,273~\cite{GRAVITY2018}.
+
+Methodologically the test is independent of imaging: it operates
 entirely in the spectral domain and probes line-profile contrast rather
 than on-axis PSF intensity, providing an orthogonal cross-check on
 Strehl-based constraints that does not require a diffraction-limited
@@ -740,14 +787,19 @@ optical system or a resolved reference PSF.
 
 Three caveats temper this estimate.  First, the argument applies only
 in the dynamical foam regime in which the core-plus-pedestal
-decomposition of Eq.~\eqref{eq:Sobs_conv} holds; in the quasi-static
-limit $\tau_{\rm foam}\to\infty$ the spectroscopic signature vanishes
-and no constraint can be placed.  This is the same dynamical-versus-quasi-static
-dichotomy that governs the Strehl test: an imaging Strehl measurement
-on a single short exposure ($T_{\rm exp}\ll\tau_{\rm foam}$) sees a
-frozen common-mode phase and recovers $\mathcal{S}\approx 1$, whereas
-a long-exposure or ensemble-averaged Strehl ($T_{\rm exp}\gg\tau_{\rm foam}$)
-recovers the full suppression $e^{-\sigma_\phi^2}$.  A spectroscopic
+decomposition of Eq.~\eqref{eq:Sobs_conv} holds, and in the narrow-band
+regime $\sigma_\ell/(c\tau_c)\ll 1$ required for the product structure
+of Eq.~\eqref{eq:Sobs_conv} to hold; both conditions are verified for
+the BzK\,4892 parameters (see above).  In the quasi-static limit
+$\tau_{\rm foam}\to\infty$ the spectroscopic signature vanishes and no
+constraint can be placed.
+
+This dynamical-versus-quasi-static dichotomy mirrors the
+exposure-time dependence of the imaging Strehl: a single short
+exposure ($T_{\rm exp}\ll\tau_{\rm foam}$) sees a frozen common-mode
+phase and recovers $\mathcal{S}\approx 1$, whereas a long-exposure or
+ensemble-averaged Strehl ($T_{\rm exp}\gg\tau_{\rm foam}$) recovers
+the full suppression $e^{-\sigma_\phi^2}$.  A spectroscopic
 observation, integrating over astronomically long times, is
 automatically in the latter regime whenever $\tau_{\rm foam}$ is finite.  Second, the threshold
 $\sigma_\phi^2 \lesssim 1$ is intentionally conservative; a
