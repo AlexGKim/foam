@@ -613,8 +613,12 @@ correspondence: (i) the chromatic scaling
 $\sigma_\phi \propto 1/\lambda$ implies that constraints tighten
 rapidly with decreasing wavelength---a fact exploited by Ng \&
 Perlman~\cite{NgPerlman2022} (their Table~1) in moving from optical
-through X-ray and $\gamma$-ray observations, and mirrored here by the
-spectroscopic bound derived in Section~\ref{sec:bzk4892}; (ii) baseline-resolved
+through X-ray and $\gamma$-ray observations, and mirrored in
+Section~\ref{sec:bzk4892}, where the same saturated-limit suppression
+$e^{-\sigma_\phi^2}$ that defines the Strehl ratio (Eq.~\eqref{eq:strehl})
+is reinterpreted as the coherent fraction of a spectral line, yielding
+a spectroscopic counterpart of the Strehl bound at X-ray wavelengths;
+(ii) baseline-resolved
 visibility measurements of a single target can in principle probe the
 aperture-plane coherence scale, complementary to the temporal
 decorrelation scale accessed through $g^{(1)}_{\mathrm{obs}}(\tau)$. 
@@ -623,25 +627,43 @@ decorrelation scale accessed through $g^{(1)}_{\mathrm{obs}}(\tau)$.
 \section{Sources}
 \label{sec:sources}
 
+Time-varying spacetime foam modifies the source first-order coherence,
+and hence its spectrum, in a wavelength-dependent way through
+the scaling $\sigma_\phi \propto 1/\lambda$. Two observable
+consequences follow. First, individual spectral features are blurred,
+in direct analogy to the
+blurring of the point-spread function in imaging. Second, the
+broadband spectral energy distribution is distorted: the cosmic
+microwave background, expected to be a near-perfect blackbody, would
+acquire foam-induced deviations whose chromatic signature is distinct
+from standard chemical-potential and Compton-$y$ distortions. 
+In this section we consider these two possibilies.
+
 % ==============================================================
 \subsection{BzK4892}
 \label{sec:bzk4892}
 
 The two-component line-profile decomposition of
 Eq.~\eqref{eq:Sobs_conv} admits a direct application as a spectroscopic
-analogue of the Ng--Perlman fringe-visibility
-bound~\cite{NgPerlman2022}: just as the observation of resolved fringes
-or Airy rings at wavelength $\lambda$ and distance $D$ requires the
-accumulated foam phase variance to satisfy
-$\sigma_\phi^2 \lesssim \mathcal{O}(1)$ (\S3 and Eq.~(4) of
-Ref.~\cite{NgPerlman2022}), the observation of sharp spectral features
-requires the same condition: for $\sigma_\phi^2 \gtrsim 1$ the coherent
-core $e^{-\sigma_\phi^2}\,S_{\rm src}(\nu)$ of
-Eq.~\eqref{eq:Sobs_conv} is suppressed below the incoherent pedestal
-and crisp line profiles cease to be detectable.  The two arguments
-differ only in observable --- angular fringe contrast versus spectral
-line contrast --- and share the same threshold criterion and the same
-parametric dependence on $\{D,\lambda,\alpha\}$.
+analogue of the Ng--Perlman Strehl-ratio bound~\cite{NgPerlman2022}:
+just as the observation of a diffraction-limited point-spread function
+at wavelength $\lambda$ and distance $D$ requires the Strehl ratio
+$\mathcal{S}\simeq e^{-\sigma_\phi^2}$ (Eq.~\eqref{eq:strehl}) to
+remain of order unity, i.e.\ $\sigma_\phi^2\lesssim\mathcal{O}(1)$
+(\S3 and Eq.~(4) of Ref.~\cite{NgPerlman2022}), the observation of
+sharp spectral features requires the same condition: in the dynamical
+foam limit the lag-asymptote $\mathcal{F}_{\rm foam}(\infty)=
+e^{-\sigma_\phi^2}$ of Eq.~\eqref{eq:Ffoam} plays the role of a
+\emph{spectral Strehl} --- the fraction of source flux delivered into
+the coherent line core $e^{-\sigma_\phi^2}\,S_{\rm src}(\nu)$ of
+Eq.~\eqref{eq:Sobs_conv} --- and for $\sigma_\phi^2\gtrsim 1$ this
+coherent core is suppressed below the incoherent pedestal so that
+crisp line profiles cease to be detectable.  The two arguments are
+structurally identical: each is a single-number, saturated-limit test
+of the coherent fraction $e^{-\sigma_\phi^2}$, differing only in
+whether that fraction is read off the on-axis PSF intensity or off the
+spectral line core.  They share the same threshold criterion and the
+same parametric dependence on $\{D,\lambda,\alpha\}$.
 
 As a representative target we take BzK\,4892 at $z_s=2.578$,
 in which
@@ -710,16 +732,24 @@ $|\Delta\alpha|\lesssim 0.01$.  The result does not rule out the
 holographic value $\alpha=2/3$, consistent with all current optical and
 infrared imaging constraints, including those of Ref.~\cite{Perlman2015}
 and the GRAVITY interferometric observation of
-3C\,273~\cite{GRAVITY2018}.  Methodologically the test is independent:
-it operates entirely in the spectral domain and probes line-profile
-contrast rather than image formation or fringe visibility, providing an
-orthogonal cross-check on imaging-based constraints.
+3C\,273~\cite{GRAVITY2018}.  Methodologically the test is independent of imaging: it operates
+entirely in the spectral domain and probes line-profile contrast rather
+than on-axis PSF intensity, providing an orthogonal cross-check on
+Strehl-based constraints that does not require a diffraction-limited
+optical system or a resolved reference PSF.
 
 Three caveats temper this estimate.  First, the argument applies only
 in the dynamical foam regime in which the core-plus-pedestal
 decomposition of Eq.~\eqref{eq:Sobs_conv} holds; in the quasi-static
 limit $\tau_{\rm foam}\to\infty$ the spectroscopic signature vanishes
-and no constraint can be placed.  Second, the threshold
+and no constraint can be placed.  This is the same dynamical-versus-quasi-static
+dichotomy that governs the Strehl test: an imaging Strehl measurement
+on a single short exposure ($T_{\rm exp}\ll\tau_{\rm foam}$) sees a
+frozen common-mode phase and recovers $\mathcal{S}\approx 1$, whereas
+a long-exposure or ensemble-averaged Strehl ($T_{\rm exp}\gg\tau_{\rm foam}$)
+recovers the full suppression $e^{-\sigma_\phi^2}$.  A spectroscopic
+observation, integrating over astronomically long times, is
+automatically in the latter regime whenever $\tau_{\rm foam}$ is finite.  Second, the threshold
 $\sigma_\phi^2 \lesssim 1$ is intentionally conservative; a
 likelihood-based fit of the foam pedestal fraction
 $(1-e^{-\sigma_\phi^2})$ to high-resolution spectra of BzK\,4892 or
