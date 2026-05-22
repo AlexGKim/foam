@@ -753,7 +753,7 @@ multi-wavelength measurement strategy are taken up in the following subsections.
 % -----------------------------------------------------------------------
 
 % ==============================================================
-\section{Connection to Fringe Visibility and Strehl Ratio}
+\subsection{Connection to Fringe Visibility and Strehl Ratio}
 \label{sec:connection}
 % ==============================================================
 
@@ -823,17 +823,164 @@ are unified within this framework.
 
 % ==============================================================
 \section{Sources}
-\label{sec:conclusions}
+\label{sec:sources}
 
-The joint analysis of 35 GRBs using \textit{Fermi}/GBM and LAT data 
-indicates that most prompt emission spectra are consistent with synchrotron 
-emission extending to GeV energies \citep{Macera2025}, available at 
-\url{https://arxiv.org/html/2501.10507v1}.
+% ==============================================================
+\subsection{BzK4892}
+\label{sec:bzk4892}
 
+The two-component line-profile decomposition of
+Eq.~\eqref{eq:Sobs_conv} admits a direct application as a spectroscopic
+analogue of the Ng--Perlman fringe-visibility
+bound~\cite{NgPerlman2022}: just as the observation of resolved fringes
+or Airy rings at wavelength $\lambda$ and distance $D$ requires the
+accumulated foam phase variance to satisfy
+$\sigma_\phi^2 \lesssim \mathcal{O}(1)$ (\S3 and Eq.~(4) of
+Ref.~\cite{NgPerlman2022}), the observation of sharp spectral features
+requires the same condition: for $\sigma_\phi^2 \gtrsim 1$ the coherent
+core $e^{-\sigma_\phi^2}\,S_{\rm src}(\nu)$ of
+Eq.~\eqref{eq:Sobs_conv} is suppressed below the incoherent pedestal
+and crisp line profiles cease to be detectable.  The two arguments
+differ only in observable --- angular fringe contrast versus spectral
+line contrast --- and share the same threshold criterion and the same
+parametric dependence on $\{D,\lambda,\alpha\}$.
+
+As a representative target we take BzK\,4892 at $z_s=2.578$
+(rounded to 2.5 for order-of-magnitude purposes below), in which
+multiple narrow rest-UV emission lines
+(Ly$\alpha$, C\,\textsc{iv}, He\,\textsc{ii}, C\,\textsc{iii})
+have been spectroscopically detected~\cite{Szokoly2004,Vanzella2006};
+the source also hosts a Compton-thick AGN revealed by strong Iron
+K$\alpha$ 6.4\,keV emission in the \textit{Chandra} 4\,Ms
+data~\cite{Feruglio2011}.
+Adopting the flat $\Lambda$CDM cosmology used in Ng--Perlman
+($\Omega_M=0.27$, $\Omega_\Lambda=0.73$, $H_0$ as therein), the
+line-of-sight comoving distance is $D_C(z_s=2.5)\approx 5.9$~Gpc
+$\approx 1.8\times 10^{26}$~m.
+% [Author: confirm D_C for the cosmology adopted in this manuscript;
+%  any update to H_0 shifts D_C and the numerical bound below at the
+%  ~percent level.]
+We adopt a representative observed wavelength
+$\lambda_{\rm obs} \approx 5.4\times 10^{-7}$~m, corresponding to the
+C\,\textsc{iv}\,$\lambda 1549$ doublet redshifted from the rest-frame
+UV into the optical.  In the convention of Ng \& Perlman (their
+Eq.~(4)), the cumulative phase variance is
+\begin{equation}
+  \sigma_\phi^2 \;\simeq\; (2\pi)^2\,
+    \frac{D_C^{\,2(1-\alpha)}\,\ell_P^{\,2\alpha}}{\lambda_{\rm obs}^{\,2}},
+  \label{eq:sigmaphi_NP}
+\end{equation}
+which coincides with the cosmologically integrated form of
+Eq.~\eqref{eq:sigmaphi} at $z\ll 1$ and is adopted here for direct
+comparability with Ref.~\cite{NgPerlman2022} Table~1.  Imposing the
+threshold $\sigma_\phi^2 \lesssim 1$ and inverting,
+\begin{equation}
+  \alpha \;\gtrsim\;
+    \frac{\ln\!\left(2\pi D_C/\lambda_{\rm obs}\right)}{\ln\!\left(D_C/\ell_P\right)},
+  \label{eq:alpha_bound}
+\end{equation}
+the spectroscopic analogue of Eq.~(8) of Ref.~\cite{NgPerlman2022}.
+Inserting the numerical values
+$D_C\approx 1.8\times 10^{26}$~m,
+$\lambda_{\rm obs}\approx 5.4\times 10^{-7}$~m, and
+$\ell_P = 1.6\times 10^{-35}$~m gives
+$\ln(2\pi D_C/\lambda_{\rm obs})\approx 76.6$ and
+$\ln(D_C/\ell_P)\approx 140.6$, hence
+$\alpha \gtrsim 0.55$.
+
+This bound is comparable to, and modestly tighter than, the optical
+entry $\alpha>0.53$ of Ref.~\cite{NgPerlman2022} Table~1 (evaluated at
+$\lambda=5000$~\AA\ and $D=10$~Gpc); the slight improvement reflects
+the shorter rest-frame wavelength probed by redshifted C\,\textsc{iv}.
+It does not rule out the holographic value $\alpha=2/3$, consistent
+with all current optical and infrared imaging constraints, including
+those of Ref.~\cite{Perlman2015} and the GRAVITY interferometric
+observation of 3C\,273~\cite{GRAVITY2018}.  Methodologically the test
+is independent: it is carried entirely in the spectral domain and
+relies on line-profile contrast rather than on image formation or
+fringe visibility, providing an orthogonal cross-check on imaging-based
+constraints.  Because Eq.~\eqref{eq:alpha_bound} depends only
+logarithmically on $\lambda_{\rm obs}$, the choice among rest-UV
+diagnostics (Ly\,$\alpha$, Si\,\textsc{ii}, C\,\textsc{iv}) shifts the
+bound by $|\Delta\alpha|\lesssim 0.01$; only spectroscopy of
+significantly shorter rest-frame wavelengths --- far-UV or X-ray ---
+could meaningfully tighten the constraint.
+
+Three caveats temper this estimate.  First, the argument applies only
+in the dynamical foam regime in which the core-plus-pedestal
+decomposition of Eq.~\eqref{eq:Sobs_conv} holds; in the quasi-static
+limit $\tau_{\rm foam}\to\infty$ the spectroscopic signature vanishes
+and no constraint can be placed.  Second, the threshold
+$\sigma_\phi^2 \lesssim 1$ is intentionally conservative; a
+likelihood-based fit of the foam pedestal fraction
+$(1-e^{-\sigma_\phi^2})$ to high-resolution spectra of BzK\,4892 or
+similar high-$z$ targets would refine the bound but lies beyond the
+scope of this estimate.  Third, Eq.~\eqref{eq:sigmaphi_NP} adopts the
+Ng--Perlman single-cumulative-$\delta\ell$ scaling rather than an
+incoherent-patch addition; the two conventions coincide at $\alpha=1/2$
+but differ by a redshift-dependent factor at other $\alpha$, and the
+bound quoted here is the form most directly comparable to
+Ref.~\cite{NgPerlman2022} Table~1.
+
+% -----------------------------------------------------------------------
+% NOTES FOR THE AUTHOR (BzK 4892 subsection)
+%
+% (a) Inputs to cross-check:
+%  1. Cosmology: D_C(z=2.5) = 5.9 Gpc assumes Omega_M = 0.27,
+%     Omega_Lambda = 0.73, H_0 = 70 km/s/Mpc (the Ng-Perlman cosmology).
+%     Confirm this matches the cosmology adopted elsewhere in the
+%     manuscript (Planck 2018 cosmology gives D_C ~ 5.8 Gpc at z=2.5,
+%     a shift well below the precision of this estimate).
+%  2. BzK 4892 spectroscopic detection reference: Feruglio et al. 2011
+%     (arXiv:1101.3478) is the X-ray Fe K-alpha discovery paper; the
+%     spectroscopic redshift z=2.578 comes from Szokoly et al. 2004
+%     and Vanzella et al. 2006 (which also report the rest-UV narrow
+%     emission lines). The user-provided z_s = 2.5 is rounded; the
+%     more precise value 2.578 would shift D_C by ~1% and alpha by
+%     <0.005. Either round value or 2.578 with updated D_C is defensible.
+%  3. C IV line redshift: at z=2.578 the C IV 1549 doublet falls at
+%     5542 A; at z=2.5 it falls at 5421 A. The 5.4e-7 m value used
+%     here is consistent with z=2.5.
+%
+% (b) Redshift-aware patch-convention variant:
+%  The Ng-Perlman convention used in Eq.~\eqref{eq:sigmaphi_NP} treats
+%  the cumulative path-length fluctuation as a single coherent draw.
+%  An incoherent-patch convention would add N_patch ~ D_C/L_coh
+%  independent contributions in quadrature, yielding a different
+%  alpha-dependence (alpha_eff shifted by an additive constant at
+%  alpha != 1/2). Consider quoting both convention bounds in a
+%  follow-up subsection or in a footnote here, particularly if the
+%  manuscript already takes a definite stance on the patch convention
+%  in Section II.
+%
+% (c) Follow-up: rigorous fit to BzK 4892 spectra.
+%  The current treatment is a single-threshold back-of-the-envelope
+%  bound. A natural follow-up subsection (or future-work paragraph)
+%  would frame the pedestal fraction (1 - e^{-sigma_phi^2}) as a
+%  fittable parameter in a likelihood analysis of high-resolution
+%  spectra, jointly with the source line shape. Flag whether this is
+%  (i) in scope for the present manuscript, (ii) deferred to a
+%  follow-up paper, or (iii) suggested as future work in the
+%  Conclusions section.
+%
+% (d) Bibkey placeholders introduced in this subsection:
+%  - Feruglio2011 (BzK 4892 X-ray paper; arXiv:1101.3478) -- needs adding
+%  - GRAVITY2018 (3C 273 fringe constraint) -- needs adding
+%  NgPerlman2022 and Perlman2015 are already in references.bib.
+% -----------------------------------------------------------------------
+
+
+
+Reference:
 Discovery of strong Iron $\text{K}\alpha$ emitting Compton-thick quasars at $z=2.5$ and $2.9$
 \textbf{Reference:} Feruglio et al. (2011) \\
 \textbf{arXiv:} \href{https://arxiv.org/abs/1101.3478}{arXiv:1101.3478} \\
 \textbf{Dataset:} \textit{Chandra} 4 Ms Deep Field South (CDF-S)
+BzK4892 at $z=2.5$ has resolved lines.
+
+% ==============================================================
+\section{CMB}
+\label{sec:CMB}
 
 % ==============================================================
 \section{Conclusions}
@@ -951,200 +1098,147 @@ random retarded time does not change the marginal second moment of each
 $E_{\boldsymbol{\theta}}$, so the foam preserves the mean intensity
 exactly: $\langle |E_{\rm obs}|^2 \rangle = \langle |E_{\rm src}|^2\rangle$.
 
-\subsection{Four-point function and Wick contraction}
+% ==============================================================
+\section{FIRAS Constraint on the Foam Exponent}
+\label{app:FIRAS}
+% ==============================================================
 
-The intensity autocorrelation is
-$\langle I(t)\,I(t+\tau)\rangle = \langle E^*_{\rm obs}(t)\,E_{\rm obs}(t)\,
-E^*_{\rm obs}(t+\tau)\,E_{\rm obs}(t+\tau)\rangle$.  Expanding each
-$E_{\rm obs}$ as in Eq.~\eqref{eq:Eobs_app} introduces four direction
-labels $\boldsymbol{\theta}_1,\ldots,\boldsymbol{\theta}_4$ and four
-retarded times
+\subsection{Physical Motivation}
+
+The Wiener--Khinchin decomposition of Eq.~\eqref{eq:Sobs_conv} applies
+to any stationary field attenuated by the foam scattering kernel
+$\mathcal{K}_{\rm foam}(\nu)$, not only to narrow emission lines.
+The Cosmic Microwave Background (CMB), observed across $\nu \in [6, 600]$\,GHz
+by COBE/FIRAS, provides an independent broadband laboratory for this test:
+the same two-component signature --- a suppressed coherent core and an
+incoherent pedestal (Section~\ref{sec:spec}) --- should appear in the CMB
+monopole spectrum if spacetime foam distorts photons on their path from the
+last-scattering surface.  Because the foam signal is achromatic (geometric
+path-length jitter, not plasma dispersion), the frequency dependence of the
+foam-induced distortion follows $\sigma_\phi^2 \propto \nu^2$, distinct from
+standard chemical-potential ($\mu$) and Compton-$y$ spectral distortions.
+FIRAS constrains such distortions at the level $|\mu|, |y| \lesssim 10^{-5}$
+to $10^{-4}$, providing a precision test of foam models in the parameter
+range that is inaccessible to optical imaging tests.
+
+\subsection{Foam Phase Variance at CMB Frequencies}
+
+CMB photons travel from the last-scattering surface at comoving distance
+$D_{\rm C} \approx 14\,{\rm Gpc}$ (Planck 2018 flat $\Lambda$CDM cosmology;
+$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.315$).
+Equation~\eqref{eq:sigmaphi} gives the accumulated phase variance, with the
+$(1+z)^2$ weighting integrated along the full cosmological line of sight.
+In the flat-space limit (a good approximation at the $\sim$few-percent level
+for the purposes of the template construction below):
 \begin{equation}
-\begin{aligned}
-  s_1 &= t - \delta t(t;\boldsymbol{\theta}_1), &\quad
-  s_2 &= t - \delta t(t;\boldsymbol{\theta}_2), \\
-  s_3 &= t+\tau - \delta t(t+\tau;\boldsymbol{\theta}_3), &\quad
-  s_4 &= t+\tau - \delta t(t+\tau;\boldsymbol{\theta}_4).
-\end{aligned}
+  \sigma_\phi^2(\nu)
+    = \left(\frac{2\pi\nu}{c}\right)^{\!2}\!
+      A_\alpha\,D_{\rm C}^{2(1-\alpha)}\,\ell_P^{2\alpha},
+  \label{eq:sigma_phi_CMB}
 \end{equation}
-Conditioning on a realization of $\delta t$, the four-point function of
-the independent zero-mean complex-Gaussian $E_{\boldsymbol{\theta}}$
-obeys Wick's (Isserlis') theorem:
+where $\nu$ is the observed frequency.  The strong $\nu^2$ dependence means
+foam effects are largest at the high-frequency end of the FIRAS band.
+Representative values at $\nu = 150$\,GHz ($\lambda_{\rm CMB} \approx 2$\,mm):
 \begin{equation}
-  \langle E^*_{\boldsymbol{\theta}_1}(s_1)\,E_{\boldsymbol{\theta}_2}(s_2)\,
-    E^*_{\boldsymbol{\theta}_3}(s_3)\,E_{\boldsymbol{\theta}_4}(s_4)\rangle_{E}
-  = \langle E^*_1 E_2\rangle\langle E^*_3 E_4\rangle
-  + \langle E^*_1 E_4\rangle\langle E^*_3 E_2\rangle.
-  \label{eq:Wick_app}
+  \sigma_\phi^2(150\,{\rm GHz}) \approx
+  \begin{cases}
+    2 \times 10^{-2} & \alpha = 1/2 \text{ (random walk)}, \\
+    10^{-22}         & \alpha = 2/3 \text{ (holographic)}.
+  \end{cases}
+  \label{eq:sigma_phi_CMB_values}
 \end{equation}
+FIRAS is thus sensitive to foam only in the range $\alpha \lesssim 0.55$,
+below the holographic value but above the random-walk case
+(which FIRAS rules out decisively).
 
-\paragraph{Disconnected pairing.}
-The first term in Eq.~\eqref{eq:Wick_app} forces
-$\boldsymbol{\theta}_1=\boldsymbol{\theta}_2$ and
-$\boldsymbol{\theta}_3=\boldsymbol{\theta}_4$ via the spatial-incoherence
-delta.  With $\boldsymbol{\theta}_1=\boldsymbol{\theta}_2$ the retarded
-times coincide ($s_1=s_2$), so the two-point function is
-$g^{(1)}_{\rm src}(0)=1$; the same holds for the
-$\boldsymbol{\theta}_3,\boldsymbol{\theta}_4$ pair.  The contribution is
-$\int I(\boldsymbol{\theta}_1)d\boldsymbol{\theta}_1 \int
-I(\boldsymbol{\theta}_3)d\boldsymbol{\theta}_3 = 1 =
-\langle I(t)\rangle\langle I(t+\tau)\rangle$, which subtracts cleanly
-when forming $g^{(2)}-1$.
+\subsection{Fast-Foam Spectral Template}
 
-\paragraph{Connected pairing.}
-The second term forces $\boldsymbol{\theta}_1=\boldsymbol{\theta}_4\equiv
-\boldsymbol{\theta}$ and $\boldsymbol{\theta}_3=\boldsymbol{\theta}_2\equiv
-\boldsymbol{\theta}'$.  The two surviving two-point functions are
-evaluated at retarded-time differences
+In the dynamical limit $\tau_{\rm foam} \ll \tau_c({\rm CMB})$, where the
+CMB photon coherence time at frequency $\nu$ is $\tau_c = 1/\nu \simeq 7$\,ps
+at 150\,GHz, the foam acts as a fully dynamic phase screen.  By the same
+argument as Section~\ref{sec:spec}.B, the observed CMB specific intensity
+decomposes into a coherent core and an incoherent pedestal:
 \begin{equation}
-  s_4 - s_1 = \tau - X,\qquad
-  s_2 - s_3 = -(\tau - Y),
+  I_\nu^{\rm obs}(\alpha)
+    = e^{-\sigma_\phi^2(\nu)}\,B_\nu(T_0)
+    + K_\nu^{\rm fast}
+      \int_{\nu_{\rm min}}^{\nu_{\rm max}}
+        \!\!\!\left[1 - e^{-\sigma_\phi^2(\nu')}\right] B_{\nu'}(T_0)\,d\nu',
+  \label{eq:I_foam_CMB}
 \end{equation}
-with the two \emph{same-direction temporal increments}
+where $B_\nu(T_0)$ is the Planck function at the CMB temperature $T_0$, and
+$K_\nu^{\rm fast} = [\nu \ln(\nu_{\rm max}/\nu_{\rm min})]^{-1}$ is the
+photon-conserving redistribution kernel for the fast-foam limit, normalized
+over $[\nu_{\rm min}, \nu_{\rm max}] = [6, 600]$\,GHz (the FIRAS band).
+The first term is the coherent core --- the fraction $e^{-\sigma_\phi^2}$ of
+photons that traverse the foam without scattering --- and the second term is
+the incoherent pedestal, distributing the scattered fraction uniformly in
+$\ln\nu$ over the band.  The foam-induced spectral distortion is
 \begin{equation}
-  X \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}),
-  \qquad
-  Y \equiv \delta t(t+\tau;\boldsymbol{\theta}') - \delta t(t;\boldsymbol{\theta}')
+  \Delta I_\nu^{\rm foam}(\alpha)
+    \equiv I_\nu^{\rm obs}(\alpha) - B_\nu(T_0),
+  \label{eq:DeltaI_foam_CMB}
 \end{equation}
-[Eq.~\eqref{eq:XYdef} of the body].
-Using $g^{(1)}_{\rm src}(-u) = g^{(1)*}_{\rm src}(u)$, the connected
-contribution to $g^{(2)}_{\rm obs}-1$ is
-\begin{equation*}
-  \boxed{\;
-  g^{(2)}_{\rm obs}(\tau) - 1
-    = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-      I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\;
-      \big\langle g^{(1)}_{\rm src}(\tau - X)\,
-                 g^{(1)*}_{\rm src}(\tau - Y)\big\rangle_{X,Y}.
-  \;}
-\end{equation*}
-This is Eq.~\eqref{eq:g2ext_correct} of the body.
-
-\subsection{Joint distribution of $(X,Y)$}
-
-$X$ and $Y$ are linear functionals of the Gaussian process $\delta t$,
-hence jointly Gaussian and zero-mean.  Using
-Eq.~\eqref{eq:pathcov} and $C_\alpha$ even in $\tau$,
-\begin{align}
-  \operatorname{Var}(X) = \operatorname{Var}(Y)
-    &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big],
-    \label{eq:varX}\\
-  \operatorname{Cov}(X,Y)
-    &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big]\,
-       \Phi\!\left(b/r_\perp\right),
-    \label{eq:covXY}
-\end{align}
-so the correlation coefficient is $\rho = \Phi(b/r_\perp)$.
-
-The structural point: $X$ is the temporal jitter increment
-\emph{along direction $\boldsymbol{\theta}$}, and $Y$ is the increment
-\emph{along direction $\boldsymbol{\theta}'$}.  Neither involves a
-cross-direction sample of $\delta t$; the transverse coherence factor
-$\Phi$ enters only through their correlation.  Equation~\eqref{eq:g2ext_correct}
-is therefore a 2D average over the joint distribution of $(X,Y)$, not a
-1D convolution with a single variable $\Delta$.
-
-It collapses to a 1D convolution only when $\rho = 1$, i.e.\ when
-$\Phi = 1$ (point source, or the transversely-coherent limit
-$b\ll r_\perp$).  In that case $X = Y$ almost surely,
-$g^{(1)}_{\rm src}(\tau-X)g^{(1)*}_{\rm src}(\tau-X) =
-|g^{(1)}_{\rm src}(\tau-X)|^2 = g^{(2)}_{\rm src}(\tau-X)-1$, and the
-point-source formula Eq.~\eqref{eq:g2obs} is recovered with
-$\sigma_\Delta^2 = \operatorname{Var}(X) =
-(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau)]$.
-
-\subsection{Zero lag: $g^{(2)}_{\rm obs}(0) = 2$ exactly}
-
-At $\tau=0$ each of the increments in Eq.~\eqref{eq:XYdef} is the
-difference of a random variable with itself:
+and photon conservation (constant total flux) is satisfied by construction:
 \begin{equation}
-  X\big|_{\tau=0} = 0,\qquad Y\big|_{\tau=0} = 0,
+  \int_{\nu_{\rm min}}^{\nu_{\rm max}} \!\!\Delta I_\nu^{\rm foam}\,d\nu = 0.
+  \label{eq:photon_conservation}
 \end{equation}
-for every realization of $\delta t$ and every pair
-$(\boldsymbol{\theta},\boldsymbol{\theta}')$.  This is independent of
-$\Phi$, $C_\alpha$, $\sigma_\ell$, and $D$.  Equation~\eqref{eq:g2ext_correct} reduces to
-\begin{equation}
-  g^{(2)}_{\rm obs}(0) - 1
-  = \int\!\!\int d\boldsymbol{\theta}\,d\boldsymbol{\theta}'\;
-    I(\boldsymbol{\theta})I(\boldsymbol{\theta}')\,
-    |g^{(1)}_{\rm src}(0)|^2 = 1,
-\end{equation}
-so $g^{(2)}_{\rm obs}(0) = 2$ exactly.
+For $\sigma_\phi^2 \ll 1$ the distortion is $\Delta I_\nu^{\rm foam}
+\approx \sigma_\phi^2(\nu)[-B_\nu(T_0) + K_\nu^{\rm fast}\langle B\rangle]$,
+where $\langle B\rangle = \int B_{\nu'}\,d\nu'$: a high-frequency deficit
+(since $\sigma_\phi^2 \propto \nu^2$ removes more flux at high $\nu$)
+compensated by a low-frequency pedestal.
 
-The same conclusion follows from a direct argument that bypasses the
-Wick contraction.  Conditioning on $\delta t$,
-$E_{\rm obs}(t) = \int d\boldsymbol{\theta}\,I^{1/2}(\boldsymbol{\theta})\,
-\widetilde E_{\boldsymbol{\theta}}$ with
-$\widetilde E_{\boldsymbol{\theta}} \equiv
-E_{\boldsymbol{\theta}}(t-\delta t(t;\boldsymbol{\theta}))$.  By
-stationarity each $\widetilde E_{\boldsymbol{\theta}}$ has the same
-distribution as $E_{\boldsymbol{\theta}}(t)$; since the $E_{\boldsymbol{\theta}}$
-are independent across $\boldsymbol{\theta}$, so are the
-$\widetilde E_{\boldsymbol{\theta}}$.  Hence $E_{\rm obs}(t)$ is a linear
-combination of independent zero-mean complex Gaussians with fixed
-weights $I^{1/2}(\boldsymbol{\theta})$, and is itself a zero-mean complex
-Gaussian.  The Gaussian-moment identity gives
-\begin{equation}
-  \big\langle |E_{\rm obs}(t)|^4 \,\big|\, \delta t \big\rangle
-  = 2\,\big\langle |E_{\rm obs}(t)|^2 \,\big|\, \delta t \big\rangle^2 = 2
-\end{equation}
-for every $\delta t$, so $g^{(2)}_{\rm obs}(0) = \langle I^2\rangle/\langle
-I\rangle^2 = 2$ unconditionally.  Foam imprints itself on multi-time
-correlations of $E_{\rm obs}$ but not on its single-time amplitude
-statistics; the standard Gaussian identity $g^{(2)}(0)=2$ for any
-zero-mean complex Gaussian field is preserved.
+\subsection{Validity of the Fast-Foam Assumption}
 
-\subsection{Finite lag: narrow-band reduction}
+The fast-foam limit requires $\tau_{\rm foam} \ll 1/\nu_{\rm CMB} \sim 7$\,ps.
+If the foam coherence time is set by the Planck scale,
+$\tau_{\rm foam} \sim \ell_P/c \approx 5 \times 10^{-44}$\,s, this condition
+is satisfied by forty orders of magnitude.  For larger $\tau_{\rm foam}$, the
+foam suppression factor $e^{-\sigma_\phi^2[1-C_\alpha(\tau_{\rm foam})]}$
+(Eq.~\eqref{eq:Ffoam}) is reduced by the factor $[1-C_\alpha(\tau_{\rm foam})]$,
+and the distortion amplitude is suppressed accordingly.  In the quasi-static
+limit $\tau_{\rm foam} \to \infty$, $C_\alpha \to 1$ and the CMB spectrum is
+unchanged, consistent with the vanishing of the HBT Siegert signal in that
+limit (Section~\ref{sec:g1}).
 
-For $\tau\neq 0$, split $g^{(1)}_{\rm src}$ into carrier and envelope
-(Section~\ref{sec:narrowband}),
-$g^{(1)}_{\rm src}(\tau) = e^{i\omega_0\tau}\,V_{\rm src}(\tau)$ with
-$V_{\rm src}$ real and slowly varying on the carrier scale, so
-\begin{equation}
-  g^{(1)}_{\rm src}(\tau-X)\,g^{(1)*}_{\rm src}(\tau-Y)
-  = e^{-i\omega_0(X-Y)}\,V_{\rm src}(\tau-X)\,V_{\rm src}(\tau-Y).
-\end{equation}
-Change variables in the joint Gaussian average to the sum and difference
-\begin{equation}
-  U \equiv \tfrac{1}{2}(X+Y),\qquad V \equiv X - Y,
-\end{equation}
-which (because $X,Y$ have the same variance) are independent zero-mean
-Gaussians with
-\begin{equation}
-  \sigma_U^2 = \frac{\sigma_\ell^2(D)}{c^2}\big[1-C_\alpha(\tau;D)\big](1+\Phi),
-  \qquad
-  \sigma_V^2 = \frac{4\sigma_\ell^2(D)}{c^2}\big[1-C_\alpha(\tau;D)\big](1-\Phi).
-  \label{eq:sigmaUV}
-\end{equation}
-In the narrow-band regime $\sigma_V\ll\tau_L$, so
-$V_{\rm src}(\tau-U-V/2)\,V_{\rm src}(\tau-U+V/2) \approx
-V_{\rm src}^2(\tau-U)$, and the $V$ integral is the characteristic
-function of a Gaussian:
-\begin{equation}
-  \int dV\,\mathcal{N}(V;0,\sigma_V^2)\,e^{-i\omega_0 V}
-  = e^{-\omega_0^2\sigma_V^2/2}
-  = \exp\!\Big(-2\sigma_\phi^2(D)\,[1-C_\alpha(\tau;D)]\,[1-\Phi]\Big),
-\end{equation}
-with $\sigma_\phi = \omega_0\sigma_\ell/c$ the rms accumulated carrier
-phase along a single ray.  The result reproduces Eq.~\eqref{eq:g2ext_corrected}
-of the body, with the cross-direction carrier-phase factor
-$\mathcal{F}_{\rm cross}(\tau;b)$ of Eq.~\eqref{eq:Fcross}.
+\subsection{Bayesian Inference}
 
-\subsection{Summary}
+The FIRAS monopole spectrum is compared to the foam-distorted blackbody of
+Eq.~\eqref{eq:DeltaI_foam_CMB} together with standard spectral-distortion
+templates ($\mu$-distortion, Compton-$y$, CIB, and calibration modes) via a
+Gaussian log-likelihood
+\begin{equation}
+  \ln\mathcal{L}
+    = -\tfrac{1}{2}\,\mathbf{r}^T\,\mathbf{C}^{-1}\,\mathbf{r},
+  \label{eq:FIRAS_likelihood}
+\end{equation}
+where $\mathbf{r} = \mathbf{I}^{\rm obs} - \mathbf{I}^{\rm model}$ is the
+43-element residual vector and $\mathbf{C}$ is the FIRAS noise-plus-calibration
+covariance matrix~\cite{Fixsen1996}.  The free parameters are
+$(\alpha, A_\alpha, T_0, \mu, y, A_{\rm CIB}, c_1, c_2, c_3)$, where $c_i$
+are calibration mode amplitudes.  Sampling uses the No-U-Turn
+Sampler~\cite{Hoffman2014} as implemented in NumPyro, with four chains of
+2000 warmup and 2000 sampling steps; convergence is assessed via $\hat{R} < 1.01$
+and ESS $> 1000$ on all parameters.  A null-hypothesis fit with $A_\alpha = 0$
+must reproduce the published values $T_0 = 2.72548 \pm 0.00057$\,K,
+$|\mu| < 9 \times 10^{-5}$ and $|y| < 1.5 \times 10^{-5}$ (95\%
+CL)~\cite{Fixsen1996,Fixsen2009} before the foam parameter is freed.
 
-Equations~\eqref{eq:g2ext_correct} and \eqref{eq:g2ext_corrected} of the
-body are the key results of this pedestrian derivation.  Two structural
-features deserve emphasis: a cross-direction carrier-phase factor
-$\mathcal{F}_{\rm cross}$ controlled by the imaging-channel scale
-$\sigma_\phi$ appears (so the $\sigma_\phi$/$\sigma_\Delta/\tau_c$
-decoupling of Section~\ref{sec:scales} is exact only for a point source);
-and the envelope-convolution variance is $\sigma_U^2 =
-(\sigma_\ell^2/c^2)[1-C_\alpha](1+\Phi)$ rather than the point-source
-$\sigma_\Delta^2 = (2\sigma_\ell^2/c^2)[1-C_\alpha]$, the two coinciding
-only at $\Phi=1$.  At $\tau=0$ both $\mathcal{F}_{\rm cross}$ and
-$\sigma_U^2$ trivialize ($C_\alpha(0)=1$), reproducing the rigorous
-single-time identity $g^{(2)}_{\rm obs}(0) = 2$ for any
-$\Phi_{\rm eff}\in[0,1]$.
+\subsection{Connection to the Spectral Framework of Section~\ref{sec:spec}}
+
+Equation~\eqref{eq:I_foam_CMB} is the broadband analogue of
+Eq.~\eqref{eq:Sobs_conv}: the coherent core $e^{-\sigma_\phi^2}B_\nu(T_0)$
+corresponds to the $\delta(\nu)$ term carrying fraction $e^{-\sigma_\phi^2}$
+of the source flux, while the incoherent pedestal corresponds to the residual
+Fourier transform $\mathcal{F}\{\mathcal{F}_{\rm foam}(\tau) - e^{-\sigma_\phi^2}\}(\nu)$
+convolved with the source spectrum.  The two-component structure predicted in
+Section~\ref{sec:spec}.B --- with the distinctive high-$\nu$ deficit and low-$\nu$
+pedestal of the fast-foam limit --- is what FIRAS constrains, using the full
+dynamic range of the $6$--$600$\,GHz band rather than the narrow velocity window
+of a single spectral line.
+
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
