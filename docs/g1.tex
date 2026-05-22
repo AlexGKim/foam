@@ -536,120 +536,6 @@ When the lag-domain product structure $g^{(1)}_{\mathrm{obs}}(\tau) = g^{(1)}_{\
 \end{equation}
 i.e.\ the intrinsic spectrum is convolved by a kernel $\mathcal{K}_{\mathrm{foam}}(\nu) \equiv \mathcal{F}\{\mathcal{F}_{\mathrm{foam}}\}(\nu)$ that depends on both the foam (through $\sigma_\phi^2$, $C_\alpha$, $\tau_{\mathrm{foam}}$) and the source line.
 
-\subsection{Limiting Kernel Shapes}
-
-The structure of $\mathcal{K}_{\rm foam}(\nu)$ is governed by the ratio
-$\tau_{\rm foam}/\tau_L$.  In the dynamical limit $\tau_{\rm foam}\ll\tau_L$,
-the foam factor $\mathcal{F}_{\rm foam}(\tau)$ transitions from unity to
-$e^{-\sigma_\phi^2}$ on the short timescale $\tau_{\rm foam}$, well before the
-source coherence function has appreciably decayed.  The residual in
-Eq.~\eqref{eq:Sobs_conv} is then a broad function of width
-$\sim 1/\tau_{\rm foam}$, and the observed spectrum takes a two-component
-form: a coherent core at the intrinsic line shape scaled by $e^{-\sigma_\phi^2}$,
-superimposed on an incoherent pedestal of fractional flux
-$(1-e^{-\sigma_\phi^2})$ distributed over bandwidth $\sim 1/\tau_{\rm foam}$.
-This two-component structure has no counterpart in any single-parameter
-conventional broadening mechanism and constitutes the characteristic
-spectroscopic signature of dynamical spacetime foam.  In the intermediate
-regime $\tau_{\rm foam}\sim\tau_L$, the kernel $\mathcal{K}_{\rm foam}(\nu)$
-is a smooth broadening function of width $\sim\sigma_\phi^2/\tau_{\rm foam}$,
-degenerate with conventional mechanisms such as microturbulence or collisional
-broadening, and the two-component signature is washed out.  In the quasi-static
-limit $\tau_{\rm foam}\to\infty$, $C_\alpha(\tau)\to 1$ for all accessible
-lags (Section~\ref{sec:model}), so $\mathcal{F}_{\rm foam}(\tau)\to 1$
-identically and $\mathcal{K}_{\rm foam}(\nu)\to\delta(\nu)$: the spectrum is
-unchanged, consistent with the simultaneous vanishing of the HBT
-Siegert-violation signal in that limit (Section~\ref{sec:g1}).
-
-For the exponential ansatz $C_\alpha(\tau)=e^{-|\tau|/\tau_{\rm foam}}$, the
-kernel admits a closed form.  Writing
-$\mathcal{F}_{\rm foam}(\tau)=e^{-\sigma_\phi^2}\exp[\sigma_\phi^2
-e^{-|\tau|/\tau_{\rm foam}}]$ and expanding the second exponential in a Taylor
-series,
-\begin{equation}
-  \mathcal{F}_{\rm foam}(\tau)-e^{-\sigma_\phi^2}
-  = e^{-\sigma_\phi^2}\sum_{n=1}^{\infty}
-    \frac{\sigma_\phi^{2n}}{n!}\,e^{-n|\tau|/\tau_{\rm foam}}.
-  \label{eq:Ffoam_Taylor}
-\end{equation}
-Applying
-$\mathcal{F}\{e^{-n|\tau|/\tau_{\rm foam}}\}(\nu)=
-2(n/\tau_{\rm foam})/[(n/\tau_{\rm foam})^2+(2\pi\nu)^2]$
-term by term,
-\begin{equation}
-  \mathcal{K}_{\rm foam}(\nu)
-  = e^{-\sigma_\phi^2}\,\delta(\nu)
-    + e^{-\sigma_\phi^2}\sum_{n=1}^{\infty}
-      \frac{\sigma_\phi^{2n}}{n!}\,
-      \frac{2n/\tau_{\rm foam}}{(n/\tau_{\rm foam})^2+(2\pi\nu)^2}.
-  \label{eq:Kfoam_exp}
-\end{equation}
-The pedestal is a Poisson-weighted superposition of Lorentzians with
-half-widths $n/\tau_{\rm foam}$, the $n$-th term representing an $n$-fold
-foam-scattering contribution; for weak foam ($\sigma_\phi^2\ll 1$) the
-single-scatter term $n=1$ dominates.
-
-\subsection{Connection to Closed-Form Results}
-
-The closed-form expressions for $g^{(1)}_{\rm obs}(\tau)$ derived in
-Section~\ref{sec:g1} directly predict observed spectral line profiles via
-Eq.~\eqref{eq:Sobs_conv}.  For a Lorentzian source,
-$g^{(1)}_{\rm src}(\tau)=e^{-|\tau|/\tau_L}$ maps under Wiener--Khinchin to
-a Lorentzian spectral line of half-width $(2\pi\tau_L)^{-1}$; the observed
-profile is its convolution with $\mathcal{K}_{\rm foam}(\nu)$, encoded
-compactly by Eq.~\eqref{eq:g1obs_erfc} in the lag domain.
-
-The Voigt case (Eq.~\eqref{eq:g1obs_voigt}) is observationally richer.  The
-source spectrum is a Voigt profile, and in the intermediate regime
-$\tau_{\rm foam}\sim\tau_G$ the foam kernel is approximately Gaussian with
-spectral width $\sigma_{\rm foam}\sim\sigma_\phi/\tau_{\rm foam}$; convolving
-adds this in quadrature to the source Gaussian component, producing an apparent
-Gaussian width $\sqrt{(\sigma_\nu^G)^2+\sigma_{\rm foam}^2}$ indistinguishable
-from elevated Doppler broadening at a single wavelength.  The discriminant is
-chromatic: the path-length jitter $\sigma_\ell$ is a geometric, wavelength-independent
-quantity, while $\sigma_\phi=(2\pi/\lambda)\sigma_\ell\propto\lambda^{-1}$ and
-the suppression depth $e^{-\sigma_\phi^2}\propto e^{-\lambda^{-2}}$ are strongly
-chromatic.  A genuine Doppler temperature produces wavelength-independent
-kinematic widths; foam-induced broadening grows steeply at shorter wavelengths,
-providing a chromatic discriminant inaccessible to single-band observations.
-The resulting parameter degeneracies, discriminant observables, and
-multi-wavelength measurement strategy are taken up in the following subsections.
-
-% -----------------------------------------------------------------------
-% NOTES FOR THE AUTHOR
-%
-% (a) Assumptions to cross-check against §§II–III:
-%  1. WSS: §II should explicitly state that E_src(t) is wide-sense stationary.
-%     The text currently assumes this; cross-check against sec:model.
-%  2. Gaussian-phase truncation: The characteristic-function derivation in
-%     sec:narrowband invokes exp[-omega^2 sigma_Delta^2/2]. Confirm §II or §III
-%     states explicitly that the Gaussian approximation to the phase distribution
-%     is controlled (e.g. via CLT convergence for N ~ D/ell_P cells).
-%  3. Equation numbering: "Eq. 15" is assumed here to be eq:g1obs_erfc
-%     (Lorentzian closed form) and "Eq. 18" is eq:g1obs_voigt (Voigt).
-%     Verify the actual numbers in the compiled PDF before finalizing.
-%
-% (b) Potential expansions/contractions:
-%  1. The Taylor-series derivation (eq:Ffoam_Taylor + eq:Kfoam_exp) could be
-%     contracted to a single sentence for space; state eq:Kfoam_exp directly
-%     and move the derivation to a footnote or appendix.
-%  2. §IV.C could include a brief quantitative estimate of the chromatic
-%     contrast e^{-sigma_phi^2}|_{lambda_1}/e^{-sigma_phi^2}|_{lambda_2} for
-%     representative foam parameters if observational concreteness is desired.
-%  3. The "Poisson-weighted superposition" interpretation of eq:Kfoam_exp could
-%     be expanded into a short physical paragraph if the referees expect
-%     more intuition-building here.
-%
-% (c) Open notation questions:
-%  1. Fourier convention: F{f}(nu) = int f(tau) e^{-2 pi i nu tau} dtau is
-%     implied throughout §IV. State it explicitly the first time if it is not
-%     already defined earlier in the paper.
-%  2. Kernel symbol: K_foam is new; confirm it does not clash with any symbol
-%     in later sections (§§V–VI, appendices).
-%  3. The delta(nu) in eq:Sobs_conv is a Dirac delta centered at nu = 0
-%     (line center in the rest frame); a brief parenthetical may be warranted
-%     to clarify the carrier-frequency convention.
-% -----------------------------------------------------------------------
 
 % ==============================================================
 \subsection{Connection to Fringe Visibility and Strehl Ratio}
@@ -661,9 +547,9 @@ The fringe visibility and Strehl ratio are spatial-coherence observables
 separated telescopes, described by $g^{(1)}_{\rm obs}(B)$ --- while
 $g^{(1)}_{\rm obs}(\tau)$ derived above describes temporal coherence
 along a single line of sight. The two cases are directly analogous: the
-temporal decorrelation $C_\alpha(\tau;D)$, measuring how the foam changes
+temporal decorrelation measuring how the foam changes
 between two observations separated by time $\tau$, maps to the spatial
-decorrelation $\Phi(B/r_\perp)$ (Section~\ref{sec:model}), measuring how
+decorrelation, measuring how
 correlated the foam fluctuations are at two aperture points separated by
 baseline $B$. In both cases the foam suppression has the same form, with
 $C_\alpha$ replaced by $\Phi$:
@@ -694,9 +580,9 @@ $\Delta\phi \simeq 2\pi\sigma_\ell(D)/\lambda$~\cite{NgPerlman2022} is
 precisely $\sigma_\phi \geq 1$, the limit
 $\mathcal{F}_{\rm foam}^{\rm spat}\to 0$. Equation~\eqref{eq:visibility}
 extends their binary criterion to a continuous suppression curve whose
-shape encodes $\Phi(B/r_\perp)$ --- in direct analogy to how
-$g^{(1)}_{\rm obs}(\tau)$ encodes the temporal decorrelation
-$C_\alpha(\tau;D)$.
+shape encodes the spatial decorrelation $C_\alpha(B;D)$ --- in direct
+analogy to how $g^{(1)}_{\rm obs}(\tau)$ encodes the temporal
+decorrelation $C_\alpha(\tau;D)$.
 
 The Strehl ratio for a single aperture of diameter $D_{\rm tel}$ follows
 the same logic with $B\sim D_{\rm tel}$: when $r_\perp\ll D_{\rm tel}$,
