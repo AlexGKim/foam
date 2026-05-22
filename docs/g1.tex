@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\title{Siegert Relation Violation as a Probe of Spacetime Foam}
+\title{Spectroscopy as a Probe of Spacetime Foam}
 
 \author{A.\ G.\ Kim}
 \email{agkim@lbl.gov}
@@ -297,7 +297,7 @@ and is satisfied in the fully-resolved limit $\Phi_{\rm eff} \to 0$ adopted
 in Section~\ref{sec:prospects}.
 
 % ==============================================================
-\section{Coherence Functions and Siegert Violation}
+\section{First-Order Coherence }
 \label{sec:g1}
 % ==============================================================
 
@@ -348,6 +348,7 @@ The observed first-order coherence is the intrinsic coherence function
 convolved with the Gaussian differential-jitter kernel.
 
 \subsection{Closed Forms for Lorentzian and Voigt Sources}
+\label{sec:closedforms}
 
 As a representative case admitting a closed-form result, we take a Lorentzian
 line profile, which corresponds to an exponential coherence function via the
@@ -372,7 +373,7 @@ In the weak-jitter limit $\sigma_\Delta \ll \tau_L$, the Gaussian average of
 $e^{-|\tau-\Delta|/\tau_L}$ over $\Delta\sim\mathcal{N}(0,\sigma_\Delta^2)$
 is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
 \begin{equation}
-  g^{(1)}_{\rm obs}(\tau) \approx e^{-|\tau|/\tau_L}
+  g^{(1)}_{\rm obs}(\tau) \approx g^{(1)}_{\rm src}(\tau)
   \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_L^2} + \mathcal{O}(\sigma_\Delta^4)\right].
   \label{eq:g1weak}
 \end{equation}
@@ -405,16 +406,25 @@ giving, for $\tau > 0$:
     \right].
   \label{eq:g1obs_voigt}
 \end{equation}
-The normalization $g^{(1)}_{\rm obs}(0)=1$ is preserved: recall
-$\sigma_\Delta = \sigma_\Delta(\tau)$ with $\sigma_\Delta(0)=0$
-(Eq.~\eqref{eq:diffVar}), so $\tilde\sigma_1(0)=0$, the exponential prefactors
-approach unity, and the erfc terms reduce to
-$\mathrm{erfc}(0)+\mathrm{erfc}(0)=2$.
-In the limit $\tau_G\to\infty$ (pure Lorentzian), $\tilde\sigma_1\to\sigma_\Delta$ and
-$\mu_1\to\tau$, so Eq.~\eqref{eq:g1obs_voigt} reduces to Eq.~\eqref{eq:g1obs_erfc}.
-In the limit $\tau_L\to\infty$ (pure Gaussian), the erfc terms combine to unity and
-$g^{(1)}_{\rm obs}(\tau) = (\tilde\sigma_1/\sigma_\Delta)\,e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}$:
-the observed coherence is a Gaussian whose width is broadened in quadrature by the jitter.
+In the weak-jitter limit $\sigma_\Delta\ll\min(\tau_L,\tau_G)$, expanding
+Eq.~\eqref{eq:g1obs} to second order in $\Delta$ and averaging over the
+Gaussian jitter gives the Voigt analogue of Eq.~\eqref{eq:g1weak}:
+\begin{equation}
+  g^{(1)}_{\rm obs}(\tau)
+  \approx g^{(1)}_{\rm src}(\tau)
+  \left[1 + \frac{\sigma_\Delta^2(\tau)}{2}
+  \left(\!\left(\frac{1}{\tau_L}+\frac{\tau}{\tau_G^2}\right)^{\!2}
+  - \frac{1}{\tau_G^2}\right)
+  + \mathcal{O}(\sigma_\Delta^4)\right],
+  \label{eq:g1weak_voigt}
+\end{equation}
+which reduces to Eq.~\eqref{eq:g1weak} in the purely Lorentzian limit
+$\tau_G\to\infty$.  Unlike the Lorentzian case, the correction factor can
+change sign: for $\tau < \tau_G\sqrt{1-\tau_G/\tau_L}$ the
+second-order term is negative, so foam jitter \emph{suppresses}
+short-lag coherence.
+Note that both closed forms in the weak-jigger limit share the general product structure
+$g^{(1)}_{\rm obs}(\tau)=g^{(1)}_{\rm src}(\tau)\,F_{\rm foam}(\tau)$.
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
@@ -466,9 +476,10 @@ with $D_C$ the line-of-sight comoving distance~\cite{NgPerlman2022}:
     A_\alpha\,D_C^{2(1-\alpha)}\,\ell_P^{2\alpha}.
   \label{eq:sigmaphi}
 \end{equation}
-We write the foam suppression factor as
+We write the foam suppression factor — the quantity appearing in the product
+structure of Section~\ref{sec:closedforms} — as
 \begin{equation}
-  \mathcal{F}_{\rm foam}(\tau) \equiv e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
+  \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
   \label{eq:Ffoam}
 \end{equation}
 so $g^{(1)}_{\rm obs}(\tau) = g^{(1)}_{\rm src}(\tau)\cdot\mathcal{F}_{\rm foam}(\tau)$.
@@ -489,54 +500,41 @@ evaluated.
 
 \subsection{The Wiener--Khinchin Bridge}
 
-The foam-modified coherence function of
-Eqs.~\eqref{eq:g1narrowband}--\eqref{eq:Ffoam} carries direct spectroscopic
-content: for any wide-sense stationary (WSS) field, the normalized power
+The foam-modified observed coherence function — given in general by the
+jitter-convolution integral Eq.~\eqref{eq:g1obs} with closed forms
+Eqs.~\eqref{eq:g1obs_erfc}--\eqref{eq:g1obs_voigt} — carries direct
+spectroscopic content: for any wide-sense stationary (WSS) field, the normalized power
 spectral density $S(\nu)$ and $g^{(1)}(\tau)$ are Fourier-transform pairs,
 implying
 \begin{equation}
   S_{\rm obs}(\nu) = \mathcal{F}\!\left\{g^{(1)}_{\rm obs}(\tau)\right\}(\nu).
   \label{eq:WK_obs}
 \end{equation}
-To apply this theorem, one must verify that $E_{\rm obs}(t)$ is WSS.
-The source field is stationary by assumption (Section~\ref{sec:model}),
-% [Author: confirm §II states source stationarity explicitly as WSS]
-the foam-induced jitter $\delta t(t)$ is a stationary process with
-temporal covariance given by Eq.~\eqref{eq:pathcov1ray}, and the two are
-statistically independent; accordingly the mutual coherence
-$\Gamma_{\rm obs}(\tau)=\Gamma_{\rm src}(\tau)\,\mathcal{F}_{\rm foam}(\tau)$
-is a function of lag only, establishing WSS provided $T_{\rm int}\gg\tau_{\rm foam}$
-so that the foam statistics are ergodically sampled within the integration window.
-Integrability of $\Gamma_{\rm obs}(\tau)$ is assured by the source factor,
-which decays on the coherence timescale $\tau_L$; the foam factor satisfies
-$\mathcal{F}_{\rm foam}(\tau)\to e^{-\sigma_\phi^2}$ as $|\tau|\to\infty$ and
-is bounded, so the product remains in $L^1$.  The nonzero asymptote of
-$\mathcal{F}_{\rm foam}$ does, however, generate a distributional $\delta(\nu)$
-contribution in the Fourier transform, encoding the fraction $e^{-\sigma_\phi^2}$
-of source flux that propagates phase-coherently without foam scattering.
-The source--foam statistical independence underlying the factorization in
-Eq.~\eqref{eq:g1narrowband} is a physical assumption about the propagation
-channel (Section~\ref{sec:model}); the theorem itself requires only stationarity,
-and these are logically separate conditions.  The Gaussian-phase form of
-$\mathcal{F}_{\rm foam}$ and the characteristic-function evaluation of
-Section~\ref{sec:narrowband} inherit whatever truncation control the
-path-length CLT argument established in Section~\ref{sec:model}.
+The theorem applies here for two reasons.
+First, astronomical emission lines have finite linewidth: their spectra fall
+to zero at both low and high frequencies, so $\Gamma_{\rm src}(\tau)\to 0$
+and $\Gamma_{\rm src}\in L^1$; since the foam factor is bounded,
+$\Gamma_{\rm obs}\in L^1$ as well and the Fourier transform is well defined.
+Second, $E_{\rm obs}(t)$ is wide-sense stationary: the foam-induced jitter
+$\delta t(t)$ is a stationary process (Eq.~\eqref{eq:pathcov1ray},
+Section~\ref{sec:model}) that is statistically independent of the source,
+so $\Gamma_{\rm obs}(\tau)$ — given in general by Eq.~\eqref{eq:g1obs} —
+depends only on the lag $\tau$, provided $T_{\rm int}\gg\tau_{\rm foam}$ so
+that the foam statistics are ergodically sampled.
+In the further limit where the foam decorrelates on long time scales
+($C_\alpha(\tau)\to 0$ as $|\tau|\to\infty$, the dynamical regime), the foam
+factor acquires a nonzero asymptote $\mathcal{F}_{\rm foam}(\tau)\to
+e^{-\sigma_\phi^2}$, generating a distributional $\delta(\nu)$ contribution
+that encodes the fraction $e^{-\sigma_\phi^2}$ of source flux propagating
+phase-coherently.
 % [Author: confirm §II or §III establishes CLT/Gaussian-phase convergence explicitly]
 
-Since $g^{(1)}_{\rm obs}(\tau)=g^{(1)}_{\rm src}(\tau)\,\mathcal{F}_{\rm foam}(\tau)$
-is a product in the lag domain, Eq.~\eqref{eq:WK_obs} yields immediately
+When the lag-domain product structure $g^{(1)}_{\mathrm{obs}}(\tau) = g^{(1)}_{\mathrm{src}}(\tau)\,\mathcal{F}_{\mathrm{foam}}(\tau)$ holds---the weak-jitter and narrow-band regimes---the convolution theorem applied to Eq.~\eqref{eq:WK_obs} yields
 \begin{equation}
-  S_{\rm obs}(\nu) = S_{\rm src}(\nu)*\mathcal{K}_{\rm foam}(\nu),
-  \qquad
-  \mathcal{K}_{\rm foam}(\nu)
-    = e^{-\sigma_\phi^2}\,\delta(\nu)
-      + \mathcal{F}\!\left\{\mathcal{F}_{\rm foam}(\tau)-e^{-\sigma_\phi^2}\right\}(\nu),
+  S_{\rm obs}(\nu) = S_{\rm src}(\nu)*\mathcal{K}_{\rm foam}(\nu).
   \label{eq:Sobs_conv}
 \end{equation}
-where the kernel decomposition separates the coherent core (the delta-function
-term, carrying fraction $e^{-\sigma_\phi^2}$ of the intrinsic line) from the
-incoherently scattered contribution (the residual Fourier transform, carrying
-fraction $1-e^{-\sigma_\phi^2}$).
+i.e.\ the intrinsic spectrum is convolved by a kernel $\mathcal{K}_{\mathrm{foam}}(\nu) \equiv \mathcal{F}\{\mathcal{F}_{\mathrm{foam}}\}(\nu)$ that depends on both the foam (through $\sigma_\phi^2$, $C_\alpha$, $\tau_{\mathrm{foam}}$) and the source line.
 
 \subsection{Limiting Kernel Shapes}
 
