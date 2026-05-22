@@ -133,34 +133,9 @@ propagation effects.
 The scalar variance $\sigma_\ell^2(D)$ (Eq.~\eqref{eq:NgPerlmanVar})
 characterizes the amplitude of foam-induced path-length fluctuations along
 a single ray; here we describe how those fluctuations are correlated across
-ray pairs (spatial coherence) and across time (temporal decorrelation),
-both of which enter the HBT observables (see also Ref.~\cite{Carlip2023}
-for a review of foam models and observational constraints).
+across time (temporal decorrelation).
 
-Because foam is a property of spacetime rather than of any preferred direction,
-the same dimensional logic that governs longitudinal path-length fluctuations
-motivates the existence of a characteristic transverse coherence length $r_\perp$.
-However, the longitudinal and transverse cases are geometrically distinct: in the
-longitudinal case $D$ counts the number of cells traversed along the ray, while in
-the transverse case $b$ is a separation between rays that share cells along the line
-of sight --- the number of shared cells depends on both $b$ and $D$ in a way that is
-not captured by a simple dimensional analogy.
-Accordingly, $r_\perp$ is treated as an independent free parameter in
-Section~\ref{sec:extended}.
-We denote the normalized transverse coherence function by $\Phi(b/r_\perp)$,
-satisfying $\Phi(0)=1$ and $\Phi(b/r_\perp)\to 0$ for $b\gg r_\perp$.
-The functional form of $\Phi$ depends on the specific foam model.
-For the pixellon model, Lee, Zurek \& Chen~\cite{LeeZurekChen2024} find that
-the transverse correlation structure involves long-range angular correlations
-(a Legendre polynomial series in aperture-plane angle) that do not reduce to
-a simple $\Phi(b/r_\perp)$ ansatz, but whose long-range character strongly
-suppresses image blurring relative to the uncorrelated case.
-In the present framework $\Phi$ is treated as a free function; a foam
-signal would manifest as an angular-size dependence of
-$\mathcal{S}(\tau)$ through the suppression factor $\Phi_{\rm eff}$
-(Section~\ref{sec:extended}).
-
-Turning to the temporal evolution of spacetime foam --- an aspect not specified by Eq.~\eqref{eq:NgPerlmanVar} --- quantum foam models posit that each Planck-scale cell along the line of sight fluctuates in time.
+The temporal evolution of spacetime foam --- an aspect not specified by Eq.~\eqref{eq:NgPerlmanVar} --- quantum foam models posit that each Planck-scale cell along the line of sight fluctuates in time.
 Two photons traversing the same cell at coordinate times separated by $\tau$
 experience path-length fluctuations that are correlated for $\tau \ll \tau_{\rm foam}$
 but decorrelated for $\tau \gg \tau_{\rm foam}$, where $\tau_{\rm foam}$ is the
@@ -456,6 +431,7 @@ evaluated at $\omega_0$; since $\Delta(\tau)$ is Gaussian
 \begin{equation}
   \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
   = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}.
+  \label{eq:gaussian_jitter}
 \end{equation}
 This holds when $\tau \gg \tau_{\rm foam}$ so that foam-cell contributions are
 independent; in the dynamical limit $\tau_{\rm foam} \ll \tau_c$ the condition
@@ -540,45 +516,114 @@ i.e.\ the intrinsic spectrum is convolved by a kernel $\mathcal{K}_{\mathrm{foam
 % ==============================================================
 \subsection{Connection to Fringe Visibility and Strehl Ratio}
 \label{sec:connection}
-% ==============================================================
 
-The fringe visibility and Strehl ratio are spatial-coherence observables
---- they probe phase variations across an aperture or between two
-separated telescopes, described by $g^{(1)}_{\rm obs}(B)$ --- while
-$g^{(1)}_{\rm obs}(\tau)$ derived above describes temporal coherence
-along a single line of sight. Both share the same foam suppression form, with the temporal decorrelation
-$C_\alpha(\tau;D)$ replaced by its spatial analog $C_\alpha(B;D)$:
+The first-order coherence function $g^{(1)}_{\mathrm{obs}}(\tau)$
+derived above describes \emph{temporal} coherence along a single line
+of sight, with the foam suppression governed by the temporal
+decorrelation $C_\alpha(\tau;D)$ of Eq.~\eqref{eq:Ffoam}. The fringe visibility
+and Strehl ratio are the \emph{spatial} counterparts: they probe phase
+variations between two points in the telescope aperture plane
+separated by a baseline $B$, with the suppression governed by an
+aperture-plane coherence function $C_\alpha^{\mathrm{sp}}(B;D)$. We
+emphasize that $C_\alpha^{\mathrm{sp}}(B;D)$ is distinct from the
+source-plane transverse coherence $\Phi(b/r_\perp)$ of Section~\ref{sec:Calpha_origin},
+which governs cross-ray correlations between rays from different
+angular directions on the source; $C_\alpha^{\mathrm{sp}}$ instead
+parameterizes how correlated the cumulative foam-induced phase is
+between two points in the local wavefront at the observer.
+
+The structural equivalence between the temporal and spatial cases is
+not merely formal: in both, the foam suppression arises as the
+characteristic function of a zero-mean Gaussian differential random
+variable, with $C_\alpha$ (respectively $C_\alpha^{\mathrm{sp}}$)
+setting how that variable's variance grows with separation.
+Temporally, the relevant random variable is the differential jitter
+$\Delta(\tau) = \delta t(t+\tau) - \delta t(t)$ between two arrival
+times along a single ray, with variance
+$\sigma_\Delta^2(\tau) = (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$
+(Eq.~\eqref{eq:diffVar}). Spatially, the analogous random variable is the
+differential phase
+$\Delta\phi(B) = \phi(\mathbf{x}+\mathbf{B}) - \phi(\mathbf{x})$
+between two points on the aperture plane separated by baseline $B$,
+with variance
+%
 \begin{equation}
-  \mathcal{F}_{\rm foam}^{\rm spat}(B)
-    \equiv e^{-\sigma_\phi^2[1-C_\alpha(B;D)]}.
-  \label{eq:Ffoam_spat}
+  \sigma_{\Delta\phi}^2(B) \;=\; 2\sigma_\phi^2\bigl[1-C_\alpha^{\mathrm{sp}}(B;D)\bigr].
+  \label{eq:dphi-variance}
 \end{equation}
-The fringe visibility at baseline $B$ is then
+%
+Applying the Gaussian characteristic-function identity of Eq.~\eqref{eq:gaussian_jitter} in
+each domain yields suppression factors of identical form---one
+expressed in lag, the other in baseline:
+%
 \begin{equation}
-  V(B) = V_{\rm src}(B)\cdot\mathcal{F}_{\rm foam}^{\rm spat}(B)
-       = V_{\rm src}(B)\cdot e^{-\sigma_\phi^2[1-C_\alpha(B;D)]},
+  \mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}}(B)
+   \;\equiv\; \exp\!\bigl\{-\tfrac{1}{2}\sigma_{\Delta\phi}^2(B)\bigr\}
+   \;=\; \exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\mathrm{sp}}(B;D)\bigr]\bigr\},
+  \label{eq:Fspat}
+\end{equation}
+%
+mirroring $\mathcal{F}_{\mathrm{foam}}(\tau)$ of Eq.~\eqref{eq:Ffoam} under
+$C_\alpha(\tau;D) \leftrightarrow C_\alpha^{\mathrm{sp}}(B;D)$. The
+shared subscript $\alpha$ further reflects that the same cumulative
+growth law of Eq.~\eqref{eq:NgPerlmanVar} underlies both decorrelations. As with its
+temporal counterpart, $\mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}}$ runs
+from unity at zero baseline ($C_\alpha^{\mathrm{sp}}(0;D)=1$, the two
+points sample identically phased wavefronts) to maximum suppression
+$e^{-\sigma_\phi^2}$ in the resolved limit where
+$C_\alpha^{\mathrm{sp}} \to 0$ (the two points sample independent
+foam realizations).
+
+The two-element interferometric fringe visibility at baseline $B$ is
+then
+%
+\begin{equation}
+  V(B) \;=\; V_{\mathrm{src}}(B)\,\mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}}(B)
+       \;=\; V_{\mathrm{src}}(B)\,\exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\mathrm{sp}}(B;D)\bigr]\bigr\},
   \label{eq:visibility}
 \end{equation}
-where $V_{\rm src}(B) = |g^{(1)}_{\rm src}|$ evaluated at angular scale
-$\lambda/B$. Lieu \&
-Hillman~\cite{LieuHillman2003} implicitly assumed the large-baseline limit
-$B\gg r_\perp$, where the suppression reaches its maximum $e^{-\sigma_\phi^2}$: their
-erasure condition $\Delta\phi \geq 2\pi$ with
-$\Delta\phi \simeq 2\pi\sigma_\ell(D)/\lambda$~\cite{NgPerlman2022} is
-precisely $\sigma_\phi \geq 1$, the limit
-$\mathcal{F}_{\rm foam}^{\rm spat}\to 0$. Equation~\eqref{eq:visibility}
-extends their binary criterion to a continuous suppression curve
-parameterized by $C_\alpha(B;D)$.
+%
+where $V_{\mathrm{src}}(B)=|g^{(1)}_{\mathrm{src}}|$ is evaluated at
+angular scale $\lambda/B$. The Strehl ratio of a single aperture of
+diameter $D_{\mathrm{tel}}$ is the same statistic with $B$ replaced by
+the internal aperture baseline: when
+$C_\alpha^{\mathrm{sp}}(D_{\mathrm{tel}};D) \to 0$ the aperture-plane
+phases are independent draws from the single-ray distribution and the
+Mar\'echal formula gives~\cite{NgPerlman2022}
+%
+\begin{equation}
+  S \;\simeq\; e^{-\sigma_\phi^2}.
+  \label{eq:strehl}
+\end{equation}
+%
+Strehl ratio and fringe visibility therefore measure the \emph{same}
+underlying phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$
+in the resolved limit, differing only in whether the baseline is
+realized internally (single aperture) or externally (two-element
+interferometer). This unification places the published imaging
+constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
+on a common footing within the present framework.
 
-The Strehl ratio for a single aperture of diameter $D_{\rm tel}$ follows
-the same logic with $B\sim D_{\rm tel}$: when $r_\perp\ll D_{\rm tel}$,
-aperture-plane phases are independent draws from the single-ray
-distribution and $S=e^{-\sigma_\phi^2}$.
-Both Strehl and fringe visibility therefore measure the same underlying
-$\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ in the large-baseline limit
-$B\gg r_\perp$, and the published
-constraints~\cite{LieuHillman2003,NgPerlman2022,Perlman2015,Christiansen2011,Ragazzoni2003}
-are unified within this framework.
+Equation~\eqref{eq:visibility} also extends the binary
+Lieu--Hillman~\cite{LieuHillman2003} erasure criterion to a continuous
+suppression curve. Their condition $\Delta\phi \gtrsim 2\pi$, with
+$\Delta\phi \simeq 2\pi\sigma_\ell(D)/\lambda$, is precisely
+$\sigma_\phi \gtrsim 1$---the saturation limit
+$\mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}} \to e^{-\sigma_\phi^2} \to 0$
+of Eq.~\eqref{eq:Fspat}. The shape of the continuous curve, observed
+as a function of baseline, encodes the aperture-plane coherence
+profile $C_\alpha^{\mathrm{sp}}(B;D)$, in direct analogy to how
+$g^{(1)}_{\mathrm{obs}}(\tau)$ encodes the temporal decorrelation
+$C_\alpha(\tau;D)$. Two observational handles follow from this
+correspondence: (i) the chromatic scaling
+$\sigma_\phi \propto 1/\lambda$ implies that constraints tighten
+rapidly with decreasing wavelength---a fact exploited by Ng \&
+Perlman~\cite{NgPerlman2022} (their Table~1) in moving from optical
+through X-ray and $\gamma$-ray observations, and mirrored here by the
+spectroscopic bound derived in Section~\ref{sec:bzk4892}; (ii) baseline-resolved
+visibility measurements of a single target can in principle probe the
+aperture-plane coherence scale, complementary to the temporal
+decorrelation scale accessed through $g^{(1)}_{\mathrm{obs}}(\tau)$. 
 
 % ==============================================================
 \section{Sources}
