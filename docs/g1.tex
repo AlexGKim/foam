@@ -551,15 +551,16 @@ temporal decorrelation measuring how the foam changes
 between two observations separated by time $\tau$, maps to the spatial
 decorrelation, measuring how
 correlated the foam fluctuations are at two aperture points separated by
-baseline $B$. In both cases the foam suppression has the same form, with
-$C_\alpha$ replaced by $\Phi$:
+baseline $B$. In both cases the foam suppression has the same form: the spatial case
+uses the spatial decorrelation function $C_\alpha(B;D)$ in place of the
+temporal $C_\alpha(\tau;D)$:
 \begin{equation}
   \mathcal{F}_{\rm foam}^{\rm spat}(B)
-    \equiv e^{-\sigma_\phi^2[1-\Phi(B/r_\perp)]}.
+    \equiv e^{-\sigma_\phi^2[1-C_\alpha(B;D)]}.
   \label{eq:Ffoam_spat}
 \end{equation}
-This mirrors $\mathcal{F}_{\rm foam}(\tau)$ exactly: $\Phi(0)=1$ gives no
-suppression at zero baseline, while $\Phi(B/r_\perp)\to 0$ for
+This mirrors $\mathcal{F}_{\rm foam}(\tau)$ exactly: $C_\alpha(0;D)=1$ gives no
+suppression at zero baseline, while $C_\alpha(B;D)\to 0$ for
 $B\gg r_\perp$ gives maximum suppression $e^{-\sigma_\phi^2}$ --- just as
 $\mathcal{F}_{\rm foam}(0)=1$ and
 $\mathcal{F}_{\rm foam}(\infty)=e^{-\sigma_\phi^2}$.
@@ -567,7 +568,7 @@ $\mathcal{F}_{\rm foam}(\infty)=e^{-\sigma_\phi^2}$.
 The fringe visibility at baseline $B$ is then
 \begin{equation}
   V(B) = V_{\rm src}(B)\cdot\mathcal{F}_{\rm foam}^{\rm spat}(B)
-       = V_{\rm src}(B)\cdot e^{-\sigma_\phi^2[1-\Phi(B/r_\perp)]},
+       = V_{\rm src}(B)\cdot e^{-\sigma_\phi^2[1-C_\alpha(B;D)]},
   \label{eq:visibility}
 \end{equation}
 where $V_{\rm src}(B) = |g^{(1)}_{\rm src}|$ evaluated at angular scale
@@ -587,19 +588,7 @@ decorrelation $C_\alpha(\tau;D)$.
 The Strehl ratio for a single aperture of diameter $D_{\rm tel}$ follows
 the same logic with $B\sim D_{\rm tel}$: when $r_\perp\ll D_{\rm tel}$,
 aperture-plane phases are independent draws from the single-ray
-distribution and $S=e^{-\sigma_\phi^2}$.\footnote{%
-  The Mar\'{e}chal formula $S = e^{-\sigma_\phi^2}$ (valid for
-  $\sigma_\phi \lesssim 1$) and the temporal result
-  $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2}$ are linked by a
-  spatio-temporal ergodic identification: both require $r_\perp \ll D_{\rm tel}$
-  and $C_\alpha(\infty;D)\to 0$. For quasi-static foam ($C_\alpha\approx 1$) or
-  $r_\perp \gg D_{\rm tel}$, the aperture sits within a single coherence patch,
-  the wavefront carries only a common phase offset, and $S\to 1$ even when
-  $\sigma_\phi^2$ is large. The transverse coherence function $\Phi(b/r_\perp)$
-  governs a physically distinct effect --- cross-ray correlations at angular
-  separations $\boldsymbol{\theta}\neq\boldsymbol{\theta}'$ --- which enters
-  the second-order coherence of extended sources (Section~\ref{sec:extended})
-  but not the single-aperture Strehl ratio.}
+distribution and $S=e^{-\sigma_\phi^2}$.
 Both Strehl and fringe visibility therefore measure the same underlying
 $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$ in the large-baseline limit
 $B\gg r_\perp$, and the published
