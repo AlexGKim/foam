@@ -639,6 +639,86 @@ from standard chemical-potential and Compton-$y$ distortions.
 In this section we consider these two possibilies.
 
 % ==============================================================
+\subsection{GRB\,221009A}
+\label{sec:grb221009a}
+
+GRB\,221009A (``the BOAT,'' Brightest Of All Time) is the most
+energetic gamma-ray burst in the instrumental record, with isotropic-equivalent
+energy $E_{\rm iso}\sim10^{55}\,\mathrm{erg}$ at redshift $z=0.151$,
+a once-in-$\sim10^4$-year event~\cite{Burns2023}.
+The burst was detected from radio wavelengths through $\approx18\,\mathrm{TeV}$
+(LHAASO).
+Two independent spectral analyses have reported a narrow gamma-ray
+emission feature in the Fermi/GBM data, interpreted as blueshifted
+electron--positron pair annihilation~\cite{Ravasio2024,YQZhang2024}, at
+observed energies in the range $10$--$37\,\mathrm{MeV}$.
+We apply the spectral-Strehl bound Eq.~\eqref{eq:alpha_bound} to each detection.
+Adopting flat $\Lambda$CDM
+($\Omega_M=0.27$, $\Omega_\Lambda=0.73$,
+$H_0=70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$), the comoving distance is
+$D_C(z=0.151)\approx0.63\,\mathrm{Gpc}\approx1.93\times10^{25}\,\mathrm{m}$
+and $\ln(D_C/\ell_P)\approx138.3$.
+
+\textit{Ravasio et al.\ (2024).}
+Ravasio et al.~\cite{Ravasio2024} report a $13\sigma$ detection of a
+narrow emission feature in Fermi/GBM data from the intervals
+$T+280$--$320$\,s, outside the bad-time interval affected by detector
+saturation.  The line centroid evolves from $\approx14$\,MeV
+at $T+280$\,s to $\approx6$\,MeV at $T+320$\,s; the most
+energetic well-constrained single measurement is
+$E_{\rm line}=12.56\pm0.30$\,MeV in the interval $T+280$--$300$\,s
+(improvement $\Delta\mathrm{AIC}=49$ over the continuum-only model).
+The probe wavelength is
+$\lambda_{\rm obs}=hc/E_{\rm line}\approx9.9\times10^{-14}$\,m.
+The Gaussian width measured in this interval is
+$\sigma_{\rm gauss}=1.31_{-0.31}^{+0.30}$\,MeV, giving a relative width
+$\sigma/E\approx10\%$.  The narrow-band condition underlying
+Eq.~\eqref{eq:Sobs_conv} is satisfied: at the bound $\alpha\approx0.65$
+the rms path-length is $\sigma_\ell\approx1.6\times10^{-14}$\,m,
+while the coherence length $c\tau_c\approx\hbar c/\sigma_E\approx
+2.1\times10^{-13}$\,m, giving $\sigma_\ell/(c\tau_c)\approx0.07$;
+the envelope approximation is accurate to $\lesssim1\%$.
+Inserting $D_C\approx1.93\times10^{25}$\,m,
+$\lambda_{\rm obs}\approx9.9\times10^{-14}$\,m, and
+$\ell_P=1.6\times10^{-35}$\,m into Eq.~\eqref{eq:alpha_bound}:
+$\ln(2\pi D_C/\lambda_{\rm obs})\approx90.0$ and
+$\ln(D_C/\ell_P)\approx138.3$, giving
+\begin{equation}
+  \alpha \;\gtrsim\; \frac{90.0}{138.3} \;\approx\; 0.65.
+  \label{eq:alpha_grb_ravasio}
+\end{equation}
+
+\textit{Zhang et al.\ (2024).}
+Zhang et al.~\cite{YQZhang2024} perform a joint analysis of GECAM-C and
+Fermi/GBM data covering the full prompt emission, including the bright
+phase inaccessible to GBM alone.  They identify a spectral excess in
+the G1 time interval ($T+246$--$256$\,s) at $\approx37$\,MeV,
+and interpret the entire feature as a line whose centroid evolves
+from $\approx37$\,MeV down to $\approx6$\,MeV across the burst.
+The 37\,MeV detection lies at or beyond the stated upper boundary of
+the GBM BGO detector range ($4$--$35$\,MeV), so the centroid and
+width of this earliest interval carry larger systematic uncertainty
+than the Ravasio et al.\ detections.  Taking $E_{\rm line}\approx37$\,MeV
+at face value gives $\lambda_{\rm obs}\approx3.4\times10^{-14}$\,m,
+$\ln(2\pi D_C/\lambda_{\rm obs})\approx91.1$, and
+\begin{equation}
+  \alpha \;\gtrsim\; \frac{91.1}{138.3} \;\approx\; 0.66.
+  \label{eq:alpha_grb_zhang}
+\end{equation}
+This bound should be regarded as tentative pending confirmation of
+the 37\,MeV excess as a narrow spectral line within the instrumental
+sensitivity range.
+
+Both bounds approach but do not exclude the holographic value
+$\alpha=2/3\approx0.667$: at that exponent
+$\sigma_\phi^2(\alpha=2/3)\approx0.01$
+for the Ravasio line, corresponding to a coherent fraction
+$e^{-0.01}\approx99\%$ --- the line would be essentially unaffected.
+Formally ruling out $\alpha=2/3$ at $z=0.151$ would require a confirmed
+spectral line at $E_{\rm obs}\gtrsim115\,\mathrm{MeV}$, approximately
+three times higher than the most energetic detection reported to date.
+
+% ==============================================================
 \subsection{BzK4892}
 \label{sec:bzk4892}
 
@@ -681,8 +761,7 @@ $\mathrm{EW}\simeq 2.3$\,keV, detected at $\gtrsim 4\sigma$ in the
 The redshift is independently confirmed by multiple narrow rest-UV
 emission lines (Ly$\alpha$, C\,\textsc{iv}, He\,\textsc{ii}, C\,\textsc{iii})
 detected in VLT/FORS spectroscopy~\cite{Szokoly2004,Vanzella2006}.
-Adopting the flat $\Lambda$CDM cosmology used in Ng--Perlman
-($\Omega_M=0.27$, $\Omega_\Lambda=0.73$, $H_0=70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$),
+Adopting the same flat $\Lambda$CDM cosmology,
 the line-of-sight comoving distance is
 $D_C(z_s=2.578)\approx 6.1$~Gpc $\approx 1.88\times 10^{26}$~m.
 The spectroscopically detected Iron K$\alpha$ 6.4\,keV emission line,
@@ -770,6 +849,15 @@ threshold $\sigma_\phi^2\lesssim 1$ far more constraining.
 The result does not rule out the
 holographic value $\alpha=2/3$, consistent with all current optical and
 infrared imaging constraints.
+The bound $\alpha\gtrsim0.59$ is weaker than the gamma-ray results of
+Section~\ref{sec:grb221009a} ($\alpha\gtrsim0.65$--$0.66$) despite the
+much greater comoving distance ($D_C=6.1$\,Gpc vs.\ $0.63$\,Gpc).
+The gain for the gamma-ray probe is wavelength-driven:
+$\lambda_{\rm obs}$ for the 12.56\,MeV line is $\approx7000$ times
+shorter than the Iron K$\alpha$ probe, boosting
+$\ln(2\pi D_C/\lambda_{\rm obs})$ by $\approx8.8$ while the reduced
+distance decreases it by only $\approx2.3$, for a net gain of
+$\approx6.5$ in the numerator of Eq.~\eqref{eq:alpha_bound}.
 
 % -----------------------------------------------------------------------
 % NOTES FOR THE AUTHOR (BzK 4892 subsection)
