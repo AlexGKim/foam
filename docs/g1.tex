@@ -1122,6 +1122,7 @@ limit (Section~\ref{sec:g1}). In this limit the pedestal (residual term)
 also vanishes, consistent with Section~\ref{sec:FIRAS_derivation}.
 
 \subsection{Degeneracy with Standard Spectral Distortions}
+\label{sec:FIRAS_degeneracy}
 
 The foam signal must be separated from two standard CMB spectral distortion templates.
 The chemical-potential ($\mu$) and Compton-$y$ distortions have characteristic shapes:
@@ -1202,6 +1203,95 @@ covariance matrix from Fixsen (1996) in place of the diagonal approximation, and
 full nonlinear foam template once $C_\alpha(\tau)$ is specified. Both changes will alter the
 correlations quantitatively, particularly the foam--$\mu$ degeneracy.
 
+\subsection{Bias in Recovered $T_0$ from Unmodeled Foam}
+\label{sec:FIRAS_T0_bias}
+
+The Fisher matrix provides two complementary measures of sensitivity. Section~\ref{sec:FIRAS_degeneracy}
+asked \textit{how precisely can we detect $A_{\rm eff}$?}; here we ask \textit{how much would the
+fitted CMB temperature shift if foam were present but omitted from the model?}
+
+\textbf{Bias formula.} Suppose the data contain a foam signal at amplitude $A_{\rm eff}^{\rm true}$
+but the analyst fits only the standard parameters $\boldsymbol{\theta}_{\rm fit} = (T_0, \mu, y)$.
+In the linearized Fisher regime the resulting parameter shift is
+\begin{equation}\label{eq:bias_formula}
+  \hat{\boldsymbol{\theta}}_{\rm fit} - \boldsymbol{\theta}_{\rm fit}^{\rm true}
+  = -(F_{\rm fit,fit})^{-1}\,F_{\rm fit,omit}\,A_{\rm eff}^{\rm true},
+\end{equation}
+where $F_{\rm fit,fit}$ is the $3\times3$ lower-right block of the full Fisher matrix (for
+$T_0, \mu, y$) and $F_{\rm fit,omit}$ is the $3\times1$ cross-block coupling the fitted parameters
+to the omitted foam amplitude. Both blocks are extracted from the same matrix as
+Tables~\ref{tab:fisher_corr}--\ref{tab:fisher_snr}, so no new computation is required.
+
+\textbf{Temperature bias.} The $T_0$ component of Eq.~\eqref{eq:bias_formula} is
+\begin{equation}\label{eq:T0_bias}
+  \Delta T_0 \equiv \hat{T}_0 - T_0^{\rm true} = b_{T_0}\,A_{\rm eff}^{\rm true},
+  \qquad b_{T_0} \equiv -\bigl[(F_{\rm fit,fit})^{-1}F_{\rm fit,omit}\bigr]_{T_0}.
+\end{equation}
+Numerically, $b_{T_0} = +1.21\times10^7\,{\rm K\,m^{-2}}$: the bias is \textit{positive}, meaning
+foam would cause the fitter to report a temperature slightly too high.  This is counterintuitive
+but physically consistent.  The placeholder pedestal $K_\nu^{\rm fast}\propto\nu^{-1}$ produces a
+low-frequency flux excess that the fitter interprets as a temperature increase (since
+$\partial B_\nu/\partial T > 0$ in the Rayleigh--Jeans regime), while the high-frequency
+deficit is absorbed into a positive $\Delta\mu$.  The dominant bias is in $\mu$: numerically
+$b_\mu \approx 1.05\times10^8\,{\rm m^{-2}}$, consistent with the strong foam--$\mu$ correlation
+$\rho = 0.976$ from Table~\ref{tab:fisher_corr}.
+
+\textbf{Bias-based bound.} Requiring $|\Delta T_0| < \sigma(T_0) = 0.00057\,{\rm K}$
+(Fixsen 2009~\cite{Fixsen2009}) gives
+\begin{equation}\label{eq:Aeff_bias_bound}
+  A_{\rm eff}^{\rm max,\,bias} = \frac{\sigma(T_0)}{|b_{T_0}|}
+  = \frac{5.7\times10^{-4}\,{\rm K}}{1.21\times10^7\,{\rm K\,m^{-2}}}
+  = 4.7\times10^{-11}\,{\rm m}^2,
+\end{equation}
+corresponding, with $A_\alpha = 1$, to a crossover exponent $\alpha_{\rm bias} = 0.518$.
+Foam models with $\alpha < 0.518$ would have biased the Fixsen $T_0$ by more than $1\sigma$
+had such a signal been present and unmodeled; models with $\alpha > 0.518$ do not.
+
+Table~\ref{tab:fisher_bias} lists $\Delta T_0$ and its ratio to $\sigma(T_0)$ for $\alpha = 0.50$--$0.59$.
+At $\alpha = 0.57$ (where the marginal SNR $\approx 1$, Section~\ref{sec:FIRAS_degeneracy}), the
+ratio $\Delta T_0/\sigma(T_0) \approx 4\times10^{-4}$: completely negligible.  The published
+Fixsen $T_0 = 2.72548\,{\rm K}$ is therefore not appreciably biased by any foam model near or above
+the FIRAS detection threshold.
+
+\begin{table}[h]
+\caption{Foam-induced bias in recovered $T_0$ when foam is present at amplitude
+$A_{\rm eff}$ (with $A_\alpha = 1$, $D_C = 13.87\,{\rm Gpc}$) but omitted from the fit.
+Computed from the off-diagonal block of the Fisher matrix using the same noise and
+templates as Tables~\ref{tab:fisher_corr}--\ref{tab:fisher_snr}; entries scale linearly
+with $A_\alpha$.  The column $\Delta T_0/\sigma(T_0)$ uses $\sigma(T_0) = 0.00057\,{\rm K}$
+(Fixsen 2009~\cite{Fixsen2009}).
+The bold row at $\alpha = 0.518$ is the crossover where $|\Delta T_0| = \sigma(T_0)$.}
+\label{tab:fisher_bias}
+\begin{ruledtabular}
+\begin{tabular}{cccc}
+$\alpha$ & $A_{\rm eff}$ (m$^2$) & $\Delta T_0$ (K) & $\Delta T_0/\sigma(T_0)$ \\
+\hline
+$0.500$ & $6.9\times10^{-9}$  & $+8.4\times10^{-2}$  & $147$ \\
+$\mathbf{0.518}$ & $\mathbf{4.7\times10^{-11}}$ & $\mathbf{+5.7\times10^{-4}}$ & $\mathbf{1.0}$ \\
+$0.530$ & $1.4\times10^{-12}$ & $+1.7\times10^{-5}$  & $0.030$ \\
+$0.550$ & $5.0\times10^{-15}$ & $+6.0\times10^{-8}$  & $1.1\times10^{-4}$ \\
+$0.560$ & $2.9\times10^{-16}$ & $+3.6\times10^{-9}$  & $6.3\times10^{-6}$ \\
+$0.570$ & $1.7\times10^{-17}$ & $+2.1\times10^{-10}$ & $3.7\times10^{-7}$ \\
+$0.580$ & $1.0\times10^{-18}$ & $+1.2\times10^{-11}$ & $2.2\times10^{-8}$ \\
+$0.590$ & $6.1\times10^{-20}$ & $+7.4\times10^{-13}$ & $1.3\times10^{-9}$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\textbf{Comparison of bounds.}  The three $\alpha$ lower bounds from FIRAS are:
+(i)~$\alpha \gtrsim 0.52$ (T$_0$-bias bound, this subsection);
+(ii)~$\alpha \gtrsim 0.57$ (marginal-SNR bound, Section~\ref{sec:FIRAS_degeneracy});
+(iii)~$\alpha \gtrsim 0.59$ (BzK~4892 spectroscopic bound, Section~V.A).
+The bias bound is the weakest because the strong foam--$\mu$ correlation ($\rho = 0.976$)
+allows most of the foam signal to be absorbed into $\mu$ without producing a large
+\textit{individual} shift in $T_0$.  The same freedom that hides the bias inflates the
+marginal $\sigma(A_{\rm eff})$, hence the SNR bound is tighter.
+
+\textit{Caveat:} The sign and magnitude of $\Delta T_0$ depend on the placeholder pedestal
+kernel $K_\nu^{\rm fast}$.  A physically derived pedestal from a specific $C_\alpha(\tau)$
+model (Section~\ref{sec:FIRAS_derivation}) may alter these values; repeating the bias
+calculation with the physical kernel is action item~2b of Section~\ref{sec:FIRAS_analysis}.
+
 \subsection{Parameter Degeneracy Within the Foam Template}
 
 The foam template parameters $\alpha$ and $A_\alpha$ enter the linearized distortion only through
@@ -1229,6 +1319,7 @@ using completely different inputs (absolute calibrated photometry, broadband rat
 profile assumption) and probes the parameter space below the BzK bound where more exotic foam models would reside.
 
 \subsection{Proposed Analysis}
+\label{sec:FIRAS_analysis}
 
 The FIRAS constraint requires the following steps:
 
@@ -1239,6 +1330,12 @@ The FIRAS constraint requires the following steps:
 2. \textit{Compute nonlinear Fisher matrix.} Using the full nonlinear template (not the linearized approximation),
    compute the Fisher correlation matrix for $(\alpha, A_\alpha, T_0, \mu, y, A_{\rm CIB}, c_i)$ on the FIRAS
    noise-plus-calibration covariance. Assess how much the $\alpha$-$\mu$ degeneracy is reduced once $C_\alpha$ is specified.
+
+2b. \textit{Repeat bias calculation in the nonlinear regime.} Once the full nonlinear template is available,
+    repeat the linearized bias computation of Section~\ref{sec:FIRAS_T0_bias} at the nonlinear level to verify
+    that the sign and magnitude of $\Delta T_0$ are reliable at the band edge ($\nu \gtrsim 400$\,GHz, where
+    $\sigma_\phi^2 \to 1$ for $\alpha \approx 0.50$--$0.55$). In the nonlinear regime the linearized formula
+    Eq.~\eqref{eq:bias_formula} must be replaced by a numerical comparison of maximum-likelihood estimators.
 
 3. \textit{Null-hypothesis validation.} Fit the FIRAS spectrum with $A_\alpha = 0$ and verify recovery of
    published values: $T_0 = 2.72548 \pm 0.00057$\,K, $|\mu| < 9 \times 10^{-5}$, $|y| < 1.5 \times 10^{-5}$

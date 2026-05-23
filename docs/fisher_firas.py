@@ -183,3 +183,50 @@ print(f"  Peak B_nu(T_0)             = {peak_B:.1f} MJy/sr  at nu ~ 160 GHz")
 print(f"  |Delta_I_foam|(150 GHz)    = {foam_amp_150:.2f} MJy/sr  (sigma_phi^2 x B)")
 print(f"  FIRAS noise sigma_nu       = {sigma_noise/MJy_per_sr:.4f} MJy/sr")
 print(f"  SNR per channel (150GHz)   = {foam_amp_150 / (sigma_noise/MJy_per_sr):.1f}")
+
+# ── Bias calculation (nested-model bias) ──────────────────────────────────────
+# theta_fit = (T_0, mu, y)  — indices 1, 2, 3 of derivs
+# theta_omit = A_eff        — index 0
+# Bias per unit A_eff:  b = -(F_fit_fit)^{-1} F_fit_omit
+
+F_fit_fit  = F[1:4, 1:4]   # 3x3 Fisher block for (T_0, mu, y)
+F_fit_omit = F[1:4, 0:1]   # 3x1 cross-block with A_eff
+
+b = -np.linalg.solve(F_fit_fit, F_fit_omit).flatten()
+# b[0] = Delta_T0 / A_eff  [K / m^2]
+# b[1] = Delta_mu / A_eff  [1 / m^2]
+# b[2] = Delta_y  / A_eff  [1 / m^2]
+
+sigma_T0_Fixsen = 0.00057  # K, Fixsen 2009 (1-sigma)
+mu_limit_95 = 9e-5         # 95% CL from Fixsen 1996
+
+print("\n" + "=" * 72)
+print("BIAS CALCULATION  (unmodeled foam -> shift in fit parameters)")
+print("=" * 72)
+print(f"\nb_T0 = {b[0]:+.4e} K/m^2")
+print(f"b_mu = {b[1]:+.4e} 1/m^2")
+print(f"b_y  = {b[2]:+.4e} 1/m^2")
+print(f"\nSign: positive A_eff biases T_0 {'HIGH' if b[0]>0 else 'LOW'}, "
+      f"mu {'POSITIVE' if b[1]>0 else 'NEGATIVE'}")
+
+A_eff_T0_bound = sigma_T0_Fixsen / abs(b[0])
+A_eff_mu_bound = (mu_limit_95 / 2) / abs(b[1])   # 1-sigma ~ 95CL/2
+
+print(f"\nBias-based A_eff bounds:")
+print(f"  From |DeltaT0| < sigma(T0):    A_eff < {A_eff_T0_bound:.3e} m^2")
+print(f"  From |Deltamu| < mu_limit/2:   A_eff < {A_eff_mu_bound:.3e} m^2")
+
+from scipy.optimize import brentq
+
+for label, bound in [('T0', A_eff_T0_bound), ('mu', A_eff_mu_bound)]:
+    alpha_cross = brentq(lambda a: A_eff_of_alpha(a) - bound, 0.500, 0.650)
+    print(f"  {label}-bias alpha crossover: alpha = {alpha_cross:.4f}")
+
+print(f"\nBias table (A_alpha=1, sigma_T0={sigma_T0_Fixsen} K from Fixsen 2009):")
+header = f"  {'alpha':>5s}  {'A_eff[m2]':>12s}  {'DT0[K]':>12s}  {'DT0/sigma':>10s}"
+print(header)
+alphas_table = [0.50, 0.518, 0.53, 0.55, 0.56, 0.57, 0.58, 0.59]
+for alpha in alphas_table:
+    Ae  = A_eff_of_alpha(alpha)
+    DT0 = b[0] * Ae
+    print(f"  {alpha:5.3f}  {Ae:12.3e}  {DT0:12.3e}  {DT0/sigma_T0_Fixsen:10.4f}")
