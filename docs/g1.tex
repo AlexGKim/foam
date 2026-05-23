@@ -951,21 +951,88 @@ constrains spectral distortions at $|\mu|, |y| \lesssim 10^{-5}$--$10^{-4}$
 variance at $150\,\mathrm{GHz}$ is $\sigma_\phi^2 \approx 0.07$ for the
 random-walk model ($\alpha = 1/2$) and $\sigma_\phi^2 \approx 10^{-22}$ for
 the holographic model ($\alpha = 2/3$).  A Fisher-matrix analysis of the
-FIRAS band shows that the foam amplitude is nearly degenerate with the
-$\mu$-distortion template (correlation coefficient $\rho \approx 0.98$),
-degrading the sensitivity by a factor of $\sim 6$ relative to the case where
-$\mu$ and $T_0$ are known.  Accounting for this degeneracy, FIRAS is sensitive
-to foam only for $\alpha \lesssim 0.57$.
+FIRAS band (43 uniform channels, diagonal noise $\sigma_\nu = 0.01\,\mathrm{MJy/sr}$)
+shows that the foam amplitude $A_{\rm eff}$ is nearly degenerate with the
+$\mu$-distortion template (correlation coefficient $\rho = 0.976$,
+Table~\ref{tab:fisher_corr}), degrading the sensitivity by a factor of $\sim 6$
+relative to the case where $\mu$ and $T_0$ are known.  Accounting for this
+degeneracy, FIRAS is sensitive to foam only for $\alpha \lesssim 0.57$
+(Table~\ref{tab:fisher_snr}).
 
-This range does not overlap with the spectroscopic lower bounds derived in
-Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}: FIRAS probes strictly
-lower exponents than the two astrophysical sources studied above.
-Any foam model consistent with the spectroscopic bounds ($\alpha \gtrsim
-0.59$--$0.65$) produces a phase variance $\sigma_\phi^2 \ll 1$ at CMB
-frequencies and a corresponding temperature bias $|\Delta T_0| \ll \sigma(T_0)$;
-spacetime foam in this class therefore cannot account for any systematic error
-in the CMB temperature measurement or in cosmological quantities derived from
-it such as the Hubble constant $H_0$.
+\begin{table}[h]
+\centering
+\caption{Linearized Fisher matrix correlation coefficients $\rho_{ij}$ for the FIRAS foam
+analysis with parameters $\boldsymbol{\theta} = (A_{\rm eff}, T_0, \mu, y)$.
+Computed using the placeholder pedestal kernel $K_\nu^{\rm fast} \propto 1/\nu$;
+the dominant foam--$\mu$ degeneracy ($\rho = 0.976$) will change once a physical
+$C_\alpha$ model replaces this kernel.}
+\label{tab:fisher_corr}
+\begin{tabular}{lcccc}
+\hline\hline
+ & $A_{\rm eff}$ & $T_0$ & $\mu$ & $y$ \\
+\hline
+$A_{\rm eff}$ & $1.000$ & $0.937$ & $\mathbf{0.976}$ & $0.010$ \\
+$T_0$         & $0.937$ & $1.000$ & $0.969$          & $-0.212$ \\
+$\mu$         & $\mathbf{0.976}$ & $0.969$ & $1.000$ & $-0.127$ \\
+$y$           & $0.010$ & $-0.212$ & $-0.127$        & $1.000$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Marginal detection SNR for the foam amplitude $A_{\rm eff}$ as a function of foam
+exponent $\alpha$ (with $A_\alpha = 1$, $D_C = 13.87$\,Gpc). ``Marginal'' marginalizes
+over $T_0, \mu, y$; ``conditional'' holds $\mu, y$ fixed.}
+\label{tab:fisher_snr}
+\begin{tabular}{ccccc}
+\hline\hline
+$\alpha$ & $A_{\rm eff}$ (m$^2$) & $\sigma_\phi^2(150\,\text{GHz})$ & SNR (marginal) & SNR ($\mu,y$ fixed) \\
+\hline
+$0.50$ & $6.9\times10^{-9}$  & $6.8\times10^{-2}$ & $4.6\times10^{8}$ & $2.7\times10^{9}$ \\
+$0.55$ & $5.0\times10^{-15}$ & $4.9\times10^{-8}$ & $330$             & $1920$            \\
+$0.56$ & $2.9\times10^{-16}$ & $2.9\times10^{-9}$ & $19$              & $113$             \\
+$0.57$ & $1.7\times10^{-17}$ & $1.7\times10^{-10}$ & $\mathbf{1.1}$  & $6.7$             \\
+$0.58$ & $1.0\times10^{-18}$ & $1.0\times10^{-11}$ & $0.07$           & $0.40$            \\
+$0.59$ & $6.1\times10^{-20}$ & $6.0\times10^{-13}$ & $0.004$          & $0.024$           \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+This sensitivity range ($\alpha \lesssim 0.57$) does not overlap with the spectroscopic
+lower bounds derived in Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}: FIRAS
+probes strictly lower exponents than the two astrophysical sources studied above.
+Any foam model consistent with the spectroscopic bounds ($\alpha \gtrsim 0.59$--$0.65$)
+produces a phase variance $\sigma_\phi^2 \ll 1$ at CMB frequencies; if such a model were
+present but omitted from the spectral fit, the recovered CMB temperature would be biased
+by $|\Delta T_0| \ll \sigma(T_0)$ (Table~\ref{tab:fisher_bias}).  Spacetime foam in this
+class therefore cannot account for any systematic error in the CMB temperature measurement
+or in cosmological quantities derived from it such as the Hubble constant $H_0$.
+
+\begin{table}[h]
+\caption{Foam-induced bias in recovered $T_0$ when foam is present at amplitude
+$A_{\rm eff}$ (with $A_\alpha = 1$, $D_C = 13.87\,{\rm Gpc}$) but omitted from the fit.
+Computed from the off-diagonal block of the Fisher matrix;
+entries scale linearly with $A_\alpha$.  The column $\Delta T_0/\sigma(T_0)$ uses
+$\sigma(T_0) = 0.00057\,{\rm K}$ \cite{Fixsen2009}.
+The bold row ($\alpha = 0.518$) is the crossover where $|\Delta T_0| = \sigma(T_0)$.}
+\label{tab:fisher_bias}
+\begin{ruledtabular}
+\begin{tabular}{cccc}
+$\alpha$ & $A_{\rm eff}$ (m$^2$) & $\Delta T_0$ (K) & $\Delta T_0/\sigma(T_0)$ \\
+\hline
+$0.500$ & $6.9\times10^{-9}$  & $+8.4\times10^{-2}$  & $147$ \\
+$\mathbf{0.518}$ & $\mathbf{4.7\times10^{-11}}$ & $\mathbf{+5.7\times10^{-4}}$ & $\mathbf{1.0}$ \\
+$0.530$ & $1.4\times10^{-12}$ & $+1.7\times10^{-5}$  & $0.030$ \\
+$0.550$ & $5.0\times10^{-15}$ & $+6.0\times10^{-8}$  & $1.1\times10^{-4}$ \\
+$0.560$ & $2.9\times10^{-16}$ & $+3.6\times10^{-9}$  & $6.3\times10^{-6}$ \\
+$0.570$ & $1.7\times10^{-17}$ & $+2.1\times10^{-10}$ & $3.7\times10^{-7}$ \\
+$0.580$ & $1.0\times10^{-18}$ & $+1.2\times10^{-11}$ & $2.2\times10^{-8}$ \\
+$0.590$ & $6.1\times10^{-20}$ & $+7.4\times10^{-13}$ & $1.3\times10^{-9}$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
 A definitive FIRAS foam analysis would also require specifying $C_\alpha(\tau)$
 to determine the pedestal shape, and replacing the linearized template with the
 full nonlinear expression at high frequencies where $\sigma_\phi^2 \gtrsim 1$
@@ -1294,48 +1361,9 @@ marginal uncertainties
 Marginalizing over $\mu$ and $T_0$ therefore degrades the foam amplitude uncertainty by a factor
 of $\sim 6$, driven almost entirely by the foam--$\mu$ degeneracy.
 
-\begin{table}[h]
-\centering
-\caption{Linearized Fisher matrix correlation coefficients $\rho_{ij}$ for the FIRAS foam
-analysis with parameters $\boldsymbol{\theta} = (A_{\rm eff}, T_0, \mu, y)$.
-Computed using the placeholder pedestal kernel $K_\nu^{\rm fast} \propto 1/\nu$;
-the dominant foam--$\mu$ degeneracy ($\rho = 0.976$) will change once a physical
-$C_\alpha$ model replaces this kernel.}
-\label{tab:fisher_corr}
-\begin{tabular}{lcccc}
-\hline\hline
- & $A_{\rm eff}$ & $T_0$ & $\mu$ & $y$ \\
-\hline
-$A_{\rm eff}$ & $1.000$ & $0.937$ & $\mathbf{0.976}$ & $0.010$ \\
-$T_0$         & $0.937$ & $1.000$ & $0.969$          & $-0.212$ \\
-$\mu$         & $\mathbf{0.976}$ & $0.969$ & $1.000$ & $-0.127$ \\
-$y$           & $0.010$ & $-0.212$ & $-0.127$        & $1.000$ \\
-\hline\hline
-\end{tabular}
-\end{table}
-
-Table~\ref{tab:fisher_snr} gives the marginal detection SNR as a function of $\alpha$
-(with $A_\alpha = 1$), showing that sensitivity falls below 1$\sigma$ at $\alpha \approx 0.57$.
-
-\begin{table}[h]
-\centering
-\caption{Marginal detection SNR for the foam amplitude $A_{\rm eff}$ as a function of foam
-exponent $\alpha$ (with $A_\alpha = 1$, $D_C = 13.87$\,Gpc). ``Marginal'' marginalizes
-over $T_0, \mu, y$; ``conditional'' holds $\mu, y$ fixed.}
-\label{tab:fisher_snr}
-\begin{tabular}{ccccc}
-\hline\hline
-$\alpha$ & $A_{\rm eff}$ (m$^2$) & $\sigma_\phi^2(150\,\text{GHz})$ & SNR (marginal) & SNR ($\mu,y$ fixed) \\
-\hline
-$0.50$ & $6.9\times10^{-9}$  & $6.8\times10^{-2}$ & $4.6\times10^{8}$ & $2.7\times10^{9}$ \\
-$0.55$ & $5.0\times10^{-15}$ & $4.9\times10^{-8}$ & $330$             & $1920$            \\
-$0.56$ & $2.9\times10^{-16}$ & $2.9\times10^{-9}$ & $19$              & $113$             \\
-$0.57$ & $1.7\times10^{-17}$ & $1.7\times10^{-10}$ & $\mathbf{1.1}$  & $6.7$             \\
-$0.58$ & $1.0\times10^{-18}$ & $1.0\times10^{-11}$ & $0.07$           & $0.40$            \\
-$0.59$ & $6.1\times10^{-20}$ & $6.0\times10^{-13}$ & $0.004$          & $0.024$           \\
-\hline\hline
-\end{tabular}
-\end{table}
+Tables~\ref{tab:fisher_corr} and~\ref{tab:fisher_snr} (Section~\ref{sec:CMB}) give
+the full correlation matrix and the SNR as a function of $\alpha$, showing that
+sensitivity falls below 1$\sigma$ at $\alpha \approx 0.57$.
 
 These results use the placeholder kernel; the actual sensitivity limit depends on the
 physical pedestal shape. The foam--$y$ correlation $\rho = 0.010$ is negligible: the
@@ -1390,36 +1418,12 @@ corresponding, with $A_\alpha = 1$, to a crossover exponent $\alpha_{\rm bias} =
 Foam models with $\alpha < 0.518$ would have biased the Fixsen $T_0$ by more than $1\sigma$
 had such a signal been present and unmodeled; models with $\alpha > 0.518$ do not.
 
-Table~\ref{tab:fisher_bias} lists $\Delta T_0$ and its ratio to $\sigma(T_0)$ for $\alpha = 0.50$--$0.59$.
-At $\alpha = 0.57$ (where the marginal SNR $\approx 1$, Section~\ref{sec:FIRAS_degeneracy}), the
+Table~\ref{tab:fisher_bias} (Section~\ref{sec:CMB}) lists $\Delta T_0$ and its ratio
+to $\sigma(T_0)$ for $\alpha = 0.50$--$0.59$.
+At $\alpha = 0.57$ (where the marginal SNR $\approx 1$), the
 ratio $\Delta T_0/\sigma(T_0) \approx 4\times10^{-4}$: completely negligible.  The published
 Fixsen $T_0 = 2.72548\,{\rm K}$ is therefore not appreciably biased by any foam model near or above
 the FIRAS detection threshold.
-
-\begin{table}[h]
-\caption{Foam-induced bias in recovered $T_0$ when foam is present at amplitude
-$A_{\rm eff}$ (with $A_\alpha = 1$, $D_C = 13.87\,{\rm Gpc}$) but omitted from the fit.
-Computed from the off-diagonal block of the Fisher matrix using the same noise and
-templates as Tables~\ref{tab:fisher_corr}--\ref{tab:fisher_snr}; entries scale linearly
-with $A_\alpha$.  The column $\Delta T_0/\sigma(T_0)$ uses $\sigma(T_0) = 0.00057\,{\rm K}$
-(Fixsen 2009~\cite{Fixsen2009}).
-The bold row at $\alpha = 0.518$ is the crossover where $|\Delta T_0| = \sigma(T_0)$.}
-\label{tab:fisher_bias}
-\begin{ruledtabular}
-\begin{tabular}{cccc}
-$\alpha$ & $A_{\rm eff}$ (m$^2$) & $\Delta T_0$ (K) & $\Delta T_0/\sigma(T_0)$ \\
-\hline
-$0.500$ & $6.9\times10^{-9}$  & $+8.4\times10^{-2}$  & $147$ \\
-$\mathbf{0.518}$ & $\mathbf{4.7\times10^{-11}}$ & $\mathbf{+5.7\times10^{-4}}$ & $\mathbf{1.0}$ \\
-$0.530$ & $1.4\times10^{-12}$ & $+1.7\times10^{-5}$  & $0.030$ \\
-$0.550$ & $5.0\times10^{-15}$ & $+6.0\times10^{-8}$  & $1.1\times10^{-4}$ \\
-$0.560$ & $2.9\times10^{-16}$ & $+3.6\times10^{-9}$  & $6.3\times10^{-6}$ \\
-$0.570$ & $1.7\times10^{-17}$ & $+2.1\times10^{-10}$ & $3.7\times10^{-7}$ \\
-$0.580$ & $1.0\times10^{-18}$ & $+1.2\times10^{-11}$ & $2.2\times10^{-8}$ \\
-$0.590$ & $6.1\times10^{-20}$ & $+7.4\times10^{-13}$ & $1.3\times10^{-9}$ \\
-\end{tabular}
-\end{ruledtabular}
-\end{table}
 
 \textbf{Comparison of bounds.}  The three $\alpha$ lower bounds from FIRAS are:
 (i)~$\alpha \gtrsim 0.52$ (T$_0$-bias bound, this subsection);
