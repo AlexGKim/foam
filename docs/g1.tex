@@ -931,8 +931,49 @@ $\approx6.5$ in the numerator of Eq.~\eqref{eq:alpha_bound}.
 % BzK4892 at $z=2.5$ has resolved lines.
 
 % ==============================================================
-\section{CMB}
+\subsection{CMB}
 \label{sec:CMB}
+
+For a broadband thermal source such as the CMB, foam does not introduce
+a spectral-line shift but instead redistributes power: the coherent-core
+component is suppressed by $e^{-\sigma_\phi^2(\nu)}$ and the missing flux
+reappears in a broad pedestal whose shape depends on the short-time behaviour
+of the correlation function $C_\alpha(\tau)$.  Because $\sigma_\phi^2 \propto
+\nu^2$ (Eq.~\eqref{eq:sigmaphi}), the foam deficit is concentrated at high
+frequencies while the pedestal fills in at low frequencies, producing a
+spectral signature distinct from standard chemical-potential ($\mu$) and
+Compton-$y$ distortions.
+
+The CMB monopole spectrum measured by COBE/FIRAS over $60$--$600$\,GHz
+constrains spectral distortions at $|\mu|, |y| \lesssim 10^{-5}$--$10^{-4}$
+\cite{Fixsen1996}.  At the last-scattering surface
+($D_C \approx 14\,\mathrm{Gpc}$, Planck\,2018 cosmology), the foam phase
+variance at $150\,\mathrm{GHz}$ is $\sigma_\phi^2 \approx 0.07$ for the
+random-walk model ($\alpha = 1/2$) and $\sigma_\phi^2 \approx 10^{-22}$ for
+the holographic model ($\alpha = 2/3$).  A Fisher-matrix analysis of the
+FIRAS band shows that the foam amplitude is nearly degenerate with the
+$\mu$-distortion template (correlation coefficient $\rho \approx 0.98$),
+degrading the sensitivity by a factor of $\sim 6$ relative to the case where
+$\mu$ and $T_0$ are known.  Accounting for this degeneracy, FIRAS is sensitive
+to foam only for $\alpha \lesssim 0.57$.
+
+This range does not overlap with the spectroscopic lower bounds derived in
+Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}: FIRAS probes strictly
+lower exponents than the two astrophysical sources studied above.
+Any foam model consistent with the spectroscopic bounds ($\alpha \gtrsim
+0.59$--$0.65$) produces a phase variance $\sigma_\phi^2 \ll 1$ at CMB
+frequencies and a corresponding temperature bias $|\Delta T_0| \ll \sigma(T_0)$;
+spacetime foam in this class therefore cannot account for any systematic error
+in the CMB temperature measurement or in cosmological quantities derived from
+it such as the Hubble constant $H_0$.
+A definitive FIRAS foam analysis would also require specifying $C_\alpha(\tau)$
+to determine the pedestal shape, and replacing the linearized template with the
+full nonlinear expression at high frequencies where $\sigma_\phi^2 \gtrsim 1$
+(Appendix~\ref{app:FIRAS}).
+FIRAS provides an independent check via absolute-calibrated broadband photometry
+--- complementary to narrow spectral-line spectroscopy --- and constrains the
+parameter space below both spectroscopic bounds where more exotic foam models
+would reside.
 
 % ==============================================================
 \section{Conclusions}
