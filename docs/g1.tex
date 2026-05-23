@@ -225,7 +225,7 @@ times $t$ and  $t+\tau$:
   \label{eq:DeltaExt}
 \end{equation}
 For fixed $D$, stationarity implies the statistics depend only on $\tau$.
-Expanding the square and applying Eq.~\eqref{eq:pathcov}:
+Expanding the square and applying Eq.~\eqref{eq:pathcov1ray}:
 \begin{align}
   \sigma_\Delta^2(\tau)
   &= \frac{1}{c^2}\big\langle
@@ -384,8 +384,8 @@ a carrier phase modulation; the observed field takes the form
 for $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$
 this parameter is $\approx 0.28$, so the exact convolution Eq.~\eqref{eq:g1obs_erfc}
 should be used instead.
-For $\alpha=2/3$ the analogous parameter is ${\sim}10^{-11}$
-(Section~\ref{sec:scales}), so Eq.~\eqref{eq:g1narrowband} is exact to any
+For $\alpha=2/3$ the analogous parameter is ${\sim}10^{-11}$,
+so Eq.~\eqref{eq:g1narrowband} is exact to any
 practical precision in the holographic case.)
 Since $A(t)$ and $\delta t(t)$ are independent, the first-order coherence
 factorizes.
@@ -400,7 +400,7 @@ evaluated at $\omega_0$; since $\Delta(\tau)$ is Gaussian
 This holds when $\tau \gg \tau_{\rm foam}$ so that foam-cell contributions are
 independent; in the dynamical limit $\tau_{\rm foam} \ll \tau_c$ the condition
 is satisfied at all observationally relevant lags.
-Substituting $\omega_0 = 2\pi c/\lambda$ and Eq.~\eqref{eq:diffVar}:
+Substituting $\omega_0 = 2\pi c/\lambda$ and Eq.~\eqref{eq:diffVarExt}:
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau)
     = g^{(1)}_{\rm src}(\tau)\cdot
@@ -461,7 +461,7 @@ factor acquires a nonzero asymptote $\mathcal{F}_{\rm foam}(\tau)\to
 e^{-\sigma_\phi^2}$, generating a distributional $\delta(\nu)$ contribution
 that encodes the fraction $e^{-\sigma_\phi^2}$ of source flux propagating
 phase-coherently.
-% [Author: confirm §II or §III establishes CLT/Gaussian-phase convergence explicitly]
+\label{eq:diffVar}
 
 When the lag-domain product structure $g^{(1)}_{\mathrm{obs}}(\tau) = g^{(1)}_{\mathrm{src}}(\tau)\,\mathcal{F}_{\mathrm{foam}}(\tau)$ holds---the weak-jitter and narrow-band regimes---the convolution theorem applied to Eq.~\eqref{eq:WK_obs} yields
 \begin{equation}
@@ -493,7 +493,7 @@ Temporally, the relevant random variable is the differential jitter
 $\Delta(\tau) = \delta t(t+\tau) - \delta t(t)$ between two arrival
 times along a single ray, with variance
 $\sigma_\Delta^2(\tau) = (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$
-(Eq.~\eqref{eq:diffVar}). Spatially, the analogous random variable is the
+(Eq.~\eqref{eq:diffVarExt}). Spatially, the analogous random variable is the
 differential phase
 $\Delta\phi(B) = \phi(\mathbf{x}+\mathbf{B}) - \phi(\mathbf{x})$
 between two points on the aperture plane separated by baseline $B$,
@@ -1097,7 +1097,7 @@ evaluating it in the fully dynamical limit $C_\alpha \to 0$.
 
 \subsubsection*{Step 1: Saturated jitter variance}
 
-In the $C_\alpha \to 0$ limit, Eq.~\eqref{eq:diffVar} gives
+In the $C_\alpha \to 0$ limit, Eq.~\eqref{eq:diffVarExt} gives
 \begin{equation}
   \sigma_\Delta^2(\tau) \to \frac{2\sigma_\ell^2(D)}{c^2} \quad \text{for all } \tau \neq 0.
 \end{equation}
@@ -1369,7 +1369,7 @@ The FIRAS constraint requires the following steps:
 
 \subsection{Connection to the Spectral Framework of Section~\ref{sec:spec}}
 
-Equation~\eqref{eq:I_foam_CMB} in its original form asserts the two-component decomposition (coherent core plus
+The two-component decomposition (coherent core plus
 pedestal) without derivation. The detailed calculation of Section~\ref{sec:FIRAS_derivation} is what grounds this
 decomposition: it shows how the broadband blackbody, when phase-modulated by achromatic jitter in the dynamical
 limit $C_\alpha \to 0$, naturally splits into a coherent-core term (exact, model-independent) and a pedestal
