@@ -570,6 +570,29 @@ acquire foam-induced deviations whose chromatic signature is distinct
 from standard chemical-potential and Compton-$y$ distortions. 
 In this section we consider these two possibilies.
 
+The two-component line-profile decomposition of
+Eq.~\eqref{eq:Sobs_conv} admits a direct application as a spectroscopic
+analogue of the Strehl-ratio bound~\cite{NgPerlman2022}:
+just as the observation of a diffraction-limited point-spread function
+at wavelength $\lambda$ and distance $D$ requires the Strehl ratio
+$\mathcal{S}\simeq e^{-\sigma_\phi^2}$ (Eq.~\eqref{eq:strehl}) to
+remain of order unity, i.e.\ $\sigma_\phi^2\lesssim\mathcal{O}(1)$
+(\S3 and Eq.~(4) of Ref.~\cite{NgPerlman2022}), the observation of
+sharp spectral features requires the same condition: in the dynamical
+foam limit the lag-asymptote $\mathcal{F}_{\rm foam}(\infty)=
+e^{-\sigma_\phi^2}$ of Eq.~\eqref{eq:Ffoam} plays the role of a
+\emph{spectral Strehl} --- the fraction of source flux delivered into
+the coherent line core $e^{-\sigma_\phi^2}\,S_{\rm src}(\nu)$ of
+Eq.~\eqref{eq:Sobs_conv} --- and for $\sigma_\phi^2\gtrsim 1$ this
+coherent core is suppressed below the incoherent pedestal so that
+crisp line profiles cease to be detectable.
+The two arguments are structurally identical: each is a single-number,
+saturated-limit test of the coherent fraction $e^{-\sigma_\phi^2}$,
+differing only in whether that fraction is read off the on-axis PSF
+intensity or off the spectral line core.
+They share the same threshold criterion and the same parametric
+dependence on $\{D,\lambda,\alpha\}$.
+
 % ==============================================================
 \subsection{GRB\,221009A}
 \label{sec:grb221009a}
@@ -605,18 +628,20 @@ $\lambda_{\rm obs}=hc/E_{\rm line}\approx9.9\times10^{-14}$\,m.
 The Gaussian width measured in this interval is
 $\sigma_{\rm gauss}=1.31_{-0.31}^{+0.30}$\,MeV, giving a relative width
 $\sigma/E\approx10\%$.  The narrow-band condition underlying
-Eq.~\eqref{eq:Sobs_conv} is satisfied: at the bound $\alpha\approx0.65$
-the rms path-length is $\sigma_\ell\approx1.6\times10^{-14}$\,m,
+Eq.~\eqref{eq:Sobs_conv} is satisfied marginally: at the bound $\alpha\approx0.64$
+the rms path-length $\sigma_\ell\approx\lambda_{\rm obs}\approx9.9\times10^{-14}$\,m
+by definition of the threshold,
 while the coherence length $c\tau_c\approx\hbar c/\sigma_E\approx
-2.1\times10^{-13}$\,m, giving $\sigma_\ell/(c\tau_c)\approx0.07$;
-the envelope approximation is accurate to $\lesssim1\%$.
+1.5\times10^{-13}$\,m for $\sigma_{\rm gauss}=1.31$\,MeV,
+giving $\sigma_\ell/(c\tau_c)\approx0.66$;
+a precision bound would use the full convolution Eq.~\eqref{eq:g1obs_erfc}.
 Inserting $D_C\approx1.93\times10^{25}$\,m,
 $\lambda_{\rm obs}\approx9.9\times10^{-14}$\,m, and
 $\ell_P=1.6\times10^{-35}$\,m into Eq.~\eqref{eq:alpha_bound}:
-$\ln(2\pi D_C/\lambda_{\rm obs})\approx90.0$ and
+$\ln(D_C/\lambda_{\rm obs})\approx88.2$ and
 $\ln(D_C/\ell_P)\approx138.3$, giving
 \begin{equation}
-  \alpha \;\gtrsim\; \frac{90.0}{138.3} \;\approx\; 0.65.
+  \alpha \;\gtrsim\; \frac{88.2}{138.3} \;\approx\; 0.64.
   \label{eq:alpha_grb_ravasio}
 \end{equation}
 
@@ -632,49 +657,27 @@ the GBM BGO detector range ($4$--$35$\,MeV), so the centroid and
 width of this earliest interval carry larger systematic uncertainty
 than the Ravasio et al.\ detections.  Taking $E_{\rm line}\approx37$\,MeV
 at face value gives $\lambda_{\rm obs}\approx3.4\times10^{-14}$\,m,
-$\ln(2\pi D_C/\lambda_{\rm obs})\approx91.1$, and
+$\ln(D_C/\lambda_{\rm obs})\approx89.2$, and
 \begin{equation}
-  \alpha \;\gtrsim\; \frac{91.1}{138.3} \;\approx\; 0.66.
+  \alpha \;\gtrsim\; \frac{89.2}{138.3} \;\approx\; 0.65.
   \label{eq:alpha_grb_zhang}
 \end{equation}
 This bound should be regarded as tentative pending confirmation of
 the 37\,MeV excess as a narrow spectral line within the instrumental
 sensitivity range.
 
-Both bounds come tantalizing close to but do not exclude the holographic value
+Both bounds fall below but do not exclude the holographic value
 $\alpha=2/3\approx0.667$: at that exponent
 $\sigma_\phi^2(\alpha=2/3)\approx0.01$
 for the Ravasio line, corresponding to a coherent fraction
 $e^{-0.01}\approx99\%$ --- the line would be essentially unaffected.
-Formally ruling out $\alpha=2/3$ at $z=0.151$ would require a confirmed
-spectral line at $E_{\rm obs}\gtrsim115\,\mathrm{MeV}$, approximately
-three times higher than the most energetic detection reported to date.
+Formally ruling out $\alpha=2/3$ at $z=0.151$ under the Ng-Perlman criterion
+would require a confirmed spectral line at $E_{\rm obs}\gtrsim720\,\mathrm{MeV}$,
+approximately twenty times higher than the most energetic detection reported to date.
 
 % ==============================================================
 \subsection{BzK4892}
 \label{sec:bzk4892}
-
-The two-component line-profile decomposition of
-Eq.~\eqref{eq:Sobs_conv} admits a direct application as a spectroscopic
-analogue of the Strehl-ratio bound~\cite{NgPerlman2022}:
-just as the observation of a diffraction-limited point-spread function
-at wavelength $\lambda$ and distance $D$ requires the Strehl ratio
-$\mathcal{S}\simeq e^{-\sigma_\phi^2}$ (Eq.~\eqref{eq:strehl}) to
-remain of order unity, i.e.\ $\sigma_\phi^2\lesssim\mathcal{O}(1)$
-(\S3 and Eq.~(4) of Ref.~\cite{NgPerlman2022}), the observation of
-sharp spectral features requires the same condition: in the dynamical
-foam limit the lag-asymptote $\mathcal{F}_{\rm foam}(\infty)=
-e^{-\sigma_\phi^2}$ of Eq.~\eqref{eq:Ffoam} plays the role of a
-\emph{spectral Strehl} --- the fraction of source flux delivered into
-the coherent line core $e^{-\sigma_\phi^2}\,S_{\rm src}(\nu)$ of
-Eq.~\eqref{eq:Sobs_conv} --- and for $\sigma_\phi^2\gtrsim 1$ this
-coherent core is suppressed below the incoherent pedestal so that
-crisp line profiles cease to be detectable.  The two arguments are
-structurally identical: each is a single-number, saturated-limit test
-of the coherent fraction $e^{-\sigma_\phi^2}$, differing only in
-whether that fraction is read off the on-axis PSF intensity or off the
-spectral line core.  They share the same threshold criterion and the
-same parametric dependence on $\{D,\lambda,\alpha\}$.
 
 BzK\,4892 is a massive ($M_\star\approx 5\times 10^{10}\,M_\odot$),
 infrared-luminous, dust-obscured star-forming \textit{BzK} galaxy in
@@ -699,11 +702,7 @@ $D_C(z_s=2.578)\approx 6.1$~Gpc $\approx 1.88\times 10^{26}$~m.
 The spectroscopically detected Iron K$\alpha$ 6.4\,keV emission line,
 redshifted to an observed energy of $6.4/(1+z_s)\approx 1.79$\,keV
 ($\lambda_{\rm obs}\approx 6.93\times 10^{-10}$\,m), provides the
-probe wavelength for this estimate; the short rest-frame wavelength
-($\lambda_{\rm rest}\approx 1.94$\,\AA) makes the foam variance
-$\sigma_\phi^2\propto\lambda_{\rm obs}^{-2}$ much larger than for any
-optical line at the same distance, yielding a strong constraining
-spectroscopic bound.
+probe wavelength for this estimate.
 
 The threshold condition $\sigma_\phi^2\lesssim 1$ for the coherent line
 core of Eq.~\eqref{eq:Sobs_conv} to remain detectable above the foam-broadened
@@ -727,23 +726,23 @@ most factors of order unity.
 In the dynamical foam limit the suppression factor
 Eq.~\eqref{eq:Ffoam} reduces to $\mathcal{F}_{\rm foam}(\infty)=
 e^{-\sigma_\phi^2}$, which is the coherent fraction of the observed
-line profile via Eq.~\eqref{eq:Sobs_conv}.  Detecting the Iron
-K$\alpha$ feature requires $e^{-\sigma_\phi^2}\gtrsim e^{-1}$,
-i.e.\ $\sigma_\phi^2\lesssim 1$.  At this threshold the coherent line
-core carries fraction $e^{-1}\approx 37\%$ of the intrinsic flux ---
-the minimum for a line detection not dominated by the broad pedestal,
-and intentionally conservative relative to the Maréchal criterion
-$\sigma_\phi^2\lesssim 0.2$.
+line profile via Eq.~\eqref{eq:Sobs_conv}.  Following Ng \& Perlman~\cite{NgPerlman2022}, the threshold for detecting the
+Iron K$\alpha$ feature is that the foam path-length jitter remains smaller
+than the observed wavelength: $\sigma_\ell \lesssim \lambda_{\rm obs}$,
+equivalently $\sigma_\phi \lesssim 2\pi$.
+Beyond this threshold the rms path-length perturbation spans more than one
+full oscillation and the coherent line core is effectively erased.
 The cumulative phase variance follows
 from the Ng--Perlman path-length model~\eqref{eq:NgPerlmanVar} via the
 global phase conversion $\sigma_\phi=2\pi\sigma_\ell(D_C)/\lambda_{\rm obs}$.
 The narrow-band condition $\sigma_\ell/(c\tau_c)\ll 1$ underlying
-Eq.~\eqref{eq:Sobs_conv} is satisfied here: at $\alpha=0.59$ one has
-$\sigma_\ell\approx 1.2\times10^{-10}$\,m while the X-ray coherence
+Eq.~\eqref{eq:Sobs_conv} is satisfied here: at $\alpha=0.58$ one has
+$\sigma_\ell\approx\lambda_{\rm obs}\approx 6.9\times10^{-10}$\,m
+(the threshold value by definition) while the X-ray coherence
 length $c\tau_c = \lambda_{\rm obs}^2/(2\pi\Delta\lambda)\approx
 3\times10^{-8}$\,m for FWHM $\sim10^3\,{\rm km\,s^{-1}}$, giving
-$\sigma_\ell/(c\tau_c)\approx 4\times10^{-3}$; the envelope
-approximation is accurate to better than $10^{-4}$.
+$\sigma_\ell/(c\tau_c)\approx 2\times10^{-2}$; the envelope
+approximation is accurate to better than $10^{-3}$.
 The phase variance, reproducing Ng \& Perlman~\cite{NgPerlman2022} Eq.~(4), is
 \begin{equation}
   \sigma_\phi^2 \;\simeq\; (2\pi)^2\,
@@ -756,7 +755,7 @@ Imposing the threshold $\sigma_\phi^2\lesssim 1$
 and inverting,
 \begin{equation}
   \alpha \;\gtrsim\;
-    \frac{\ln\!\left(2\pi D_C/\lambda_{\rm obs}\right)}{\ln\!\left(D_C/\ell_P\right)},
+    \frac{\ln\!\left(D_C/\lambda_{\rm obs}\right)}{\ln\!\left(D_C/\ell_P\right)},
   \label{eq:alpha_bound}
 \end{equation}
 the spectroscopic analogue of Eq.~(8) of Ref.~\cite{NgPerlman2022}.
@@ -764,78 +763,32 @@ Inserting the numerical values
 $D_C\approx 1.88\times 10^{26}$~m,
 $\lambda_{\rm obs}\approx 6.93\times 10^{-10}$~m, and
 $\ell_P = 1.6\times 10^{-35}$~m gives
-$\ln(2\pi D_C/\lambda_{\rm obs})\approx 83.4$ and
+$\ln(D_C/\lambda_{\rm obs})\approx 81.6$ and
 $\ln(D_C/\ell_P)\approx 140.6$, hence
-$\alpha \gtrsim 0.59$.
+$\alpha \gtrsim 0.58$.
 
-This bound, $\alpha\gtrsim 0.59$, is substantially tighter than the
-optical entry of Ref.~\cite{NgPerlman2022} Table~1. Applying the
-threshold $\sigma_\phi^2\lesssim 1$ (rms phase $\lesssim 1$\,rad)
-at $\lambda=5000$\,\AA\ and $D=10$\,Gpc gives $\alpha\gtrsim 0.55$,
-compared to their $\alpha>0.53$.
-The improvement from 0.55 to 0.59 is not incidental: because $\sigma_\phi^2\propto\lambda_{\rm obs}^{-2}$,
+This bound, $\alpha\gtrsim 0.58$, directly reproduces the Ng \& Perlman~\cite{NgPerlman2022}
+formulation: applying the same formula at optical wavelengths
+($\lambda=5000$\,\AA, $D=10$\,Gpc) gives $\alpha\gtrsim 0.53$, matching
+their Table~1 entry.
+The improvement from the optical to X-ray constraint is wavelength-driven: because
+$\sigma_\phi^2\propto\lambda_{\rm obs}^{-2}$,
 using the X-ray Fe\,K$\alpha$ line at $\lambda_{\rm obs}\approx 6.93\times
 10^{-10}$~m instead of a typical optical line at $\sim 5\times 10^{-7}$~m
-increases the variance by a factor $\sim 5\times 10^5$, making the
-threshold $\sigma_\phi^2\lesssim 1$ far more constraining.
+increases the phase variance by a factor $\sim 5\times 10^5$, making the
+threshold $\sigma_\ell\lesssim\lambda_{\rm obs}$ far more constraining.
 The result does not rule out the
 holographic value $\alpha=2/3$, consistent with all current optical and
 infrared imaging constraints.
-The bound $\alpha\gtrsim0.59$ is weaker than the gamma-ray results of
-Section~\ref{sec:grb221009a} ($\alpha\gtrsim0.65$--$0.66$) despite the
+The bound $\alpha\gtrsim0.58$ is weaker than the gamma-ray results of
+Section~\ref{sec:grb221009a} ($\alpha\gtrsim0.64$--$0.65$) despite the
 much greater comoving distance ($D_C=6.1$\,Gpc vs.\ $0.63$\,Gpc).
 The gain for the gamma-ray probe is wavelength-driven:
 $\lambda_{\rm obs}$ for the 12.56\,MeV line is $\approx7000$ times
 shorter than the Iron K$\alpha$ probe, boosting
-$\ln(2\pi D_C/\lambda_{\rm obs})$ by $\approx8.8$ while the reduced
+$\ln(D_C/\lambda_{\rm obs})$ by $\approx8.8$ while the reduced
 distance decreases it by only $\approx2.3$, for a net gain of
-$\approx6.5$ in the numerator of Eq.~\eqref{eq:alpha_bound}.
-
-% -----------------------------------------------------------------------
-% NOTES FOR THE AUTHOR (BzK 4892 subsection)
-%
-% (a) Inputs to cross-check:
-%  1. Cosmology: D_C(z=2.578) = 6.09 Gpc (rounded to 6.1 Gpc here)
-%     assumes Omega_M = 0.27, Omega_Lambda = 0.73, H_0 = 70 km/s/Mpc
-%     (the Ng-Perlman cosmology).  Planck 2018 cosmology gives
-%     D_C ~ 6.0 Gpc at z=2.578, a ~1% shift that does not affect the
-%     rounded bound alpha >= 0.59.
-%  2. BzK 4892 spectroscopic detection reference: Feruglio et al. 2011
-%     (arXiv:1101.3478) is the X-ray Fe K-alpha discovery paper; the
-%     spectroscopic redshift z=2.578 comes from Szokoly et al. 2004
-%     and Vanzella et al. 2006 (which also report the rest-UV narrow
-%     emission lines).
-%  3. Fe K-alpha probe: rest energy 6.4 keV, rest wavelength 1.937 A;
-%     at z=2.578 observed energy 1.789 keV, lambda_obs = 6.93e-10 m
-%     (Chandra soft band, consistent with Feruglio 2011 detection).
-%
-% (b) Redshift-aware patch-convention variant:
-%  The Ng-Perlman convention used in Eq.~\eqref{eq:sigmaphi_NP} treats
-%  the cumulative path-length fluctuation as a single coherent draw.
-%  An incoherent-patch convention would add N_patch ~ D_C/L_coh
-%  independent contributions in quadrature, yielding a different
-%  alpha-dependence (alpha_eff shifted by an additive constant at
-%  alpha != 1/2). Consider quoting both convention bounds in a
-%  follow-up subsection or in a footnote here, particularly if the
-%  manuscript already takes a definite stance on the patch convention
-%  in Section II.
-%
-% (c) Follow-up: rigorous fit to BzK 4892 spectra.
-%  The current treatment is a single-threshold back-of-the-envelope
-%  bound. A natural follow-up subsection (or future-work paragraph)
-%  would frame the pedestal fraction (1 - e^{-sigma_phi^2}) as a
-%  fittable parameter in a likelihood analysis of high-resolution
-%  spectra, jointly with the source line shape. Flag whether this is
-%  (i) in scope for the present manuscript, (ii) deferred to a
-%  follow-up paper, or (iii) suggested as future work in the
-%  Conclusions section.
-%
-% (d) Bibkey placeholders introduced in this subsection:
-%  - Feruglio2011 (BzK 4892 X-ray paper; arXiv:1101.3478) -- needs adding
-%  - GRAVITY2018 (3C 273 fringe constraint) -- needs adding
-%  NgPerlman2022 and Perlman2015 are already in references.bib.
-% -----------------------------------------------------------------------
-
+$\approx6.6$ in the numerator of Eq.~\eqref{eq:alpha_bound}.
 
 
 % Reference:
@@ -872,11 +825,30 @@ The linearized foam spectral template is
   \label{eq:dIdA}
 \end{equation}
 comprising a high-frequency deficit proportional to $\nu^2 B_\nu$ and a
-compensating low-frequency pedestal whose shape depends on the decorrelation
-kernel $K_\nu^{\rm fast}$; a placeholder
+compensating low-frequency pedestal whose shape is set by the decorrelation
+kernel $K_\nu^{\rm fast}$.
+A fiducial kernel
 $K_\nu^{\rm fast} \propto (\nu\ln[\nu_{\rm max}/\nu_{\rm min}])^{-1}$
-(uniform in $\ln\nu$) is used here.
-The standard distortion templates are
+(uniform energy redistribution in $\ln\nu$) is adopted here.
+With this choice the pedestal integral
+$P_{\rm foam} \equiv \int_{\nu_{\rm min}}^{\nu_{\rm max}}(2\pi\nu'/c)^2
+B_{\nu'}(T_0)\,d\nu'$ is a frequency-independent constant, so the pedestal
+has a $1/\nu$ spectral shape --- the same Rayleigh--Jeans dependence as the
+$\mu$-distortion template, and hence the origin of the foam--$\mu$ degeneracy.
+The physical pedestal is determined by the short-$\tau$ behaviour of
+$C_\alpha(\tau)$ (Appendix~\ref{app:FIRAS}, Section~\ref{sec:FIRAS_derivation});
+the fiducial kernel is the simplest choice consistent with energy conservation.
+The standard CMB spectral distortions describe two physically distinct
+processes.
+The chemical-potential ($\mu$) distortion arises from early-universe energy
+injection (e.g., Silk damping or decaying particles) when Compton scattering
+thermalizes photon energies but cannot adjust photon number, yielding a
+Bose--Einstein spectrum with $\mu\neq0$.
+The Compton-$y$ distortion encodes late-time electron heating (e.g., during
+reionization or in galaxy clusters) when full thermalization is no longer
+possible; it is proportional to the line-of-sight integral of electron thermal
+pressure.
+The linearized distortion templates are
 \begin{align}
   \frac{\partial I_\nu}{\partial\mu}
     &= -B_\nu(T_0)\,\frac{x e^x}{(e^x-1)^2}, \label{eq:dIdmu}\\
@@ -887,7 +859,7 @@ The standard distortion templates are
 where $x = h\nu/(k_B T_0)$.
 The foam--$\mu$ degeneracy arises because in the Rayleigh--Jeans limit
 ($x\ll1$) the $\mu$-template approaches $\Delta I/B \to -\mu/x \propto \nu^{-1}$,
-the same frequency dependence as the placeholder pedestal $K_\nu^{\rm fast}$;
+the same frequency dependence as the fiducial pedestal $K_\nu^{\rm fast}$;
 the two templates are therefore nearly collinear across the FIRAS band.
 The temperature-bias entries in Table~\ref{tab:fisher_bias} follow from the
 nested-model bias formula
@@ -908,31 +880,28 @@ the holographic model ($\alpha = 2/3$).  A Fisher-matrix analysis of the
 FIRAS band (43 uniform channels, diagonal noise $\sigma_\nu = 0.01\,\mathrm{MJy/sr}$)
 shows that the foam amplitude $A_{\rm eff}$ is nearly degenerate with the
 $\mu$-distortion template (correlation coefficient $\rho = 0.976$,
-Table~\ref{tab:fisher_corr}), degrading the sensitivity by a factor of $\sim 6$
+Eq.~\eqref{eq:fisher_corr_matrix}), degrading the sensitivity by a factor of $\sim 6$
 relative to the case where $\mu$ and $T_0$ are known.  Accounting for this
 degeneracy, FIRAS is sensitive to foam only for $\alpha \lesssim 0.57$
 (Table~\ref{tab:fisher_snr}).
 
-\begin{table}[h]
-\centering
-\caption{Linearized Fisher matrix correlation coefficients $\rho_{ij}$ for the FIRAS foam
-analysis with parameters $\boldsymbol{\theta} = (A_{\rm eff}, T_0, \mu, y)$.
-Computed using the placeholder pedestal kernel $K_\nu^{\rm fast} \propto 1/\nu$;
-the dominant foam--$\mu$ degeneracy ($\rho = 0.976$) will change once a physical
-$C_\alpha$ model replaces this kernel.}
-\label{tab:fisher_corr}
-\begin{tabular}{lcccc}
-\hline\hline
- & $A_{\rm eff}$ & $T_0$ & $\mu$ & $y$ \\
-\hline
-$A_{\rm eff}$ & $1.000$ & $0.937$ & $\mathbf{0.976}$ & $0.010$ \\
-$T_0$         & $0.937$ & $1.000$ & $0.969$          & $-0.212$ \\
-$\mu$         & $\mathbf{0.976}$ & $0.969$ & $1.000$ & $-0.127$ \\
-$y$           & $0.010$ & $-0.212$ & $-0.127$        & $1.000$ \\
-\hline\hline
-\end{tabular}
-\end{table}
+The Fisher-matrix correlation coefficients for
+$\boldsymbol{\theta}=(A_{\rm eff},\,T_0,\,\mu,\,y)$ are
+\begin{equation}
+\rho_{ij} = \begin{pmatrix}
+  1.000 & 0.937 & \mathbf{0.976} & 0.010 \\
+  0.937 & 1.000 & 0.969 & -0.212 \\
+  \mathbf{0.976} & 0.969 & 1.000 & -0.127 \\
+  0.010 & -0.212 & -0.127 & 1.000
+\end{pmatrix},
+\label{eq:fisher_corr_matrix}
+\end{equation}
+showing the dominant foam--$\mu$ degeneracy ($\rho_{A_{\rm eff}\mu}=0.976$,
+bold) and negligible foam--$y$ correlation ($\rho_{A_{\rm eff}y}=0.010$).
+The dominant degeneracy will shift once a physical $C_\alpha$ model replaces
+the fiducial pedestal kernel.
 
+% [Claude: Replace this table with a plot of alpha versus SNR for four cases.  FIRAS (solid) and PIXIE (dashed), Marginal (blue) and Conditional (red).]
 \begin{table}[h]
 \centering
 \caption{Marginal detection SNR for the foam amplitude $A_{\rm eff}$ as a function of foam
@@ -956,13 +925,14 @@ $0.59$ & $6.1\times10^{-20}$ & $6.0\times10^{-13}$ & $0.004$          & $0.024$ 
 This sensitivity range ($\alpha \lesssim 0.57$) does not overlap with the spectroscopic
 lower bounds derived in Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}: FIRAS
 probes strictly lower exponents than the two astrophysical sources studied above.
-Any foam model consistent with the spectroscopic bounds ($\alpha \gtrsim 0.59$--$0.65$)
+Any foam model consistent with the spectroscopic bounds ($\alpha \gtrsim 0.58$--$0.65$)
 produces a phase variance $\sigma_\phi^2 \ll 1$ at CMB frequencies; if such a model were
 present but omitted from the spectral fit, the recovered CMB temperature would be biased
 by $|\Delta T_0| \ll \sigma(T_0)$ (Table~\ref{tab:fisher_bias}).  Spacetime foam in this
 class therefore cannot account for any systematic error in the CMB temperature measurement
 or in cosmological quantities derived from it such as the Hubble constant $H_0$.
 
+% [Claude: Replace this table with a plot of alpha versus Delta T_0 for two cases.  FIRAS (solid) and PIXIE (dashed).]
 \begin{table}[h]
 \caption{Foam-induced bias in recovered $T_0$ when foam is present at amplitude
 $A_{\rm eff}$ (with $A_\alpha = 1$, $D_C = 13.87\,{\rm Gpc}$) but omitted from the fit.
@@ -1000,47 +970,28 @@ would reside.
 \section{Conclusions}
 \label{sec:conclusions}
 
-A single second-order coherence observable of spacetime foam emerges from
-this framework: the finite-lag Siegert discrepancy
-$\mathcal{S}(\tau) = g^{(2)}(\tau)-1-|g^{(1)}(\tau)|^2$, present when foam
-fluctuates on timescales shorter than the optical coherence time
-($\tau_{\rm foam}\lesssim\tau_L$).  No foam-induced zero-lag bunching
-suppression arises in this model: at $\tau = 0$ the same-direction jitter
-increments vanish identically and $g^{(2)}_{\rm obs}(0) = 2$ for any
-extended source viewed by a single-mode detector
-(Section~\ref{sec:extended}; Appendix~\ref{app:g2ext}).  Its value lies
-not in raw sensitivity --- the signal is at ${\sim}10^{-16}$ for the
-holographic $\alpha = 2/3$ model, well below current reach --- but in
-three structural advantages over existing fringe-visibility and
-Strehl-ratio tests:
-(i) $\mathcal{S}(\tau)$ is constructed directly from the data, with
-$g^{(1)}_{\rm src}(\tau)$ obtained from the source spectrum via
-Wiener--Khinchin, so a detection requires no separate source model;
-(ii) the angular-size suppression factor $\Phi_{\rm eff}(r_\perp)\in[0,1]$
-(Section~\ref{sec:extended}) makes extended targets weaker than compact
-ones but converts source-size variability across the target ensemble into
-a probe of the foam transverse coherence length $r_\perp$, a parameter
-inaccessible to single-target measurements;
-(iii) the framework remains sensitive to foam models with long-range
-transverse correlations that evade imaging tests
-entirely~\cite{LeeZurekChen2024}, and supplies a chromatic discriminant
-against plasma scattering through the $\sigma_\phi \propto 1/\lambda$
-scaling.
-
-The framework identifies high-priority targets: intrinsically compact
-emitters that saturate the upper bound regardless of $r_\perp$
-(narrow-line Seyfert~1 cores, lensed-quasar BLRs), and high-flux
-transients (Type~IIn supernovae, LBV giant eruptions) whose
-photon-rate advantage compensates for the modest cosmological lever arm
-at kpc--Mpc distances.  A standing rapid-response HBT plan --- covering
-$\eta$\,Car, any galactic core-collapse supernova, and any nearby
-($D \lesssim 30$\,Mpc) Type~IIn identified by transient surveys ---
-would let the framework exploit such high-yield events without prior
-allocation; transient targets with substantial angular extent contribute
-to the $r_\perp$ discriminant via $\Phi_{\rm eff}$.  Strongly-lensed
-quasars (Section~\ref{sec:candidate_sources}; J1330$-$0905, comparable to
-the NLS1 baseline after cosmological correction) round out the persistent
-target class.
+The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
+($T_{\rm sys}\approx2.7$\,K) nulling polarizing Fourier transform spectrometer
+spanning $30$\,GHz to $6$\,THz --- is projected to surpass FIRAS sensitivity
+by roughly three orders of magnitude, reaching $|\mu|\lesssim10^{-8}$ and
+$|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
+spectral signals from Silk damping and reionization.
+Propagating this gain through the Fisher-matrix scaling derived in
+Section~\ref{sec:CMB}, the marginal foam detection threshold shifts from
+$\alpha\lesssim0.57$ (FIRAS) to approximately $\alpha\lesssim0.60$ (PIXIE),
+bringing the CMB probe into marginal contact with the spectroscopic lower
+bound $\alpha\gtrsim0.58$ from BzK\,4892 (Table~\ref{tab:fisher_snr}):
+whereas FIRAS achieves SNR~$\approx0.004$ at $\alpha=0.58$, PIXIE would
+reach SNR~$\approx4$ at the same exponent.
+The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
+linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
+regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$, where the foam template
+diverges markedly from the $\mu$-distortion shape and the degeneracy may be
+substantially reduced.
+Complementary concepts including PRISM~\cite{Andre2014} and BISOU would push
+sensitivity further; a generation of absolute spectrophotometry missions thus
+opens a distinct window onto foam parameter space below the spectroscopic
+bounds established in Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
@@ -1246,7 +1197,7 @@ is precisely this form, maximizing the foam-$\mu$ correlation.
 
 A Fisher matrix analysis (code: \texttt{fisher\_firas.py}) using the linearized templates,
 diagonal FIRAS noise $\sigma_\nu = 0.01$\,MJy/sr per channel, and 43 uniform channels from
-60 to 600\,GHz gives the correlation matrix shown in Table~\ref{tab:fisher_corr} and the
+60 to 600\,GHz gives the correlation matrix shown in Eq.~\eqref{eq:fisher_corr_matrix} and the
 marginal uncertainties
 \begin{equation}
   \sigma(A_{\rm eff}) = 1.5\times10^{-17}\,{\rm m}^2 \quad \text{(marginal, all params free)},
@@ -1257,7 +1208,7 @@ marginal uncertainties
 Marginalizing over $\mu$ and $T_0$ therefore degrades the foam amplitude uncertainty by a factor
 of $\sim 6$, driven almost entirely by the foam--$\mu$ degeneracy.
 
-Tables~\ref{tab:fisher_corr} and~\ref{tab:fisher_snr} (Section~\ref{sec:CMB}) give
+Eq.~\eqref{eq:fisher_corr_matrix} and Table~\ref{tab:fisher_snr} (Section~\ref{sec:CMB}) give
 the full correlation matrix and the SNR as a function of $\alpha$, showing that
 sensitivity falls below 1$\sigma$ at $\alpha \approx 0.57$.
 
@@ -1287,7 +1238,7 @@ In the linearized Fisher regime the resulting parameter shift is
 where $F_{\rm fit,fit}$ is the $3\times3$ lower-right block of the full Fisher matrix (for
 $T_0, \mu, y$) and $F_{\rm fit,omit}$ is the $3\times1$ cross-block coupling the fitted parameters
 to the omitted foam amplitude. Both blocks are extracted from the same matrix as
-Tables~\ref{tab:fisher_corr}--\ref{tab:fisher_snr}, so no new computation is required.
+Eq.~\eqref{eq:fisher_corr_matrix} and Table~\ref{tab:fisher_snr}, so no new computation is required.
 
 \textbf{Temperature bias.} The $T_0$ component of Eq.~\eqref{eq:bias_formula} is
 \begin{equation}\label{eq:T0_bias}
@@ -1301,7 +1252,7 @@ low-frequency flux excess that the fitter interprets as a temperature increase (
 $\partial B_\nu/\partial T > 0$ in the Rayleigh--Jeans regime), while the high-frequency
 deficit is absorbed into a positive $\Delta\mu$.  The dominant bias is in $\mu$: numerically
 $b_\mu \approx 1.05\times10^8\,{\rm m^{-2}}$, consistent with the strong foam--$\mu$ correlation
-$\rho = 0.976$ from Table~\ref{tab:fisher_corr}.
+$\rho = 0.976$ from Eq.~\eqref{eq:fisher_corr_matrix}.
 
 \textbf{Bias-based bound.} Requiring $|\Delta T_0| < \sigma(T_0) = 0.00057\,{\rm K}$
 (Fixsen 2009~\cite{Fixsen2009}) gives
@@ -1324,7 +1275,7 @@ the FIRAS detection threshold.
 \textbf{Comparison of bounds.}  The three $\alpha$ lower bounds from FIRAS are:
 (i)~$\alpha \gtrsim 0.52$ (T$_0$-bias bound, this subsection);
 (ii)~$\alpha \gtrsim 0.57$ (marginal-SNR bound, Section~\ref{sec:FIRAS_degeneracy});
-(iii)~$\alpha \gtrsim 0.59$ (BzK~4892 spectroscopic bound, Section~\ref{sec:bzk4892}).
+(iii)~$\alpha \gtrsim 0.58$ (BzK~4892 spectroscopic bound, Section~\ref{sec:bzk4892}).
 The bias bound is the weakest because the strong foam--$\mu$ correlation ($\rho = 0.976$)
 allows most of the foam signal to be absorbed into $\mu$ without producing a large
 \textit{individual} shift in $T_0$.  The same freedom that hides the bias inflates the
@@ -1354,36 +1305,13 @@ the marginal parameter space; this should be checked after computing the nonline
 
 \subsection{Relation to the BzK 4892 Bound}
 
-Section~\ref{sec:bzk4892} reports $\alpha \gtrsim 0.59$ from the Fe~K$\alpha$ spectral-Strehl test at $z = 2.578$,
-and Section~\ref{sec:grb221009a} reports $\alpha \gtrsim 0.65$ from MeV gamma-ray emission lines at $z = 0.151$.
+Section~\ref{sec:bzk4892} reports $\alpha \gtrsim 0.58$ from the Fe~K$\alpha$ spectral-Strehl test at $z = 2.578$,
+and Section~\ref{sec:grb221009a} reports $\alpha \gtrsim 0.64$--$0.65$ from MeV gamma-ray emission lines at $z = 0.151$.
 The FIRAS constraint achieves marginal sensitivity at $\alpha \lesssim 0.57$. Neither spectroscopic range overlaps
 with the FIRAS-sensitive region; FIRAS probes strictly lower $\alpha$ values (longer propagation distance,
 higher cumulative variance at lower exponents). FIRAS therefore provides an independent systematics check
 using completely different inputs (absolute calibrated photometry, broadband rather than single-line, no source
 profile assumption) and probes the parameter space below both spectroscopic bounds where more exotic foam models would reside.
-
-The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
-($T_{\rm sys}\approx2.7$\,K) nulling polarizing Fourier transform spectrometer
-spanning $30$\,GHz to $6$\,THz --- is projected to surpass FIRAS sensitivity
-by roughly three orders of magnitude, reaching $|\mu|\lesssim10^{-8}$ and
-$|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
-spectral signals from Silk damping and reionization.
-Propagating this gain through the Fisher-matrix scaling derived above, the
-marginal foam detection threshold shifts from $\alpha\lesssim0.57$ (FIRAS)
-to approximately $\alpha\lesssim0.60$ (PIXIE), bringing the CMB probe into
-marginal contact with the spectroscopic lower bound $\alpha\gtrsim0.59$ from
-BzK\,4892 (Table~\ref{tab:fisher_snr}): whereas FIRAS achieves
-SNR~$\approx0.004$ at $\alpha=0.59$, PIXIE would reach SNR~$\approx4$ at
-the same exponent.
-The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
-linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
-regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$, where the foam template
-diverges markedly from the $\mu$-distortion shape and the degeneracy may be
-substantially reduced.
-Complementary concepts including PRISM~\cite{Andre2014} and BISOU would push
-sensitivity further; a generation of absolute spectrophotometry missions thus
-opens a distinct window onto foam parameter space below the spectroscopic
-bounds established in Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}.
 
 \subsection{Proposed Analysis}
 \label{sec:FIRAS_analysis}
