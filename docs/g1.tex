@@ -190,151 +190,61 @@ If $\tau_{\rm foam}$ is of order the Planck time,
 $\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
 accessible lags: the foam is fully decorrelated on any observable timescale, the most
 optimistic scenario for detection.
-In the opposite \emph{quasi-static} limit $\tau_{\rm foam} \gg D/c$ (foam coherent
-across the entire line of sight), $C_\alpha(\tau) \approx 1$ for all $\tau$ of
-interest and every $C_\alpha$-dependent temporal observable vanishes:
-the
-finite-lag Siegert discrepancy $\mathcal{S}(\tau)$ is suppressed by
-$[1-C_\alpha(\tau)] \to 0$ (Eq.~\eqref{eq:Sexplicit}), and the
-single-ray $g^{(1)}_{\rm obs}$ recovers its intrinsic value because the
-foam suppression factor
-$\mathcal{F}_{\rm foam} = e^{-\sigma_\phi^2[1-C_\alpha]} \to 1$
-(Eq.~\eqref{eq:Ffoam}).  In this quasi-static limit the HBT framework
-loses sensitivity altogether and the foam manifests only through the
-imaging-channel $g^{(1)}$ suppression on time-averaged exposures.
-The full spatiotemporal covariance between two rays separated by transverse
-distance $b$ takes the factorized form
-\begin{equation}
-  \big\langle \Delta\ell_{\rm tot}(t;\boldsymbol{\theta})\,
-              \Delta\ell_{\rm tot}(t+\tau;\boldsymbol{\theta}')\big\rangle
-  = \sigma_\ell^2(D)\,C_\alpha(\tau;D)\,
-    \Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right),
-  \label{eq:pathcov}
-\end{equation}
-where $b(\boldsymbol{\theta},\boldsymbol{\theta}') \simeq D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$.
-The single-ray temporal covariance appropriate for a
-point source is the special case
-$\boldsymbol{\theta}=\boldsymbol{\theta}'$ (so $b=0$):
+The temporal covariance between two rays separated by in time $\tau$ 
+takes the form
 \begin{equation}
   \big\langle \Delta\ell_{\rm tot}(t)\,
               \Delta\ell_{\rm tot}(t+\tau) \big\rangle
   = \sigma_\ell^2(D)\,C_\alpha(\tau;D).
   \label{eq:pathcov1ray}
 \end{equation}
-This product form --- separating the total variance from the normalized
-spatiotemporal shape --- is a structural assumption, not a consequence of
-Eq.~\eqref{eq:NgPerlmanVar}, that defines a tractable class of foam models
-within which the analytic framework is exact.
-The parameters $A_\alpha$, $C_\alpha(\tau;D)$, $\tau_{\rm foam}$, $r_\perp$, and
-$\Phi_{\rm eff}$ parameterize distinct physical effects --- single-ray variance,
-temporal foam dynamics, transverse coherence, and source angular structure ---
-and each governs a distinct aspect of the signal's detectability.
-The factorization is consistent with phenomenologies in which the
-longitudinal path-length variance, the temporal decorrelation, and the
-transverse coherence arise from statistically independent
-mechanisms --- e.g.\ the simple cellular pictures of
-Refs.~\cite{Ng2001,Ng2003,NgPerlman2022} where each Planck-scale cell
-contributes an independent random kick.
-
-The factorization is \emph{not} generic: the
-pixellon model of Lee, Zurek \& Chen~\cite{LeeZurekChen2024} has
-long-range angular correlations whose spatiotemporal covariance does
-not reduce cleanly to $\sigma_\ell^2(D)\,C_\alpha(\tau)\,\Phi(b/r_\perp)$;
-the framework here applies to that model only as a heuristic
-approximation in the regime where transverse correlations have
-decoupled.
-
-Observationally, factorization predicts that the extended-source Siegert
-discrepancy is suppressed relative to its point-source value by the
-angular-size factor $\Phi_{\rm eff}(r_\perp)$:
-$\mathcal{S}_{\rm ext}(\tau) \approx \Phi_{\rm eff}\,\mathcal{S}_{\rm pt}(\tau)$
-in the weak-foam regime (Section~\ref{sec:extended}), independent of both
-$\tau$ and $D$.  A dependence of this ratio on lag or source redshift
-would falsify the factorization ansatz and indicate that a non-factorizing
-model (e.g.\ pixellon) is required.
-The single observable developed below --- the Siegert discrepancy
-$\mathcal{S}(\tau)$ --- descends from Eq.~\eqref{eq:NgPerlmanVar}, with
-Sections~\ref{sec:g1}--\ref{sec:siegert} probing its longitudinal
-projection (single-ray temporal jitter) and Section~\ref{sec:extended}
-its transverse projection (cross-ray $\Phi_{\rm eff}$ suppression).
 
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
 
-With the spatiotemporal covariance model in place, we define the key derived quantity
+With the temporal covariance model in place, we define the key derived quantity
 that enters the coherence integrals.
-Define the \emph{cross-ray differential jitter} between a photon arriving along
-direction $\boldsymbol{\theta}$ at time $t+\tau$ and a photon arriving along
-$\boldsymbol{\theta}'$ at time $t$:
+Define the differential jitter between a photons arriving
+times $t$ and  $t+\tau$: 
 \begin{equation}
-  \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
-  \equiv \delta t(t+\tau;\boldsymbol{\theta}) - \delta t(t;\boldsymbol{\theta}').
+  \Delta(\tau)
+  \equiv \delta t(t+\tau) - \delta t(t).
   \label{eq:DeltaExt}
 \end{equation}
-For fixed $D$, stationarity implies the statistics depend only on $\tau$ and the
-transverse separation $b(\boldsymbol{\theta},\boldsymbol{\theta}')=D|\boldsymbol{\theta}-\boldsymbol{\theta}'|$.
+For fixed $D$, stationarity implies the statistics depend only on $\tau$.
 Expanding the square and applying Eq.~\eqref{eq:pathcov}:
 \begin{align}
-  \sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')
+  \sigma_\Delta^2(\tau)
   &= \frac{1}{c^2}\big\langle
-    [\Delta\ell_{\rm tot}(t+\tau;\boldsymbol{\theta})
-     - \Delta\ell_{\rm tot}(t;\boldsymbol{\theta}')]^2
+    [\Delta\ell_{\rm tot}(t+\tau)
+     - \Delta\ell_{\rm tot}(t)]^2
     \big\rangle \notag \\
   &= \frac{1}{c^2}\left[
     \sigma_\ell^2 + \sigma_\ell^2
-    - 2\sigma_\ell^2\,C_\alpha(\tau)\,\Phi\!\left(\frac{b}{r_\perp}\right)
+    - 2\sigma_\ell^2\,C_\alpha(\tau)
     \right] \notag \\[4pt]
   &= \frac{2\sigma_\ell^2(D)}{c^2}
-    \left[1 - C_\alpha(\tau;D)\,\Phi\!\left(\frac{b(\boldsymbol{\theta},\boldsymbol{\theta}')}{r_\perp}\right)\right].
+    \left[1 - C_\alpha(\tau;D)\right].
   \label{eq:diffVarExt}
 \end{align}
-For $b\gg r_\perp$, $\Phi\to 0$ and the variance becomes
-$2\sigma_\ell^2/c^2$ \emph{at all lags, including $\tau=0$} — a new effect
-absent in the point-source case, and one that is independent of the temporal
-fluctuation structure of the foam (i.e.\ independent of $C_\alpha$).
-In the dynamical limit $C_\alpha\to 0$ this result holds for all separations
-$b$, independently of $\Phi$.
 
-By the central limit theorem (CLT), $\Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)$
+By the central limit theorem (CLT), $\Delta(\tau)$
 is a sum of contributions from many foam cells and is therefore Gaussian with zero mean: 
 \begin{equation}
-  \Delta_{\boldsymbol{\theta},\boldsymbol{\theta}'}(\tau)
-  \sim \mathcal{N}\!\left(0,\,\sigma_\Delta^2(\tau;\boldsymbol{\theta},\boldsymbol{\theta}')\right),
+  \Delta(\tau)
+  \sim \mathcal{N}\!\left(0,\,\sigma_\Delta^2(\tau)\right),
   \label{eq:kernel}
 \end{equation}
 where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt}.
-
 The Gaussian approximation follows from the CLT: for any source at
 $D \gtrsim 1$~kpc, the cell count $N_{\rm cells} \sim D/\ell_{\rm P} \gtrsim 10^{46}$
 amply satisfies the large-$N$ requirement and higher-cumulant corrections
 are negligible.
-For the cross-ray case the additional condition $b \gg r_\perp$ is assumed,
-and is satisfied in the fully-resolved limit $\Phi_{\rm eff} \to 0$ adopted
-in Section~\ref{sec:prospects}.
 
 % ==============================================================
 \section{First-Order Coherence }
 \label{sec:g1}
 % ==============================================================
-
-\subsection{Point-Source Differential Jitter}
-\label{sec:pointsource_jitter}
-
-In this section we restrict to a point source ($b=0$),
-for which the cross-ray differential jitter of Eq.~\eqref{eq:DeltaExt}
-reduces to the single-ray differential jitter
-\begin{equation}
-  \Delta(\tau) \equiv \delta t(t+\tau) - \delta t(t),
-  \label{eq:DeltaDef}
-\end{equation}
-with variance obtained from Eq.~\eqref{eq:diffVarExt} at $\Phi(0)=1$:
-\begin{align}
-  \sigma_\Delta^2(\tau;D)
-  &= \frac{2\sigma_\ell^2(D)}{c^2}\big[1 - C_\alpha(\tau;D)\big].
-  \label{eq:diffVar}
-\end{align}
-
-Although this section restricts to a point source for notational compactness, this single-ray variance applies equally to extended sources at finite lag $\tau \neq 0$: under the factorized covariance Eq.~\eqref{eq:pathcov}, the temporal factor $C_\alpha(\tau;D)$ is identical for all ray pairs, so cross-ray transverse structure enters only at $\tau=0$ through $\Phi_{\rm eff}$ (Section~\ref{sec:extended}).
 
 \subsection{Jitter Convolution Formula for $g^{(1)}$}
 
@@ -520,24 +430,18 @@ evaluated.
 The foam-modified observed coherence function — given in general by the
 jitter-convolution integral Eq.~\eqref{eq:g1obs} with closed forms
 Eqs.~\eqref{eq:g1obs_erfc}--\eqref{eq:g1obs_voigt} — carries direct
-spectroscopic content: for any wide-sense stationary (WSS) field, the normalized power
-spectral density $S(\nu)$ and $g^{(1)}(\tau)$ are Fourier-transform pairs,
+spectroscopic content: for a stationary field the power spectral density
+$S(\nu)$ and $g^{(1)}(\tau)$ are Fourier-transform pairs,
 implying
 \begin{equation}
   S_{\rm obs}(\nu) = \mathcal{F}\!\left\{g^{(1)}_{\rm obs}(\tau)\right\}(\nu).
   \label{eq:WK_obs}
 \end{equation}
-The theorem applies here for two reasons.
-First, astronomical emission lines have finite linewidth: their spectra fall
-to zero at both low and high frequencies, so $\Gamma_{\rm src}(\tau)\to 0$
-and $\Gamma_{\rm src}\in L^1$; since the foam factor is bounded,
-$\Gamma_{\rm obs}\in L^1$ as well and the Fourier transform is well defined.
-Second, $E_{\rm obs}(t)$ is wide-sense stationary: the foam-induced jitter
-$\delta t(t)$ is a stationary process (Eq.~\eqref{eq:pathcov1ray},
-Section~\ref{sec:model}) that is statistically independent of the source,
-so $\Gamma_{\rm obs}(\tau)$ — given in general by Eq.~\eqref{eq:g1obs} —
-depends only on the lag $\tau$, provided $T_{\rm int}\gg\tau_{\rm foam}$ so
-that the foam statistics are ergodically sampled.
+The theorem applies because astronomical emission lines have finite linewidth
+(so the Fourier transform is well defined) and the foam-induced jitter is a
+stationary process independent of the source, so the observed field is
+stationary when the integration time exceeds the foam coherence time
+($T_{\rm int}\gg\tau_{\rm foam}$).
 In the further limit where the foam decorrelates on long time scales
 ($C_\alpha(\tau)\to 0$ as $|\tau|\to\infty$, the dynamical regime), the foam
 factor acquires a nonzero asymptote $\mathcal{F}_{\rm foam}(\tau)\to
@@ -639,29 +543,16 @@ constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
 on a common footing within the present framework.
 
 Equation~\eqref{eq:visibility} also extends the binary
-Lieu--Hillman~\cite{LieuHillman2003} erasure criterion to a continuous
-suppression curve. Their condition $\Delta\phi \gtrsim 2\pi$, with
-$\Delta\phi \simeq 2\pi\sigma_\ell(D)/\lambda$, is precisely
-$\sigma_\phi \gtrsim 1$---the saturation limit
-$\mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}} \to e^{-\sigma_\phi^2} \to 0$
-of Eq.~\eqref{eq:Fspat}. The shape of the continuous curve, observed
-as a function of baseline, encodes the aperture-plane coherence
-profile $C_\alpha^{\mathrm{sp}}(B;D)$, in direct analogy to how
-$g^{(1)}_{\mathrm{obs}}(\tau)$ encodes the temporal decorrelation
-$C_\alpha(\tau;D)$. Two observational handles follow from this
-correspondence: (i) the chromatic scaling
-$\sigma_\phi \propto 1/\lambda$ implies that constraints tighten
-rapidly with decreasing wavelength---a fact exploited by Ng \&
-Perlman~\cite{NgPerlman2022} (their Table~1) in moving from optical
-through X-ray and $\gamma$-ray observations, and mirrored in
-Section~\ref{sec:bzk4892}, where the same saturated-limit suppression
-$e^{-\sigma_\phi^2}$ that defines the Strehl ratio (Eq.~\eqref{eq:strehl})
-is reinterpreted as the coherent fraction of a spectral line, yielding
-a spectroscopic counterpart of the Strehl bound at X-ray wavelengths;
-(ii) baseline-resolved
-visibility measurements of a single target can in principle probe the
-aperture-plane coherence scale, complementary to the temporal
-decorrelation scale accessed through $g^{(1)}_{\mathrm{obs}}(\tau)$. 
+Lieu--Hillman~\cite{LieuHillman2003} erasure criterion --- their condition
+$\Delta\phi \gtrsim 2\pi$ (equivalently $\sigma_\phi \gtrsim 1$) marks the
+saturation limit $e^{-\sigma_\phi^2}\to 0$ of the fringe suppression ---
+to a continuous curve that encodes the full aperture-plane coherence profile.
+The same saturated-limit expression $e^{-\sigma_\phi^2}$ is reinterpreted
+in Section~\ref{sec:bzk4892} as the coherent fraction of a spectral line,
+yielding a spectroscopic counterpart of the Strehl bound; the rapid chromatic
+tightening $\sigma_\phi \propto 1/\lambda$ that drives Ng \&
+Perlman's~\cite{NgPerlman2022} Table~1 from optical to X-ray wavelengths
+is the same scaling exploited there.
 
 % ==============================================================
 \section{Sources}
@@ -750,7 +641,7 @@ This bound should be regarded as tentative pending confirmation of
 the 37\,MeV excess as a narrow spectral line within the instrumental
 sensitivity range.
 
-Both bounds approach but do not exclude the holographic value
+Both bounds come tantalizing close to but do not exclude the holographic value
 $\alpha=2/3\approx0.667$: at that exponent
 $\sigma_\phi^2(\alpha=2/3)\approx0.01$
 for the Ravasio line, corresponding to a coherent fraction
@@ -1158,7 +1049,7 @@ DE-AC02-05CH11231.
 
 The authors used Claude (Anthropic) and Valency Systems to assist with drafting and editing portions of this manuscript along with detailed reference searches. All content was reviewed and verified by the authors, who take full responsibility for the work.
 
-We thank Robin Kaiser for helpful comments.
+We thank Robin Kaiser for helpful discussions that helped motivate this work.
 \end{acknowledgments}
 
 \appendix
@@ -1470,6 +1361,29 @@ with the FIRAS-sensitive region; FIRAS probes strictly lower $\alpha$ values (lo
 higher cumulative variance at lower exponents). FIRAS therefore provides an independent systematics check
 using completely different inputs (absolute calibrated photometry, broadband rather than single-line, no source
 profile assumption) and probes the parameter space below both spectroscopic bounds where more exotic foam models would reside.
+
+The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
+($T_{\rm sys}\approx2.7$\,K) nulling polarizing Fourier transform spectrometer
+spanning $30$\,GHz to $6$\,THz --- is projected to surpass FIRAS sensitivity
+by roughly three orders of magnitude, reaching $|\mu|\lesssim10^{-8}$ and
+$|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
+spectral signals from Silk damping and reionization.
+Propagating this gain through the Fisher-matrix scaling derived above, the
+marginal foam detection threshold shifts from $\alpha\lesssim0.57$ (FIRAS)
+to approximately $\alpha\lesssim0.60$ (PIXIE), bringing the CMB probe into
+marginal contact with the spectroscopic lower bound $\alpha\gtrsim0.59$ from
+BzK\,4892 (Table~\ref{tab:fisher_snr}): whereas FIRAS achieves
+SNR~$\approx0.004$ at $\alpha=0.59$, PIXIE would reach SNR~$\approx4$ at
+the same exponent.
+The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
+linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
+regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$, where the foam template
+diverges markedly from the $\mu$-distortion shape and the degeneracy may be
+substantially reduced.
+Complementary concepts including PRISM~\cite{Andre2014} and BISOU would push
+sensitivity further; a generation of absolute spectrophotometry missions thus
+opens a distinct window onto foam parameter space below the spectroscopic
+bounds established in Sections~\ref{sec:grb221009a} and~\ref{sec:bzk4892}.
 
 \subsection{Proposed Analysis}
 \label{sec:FIRAS_analysis}
