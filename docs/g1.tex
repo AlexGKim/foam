@@ -285,84 +285,46 @@ yields
 The observed first-order coherence is the intrinsic coherence function
 convolved with the Gaussian differential-jitter kernel.
 
-\subsection{Closed Forms for Lorentzian and Voigt Sources}
+\subsection{Gaussian Source Profile}
 \label{sec:closedforms}
 
-As a representative case admitting a closed-form result, we take a Lorentzian
-line profile, which corresponds to an exponential coherence function via the
-Wiener--Khinchin theorem:
+The GRB\,221009A emission line is well described by a Gaussian profile
+in each epoch~\cite{YQZhang2024}, and it serves as the representative
+case admitting the simplest closed form.
+A Gaussian line in frequency space corresponds via the Wiener--Khinchin
+theorem to a Gaussian coherence function,
 \begin{equation}
-  g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L},
-  \label{eq:g1src_lorentz}
+  g^{(1)}_{\rm src}(\tau) = e^{-\tau^2/2\tau_G^2},
+  \label{eq:g1src_gauss}
 \end{equation}
-where $\tau_L$ is the coherence time.
-Evaluating Eq.~\eqref{eq:g1obs} by completing the square and splitting on the
-sign of $\tau-\Delta$ gives, for $\tau > 0$:
+where $\tau_G = 1/(2\pi\sigma_\nu)$ is the coherence time and $\sigma_\nu$
+is the 1$\sigma$ Gaussian spectral width.
+Substituting into the jitter-convolution integral~\eqref{eq:g1obs} and
+completing the square in the exponent gives an exact closed form:
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau)
-  = e^{\sigma_\Delta^2/2\tau_L^2}
-    \cdot\frac{1}{2}\left[
-      e^{-\tau/\tau_L}\,\mathrm{erfc}\!\left(\frac{\sigma_\Delta/\tau_L - \tau/\sigma_\Delta}{\sqrt{2}}\right)
-      + e^{\tau/\tau_L}\,\mathrm{erfc}\!\left(\frac{\sigma_\Delta/\tau_L + \tau/\sigma_\Delta}{\sqrt{2}}\right)
-    \right].
-  \label{eq:g1obs_erfc}
+  = \frac{\tau_G}{\sqrt{\tau_G^2+\sigma_\Delta^2(\tau)}}\;
+    \exp\!\left(-\frac{\tau^2}{2\bigl[\tau_G^2+\sigma_\Delta^2(\tau)\bigr]}\right).
+  \label{eq:g1obs_gauss}
 \end{equation}
-In the weak-jitter limit $\sigma_\Delta \ll \tau_L$, the Gaussian average of
-$e^{-|\tau-\Delta|/\tau_L}$ over $\Delta\sim\mathcal{N}(0,\sigma_\Delta^2)$
-is dominated by $|\Delta|\ll|\tau|$, so one expands around $\Delta=0$:
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau) \approx g^{(1)}_{\rm src}(\tau)
-  \left[1 + \frac{\sigma_\Delta^2(\tau)}{2\tau_L^2} + \mathcal{O}(\sigma_\Delta^4)\right].
-  \label{eq:g1weak}
-\end{equation}
-Here $\sigma_\Delta(\tau)$ is $\tau$-dependent through $C_\alpha(\tau)$,
-and the expansion is in $\sigma_\Delta(\tau)/\tau_L$ at fixed $\tau$.
-The correction is positive because $e^{-|\tau|/\tau_L}$ is convex and
-Jensen's inequality applies.
-The normalization $g^{(1)}_{\rm obs}(0) = 1$ is preserved exactly.
+The observed coherence function is again Gaussian but with a broadened
+width $\tau_{\rm obs}(\tau)=\sqrt{\tau_G^2+\sigma_\Delta^2(\tau)}$ and a
+peak-suppression prefactor $\tau_G/\tau_{\rm obs}$.
+Normalisation $g^{(1)}_{\rm obs}(0)=1$ holds because $\sigma_\Delta(0)=0$.
 
-For a Voigt profile $g^{(1)}_{\rm src}(\tau) = e^{-|\tau|/\tau_L}\,e^{-\tau^2/2\tau_G^2}$
---- a Lorentzian of width $\tau_L$ (from optically-thick electron scattering or
-BLR turbulent broadening) convolved with a Gaussian of width $\tau_G$ (from
-bulk Doppler motions) --- the jitter kernel combines with the source Gaussian
-into an effective width and mean,
+Transforming back to the frequency domain, the observed spectral width
+obeys the quadrature sum
 \begin{equation}
-  \tilde\sigma_1^2 = \frac{\sigma_\Delta^2\,\tau_G^2}{\sigma_\Delta^2+\tau_G^2},
-  \qquad
-  \mu_1(\tau) = \frac{\tau_G^2\,\tau}{\sigma_\Delta^2+\tau_G^2},
-  \label{eq:voigt_params}
+  \sigma_{\rm obs}^2 = \sigma_{\rm int}^2 + \sigma_{\rm foam}^2,
+  \label{eq:sigma_quadrature}
 \end{equation}
-giving, for $\tau > 0$:
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau)
-  = \frac{\tilde\sigma_1}{\sigma_\Delta}\,
-    e^{-\tau^2/2(\sigma_\Delta^2+\tau_G^2)}\,
-    e^{\tilde\sigma_1^2/2\tau_L^2}\,
-    \frac{1}{2}\!\left[
-      e^{-\mu_1/\tau_L}\,\mathrm{erfc}\!\left(\frac{\tilde\sigma_1/\tau_L - \mu_1/\tilde\sigma_1}{\sqrt{2}}\right)
-      +e^{\mu_1/\tau_L}\,\mathrm{erfc}\!\left(\frac{\tilde\sigma_1/\tau_L + \mu_1/\tilde\sigma_1}{\sqrt{2}}\right)
-    \right].
-  \label{eq:g1obs_voigt}
-\end{equation}
-In the weak-jitter limit $\sigma_\Delta\ll\min(\tau_L,\tau_G)$, expanding
-Eq.~\eqref{eq:g1obs} to second order in $\Delta$ and averaging over the
-Gaussian jitter gives the Voigt analogue of Eq.~\eqref{eq:g1weak}:
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau)
-  \approx g^{(1)}_{\rm src}(\tau)
-  \left[1 + \frac{\sigma_\Delta^2(\tau)}{2}
-  \left(\!\left(\frac{1}{\tau_L}+\frac{\tau}{\tau_G^2}\right)^{\!2}
-  - \frac{1}{\tau_G^2}\right)
-  + \mathcal{O}(\sigma_\Delta^4)\right],
-  \label{eq:g1weak_voigt}
-\end{equation}
-which reduces to Eq.~\eqref{eq:g1weak} in the purely Lorentzian limit
-$\tau_G\to\infty$.  Unlike the Lorentzian case, the correction factor can
-change sign: for $\tau < \tau_G\sqrt{1-\tau_G/\tau_L}$ the
-second-order term is negative, so foam jitter \emph{suppresses}
-short-lag coherence.
-Note that both closed forms in the weak-jitter limit share the general product structure
-$g^{(1)}_{\rm obs}(\tau)=g^{(1)}_{\rm src}(\tau)\,F_{\rm foam}(\tau)$.
+which is the spectral-domain statement of the width-addition property used
+in the GRB lever-arm analysis (Section~\ref{sec:grb221009a}).
+Note that for the Gaussian case the product structure
+$g^{(1)}_{\rm obs}(\tau)=g^{(1)}_{\rm src}(\tau)\,F_{\rm foam}(\tau)$
+does \emph{not} hold exactly: the broadening mixes into the exponent
+rather than factoring out, though in the weak-jitter limit
+$\sigma_\Delta\ll\tau_G$ both representations agree to leading order.
 
 \subsection{Narrow-Band Limit}
 \label{sec:narrowband}
@@ -381,7 +343,7 @@ a carrier phase modulation; the observed field takes the form
 \end{equation}
 (Corrections to the envelope approximation are of order $(\sigma_\ell/c\tau_c)^2$;
 for $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$
-this parameter is $\approx 0.28$, so the exact convolution Eq.~\eqref{eq:g1obs_erfc}
+this parameter is $\approx 0.28$, so the exact convolution Eq.~\eqref{eq:g1obs_gauss}
 should be used instead.
 For $\alpha=2/3$ the analogous parameter is ${\sim}10^{-11}$,
 so Eq.~\eqref{eq:g1narrowband} is exact to any
@@ -416,7 +378,7 @@ with $D_C$ the line-of-sight comoving distance~\cite{NgPerlman2022}:
   \label{eq:sigmaphi}
 \end{equation}
 We write the foam suppression factor — the quantity appearing in the product
-structure of Section~\ref{sec:closedforms} — as
+structure $g^{(1)}_{\rm obs}=g^{(1)}_{\rm src}\cdot\mathcal{F}_{\rm foam}$ — as
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
   \label{eq:Ffoam}
@@ -427,7 +389,7 @@ At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2[1-C_\alp
 which equals $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$)
 and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 The narrow-band condition $\sigma_\ell/(c\tau_c)\ll 1$ is compatible with
-the weak-jitter expansion of Eq.~\eqref{eq:g1weak} --- the former controls
+the weak-jitter expansion --- the former controls
 envelope displacement, the latter the carrier-phase suppression --- and
 when neither applies the full convolution Eq.~\eqref{eq:g1obs} must be
 evaluated.
@@ -441,7 +403,7 @@ evaluated.
 
 The foam-modified observed coherence function — given in general by the
 jitter-convolution integral Eq.~\eqref{eq:g1obs} with closed forms
-Eqs.~\eqref{eq:g1obs_erfc}--\eqref{eq:g1obs_voigt} — carries direct
+Eq.~\eqref{eq:g1obs_gauss} — carries direct
 spectroscopic content: for a stationary field the power spectral density
 $S(\nu)$ and $g^{(1)}(\tau)$ are Fourier-transform pairs,
 implying
@@ -697,7 +659,8 @@ width, so the intrinsic contribution $r_{\rm int}\equiv
 \textit{Width decomposition.}
 The observed fractional width receives contributions from both the
 intrinsic line physics and any foam-induced spectral broadening,
-adding in quadrature:
+adding in quadrature (Eq.~\eqref{eq:sigma_quadrature}, applied to the
+Gaussian line profile):
 \begin{equation}
   r_{\rm obs}^2(E) \;=\; r_{\rm int}^2 + r_{\rm foam}^2(E).
   \label{eq:robs_decomp}
