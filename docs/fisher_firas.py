@@ -83,6 +83,10 @@ pedestal_integral  = np.trapz(pedestal_integrand, nu)  # W m^{-4} Hz sr^{-1}  (N
 
 dI_dA   = -k_nu * B + K_fast * pedestal_integral   # W m^{-4} Hz^{-1} sr^{-1}
 
+# Physical (no in-band pedestal) template: for tau_foam ~ ell_P/c, pedestal
+# power lands at ~10^43 Hz, entirely outside FIRAS band.
+dI_dA_noped = -k_nu * B                            # W m^{-4} Hz^{-1} sr^{-1}
+
 # d(I) / d(T_0)
 dI_dT   = B * x * ex / (ex - 1) / T0               # W m^{-2} Hz^{-1} sr^{-1} K^{-1}
 
@@ -230,3 +234,55 @@ for alpha in alphas_table:
     Ae  = A_eff_of_alpha(alpha)
     DT0 = b[0] * Ae
     print(f"  {alpha:5.3f}  {Ae:12.3e}  {DT0:12.3e}  {DT0/sigma_T0_Fixsen:10.4f}")
+
+# ══════════════════════════════════════════════════════════════════════════════
+# NO-PEDESTAL (PHYSICAL) ANALYSIS
+# For tau_foam ~ ell_P/c, pedestal power at ~10^43 Hz is outside FIRAS band.
+# Observable signal is purely the deficit term.
+# ══════════════════════════════════════════════════════════════════════════════
+print("\n" + "=" * 72)
+print("NO-PEDESTAL (PHYSICAL) FISHER ANALYSIS")
+print("tau_foam ~ ell_P/c: pedestal at ~10^43 Hz, outside FIRAS band")
+print("=" * 72)
+
+derivs_noped = np.array([dI_dA_noped, dI_dT, dI_dmu, dI_dy])
+F_noped = np.einsum('ik,jk->ij', derivs_noped, derivs_noped) * (dnu / sigma_noise**2)
+Cov_noped = np.linalg.inv(F_noped)
+sig_noped = np.sqrt(np.diag(Cov_noped))
+rho_noped = Cov_noped / np.outer(sig_noped, sig_noped)
+
+print(f"\nMarginal 1-sigma uncertainties (no-pedestal):")
+for i, name in enumerate(names):
+    print(f"  sigma({name:6s}) = {sig_noped[i]:.4e}  (placeholder: {sig[i]:.4e})")
+
+print(f"\nCorrelation matrix (no-pedestal):")
+header = "".join(f"  {n:>10s}" for n in names)
+print(f"  {'':10s}{header}")
+for i, name in enumerate(names):
+    row = "".join(f"  {rho_noped[i,j]:10.4f}" for j in range(4))
+    print(f"  {name:10s}{row}")
+
+print(f"\n  foam-mu correlation: {rho_noped[0,2]:.4f}  (was {rho[0,2]:.4f})")
+print(f"  foam-T0 correlation: {rho_noped[0,1]:.4f}  (was {rho[0,1]:.4f})")
+print(f"  sigma(A_eff) improvement factor: {sig[0]/sig_noped[0]:.2f}x")
+
+idx_noped = [0, 1]
+Cov_cond_noped = np.linalg.inv(F_noped[np.ix_(idx_noped, idx_noped)])
+print(f"\n  Conditional sigma(A_eff)|_{{mu,y fixed}} = {np.sqrt(Cov_cond_noped[0,0]):.4e}")
+
+print(f"\nDetection SNR (no-pedestal) for foam at various alpha:")
+print(f"  {'alpha':>6s}  {'A_eff [m^2]':>14s}  {'SNR(noped)':>12s}  {'SNR(placeholder)':>18s}")
+for alpha in np.arange(0.50, 0.66, 0.01):
+    Ae = A_eff_of_alpha(alpha)
+    snr_noped = Ae / sig_noped[0]
+    snr_orig  = Ae / sig[0]
+    print(f"  {alpha:6.3f}  {Ae:14.3e}  {snr_noped:12.2f}  {snr_orig:18.2f}")
+
+# Bias (no-pedestal)
+F_fit_fit_np  = F_noped[1:4, 1:4]
+F_fit_omit_np = F_noped[1:4, 0:1]
+b_np = -np.linalg.solve(F_fit_fit_np, F_fit_omit_np).flatten()
+print(f"\nBias coefficients (no-pedestal):")
+print(f"  b_T0 = {b_np[0]:+.4e} K/m^2  (was {b[0]:+.4e})")
+print(f"  b_mu = {b_np[1]:+.4e} 1/m^2  (was {b[1]:+.4e})")
+print(f"  b_y  = {b_np[2]:+.4e} 1/m^2  (was {b[2]:+.4e})")

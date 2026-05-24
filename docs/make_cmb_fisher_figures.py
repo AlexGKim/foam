@@ -88,9 +88,9 @@ ratio_PIXIE   = delta_T0 / sigma_T0_PIXIE
 
 # ── Reference alpha values ────────────────────────────────────────────────────
 alpha_FIRAS_threshold = 0.57    # marginal SNR ~ 1 (FIRAS)
-alpha_BzK             = 0.58    # BzK 4892 spectroscopic lower bound
-alpha_GRB_low         = 0.64    # GRB 221009A Ravasio lower bound
-alpha_GRB_high        = 0.65    # GRB 221009A Zhang lower bound
+alpha_BzK             = 0.54    # BzK 4892 spectroscopic lower bound
+alpha_GRB_low         = 0.62    # GRB 221009A Ravasio lower bound
+alpha_GRB_high        = 0.63    # GRB 221009A Zhang lower bound
 alpha_holo            = 2/3     # holographic prediction
 
 
@@ -117,16 +117,16 @@ ax1.text(0.695, 1.35, r'SNR $= 1$', fontsize=8.5, color='k', alpha=0.8)
 # --- Spectroscopic lower bounds ---
 ylo, yhi = 1e-6, 3e10
 for xv, col, lbl in [
-        (alpha_BzK,       '#555555', r'BzK 4892\newline$(\alpha\gtrsim0.58)$'),
-        (alpha_GRB_low,   '#888888', r'GRB 221009A\newline$(\alpha\gtrsim0.64)$'),
+        (alpha_BzK,       '#555555', r'BzK 4892\newline$(\alpha\gtrsim0.54)$'),
+        (alpha_GRB_low,   '#888888', r'GRB 221009A\newline$(\alpha\gtrsim0.62)$'),
         (alpha_holo,      '#aaaaaa', r'$\alpha=2/3$'),
 ]:
     ax1.axvline(xv, color=col, lw=0.8, ls='--', alpha=0.6)
 
 # Label the three vertical lines (placed at mid-height to avoid clipping)
-ax1.text(alpha_BzK    + 0.002, 3e3,  r'BzK ($\alpha\!\gtrsim\!0.58$)',
+ax1.text(alpha_BzK    + 0.002, 3e3,  r'BzK ($\alpha\!\gtrsim\!0.54$)',
          fontsize=7.5, color='#444444', rotation=90, va='center')
-ax1.text(alpha_GRB_low + 0.002, 3e3, r'GRB ($\alpha\!\gtrsim\!0.64$)',
+ax1.text(alpha_GRB_low + 0.002, 3e3, r'GRB ($\alpha\!\gtrsim\!0.62$)',
          fontsize=7.5, color='#666666', rotation=90, va='center')
 ax1.text(alpha_holo   + 0.002, 3e3,  r'$\alpha=2/3$',
          fontsize=7.5, color='#888888', rotation=90, va='center')
@@ -176,8 +176,8 @@ ax2.text(0.695, 1.35, r'$|\Delta T_0| = \sigma(T_0)$',
 
 # --- Vertical reference lines ---
 for xv, lbl, col in [
-        (alpha_BzK,    r'BzK ($\alpha\!\gtrsim\!0.58$)',  '#444444'),
-        (alpha_GRB_low, r'GRB ($\alpha\!\gtrsim\!0.64$)', '#666666'),
+        (alpha_BzK,    r'BzK ($\alpha\!\gtrsim\!0.54$)',  '#444444'),
+        (alpha_GRB_low, r'GRB ($\alpha\!\gtrsim\!0.62$)', '#666666'),
         (alpha_holo,   r'$\alpha=2/3$',                   '#888888'),
 ]:
     ax2.axvline(xv, color=col, lw=0.8, ls='--', alpha=0.6)
