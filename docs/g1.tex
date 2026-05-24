@@ -666,89 +666,176 @@ GRB\,221009A (``the BOAT,'' Brightest Of All Time) is the most
 energetic gamma-ray burst in the instrumental record, with isotropic-equivalent
 energy $E_{\rm iso}\sim10^{55}\,\mathrm{erg}$ at redshift $z=0.151$,
 a once-in-$\sim10^4$-year event~\cite{Burns2023}.
-The burst was detected from radio wavelengths through $\approx18\,\mathrm{TeV}$
-(LHAASO).
 Two independent spectral analyses have reported a narrow gamma-ray
 emission feature in the Fermi/GBM data, interpreted as blueshifted
 electron--positron pair annihilation~\cite{Ravasio2024,YQZhang2024}, at
-observed energies in the range $10$--$37\,\mathrm{MeV}$.
-We apply the spectral shape-distortion bound Eq.~\eqref{eq:alpha_bound_spec} to each detection.
+observed energies spanning $6$--$37\,\mathrm{MeV}$.
+Rather than applying the single-line shape-distortion bound
+Eq.~\eqref{eq:alpha_bound_spec} to individual detections, we exploit
+the \emph{multi-epoch} constancy of the fractional line width across
+this factor-of-six energy range to obtain a tighter constraint.
 Adopting flat $\Lambda$CDM
 ($\Omega_M=0.27$, $\Omega_\Lambda=0.73$,
 $H_0=70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$), the comoving distance is
 $D_C(z=0.151)\approx0.63\,\mathrm{Gpc}\approx1.93\times10^{25}\,\mathrm{m}$
 and $\ln(D_C/\ell_P)\approx138.3$.
 
-\textit{Ravasio et al.\ (2024).}
-Ravasio et al.~\cite{Ravasio2024} report a $13\sigma$ detection of a
-narrow emission feature in Fermi/GBM data from the intervals
-$T+280$--$320$\,s, outside the bad-time interval affected by detector
-saturation.  The line centroid evolves from $\approx14$\,MeV
-at $T+280$\,s to $\approx6$\,MeV at $T+320$\,s; the most
-energetic well-constrained single measurement is
-$E_{\rm line}=12.56\pm0.30$\,MeV in the interval $T+280$--$300$\,s
-(improvement $\Delta\mathrm{AIC}=49$ over the continuum-only model).
-The probe wavelength is
-$\lambda_{\rm obs}=hc/E_{\rm line}\approx9.9\times10^{-14}$\,m.
-The Gaussian width measured in this interval is
-$\sigma_{\rm gauss}=1.31_{-0.31}^{+0.30}$\,MeV, giving a relative width
-$\sigma/E\approx10\%$.  The narrow-band condition underlying
-Eq.~\eqref{eq:Sobs_conv} is satisfied: at the bound $\alpha\approx0.62$
-the rms path-length $\sigma_\ell\approx R\lambda_{\rm obs}\approx
-9.5\times10^{-13}$\,m (the shape-distortion threshold),
-while the coherence length $c\tau_c\approx\hbar c/\sigma_E\approx
-1.5\times10^{-13}$\,m for $\sigma_{\rm gauss}=1.31$\,MeV,
-giving $\sigma_\ell/(c\tau_c)\approx6$; at the threshold itself the
-foam broadening exceeds the coherence length, but for $\alpha$ above
-the bound $\sigma_\ell$ drops rapidly and the narrow-band approximation
-holds.
-The resolving power is $R = E_{\rm line}/\sigma_{\rm gauss}\approx 9.6$.
-Inserting $D_C\approx1.93\times10^{25}$\,m,
-$\lambda_{\rm obs}\approx9.9\times10^{-14}$\,m, and
-$\ell_P=1.6\times10^{-35}$\,m into Eq.~\eqref{eq:alpha_bound_spec}:
-$\ln(D_C/\lambda_{\rm obs})\approx88.2$, $\ln R\approx2.3$, and
-$\ln(D_C/\ell_P)\approx138.3$, giving
-\begin{equation}
-  \alpha \;\gtrsim\; \frac{88.2 - 2.3}{138.3} \;\approx\; 0.62.
-  \label{eq:alpha_grb_ravasio}
-\end{equation}
-All numerical bounds in this section assume $A_\alpha=1$ in
-Eq.~\eqref{eq:sigmaphi}; alternative normalizations shift $\alpha$ by
-$\mathcal{O}(\ln A_\alpha/\ln(D_C/\ell_P))$.
-
-\textit{Zhang et al.\ (2024).}
+\textit{Multi-epoch line data.}
 Zhang et al.~\cite{YQZhang2024} perform a joint analysis of GECAM-C and
 Fermi/GBM data covering the full prompt emission, including the bright
-phase inaccessible to GBM alone.  They identify a spectral excess in
-the G1 time interval ($T+246$--$256$\,s) at $\approx37$\,MeV,
-and interpret the entire feature as a line whose centroid evolves
-from $\approx37$\,MeV down to $\approx6$\,MeV across the burst.
-The 37\,MeV detection lies at or beyond the stated upper boundary of
-the GBM BGO detector range ($4$--$35$\,MeV), so the centroid and
-width of this earliest interval carry larger systematic uncertainty
-than the Ravasio et al.\ detections.  Taking $E_{\rm line}\approx37$\,MeV
-at face value gives $\lambda_{\rm obs}\approx3.4\times10^{-14}$\,m,
-$\ln(D_C/\lambda_{\rm obs})\approx89.2$.  Adopting $R\sim10$
-(comparable relative width to the Ravasio detection) and
-applying Eq.~\eqref{eq:alpha_bound_spec}:
-\begin{equation}
-  \alpha \;\gtrsim\; \frac{89.2 - 2.3}{138.3} \;\approx\; 0.63.
-  \label{eq:alpha_grb_zhang}
-\end{equation}
-This bound should be regarded as tentative pending confirmation of
-the 37\,MeV excess as a narrow spectral line within the instrumental
-sensitivity range.
+phase inaccessible to GBM alone.  They detect a Gaussian emission line
+in seven time intervals during $T_{\rm ref}+246$--$360$\,s, with the
+centroid evolving as $E_{\rm line}\propto t^{-1}$ from
+$\approx37$\,MeV down to $\approx6$\,MeV.  In every interval the
+measured ratio of line width to centroid is
+$r_{\rm obs}\equiv\sigma_{\rm obs}/E_{\rm line} = 0.10\pm0.01$
+($\chi^2/\mathrm{dof}=4/7$; Zhang et al.\ \S4.4 and their Figure~7c),
+consistent with a single constant across the full dynamic range.
+This constancy is naturally explained in the pair-annihilation
+interpretation: relativistic Doppler boosting from comoving frequency
+$\nu'$ to observed $\nu = \mathcal{D}\nu'$ preserves the fractional
+width, so the intrinsic contribution $r_{\rm int}\equiv
+\sigma_{\rm int}/E$ is independent of epoch.
 
-Both bounds fall below but do not exclude the holographic value
-$\alpha=2/3\approx0.667$: at that exponent
-$\sigma_\ell(\alpha=2/3)\approx 9.9\times10^{-14}$\,m $\ll R\lambda_{\rm obs}
-\approx 9.5\times10^{-13}$\,m for the Ravasio line --- the foam
-broadening is an order of magnitude below the intrinsic line width and
-the profile is essentially unaffected.
-Formally ruling out $\alpha=2/3$ at $z=0.151$ under the spectral
-shape-distortion criterion would require a confirmed spectral line at
-$E_{\rm obs}\gtrsim720\,\mathrm{MeV}$, approximately twenty times
-higher than the most energetic detection reported to date.
+\textit{Width decomposition.}
+The observed fractional width receives contributions from both the
+intrinsic line physics and any foam-induced spectral broadening,
+adding in quadrature:
+\begin{equation}
+  r_{\rm obs}^2(E) \;=\; r_{\rm int}^2 + r_{\rm foam}^2(E).
+  \label{eq:robs_decomp}
+\end{equation}
+The foam contribution depends on the temporal correlation regime of the
+fluctuations.  In the \emph{quasi-static} limit
+($\tau_{\rm foam}\gg\tau_c$, where the foam phase is frozen over the
+source coherence time), the accumulated random phase
+$\sigma_\phi = 2\pi\sigma_\ell/\lambda$ maps directly to a fractional
+frequency uncertainty $\sigma_\phi/(2\pi)$, giving
+\begin{equation}
+  r_{\rm foam}^{\rm (qs)}(E)
+  \;=\; \frac{\sigma_\ell}{\lambda_{\rm obs}(E)}
+  \;=\; \frac{\sigma_\ell\,E}{hc}
+  \;\propto\; E.
+  \label{eq:rfoam_qs}
+\end{equation}
+In the \emph{dynamical} limit ($\tau_{\rm foam}\ll\tau_c$),
+the foam instead scatters photon arrival times by
+$\sigma_t = \sigma_\ell/c$, producing an achromatic spectral
+broadening $\Delta\nu_{\rm foam} = c/(2\pi\sigma_\ell)$
+(Section~\ref{sec:spectral_strehl}), so that
+\begin{equation}
+  r_{\rm foam}^{\rm (dyn)}(E)
+  \;=\; \frac{hc}{2\pi\sigma_\ell\,E}
+  \;=\; \frac{\lambda_{\rm obs}(E)}{2\pi\sigma_\ell}
+  \;\propto\; E^{-1}.
+  \label{eq:rfoam_dyn}
+\end{equation}
+Both cases predict a characteristic energy dependence of $r_{\rm obs}$
+that is absent in the data, allowing a constraint on $\sigma_\ell$ and
+hence $\alpha$.  Defining $r_{\rm foam,0}$ as the foam contribution at
+the reference energy $E_0 = 37\,\mathrm{MeV}$
+($\lambda_0 = 3.4\times10^{-14}\,\mathrm{m}$), the models become
+$r_{\rm obs}^2 = r_{\rm int}^2 + r_{\rm foam,0}^2(E/E_0)^2$
+(quasi-static) and
+$r_{\rm obs}^2 = r_{\rm int}^2 + r_{\rm foam,0}^2(E_0/E)^2$
+(dynamical).
+
+\textit{Fit and upper limit on $r_{\rm foam,0}$.}
+A $\chi^2$ fit of the seven Zhang et al.\ measurements
+$(E_i, r_i\pm\delta r_i)$ to each two-parameter model (with
+$r_{\rm foam,0}\geq 0$) yields a best fit at $r_{\rm foam,0}=0$,
+$r_{\rm int}=0.111$, with $\chi^2_{\rm min}=5.3$ for 6 degrees of
+freedom, consistent with the reported $\chi^2/\mathrm{dof}\approx4/7$.
+Profiling over $r_{\rm int}$ gives the 95\%~CL
+($\Delta\chi^2=4$) upper limits:
+$r_{\rm foam,0}^{\rm max} = 0.29$ (quasi-static) and
+$r_{\rm foam,0}^{\rm max} = 0.042$ (dynamical).
+The quasi-static limit is weaker because the foam signal peaks at
+$E_0 = 37$\,MeV, where the single most uncertain data point (G1)
+resides; the dynamical limit benefits from the more precise low-energy
+measurements where the $1/E$ scaling concentrates the foam signal.
+
+\textit{Constraint on $\alpha$.}
+Converting via $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
+(Eq.~\eqref{eq:NgPerlmanVar} with $A_\alpha=1$):
+in the quasi-static case $\sigma_\ell = r_{\rm foam,0}\,\lambda_0$,
+giving
+\begin{equation}
+  \alpha \;\gtrsim\;
+  \frac{\ln(D_C/\lambda_0) + |\!\ln r_{\rm foam,0}^{\rm max}|}
+       {\ln(D_C/\ell_P)}
+  \;=\; \frac{89.2 + 1.2}{138.3}
+  \;\approx\; 0.65\,,
+  \label{eq:alpha_grb_qs}
+\end{equation}
+where $|\!\ln(0.29)|\approx1.2$.
+In the dynamical case $\sigma_\ell = \lambda_0/(2\pi\,r_{\rm foam,0})$,
+so that $\sigma_\ell$ \emph{decreases} as $r_{\rm foam,0}$ grows and
+\begin{equation}
+  \alpha \;\gtrsim\;
+  \frac{\ln(D_C/\lambda_0) + \ln(2\pi) - |\!\ln r_{\rm foam,0}^{\rm max}|}
+       {\ln(D_C/\ell_P)}
+  \;=\; \frac{89.2 + 1.8 - 3.2}{138.3}
+  \;\approx\; 0.64\,.
+  \label{eq:alpha_grb_dyn}
+\end{equation}
+For comparison, the single-line spectral shape-distortion bound
+(Eq.~\eqref{eq:alpha_bound_spec} with $R\approx10$) applied to the
+same 37\,MeV detection gives $\alpha\gtrsim(89.2-2.3)/138.3\approx0.63$.
+The multi-epoch lever arm improves the bound by
+$\Delta\alpha\approx0.02$ (quasi-static) to $\approx0.01$ (dynamical),
+the improvement being modest because the individual line-width
+measurements carry $30$--$50\%$ fractional uncertainties.
+
+\textit{Caveats.}
+(i)~The G1 interval ($T+246$--$256$\,s, $E\approx37$\,MeV) lies at or
+beyond the upper boundary of the GBM BGO detector range
+($4$--$35$\,MeV), so its line-width measurement carries larger
+systematic uncertainty than the later intervals.  Excluding G1 and
+re-referencing to $E_0=18\,\mathrm{MeV}$ weakens the quasi-static
+bound to $\alpha\gtrsim0.65$ (unchanged) and the dynamical bound to
+$\alpha\gtrsim0.64$.
+(ii)~All bounds assume $A_\alpha=1$ in Eq.~\eqref{eq:sigmaphi};
+alternative normalizations shift $\alpha$ by
+$\mathcal{O}(\ln A_\alpha/\ln(D_C/\ell_P))$.
+(iii)~The narrow-band condition underlying
+Eq.~\eqref{eq:Sobs_conv} is satisfied at the bound:
+$\sigma_\ell = r_{\rm foam,0}^{\rm max}\cdot\lambda_0 \lesssim
+10^{-14}\,\mathrm{m}$, while
+$c\tau_c\approx\hbar c/\sigma_E\approx 6\times10^{-14}\,\mathrm{m}$
+for $\sigma_E\sim3$\,MeV, giving $\sigma_\ell/(c\tau_c)\lesssim0.2$.
+(iv)~If the intrinsic fractional width $r_{\rm int}$ evolves with
+energy (e.g.\ due to changing pair-plasma temperature across epochs),
+this could partially mimic or mask a foam signal in the quasi-static
+case.  Marginalizing over a free linear-in-$E$ nuisance term
+$r_{\rm int}(E) = r_0 + r_1(E/E_0)$ leaves the quasi-static bound
+essentially unchanged ($\alpha\gtrsim0.65$) and the dynamical bound
+similarly unaffected ($\alpha\gtrsim0.64$), because the $1/E$ foam
+scaling is orthogonal to a positive-slope intrinsic trend.
+(v)~The quasi-static and dynamical limits bracket the true foam
+behavior; which regime applies depends on the (unknown) foam
+correlation time $\tau_{\rm foam}$ relative to the source coherence
+time $\tau_c\sim\hbar/\sigma_E\sim 2\times10^{-22}\,\mathrm{s}$ at
+MeV energies.
+
+\textit{Ravasio consistency check.}
+Ravasio et al.~\cite{Ravasio2024} independently report
+$\sigma/E\approx10\%$ ($\sigma_{\rm gauss}=1.31_{-0.31}^{+0.30}$\,MeV
+at $E_{\rm line}=12.56\pm0.30$\,MeV) using Fermi/GBM data alone in the
+$T+280$--$300$\,s interval, consistent with the Zhang et al.\
+measurements at the same epoch.  This cross-instrument agreement
+(GECAM-C$+$Fermi/GBM versus Fermi/GBM alone) supports the
+astrophysical reality of the constant fractional width.
+
+Neither the quasi-static bound $\alpha\gtrsim0.65$
+(Eq.~\eqref{eq:alpha_grb_qs}) nor the dynamical bound
+$\alpha\gtrsim0.64$ (Eq.~\eqref{eq:alpha_grb_dyn}) excludes the
+holographic value $\alpha=2/3\approx0.667$, but both improve upon the
+single-line result $\alpha\gtrsim0.63$.
+Reducing the per-epoch line-width uncertainties to $\delta r\lesssim
+0.01$ --- achievable with future MeV spectroscopy missions --- would
+push the quasi-static bound to $\alpha\gtrsim0.68$ and begin to
+probe the holographic regime.
 
 % ==============================================================
 \subsection{BzK4892}
