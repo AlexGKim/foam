@@ -252,7 +252,7 @@ and thereby drive $\sigma_\Delta^2(\tau)\to 0$, suppressing
 \emph{both} the GRB spectroscopic signal of
 Section~\ref{sec:grb221009a} and the CMB spectral distortion of
 Section~\ref{sec:CMB} (whose broadband template, derived in
-Appendix~\ref{app:FIRAS}~Step~1, takes
+Section~\ref{sec:CMB_derivation}, takes
 $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ in the dynamical limit and
 likewise vanishes when $C_\alpha\to 1$ over all observationally
 accessible lags).  The two channels therefore probe the same temporal
@@ -420,8 +420,7 @@ $e^{-\sigma_\phi^2}$ of the source flux, and (b) a pedestal
 contribution arising from the variation of $\sigma_\Delta^2(\tau)$
 at $|\tau|\lesssim\tau_{\rm foam}$, carrying the complementary
 $(1-e^{-\sigma_\phi^2})$ fraction.  The broadband decomposition of
-Appendix~\ref{app:FIRAS}
-(Section~\ref{sec:FIRAS_derivation}) treats this Fourier split
+Section~\ref{sec:CMB_derivation} treats this Fourier split
 explicitly.
 
 \subsection{Narrow-Band Limit}
@@ -587,7 +586,7 @@ $\mathcal{K}_{\rm foam}(\nu) = e^{-\sigma_\phi^2}\delta(\nu) +
 a coherent core $e^{-\sigma_\phi^2}S_{\rm src}(\nu)$ and a broad
 pedestal carrying the complementary fraction $1-e^{-\sigma_\phi^2}$
 of the source flux; the broadband CMB derivation in
-Appendix~\ref{app:FIRAS} treats this decomposition explicitly.
+Section~\ref{sec:CMB_derivation} treats this decomposition explicitly.
 
 
 % ==============================================================
@@ -719,8 +718,8 @@ acquire foam-induced deviations whose chromatic signature is distinct
 from standard chemical-potential and Compton-$y$ distortions.
 In this section we consider these two possibilities.
 
-\subsection{Spectral Shape-Distortion Criterion}
-\label{sec:spectral_strehl}
+\subsection{GRB\,221009A}
+\label{sec:grb221009a}
 
 The Ng--Perlman imaging bound~\cite{NgPerlman2022} uses the threshold
 $\sigma_\ell \lesssim \lambda$ (equivalently $\sigma_\phi\lesssim 2\pi$):
@@ -737,7 +736,11 @@ $\Delta\nu_{\rm foam}\sim c/\sigma_\ell$; this heuristic identifies
 the broadening timescale with the cumulative-jitter scale
 $\sigma_t=\sigma_\ell/c$, distinct from the foam decorrelation time
 $\tau_{\rm foam}$, and applies in the dynamical limit
-$\sigma_t\gg\tau_{\rm foam}$.
+$\sigma_t\gg\tau_{\rm foam}$.  The ratio $\sigma_t/\tau_G$ governs
+where the carrier-included Eq.~\eqref{eq:g1obs_gauss} departs from
+the narrow-band regime of Section~\ref{sec:narrowband}; the
+heuristic threshold below marks the boundary
+$\sigma_t\sim\tau_G$.
 A spectral line of resolving power $R\equiv\nu_0/\Delta\nu_{\rm line}$
 has intrinsic width $\Delta\nu_{\rm line}$.  When the foam broadening
 exceeds the line width,
@@ -756,21 +759,24 @@ observed line peak to the undistorted peak:
   \;\simeq\; \frac{1}{\sqrt{1 + R^2\lambda_{\rm obs}^2/\sigma_\ell^2}}\,,
   \label{eq:spectral_strehl}
 \end{equation}
-for a Gaussian line convolved with a Gaussian redistribution kernel.
-The spectral Strehl drops to $1/\sqrt{2}$ at the
-threshold~\eqref{eq:spec_strehl_thresh}.
+which is the peak ratio of the carrier-included closed form
+Eq.~\eqref{eq:g1obs_gauss} for a Gaussian line, with the $\sqrt{\,}$
+arising from the Gaussian-on-Gaussian convolution.  The spectral Strehl
+drops to $1/\sqrt{2}$ at the threshold~\eqref{eq:spec_strehl_thresh}.
 This is the spectroscopic analogue of the imaging Strehl: imaging
 tests whether spatial phase variance reduces the PSF peak;
 spectroscopy tests whether temporal path-length scatter broadens
 the line beyond its intrinsic width.  Both are shape diagnostics
 requiring no absolute calibration.
 
-The threshold $\sigma_\ell \lesssim R\lambda$ is weaker than the
-Ng--Perlman criterion $\sigma_\ell\lesssim\lambda$ by a factor of $R$:
-a line of resolving power $R$ tolerates $R$ times more path-length
-jitter before its shape is measurably distorted.
+The shape-distortion threshold $\sigma_\ell \lesssim R\lambda$
+permits $R$ times larger path-length jitter than the Ng--Perlman
+imaging criterion $\sigma_\ell\lesssim\lambda$: a line of resolving
+power $R$ tolerates jitter up to a fraction $1/R$ of its own width
+before the peak falls below $1/\sqrt{2}$.
 Substituting into the path-length
-model~\eqref{eq:NgPerlmanVar} and inverting:
+model~\eqref{eq:NgPerlmanVar} and inverting (with $D_C$ the
+comoving distance to the source):
 \begin{equation}
   \alpha \;\gtrsim\;
   \frac{\ln(D_C/\lambda_{\rm obs}) - \ln R}{\ln(D_C/\ell_P)}\,.
@@ -787,16 +793,6 @@ The spectroscopic channel yields bounds of the same form as
 imaging but slightly weaker, with the compensating gain being access
 to short wavelengths (MeV, X-ray) where imaging interferometry is
 impossible.
-
-For the CMB (Section~\ref{sec:CMB}), a qualitatively different
-mechanism applies: the known blackbody shape provides an absolute
-spectrophotometric reference, so the uniform suppression
-$e^{-\sigma_\phi^2(\nu)}$ is itself directly measurable without
-requiring line-shape distortion.
-
-% ==============================================================
-\subsection{GRB\,221009A}
-\label{sec:grb221009a}
 
 GRB\,221009A (``the BOAT,'' Brightest Of All Time) is the most
 energetic gamma-ray burst in the instrumental record, with isotropic-equivalent
@@ -924,7 +920,7 @@ $\propto E^{-1}$ scaling that follows from heuristic single-photon
 time--frequency uncertainty arguments, which conflate the cumulative
 path-length jitter $\sigma_\ell$ with the foam decorrelation timescale
 $\tau_{\rm foam}$ that actually sets the pedestal bandwidth (see
-Appendix~\ref{app:FIRAS}).  Both regimes thus predict $r_{\rm foam}\propto E$
+Section~\ref{sec:CMB_derivation}).  Both regimes thus predict $r_{\rm foam}\propto E$
 and admit the same two-parameter model
 \begin{equation}
   r_{\rm obs}^2(E) \;=\; r_{\rm int}^2 + r_{\rm foam,0}^2\,(E/E_0)^2,
@@ -940,8 +936,9 @@ A $\chi^2$ fit of the seven Zhang et al.\ measurements
 $(E_i, r_i\pm\delta r_i)$ to the two-parameter model
 Eq.~\eqref{eq:robs_model} (with $r_{\rm foam,0}\geq 0$) yields a best
 fit at $r_{\rm foam,0}=0$, $r_{\rm int}=0.111$, with
-$\chi^2_{\rm min}=5.3$ for 6 degrees of freedom, consistent with the
-reported $\chi^2/\mathrm{dof}\approx4/7$.  Profiling over $r_{\rm int}$
+$\chi^2_{\rm min}=5.3$ for 6 degrees of freedom
+($\chi^2/\mathrm{dof}=0.88$), confirming the constant-$r_{\rm obs}$
+hypothesis adopted by Zhang et al.\ (their \S4.4 and Figure~7c).  Profiling over $r_{\rm int}$
 gives the one-sided 95\%~CL ($\Delta\chi^2=2.71$, Wilks' theorem for
 one parameter of interest) upper limit
 $r_{\rm foam,0}^{\rm max} = 0.27$.  This bound applies to both the
@@ -1018,8 +1015,8 @@ $c\tau_G(E_0)=\hbar c/(r_{\rm int}E_0)\approx 4.8\times10^{-14}\,\mathrm{m}$:
 \begin{equation*}
   \frac{\sigma_\Delta}{\tau_G(E_0)} \;\approx\;
   \begin{cases}
-    0.29 & \text{QS bound, $\sigma_\ell\approx 10^{-14}$ m,} \\
-    2.65 & \text{DYN bound, $\sigma_\ell\approx 9\times10^{-14}$ m.}
+    0.26 & \text{QS bound, $\sigma_\ell\approx 9\times 10^{-15}$ m,} \\
+    2.40 & \text{DYN bound, $\sigma_\ell\approx 8\times 10^{-14}$ m.}
   \end{cases}
 \end{equation*}
 For the QS case the framework gives $\sigma_\Delta\to 0$ within the
@@ -1034,11 +1031,11 @@ off-narrow-band regime $\sigma_\Delta\gtrsim\tau_G$, where the
 carrier-included Eq.~\eqref{eq:g1obs_gauss} predicts \emph{two}
 observable effects: (a)~line-width broadening
 $r_{\rm obs}^2 = r_{\rm int}^2(1+\sigma_\Delta^2/\tau_G^2)$ --- which the
-fit constrains via $r_{\rm foam,0}^{\rm max}=0.29$ --- and
+fit constrains via $r_{\rm foam,0}^{\rm max}=0.27$ --- and
 (b)~a line-center redshift $\nu_0^{\rm eff}/\nu_0 =
 \tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ that becomes substantial at the
-upper limit ($\nu_0^{\rm eff}/\nu_0\approx 0.13$ at
-$\sigma_\Delta/\tau_G=2.65$).  The lever-arm fit uses observed line
+upper limit ($\nu_0^{\rm eff}/\nu_0\approx 0.15$ at
+$\sigma_\Delta/\tau_G=2.40$).  The lever-arm fit uses observed line
 centers as if they were intrinsic (pair-annihilation Doppler-boosted to
 $E_i$ in each epoch) and does not separately constrain (b).
 Incorporating the foam-induced redshift as a joint constraint would
@@ -1097,18 +1094,144 @@ probe the holographic regime.
 For a broadband thermal source such as the CMB, foam does not introduce
 a spectral-line shift but instead redistributes power: the coherent-core
 component is suppressed by $e^{-\sigma_\phi^2(\nu)}$ and the missing flux
-reappears in a broad pedestal whose shape depends on the short-time behaviour
-of the correlation function $C_\alpha(\tau)$.  Because $\sigma_\phi^2 \propto
-\nu^2$ (Eq.~\eqref{eq:sigmaphi}), the foam deficit is concentrated at high
-frequencies while the pedestal fills in at low frequencies, producing a
-spectral signature distinct from standard chemical-potential ($\mu$) and
-Compton-$y$ distortions.
+reappears in a broad pedestal whose shape depends on the short-time
+behaviour of the correlation function $C_\alpha(\tau)$.  Because
+$\sigma_\phi^2\propto\nu^2$ (Eq.~\eqref{eq:sigmaphi}), the foam deficit
+is concentrated at high frequencies while the pedestal fills in at low
+frequencies, producing a spectral signature distinct from standard
+chemical-potential ($\mu$) and Compton-$y$ distortions.  This subsection
+sets up the broadband signal, derives it from first principles, analyses
+the FIRAS sensitivity, and contrasts the result with the GRB
+spectroscopic bound.
 
-The Fisher-matrix analysis treats four spectral parameters
-$\boldsymbol{\theta} = (A_{\rm eff},\,T_0,\,\mu,\,y)$, where
-$A_{\rm eff} = A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$ is the combined
-foam amplitude and $\sigma_\phi^2(\nu) = (2\pi\nu/c)^2 A_{\rm eff}$.
-The linearized foam spectral template is
+\subsubsection{Foam phase variance at CMB frequencies}
+\label{sec:CMB_phasevar}
+
+CMB photons travel from the last-scattering surface at comoving distance
+$D_{\rm C}\approx 14\,{\rm Gpc}$ (Planck\,2018 flat-$\Lambda$CDM cosmology;
+$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  The
+accumulated phase variance, from Eq.~\eqref{eq:sigmaphi}, is
+\begin{equation}
+  \sigma_\phi^2(\nu)
+    = \left(\frac{2\pi\nu}{c}\right)^{\!2}\!
+      A_\alpha\,D_{\rm C}^{2(1-\alpha)}\,\ell_P^{2\alpha},
+  \label{eq:sigma_phi_CMB}
+\end{equation}
+where $\nu$ is the observed frequency.  At $\nu=150$\,GHz,
+\begin{equation}
+  \sigma_\phi^2(150\,{\rm GHz})\approx
+  \begin{cases}
+    6.8\times10^{-2} & \alpha=1/2\ \text{(random walk)},\\
+    10^{-22}         & \alpha=2/3\ \text{(holographic)}.
+  \end{cases}
+  \label{eq:sigma_phi_CMB_values}
+\end{equation}
+The strong $\nu^2$ dependence concentrates foam effects at high
+frequency; for $\alpha=1/2$ the variance reaches unity at
+$\nu\approx 574$\,GHz, near the top of the FIRAS band, marking where the
+linearised template breaks down (Section~\ref{sec:CMB_caveats}).  The
+Fisher analysis of Section~\ref{sec:CMB_degeneracy} establishes the
+observer-frame sensitivity threshold $\alpha\lesssim 0.57$ that follows
+from Eq.~\eqref{eq:sigma_phi_CMB}.
+
+Equation~\eqref{eq:sigmaphi} treats foam variance as accumulating in
+observer-frame comoving distance.  The proper redshift-weighted
+integral Eq.~\eqref{eq:sigmaphi_cosmo} enhances $\sigma_\phi^2$ at
+last scattering by a factor $\sim 10^4$ under uniform accumulation in
+comoving distance, which would tighten the threshold to
+$\alpha\lesssim 0.60$.  Because the foam-evolution model in an
+expanding universe is not specified by Eq.~\eqref{eq:NgPerlmanVar}, we
+treat the cosmological enhancement as a multiplicative modification of
+$A_\alpha$ that the convention $A_\alpha=1$ absorbs.  We quote
+$\alpha\lesssim 0.57$ as the observer-frame headline value; the
+cosmological-accumulation variant $\alpha\lesssim 0.60$ represents the
+tighter bound available if such an accumulation model is adopted.
+
+\subsubsection{Foam-modified CMB spectrum}
+\label{sec:CMB_derivation}
+
+The narrow-band reduction of Eq.~\eqref{eq:Sobs_conv} --- which underlies
+the spectral analysis of Section~\ref{sec:grb221009a} --- was derived for
+quasi-monochromatic sources and does not apply to the broadband
+blackbody.  We derive the broadband foam signature from the full
+convolution integral in the fully dynamical limit $C_\alpha\to 0$.  In
+this limit Eq.~\eqref{eq:diffVarExt} gives a saturated jitter variance
+$\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2(D)/c^2$ for all $\tau\neq 0$.
+
+Decomposing the blackbody as an incoherent superposition of narrowband
+modes $S_{\rm src}(\nu')=B_{\nu'}(T_0)$, each mode is modulated by the
+\emph{same} achromatic jitter $\delta t(t)$ (geometric path-length
+fluctuation, not plasma dispersion), with per-mode foam suppression
+\begin{equation}
+  \mathcal{F}_{\rm foam}(\tau;\nu')
+    = e^{-\sigma_\phi^2(\nu')[1-C_\alpha(\tau)]},
+  \quad
+  \sigma_\phi^2(\nu')=(2\pi\nu'/c)^2\sigma_\ell^2(D),
+\end{equation}
+that approaches the constant $e^{-\sigma_\phi^2(\nu')}$ for all
+$\tau\neq 0$ in the $C_\alpha\to 0$ limit.  To isolate the coherent-core
+and pedestal contributions, we split
+$\mathcal{F}_{\rm foam}(\tau;\nu')=e^{-\sigma_\phi^2(\nu')}+
+[\mathcal{F}_{\rm foam}(\tau;\nu')-e^{-\sigma_\phi^2(\nu')}]$: the
+first term contributes the constant asymptote at all lags
+(Fourier-transforming to a delta function at $\nu=\nu'$), while the
+residual is localised at $|\tau|\lesssim\tau_{\rm foam}$
+(Fourier-transforming to a broad pedestal).  Taking the
+intensity-weighted Fourier transform via Eq.~\eqref{eq:WK_obs} yields
+\begin{equation}
+  S_{\rm obs}(\nu)
+    = e^{-\sigma_\phi^2(\nu)}\,B_\nu(T_0)
+    + \int_0^\infty B_{\nu'}(T_0)\,\hat{R}(\nu-\nu';\nu')\,d\nu',
+  \label{eq:CMB_spectrum}
+\end{equation}
+where $\hat{R}(\nu-\nu';\nu')$ is the Fourier transform of the residual
+$\mathcal{F}_{\rm foam}(\tau;\nu')-e^{-\sigma_\phi^2(\nu')}$.  The
+coherent-core term $e^{-\sigma_\phi^2(\nu)}B_\nu(T_0)$ is exact and
+model-independent (requiring only achromatic jitter and
+$C_\alpha\to 0$); the pedestal kernel $\hat{R}$ depends on the
+short-$\tau$ behaviour of $C_\alpha(\tau)$ --- the foam coherence
+timescale $\tau_{\rm foam}$ --- and is therefore undetermined without
+specifying $C_\alpha$.  This is the broadband generalisation of the
+core-plus-pedestal decomposition stated in Section~\ref{sec:spec}.
+
+The achromatic phase modulation $e^{i\omega\delta t(t)}$ at each
+frequency is unitary, so it conserves photon number per mode: each
+photon is merely time-shifted, not absorbed or created.  Any physical
+pedestal kernel $\hat{R}$ derived from a specific $C_\alpha(\tau)$
+therefore satisfies $\int [S_{\rm obs}(\nu)-B_\nu(T_0)]\,d\nu/(h\nu)=0$.
+The fiducial placeholder used in the Fisher analysis below
+($K_\nu^{\rm fast}\propto[\nu\ln(\nu_{\rm max}/\nu_{\rm min})]^{-1}$) is
+energy-conserving but not photon-number-conserving; replacing it by a
+physical kernel from a specified $C_\alpha$ model is a prerequisite for
+a definitive FIRAS bound.
+
+\subsubsection{Fast-foam validity}
+\label{sec:CMB_fastfoam}
+
+The above derivation requires $\tau_{\rm foam}\ll 1/\nu_{\rm CMB}\sim
+7$\,ps.  For Planck-scale foam, $\tau_{\rm foam}\sim\ell_P/c\approx
+5\times 10^{-44}$\,s, the condition is satisfied by forty orders of
+magnitude.  For larger $\tau_{\rm foam}$ the suppression factor
+$e^{-\sigma_\phi^2[1-C_\alpha(\tau_{\rm foam})]}$
+(Eq.~\eqref{eq:Ffoam}) is reduced by $[1-C_\alpha(\tau_{\rm foam})]$
+and the distortion amplitude is suppressed accordingly.  In the
+quasi-static limit $\tau_{\rm foam}\to\infty$, $C_\alpha\to 1$ and both
+the deficit and the pedestal vanish, consistent with the disappearance
+of the HBT Siegert signal in that limit (Section~\ref{sec:g1}).
+
+\subsubsection{Fisher analysis: degeneracy with $\mu$ and $y$}
+\label{sec:CMB_degeneracy}
+
+The COBE/FIRAS monopole spectrum over $60$--$600$\,GHz constrains
+spectral distortions at $|\mu|,\,|y|\lesssim 10^{-5}$--$10^{-4}$
+\cite{Fixsen1996}.  Working in the linearised regime
+$\sigma_\phi^2(\nu)\ll 1$, we treat four spectral parameters
+$\boldsymbol{\theta}=(A_{\rm eff},T_0,\mu,y)$, where
+$A_{\rm eff}=A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}=\sigma_\ell^2(D_C)$
+is the cumulative foam path-length variance at the CMB distance
+(Eq.~\eqref{eq:NgPerlmanVar}), so that
+$\sigma_\phi^2(\nu)=(2\pi\nu/c)^2 A_{\rm eff}$.  The
+foam template is
 \begin{equation}
   \frac{\partial I_\nu}{\partial A_{\rm eff}}
     = -\!\left(\frac{2\pi\nu}{c}\right)^{\!2} B_\nu(T_0)
@@ -1116,50 +1239,17 @@ The linearized foam spectral template is
         \left(\frac{2\pi\nu'}{c}\right)^{\!2} B_{\nu'}(T_0)\,d\nu',
   \label{eq:dIdA}
 \end{equation}
-comprising a high-frequency deficit proportional to $\nu^2 B_\nu$ and a
-compensating low-frequency pedestal whose shape is set by the decorrelation
-kernel $K_\nu^{\rm fast}$.
-A fiducial kernel
-$K_\nu^{\rm fast} \propto (\nu\ln[\nu_{\rm max}/\nu_{\rm min}])^{-1}$
-(uniform energy redistribution in $\ln\nu$) is adopted here.
-With this choice the pedestal integral
-$P_{\rm foam} \equiv \int_{\nu_{\rm min}}^{\nu_{\rm max}}(2\pi\nu'/c)^2
-B_{\nu'}(T_0)\,d\nu'$ is a frequency-independent constant, so the pedestal
-has a $1/\nu$ spectral shape --- the same Rayleigh--Jeans dependence as the
-$\mu$-distortion template, and hence the origin of the foam--$\mu$ degeneracy.
-The physical pedestal is determined by the short-$\tau$ behaviour of
-$C_\alpha(\tau)$ (Appendix~\ref{app:FIRAS}, Section~\ref{sec:FIRAS_derivation});
-the fiducial kernel is the simplest choice consistent with energy conservation.
-For $\tau_{\rm foam}\sim\ell_P/c\sim 10^{-44}$\,s the redistributed power
-is displaced to frequencies $\sim c/\sigma_\ell\sim 10^{43}$\,Hz, entirely
-outside the FIRAS band; the in-band signal is then purely the deficit
-$-\sigma_\phi^2(\nu)\,B_\nu(T_0)$.  A Fisher analysis with this no-pedestal
-template reveals that the foam signal becomes nearly degenerate with
-$\partial B_\nu/\partial T_0$ ($\rho_{\rm foam\text{-}T_0}\approx0.9997$),
-\emph{worsening} the marginal sensitivity by a factor $\sim13$ relative to
-the fiducial kernel.  Both choices yield
-$\alpha_{\rm threshold}\approx0.56$--$0.57$ for SNR\,$=1$; the bound
-is robust to the kernel model.  The near-coincidence is a direct
-consequence of the logarithmic Ng--Perlman relation
-$\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$: a factor-$N$
-change in the smallest detectable $\sigma_\ell$ shifts the inferred
-$\alpha$ threshold by only $\Delta\alpha = \ln N/[2\ln(D_C/\ell_P)]$,
-which for $N\sim 13$ is $\Delta\alpha\approx 0.009$ --- comparable to
-the difference between the two kernel choices.  A definitive analysis requires specifying
-$C_\alpha(\tau)$ from first principles to determine the physical pedestal
-shape within the FIRAS band.
+comprising a high-frequency deficit and a compensating pedestal
+$K_\nu^{\rm fast}$.  Adopting the placeholder
+$K_\nu^{\rm fast}\propto(\nu\ln[\nu_{\rm max}/\nu_{\rm min}])^{-1}$
+(uniform energy redistribution in $\ln\nu$ --- the simplest form
+consistent with energy conservation) makes the pedestal integral
+$P_{\rm foam}\equiv\int(2\pi\nu'/c)^2 B_{\nu'}(T_0)\,d\nu'$ a
+frequency-independent constant, yielding a $1/\nu$ pedestal --- the
+same Rayleigh--Jeans shape as the $\mu$-distortion template, and hence
+the origin of the foam--$\mu$ degeneracy.
 
-The standard CMB spectral distortions describe two physically distinct
-processes.
-The chemical-potential ($\mu$) distortion arises from early-universe energy
-injection (e.g., Silk damping or decaying particles) when Compton scattering
-thermalizes photon energies but cannot adjust photon number, yielding a
-Bose--Einstein spectrum with $\mu\neq0$.
-The Compton-$y$ distortion encodes late-time electron heating (e.g., during
-reionization or in galaxy clusters) when full thermalization is no longer
-possible; it is proportional to the line-of-sight integral of electron thermal
-pressure.
-The linearized distortion templates are
+The chemical-potential and Compton-$y$ distortion templates are
 \begin{align}
   \frac{\partial I_\nu}{\partial\mu}
     &= -B_\nu(T_0)\,\frac{x e^x}{(e^x-1)^2}, \label{eq:dIdmu}\\
@@ -1167,49 +1257,16 @@ The linearized distortion templates are
     &= \phantom{-}B_\nu(T_0)\,\frac{x e^x}{e^x-1}
        \!\left[\frac{x(e^x+1)}{e^x-1}-4\right], \label{eq:dIdy}
 \end{align}
-where $x = h\nu/(k_B T_0)$.
-The foam--$\mu$ degeneracy arises because in the Rayleigh--Jeans limit
-($x\ll1$) the $\mu$-template approaches $\Delta I/B \to -\mu/x \propto \nu^{-1}$,
-the same frequency dependence as the fiducial pedestal $K_\nu^{\rm fast}$;
-the two templates are therefore nearly collinear across the FIRAS band.
-The temperature-bias entries in Fig.~\ref{fig:cmb_bias} follow from the
-nested-model bias formula
-$\Delta\boldsymbol{\theta}_{\rm fit} = -(F_{\rm fit,fit})^{-1} F_{\rm fit,omit}\,A_{\rm eff}^{\rm true}$,
-where $F_{\rm fit,fit}$ is the $3\times3$ Fisher block for $(T_0,\mu,y)$
-and $F_{\rm fit,omit}$ is its cross-coupling to $A_{\rm eff}$.
-The positive sign ($b_{T_0} = +1.21\times10^7\,{\rm K\,m^{-2}}$) reflects the
-fact that the pedestal excess at low frequencies mimics a temperature increase
-in the Rayleigh--Jeans regime.
+with $x=h\nu/(k_B T_0)$, encoding respectively early-universe energy
+injection (Silk damping, decaying particles) and late-time electron
+heating (reionization, cluster gas).  In the Rayleigh--Jeans limit the
+$\mu$-template approaches $\Delta I/B\to -\mu/x\propto\nu^{-1}$, the
+same frequency dependence as the fiducial pedestal $K_\nu^{\rm fast}$;
+the two templates therefore have nearly identical spectral shapes
+across the FIRAS band, producing a strong Fisher-matrix degeneracy.
 
-The CMB monopole spectrum measured by COBE/FIRAS over $60$--$600$\,GHz
-constrains spectral distortions at $|\mu|, |y| \lesssim 10^{-5}$--$10^{-4}$
-\cite{Fixsen1996}.  At the last-scattering surface
-($D_C \approx 14\,\mathrm{Gpc}$, Planck\,2018 cosmology), the foam phase
-variance at $150\,\mathrm{GHz}$ is $\sigma_\phi^2 \approx 0.07$ for the
-random-walk model ($\alpha = 1/2$) and $\sigma_\phi^2 \approx 10^{-22}$ for
-the holographic model ($\alpha = 2/3$).  A Fisher-matrix analysis of the
-FIRAS band (43 uniform channels, diagonal noise $\sigma_\nu = 0.01\,\mathrm{MJy/sr}$)
-shows that the foam amplitude $A_{\rm eff}$ is nearly degenerate with the
-$\mu$-distortion template (correlation coefficient $\rho = 0.976$,
-Eq.~\eqref{eq:fisher_corr_matrix}), degrading the sensitivity by a factor of $\sim 6$
-relative to the case where $\mu$ and $T_0$ are known.  Accounting for this
-degeneracy, FIRAS is sensitive to foam only for $\alpha \lesssim 0.57$
-(Fig.~\ref{fig:cmb_snr}), modulo the cosmological-redshift systematic
-discussed below.  Equation~\eqref{eq:sigmaphi} uses the observer-frame
-wavelength; the proper redshift-weighted integral
-Eq.~\eqref{eq:sigmaphi_cosmo} enhances $\sigma_\phi^2$ by a factor
-$\sim 10^4$ at last scattering under the assumption that foam variance
-accumulates uniformly in comoving distance.  This would tighten the
-FIRAS threshold to $\alpha \lesssim 0.60$.  Because the
-foam-evolution model in an expanding universe is not specified by
-Eq.~\eqref{eq:NgPerlmanVar}, we treat the cosmological enhancement as a
-multiplicative modification of $A_\alpha$ that the conventional choice
-$A_\alpha = 1$ absorbs; the quoted threshold is therefore
-$\alpha \lesssim 0.57$--$0.60$, with the precise value depending on the
-foam cosmological convention.
-
-The Fisher-matrix correlation coefficients for
-$\boldsymbol{\theta}=(A_{\rm eff},\,T_0,\,\mu,\,y)$ are
+A Fisher analysis using 43 uniform FIRAS channels with diagonal noise
+$\sigma_\nu=0.01$\,MJy/sr yields the correlation matrix
 \begin{equation}
 \rho_{ij} = \begin{pmatrix}
   1.000 & 0.937 & \mathbf{0.976} & 0.010 \\
@@ -1219,34 +1276,115 @@ $\boldsymbol{\theta}=(A_{\rm eff},\,T_0,\,\mu,\,y)$ are
 \end{pmatrix},
 \label{eq:fisher_corr_matrix}
 \end{equation}
-showing the dominant foam--$\mu$ degeneracy ($\rho_{A_{\rm eff}\mu}=0.976$,
-bold) and negligible foam--$y$ correlation ($\rho_{A_{\rm eff}y}=0.010$).
-The dominant degeneracy will shift once a physical $C_\alpha$ model replaces
-the fiducial pedestal kernel.
+showing the dominant foam--$\mu$ degeneracy
+($\rho_{A_{\rm eff}\mu}=0.976$, bold) and a negligible foam--$y$
+correlation ($\rho_{A_{\rm eff}y}=0.010$).  The marginal Fisher
+uncertainties are
+\begin{equation}
+  \sigma(A_{\rm eff}) = 1.5\times10^{-17}\,{\rm m}^2,
+  \qquad
+  \sigma(A_{\rm eff})\big|_{\mu,y\,\text{fixed}}
+    = 2.6\times10^{-18}\,{\rm m}^2,
+  \label{eq:sigma_Aeff}
+\end{equation}
+so marginalising over $\mu$ and $T_0$ degrades the foam-amplitude
+uncertainty by a factor $\sim 6$, driven almost entirely by the
+foam--$\mu$ collinearity.  Figure~\ref{fig:cmb_snr} plots the SNR
+versus $\alpha$; sensitivity falls below $1\sigma$ at
+$\alpha\approx 0.57$.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.82\columnwidth]{cmb_snr_alpha}
-\caption{Detection SNR for the foam amplitude $A_{\rm eff}$ as a function of foam
-exponent $\alpha$ ($A_\alpha = 1$, $D_C = 13.87$\,Gpc).
+\caption{Detection SNR for the foam amplitude $A_{\rm eff}$ as a function
+of foam exponent $\alpha$ ($A_\alpha=1$, $D_C=13.87$\,Gpc).
 Blue curves: marginal SNR (all four parameters $A_{\rm eff},T_0,\mu,y$ free).
-Red curves: conditional SNR ($\mu,y$ held fixed), which is $\sim6\times$ higher.
-Solid: FIRAS; dashed: PIXIE (noise floor $\sim10^3\times$ lower).
+Red curves: conditional SNR ($\mu,y$ held fixed), which is $\sim 6\times$ higher.
+Solid: FIRAS; dashed: PIXIE (noise floor $\sim 10^3\times$ lower).
 The dotted horizontal line marks SNR\,$=1$; vertical dashed lines mark the
-spectroscopic lower bound from GRB\,221009A ($\alpha\gtrsim0.64$)
-and the holographic prediction $\alpha=2/3$.}
+spectroscopic lower bound from GRB\,221009A ($\alpha\gtrsim 0.64$) and the
+holographic prediction $\alpha=2/3$.}
 \label{fig:cmb_snr}
 \end{figure}
 
-This sensitivity range ($\alpha \lesssim 0.57$) does not overlap with the spectroscopic
-lower bound from Section~\ref{sec:grb221009a}: FIRAS
-probes strictly lower exponents than the GRB probe.
-Any foam model consistent with the spectroscopic bound ($\alpha \gtrsim 0.64$)
-produces a phase variance $\sigma_\phi^2 \ll 1$ at CMB frequencies; if such a model were
-present but omitted from the spectral fit, the recovered CMB temperature would be biased
-by $|\Delta T_0| \ll \sigma(T_0)$ (Fig.~\ref{fig:cmb_bias}).  Spacetime foam in this
-class therefore cannot account for any systematic error in the CMB temperature measurement
-or in cosmological quantities derived from it such as the Hubble constant $H_0$.
+We have also checked the no-pedestal limit, appropriate when
+$\tau_{\rm foam}\sim\ell_P/c$ displaces the redistributed power to
+$\sim 10^{43}$\,Hz, entirely outside the FIRAS band: the foam template
+then degenerates with $\partial B_\nu/\partial T_0$ at
+$\rho\approx 0.9997$ and the sensitivity worsens by $\sim 13\times$,
+yet $\alpha_{\rm threshold}$ shifts only to $\sim 0.56$.  The
+near-coincidence reflects the logarithmic Ng--Perlman relation
+$\sigma_\ell^2=D_C^{2(1-\alpha)}\ell_P^{2\alpha}$: taking the
+$\alpha$-derivative of $\ln\sigma_\ell^2 = 2(1-\alpha)\ln D_C +
+2\alpha\ln\ell_P$ at fixed $\sigma_\ell$ gives $d\alpha/d\ln\sigma_\ell
+= 1/\ln(\ell_P/D_C)$, so a factor-$N$ change in the smallest detectable
+$\sigma_\ell$ shifts $\alpha$ by only $\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]
+\approx 0.009$ for $N\sim 13$.
+The threshold $\alpha\lesssim 0.57$ is therefore robust to the kernel
+model at this precision; a definitive analysis requires specifying
+$C_\alpha(\tau)$ from first principles to determine the physical
+pedestal shape within the FIRAS band.
+
+\subsubsection{Bias in recovered $T_0$ from unmodeled foam}
+\label{sec:CMB_T0_bias}
+
+The Fisher matrix also quantifies how much the fitted CMB temperature
+would shift if foam were present but omitted from the model.  Suppose
+the data contain foam at amplitude $A_{\rm eff}^{\rm true}$ but the
+analyst fits only $\boldsymbol{\theta}_{\rm fit}=(T_0,\mu,y)$.  In the
+linearised Fisher regime the parameter shift is
+\begin{equation}
+  \hat{\boldsymbol{\theta}}_{\rm fit}
+    - \boldsymbol{\theta}_{\rm fit}^{\rm true}
+  = -(F_{\rm fit,fit})^{-1}\,F_{\rm fit,omit}\,A_{\rm eff}^{\rm true},
+  \label{eq:bias_formula}
+\end{equation}
+where $F_{\rm fit,fit}$ is the $3\times3$ Fisher block for
+$(T_0,\mu,y)$ and $F_{\rm fit,omit}$ couples the fitted parameters to
+the omitted foam amplitude.  Both blocks come from the same matrix as
+Eq.~\eqref{eq:fisher_corr_matrix}, so no new computation is required.
+
+The $T_0$ component gives
+\begin{equation}
+  \Delta T_0 = b_{T_0}\,A_{\rm eff}^{\rm true},
+  \qquad b_{T_0} = -\bigl[(F_{\rm fit,fit})^{-1}F_{\rm fit,omit}\bigr]_{T_0}.
+  \label{eq:T0_bias}
+\end{equation}
+Numerically, $b_{T_0}=+1.21\times10^7\,{\rm K\,m^{-2}}$: the bias is
+\emph{positive}, reflecting the placeholder pedestal's Rayleigh--Jeans
+excess being absorbed as an apparent temperature increase
+($\partial B_\nu/\partial T>0$), while the high-frequency deficit is
+absorbed into a positive $\Delta\mu$ ($b_\mu\approx 1.05\times 10^8\,
+{\rm m^{-2}}$, consistent with $\rho_{A_{\rm eff}\mu}=0.976$).
+Requiring $|\Delta T_0|<\sigma(T_0)=5.7\times 10^{-4}$\,K
+\cite{Fixsen2009} gives
+\begin{equation}
+  A_{\rm eff}^{\rm max,\,bias}
+    = \frac{\sigma(T_0)}{|b_{T_0}|} = 4.7\times 10^{-11}\,{\rm m}^2,
+  \label{eq:Aeff_bias_bound}
+\end{equation}
+corresponding (with $A_\alpha=1$) to a crossover exponent
+$\alpha_{\rm bias}=0.518$.  Models with $\alpha<0.518$ would have
+biased the Fixsen $T_0$ by more than $1\sigma$ had such a signal been
+present and unmodeled; models with $\alpha>0.518$ would not.
+
+The bias bound $\alpha\gtrsim 0.52$ is weaker than the marginal SNR
+bound $\alpha\gtrsim 0.57$.  Mechanistically, the foam pedestal's
+Rayleigh--Jeans-like low-frequency excess overlaps the $\mu$-distortion
+template much more than the $\partial B_\nu/\partial T_0$ template, so
+in the four-parameter fit the foam signal is absorbed primarily into
+$\mu$, leaving $T_0$ nearly unshifted (small bias).  That same
+$\mu$-direction degeneracy, however, inflates the marginal
+$\sigma(A_{\rm eff})$ once $\mu$ is allowed to float, sharpening the
+SNR threshold relative to the bias threshold.
+Figure~\ref{fig:cmb_bias} plots $|\Delta T_0|/\sigma(T_0)$ as a
+function of $\alpha$; at $\alpha=0.57$ (marginal SNR $\approx 1$) the
+ratio is $\approx 4\times 10^{-4}$ --- completely negligible.  The
+published Fixsen $T_0=2.72548$\,K is therefore not appreciably biased
+by any foam model near or above the FIRAS detection threshold.  The
+sign and magnitude of $\Delta T_0$ depend on the placeholder kernel;
+a physically derived pedestal from a specified $C_\alpha(\tau)$ may
+alter these values.
 
 \begin{figure}[h]
 \centering
@@ -1256,23 +1394,66 @@ $|\Delta T_0|/\sigma(T_0)$, as a function of foam exponent $\alpha$
 when foam at amplitude $A_{\rm eff}$ ($A_\alpha=1$, $D_C=13.87$\,Gpc)
 is present but omitted from the spectral fit.
 Solid: FIRAS with $\sigma(T_0)=5.7\times10^{-4}$\,K~\cite{Fixsen2009};
-dashed: PIXIE with $\sigma(T_0)\approx5.7\times10^{-7}$\,K (noise floor
-$\sim10^3\times$ lower).
+dashed: PIXIE with $\sigma(T_0)\approx 5.7\times10^{-7}$\,K (noise floor
+$\sim 10^3\times$ lower).
 The dotted horizontal line marks $|\Delta T_0|=\sigma(T_0)$; the FIRAS
-crossover occurs at $\alpha\approx0.518$.
-Vertical dashed lines mark the spectroscopic lower bounds and the holographic
-prediction $\alpha=2/3$ (as in Fig.~\ref{fig:cmb_snr}).}
+crossover occurs at $\alpha\approx 0.518$.
+Vertical dashed lines mark the spectroscopic lower bounds and the
+holographic prediction $\alpha=2/3$ (as in Fig.~\ref{fig:cmb_snr}).}
 \label{fig:cmb_bias}
 \end{figure}
 
-A definitive FIRAS foam analysis would also require specifying $C_\alpha(\tau)$
-to determine the pedestal shape, and replacing the linearized template with the
-full nonlinear expression at high frequencies where $\sigma_\phi^2 \gtrsim 1$
-(Appendix~\ref{app:FIRAS}).
-FIRAS provides an independent check via absolute-calibrated broadband photometry
---- complementary to narrow spectral-line spectroscopy --- and constrains the
-parameter space below both spectroscopic bounds where more exotic foam models
-would reside.
+\subsubsection{Caveats: nonlinear regime and parameter degeneracy}
+\label{sec:CMB_caveats}
+
+Two caveats qualify the linearised analysis.
+
+\emph{Nonlinear regime.}  The linearisation
+$\Delta I_\nu\approx\sigma_\phi^2(\nu)\times[\text{template}]$ is valid
+only for $\sigma_\phi^2\ll 1$.  For $\alpha=1/2$, $\sigma_\phi^2=1$ is
+reached at $\nu\approx 574$\,GHz, within the FIRAS band.  Replacing
+the linearised deficit $-\sigma_\phi^2(\nu)B_\nu$ by the saturated form
+$-(1-e^{-\sigma_\phi^2(\nu)})B_\nu$ reduces the in-band foam amplitude
+by $\approx 13\%$ at $\alpha=0.50$ and by $<1\%$ at $\alpha\gtrsim 0.52$.
+The headline threshold $\alpha\lesssim 0.57$ is therefore unaffected
+at the $\Delta\alpha\ll 10^{-3}$ level; the nonlinear template matters
+only for analyses of strong foam ($\alpha\lesssim 0.52$), where it may
+also help break the foam--$\mu$ degeneracy.
+
+\emph{Parameter degeneracy within the foam template.}  The exponent
+$\alpha$ and the amplitude $A_\alpha$ enter only through the product
+$A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}=A_{\rm eff}$.  FIRAS
+constrains this product directly but not the exponent separately;
+converting a bound on $A_{\rm eff}$ to a bound on $\alpha$ requires
+fixing $A_\alpha$ by convention (here $A_\alpha=1$, following Ng \&
+Perlman~\cite{NgPerlman2022}).  Any quoted bound on $\alpha$ carries
+this implicit normalisation.
+
+\subsubsection{Complementarity with GRB\,221009A}
+\label{sec:CMB_complementarity}
+
+The FIRAS sensitivity range $\alpha\lesssim 0.57$--$0.60$ does not
+overlap the GRB spectroscopic lower bound $\alpha\gtrsim 0.64$ of
+Section~\ref{sec:grb221009a}: FIRAS probes strictly lower exponents.
+Any foam model consistent with the spectroscopic bound produces
+$\sigma_\phi^2\ll 1$ at CMB frequencies; if such a model were present
+but omitted from the spectral fit, the recovered CMB temperature would
+be biased by $|\Delta T_0|\ll\sigma(T_0)$
+(Section~\ref{sec:CMB_T0_bias} and Fig.~\ref{fig:cmb_bias}).
+Spacetime foam in this class therefore cannot account for any
+systematic error in the CMB temperature measurement or in cosmological
+quantities derived from it such as the Hubble constant $H_0$.
+
+FIRAS provides an independent broadband test of foam --- absolute
+calibrated photometry, no source-profile assumption, and a different
+systematic-error budget from spectroscopy --- and constrains the
+parameter space below the GRB bound where more exotic foam models
+would reside.  A definitive FIRAS foam analysis would require
+specifying $C_\alpha(\tau)$ to determine the physical pedestal shape
+and replacing the linearised template with the full nonlinear
+expression at high frequencies where $\sigma_\phi^2\gtrsim 1$;
+Appendix~\ref{app:FIRAS} outlines the steps such an analysis would
+take.
 
 % ==============================================================
 \section{Conclusions}
@@ -1364,381 +1545,77 @@ We thank Robin Kaiser for helpful discussions that helped motivate this work.
 \appendix
 
 % ==============================================================
-\section{FIRAS Constraint on the Foam Exponent}
+\section{Outline of a Full FIRAS Foam Analysis}
 \label{app:FIRAS}
 % ==============================================================
 
-\subsection{Scope and Physical Motivation}
-
-This appendix does not present a completed FIRAS constraint on $\alpha$; rather,
-it identifies the physical inputs, derives the spectral template that any such
-analysis would fit, and outlines the analysis steps required to obtain a bound.
-The Wiener--Khinchin decomposition of Eq.~\eqref{eq:Sobs_conv} applies
-to any stationary field attenuated by the foam scattering kernel, not only to
-narrow emission lines. The Cosmic Microwave Background (CMB), observed across
-$\nu \in [6, 600]$\,GHz by COBE/FIRAS, provides an independent broadband
-laboratory for this test: the same two-component signature --- a suppressed
-coherent core and an incoherent pedestal (Section~\ref{sec:spec}) --- should
-appear in the CMB monopole spectrum if spacetime foam distorts photons on their
-path from the last-scattering surface. Because the foam signal is achromatic
-(geometric path-length jitter, not plasma dispersion), the frequency dependence
-of the foam-induced distortion follows $\sigma_\phi^2 \propto \nu^2$, distinct
-from standard chemical-potential ($\mu$) and Compton-$y$ spectral distortions.
-FIRAS constrains such distortions at the level $|\mu|, |y| \lesssim 10^{-5}$
-to $10^{-4}$.
-
-\subsection{Foam Phase Variance at CMB Frequencies}
-
-CMB photons travel from the last-scattering surface at comoving distance
-$D_{\rm C} \approx 14\,{\rm Gpc}$ (Planck 2018 flat $\Lambda$CDM cosmology;
-$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m = 0.315$).
-Equation~\eqref{eq:sigmaphi} gives the accumulated phase variance directly
-at the comoving distance $D_C\approx 14\,\mathrm{Gpc}$:
-\begin{equation}
-  \sigma_\phi^2(\nu)
-    = \left(\frac{2\pi\nu}{c}\right)^{\!2}\!
-      A_\alpha\,D_{\rm C}^{2(1-\alpha)}\,\ell_P^{2\alpha},
-  \label{eq:sigma_phi_CMB}
-\end{equation}
-where $\nu$ is the observed frequency.
-Representative values at $\nu = 150$\,GHz ($\lambda_{\rm CMB} \approx 2$\,mm):
-\begin{equation}
-  \sigma_\phi^2(150\,{\rm GHz}) \approx
-  \begin{cases}
-    6.8 \times 10^{-2} & \alpha = 1/2 \text{ (random walk)}, \\
-    10^{-22}         & \alpha = 2/3 \text{ (holographic)}.
-  \end{cases}
-  \label{eq:sigma_phi_CMB_values}
-\end{equation}
-The strong $\nu^2$ dependence of $\sigma_\phi^2$ means foam effects are most
-pronounced at high frequency; for $\alpha = 1/2$ the variance reaches unity
-($\sigma_\phi^2 = 1$) at $\nu \approx 574$\,GHz, near the top of the FIRAS band,
-marking where the nonlinear regime becomes important. The achievable sensitivity
-threshold (accounting for degeneracies with $\mu$ and $T_0$) is $\alpha \lesssim 0.57$.
-
-\subsection{Derivation of the Observed CMB Spectrum}
-\label{sec:FIRAS_derivation}
-
-The narrow-band reduction of Eq.~\eqref{eq:Sobs_conv} --- which underlies the
-spectral analysis of Section~\ref{sec:spec} --- was derived for quasi-monochromatic
-sources and does not apply to the broadband blackbody. Here we derive the foam
-signature for the CMB by starting from the full convolution integral and
-evaluating it in the fully dynamical limit $C_\alpha \to 0$.
-
-\subsubsection*{Step 1: Saturated jitter variance}
-
-In the $C_\alpha \to 0$ limit, Eq.~\eqref{eq:diffVarExt} gives
-\begin{equation}
-  \sigma_\Delta^2(\tau) \to \frac{2\sigma_\ell^2(D)}{c^2} \quad \text{for all } \tau \neq 0.
-\end{equation}
-The jitter variance saturates to a $\tau$-independent value, twice the single-ray
-variance $\sigma_\ell^2/c^2$.
-
-\subsubsection*{Step 2: Monochromatic decomposition}
-
-The blackbody field is broadband; we decompose it as an incoherent superposition
-of narrowband modes: $S_{\rm src}(\nu') = B_{\nu'}(T_0)$ (spectral intensity per
-unit frequency). Each mode at frequency $\nu'$ is an independent stationary
-Gaussian process with coherence function
-\begin{equation}
-  g^{(1)}_{\nu'}(\tau) = e^{-i 2\pi \nu' \tau} \times [\text{coherence factor}(|\tau|)].
-\end{equation}
-Critically, each mode is independently phase-modulated by the \emph{same} achromatic
-jitter $\delta t(t)$, which is frequency-independent by assumption (geometric path-length
-fluctuation, not plasma dispersion).
-
-\subsubsection*{Step 3: Per-mode foam suppression}
-
-For a monochromatic mode at frequency $\nu'$, the foam suppression factor is
-\begin{equation}
-  \mathcal{F}_{\rm foam}(\tau;\nu') = e^{-\sigma_\phi^2(\nu')[1-C_\alpha(\tau)]},
-  \quad \text{where} \quad \sigma_\phi^2(\nu') = (2\pi\nu'/c)^2\,\sigma_\ell^2(D).
-\end{equation}
-In the $C_\alpha \to 0$ limit, $\mathcal{F}_{\rm foam}(\tau;\nu') \to e^{-\sigma_\phi^2(\nu')}$
-for all $\tau \neq 0$ --- a constant, $\tau$-independent suppression.
-
-\subsubsection*{Step 4: Two-component decomposition}
-
-Decompose the suppression factor into its asymptotic and residual parts:
-\begin{equation}
-  \mathcal{F}_{\rm foam}(\tau;\nu') = e^{-\sigma_\phi^2(\nu')}
-    + \left[\mathcal{F}_{\rm foam}(\tau;\nu') - e^{-\sigma_\phi^2(\nu')}\right].
-\end{equation}
-The first term is the $\tau \to \infty$ asymptote (the coherent core fraction);
-the second (the residual) vanishes at large $|\tau|$.
-
-\subsubsection*{Step 5: Total first-order coherence}
-
-The intensity-weighted integral over modes:
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau) = \frac{1}{I_{\rm tot}}\int_0^\infty B_{\nu'}(T_0)\,
-    e^{-i2\pi\nu'\tau}\,\mathcal{F}_{\rm foam}(\tau;\nu')\,d\nu'.
-\end{equation}
-
-\subsubsection*{Step 6: Wiener--Khinchin to the observed spectrum}
-
-Taking the Fourier transform via Eq.~\eqref{eq:WK_obs} and applying the two-component
-decomposition:
-\begin{equation}
-  S_{\rm obs}(\nu) = e^{-\sigma_\phi^2(\nu)}\,B_\nu(T_0)
-    + \int_0^\infty B_{\nu'}(T_0)\,\hat{R}(\nu-\nu';\nu')\,d\nu',
-\end{equation}
-where $\hat{R}(\nu-\nu';\nu')$ is the Fourier transform of the residual
-$\mathcal{F}_{\rm foam}(\tau;\nu') - e^{-\sigma_\phi^2(\nu')}$.
-
-\emph{Key observations:}
-
-(i) The coherent core term $e^{-\sigma_\phi^2(\nu)}\,B_\nu(T_0)$ is exact and
-model-independent; it requires only the assumptions of achromatic jitter and
-$C_\alpha \to 0$.
-
-(ii) The pedestal kernel $\hat{R}(\nu-\nu';\nu')$ depends on the \emph{short-$\tau$
-behavior of $C_\alpha(\tau)$} --- that is, on the foam coherence timescale
-$\tau_{\rm foam}$. Without specifying $C_\alpha(\tau)$, the pedestal shape is
-\emph{undetermined}.
-
-(iii) The current placeholder kernel $K_\nu^{\rm fast} = [\nu \ln(\nu_{\rm max}/\nu_{\rm min})]^{-1}$
-does not correspond to any specific $C_\alpha$ model and should be replaced once
-one is chosen. The FIRAS bandpass $[6, 600]$\,GHz enters the analysis only as a
-likelihood window, not as the physical support of the redistribution kernel.
-
-\subsubsection*{Photon-number and energy conservation}
-
-The achromatic phase modulation $e^{i\omega \delta t(t)}$ at each frequency is
-unitary and time-reversal-invariant, so it conserves the photon number per mode:
-each photon is merely time-shifted, not absorbed or created. The physical
-pedestal kernel $\hat{R}(\nu-\nu';\nu')$ derived from a specific $C_\alpha(\tau)$
-therefore satisfies
-\begin{equation}
-  \int_0^\infty \frac{S_{\rm obs}(\nu) - B_\nu(T_0)}{h\nu}\,d\nu = 0
-  \quad \text{(photon-number conservation by achromatic unitarity).}
-\end{equation}
-\emph{Note on the placeholder kernel.}  The
-$K_\nu^{\rm fast}\propto 1/[\nu\ln(\nu_{\rm max}/\nu_{\rm min})]$ used in
-the linearized Fisher analysis of Section~\ref{sec:CMB} is a tractable shape,
-not derived from a specific $C_\alpha$.  It is normalised so that
-$\int K_\nu^{\rm fast}\,d\nu = 1$ and therefore satisfies the energy-conservation
-relation $\int [S_{\rm obs}(\nu) - B_\nu(T_0)]\,d\nu = 0$, but does
-\emph{not} in general satisfy the photon-number conservation above.
-The exact photon-number constraint applies to any physical kernel
-$\hat{R}$ obtained by Fourier-transforming the residual
-$\mathcal{F}_{\rm foam}(\tau;\nu') - e^{-\sigma_\phi^2(\nu')}$ from a
-specific $C_\alpha(\tau)$ model; replacing $K_\nu^{\rm fast}$ by such a
-physical kernel and rerunning the Fisher analysis is a prerequisite for
-a definitive FIRAS bound.
-
-\subsubsection*{Connection to Section~IV.A}
-
-The derivation above is the broadband analogue of the assertion in Section~IV.A
-that the complex amplitude decomposes as a $\delta(\nu)$ coherent-core term plus
-a broadened pedestal. A future revision should either lift this derivation into
-the main text or reference this appendix from Section~IV.A for the broadband case.
-
-\subsection{Validity of the Fast-Foam Assumption}
-
-The fast-foam limit requires $\tau_{\rm foam} \ll 1/\nu_{\rm CMB} \sim 7$\,ps.
-If the foam coherence time is set by the Planck scale,
-$\tau_{\rm foam} \sim \ell_P/c \approx 5 \times 10^{-44}$\,s, this condition
-is satisfied by forty orders of magnitude.  For larger $\tau_{\rm foam}$, the
-foam suppression factor $e^{-\sigma_\phi^2[1-C_\alpha(\tau_{\rm foam})]}$
-(Eq.~\eqref{eq:Ffoam}) is reduced by the factor $[1-C_\alpha(\tau_{\rm foam})]$,
-and the distortion amplitude is suppressed accordingly.  In the quasi-static
-limit $\tau_{\rm foam} \to \infty$, $C_\alpha \to 1$ and the CMB spectrum is
-unchanged, consistent with the vanishing of the HBT Siegert signal in that
-limit (Section~\ref{sec:g1}). In this limit the pedestal (residual term)
-also vanishes, consistent with Section~\ref{sec:FIRAS_derivation}.
-
-\subsection{Degeneracy with Standard Spectral Distortions}
-\label{sec:FIRAS_degeneracy}
-
-The foam signal must be separated from two standard CMB spectral distortion templates.
-The chemical-potential ($\mu$) and Compton-$y$ distortions have characteristic shapes:
-\begin{align}
-  \Delta I_\nu^\mu &= -\mu\, B_\nu(T_0)\, \frac{x e^x}{(e^x - 1)^2}, \\
-  \Delta I_\nu^y  &= y\, B_\nu(T_0)\, \frac{x e^x}{e^x - 1}\left[x\frac{e^x + 1}{e^x - 1} - 4\right],
-\end{align}
-with $x = h\nu/(k_B T_0)$ and $T_0 = 2.7255$\,K.
-
-Comparing to the linearized foam template (high-$\nu$ deficit $\propto \nu^2 B_\nu$, low-$\nu$
-pedestal undetermined), a key degeneracy emerges: the $\mu$-distortion template's Rayleigh--Jeans
-limit is $\Delta I/B \propto -\mu/x \propto \nu^{-1}$, which is shape-degenerate with a
-$1/\nu$-distributed pedestal. The current placeholder kernel $K_\nu^{\rm fast} \propto 1/(\nu \ln[\nu_{\rm max}/\nu_{\rm min}])$
-is precisely this form, maximizing the foam-$\mu$ correlation.
-
-A Fisher matrix analysis (code: \texttt{fisher\_firas.py}) using the linearized templates,
-diagonal FIRAS noise $\sigma_\nu = 0.01$\,MJy/sr per channel, and 43 uniform channels from
-60 to 600\,GHz gives the correlation matrix shown in Eq.~\eqref{eq:fisher_corr_matrix} and the
-marginal uncertainties
-\begin{equation}
-  \sigma(A_{\rm eff}) = 1.5\times10^{-17}\,{\rm m}^2 \quad \text{(marginal, all params free)},
-  \qquad
-  \sigma(A_{\rm eff})\big|_{\mu,y\,\text{fixed}} = 2.6\times10^{-18}\,{\rm m}^2.
-  \label{eq:sigma_Aeff}
-\end{equation}
-Marginalizing over $\mu$ and $T_0$ therefore degrades the foam amplitude uncertainty by a factor
-of $\sim 6$, driven almost entirely by the foam--$\mu$ degeneracy.
-
-Eq.~\eqref{eq:fisher_corr_matrix} and Fig.~\ref{fig:cmb_snr} (Section~\ref{sec:CMB}) give
-the full correlation matrix and the SNR as a function of $\alpha$, showing that
-sensitivity falls below 1$\sigma$ at $\alpha \approx 0.57$.
-
-These results use the placeholder kernel; the actual sensitivity limit depends on the
-physical pedestal shape. The foam--$y$ correlation $\rho = 0.010$ is negligible: the
-$y$-distortion measurement provides essentially no help in separating the foam signal.
-
-\textit{Action item:} Repeat this Fisher analysis using (i) the FIRAS noise-plus-calibration
-covariance matrix from Fixsen (1996) in place of the diagonal approximation, and (ii) the
-full nonlinear foam template once $C_\alpha(\tau)$ is specified. Both changes will alter the
-correlations quantitatively, particularly the foam--$\mu$ degeneracy.
-
-\subsection{Bias in Recovered $T_0$ from Unmodeled Foam}
-\label{sec:FIRAS_T0_bias}
-
-The Fisher matrix provides two complementary measures of sensitivity. Section~\ref{sec:FIRAS_degeneracy}
-asked \textit{how precisely can we detect $A_{\rm eff}$?}; here we ask \textit{how much would the
-fitted CMB temperature shift if foam were present but omitted from the model?}
-
-\textbf{Bias formula.} Suppose the data contain a foam signal at amplitude $A_{\rm eff}^{\rm true}$
-but the analyst fits only the standard parameters $\boldsymbol{\theta}_{\rm fit} = (T_0, \mu, y)$.
-In the linearized Fisher regime the resulting parameter shift is
-\begin{equation}\label{eq:bias_formula}
-  \hat{\boldsymbol{\theta}}_{\rm fit} - \boldsymbol{\theta}_{\rm fit}^{\rm true}
-  = -(F_{\rm fit,fit})^{-1}\,F_{\rm fit,omit}\,A_{\rm eff}^{\rm true},
-\end{equation}
-where $F_{\rm fit,fit}$ is the $3\times3$ lower-right block of the full Fisher matrix (for
-$T_0, \mu, y$) and $F_{\rm fit,omit}$ is the $3\times1$ cross-block coupling the fitted parameters
-to the omitted foam amplitude. Both blocks are extracted from the same matrix as
-Eq.~\eqref{eq:fisher_corr_matrix} and Fig.~\ref{fig:cmb_snr}, so no new computation is required.
-
-\textbf{Temperature bias.} The $T_0$ component of Eq.~\eqref{eq:bias_formula} is
-\begin{equation}\label{eq:T0_bias}
-  \Delta T_0 \equiv \hat{T}_0 - T_0^{\rm true} = b_{T_0}\,A_{\rm eff}^{\rm true},
-  \qquad b_{T_0} \equiv -\bigl[(F_{\rm fit,fit})^{-1}F_{\rm fit,omit}\bigr]_{T_0}.
-\end{equation}
-Numerically, $b_{T_0} = +1.21\times10^7\,{\rm K\,m^{-2}}$: the bias is \textit{positive}, meaning
-foam would cause the fitter to report a temperature slightly too high.  This is counterintuitive
-but physically consistent.  The placeholder pedestal $K_\nu^{\rm fast}\propto\nu^{-1}$ produces a
-low-frequency flux excess that the fitter interprets as a temperature increase (since
-$\partial B_\nu/\partial T > 0$ in the Rayleigh--Jeans regime), while the high-frequency
-deficit is absorbed into a positive $\Delta\mu$.  The dominant bias is in $\mu$: numerically
-$b_\mu \approx 1.05\times10^8\,{\rm m^{-2}}$, consistent with the strong foam--$\mu$ correlation
-$\rho = 0.976$ from Eq.~\eqref{eq:fisher_corr_matrix}.
-
-\textbf{Bias-based bound.} Requiring $|\Delta T_0| < \sigma(T_0) = 0.00057\,{\rm K}$
-(Fixsen 2009~\cite{Fixsen2009}) gives
-\begin{equation}\label{eq:Aeff_bias_bound}
-  A_{\rm eff}^{\rm max,\,bias} = \frac{\sigma(T_0)}{|b_{T_0}|}
-  = \frac{5.7\times10^{-4}\,{\rm K}}{1.21\times10^7\,{\rm K\,m^{-2}}}
-  = 4.7\times10^{-11}\,{\rm m}^2,
-\end{equation}
-corresponding, with $A_\alpha = 1$, to a crossover exponent $\alpha_{\rm bias} = 0.518$.
-Foam models with $\alpha < 0.518$ would have biased the Fixsen $T_0$ by more than $1\sigma$
-had such a signal been present and unmodeled; models with $\alpha > 0.518$ do not.
-
-Fig.~\ref{fig:cmb_bias} (Section~\ref{sec:CMB}) plots $|\Delta T_0|/\sigma(T_0)$ and its ratio
-to $\sigma(T_0)$ for $\alpha = 0.50$--$0.59$.
-At $\alpha = 0.57$ (where the marginal SNR $\approx 1$), the
-ratio $\Delta T_0/\sigma(T_0) \approx 4\times10^{-4}$: completely negligible.  The published
-Fixsen $T_0 = 2.72548\,{\rm K}$ is therefore not appreciably biased by any foam model near or above
-the FIRAS detection threshold.
-
-\textbf{Comparison of bounds.}  The two $\alpha$ lower bounds from FIRAS are:
-(i)~$\alpha \gtrsim 0.52$ (T$_0$-bias bound, this subsection);
-(ii)~$\alpha \gtrsim 0.57$ (marginal-SNR bound, Section~\ref{sec:FIRAS_degeneracy}).
-The bias bound is the weakest because the strong foam--$\mu$ correlation ($\rho = 0.976$)
-allows most of the foam signal to be absorbed into $\mu$ without producing a large
-\textit{individual} shift in $T_0$.  The same freedom that hides the bias inflates the
-marginal $\sigma(A_{\rm eff})$, hence the SNR bound is tighter.
-
-\textit{Caveat:} The sign and magnitude of $\Delta T_0$ depend on the placeholder pedestal
-kernel $K_\nu^{\rm fast}$.  A physically derived pedestal from a specific $C_\alpha(\tau)$
-model (Section~\ref{sec:FIRAS_derivation}) may alter these values; repeating the bias
-calculation with the physical kernel is action item~2b of Section~\ref{sec:FIRAS_analysis}.
-
-\subsection{Parameter Degeneracy Within the Foam Template}
-
-The foam template parameters $\alpha$ and $A_\alpha$ enter the linearized distortion only through
-the product $A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$ — defining the combined amplitude $A_{\rm eff}$.
-FIRAS constrains this amplitude directly, but not the exponent $\alpha$ separately. Converting a
-bound on $A_{\rm eff}$ to a bound on $\alpha$ requires fixing $A_\alpha$ by convention (e.g., $A_\alpha = 1$
-following Ng and Perlman). Any reported foam constraint on $\alpha$ must state this assumption explicitly.
-
-\subsection{Nonlinear Regime at the Band Edge}
-
-The linearization $\Delta I_\nu \approx \sigma_\phi^2(\nu) \times [\text{template}]$ is valid only when
-$\sigma_\phi^2 \ll 1$. For $\alpha = 1/2$ (random-walk foam), $\sigma_\phi^2 = 1$ is reached at
-$\nu \approx 574$\,GHz, within the FIRAS band. At higher frequencies the linearization breaks
-down and the full nonlinear expression from Section~\ref{sec:FIRAS_derivation} must be used in the likelihood.
-Quantitatively, replacing the linearized deficit $-\sigma_\phi^2(\nu)\,B_\nu$ by the saturated form
-$-(1-e^{-\sigma_\phi^2(\nu)})\,B_\nu$ reduces the in-band foam amplitude by $\approx 13\%$ at
-$\alpha=0.50$ (where the band edge enters the saturated regime) and by $<1\%$ at
-$\alpha\gtrsim 0.52$.  The headline marginal threshold $\alpha\lesssim 0.57$ is therefore
-unaffected by the linearization at the $\Delta\alpha\ll 10^{-3}$ level; the nonlinear template
-matters only for analyses of strong foam ($\alpha\lesssim 0.52$), where it may also help
-break the foam--$\mu$ degeneracy that dominates the marginal parameter space.  The nonlinear
-Fisher matrix should be computed before quoting bounds in that regime.
-
-\subsection{Relation to the GRB\,221009A Bound}
-
-Section~\ref{sec:grb221009a} reports $\alpha \gtrsim 0.64$--$0.65$ from MeV gamma-ray emission lines at $z = 0.151$.
-The FIRAS constraint achieves marginal sensitivity at $\alpha \lesssim 0.57$, probing strictly lower $\alpha$ values.
-FIRAS therefore provides an independent systematics check
-using completely different inputs (absolute calibrated photometry, broadband rather than single-line, no source
-profile assumption) and probes the parameter space below the GRB spectroscopic bound where more exotic foam models would reside.
+The Fisher and bias analyses of Section~\ref{sec:CMB} use a placeholder
+pedestal kernel and a linearised template; a definitive FIRAS bound on
+the foam exponent $\alpha$ requires the additional steps outlined
+here.  The load-bearing derivations, numerical results, and
+complementarity discussion now live in Section~\ref{sec:CMB}.
 
 \subsection{Proposed Analysis}
 \label{sec:FIRAS_analysis}
 
 The FIRAS constraint requires the following steps:
 
-1. \textit{Specify $C_\alpha(\tau)$ model.} Choose or derive the temporal decorrelation function (e.g.,
-   exponential with timescale $\tau_{\rm foam}$, power-law, or data-driven). Use Section~\ref{sec:FIRAS_derivation}
-   to compute the pedestal kernel $\hat{R}$ from first principles.
+\begin{enumerate}
+\item \textit{Specify $C_\alpha(\tau)$ model.} Choose or derive the
+  temporal decorrelation function (e.g.\ exponential with timescale
+  $\tau_{\rm foam}$, power-law, or data-driven).  Use
+  Section~\ref{sec:CMB_derivation} to compute the pedestal kernel
+  $\hat{R}$ from first principles.
 
-2. \textit{Compute nonlinear Fisher matrix.} Using the full nonlinear template (not the linearized approximation),
-   compute the Fisher correlation matrix for $(\alpha, A_\alpha, T_0, \mu, y, A_{\rm CIB}, c_i)$ on the FIRAS
-   noise-plus-calibration covariance. Assess how much the $\alpha$-$\mu$ degeneracy is reduced once $C_\alpha$ is specified.
+\item \textit{Compute nonlinear Fisher matrix.} Using the full
+  nonlinear template (not the linearised approximation), compute the
+  Fisher correlation matrix for $(\alpha, A_\alpha, T_0, \mu, y,
+  A_{\rm CIB}, c_i)$ on the FIRAS noise-plus-calibration covariance.
+  Assess how much the $\alpha$--$\mu$ degeneracy is reduced once
+  $C_\alpha$ is specified.
 
-2b. \textit{Repeat bias calculation in the nonlinear regime.} Once the full nonlinear template is available,
-    repeat the linearized bias computation of Section~\ref{sec:FIRAS_T0_bias} at the nonlinear level to verify
-    that the sign and magnitude of $\Delta T_0$ are reliable at the band edge ($\nu \gtrsim 400$\,GHz, where
-    $\sigma_\phi^2 \to 1$ for $\alpha \approx 0.50$--$0.55$). In the nonlinear regime the linearized formula
-    Eq.~\eqref{eq:bias_formula} must be replaced by a numerical comparison of maximum-likelihood estimators.
+\item[2b.] \textit{Repeat the bias calculation in the nonlinear regime.}
+  Once the full nonlinear template is available, repeat the linearised
+  bias computation of Section~\ref{sec:CMB_T0_bias} at the nonlinear
+  level to verify that the sign and magnitude of $\Delta T_0$ are
+  reliable at the band edge ($\nu\gtrsim 400$\,GHz, where
+  $\sigma_\phi^2\to 1$ for $\alpha\approx 0.50$--$0.55$).  In the
+  nonlinear regime the linearised formula
+  Eq.~\eqref{eq:bias_formula} must be replaced by a numerical
+  comparison of maximum-likelihood estimators.
 
-3. \textit{Null-hypothesis validation.} Fit the FIRAS spectrum with $A_\alpha = 0$ and verify recovery of
-   published values: $T_0 = 2.72548 \pm 0.00057$\,K, $|\mu| < 9 \times 10^{-5}$, $|y| < 1.5 \times 10^{-5}$
-   (95\% CL; Fixsen 1996, 2009).
+\item \textit{Null-hypothesis validation.} Fit the FIRAS spectrum with
+  $A_\alpha=0$ and verify recovery of published values:
+  $T_0 = 2.72548\pm 0.00057$\,K, $|\mu|<9\times 10^{-5}$,
+  $|y|<1.5\times 10^{-5}$ (95\% CL; Fixsen 1996, 2009).
 
-4. \textit{Joint Bayesian inference.} Sample the full posterior $p(\alpha, A_\alpha, T_0, \mu, y, \ldots | \mathbf{I}^{\rm obs})$
-   using the full nonlinear likelihood and FIRAS data. Report marginal bounds on $\alpha$ (fixing $A_\alpha = 1$
-   or marginalizing over it as specified).
-
-\subsection{Connection to the Spectral Framework of Section~\ref{sec:spec}}
-
-Section~\ref{sec:spec} states the two-component decomposition (coherent
-core plus pedestal) without derivation. The detailed calculation of Section~\ref{sec:FIRAS_derivation} is what grounds this
-decomposition: it shows how the broadband blackbody, when phase-modulated by achromatic jitter in the dynamical
-limit $C_\alpha \to 0$, naturally splits into a coherent-core term (exact, model-independent) and a pedestal
-(model-dependent on $C_\alpha$). The FIRAS measurement probes this structure using the full $6$--$600$\,GHz dynamic
-range, complementing the multi-epoch spectroscopy of Section~\ref{sec:grb221009a}.
+\item \textit{Joint Bayesian inference.} Sample the full posterior
+  $p(\alpha, A_\alpha, T_0, \mu, y, \ldots \mid \mathbf{I}^{\rm obs})$
+  using the full nonlinear likelihood and FIRAS data.  Report marginal
+  bounds on $\alpha$ (fixing $A_\alpha=1$ or marginalising over it as
+  specified).
+\end{enumerate}
 
 \subsection{Likelihood and Inference Framework}
 
-The FIRAS monopole spectrum is compared to the full foam template (Section~\ref{sec:FIRAS_derivation})
-together with standard spectral-distortion templates ($\mu$-distortion, Compton-$y$, CIB, and
+The FIRAS monopole spectrum is compared to the full foam template
+(Section~\ref{sec:CMB_derivation}) together with standard
+spectral-distortion templates ($\mu$-distortion, Compton-$y$, CIB, and
 calibration modes) via a Gaussian log-likelihood:
 \begin{equation}
   \ln\mathcal{L}
     = -\tfrac{1}{2}\,\mathbf{r}^T\,\mathbf{C}^{-1}\,\mathbf{r},
   \label{eq:FIRAS_likelihood}
 \end{equation}
-where $\mathbf{r} = \mathbf{I}^{\rm obs} - \mathbf{I}^{\rm model}$ is the residual vector
-and $\mathbf{C}$ is the FIRAS noise-plus-calibration covariance matrix (Fixsen 1996).
-The free parameters are $(\alpha, A_\alpha, T_0, \mu, y, A_{\rm CIB}, c_1, c_2, c_3)$,
-where $c_i$ are calibration mode amplitudes. A null-hypothesis validation fit with
-$A_\alpha = 0$ must recover the published FIRAS values
-$T_0 = 2.72548 \pm 0.00057$\,K, $|\mu| < 9 \times 10^{-5}$, $|y| < 1.5 \times 10^{-5}$
-(95\% CL) before the foam parameter is freed for analysis.
+where $\mathbf{r} = \mathbf{I}^{\rm obs} - \mathbf{I}^{\rm model}$ is
+the residual vector and $\mathbf{C}$ is the FIRAS
+noise-plus-calibration covariance matrix (Fixsen 1996).  The free
+parameters are $(\alpha, A_\alpha, T_0, \mu, y, A_{\rm CIB},
+c_1, c_2, c_3)$, where $c_i$ are calibration mode amplitudes.  A
+null-hypothesis validation fit with $A_\alpha = 0$ must recover the
+published FIRAS values $T_0 = 2.72548\pm 0.00057$\,K,
+$|\mu|<9\times 10^{-5}$, $|y|<1.5\times 10^{-5}$ (95\% CL) before the
+foam parameter is freed for analysis.
 
 
 \bibliographystyle{apsrev4-2}

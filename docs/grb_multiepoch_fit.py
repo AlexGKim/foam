@@ -75,8 +75,15 @@ def chi2_qs(r_int, r_foam0, E_data, r_data, dr_data, E_ref):
 
 
 def chi2_dyn(r_int, r_foam0, E_data, r_data, dr_data, E_ref):
-    """Chi-squared for dynamical model: r^2 = r_int^2 + r_foam0^2*(E0/E)^2"""
-    r_model = np.sqrt(r_int**2 + r_foam0**2 * (E_ref / E_data)**2)
+    """Chi-squared for dynamical model: r^2 = r_int^2 + r_foam0^2*(E/E0)^2
+
+    Per the corrected derivation (g1.tex Eq. rfoam_dyn): in the dynamical
+    limit r_foam(E) = r_int^2 * 2*sqrt(2)*pi*sigma_l / lambda_obs(E) ∝ E,
+    the same energy dependence as the quasi-static case. QS and DYN
+    therefore share this fit model and differ only in the mapping from
+    r_foam0 to sigma_l (see alpha_bound_dyn).
+    """
+    r_model = np.sqrt(r_int**2 + r_foam0**2 * (E_data / E_ref)**2)
     return np.sum(((r_data - r_model) / dr_data)**2)
 
 
@@ -110,8 +117,12 @@ def find_upper_limit(chi2_func, E_data, r_data, dr_data, E_ref, delta_chi2=2.71)
     return (r_lo + r_hi) / 2, chi2_min, r_int_best
 
 
-def alpha_bound_qs(r_foam0, D_C, lam0, ell_P):
-    """Alpha bound for quasi-static: sigma_l = r_foam0 * lam0"""
+def alpha_bound_qs(r_foam0, D_C, lam0, ell_P, r_int=None):
+    """Alpha bound for quasi-static: sigma_l = r_foam0 * lam0 (r_int unused).
+
+    Per the heuristic identification (g1.tex Eq. rfoam_qs):
+    r_foam(E) = sigma_l / lambda_obs(E), so sigma_l = r_foam0 * lam0.
+    """
     sigma_l = r_foam0 * lam0
     # sigma_l^2 = D_C^{2(1-alpha)} * ell_P^{2*alpha}
     # ln(sigma_l) = (1-alpha)*ln(D_C) + alpha*ln(ell_P)
@@ -121,9 +132,16 @@ def alpha_bound_qs(r_foam0, D_C, lam0, ell_P):
     return (np.log(D_C / lam0) - np.log(r_foam0)) / np.log(D_C / ell_P)
 
 
-def alpha_bound_dyn(r_foam0, D_C, lam0, ell_P):
-    """Alpha bound for dynamical: sigma_l = lam0 / (2*pi*r_foam0)"""
-    sigma_l = lam0 / (2 * np.pi * r_foam0)
+def alpha_bound_dyn(r_foam0, D_C, lam0, ell_P, r_int=None):
+    """Alpha bound for dynamical regime.
+
+    Per the corrected derivation (g1.tex Eq. rfoam_dyn):
+    r_foam0 = r_int^2 * 2*sqrt(2)*pi*sigma_l / lam0,
+    so sigma_l = r_foam0 * lam0 / (2*sqrt(2)*pi*r_int^2).
+    """
+    if r_int is None:
+        raise ValueError("alpha_bound_dyn requires r_int (intrinsic fractional width).")
+    sigma_l = r_foam0 * lam0 / (2 * np.sqrt(2) * np.pi * r_int**2)
     return (np.log(D_C) - np.log(sigma_l)) / np.log(D_C / ell_P)
 
 
@@ -134,7 +152,7 @@ print("=" * 70)
 
 for regime, chi2_func, alpha_func, regime_name in [
     ("Quasi-static (r_foam ∝ E)", chi2_qs, alpha_bound_qs, "qs"),
-    ("Dynamical (r_foam ∝ 1/E)", chi2_dyn, alpha_bound_dyn, "dyn"),
+    ("Dynamical (r_foam ∝ E, r_int^2 prefactor)", chi2_dyn, alpha_bound_dyn, "dyn"),
 ]:
     print(f"\n--- {regime} ---")
 
@@ -149,8 +167,8 @@ for regime, chi2_func, alpha_func, regime_name in [
     print(f"  68% CL upper limit on r_foam,0: {r_foam_68:.4f}")
     print(f"  95% CL upper limit on r_foam,0: {r_foam_95:.4f}")
 
-    alpha_68 = alpha_func(r_foam_68, D_C, lam0, ell_P)
-    alpha_95 = alpha_func(r_foam_95, D_C, lam0, ell_P)
+    alpha_68 = alpha_func(r_foam_68, D_C, lam0, ell_P, r_int=r_int_best)
+    alpha_95 = alpha_func(r_foam_95, D_C, lam0, ell_P, r_int=r_int_best)
     print(f"  alpha bound (68% CL): alpha >= {alpha_68:.4f}")
     print(f"  alpha bound (95% CL): alpha >= {alpha_95:.4f}")
     print(f"  Compare: single-line bound alpha >= {(np.log(D_C/lam0) - np.log(10))/np.log(D_C/ell_P):.4f}")
@@ -170,8 +188,8 @@ for regime, chi2_func, alpha_func, regime_name in [
     r_foam_68_noG1, _, _ = find_upper_limit(
         chi2_func, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=1.0)
 
-    alpha_95_noG1 = alpha_func(r_foam_95_noG1, D_C, lam0_noG1, ell_P)
-    alpha_68_noG1 = alpha_func(r_foam_68_noG1, D_C, lam0_noG1, ell_P)
+    alpha_95_noG1 = alpha_func(r_foam_95_noG1, D_C, lam0_noG1, ell_P, r_int=r_int_noG1)
+    alpha_68_noG1 = alpha_func(r_foam_68_noG1, D_C, lam0_noG1, ell_P, r_int=r_int_noG1)
     print(f"  Best fit: r_int = {r_int_noG1:.4f}, r_foam,0 = 0")
     print(f"  chi2_min = {chi2_min_noG1:.2f} (dof = {len(E_noG1)-1})")
     print(f"  68% CL upper limit on r_foam,0: {r_foam_68_noG1:.4f}")
@@ -194,10 +212,14 @@ def chi2_qs_linear(params, E_data, r_data, dr_data, E_ref):
 
 
 def chi2_dyn_linear(params, E_data, r_data, dr_data, E_ref):
-    """Dynamical with linear intrinsic: r^2 = (r0+r1*E/E0)^2 + rf^2*(E0/E)^2"""
+    """Dynamical with linear intrinsic: r^2 = (r0+r1*E/E0)^2 + rf^2*(E/E0)^2
+
+    Per the corrected DYN scaling (g1.tex Eq. rfoam_dyn): r_foam ∝ E,
+    same as QS; only the r_foam0 → sigma_l mapping differs.
+    """
     r0, r1, rf = params
     r_int_E = r0 + r1 * (E_data / E_ref)
-    r_model = np.sqrt(r_int_E**2 + rf**2 * (E_ref / E_data)**2)
+    r_model = np.sqrt(r_int_E**2 + rf**2 * (E_data / E_ref)**2)
     return np.sum(((r_data - r_model) / dr_data)**2)
 
 
@@ -207,7 +229,8 @@ for regime_name, chi2_lin_func, alpha_func in [
 ]:
     print(f"\n--- {regime_name} with linear r_int(E) ---")
 
-    # Scan r_foam0 and for each, minimize over (r0, r1)
+    # Scan r_foam0 and for each, minimize over (r0, r1). Returns
+    # (best chi2, best r0, best r1) so we can recover r_int at E_ref.
     def profile_over_linear(rf_val):
         def obj(x):
             r0, r1 = x
@@ -215,23 +238,26 @@ for regime_name, chi2_lin_func, alpha_func in [
                 return 1e10
             return chi2_lin_func([r0, r1, rf_val], E_keV, r_obs, dr_obs, E0_keV)
         res = minimize(obj, [0.10, 0.0], method='Nelder-Mead')
-        return res.fun
+        return res.fun, res.x[0], res.x[1]
 
-    chi2_min_lin = profile_over_linear(0.0)
+    chi2_min_lin, r0_best, r1_best = profile_over_linear(0.0)
+    r_int_ref = r0_best + r1_best  # r_int evaluated at E = E_ref
     print(f"  chi2_min (rf=0, linear r_int): {chi2_min_lin:.2f} (dof={len(E_keV)-3})")
+    print(f"  best r0 = {r0_best:.4f}, best r1 = {r1_best:.4f}, r_int(E_ref) = {r_int_ref:.4f}")
 
     # Find 95% CL upper limit
     target = chi2_min_lin + 4.0
     r_lo, r_hi = 0.0, 0.5
     for _ in range(80):
         r_mid = (r_lo + r_hi) / 2
-        if profile_over_linear(r_mid) < target:
+        chi2_mid, _, _ = profile_over_linear(r_mid)
+        if chi2_mid < target:
             r_lo = r_mid
         else:
             r_hi = r_mid
     r_foam_95_lin = (r_lo + r_hi) / 2
 
-    alpha_95_lin = alpha_func(r_foam_95_lin, D_C, lam0, ell_P)
+    alpha_95_lin = alpha_func(r_foam_95_lin, D_C, lam0, ell_P, r_int=r_int_ref)
     print(f"  95% CL upper limit on r_foam,0: {r_foam_95_lin:.4f}")
     print(f"  alpha bound (95% CL, linear r_int): alpha >= {alpha_95_lin:.4f}")
 
