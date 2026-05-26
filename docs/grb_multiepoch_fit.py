@@ -90,8 +90,8 @@ def profile_chi2(r_foam0_val, chi2_func, E_data, r_data, dr_data, E_ref):
     return res.fun, res.x
 
 
-def find_upper_limit(chi2_func, E_data, r_data, dr_data, E_ref, delta_chi2=4.0):
-    """Find 95% CL (delta_chi2=4) or 68% CL (delta_chi2=1) upper limit on r_foam0."""
+def find_upper_limit(chi2_func, E_data, r_data, dr_data, E_ref, delta_chi2=2.71):
+    """Find one-sided 95% CL (delta_chi2=2.71, Wilks) or 68% CL (delta_chi2=1) upper limit on r_foam0."""
     # First find the global minimum (at r_foam0=0)
     chi2_min, r_int_best = profile_chi2(0.0, chi2_func, E_data, r_data, dr_data, E_ref)
 
@@ -140,7 +140,7 @@ for regime, chi2_func, alpha_func, regime_name in [
 
     # Full dataset
     r_foam_95, chi2_min, r_int_best = find_upper_limit(
-        chi2_func, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=4.0)
+        chi2_func, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=2.71)
     r_foam_68, _, _ = find_upper_limit(
         chi2_func, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=1.0)
 
@@ -166,7 +166,7 @@ for regime, chi2_func, alpha_func, regime_name in [
     lam0_noG1 = hc_keV_m / E0_noG1
 
     r_foam_95_noG1, chi2_min_noG1, r_int_noG1 = find_upper_limit(
-        chi2_func, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=4.0)
+        chi2_func, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=2.71)
     r_foam_68_noG1, _, _ = find_upper_limit(
         chi2_func, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=1.0)
 
