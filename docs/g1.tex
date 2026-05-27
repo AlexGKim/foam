@@ -297,40 +297,6 @@ and the equality of per-cell variances is a model assumption rather than a
 direct CLT consequence; Gaussianity is adopted as the minimal assumption
 consistent with the $\alpha$-model.
 
-% ==============================================================
-\section{First-Order Coherence }
-\label{sec:g1}
-% ==============================================================
-
-\subsection{Jitter Convolution Formula for $g^{(1)}$}
-
-The observed first-order coherence is
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau) = \frac{\langle E^*_{\rm obs}(t)\,E_{\rm obs}(t+\tau)\rangle}
-                                  {\langle|E_{\rm obs}(t)|^2\rangle}.
-  \label{eq:g1def}
-\end{equation}
-Substituting Eq.~\eqref{eq:Eobs} and letting
-$u = t - \delta t(t)$, $v = t+\tau - \delta t(t+\tau)$, so that
-$v - u = \tau - \Delta(\tau)$, stationarity of $E_{\rm src}$ gives
-\begin{equation}
-  \langle E^*_{\rm src}(u)\,E_{\rm src}(v)\rangle
-  = \langle|E_{\rm src}|^2\rangle\,g^{(1)}_{\rm src}(\tau - \Delta(\tau)).
-\end{equation}
-Since $\delta t$ is independent of $E_{\rm src}$, and since
-$\langle|E_{\rm obs}(t)|^2\rangle = \langle|E_{\rm src}(t-\delta t)|^2\rangle
-= \langle|E_{\rm src}|^2\rangle$ by stationarity (so the normalisation
-in Eq.~\eqref{eq:g1def} cancels), averaging over the jitter yields
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau)
-    = \big\langle g^{(1)}_{\rm src}(\tau - \Delta(\tau))\big\rangle_{\delta t}
-    = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
-      g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.
-  \label{eq:g1obs}
-\end{equation}
-The observed first-order coherence is the intrinsic coherence function
-convolved with the Gaussian differential-jitter kernel.
-
 From the foam path-length variance $\sigma_\ell^2(D_C)$ and carrier
 frequency $\omega_0$, we define $\sigma_\phi^2 \equiv
 \tfrac{1}{2}\omega_0^2\cdot(2\sigma_\ell^2/c^2) = (\omega_0\sigma_\ell/c)^2$
@@ -378,8 +344,7 @@ discusses the corresponding shift under anchoring (a).
 
 The characteristic function of $\Delta(\tau)$ at carrier frequency
 $\omega_0$ defines a foam suppression factor applicable to any source
-profile.  Since $\Delta(\tau)$ is Gaussian
-(Section~\ref{sec:differential_jitter}),
+profile.  Since $\Delta(\tau)$ is Gaussian,
 \begin{equation}
   \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
   = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}
@@ -397,6 +362,40 @@ At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
 At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty)$ equals
 $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$) and
 approaches unity for quasi-static foam ($C_\alpha\approx 1$).
+
+% ==============================================================
+\section{First-Order Coherence }
+\label{sec:g1}
+% ==============================================================
+
+\subsection{Jitter Convolution Formula for $g^{(1)}$}
+
+The observed first-order coherence is
+\begin{equation}
+  g^{(1)}_{\rm obs}(\tau) = \frac{\langle E^*_{\rm obs}(t)\,E_{\rm obs}(t+\tau)\rangle}
+                                  {\langle|E_{\rm obs}(t)|^2\rangle}.
+  \label{eq:g1def}
+\end{equation}
+Substituting Eq.~\eqref{eq:Eobs} and letting
+$u = t - \delta t(t)$, $v = t+\tau - \delta t(t+\tau)$, so that
+$v - u = \tau - \Delta(\tau)$, stationarity of $E_{\rm src}$ gives
+\begin{equation}
+  \langle E^*_{\rm src}(u)\,E_{\rm src}(v)\rangle
+  = \langle|E_{\rm src}|^2\rangle\,g^{(1)}_{\rm src}(\tau - \Delta(\tau)).
+\end{equation}
+Since $\delta t$ is independent of $E_{\rm src}$, and since
+$\langle|E_{\rm obs}(t)|^2\rangle = \langle|E_{\rm src}(t-\delta t)|^2\rangle
+= \langle|E_{\rm src}|^2\rangle$ by stationarity (so the normalisation
+in Eq.~\eqref{eq:g1def} cancels), averaging over the jitter yields
+\begin{equation}
+  g^{(1)}_{\rm obs}(\tau)
+    = \big\langle g^{(1)}_{\rm src}(\tau - \Delta(\tau))\big\rangle_{\delta t}
+    = \int_{-\infty}^{\infty} \mathcal{N}(\Delta;0,\sigma_\Delta^2(\tau))\,
+      g^{(1)}_{\rm src}(\tau - \Delta)\,d\Delta.
+  \label{eq:g1obs}
+\end{equation}
+The observed first-order coherence is the intrinsic coherence function
+convolved with the Gaussian differential-jitter kernel.
 
 \subsection{Gaussian Source Profile}
 \label{sec:closedforms}
