@@ -529,36 +529,33 @@ with variance
 \end{equation}
 
 The focal-plane field of a telescope is the Fraunhofer Fourier
-transform of the aperture-plane field, so the on-axis intensity is
-the diffraction-limited peak $I_0$ when the aperture phase is uniform.
-Foam imprints a Gaussian random phase $\phi(\mathbf{x})$ with variance
-$\sigma_\phi^2$ and two-point correlation $C_\alpha^{\rm sp}(B;D)$, and
-Eq.~\eqref{eq:gaussian_jitter} gives
+transform of the aperture-plane field, giving the diffraction-limited
+PSF when the aperture phase is uniform.  Foam imprints a Gaussian
+random phase $\phi(\mathbf{x})$ on the aperture with variance
+$\sigma_\phi^2$ and two-point correlation $C_\alpha^{\rm sp}(B;D)$,
+blurring this PSF.  In the resolved limit
+$C_\alpha^{\rm sp}(D_{\rm tel};D)\to 0$ --- where aperture phases at
+distinct points decorrelate --- the on-axis peak is attenuated by the
+Strehl ratio
 \begin{equation}
-  \langle I(0)\rangle \;=\; \frac{I_0}{A^2}
-    \iint_A
-    \exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\rm sp}(|\mathbf{x}_1-\mathbf{x}_2|;D)\bigr]\bigr\}
-    \,dA_1\,dA_2.
-\end{equation}
-The Strehl ratio $S \equiv \langle I(0)\rangle/I_0$ reduces in the
-resolved limit $C_\alpha^{\rm sp}(D_{\rm tel};D)\to 0$ --- where
-aperture phases at distinct points decorrelate --- to the
-extended-Mar\'echal form~\cite{NgPerlman2022}
-\begin{equation}
-  S \;\simeq\; e^{-\sigma_\phi^2}.
+  S \;\simeq\; e^{-\sigma_\phi^2}
   \label{eq:strehl}
 \end{equation}
-The same $\sigma_\phi^2$ thus suppresses the coherent diffraction-limited
-PSF (peak and Airy fringes) in imaging as the coherent line core in
-spectroscopy, placing the published imaging
-constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
-on a common footing with the present framework.
+(extended-Mar\'echal~\cite{NgPerlman2022}), the surrounding Airy
+fringes are washed out by the same factor, and the complementary
+$1-e^{-\sigma_\phi^2}$ of the source flux scatters into an incoherent
+halo.
 
-Imaging and spectroscopic channels each probe $\sigma_\phi^2$ through
-a Fourier transform --- aperture position $\leftrightarrow$ focal-plane
-angle in imaging (Fraunhofer), lag $\leftrightarrow$ frequency in
-spectroscopy (Wiener--Khinchin) --- with the rapid chromatic
-tightening $\sigma_\phi\propto 1/\lambda$ exploited in both Ng \&
+The same $\sigma_\phi^2$ that suppresses the coherent
+diffraction-limited PSF in imaging also suppresses the coherent line
+core in spectroscopy, placing the published imaging
+constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
+on a common footing with the present framework.  Imaging and
+spectroscopic channels each probe $\sigma_\phi^2$ through a Fourier
+transform --- aperture position $\leftrightarrow$ focal-plane angle in
+imaging (Fraunhofer), lag $\leftrightarrow$ frequency in spectroscopy
+(Wiener--Khinchin) --- with the rapid chromatic tightening
+$\sigma_\phi\propto 1/\lambda$ exploited in both Ng \&
 Perlman's~\cite{NgPerlman2022} Table~1 and the analyses of
 Section~\ref{sec:grb221009a}.  The duality is not perfect at the
 observational interface: isolating the foam contribution requires an
