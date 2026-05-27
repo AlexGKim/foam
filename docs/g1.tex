@@ -224,28 +224,20 @@ Equivalently,
   \label{eq:pathcov1ray}
 \end{equation}
 
-The timescale $\tau_{\rm foam}$ is an additional free parameter of the foam model,
-not fixed by the $\alpha$-model variance relation alone.
-If $\tau_{\rm foam}$ is of order the Planck time,
-$\ell_{\rm P}/c \approx 5\times10^{-44}$~s, then $C_\alpha(\tau) \approx 0$ for all
-\emph{nonzero}
-accessible lags: the foam is fully decorrelated on any observable timescale, the most
-optimistic scenario for detection.
-
-This Planck-time foam decorrelation timescale follows the standard
-phenomenological framework in which path-length fluctuations are
-assembled from elementary Planck-scale contributions accumulated at a
-rate of one per Planck time~\cite{AmelinoCamelia2013,Ng2003}.  The
-interferometric strain-noise power spectral densities derived under
-this assumption ---
-$\Sigma_L(\omega)\propto\omega^{-2}$ (random walk, $\alpha=1/2$) and
-$\Sigma_L(\omega)\propto\omega^{-5/3}$ (holographic, $\alpha=2/3$),
-Eqs.~(47) and~(49) of Ref.~\cite{AmelinoCamelia2013} --- have support
-up to $\omega\sim 1/\tau_P$, the Fourier conjugate of
-$\tau_{\rm foam}\sim\ell_P/c$.  For any astrophysical source considered
-here the coherence time vastly exceeds this scale
-($\tau_c/\tau_{\rm foam}\gtrsim 10^{22}$ even at $37$\,MeV), placing
-the analysis deep within the dynamical regime.  Models with long-range
+The timescale $\tau_{\rm foam}$ is an additional free parameter of the
+foam model, not fixed by the $\alpha$-model variance relation alone.
+In the standard phenomenological framework~\cite{AmelinoCamelia2013,Ng2003},
+each of the $\sim D/\ell_P$ foam cells along the line of sight
+independently adopts a new configuration on timescale
+$\tau_P \equiv \ell_P/c \approx 5\times10^{-44}$~s; the integrated
+path-length jitter $\delta\ell_{\rm tot}(t)$ --- a sum of
+$\sim D/\ell_P$ independent contributions --- likewise decorrelates on
+timescale $\tau_{\rm foam}\sim\tau_P$.  With $C_\alpha(\tau)\approx 0$
+for all nonzero accessible lags, the foam is fully decorrelated on any
+observable timescale --- the most optimistic scenario for detection ---
+and for any astrophysical source considered here
+($\tau_c/\tau_{\rm foam}\gtrsim 10^{22}$ even at $37$\,MeV) the
+analysis sits deep within the dynamical regime.  Models with long-range
 \emph{temporal} correlations --- the temporal analogue of the
 long-range \emph{transverse} spatial correlations of
 Ref.~\cite{LeeZurekChen2024} that evade interferometric imaging bounds
@@ -253,11 +245,7 @@ Ref.~\cite{LeeZurekChen2024} that evade interferometric imaging bounds
 and thereby drive $\sigma_\Delta^2(\tau)\to 0$, suppressing
 \emph{both} the GRB spectroscopic signal of
 Section~\ref{sec:grb221009a} and the CMB spectral distortion of
-Section~\ref{sec:CMB} (whose broadband template, derived in
-Section~\ref{sec:CMB_derivation}, takes
-$\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ in the dynamical limit and
-likewise vanishes when $C_\alpha\to 1$ over all observationally
-accessible lags).  The two channels therefore probe the same temporal
+Section~\ref{sec:CMB}.  The two channels therefore probe the same temporal
 decorrelation regime, and both depend on the dynamical-foam assumption
 $\tau_{\rm foam}\ll\tau_c$ adopted here.
 
@@ -293,17 +281,16 @@ Expanding the square and applying Eq.~\eqref{eq:pathcov1ray}:
 \end{align}
 
 By the central limit theorem (CLT), $\Delta(\tau)$
-is a sum of contributions from many foam cells and is therefore Gaussian with zero mean: 
+is a sum of contributions from many foam cells and is therefore Gaussian with zero mean:
 \begin{equation}
   \Delta(\tau)
   \sim \mathcal{N}\!\left(0,\,\sigma_\Delta^2(\tau)\right),
   \label{eq:kernel}
 \end{equation}
-where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt}.
-The Gaussian approximation follows from the CLT: for any source at
-$D \gtrsim 1$~kpc, the cell count $N_{\rm cells} \sim D/\ell_{\rm P} \gtrsim 10^{54}$
-amply satisfies the large-$N$ requirement and higher-cumulant corrections
-are negligible.  For $\alpha = 1/2$ (random walk), per-cell path-length variances
+where $\sigma_\Delta^2$ is taken from Eq.~\eqref{eq:diffVarExt}; for
+any source at $D \gtrsim 1$~kpc, the cell count
+$N_{\rm cells} \sim D/\ell_{\rm P} \gtrsim 10^{54}$ amply satisfies
+the large-$N$ requirement and higher-cumulant corrections are negligible.  For $\alpha = 1/2$ (random walk), per-cell path-length variances
 are equal ($\ell_{\rm P}^2$ each) and the CLT applies in its standard form.
 For $\alpha \neq 1/2$, the per-cell contributions scale differently with $D$
 and the equality of per-cell variances is a model assumption rather than a
@@ -377,104 +364,18 @@ The observed coherence is again a Gaussian-modulated oscillation, but
 with three foam-induced modifications: (i) a slight redshift of the
 carrier, $\nu_0^{\rm eff} = \nu_0\,\tau_G^2/[\tau_G^2+\sigma_\Delta^2(\tau)]$;
 (ii) a wider Gaussian decay of $g^{(1)}_{\rm obs}(\tau)$ in lag (decay
-scale $\sqrt{\tau_G^2+\sigma_\Delta^2(\tau)}$ vs.\ $\tau_G$), which
-Fourier-transforms to a slightly \emph{narrower} line in frequency;
+scale $\sqrt{\tau_G^2+\sigma_\Delta^2(\tau)}$ vs.\ $\tau_G$);
 and (iii) a global amplitude suppression by the factor
 $\exp\!\left[-\omega_0^2\tau_G^2\sigma_\Delta^2/\{2(\tau_G^2+\sigma_\Delta^2)\}\right]$.
 Normalisation $g^{(1)}_{\rm obs}(0)=1$ holds because $\sigma_\Delta(0)=0$.
 
-Transforming to the frequency domain, the observed spectrum is a
-Gaussian line centred on $\nu_0^{\rm eff}$ with width
-$\sigma_{\rm obs} = 1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$ — slightly
-\emph{narrower} than $\sigma_\nu$ (since wider $g^{(1)}$-support in $\tau$
-maps to narrower $S$-support in $\nu$) — and with peak amplitude
-suppressed by the factor in (iii) above.  The foam therefore does not
-broaden the line in the sense of an additive width contribution: the
-convolution Eq.~\eqref{eq:g1obs} acts on the coherence in lag and
-corresponds, by the convolution theorem, to a \emph{multiplication} of
-the spectrum by a Gaussian factor centred on $\nu=0$, which
-attenuates and slightly shifts the line rather than convolving it in
-frequency.
-
-In the narrow-band limit $\sigma_\Delta\ll\tau_G$ the change in Gaussian decay scale
-and the carrier shift become negligible and the peak suppression
-dominates, giving
-\begin{equation}
-  S_{\rm obs}(\nu_0) \;=\; e^{-\sigma_\phi^2}\,S_{\rm src}(\nu_0),
-  \qquad
-  \sigma_\phi^2 \;\equiv\; \tfrac{1}{2}\omega_0^2\sigma_\Delta^2,
-  \label{eq:sigma_quadrature}
-\end{equation}
-Equation~\eqref{eq:sigma_quadrature} agrees with the narrow-band
-factorisation Eq.~\eqref{eq:g1narrowband} term by term in the
-dynamical-foam limit, where $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ and
-$\tfrac{1}{2}\omega_0^2\sigma_\Delta^2 = (2\pi\sigma_\ell/\lambda_{\rm obs})^2$
-matches Eq.~\eqref{eq:sigmaphi}.
-
-Equation~\eqref{eq:g1obs_gauss} is exact at every $\tau$ when
-$\sigma_\Delta^2(\tau) = (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$ is
-substituted at each lag.  When the spectrum is computed by
-Fourier-transforming this $g^{(1)}_{\rm obs}(\tau)$, it naturally
-decomposes into (a) a coherent line-shape contribution governed by
-the asymptotic value $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ for
-$|\tau|\gtrsim\tau_{\rm foam}$, carrying the fraction
-$e^{-\sigma_\phi^2}$ of the source flux, and (b) a pedestal
-contribution arising from the variation of $\sigma_\Delta^2(\tau)$
-at $|\tau|\lesssim\tau_{\rm foam}$, carrying the complementary
-$(1-e^{-\sigma_\phi^2})$ fraction.  The broadband decomposition of
-Section~\ref{sec:CMB_derivation} treats this Fourier split
-explicitly.
-
-\subsection{Narrow-Band Limit}
-\label{sec:narrowband}
-
-For a quasi-monochromatic source with center frequency $\omega_0$ and
-angular-frequency bandwidth $\Delta\omega \ll \omega_0$, 
-$E_{\rm src}(t) = A(t)\,e^{-i\omega_0 t}$
-where $A(t)$ varies on the coherence timescale
-$\tau_c = 1/\Delta\omega = \lambda^2/(2\pi c\,\Delta\lambda)$ (equivalent
-to $\tau_G$ of Eq.~\eqref{eq:g1obs_gauss} when $\Delta\omega$ is
-identified with the one-sigma Gaussian bandwidth $2\pi\sigma_\nu$).
-When $\sigma_\ell/(c\tau_c) \ll 1$, typical realizations of $\delta t$ leave the
-slowly-varying amplitude unaffected, $A(t-\delta t) \approx A(t)$, and the jitter acts purely as
-a carrier phase modulation; the observed field takes the form
-\begin{equation}
-  E_{\rm obs}(t) \approx A(t)\,e^{-i\omega_0 t}\,e^{i\omega_0\delta t(t)}.
-  \label{eq:Eobs_narrowband}
-\end{equation}
-(Corrections to the slowly-varying amplitude approximation are of order $(\sigma_\ell/c\tau_c)^2$;
-for $\alpha=1/2$ at $D=1$~Gpc, $\lambda=500$~nm, $\Delta\lambda/\lambda=10^{-3}$
-this parameter is $\approx 0.28$, so the exact convolution Eq.~\eqref{eq:g1obs_gauss}
-should be used instead.
-For $\alpha=2/3$ the analogous parameter is ${\sim}10^{-11}$,
-so Eq.~\eqref{eq:g1narrowband} is exact to any
-practical precision in the holographic case.)
-Since $A(t)$ and $\delta t(t)$ are independent, the first-order coherence
-factorizes.
-The jitter contribution is the characteristic function of $\Delta(\tau)$
-evaluated at $\omega_0$; since $\Delta(\tau)$ is Gaussian
-(Section~\ref{sec:differential_jitter}),
-\begin{equation}
-  \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
-  = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}.
-  \label{eq:gaussian_jitter}
-\end{equation}
-The characteristic-function identity holds at any $\tau$ since
-$\Delta(\tau)$ is Gaussian (Section~\ref{sec:differential_jitter}).
-Substituting $\omega_0 = 2\pi c/\lambda$ and
-Eq.~\eqref{eq:diffVarExt}, and adopting the dynamical-foam assumption
-$\tau_{\rm foam}\ll\tau_c$ (so that $\sigma_\Delta^2 \to
-2\sigma_\ell^2/c^2$ over the support of $g^{(1)}_{\rm src}$):
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau)
-    = g^{(1)}_{\rm src}(\tau)\cdot
-      \exp\!\left(-\sigma_\phi^2\big[1 - C_\alpha(\tau;D)\big]\right),
-  \label{eq:g1narrowband}
-\end{equation}
-where the rms accumulated phase follows from the Ng--Perlman
-path-length model~\eqref{eq:NgPerlmanVar} via the phase conversion
-$\sigma_\phi = (2\pi/\lambda_{\rm obs})\,\sigma_\ell(D_C)$,
-with $D_C$ the line-of-sight comoving distance~\cite{NgPerlman2022}:
+The amplitude suppression in item~(iii) involves the accumulated foam
+phase variance.  In the dynamical limit
+$\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2/c^2$, identifying
+$\sigma_\phi^2 \equiv \tfrac{1}{2}\omega_0^2\cdot(2\sigma_\ell^2/c^2)
+= (\omega_0\sigma_\ell/c)^2$ and using the Ng--Perlman
+path-length model~\eqref{eq:NgPerlmanVar} with $D_C$ the comoving
+distance~\cite{NgPerlman2022} gives
 \begin{equation}
   \sigma_\phi^2 = \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^{\!2}
     A_\alpha\,D_C^{2(1-\alpha)}\,\ell_P^{2\alpha}.
@@ -506,8 +407,9 @@ Eq.~\eqref{eq:sigmaphi_cosmo} is larger than the single-distance
 estimate of Eq.~\eqref{eq:sigmaphi} by a factor of $\sim 10^4$
 (approximately independent of $\alpha$ over the range of interest),
 corresponding to a $\Delta\alpha\approx +0.033$ shift in the FIRAS
-threshold relative to the observer-frame form.  The size and sign of this correction depend on how foam fluctuations
-evolve in cosmic time.  Two natural anchorings bracket the range:
+threshold relative to the observer-frame form.  The size and sign of
+this correction depend on how foam fluctuations evolve in cosmic time.
+Two natural anchorings bracket the range:
 (a)~variance accumulating uniformly in comoving distance,
 $d\sigma_\ell^2/dD_C = \text{const}$, gives the $\sim 10^4$
 enhancement quoted above and $\Delta\alpha\approx +0.033$;
@@ -517,25 +419,31 @@ $\Delta\alpha\approx 0$.
 Bounds quoted below use Eq.~\eqref{eq:sigmaphi} with $A_\alpha=1$
 (anchoring (b)); the CMB systematic of Section~\ref{sec:CMB} discusses
 the corresponding shift under anchoring (a).
-We write the foam suppression factor — the quantity appearing in the product
-structure $g^{(1)}_{\rm obs}=g^{(1)}_{\rm src}\cdot\mathcal{F}_{\rm foam}$ — as
+
+The $\tau$-dependent suppression factor $e^{-\tfrac{1}{2}\omega_0^2\sigma_\Delta^2(\tau)}$
+takes the compact form
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
   \label{eq:Ffoam}
 \end{equation}
-so $g^{(1)}_{\rm obs}(\tau) = g^{(1)}_{\rm src}(\tau)\cdot\mathcal{F}_{\rm foam}(\tau)$.
+using $\sigma_\Delta^2(\tau) = (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$
+from Eq.~\eqref{eq:diffVarExt}.
 At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
 At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2[1-C_\alpha(\infty;D)]}$,
 which equals $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$)
 and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
-The narrow-band condition $\sigma_\ell/(c\tau_c)\ll 1$ and the
-small-phase regime $\sigma_\phi^2\ll 1$ are compatible but distinct:
-the former ensures that the slowly-varying source amplitude
-$A(t-\delta t)\approx A(t)$ is left unaffected by the jitter (so the
-jitter acts purely as carrier-phase modulation), while the latter
-ensures that the resulting carrier-phase suppression
-$e^{-\sigma_\phi^2}$ stays close to unity.  When neither applies, the
-full convolution Eq.~\eqref{eq:g1obs} must be evaluated.
+In the dynamical limit, the jitter contribution to the Gaussian
+characteristic function~\eqref{eq:g1obs_gauss} is precisely
+$\mathcal{F}_{\rm foam}(\tau)$; since $\Delta(\tau)$ is Gaussian
+(Section~\ref{sec:differential_jitter}),
+\begin{equation}
+  \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
+  = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2} = \mathcal{F}_{\rm foam}(\tau).
+  \label{eq:gaussian_jitter}
+\end{equation}
+The small-phase regime $\sigma_\phi^2\ll 1$ (suppression close to
+unity) is distinct from large foam: the exact closed form
+Eq.~\eqref{eq:g1obs_gauss} applies at any $\sigma_\phi^2$.
 
 % ==============================================================
 \section{Implications for Spectroscopy}
@@ -580,6 +488,34 @@ Eq.~\eqref{eq:WK_obs} then yields
 a convolution by a foam kernel that depends on $\sigma_\phi^2$,
 $C_\alpha$, and $\tau_{\rm foam}$.
 
+For the Gaussian source profile of Section~\ref{sec:closedforms},
+Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} gives a Gaussian line
+centred on $\nu_0^{\rm eff}$ with width
+$\sigma_{\rm obs} = 1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$ —
+\emph{narrower} than $\sigma_\nu$ (wider $g^{(1)}$-support in $\tau$
+maps to narrower $S$-support in $\nu$) — and with peak amplitude
+suppressed by the factor in item~(iii) of
+Section~\ref{sec:closedforms}.  In the dynamical limit where
+$\sigma_\Delta^2$ is constant in $\tau$, the lag-domain
+convolution~\eqref{eq:g1obs} corresponds by the convolution theorem to a
+\emph{multiplication} of the spectrum by a Gaussian factor centred on
+$\nu=0$, which attenuates and shifts the line rather than convolving
+it in frequency.
+
+In the narrow-band limit $\sigma_\Delta\ll\tau_G$ the width change and
+carrier shift become negligible and peak suppression dominates,
+giving
+\begin{equation}
+  S_{\rm obs}(\nu_0) \;=\; e^{-\sigma_\phi^2}\,S_{\rm src}(\nu_0),
+  \qquad
+  \sigma_\phi^2 \;\equiv\; \tfrac{1}{2}\omega_0^2\sigma_\Delta^2.
+  \label{eq:sigma_quadrature}
+\end{equation}
+The definition $\sigma_\phi^2 \equiv \tfrac{1}{2}\omega_0^2\sigma_\Delta^2$
+in the dynamical-foam limit, where $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$, gives
+$\tfrac{1}{2}\omega_0^2\sigma_\Delta^2 = (2\pi\sigma_\ell/\lambda_{\rm obs})^2$
+matching Eq.~\eqref{eq:sigmaphi}.
+
 In the further dynamical limit $C_\alpha(\tau)\to 0$ as
 $|\tau|\to\infty$, $\mathcal{F}_{\rm foam}(\tau)$ acquires a nonzero
 asymptote $e^{-\sigma_\phi^2}$, and the kernel decomposes as
@@ -587,8 +523,13 @@ $\mathcal{K}_{\rm foam}(\nu) = e^{-\sigma_\phi^2}\delta(\nu) +
 \mathcal{K}_{\rm ped}(\nu)$.  The observed spectrum then splits into
 a coherent core $e^{-\sigma_\phi^2}S_{\rm src}(\nu)$ and a broad
 pedestal carrying the complementary fraction $1-e^{-\sigma_\phi^2}$
-of the source flux; the broadband CMB derivation in
-Section~\ref{sec:CMB_derivation} treats this decomposition explicitly.
+of the source flux.  For the Gaussian source this split is transparent
+in Eq.~\eqref{eq:g1obs_gauss}: the coherent core is governed by the
+asymptotic value $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ for
+$|\tau|\gtrsim\tau_{\rm foam}$, while the pedestal arises from the
+variation of $\sigma_\Delta^2(\tau)$ at $|\tau|\lesssim\tau_{\rm foam}$.
+The broadband CMB derivation in Section~\ref{sec:CMB_derivation}
+treats this decomposition explicitly.
 
 
 % ==============================================================
@@ -740,7 +681,7 @@ $\sigma_t$, distinct from the foam decorrelation time
 $\tau_{\rm foam}$, and applies in the dynamical limit
 $\sigma_t\gg\tau_{\rm foam}$.  The ratio $\sigma_t/\tau_G$ governs
 where the carrier-included Eq.~\eqref{eq:g1obs_gauss} departs from
-the narrow-band regime of Section~\ref{sec:narrowband}; the
+the product form $g^{(1)}_{\rm src}\cdot\mathcal{F}_{\rm foam}$; the
 heuristic threshold below marks the boundary
 $\sigma_t\sim\tau_G$.
 A spectral line of resolving power $R\equiv\nu_0/\Delta\nu_{\rm line}$
@@ -1492,7 +1433,7 @@ take.
 
 All single-source spectroscopic bounds derived in this paper assume the
 dynamical-foam limit $\tau_{\rm foam}\ll\tau_c$
-(Section~\ref{sec:narrowband}), in which the foam path-length jitter
+(Section~\ref{sec:closedforms}), in which the foam path-length jitter
 decorrelates many times within each photon coherence time.  If foam
 fluctuations are instead slow ($\tau_{\rm foam}\gg\tau_c$), the
 accumulated phase is essentially frozen during each coherence time and
