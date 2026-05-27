@@ -297,6 +297,17 @@ and the equality of per-cell variances is a model assumption rather than a
 direct CLT consequence; Gaussianity is adopted as the minimal assumption
 consistent with the $\alpha$-model.
 
+The characteristic function of $\Delta(\tau)$ at carrier frequency
+$\omega_0$ defines a foam suppression factor applicable to any source
+profile.  Since $\Delta(\tau)$ is Gaussian,
+\begin{equation}
+  \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
+  = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}
+  \;\equiv\; \mathcal{F}_{\rm foam}(\tau),
+  \label{eq:gaussian_jitter}
+\end{equation}
+with $\mathcal{F}_{\rm foam}(0) = 1$.
+
 From the foam path-length variance $\sigma_\ell^2(D_C)$ and carrier
 frequency $\omega_0$, we define $\sigma_\phi^2 \equiv
 \tfrac{1}{2}\omega_0^2\cdot(2\sigma_\ell^2/c^2) = (\omega_0\sigma_\ell/c)^2$
@@ -310,6 +321,16 @@ line-of-sight comoving distance~\cite{NgPerlman2022} gives
     A_\alpha\,D_C^{2(1-\alpha)}\,\ell_P^{2\alpha}.
   \label{eq:sigmaphi}
 \end{equation}
+Substituting $\sigma_\Delta^2(\tau) =
+(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$ from
+Eq.~\eqref{eq:diffVarExt}, Eq.~\eqref{eq:gaussian_jitter} takes the compact form
+\begin{equation}
+  \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]}.
+  \label{eq:Ffoam}
+\end{equation}
+At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty)$ equals
+$e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$) and
+approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 Equation~\eqref{eq:sigmaphi} uses observer-frame wavelength
 $\lambda_{\rm obs}$ throughout and so neglects the cosmological
 redshift of the photon along the propagation path: at redshift $z'$
@@ -341,27 +362,6 @@ leaving $\sigma_\phi^2$ unchanged.
 Bounds quoted below use Eq.~\eqref{eq:sigmaphi} with $A_\alpha=1$ and
 adopt anchoring (b); the CMB systematic of Section~\ref{sec:CMB}
 discusses the corresponding shift under anchoring (a).
-
-The characteristic function of $\Delta(\tau)$ at carrier frequency
-$\omega_0$ defines a foam suppression factor applicable to any source
-profile.  Since $\Delta(\tau)$ is Gaussian,
-\begin{equation}
-  \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
-  = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}
-  \;\equiv\; \mathcal{F}_{\rm foam}(\tau),
-  \label{eq:gaussian_jitter}
-\end{equation}
-which, substituting $\sigma_\Delta^2(\tau) =
-(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$ from
-Eq.~\eqref{eq:diffVarExt}, takes the compact form
-\begin{equation}
-  \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]}.
-  \label{eq:Ffoam}
-\end{equation}
-At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
-At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty)$ equals
-$e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$) and
-approaches unity for quasi-static foam ($C_\alpha\approx 1$).
 
 % ==============================================================
 \section{First-Order Coherence }
