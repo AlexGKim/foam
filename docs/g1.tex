@@ -370,11 +370,12 @@ $\exp\!\left[-\omega_0^2\tau_G^2\sigma_\Delta^2/\{2(\tau_G^2+\sigma_\Delta^2)\}\
 Normalisation $g^{(1)}_{\rm obs}(0)=1$ holds because $\sigma_\Delta(0)=0$.
 
 The amplitude suppression in item~(iii) involves the accumulated foam
-phase variance.  In the dynamical limit
-$\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2/c^2$, identifying
-$\sigma_\phi^2 \equiv \tfrac{1}{2}\omega_0^2\cdot(2\sigma_\ell^2/c^2)
-= (\omega_0\sigma_\ell/c)^2$ and using the Ng--Perlman
-path-length model~\eqref{eq:NgPerlmanVar} with $D_C$ the comoving
+phase variance.  We define $\sigma_\phi^2 \equiv
+\tfrac{1}{2}\omega_0^2\cdot(2\sigma_\ell^2/c^2) = (\omega_0\sigma_\ell/c)^2$
+as the asymptotic phase variance --- the value
+$\tfrac{1}{2}\omega_0^2\sigma_\Delta^2(\tau)$ approaches as
+$C_\alpha(\tau;D)\to 0$.  Using the Ng--Perlman path-length
+model~\eqref{eq:NgPerlmanVar} with $D_C$ the comoving
 distance~\cite{NgPerlman2022} gives
 \begin{equation}
   \sigma_\phi^2 = \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^{\!2}
@@ -397,53 +398,47 @@ comoving distance, the redshift-weighted form is
 \end{equation}
 which reduces to Eq.~\eqref{eq:sigmaphi} when $(1+z')^2$ can be taken
 constant over the path.  For the GRB at $z=0.151$ the path-averaged
-$\langle(1+z')^2\rangle_{D_C}\approx 1.16$, an $\mathcal{O}(\%)$
-correction to $\sigma_\phi^2$ that shifts the $\alpha$ bound by
-$\Delta\alpha\sim 5\times10^{-4}$ and is negligible at the precision of
-the present analysis.  For the CMB at $z_{\rm LS}\approx 1089$ the
-weighting is dominated by the high-$z$ portion of the path: with
-Planck~2018 flat $\Lambda$CDM the integral in
-Eq.~\eqref{eq:sigmaphi_cosmo} is larger than the single-distance
-estimate of Eq.~\eqref{eq:sigmaphi} by a factor of $\sim 10^4$
-(approximately independent of $\alpha$ over the range of interest),
-corresponding to a $\Delta\alpha\approx +0.033$ shift in the FIRAS
-threshold relative to the observer-frame form.  The size and sign of
-this correction depend on how foam fluctuations evolve in cosmic time.
-Two natural anchorings bracket the range:
+$\langle(1+z')^2\rangle_{D_C}\approx 1.16$, enhancing $\sigma_\phi^2$
+by $16\%$ — negligible at the precision of the present analysis.
+For the CMB at $z_{\rm LS}\approx 1089$ the weighting is dominated by
+the high-$z$ portion of the path: with Planck~2018 flat $\Lambda$CDM
+the size and sign of this correction depend on how foam fluctuations
+evolve in cosmic time; two natural anchorings bracket the range:
 (a)~variance accumulating uniformly in comoving distance,
-$d\sigma_\ell^2/dD_C = \text{const}$, gives the $\sim 10^4$
-enhancement quoted above and $\Delta\alpha\approx +0.033$;
+$d\sigma_\ell^2/dD_C = \text{const}$, enhances $\sigma_\phi^2$ by a
+factor of $\sim 10^4$;
 (b)~variance anchored to proper-now coordinates with foam frozen at
-the present epoch gives $(1+z')^2\to 1$ inside the integral and
-$\Delta\alpha\approx 0$.
-Bounds quoted below use Eq.~\eqref{eq:sigmaphi} with $A_\alpha=1$
-(anchoring (b)); the CMB systematic of Section~\ref{sec:CMB} discusses
-the corresponding shift under anchoring (a).
+the present epoch gives $(1+z')^2\to 1$ inside the integral,
+leaving $\sigma_\phi^2$ unchanged.
+Bounds quoted below use Eq.~\eqref{eq:sigmaphi} with $A_\alpha=1$ and
+adopt anchoring (b); the CMB systematic of Section~\ref{sec:CMB}
+discusses the corresponding shift under anchoring (a).
 
-The $\tau$-dependent suppression factor $e^{-\tfrac{1}{2}\omega_0^2\sigma_\Delta^2(\tau)}$
-takes the compact form
-\begin{equation}
-  \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]},
-  \label{eq:Ffoam}
-\end{equation}
-using $\sigma_\Delta^2(\tau) = (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$
-from Eq.~\eqref{eq:diffVarExt}.
-At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
-At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty) = e^{-\sigma_\phi^2[1-C_\alpha(\infty;D)]}$,
-which equals $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$)
-and approaches unity for quasi-static foam ($C_\alpha\approx 1$).
-In the dynamical limit, the jitter contribution to the Gaussian
-characteristic function~\eqref{eq:g1obs_gauss} is precisely
-$\mathcal{F}_{\rm foam}(\tau)$; since $\Delta(\tau)$ is Gaussian
+More generally, the characteristic function of $\Delta(\tau)$ at
+carrier frequency $\omega_0$ defines a foam suppression factor
+applicable to any source profile.  Since $\Delta(\tau)$ is Gaussian
 (Section~\ref{sec:differential_jitter}),
 \begin{equation}
   \big\langle e^{i\omega_0\Delta(\tau)}\big\rangle_{\delta t}
-  = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2} = \mathcal{F}_{\rm foam}(\tau).
+  = e^{-\omega_0^2\sigma_\Delta^2(\tau)/2}
+  \;\equiv\; \mathcal{F}_{\rm foam}(\tau),
   \label{eq:gaussian_jitter}
 \end{equation}
-The small-phase regime $\sigma_\phi^2\ll 1$ (suppression close to
-unity) is distinct from large foam: the exact closed form
-Eq.~\eqref{eq:g1obs_gauss} applies at any $\sigma_\phi^2$.
+which, substituting $\sigma_\Delta^2(\tau) =
+(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$ from
+Eq.~\eqref{eq:diffVarExt}, takes the compact form
+\begin{equation}
+  \mathcal{F}_{\rm foam}(\tau) = e^{-\sigma_\phi^2[1-C_\alpha(\tau;D)]}.
+  \label{eq:Ffoam}
+\end{equation}
+At $\tau=0$: $\mathcal{F}_{\rm foam}(0) = 1$.
+At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty)$ equals
+$e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$) and
+approaches unity for quasi-static foam ($C_\alpha\approx 1$).
+For the Gaussian source, $\mathcal{F}_{\rm foam}(\tau)$ matches the
+item-(iii) amplitude suppression only in the narrow-band limit
+$\sigma_\Delta\ll\tau_G$; otherwise the full
+Eq.~\eqref{eq:g1obs_gauss} must be used.
 
 % ==============================================================
 \section{Implications for Spectroscopy}
@@ -964,6 +959,10 @@ $\alpha\gtrsim0.64$.
 (ii)~All bounds assume $A_\alpha=1$ in Eq.~\eqref{eq:sigmaphi};
 alternative normalizations shift $\alpha$ by
 $\mathcal{O}(\ln A_\alpha/\ln(D_C/\ell_P))$.
+The cosmological redshift correction of Section~\ref{sec:closedforms}
+enhances $\sigma_\phi^2$ by $16\%$ at $z=0.151$, shifting the bound
+by $\Delta\alpha\sim 5\times10^{-4}$ — negligible at the current
+precision.
 (iii)~The narrow-band condition $\sigma_\Delta\ll\tau_G$ underlying
 Eq.~\eqref{eq:sigma_quadrature} is comfortably satisfied at the QS
 bound but \emph{violated} at the DYN bound.  Using
@@ -1096,8 +1095,9 @@ Equation~\eqref{eq:sigmaphi} treats foam variance as accumulating in
 observer-frame comoving distance.  The proper redshift-weighted
 integral Eq.~\eqref{eq:sigmaphi_cosmo} enhances $\sigma_\phi^2$ at
 last scattering by a factor $\sim 10^4$ under uniform accumulation in
-comoving distance, which would tighten the threshold to
-$\alpha\lesssim 0.60$.  Because the foam-evolution model in an
+comoving distance (anchoring (a) of Section~\ref{sec:closedforms}),
+corresponding to $\Delta\alpha\approx+0.033$ and tightening the
+threshold to $\alpha\lesssim 0.60$.  Because the foam-evolution model in an
 expanding universe is not specified by Eq.~\eqref{eq:NgPerlmanVar}, we
 treat the cosmological enhancement as a multiplicative modification of
 $A_\alpha$ that the convention $A_\alpha=1$ absorbs.  We quote
