@@ -32,9 +32,11 @@ imaging-channel (PSF, Strehl) constraints. In the
 dynamical-foam limit the spectrum splits into a coherent line core suppressed
 by $e^{-\sigma_\phi^2}$ and an incoherent pedestal, yielding a spectral
 shape-distortion bound on the Ng--Perlman foam exponent $\alpha$.
-In the dynamical-foam limit ($\tau_{\rm foam}\ll\tau_c$), applied to the
-MeV emission lines of GRB\,221009A we obtain $\alpha \gtrsim 0.64$--$0.65$
-(dynamical and quasi-static brackets, respectively).
+Applied to the MeV emission lines of GRB\,221009A in the dynamical-foam
+limit ($\tau_{\rm foam}\ll\tau_c$) we obtain a framework-derived bound
+$\alpha \gtrsim 0.64$; the framework predicts no spectroscopic imprint
+in the strict quasi-static limit, but a phenomenological bracket
+parallel to the Ng--Perlman imaging criterion gives $\alpha \gtrsim 0.65$.
 For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 ($\sigma_\phi^2 \propto \nu^2$) with a low-frequency pedestal; a Fisher
 analysis of COBE/FIRAS reaches $\alpha \lesssim 0.57$ under the placeholder
@@ -583,14 +585,11 @@ In this section we consider these two possibilities.
 \subsection{GRB\,221009A}
 \label{sec:grb221009a}
 
-The Ng--Perlman imaging bound~\cite{NgPerlman2022} uses the threshold
-$\sigma_\ell \lesssim \lambda$ (equivalently $\sigma_\phi\lesssim 2\pi$):
-below this, the wavefront is ``coherent'' and the PSF peak survives.
 For spectroscopy of a single source without an absolute flux reference,
-the smooth suppression factor $e^{-\sigma_\phi^2(\nu)}$ suppresses line and
-continuum equally at any given frequency; the equivalent width is
-preserved and uniform dimming is undetectable from the spectrum alone.
-A distinct shape-distortion criterion is therefore needed.
+the smooth suppression factor $e^{-\sigma_\phi^2(\nu)}$ attenuates line
+and continuum equally at any given frequency, preserving the equivalent
+width: uniform dimming is undetectable from the spectrum alone, and a
+distinct shape-distortion criterion is needed.
 
 The carrier-included closed form Eq.~\eqref{eq:g1obs_gauss}
 supplies such a criterion: foam broadens the observed line width
@@ -828,7 +827,7 @@ uses the dynamical-limit expression as an upper bound and the QS bound
 itself follows from the phenomenological identification
 Eq.~\eqref{eq:rfoam_qs} rather than from Eq.~\eqref{eq:g1obs_gauss}.
 
-For the DYN case the bound corresponds to $\sigma_\Delta\gtrsim\tau_G$,
+(iv)~In the DYN case the bound corresponds to $\sigma_\Delta\gtrsim\tau_G$,
 where Eq.~\eqref{eq:g1obs_gauss} predicts \emph{two} observable
 effects: (a)~line-width broadening
 $r_{\rm obs}^2 = r_{\rm int}^2(1+\sigma_\Delta^2/\tau_G^2)$ --- which the
@@ -846,7 +845,7 @@ not available in the present analysis.  The bound reported here is
 therefore conservative; a joint center-plus-width fit is a natural
 extension and would also test self-consistency of the dynamical-foam
 interpretation at the upper limit.
-(iv)~If the intrinsic fractional width $r_{\rm int}$ evolves with
+(v)~If the intrinsic fractional width $r_{\rm int}$ evolves with
 energy (e.g.\ due to changing pair-plasma temperature across epochs),
 this could partially mimic or mask a foam signal.  Marginalizing over a
 free linear-in-$E$ nuisance term $r_{\rm int}(E) = r_0 + r_1(E/E_0)$
@@ -862,7 +861,7 @@ direct consequence of the logarithmic compression in the Ng--Perlman
 relation --- confirming that the $E^2$ and linear-$E$ shapes are
 effectively orthogonal for the seven-point lever-arm spanning
 $9$--$37$~MeV.
-(v)~The quasi-static and dynamical limits bracket the true foam
+(vi)~The quasi-static and dynamical limits bracket the true foam
 behavior; which regime applies depends on the (unknown) foam
 correlation time $\tau_{\rm foam}$ relative to the source coherence
 time $\tau_c\sim\hbar/\sigma_E\sim 2\times10^{-22}\,\mathrm{s}$ at
