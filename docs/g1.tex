@@ -632,37 +632,27 @@ width, so the intrinsic contribution $r_{\rm int}\equiv
 \sigma_{\rm int}/E$ is independent of epoch.
 
 \textit{Width decomposition.}
-The carrier-included closed form Eq.~\eqref{eq:g1obs_gauss} gives the
-observed fractional width as
+The Gaussian-source spectrum Eq.~\eqref{eq:Sobs_gauss} gives the
+observed centroid and absolute width
+$\nu_0^{\rm eff}=\nu_0\,\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ and
+$\sigma_{\rm obs}=1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$.  Although
+$\sigma_{\rm obs}<\sigma_\nu$ is slightly \emph{narrower} than the
+intrinsic line, the centroid is redshifted by the same factor, so the
+fractional width that Zhang et al.\ report as $\sigma/E$ in each
+epoch \emph{increases}:
 \begin{equation}
   r_{\rm obs}^2(E) \;=\; r_{\rm int}^2\bigl[1+\sigma_\Delta^2/\tau_G^2(E)\bigr]
                   \;=\; r_{\rm int}^2 + r_{\rm foam}^2(E),
   \label{eq:robs_decomp}
 \end{equation}
-with the foam excess $r_{\rm foam}^2(E)\equiv r_{\rm int}^2\,
-\sigma_\Delta^2/\tau_G^2(E)$.  Note that the relation is multiplicative
-in $(1+\sigma_\Delta^2/\tau_G^2)$, not additive in independent
+with foam excess $r_{\rm foam}^2(E)\equiv r_{\rm int}^2\,
+\sigma_\Delta^2/\tau_G^2(E)$.  The relation is multiplicative in
+$(1+\sigma_\Delta^2/\tau_G^2)$, not additive in independent
 foam/intrinsic widths: the foam acts on the source through the
-jitter-convolution Eq.~\eqref{eq:g1obs}, which translates to a
-\emph{multiplication} of the spectrum by a Gaussian factor rather
-than to a convolution with it (Section~\ref{sec:closedforms}).
-
-The increased \emph{fractional} width
-$r_{\rm obs}^2>r_{\rm int}^2$ may appear at first to contradict the
-spectrum-narrowing noted after Eq.~\eqref{eq:g1obs_gauss}.  The two
-statements refer to different ratios.  The carrier-included Eq.~%
-\eqref{eq:g1obs_gauss} gives a slightly \emph{narrower} absolute width
-($\tau_{\rm eff}^2=\tau_G^2+\sigma_\Delta^2$ in lag, hence
-$\sigma_{\rm obs}<\sigma_\nu$ in frequency) but also a proportional
-center shift
-$\nu_0^{\rm eff}/\nu_0 = \tau_G^2/(\tau_G^2+\sigma_\Delta^2)$.  The
-\emph{ratio} of width to (observed) center,
-$\sigma_{\rm obs}/E_{\rm obs}
-   = r_{\rm int}\,\sqrt{1+\sigma_\Delta^2/\tau_G^2}$,
-nonetheless increases, and it is this fractional width that the
-Zhang et al.\ analysis reports as $\sigma/E$ in each epoch.  The
-form of $r_{\rm foam}^2(E)$ then depends on the temporal correlation
-regime of $\delta t$.
+jitter-convolution Eq.~\eqref{eq:g1obs}, a \emph{multiplication} of
+the spectrum by a Gaussian factor rather than a convolution with it
+(Section~\ref{sec:closedforms}).  The form of $r_{\rm foam}^2(E)$
+depends on the temporal correlation regime of $\delta t$.
 
 In the \emph{quasi-static} limit ($\tau_{\rm foam}\gg\tau_c$), the
 heuristic identification $\sigma_\phi=2\pi\sigma_\ell/\lambda \mapsto
