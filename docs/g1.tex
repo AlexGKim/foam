@@ -618,11 +618,10 @@ spectroscopic channel.
 Time-varying spacetime foam modifies the source first-order coherence,
 and hence its spectrum, in a wavelength-dependent way through
 the scaling $\sigma_\phi \propto 1/\lambda$. Two observable
-consequences follow. First, individual spectral features are distorted:
-since $\sigma_\phi^2(\nu)\propto\nu^2$, the foam suppression factor
-$e^{-\sigma_\phi^2(\nu)}$ has chromatic curvature that acts as a
-Gaussian apodization across the line profile, reducing its peak --- the
-spectroscopic analogue of PSF broadening in imaging. Second, the
+consequences follow. First, individual spectral features are distorted according to the
+Gaussian-source result Eq.~\eqref{eq:Sobs_gauss}, with a carrier shift,
+line narrowing, and peak suppression that scale chromatically as
+$\sigma_\phi\propto1/\lambda$. Second, the
 broadband spectral energy distribution is distorted: the cosmic
 microwave background, expected to be a near-perfect blackbody, would
 acquire foam-induced deviations whose chromatic signature is distinct
@@ -641,77 +640,12 @@ continuum equally at any given frequency; the equivalent width is
 preserved and uniform dimming is undetectable from the spectrum alone.
 A distinct shape-distortion criterion is therefore needed.
 
-The foam redistribution scatters photon arrival times by
-$\Delta t\sim\sigma_\ell/c\equiv\sigma_t$, producing spectral broadening
-of order $\Delta\nu_{\rm foam}\sim c/\sigma_\ell$; this heuristic
-identifies the broadening timescale with the cumulative-jitter scale
-$\sigma_t$, distinct from the foam decorrelation time
-$\tau_{\rm foam}$, and applies in the dynamical limit
-$\sigma_t\gg\tau_{\rm foam}$.  The ratio $\sigma_t/\tau_G$ governs
-where the carrier-included Eq.~\eqref{eq:g1obs_gauss} departs from
-the product form $g^{(1)}_{\rm src}\cdot\mathcal{F}_{\rm foam}$; the
-heuristic threshold below marks the boundary
-$\sigma_t\sim\tau_G$.
-A spectral line of resolving power $R\equiv\nu_0/\Delta\nu_{\rm line}$
-has intrinsic width $\Delta\nu_{\rm line}$.  When the foam broadening
-exceeds the line width,
-\begin{equation}
-  \Delta\nu_{\rm foam} \;\gtrsim\; \Delta\nu_{\rm line}
-  \quad\Longleftrightarrow\quad
-  \sigma_\ell \;\lesssim\; R\lambda_{\rm obs}\,,
-  \label{eq:spec_strehl_thresh}
-\end{equation}
-the line profile is significantly distorted: its peak is reduced and its
-wings broadened beyond the intrinsic shape.  (Note that the foam
-redistribution bandwidth $\Delta\nu_{\rm foam}\sim c/\sigma_\ell$
-decreases with increasing $\sigma_\ell$---longer jitter coherence
-time---so the distortion criterion is a \emph{lower} bound on
-$\sigma_\ell$.)  Defining the
-\emph{spectral Strehl} $\mathcal{S}_{\rm spec}$ as the ratio of the
-observed line peak to the undistorted peak:
-\begin{equation}
-  \mathcal{S}_{\rm spec}
-  \;\simeq\; \frac{1}{\sqrt{1 + R^2\lambda_{\rm obs}^2/\sigma_\ell^2}}\,,
-  \label{eq:spectral_strehl}
-\end{equation}
-which is the peak ratio in the heuristic picture where foam acts as a
-Gaussian frequency-domain convolution kernel of bandwidth $c/\sigma_\ell$
-applied to the intrinsic Gaussian line; the $\sqrt{\,}$ arises from the
-ratio of peaks of two convolved Gaussians.  This approximation agrees
-with the exact carrier-included form Eq.~\eqref{eq:g1obs_gauss} to
-leading order in $\sigma_\Delta/\tau_G$.  The spectral Strehl
-drops to $1/\sqrt{2}$ at the threshold~\eqref{eq:spec_strehl_thresh}.
-This is the spectroscopic analogue of the imaging Strehl: imaging
-tests whether spatial phase variance reduces the PSF peak;
-spectroscopy tests whether temporal path-length scatter broadens
-the line beyond its intrinsic width.  Both are shape diagnostics
-requiring no absolute calibration.
-
-The shape-distortion threshold $\sigma_\ell \lesssim R\lambda$
-permits $R$ times larger path-length jitter than the Ng--Perlman
-imaging criterion $\sigma_\ell\lesssim\lambda$: a line of resolving
-power $R$ tolerates jitter up to a fraction $1/R$ of its own width
-before the peak falls below $1/\sqrt{2}$.
-Substituting into the path-length
-model~\eqref{eq:NgPerlmanVar} and inverting (with $D_C$ the
-comoving distance to the source):
-\begin{equation}
-  \alpha \;\gtrsim\;
-  \frac{\ln(D_C/\lambda_{\rm obs}) - \ln R}{\ln(D_C/\ell_P)}\,.
-  \label{eq:alpha_bound_spec}
-\end{equation}
-The factor $\ln(D_C/\lambda_{\rm obs})/\ln(D_C/\ell_P)$ is the
-Ng--Perlman bound~\cite{NgPerlman2022} evaluated at the probe
-wavelength; the correction $-\ln R/\ln(D_C/\ell_P)$ weakens it for
-resolved lines ($R>1$) and vanishes for $R=1$, reflecting the weaker
-threshold $\sigma_\ell\sim R\lambda$ versus the imaging criterion
-$\sigma_\ell\sim\lambda$.  Because $\ln R \ll \ln(D_C/\ell_P)\approx 138$,
-the correction is modest: $|\Delta\alpha| = \ln R / \ln(D_C/\ell_P)
-\approx 0.02$--$0.05$ for $R = 10$--$1000$.
-The spectroscopic channel yields bounds of the same form as
-imaging but slightly weaker, with the compensating gain being access
-to short wavelengths (MeV, X-ray) where imaging interferometry is
-impossible.
+The carrier-included closed form Eq.~\eqref{eq:g1obs_gauss}
+supplies such a criterion: foam broadens the observed line width
+by a calculable energy-dependent amount (derived below as
+Eq.~\eqref{eq:robs_decomp}).  Multi-epoch line-width measurements
+across a wide energy range give additional leverage, as we now
+show for GRB\,221009A.
 
 GRB\,221009A (``the BOAT,'' Brightest Of All Time) is the most
 energetic gamma-ray burst in the instrumental record, with isotropic-equivalent
@@ -721,10 +655,9 @@ Two independent spectral analyses have reported a narrow gamma-ray
 emission feature in the Fermi/GBM data, interpreted as blueshifted
 electron--positron pair annihilation~\cite{Ravasio2024,YQZhang2024}, at
 observed energies spanning $6$--$37\,\mathrm{MeV}$.
-Rather than applying the single-line shape-distortion bound
-Eq.~\eqref{eq:alpha_bound_spec} to individual detections, we exploit
-the \emph{multi-epoch} constancy of the fractional line width across
-this factor-of-six energy range to obtain a tighter constraint.
+We exploit the \emph{multi-epoch} constancy of the fractional line
+width across this factor-of-six energy range to obtain a stringent
+constraint.
 Adopting flat $\Lambda$CDM
 ($\Omega_M=0.27$, $\Omega_\Lambda=0.73$,
 $H_0=70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$), the comoving distance is
@@ -912,13 +845,9 @@ identical to that reported in earlier versions of this analysis under
 the (incorrect) $\propto 1/E$ scaling, but the derivation no longer
 relies on conflating $\sigma_t=\sigma_\ell/c$ with $\tau_{\rm foam}$.
 
-For comparison, the single-line spectral shape-distortion bound
-(Eq.~\eqref{eq:alpha_bound_spec} with $R\approx10$) applied to the
-same 37\,MeV detection gives $\alpha\gtrsim(89.2-2.3)/138.3\approx0.63$.
-The multi-epoch lever arm improves the bound by
-$\Delta\alpha\approx0.01$--$0.02$, the improvement being modest because
-the individual line-width measurements carry $30$--$50\%$ fractional
-uncertainties.
+The individual line-width measurements carry $30$--$50\%$ fractional
+uncertainties; the multi-epoch lever arm is essential for reaching
+this precision.
 
 \textit{Caveats.}
 (i)~The G1 interval ($T+246$--$256$\,s, $E\approx37$\,MeV) lies at or
