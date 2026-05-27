@@ -461,10 +461,21 @@ coherence time $\tau_{\rm foam}$ (the lag scale beyond which
 $C_\alpha(\tau;D)\to 0$), so that the time-averaged spectrum coincides
 with its ensemble average: $T_{\rm int}\gg\tau_{\rm foam}$.
 
+In the dynamical limit $C_\alpha(\tau;D)\to 0$ for
+$|\tau|\gtrsim\tau_{\rm foam}$, $\mathcal{F}_{\rm foam}(\tau)$ acquires
+a long-lag plateau $e^{-\sigma_\phi^2}$ outside a narrow window
+$|\tau|\lesssim\tau_{\rm foam}$.  Fourier-transforming via
+Eq.~\eqref{eq:WK_obs}, the plateau produces a coherent core
+$e^{-\sigma_\phi^2}S_{\rm src}(\nu)$, with the complementary fraction
+$1-e^{-\sigma_\phi^2}$ of the source flux in a pedestal sourced by the
+short-lag window.  The per-mode derivation in
+Section~\ref{sec:CMB_derivation} makes this decomposition explicit for
+a broadband source.
+
 For the Gaussian source profile of Section~\ref{sec:closedforms},
 Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} with $\sigma_\Delta^2$
-held at its asymptotic value $2\sigma_\ell^2/c^2$ (the dynamical limit
-for $|\tau|\gtrsim\tau_{\rm foam}$) gives the Gaussian core
+held at its asymptotic value $2\sigma_\ell^2/c^2$ gives the explicit
+Gaussian core
 \begin{equation}
   S_{\rm obs}^{\rm core}(\nu) \;=\;
     \frac{\tau_G}{\sqrt{\tau_G^2+\sigma_\Delta^2}}\,
@@ -478,26 +489,13 @@ with $\nu_0^{\rm eff}=\nu_0\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ and
 $\sigma_{\rm obs}=1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]<\sigma_\nu$.
 The Gaussian's carrier shift, line narrowing, and peak suppression are
 the frequency-domain images of items~(i)--(iii) of
-Section~\ref{sec:closedforms}.  The constant-$\sigma_\Delta^2$
-approximation violates $\sigma_\Delta(0)=0$, leaving
-$\int S_{\rm obs}^{\rm core}\,d\nu<1$; the missing flux is carried by
-the broad pedestal contributed by the short-lag region
-$|\tau|\lesssim\tau_{\rm foam}$ where the approximation fails.
-Because the residual is confined to $|\tau|\lesssim\tau_{\rm foam}$, the
-pedestal is spectrally broad and shallow: when $\tau_{\rm foam}\ll
-\tau_G,\sigma_\Delta$, Eq.~\eqref{eq:Sobs_gauss} is the operative
-spectrum near the line.
+Section~\ref{sec:closedforms}.
 
-In the dynamical limit $C_\alpha(\tau;D)\to 0$ for
-$|\tau|\gtrsim\tau_{\rm foam}$, $\mathcal{F}_{\rm foam}(\tau)$ acquires
-a long-lag plateau $e^{-\sigma_\phi^2}$ outside a narrow window
-$|\tau|\lesssim\tau_{\rm foam}$.  Fourier-transforming via
-Eq.~\eqref{eq:WK_obs}, the plateau produces a coherent core
-$e^{-\sigma_\phi^2}S_{\rm src}(\nu)$ and the residual short-lag
-variation produces a broad pedestal carrying the complementary fraction
-$1-e^{-\sigma_\phi^2}$ of the source flux.  The per-mode derivation in
-Section~\ref{sec:CMB_derivation} makes this decomposition explicit for
-a broadband source.
+The pedestal in either decomposition is sourced by the short-lag
+window $|\tau|\lesssim\tau_{\rm foam}$ and so spreads over a frequency
+range $\sim 1/\tau_{\rm foam}$.  When $\tau_{\rm foam}\ll
+\tau_G,\sigma_\Delta$ the pedestal is correspondingly broad and
+shallow, and the coherent core is the operative spectrum near the line.
 
 
 % ==============================================================
