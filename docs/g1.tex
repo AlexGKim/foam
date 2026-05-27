@@ -28,7 +28,7 @@ Quantum-gravitational spacetime foam imprints an achromatic, stochastic
 arrival-time jitter on light from distant sources. We show that this jitter
 modifies the first-order temporal coherence $g^{(1)}(\tau)$ and hence the
 observed spectrum, providing a spectroscopic probe complementary to existing
-imaging-channel (PSF, fringe-visibility, Strehl) constraints. In the
+imaging-channel (PSF, Strehl) constraints. In the
 dynamical-foam limit the spectrum splits into a coherent line core suppressed
 by $e^{-\sigma_\phi^2}$ and an incoherent pedestal, yielding a spectral
 shape-distortion bound on the Ng--Perlman foam exponent $\alpha$.
@@ -144,8 +144,7 @@ Gaussian closed form.
 Section~\ref{sec:spec} translates these results into spectroscopic observables
 via the Wiener--Khinchin theorem, establishing the split of the observed
 spectrum into a coherent line core suppressed by $e^{-\sigma_\phi^2}$ and a
-broad pedestal, and connects them to fringe visibility and the spectral
-Strehl ratio.
+broad pedestal, and connects them to the imaging Strehl ratio.
 Section~\ref{sec:sources} applies the spectral shape-distortion bound to two sources:
 GRB\,221009A (Section~\ref{sec:grb221009a}) and the CMB as observed by
 COBE/FIRAS (Section~\ref{sec:CMB}).
@@ -501,109 +500,70 @@ shallow, and the coherent core is the operative spectrum near the line.
 
 
 % ==============================================================
-\subsection{Connection to Fringe Visibility and Strehl Ratio}
+\subsection{Connection to the Imaging Strehl Ratio}
 \label{sec:connection}
 
-The first-order coherence function $g^{(1)}_{\mathrm{obs}}(\tau)$
-derived above describes \emph{temporal} coherence along a single line
-of sight, with the foam suppression governed by the temporal
-decorrelation $C_\alpha(\tau;D)$ of Eq.~\eqref{eq:Ffoam}. The fringe visibility
-and Strehl ratio are the \emph{spatial} counterparts: they probe phase
-variations between two points in the telescope aperture plane
-separated by a baseline $B$, with the suppression governed by an
-aperture-plane coherence function $C_\alpha^{\mathrm{sp}}(B;D)$
-(constructed by direct analogy to the temporal $C_\alpha(\tau;D)$ of
-Section~\ref{sec:Calpha_origin}, under the same foam-cell statistics).
+The first-order coherence function $g^{(1)}_{\rm obs}(\tau)$ derived
+above describes \emph{temporal} coherence along a single line of
+sight, with the foam suppression governed by the temporal
+decorrelation $C_\alpha(\tau;D)$ of Eq.~\eqref{eq:Ffoam}.  The Strehl
+ratio of an imaging telescope is the \emph{spatial} counterpart:
+phase variations across the aperture plane are governed by an
+aperture-plane coherence function $C_\alpha^{\rm sp}(B;D)$, constructed
+by direct analogy to the temporal $C_\alpha(\tau;D)$ of
+Section~\ref{sec:Calpha_origin} under the same foam-cell statistics.
 
-The structural equivalence between the temporal and spatial cases is
-not merely formal: in both, the foam suppression arises as the
-characteristic function of a zero-mean Gaussian differential random
-variable, with $C_\alpha$ (respectively $C_\alpha^{\mathrm{sp}}$)
-setting how that variable's variance grows with separation.
-Temporally, the relevant random variable is the differential jitter
-$\Delta(\tau) = \delta t(t+\tau) - \delta t(t)$ between two arrival
-times along a single ray, with variance
-$\sigma_\Delta^2(\tau) = (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$
-(Eq.~\eqref{eq:diffVarExt}). Spatially, the analogous random variable is the
+The structural equivalence is not merely formal: in both cases the
+foam suppression arises as the characteristic function of a zero-mean
+Gaussian differential random variable.  Temporally, the variable is
+the differential jitter $\Delta(\tau)=\delta t(t+\tau)-\delta t(t)$
+with variance $\sigma_\Delta^2(\tau)=(2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$
+(Eq.~\eqref{eq:diffVarExt}).  Spatially, the variable is the
 differential phase
-$\Delta\phi(B) = \phi(\mathbf{x}+\mathbf{B}) - \phi(\mathbf{x})$
+$\Delta\phi(B)=\phi(\mathbf{x}+\mathbf{B})-\phi(\mathbf{x})$
 between two points on the aperture plane separated by baseline $B$,
 with variance
-%
 \begin{equation}
-  \sigma_{\Delta\phi}^2(B) \;=\; 2\sigma_\phi^2\bigl[1-C_\alpha^{\mathrm{sp}}(B;D)\bigr].
+  \sigma_{\Delta\phi}^2(B) \;=\; 2\sigma_\phi^2\bigl[1-C_\alpha^{\rm sp}(B;D)\bigr].
   \label{eq:dphi-variance}
 \end{equation}
-%
-Applying the Gaussian characteristic-function identity of Eq.~\eqref{eq:gaussian_jitter} in
-each domain yields suppression factors of identical form---one
-expressed in lag, the other in baseline:
-%
-\begin{equation}
-  \mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}}(B)
-   \;\equiv\; \exp\!\bigl\{-\tfrac{1}{2}\sigma_{\Delta\phi}^2(B)\bigr\}
-   \;=\; \exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\mathrm{sp}}(B;D)\bigr]\bigr\},
-  \label{eq:Fspat}
-\end{equation}
-%
-mirroring $\mathcal{F}_{\mathrm{foam}}(\tau)$ of Eq.~\eqref{eq:Ffoam} under
-$C_\alpha(\tau;D) \leftrightarrow C_\alpha^{\mathrm{sp}}(B;D)$. The
-shared subscript $\alpha$ further reflects that the same cumulative
-growth law of Eq.~\eqref{eq:NgPerlmanVar} underlies both decorrelations. As with its
-temporal counterpart, $\mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}}$ runs
-from unity at zero baseline ($C_\alpha^{\mathrm{sp}}(0;D)=1$, the two
-points sample identically phased wavefronts) to maximum suppression
-$e^{-\sigma_\phi^2}$ in the resolved limit where
-$C_\alpha^{\mathrm{sp}} \to 0$ (the two points sample independent
-foam realizations).
 
-The two-element interferometric fringe visibility at baseline $B$ is
-then
-%
+The focal-plane field of a telescope is the Fraunhofer Fourier
+transform of the aperture-plane field.  With uniform aperture phase
+the on-axis intensity is the diffraction-limited peak $I_0$; foam
+imprints a random phase $\phi(\mathbf{x})$ on the aperture with
+Gaussian statistics, variance $\sigma_\phi^2$, and two-point
+correlation $C_\alpha^{\rm sp}(B;D)$, so the on-axis intensity averages
+to
 \begin{equation}
-  V(B) \;=\; V_{\mathrm{src}}(B)\,\mathcal{F}^{\mathrm{sp}}_{\mathrm{foam}}(B)
-       \;=\; V_{\mathrm{src}}(B)\,\exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\mathrm{sp}}(B;D)\bigr]\bigr\},
-  \label{eq:visibility}
+  \langle I(0)\rangle \;=\; \frac{I_0}{A^2}
+    \iint_A
+    \exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\rm sp}(|\mathbf{x}_1-\mathbf{x}_2|;D)\bigr]\bigr\}
+    \,dA_1\,dA_2,
 \end{equation}
-%
-where $V_{\mathrm{src}}(B)=|g^{(1)}_{\mathrm{src}}(B)|$ denotes the
-source's first-order \emph{spatial} coherence at baseline $B$ --- the
-van Cittert--Zernike Fourier transform of the source brightness
-distribution at spatial frequency $B/\lambda$, distinct from the
-temporal $g^{(1)}_{\rm src}(\tau)$ used elsewhere in this paper. The Strehl ratio of a single aperture of
-diameter $D_{\mathrm{tel}}$ is the same statistic with $B$ replaced by
-the internal aperture baseline: when
-$C_\alpha^{\mathrm{sp}}(D_{\mathrm{tel}};D) \to 0$ the aperture-plane
-phases are independent draws from the single-ray distribution and the
-Gaussian-phase (extended Mar\'echal) form gives~\cite{NgPerlman2022}
-%
+using the Gaussian characteristic-function identity of
+Eq.~\eqref{eq:gaussian_jitter}.  The Strehl ratio
+$S \equiv \langle I(0)\rangle/I_0$ is the aperture average of the foam
+suppression; in the resolved limit
+$C_\alpha^{\rm sp}(D_{\rm tel};D)\to 0$ the aperture-plane phases at
+distinct points are independent draws from the single-ray distribution
+and the Gaussian-phase (extended Mar\'echal) form
+gives~\cite{NgPerlman2022}
 \begin{equation}
   S \;\simeq\; e^{-\sigma_\phi^2}.
   \label{eq:strehl}
 \end{equation}
-%
-Strehl ratio and fringe visibility therefore measure the \emph{same}
-underlying phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$
-in the resolved limit, differing only in which part of the point-spread-function is being considered.
-This unification places the published imaging
+The same single-point phase variance
+$\sigma_\phi^2=(2\pi\sigma_\ell/\lambda)^2$ that suppresses the
+coherent line core in the spectroscopic channel also suppresses the
+PSF peak in the imaging channel; the published imaging
 constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
-on a common footing within the present framework.
+thereby sit on a common footing with the present framework.
 
-Equation~\eqref{eq:visibility} also reveals a Fourier duality between
-the imaging constraints of Lieu \& Hillman~\cite{LieuHillman2003} and
-Ng \& Perlman~\cite{NgPerlman2022} and the spectroscopic framework
-developed here.  In imaging, the aperture-plane field Fourier-transforms
-to the point-spread function; foam-induced \emph{spatial} decoherence
-across the aperture, encoded in $C_\alpha^{\rm sp}(B;D)$, perturbs the
-PSF as Strehl loss and fringe washout.  In spectroscopy, the first-order
-coherence $g^{(1)}(\tau)$ Fourier-transforms to the spectrum
-(Wiener--Khinchin); foam-induced \emph{temporal} decoherence in lag,
-encoded in $C_\alpha(\tau;D)$, perturbs the spectrum as line-peak
-suppression and a broad pedestal.  Both channels probe the same
-single-point phase variance $\sigma_\phi^2 = (2\pi\sigma_\ell/\lambda)^2$
-through conjugate Fourier variables (aperture $\leftrightarrow$ lag,
-angle $\leftrightarrow$ frequency), with the rapid chromatic tightening
-$\sigma_\phi \propto 1/\lambda$ exploited in both Ng \&
+Both channels probe $\sigma_\phi^2$ through conjugate Fourier
+variables (aperture $\leftrightarrow$ lag, angle $\leftrightarrow$
+frequency), with the rapid chromatic tightening
+$\sigma_\phi\propto 1/\lambda$ exploited in both Ng \&
 Perlman's~\cite{NgPerlman2022} Table~1 and the analyses of
 Section~\ref{sec:grb221009a}.  The duality is not perfect at the
 observational interface: isolating the foam contribution requires an
