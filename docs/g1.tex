@@ -1423,9 +1423,7 @@ parameter space below the GRB bound where more exotic foam models
 would reside.  A definitive FIRAS foam analysis would require
 specifying $C_\alpha(\tau)$ to determine the physical pedestal shape
 and replacing the linearised template with the full nonlinear
-expression at high frequencies where $\sigma_\phi^2\gtrsim 1$;
-Appendix~\ref{app:FIRAS} outlines the steps such an analysis would
-take.
+expression at high frequencies where $\sigma_\phi^2\gtrsim 1$.
 
 % ==============================================================
 \section{Conclusions}
@@ -1513,82 +1511,6 @@ The authors used Claude (Anthropic) and Valency Systems to assist with drafting 
 
 We thank Robin Kaiser for helpful discussions that helped motivate this work.
 \end{acknowledgments}
-
-\appendix
-
-% ==============================================================
-\section{Outline of a Full FIRAS Foam Analysis}
-\label{app:FIRAS}
-% ==============================================================
-
-The Fisher and bias analyses of Section~\ref{sec:CMB} use a placeholder
-pedestal kernel and a linearised template; a definitive FIRAS bound on
-the foam exponent $\alpha$ requires the additional steps outlined
-here.  The load-bearing derivations, numerical results, and
-complementarity discussion now live in Section~\ref{sec:CMB}.
-
-\subsection{Proposed Analysis}
-\label{sec:FIRAS_analysis}
-
-The FIRAS constraint requires the following steps:
-
-\begin{enumerate}
-\item \textit{Specify $C_\alpha(\tau)$ model.} Choose or derive the
-  temporal decorrelation function (e.g.\ exponential with timescale
-  $\tau_{\rm foam}$, power-law, or data-driven).  Use
-  Section~\ref{sec:CMB_derivation} to compute the pedestal kernel
-  $\hat{R}$ from first principles.
-
-\item \textit{Compute nonlinear Fisher matrix.} Using the full
-  nonlinear template (not the linearised approximation), compute the
-  Fisher correlation matrix for $(\alpha, A_\alpha, T_0, \mu, y,
-  A_{\rm CIB}, c_i)$ on the FIRAS noise-plus-calibration covariance.
-  Assess how much the $\alpha$--$\mu$ degeneracy is reduced once
-  $C_\alpha$ is specified.
-
-\item[2b.] \textit{Repeat the bias calculation in the nonlinear regime.}
-  Once the full nonlinear template is available, repeat the linearised
-  bias computation of Section~\ref{sec:CMB_T0_bias} at the nonlinear
-  level to verify that the sign and magnitude of $\Delta T_0$ are
-  reliable at the band edge ($\nu\gtrsim 400$\,GHz, where
-  $\sigma_\phi^2\to 1$ for $\alpha\approx 0.50$--$0.55$).  In the
-  nonlinear regime the linearised formula
-  Eq.~\eqref{eq:bias_formula} must be replaced by a numerical
-  comparison of maximum-likelihood estimators.
-
-\item \textit{Null-hypothesis validation.} Fit the FIRAS spectrum with
-  $A_\alpha=0$ and verify recovery of published values:
-  $T_0 = 2.72548\pm 0.00057$\,K, $|\mu|<9\times 10^{-5}$,
-  $|y|<1.5\times 10^{-5}$ (95\% CL; Fixsen 1996, 2009).
-
-\item \textit{Joint Bayesian inference.} Sample the full posterior
-  $p(\alpha, A_\alpha, T_0, \mu, y, \ldots \mid \mathbf{I}^{\rm obs})$
-  using the full nonlinear likelihood and FIRAS data.  Report marginal
-  bounds on $\alpha$ (fixing $A_\alpha=1$ or marginalising over it as
-  specified).
-\end{enumerate}
-
-\subsection{Likelihood and Inference Framework}
-
-The FIRAS monopole spectrum is compared to the full foam template
-(Section~\ref{sec:CMB_derivation}) together with standard
-spectral-distortion templates ($\mu$-distortion, Compton-$y$, CIB, and
-calibration modes) via a Gaussian log-likelihood:
-\begin{equation}
-  \ln\mathcal{L}
-    = -\tfrac{1}{2}\,\mathbf{r}^T\,\mathbf{C}^{-1}\,\mathbf{r},
-  \label{eq:FIRAS_likelihood}
-\end{equation}
-where $\mathbf{r} = \mathbf{I}^{\rm obs} - \mathbf{I}^{\rm model}$ is
-the residual vector and $\mathbf{C}$ is the FIRAS
-noise-plus-calibration covariance matrix (Fixsen 1996).  The free
-parameters are $(\alpha, A_\alpha, T_0, \mu, y, A_{\rm CIB},
-c_1, c_2, c_3)$, where $c_i$ are calibration mode amplitudes.  A
-null-hypothesis validation fit with $A_\alpha = 0$ must recover the
-published FIRAS values $T_0 = 2.72548\pm 0.00057$\,K,
-$|\mu|<9\times 10^{-5}$, $|y|<1.5\times 10^{-5}$ (95\% CL) before the
-foam parameter is freed for analysis.
-
 
 \bibliographystyle{apsrev4-2}
 \bibliography{references}
