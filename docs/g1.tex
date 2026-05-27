@@ -529,37 +529,30 @@ with variance
 \end{equation}
 
 The focal-plane field of a telescope is the Fraunhofer Fourier
-transform of the aperture-plane field.  With uniform aperture phase
-the on-axis intensity is the diffraction-limited peak $I_0$; foam
-imprints a random phase $\phi(\mathbf{x})$ on the aperture with
-Gaussian statistics, variance $\sigma_\phi^2$, and two-point
-correlation $C_\alpha^{\rm sp}(B;D)$, so the on-axis intensity averages
-to
+transform of the aperture-plane field, so the on-axis intensity is
+the diffraction-limited peak $I_0$ when the aperture phase is uniform.
+Foam imprints a Gaussian random phase $\phi(\mathbf{x})$ with variance
+$\sigma_\phi^2$ and two-point correlation $C_\alpha^{\rm sp}(B;D)$, and
+Eq.~\eqref{eq:gaussian_jitter} gives
 \begin{equation}
   \langle I(0)\rangle \;=\; \frac{I_0}{A^2}
     \iint_A
     \exp\!\bigl\{-\sigma_\phi^2\bigl[1-C_\alpha^{\rm sp}(|\mathbf{x}_1-\mathbf{x}_2|;D)\bigr]\bigr\}
-    \,dA_1\,dA_2,
+    \,dA_1\,dA_2.
 \end{equation}
-using the Gaussian characteristic-function identity of
-Eq.~\eqref{eq:gaussian_jitter}.  The Strehl ratio
-$S \equiv \langle I(0)\rangle/I_0$ is the aperture average of the foam
-suppression; in the resolved limit
-$C_\alpha^{\rm sp}(D_{\rm tel};D)\to 0$ the aperture-plane phases at
-distinct points are independent draws from the single-ray distribution
-and the Gaussian-phase (extended Mar\'echal) form
-gives~\cite{NgPerlman2022}
+The Strehl ratio $S \equiv \langle I(0)\rangle/I_0$ reduces in the
+resolved limit $C_\alpha^{\rm sp}(D_{\rm tel};D)\to 0$ --- where
+aperture phases at distinct points decorrelate --- to the
+extended-Mar\'echal form~\cite{NgPerlman2022}
 \begin{equation}
   S \;\simeq\; e^{-\sigma_\phi^2}.
   \label{eq:strehl}
 \end{equation}
-The same single-point phase variance
-$\sigma_\phi^2=(2\pi\sigma_\ell/\lambda)^2$ that suppresses the
-coherent line core in the spectroscopic channel also suppresses the
-coherent diffraction-limited PSF (peak and Airy fringes) in the
-imaging channel; the published imaging
+The same $\sigma_\phi^2$ thus suppresses the coherent diffraction-limited
+PSF (peak and Airy fringes) in imaging as the coherent line core in
+spectroscopy, placing the published imaging
 constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
-thereby sit on a common footing with the present framework.
+on a common footing with the present framework.
 
 Imaging and spectroscopic channels each probe $\sigma_\phi^2$ through
 a Fourier transform --- aperture position $\leftrightarrow$ focal-plane
