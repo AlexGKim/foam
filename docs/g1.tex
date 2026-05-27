@@ -462,11 +462,11 @@ $C_\alpha(\tau;D)\to 0$), so that the time-averaged spectrum coincides
 with its ensemble average: $T_{\rm int}\gg\tau_{\rm foam}$.
 
 For the Gaussian source profile of Section~\ref{sec:closedforms},
-Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} in the dynamical limit
-(where $\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2/c^2$ for
-$|\tau|\gtrsim\tau_{\rm foam}$) yields a Gaussian line
+Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} with $\sigma_\Delta^2$
+held at its asymptotic value $2\sigma_\ell^2/c^2$ (the dynamical limit
+for $|\tau|\gtrsim\tau_{\rm foam}$) gives the Gaussian core
 \begin{equation}
-  S_{\rm obs}(\nu) \;=\;
+  S_{\rm obs}^{\rm core}(\nu) \;=\;
     \frac{\tau_G}{\sqrt{\tau_G^2+\sigma_\Delta^2}}\,
     \exp\!\left[-\frac{\sigma_\phi^2\,\tau_G^2}{\tau_G^2+\sigma_\Delta^2}\right]
     \cdot
@@ -474,20 +474,15 @@ $|\tau|\gtrsim\tau_{\rm foam}$) yields a Gaussian line
     \exp\!\left[-\frac{(\nu-\nu_0^{\rm eff})^2}{2\sigma_{\rm obs}^2}\right],
   \label{eq:Sobs_gauss}
 \end{equation}
-with carrier
-$\nu_0^{\rm eff}=\nu_0\,\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ and width
-$\sigma_{\rm obs}=1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$ ---
-\emph{narrower} than $\sigma_\nu$ since wider $g^{(1)}$-support in
-$\tau$ maps to narrower $S$-support in $\nu$.  The three foam-induced
-modifications of Section~\ref{sec:closedforms} appear in
-Eq.~\eqref{eq:Sobs_gauss} as a carrier redshift (item~i), a
-line-narrowing prefactor $\tau_G/\sqrt{\tau_G^2+\sigma_\Delta^2}$
-(item~ii), and a peak-amplitude suppression
-$\exp[-\sigma_\phi^2\tau_G^2/(\tau_G^2+\sigma_\Delta^2)]$ (item~iii).
-The integrated flux $\int S_{\rm obs}\,d\nu$ falls below unity by the
-product of items~(ii) and (iii); the missing power resides in the
-broad pedestal contributed by the short-lag variation of
-$\sigma_\Delta^2(\tau)$ at $|\tau|\lesssim\tau_{\rm foam}$.
+with $\nu_0^{\rm eff}=\nu_0\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ and
+$\sigma_{\rm obs}=1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]<\sigma_\nu$.
+The Gaussian's carrier shift, line narrowing, and peak suppression are
+the frequency-domain images of items~(i)--(iii) of
+Section~\ref{sec:closedforms}.  The constant-$\sigma_\Delta^2$
+approximation violates $\sigma_\Delta(0)=0$, leaving
+$\int S_{\rm obs}^{\rm core}\,d\nu<1$; the missing flux is carried by
+the broad pedestal contributed by the short-lag region
+$|\tau|\lesssim\tau_{\rm foam}$ where the approximation fails.
 
 In the dynamical limit $C_\alpha(\tau;D)\to 0$ for
 $|\tau|\gtrsim\tau_{\rm foam}$, $\mathcal{F}_{\rm foam}(\tau)$ acquires
