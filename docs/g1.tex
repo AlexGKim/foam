@@ -29,7 +29,7 @@ arrival-time jitter on light from distant sources. We show that this jitter
 modifies the first-order temporal coherence $g^{(1)}(\tau)$ and hence the
 observed spectrum, providing a spectroscopic probe complementary to existing
 imaging-channel (PSF, fringe-visibility, Strehl) constraints. In the
-narrow-band limit the spectrum factorizes into a coherent line core suppressed
+dynamical-foam limit the spectrum splits into a coherent line core suppressed
 by $e^{-\sigma_\phi^2}$ and an incoherent pedestal, yielding a spectral
 shape-distortion bound on the Ng--Perlman foam exponent $\alpha$.
 In the dynamical-foam limit ($\tau_{\rm foam}\ll\tau_c$), applied to the
@@ -139,9 +139,8 @@ Section~\ref{sec:model} introduces the spacetime foam model: the
 arrival-time jitter parameterization, the temporal autocorrelation
 $C_\alpha(\tau)$, and the distribution of differential jitter.
 Section~\ref{sec:g1} derives the first-order coherence function
-$g^{(1)}_{\rm obs}(\tau)$ of the observed field, establishes closed-form
-the Gaussian closed form, and identifies the narrow-band
-limit in which the foam suppression factor simplifies.
+$g^{(1)}_{\rm obs}(\tau)$ of the observed field and establishes the
+Gaussian closed form.
 Section~\ref{sec:spec} translates these results into spectroscopic observables
 via the Wiener--Khinchin theorem and connects them to fringe visibility and the
 spectral Strehl ratio.
@@ -461,65 +460,24 @@ field is then stationary when the integration time exceeds the foam
 coherence time $\tau_{\rm foam}$ (the lag scale beyond which
 $C_\alpha(\tau;D)\to 0$), so that the time-averaged spectrum coincides
 with its ensemble average: $T_{\rm int}\gg\tau_{\rm foam}$.
-In the weak-jitter and narrow-band regimes the jitter-convolution
-integral~\eqref{eq:g1obs} reduces to the lag-domain product
-\begin{equation}
-  g^{(1)}_{\rm obs}(\tau) = g^{(1)}_{\rm src}(\tau)\,\mathcal{F}_{\rm foam}(\tau),
-  \label{eq:g1_product}
-\end{equation}
-with $\mathcal{F}_{\rm foam}(\tau) = \exp\{-\sigma_\phi^2[1-C_\alpha(\tau;D)]\}$
-from Eq.~\eqref{eq:Ffoam}.  Applying the convolution theorem to
-Eq.~\eqref{eq:WK_obs} then yields
-\begin{equation}
-  S_{\rm obs}(\nu) = S_{\rm src}(\nu)*\mathcal{K}_{\rm foam}(\nu),
-  \qquad \mathcal{K}_{\rm foam}(\nu) \equiv \mathcal{F}\{\mathcal{F}_{\rm foam}\}(\nu),
-  \label{eq:Sobs_conv}
-\end{equation}
-a convolution by a foam kernel that depends on $\sigma_\phi^2$,
-$C_\alpha$, and $\tau_{\rm foam}$.
-
 For the Gaussian source profile of Section~\ref{sec:closedforms},
 Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} gives a Gaussian line
 centred on $\nu_0^{\rm eff}$ with width
-$\sigma_{\rm obs} = 1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$ —
+$\sigma_{\rm obs} = 1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$ ---
 \emph{narrower} than $\sigma_\nu$ (wider $g^{(1)}$-support in $\tau$
-maps to narrower $S$-support in $\nu$) — and with peak amplitude
-suppressed by the factor in item~(iii) of
-Section~\ref{sec:closedforms}.  In the dynamical limit where
-$\sigma_\Delta^2$ is constant in $\tau$, the lag-domain
-convolution~\eqref{eq:g1obs} corresponds by the convolution theorem to a
-\emph{multiplication} of the spectrum by a Gaussian factor centred on
-$\nu=0$, which attenuates and shifts the line rather than convolving
-it in frequency.
+maps to narrower $S$-support in $\nu$) --- and with peak amplitude
+suppressed by the item~(iii) factor of Section~\ref{sec:closedforms}.
 
-In the narrow-band limit $\sigma_\Delta\ll\tau_G$ the width change and
-carrier shift become negligible and peak suppression dominates,
-giving
-\begin{equation}
-  S_{\rm obs}(\nu_0) \;=\; e^{-\sigma_\phi^2}\,S_{\rm src}(\nu_0),
-  \qquad
-  \sigma_\phi^2 \;\equiv\; \tfrac{1}{2}\omega_0^2\sigma_\Delta^2.
-  \label{eq:sigma_quadrature}
-\end{equation}
-The definition $\sigma_\phi^2 \equiv \tfrac{1}{2}\omega_0^2\sigma_\Delta^2$
-in the dynamical-foam limit, where $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$, gives
-$\tfrac{1}{2}\omega_0^2\sigma_\Delta^2 = (2\pi\sigma_\ell/\lambda_{\rm obs})^2$
-matching Eq.~\eqref{eq:sigmaphi}.
-
-In the further dynamical limit $C_\alpha(\tau)\to 0$ as
-$|\tau|\to\infty$, $\mathcal{F}_{\rm foam}(\tau)$ acquires a nonzero
-asymptote $e^{-\sigma_\phi^2}$, and the kernel decomposes as
-$\mathcal{K}_{\rm foam}(\nu) = e^{-\sigma_\phi^2}\delta(\nu) +
-\mathcal{K}_{\rm ped}(\nu)$.  The observed spectrum then splits into
-a coherent core $e^{-\sigma_\phi^2}S_{\rm src}(\nu)$ and a broad
-pedestal carrying the complementary fraction $1-e^{-\sigma_\phi^2}$
-of the source flux.  For the Gaussian source this split is transparent
-in Eq.~\eqref{eq:g1obs_gauss}: the coherent core is governed by the
-asymptotic value $\sigma_\Delta^2\to 2\sigma_\ell^2/c^2$ for
-$|\tau|\gtrsim\tau_{\rm foam}$, while the pedestal arises from the
-variation of $\sigma_\Delta^2(\tau)$ at $|\tau|\lesssim\tau_{\rm foam}$.
-The broadband CMB derivation in Section~\ref{sec:CMB_derivation}
-treats this decomposition explicitly.
+In the dynamical limit $C_\alpha(\tau;D)\to 0$ for
+$|\tau|\gtrsim\tau_{\rm foam}$, $\mathcal{F}_{\rm foam}(\tau)$ acquires
+a long-lag plateau $e^{-\sigma_\phi^2}$ outside a narrow window
+$|\tau|\lesssim\tau_{\rm foam}$.  Fourier-transforming via
+Eq.~\eqref{eq:WK_obs}, the plateau produces a coherent core
+$e^{-\sigma_\phi^2}S_{\rm src}(\nu)$ and the residual short-lag
+variation produces a broad pedestal carrying the complementary fraction
+$1-e^{-\sigma_\phi^2}$ of the source flux.  The per-mode derivation in
+Section~\ref{sec:CMB_derivation} makes this decomposition explicit for
+a broadband source.
 
 
 % ==============================================================
@@ -833,10 +791,10 @@ framework-derived spectroscopic constraint.
 In the \emph{dynamical} limit ($\tau_{\rm foam}\ll\tau_c$),
 $\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2/c^2$ for all $|\tau|>\tau_{\rm foam}$.
 The dominant foam effect on the spectrum is then carrier-phase
-suppression of the line peak by $e^{-\sigma_\phi^2(E)}$ at unchanged
-line width within the narrow-band regime $\sigma_\Delta\ll\tau_G$
-(Section~\ref{sec:closedforms}).  Width broadening enters only as the
-narrow-band approximation begins to fail.  Substituting
+suppression of the line peak by $e^{-\sigma_\phi^2(E)}$, together with
+line-width broadening captured by item~(ii) of
+Section~\ref{sec:closedforms}; both follow from
+Eq.~\eqref{eq:g1obs_gauss}.  Substituting
 $\sigma_\Delta^2 = 2\sigma_\ell^2/c^2$ and
 $\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$ into
 Eq.~\eqref{eq:robs_decomp} gives
@@ -958,29 +916,20 @@ The cosmological redshift correction of Section~\ref{sec:closedforms}
 enhances $\sigma_\phi^2$ by $16\%$ at $z=0.151$, shifting the bound
 by $\Delta\alpha\sim 5\times10^{-4}$ — negligible at the current
 precision.
-(iii)~The narrow-band condition $\sigma_\Delta\ll\tau_G$ underlying
-Eq.~\eqref{eq:sigma_quadrature} is comfortably satisfied at the QS
-bound but \emph{violated} at the DYN bound.  Using
-$\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ (dynamical limit) and
-$c\tau_G(E_0)=\hbar c/(r_{\rm int}E_0)\approx 4.8\times10^{-14}\,\mathrm{m}$:
-\begin{equation*}
-  \frac{\sigma_\Delta}{\tau_G(E_0)} \;\approx\;
-  \begin{cases}
-    0.26 & \text{QS bound, $\sigma_\ell\approx 9\times 10^{-15}$ m,} \\
-    2.47 & \text{DYN bound, $\sigma_\ell\approx 8.4\times 10^{-14}$ m.}
-  \end{cases}
-\end{equation*}
-For the QS case the framework gives $\sigma_\Delta\to 0$ within the
-relevant lag range (since $C_\alpha\to 1$ for $\tau<\tau_{\rm foam}$);
-the narrow-band check above uses the dynamical-limit expression as an
-upper bound and the QS bound itself follows from the phenomenological
-identification Eq.~\eqref{eq:rfoam_qs} rather than from
-Eq.~\eqref{eq:g1obs_gauss}.
+(iii)~Using $\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ (dynamical limit) and
+$c\tau_G(E_0)=\hbar c/(r_{\rm int}E_0)\approx 4.8\times10^{-14}\,\mathrm{m}$,
+the ratio $\sigma_\Delta/\tau_G(E_0)\approx 0.26$ at the QS bound
+($\sigma_\ell\approx 9\times 10^{-15}$~m) and $\approx 2.47$ at the DYN
+bound ($\sigma_\ell\approx 8.4\times 10^{-14}$~m).  For the QS case the
+framework gives $\sigma_\Delta\to 0$ within the relevant lag range
+(since $C_\alpha\to 1$ for $\tau<\tau_{\rm foam}$); the ratio above
+uses the dynamical-limit expression as an upper bound and the QS bound
+itself follows from the phenomenological identification
+Eq.~\eqref{eq:rfoam_qs} rather than from Eq.~\eqref{eq:g1obs_gauss}.
 
-For the DYN case the corrected bound sits in the
-off-narrow-band regime $\sigma_\Delta\gtrsim\tau_G$, where the
-carrier-included Eq.~\eqref{eq:g1obs_gauss} predicts \emph{two}
-observable effects: (a)~line-width broadening
+For the DYN case the bound corresponds to $\sigma_\Delta\gtrsim\tau_G$,
+where Eq.~\eqref{eq:g1obs_gauss} predicts \emph{two} observable
+effects: (a)~line-width broadening
 $r_{\rm obs}^2 = r_{\rm int}^2(1+\sigma_\Delta^2/\tau_G^2)$ --- which the
 fit constrains via $r_{\rm foam,0}^{\rm max}=0.27$ --- and
 (b)~a line-center redshift $\nu_0^{\rm eff}/\nu_0 =
@@ -1103,13 +1052,13 @@ tighter bound available if such an accumulation model is adopted.
 \subsubsection{Foam-modified CMB spectrum}
 \label{sec:CMB_derivation}
 
-The narrow-band reduction of Eq.~\eqref{eq:Sobs_conv} --- which underlies
-the spectral analysis of Section~\ref{sec:grb221009a} --- was derived for
-quasi-monochromatic sources and does not apply to the broadband
-blackbody.  We derive the broadband foam signature from the full
-convolution integral in the fully dynamical limit $C_\alpha\to 0$.  In
-this limit Eq.~\eqref{eq:diffVarExt} gives a saturated jitter variance
-$\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2(D)/c^2$ for all $\tau\neq 0$.
+The Gaussian-source analysis of Section~\ref{sec:grb221009a} applies
+the exact closed form Eq.~\eqref{eq:g1obs_gauss}; the broadband
+blackbody requires its own derivation, which we now construct from the
+full convolution integral in the fully dynamical limit
+$C_\alpha\to 0$.  In this limit Eq.~\eqref{eq:diffVarExt} gives a
+saturated jitter variance $\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2(D)/c^2$
+for all $\tau\neq 0$.
 
 Decomposing the blackbody as an incoherent superposition of narrowband
 modes $S_{\rm src}(\nu')=B_{\nu'}(T_0)$, each mode is modulated by the
