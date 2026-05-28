@@ -98,7 +98,13 @@ def profile_chi2(r_foam0_val, chi2_func, E_data, r_data, dr_data, E_ref):
 
 
 def find_upper_limit(chi2_func, E_data, r_data, dr_data, E_ref, delta_chi2=2.71):
-    """Find one-sided 95% CL (delta_chi2=2.71, Wilks) or 68% CL (delta_chi2=1) upper limit on r_foam0."""
+    """Find one-sided 95% CL (delta_chi2=2.71, Wilks) or 68% CL (delta_chi2=1) upper limit on r_foam0.
+
+    Returns (r_foam0_max, chi2_min, r_int_best_global, r_int_at_max), where
+    r_int_at_max is the r_int that minimizes chi2 at fixed r_foam0 = r_foam0_max
+    (the proper joint pairing for the conservative alpha bound). The global-min
+    r_int_best_global is returned for reference only.
+    """
     # First find the global minimum (at r_foam0=0)
     chi2_min, r_int_best = profile_chi2(0.0, chi2_func, E_data, r_data, dr_data, E_ref)
 
@@ -114,7 +120,10 @@ def find_upper_limit(chi2_func, E_data, r_data, dr_data, E_ref, delta_chi2=2.71)
             r_lo = r_mid
         else:
             r_hi = r_mid
-    return (r_lo + r_hi) / 2, chi2_min, r_int_best
+    r_foam_max = (r_lo + r_hi) / 2
+    # Get the r_int that pairs with r_foam_max on the profile boundary.
+    _, r_int_at_max = profile_chi2(r_foam_max, chi2_func, E_data, r_data, dr_data, E_ref)
+    return r_foam_max, chi2_min, r_int_best, r_int_at_max
 
 
 def alpha_bound_qs(r_foam0, D_C, lam0, ell_P, r_int=None):
@@ -145,57 +154,51 @@ def alpha_bound_dyn(r_foam0, D_C, lam0, ell_P, r_int=None):
     return (np.log(D_C) - np.log(sigma_l)) / np.log(D_C / ell_P)
 
 
-# --- Main analysis ---
+# --- Main analysis: dynamical regime only ---
+# (The quasi-static heuristic is no longer carried through to an alpha
+# bound in the paper; see g1.tex §V.A.)
 print("\n" + "=" * 70)
-print("FIT RESULTS")
+print("FIT RESULTS (dynamical: r_foam ∝ E, r_int^2 prefactor)")
 print("=" * 70)
 
-for regime, chi2_func, alpha_func, regime_name in [
-    ("Quasi-static (r_foam ∝ E)", chi2_qs, alpha_bound_qs, "qs"),
-    ("Dynamical (r_foam ∝ E, r_int^2 prefactor)", chi2_dyn, alpha_bound_dyn, "dyn"),
-]:
-    print(f"\n--- {regime} ---")
+# Full dataset
+r_foam_95, chi2_min, r_int_best, r_int_at_max = find_upper_limit(
+    chi2_dyn, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=2.71)
+r_foam_68, _, _, r_int_at_max_68 = find_upper_limit(
+    chi2_dyn, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=1.0)
 
-    # Full dataset
-    r_foam_95, chi2_min, r_int_best = find_upper_limit(
-        chi2_func, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=2.71)
-    r_foam_68, _, _ = find_upper_limit(
-        chi2_func, E_keV, r_obs, dr_obs, E0_keV, delta_chi2=1.0)
+print(f"  Best fit: r_int = {r_int_best:.4f}, r_foam,0 = 0 (boundary)")
+print(f"  chi2_min = {chi2_min:.2f} (dof = {len(E_keV)-1})")
+print(f"  68% CL upper limit on r_foam,0: {r_foam_68:.4f}  (r_int at boundary = {r_int_at_max_68:.4f})")
+print(f"  95% CL upper limit on r_foam,0: {r_foam_95:.4f}  (r_int at boundary = {r_int_at_max:.4f})")
 
-    print(f"  Best fit: r_int = {r_int_best:.4f}, r_foam,0 = 0 (boundary)")
-    print(f"  chi2_min = {chi2_min:.2f} (dof = {len(E_keV)-1})")
-    print(f"  68% CL upper limit on r_foam,0: {r_foam_68:.4f}")
-    print(f"  95% CL upper limit on r_foam,0: {r_foam_95:.4f}")
+# Conservative alpha bound: pair (r_foam,0_max, r_int_at_max) along the
+# 95% CL profile boundary, not (r_foam,0_max, r_int_best_global).
+alpha_68 = alpha_bound_dyn(r_foam_68, D_C, lam0, ell_P, r_int=r_int_at_max_68)
+alpha_95 = alpha_bound_dyn(r_foam_95, D_C, lam0, ell_P, r_int=r_int_at_max)
+print(f"  alpha bound (68% CL, joint): alpha >= {alpha_68:.4f}")
+print(f"  alpha bound (95% CL, joint): alpha >= {alpha_95:.4f}")
+print(f"  Holographic value alpha = 2/3 = {2/3:.4f}")
 
-    alpha_68 = alpha_func(r_foam_68, D_C, lam0, ell_P, r_int=r_int_best)
-    alpha_95 = alpha_func(r_foam_95, D_C, lam0, ell_P, r_int=r_int_best)
-    print(f"  alpha bound (68% CL): alpha >= {alpha_68:.4f}")
-    print(f"  alpha bound (95% CL): alpha >= {alpha_95:.4f}")
-    print(f"  Compare: single-line bound alpha >= {(np.log(D_C/lam0) - np.log(10))/np.log(D_C/ell_P):.4f}")
-    print(f"  Holographic value alpha = 2/3 = {2/3:.4f}")
+# Excluding G1 (246-256s, index 0)
+print(f"\n--- Excluding G1 (246-256s) ---")
+E_noG1 = E_keV[1:]
+r_noG1 = r_obs[1:]
+dr_noG1 = dr_obs[1:]
+# Reference energy becomes the highest remaining
+E0_noG1 = E_noG1[0]  # 17839 keV
+lam0_noG1 = hc_keV_m / E0_noG1
 
-    # Excluding G1 (246-256s, index 0)
-    print(f"\n  --- Excluding G1 (246-256s) ---")
-    E_noG1 = E_keV[1:]
-    r_noG1 = r_obs[1:]
-    dr_noG1 = dr_obs[1:]
-    # Reference energy becomes the highest remaining
-    E0_noG1 = E_noG1[0]  # 17839 keV
-    lam0_noG1 = hc_keV_m / E0_noG1
+r_foam_95_noG1, chi2_min_noG1, r_int_best_noG1, r_int_at_max_noG1 = find_upper_limit(
+    chi2_dyn, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=2.71)
+r_foam_68_noG1, _, _, _ = find_upper_limit(
+    chi2_dyn, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=1.0)
 
-    r_foam_95_noG1, chi2_min_noG1, r_int_noG1 = find_upper_limit(
-        chi2_func, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=2.71)
-    r_foam_68_noG1, _, _ = find_upper_limit(
-        chi2_func, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=1.0)
-
-    alpha_95_noG1 = alpha_func(r_foam_95_noG1, D_C, lam0_noG1, ell_P, r_int=r_int_noG1)
-    alpha_68_noG1 = alpha_func(r_foam_68_noG1, D_C, lam0_noG1, ell_P, r_int=r_int_noG1)
-    print(f"  Best fit: r_int = {r_int_noG1:.4f}, r_foam,0 = 0")
-    print(f"  chi2_min = {chi2_min_noG1:.2f} (dof = {len(E_noG1)-1})")
-    print(f"  68% CL upper limit on r_foam,0: {r_foam_68_noG1:.4f}")
-    print(f"  95% CL upper limit on r_foam,0: {r_foam_95_noG1:.4f}")
-    print(f"  alpha bound (68% CL, no G1): alpha >= {alpha_68_noG1:.4f}")
-    print(f"  alpha bound (95% CL, no G1): alpha >= {alpha_95_noG1:.4f}")
+alpha_95_noG1 = alpha_bound_dyn(r_foam_95_noG1, D_C, lam0_noG1, ell_P, r_int=r_int_at_max_noG1)
+print(f"  Best fit: r_int = {r_int_best_noG1:.4f}, r_foam,0 = 0")
+print(f"  chi2_min = {chi2_min_noG1:.2f} (dof = {len(E_noG1)-1})")
+print(f"  95% CL upper limit on r_foam,0: {r_foam_95_noG1:.4f}  (r_int at boundary = {r_int_at_max_noG1:.4f})")
+print(f"  alpha bound (95% CL, no G1, joint): alpha >= {alpha_95_noG1:.4f}")
 
 
 # --- Sensitivity: allow linear r_int(E) ---
@@ -223,49 +226,67 @@ def chi2_dyn_linear(params, E_data, r_data, dr_data, E_ref):
     return np.sum(((r_data - r_model) / dr_data)**2)
 
 
-for regime_name, chi2_lin_func, alpha_func in [
-    ("Quasi-static", chi2_qs_linear, alpha_bound_qs),
-    ("Dynamical", chi2_dyn_linear, alpha_bound_dyn),
-]:
-    print(f"\n--- {regime_name} with linear r_int(E) ---")
+print(f"\n--- Dynamical with linear r_int(E) ---")
 
-    # Scan r_foam0 and for each, minimize over (r0, r1). Returns
-    # (best chi2, best r0, best r1) so we can recover r_int at E_ref.
-    def profile_over_linear(rf_val):
-        def obj(x):
-            r0, r1 = x
-            if r0 < 0:
-                return 1e10
-            return chi2_lin_func([r0, r1, rf_val], E_keV, r_obs, dr_obs, E0_keV)
-        res = minimize(obj, [0.10, 0.0], method='Nelder-Mead')
-        return res.fun, res.x[0], res.x[1]
+# Scan r_foam0 and for each, minimize over (r0, r1). Returns
+# (best chi2, best r0, best r1) so we can recover r_int at E_ref.
+def profile_over_linear(rf_val):
+    def obj(x):
+        r0, r1 = x
+        if r0 < 0:
+            return 1e10
+        return chi2_dyn_linear([r0, r1, rf_val], E_keV, r_obs, dr_obs, E0_keV)
+    res = minimize(obj, [0.10, 0.0], method='Nelder-Mead')
+    return res.fun, res.x[0], res.x[1]
 
-    chi2_min_lin, r0_best, r1_best = profile_over_linear(0.0)
-    r_int_ref = r0_best + r1_best  # r_int evaluated at E = E_ref
-    print(f"  chi2_min (rf=0, linear r_int): {chi2_min_lin:.2f} (dof={len(E_keV)-3})")
-    print(f"  best r0 = {r0_best:.4f}, best r1 = {r1_best:.4f}, r_int(E_ref) = {r_int_ref:.4f}")
+chi2_min_lin, r0_best, r1_best = profile_over_linear(0.0)
+r_int_ref_global = r0_best + r1_best  # r_int(E_ref) at global minimum
+print(f"  chi2_min (rf=0, linear r_int): {chi2_min_lin:.2f} (dof={len(E_keV)-3})")
+print(f"  best r0 = {r0_best:.4f}, best r1 = {r1_best:.4f}, r_int(E_ref) = {r_int_ref_global:.4f}")
 
-    # Find 95% CL upper limit
-    target = chi2_min_lin + 4.0
-    r_lo, r_hi = 0.0, 0.5
-    for _ in range(80):
-        r_mid = (r_lo + r_hi) / 2
-        chi2_mid, _, _ = profile_over_linear(r_mid)
-        if chi2_mid < target:
-            r_lo = r_mid
-        else:
-            r_hi = r_mid
-    r_foam_95_lin = (r_lo + r_hi) / 2
+# Find 95% CL upper limit
+target = chi2_min_lin + 4.0
+r_lo, r_hi = 0.0, 0.5
+for _ in range(80):
+    r_mid = (r_lo + r_hi) / 2
+    chi2_mid, _, _ = profile_over_linear(r_mid)
+    if chi2_mid < target:
+        r_lo = r_mid
+    else:
+        r_hi = r_mid
+r_foam_95_lin = (r_lo + r_hi) / 2
+# r_int(E_ref) at the profile boundary for the conservative alpha pairing
+_, r0_at_max, r1_at_max = profile_over_linear(r_foam_95_lin)
+r_int_ref_at_max = r0_at_max + r1_at_max
 
-    alpha_95_lin = alpha_func(r_foam_95_lin, D_C, lam0, ell_P, r_int=r_int_ref)
-    print(f"  95% CL upper limit on r_foam,0: {r_foam_95_lin:.4f}")
-    print(f"  alpha bound (95% CL, linear r_int): alpha >= {alpha_95_lin:.4f}")
+alpha_95_lin = alpha_bound_dyn(r_foam_95_lin, D_C, lam0, ell_P, r_int=r_int_ref_at_max)
+print(f"  95% CL upper limit on r_foam,0: {r_foam_95_lin:.4f}  (r_int(E_ref) at boundary = {r_int_ref_at_max:.4f})")
+print(f"  alpha bound (95% CL, linear r_int, joint): alpha >= {alpha_95_lin:.4f}")
+
+
+# --- Future-precision forecast: per-point δr ≲ 0.01 ---
+# Rescale errors and recompute the 95% CL upper limit + alpha bound with
+# the same conservative joint pairing.
+print("\n" + "=" * 70)
+print("FUTURE PRECISION FORECAST (δr ≲ 0.01 per point)")
+print("=" * 70)
+dr_future = 0.01 * np.ones_like(r_obs)
+r_foam_95_fut, _, _, r_int_at_max_fut = find_upper_limit(
+    chi2_dyn, E_keV, r_obs, dr_future, E0_keV, delta_chi2=2.71)
+alpha_95_fut = alpha_bound_dyn(r_foam_95_fut, D_C, lam0, ell_P, r_int=r_int_at_max_fut)
+print(f"  95% CL upper limit on r_foam,0: {r_foam_95_fut:.4f}  (r_int at boundary = {r_int_at_max_fut:.4f})")
+print(f"  alpha bound (95% CL, future): alpha >= {alpha_95_fut:.4f}")
 
 
 # --- Summary for LaTeX ---
 print("\n" + "=" * 70)
 print("SUMMARY FOR LATEX")
 print("=" * 70)
-print(f"ln(D_C/lambda_0) = {np.log(D_C/lam0):.1f}")
-print(f"ln(D_C/ell_P) = {np.log(D_C/ell_P):.1f}")
-print(f"Single-line bound (R=10): alpha >= {(np.log(D_C/lam0) - np.log(10))/np.log(D_C/ell_P):.2f}")
+print(f"ln(D_C/lambda_0) = {np.log(D_C/lam0):.2f}")
+print(f"ln(D_C/ell_P)    = {np.log(D_C/ell_P):.2f}")
+print(f"r_foam,0^max    = {r_foam_95:.4f}   (|ln| = {abs(np.log(r_foam_95)):.2f})")
+print(f"r_int at boundary = {r_int_at_max:.4f}   (|ln(2sqrt2 pi r_int^2)| = {abs(np.log(2*np.sqrt(2)*np.pi*r_int_at_max**2)):.2f})")
+print(f"alpha bound (current data, 95% CL, conservative joint): alpha >= {alpha_95:.4f}")
+print(f"alpha bound (no G1, 95% CL, conservative joint):        alpha >= {alpha_95_noG1:.4f}")
+print(f"alpha bound (linear r_int nuisance, 95% CL, joint):     alpha >= {alpha_95_lin:.4f}")
+print(f"alpha bound (future δr≲0.01, 95% CL, joint):            alpha >= {alpha_95_fut:.4f}")
