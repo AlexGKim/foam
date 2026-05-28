@@ -33,10 +33,9 @@ dynamical-foam limit the spectrum splits into a coherent line core suppressed
 by $e^{-\sigma_\phi^2}$ and an incoherent pedestal, yielding a spectral
 shape-distortion bound on the Ng--Perlman foam exponent $\alpha$.
 Applied to the MeV emission lines of GRB\,221009A in the dynamical-foam
-limit ($\tau_{\rm foam}\ll\tau_c$) we obtain a framework-derived bound
-$\alpha \gtrsim 0.64$; the framework predicts no spectroscopic imprint
-in the strict quasi-static limit, but a phenomenological bracket
-parallel to the Ng--Perlman imaging criterion gives $\alpha \gtrsim 0.65$.
+limit ($\tau_{\rm foam}\ll\tau_c$) we obtain $\alpha \gtrsim 0.64$;
+the framework predicts no spectroscopic imprint in the strict
+quasi-static limit.
 For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 ($\sigma_\phi^2 \propto \nu^2$) with a low-frequency pedestal; a Fisher
 analysis of COBE/FIRAS reaches $\alpha \lesssim 0.57$ under the placeholder
@@ -656,8 +655,25 @@ the spectrum by a Gaussian factor rather than a convolution with it
 depends on the temporal correlation regime of $\delta t$.
 
 In the \emph{quasi-static} limit ($\tau_{\rm foam}\gg\tau_c$), the
-heuristic identification $\sigma_\phi=2\pi\sigma_\ell/\lambda \mapsto
-\Delta\nu/\nu=\sigma_\phi/(2\pi)$ gives
+framework predicts \emph{no} foam imprint on the single-source line
+spectrum: $C_\alpha\to 1$ over the support of $g^{(1)}_{\rm src}$, so
+$\sigma_\Delta^2(\tau)\to 0$ for $|\tau|\lesssim\tau_c$, the
+jitter-convolution Eq.~\eqref{eq:g1obs} reduces to the identity, and
+$g^{(1)}_{\rm obs}\approx g^{(1)}_{\rm src}$.  Physically, a frozen
+$\delta t$ acts as a single global time delay that shifts the time
+origin but does not alter the line shape; the temporal analogue of
+the spatial sampling that drives imaging-channel constraints is
+unavailable to a single-line-of-sight spectroscopic measurement.  The
+QS regime also lies outside the dynamical parameter region
+$\tau_{\rm foam}\sim\tau_P$ adopted in Section~\ref{sec:model}, so on
+the framework's own terms the spectroscopic channel returns no QS
+bound.
+
+For continuity with the imaging literature we nonetheless retain a
+phenomenological QS bracket, constructed by dimensional analogy with
+the Ng--Perlman wavefront criterion $\sigma_\ell\lesssim\lambda$:
+identifying $\sigma_\phi=2\pi\sigma_\ell/\lambda$ with a fractional
+spectral shift $\Delta\nu/\nu=\sigma_\phi/(2\pi)$ gives
 \begin{equation}
   r_{\rm foam}^{\rm (qs)}(E)
   \;=\; \frac{\sigma_\ell}{\lambda_{\rm obs}(E)}
@@ -665,22 +681,9 @@ heuristic identification $\sigma_\phi=2\pi\sigma_\ell/\lambda \mapsto
   \;\propto\; E.
   \label{eq:rfoam_qs}
 \end{equation}
-This identification is dimensional rather than derived: the strict QS
-limit of the framework of Section~\ref{sec:g1} actually predicts
-\emph{no} foam imprint on the single-source line spectrum.  When
-$\tau_{\rm foam}\gg\tau_c$, $\sigma_\Delta^2(\tau)\to 0$ for all
-$|\tau|\lesssim\tau_c$ (since $C_\alpha\to 1$ over the support of
-$g^{(1)}_{\rm src}$), so the jitter convolution Eq.~\eqref{eq:g1obs}
-reduces to the identity and $g^{(1)}_{\rm obs}\approx g^{(1)}_{\rm src}$.
-Physically, a frozen $\delta t$ acts as a single global time delay that
-shifts the time origin but does not alter the line shape; the temporal
-analogue of the spatial sampling that drives imaging-channel
-constraints is unavailable to a single-line-of-sight spectroscopic
-measurement.  Eq.~\eqref{eq:rfoam_qs} is therefore retained only as a
-phenomenological bracket on the dynamical bound below, providing the
-natural QS counterpart of the Ng--Perlman imaging-channel
-$\sigma_\ell\lesssim\lambda$ scaling; it should not be read as a
-framework-derived spectroscopic constraint.
+This is a heuristic, not a framework prediction; it should be read
+as the QS counterpart of the imaging criterion rather than as a
+spectroscopic constraint on the foam exponent.
 
 In the \emph{dynamical} limit ($\tau_{\rm foam}\ll\tau_c$),
 $\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2/c^2$ for all $|\tau|>\tau_{\rm foam}$.
