@@ -692,29 +692,44 @@ suppression of the line peak by $e^{-\sigma_\phi^2(E)}$, together with
 line-width broadening captured by item~(ii) of
 Section~\ref{sec:closedforms}; both follow from
 Eq.~\eqref{eq:g1obs_gauss}.  Substituting
-$\sigma_\Delta^2 = 2\sigma_\ell^2/c^2$ and
-$\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$ into
+$\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ and
+$\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$, the
+foam-to-intrinsic timescale ratio takes the compact form
+\begin{equation}
+  \frac{\sigma_\Delta}{\tau_G(E)}
+  \;=\; \sqrt{2}\,r_{\rm int}\,\sigma_\phi(E),
+  \label{eq:sigmaDelta_tauG_dyn}
+\end{equation}
+the product of the intrinsic fractional line width $r_{\rm int}$
+(a source property) and the asymptotic phase variance scale
+$\sigma_\phi(E) = 2\pi\sigma_\ell/\lambda_{\rm obs}(E)$ defined in
+Section~\ref{sec:model} (Eq.~\eqref{eq:sigmaphi}).  Substituting into
 Eq.~\eqref{eq:robs_decomp} gives
-$\sigma_\Delta^2/\tau_G^2(E)
-   = (2\sigma_\ell^2/c^2)\cdot(2\pi c\,r_{\rm int})^2/\lambda_{\rm obs}^2(E)
-   = 8\pi^2 r_{\rm int}^2\,\sigma_\ell^2/\lambda_{\rm obs}^2(E)$,
-so that
-$r_{\rm foam}^{({\rm dyn})}(E)
-   = r_{\rm int}\sqrt{r_{\rm int}^2\cdot 8\pi^2\sigma_\ell^2/\lambda_{\rm obs}^2}
-   = r_{\rm int}^2\cdot 2\sqrt{2}\,\pi\,\sigma_\ell/\lambda_{\rm obs}(E)$;
-that is,
+$r_{\rm obs}^2(E) = r_{\rm int}^2\bigl[1+2\,r_{\rm int}^2\sigma_\phi^2(E)\bigr]$,
+so the foam excess is
 \begin{equation}
   r_{\rm foam}^{\rm (dyn)}(E)
-  \;=\; r_{\rm int}^2\cdot\frac{2\sqrt{2}\,\pi\,\sigma_\ell}{\lambda_{\rm obs}(E)}
+  \;=\; \sqrt{2}\,r_{\rm int}^2\,\sigma_\phi(E)
   \;=\; r_{\rm int}^2\cdot\frac{2\sqrt{2}\,\pi\,\sigma_\ell\,E}{hc}
   \;\propto\; E.
   \label{eq:rfoam_dyn}
 \end{equation}
-The corrected dynamical scaling is therefore $\propto E$, the
-\emph{same} energy dependence as the quasi-static case --- and not the
-$\propto E^{-1}$ scaling that follows from heuristic single-photon
-time--frequency uncertainty arguments, which conflate the cumulative
-path-length jitter $\sigma_\ell$ with the foam decorrelation timescale
+Foam enters universally through $\sigma_\phi$; the source enters only
+through $r_{\rm int}$.  The $r_{\rm int}^2$ prefactor reflects two
+distinct geometric factors: one factor of $r_{\rm int}$ converts the
+absolute foam-induced shift ($\propto\sigma_\phi\,\nu_0$) into a
+fractional width, and a second factor enters through
+$\tau_G\propto 1/r_{\rm int}$ in the quadratic broadening term
+$\sigma_\Delta^2/\tau_G^2$.  A narrower intrinsic line (smaller
+$r_{\rm int}$, longer $\tau_G$) is therefore more robust to dynamical
+foam: the foam timescale $\sigma_\Delta$ falls further below the
+source coherence time.
+
+The dynamical scaling is $\propto E$, the \emph{same} energy
+dependence as the quasi-static case --- and not the $\propto E^{-1}$
+scaling that follows from heuristic single-photon time--frequency
+uncertainty arguments, which conflate the cumulative path-length
+jitter $\sigma_\ell$ with the foam decorrelation timescale
 $\tau_{\rm foam}$ that actually sets the pedestal bandwidth (see
 Section~\ref{sec:CMB_derivation}).  Both regimes thus predict $r_{\rm foam}\propto E$
 and admit the same two-parameter model
