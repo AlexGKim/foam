@@ -915,7 +915,10 @@ accumulated phase variance, from Eq.~\eqref{eq:sigmaphi}, is
       A_\alpha\,D_{\rm C}^{2(1-\alpha)}\,\ell_P^{2\alpha},
   \label{eq:sigma_phi_CMB}
 \end{equation}
-where $\nu$ is the observed frequency.  At $\nu=150$\,GHz,
+where $\nu$ is the cyclic observer-frame frequency ($\omega=2\pi\nu$)
+and $\sigma_\phi^2$ is taken in the anchoring~(b) observer-frame
+convention of Section~\ref{sec:closedforms}; the cosmological-weighted
+alternative is discussed below.  At $\nu=150$\,GHz,
 \begin{equation}
   \sigma_\phi^2(150\,{\rm GHz})\approx
   \begin{cases}
@@ -951,8 +954,9 @@ tighter bound available if such an accumulation model is adopted.
 
 The Gaussian-source analysis of Section~\ref{sec:grb221009a} applies
 the exact closed form Eq.~\eqref{eq:g1obs_gauss}; the broadband
-blackbody requires its own derivation, which we now construct from the
-full convolution integral in the fully dynamical limit
+blackbody requires its own derivation, obtained by applying the
+jitter-convolution Eq.~\eqref{eq:g1obs} to each thermal mode
+independently and integrating, in the fully dynamical limit
 $C_\alpha\to 0$.  In this limit Eq.~\eqref{eq:diffVarExt} gives a
 saturated jitter variance $\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2(D)/c^2$
 for all $\tau\neq 0$.
@@ -999,7 +1003,9 @@ photon is merely time-shifted, not absorbed or created.  Any physical
 pedestal kernel $\hat{R}$ derived from a specific $C_\alpha(\tau)$
 therefore satisfies $\int [S_{\rm obs}(\nu)-B_\nu(T_0)]\,d\nu/(h\nu)=0$.
 The fiducial placeholder used in the Fisher analysis below
-($K_\nu^{\rm fast}\propto[\nu\ln(\nu_{\rm max}/\nu_{\rm min})]^{-1}$) is
+($K_\nu^{\rm fast}\propto[\nu\ln(\nu_{\rm max}/\nu_{\rm min})]^{-1}$,
+with $\nu_{\rm min}=60$\,GHz and $\nu_{\rm max}=600$\,GHz set by the
+FIRAS band edges) is
 energy-conserving but not photon-number-conserving; however, the
 no-pedestal robustness check (Section~\ref{sec:CMB_degeneracy}) bounds
 the impact of the kernel choice to $\Delta\alpha\approx 0.009$, so the
@@ -1013,8 +1019,8 @@ bound.
 
 The above derivation requires $\tau_{\rm foam}\ll 1/\nu_{\rm CMB}\sim
 7$\,ps.  For Planck-scale foam, $\tau_{\rm foam}\sim\ell_P/c\approx
-5\times 10^{-44}$\,s, the condition is satisfied by more than thirty orders of
-magnitude.  For larger $\tau_{\rm foam}$ the suppression factor
+5\times 10^{-44}$\,s, the condition is satisfied by a factor of
+$\sim 10^{32}$.  For larger $\tau_{\rm foam}$ the suppression factor
 $e^{-\sigma_\phi^2[1-C_\alpha(\tau_{\rm foam})]}$
 (Eq.~\eqref{eq:Ffoam}) is reduced by $[1-C_\alpha(\tau_{\rm foam})]$
 and the distortion amplitude is suppressed accordingly.  In the
@@ -1035,7 +1041,11 @@ $\boldsymbol{\theta}=(A_{\rm eff},T_0,\mu,y)$, where
 $A_{\rm eff}=A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}=\sigma_\ell^2(D_C)$
 is the cumulative foam path-length variance at the CMB distance
 (Eq.~\eqref{eq:NgPerlmanVar}), so that
-$\sigma_\phi^2(\nu)=(2\pi\nu/c)^2 A_{\rm eff}$.  The
+$\sigma_\phi^2(\nu)=(2\pi\nu/c)^2 A_{\rm eff}$.  Note that $\alpha$ is
+not fitted directly; only the lumped amplitude $A_{\rm eff}$ enters
+the Fisher matrix, and bounds on $\alpha$ are obtained
+\emph{a posteriori} by inverting the Ng--Perlman relation at fixed
+$A_\alpha=1$.  The
 foam template is
 \begin{equation}
   \frac{\partial I_\nu}{\partial A_{\rm eff}}
@@ -1070,8 +1080,10 @@ same frequency dependence as the fiducial pedestal $K_\nu^{\rm fast}$;
 the two templates therefore have nearly identical spectral shapes
 across the FIRAS band, producing a strong Fisher-matrix degeneracy.
 
-A Fisher analysis using 43 uniform FIRAS channels with diagonal noise
-$\sigma_\nu=0.01$\,MJy/sr yields the correlation matrix for parameters
+A Fisher analysis using the 43 FIRAS channels~\cite{Fixsen1996} with
+diagonal noise approximated as a flat $\sigma_\nu=0.01$\,MJy/sr per
+channel (a band-averaged simplification of the published
+channel-by-channel uncertainties) yields the correlation matrix for parameters
 $(A_{\rm eff},\,T_0,\,\mu,\,y)$ in that order:
 \begin{equation}
 \rho_{ij} = \begin{pmatrix}
@@ -1084,7 +1096,10 @@ $(A_{\rm eff},\,T_0,\,\mu,\,y)$ in that order:
 \end{equation}
 showing the dominant foam--$\mu$ degeneracy
 ($\rho_{A_{\rm eff}\mu}=0.976$, bold) and a negligible foam--$y$
-correlation ($\rho_{A_{\rm eff}y}=0.010$).  The marginal Fisher
+correlation ($\rho_{A_{\rm eff}y}=0.010$).  Only the $\sim 5\%$ of
+foam-direction variance orthogonal to the $\mu$ template enters the
+marginal bound; an external constraint on $\mu$ would directly
+tighten $\sigma(A_{\rm eff})$ by removing this near-degeneracy.  The marginal Fisher
 uncertainties are
 \begin{equation}
   \sigma(A_{\rm eff}) = 1.5\times10^{-17}\,{\rm m}^2,
@@ -1139,7 +1154,12 @@ pedestal shape within the FIRAS band.
 \label{sec:CMB_T0_bias}
 
 The Fisher matrix also quantifies how much the fitted CMB temperature
-would shift if foam were present but omitted from the model.  Suppose
+would shift if foam were present but omitted from the model.  The
+magnitude and sign of the resulting $T_0$ bias both depend on the
+assumed pedestal kernel $K_\nu^{\rm fast}$, which is a placeholder
+rather than framework-derived (Section~\ref{sec:CMB_derivation}); a
+physical kernel from a specified $C_\alpha(\tau)$ could alter either.
+Suppose
 the data contain foam at amplitude $A_{\rm eff}^{\rm true}$ but the
 analyst fits only $\boldsymbol{\theta}_{\rm fit}=(T_0,\mu,y)$.  In the
 linearised Fisher regime the parameter shift is
@@ -1198,10 +1218,7 @@ Figure~\ref{fig:cmb_bias} plots $|\Delta T_0|/\sigma(T_0)$ as a
 function of $\alpha$; at $\alpha=0.57$ (marginal SNR $\approx 1$) the
 ratio is $\approx 4\times 10^{-4}$ --- completely negligible.  The
 published Fixsen $T_0=2.72548$\,K is therefore not appreciably biased
-by any foam model near or above the FIRAS detection threshold.  The
-sign and magnitude of $\Delta T_0$ depend on the placeholder kernel;
-a physically derived pedestal from a specified $C_\alpha(\tau)$ may
-alter these values.
+by any foam model near or above the FIRAS detection threshold.
 
 \begin{figure}[h]
 \centering
@@ -1279,9 +1296,12 @@ accumulated phase is essentially frozen during each coherence time and
 the foam acts as a deterministic, frequency-independent phase screen
 --- no spectral broadening or peak reduction occurs within a single
 observation, and the shape-distortion bounds do not apply.  The CMB
-constraint (Section~\ref{sec:CMB}), which relies on absolute
-spectrophotometry against a known blackbody spectrum rather than on line
-shape, remains valid independently of $\tau_{\rm foam}$.
+constraint (Section~\ref{sec:CMB}) is similarly derived in the
+dynamical limit (Section~\ref{sec:CMB_derivation} works in
+$C_\alpha\to 0$): in the opposite quasi-static limit the per-mode
+foam suppression $\mathcal{F}_{\rm foam}(\tau)\to 1$
+(Eq.~\eqref{eq:Ffoam}) and the CMB monopole is unmodified, so the
+shape-distortion bounds do not apply in either channel.
 
 The dynamical bound $\alpha\gtrsim 0.63$
 (Eq.~\eqref{eq:alpha_grb_dyn}) does not exclude the holographic value
@@ -1337,7 +1357,10 @@ Eq.~\eqref{eq:sigmaphi_cosmo} could shift each by up to
 $\Delta\alpha\sim 0.03$ in the same direction.
 The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
 linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
-regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$, where the foam template
+regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ under the
+cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo}
+(observer-frame Eq.~\eqref{eq:sigmaphi} shifts this to
+$\alpha\lesssim 0.52$), where the foam template
 diverges markedly from the $\mu$-distortion shape and the degeneracy may be
 substantially reduced.  The $\alpha\lesssim0.60$ projection is therefore
 conservative: if the nonlinear template effectively breaks the foam--$\mu$
