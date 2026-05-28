@@ -180,21 +180,21 @@ print(f"  alpha bound (68% CL, joint): alpha >= {alpha_68:.4f}")
 print(f"  alpha bound (95% CL, joint): alpha >= {alpha_95:.4f}")
 print(f"  Holographic value alpha = 2/3 = {2/3:.4f}")
 
-# Excluding G1 (246-256s, index 0)
+# Excluding G1 (246-256s, index 0).
+# Use the SAME E_0 = 37 MeV as the main analysis (no re-referencing).
+# This keeps r_foam,0 = r_foam(E_0=37 MeV) the same parameter as in
+# the all-seven-point fit, so the comparison is direct.
 print(f"\n--- Excluding G1 (246-256s) ---")
 E_noG1 = E_keV[1:]
 r_noG1 = r_obs[1:]
 dr_noG1 = dr_obs[1:]
-# Reference energy becomes the highest remaining
-E0_noG1 = E_noG1[0]  # 17839 keV
-lam0_noG1 = hc_keV_m / E0_noG1
 
 r_foam_95_noG1, chi2_min_noG1, r_int_best_noG1, r_int_at_max_noG1 = find_upper_limit(
-    chi2_dyn, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=2.71)
+    chi2_dyn, E_noG1, r_noG1, dr_noG1, E0_keV, delta_chi2=2.71)
 r_foam_68_noG1, _, _, _ = find_upper_limit(
-    chi2_dyn, E_noG1, r_noG1, dr_noG1, E0_noG1, delta_chi2=1.0)
+    chi2_dyn, E_noG1, r_noG1, dr_noG1, E0_keV, delta_chi2=1.0)
 
-alpha_95_noG1 = alpha_bound_dyn(r_foam_95_noG1, D_C, lam0_noG1, ell_P, r_int=r_int_at_max_noG1)
+alpha_95_noG1 = alpha_bound_dyn(r_foam_95_noG1, D_C, lam0, ell_P, r_int=r_int_at_max_noG1)
 print(f"  Best fit: r_int = {r_int_best_noG1:.4f}, r_foam,0 = 0")
 print(f"  chi2_min = {chi2_min_noG1:.2f} (dof = {len(E_noG1)-1})")
 print(f"  95% CL upper limit on r_foam,0: {r_foam_95_noG1:.4f}  (r_int at boundary = {r_int_at_max_noG1:.4f})")
