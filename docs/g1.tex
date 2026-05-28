@@ -681,7 +681,12 @@ the spectrum by a Gaussian factor rather than a convolution with it
 (Section~\ref{sec:closedforms}).
 
 In the dynamical-foam limit ($\tau_{\rm foam}\ll\tau_c$),
-$\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2/c^2$ for all $|\tau|>\tau_{\rm foam}$.
+$\sigma_\Delta^2(\tau)$ saturates to $2\sigma_\ell^2/c^2$ on lags
+$|\tau|\gtrsim\tau_{\rm foam}$.  The broadening term in
+Eq.~\eqref{eq:robs_decomp} is set by this variance at the source
+coherence lag $\tau\sim\tau_G$, which satisfies
+$\tau_G\sim\tau_c\gg\tau_{\rm foam}$ in this regime, so the saturated
+value is the operative one.
 The dominant foam effect on the spectrum is then carrier-phase
 suppression of the line peak by $e^{-\sigma_\phi^2(E)}$, together with
 line-width broadening captured by item~(ii) of
