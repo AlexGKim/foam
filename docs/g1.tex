@@ -1021,10 +1021,24 @@ zero in-band (worked example below), so the Fisher analysis of
 Section~\ref{sec:CMB_degeneracy} adopts the no-pedestal limit as the
 primary template.  To probe robustness against in-band pedestal
 contamination, we also evaluate the Fisher matrix with a worst-case
-band-filling template
-$K_\nu^{\rm fast}\propto[\nu\ln(\nu_{\rm max}/\nu_{\rm min})]^{-1}$
-(with $\nu_{\rm min}=60$\,GHz and $\nu_{\rm max}=600$\,GHz set by the
-FIRAS band edges); this template is energy-conserving but not
+band-filling redistribution kernel
+\begin{equation}
+  K_\nu^{\rm fast}(\nu) \;=\;
+  \begin{cases}
+    \dfrac{1}{\nu\,\ln(\nu_{\rm max}/\nu_{\rm min})} &
+    \nu_{\rm min}\le\nu\le\nu_{\rm max},\\[4pt]
+    0 & \text{otherwise},
+  \end{cases}
+  \label{eq:Knufast}
+\end{equation}
+with $\nu_{\rm min}=60$\,GHz and $\nu_{\rm max}=600$\,GHz set by the
+FIRAS band edges.  $K_\nu^{\rm fast}(\nu)$ is a normalized density
+in observer frequency ($\int_{\nu_{\rm min}}^{\nu_{\rm max}}
+K_\nu^{\rm fast}\,d\nu=1$, units Hz$^{-1}$) that specifies the
+fraction of the total foam-removed flux reappearing as pedestal
+intensity per Hz at observer frequency $\nu$; the form above
+corresponds to uniform energy redistribution in $\ln\nu$ across the
+band.  The template is energy-conserving but not
 photon-number-conserving, and so corresponds to no physical
 $C_\alpha$, but it spans the full band and serves as a maximally
 adversarial probe of kernel-shape sensitivity.  The two analyses
@@ -1114,14 +1128,14 @@ foam template is
   \label{eq:dIdA}
 \end{equation}
 Equation~\eqref{eq:dIdA} comprises a high-frequency deficit and a
-compensating pedestal $K_\nu^{\rm fast}$.  Adopting the placeholder
-$K_\nu^{\rm fast}\propto(\nu\ln[\nu_{\rm max}/\nu_{\rm min}])^{-1}$
-(uniform energy redistribution in $\ln\nu$ --- the simplest form
-consistent with energy conservation) makes the pedestal integral
-$P_{\rm foam}\equiv\int(2\pi\nu'/c)^2 B_{\nu'}(T_0)\,d\nu'$ a
+compensating pedestal whose shape is set by the redistribution
+kernel $K_\nu^{\rm fast}(\nu)$ defined in
+Eq.~\eqref{eq:Knufast}.  With $K_\nu^{\rm fast}\propto 1/\nu$, the
+pedestal integral
+$P_{\rm foam}\equiv\int(2\pi\nu'/c)^2 B_{\nu'}(T_0)\,d\nu'$ becomes a
 frequency-independent constant, yielding a $1/\nu$ pedestal --- the
-same Rayleigh--Jeans shape as the $\mu$-distortion template, and hence
-the origin of the foam--$\mu$ degeneracy.
+same Rayleigh--Jeans shape as the $\mu$-distortion template, and
+hence the origin of the foam--$\mu$ degeneracy.
 
 The chemical-potential and Compton-$y$ distortion templates are
 \begin{align}
