@@ -433,6 +433,11 @@ scale $\sqrt{\tau_G^2+\sigma_\Delta^2(\tau)}$ vs.\ $\tau_G$);
 and (iii) a global amplitude suppression by the factor
 $\exp\!\left[-\omega_0^2\tau_G^2\sigma_\Delta^2/\{2(\tau_G^2+\sigma_\Delta^2)\}\right]$.
 Normalisation $g^{(1)}_{\rm obs}(0)=1$ holds because $\sigma_\Delta(0)=0$.
+The narrowband limit $\tau_G\to\infty$ of
+Eq.~\eqref{eq:g1obs_gauss} reduces to a pure phase-modulated
+oscillation, which is the single-mode building block from which the
+broadband CMB spectrum of Section~\ref{sec:CMB_derivation} is
+constructed by incoherent superposition.
 
 % ==============================================================
 \section{Implications for Spectroscopy}
@@ -927,14 +932,28 @@ headline value.
 \subsubsection{Foam-modified CMB spectrum}
 \label{sec:CMB_derivation}
 
-The Gaussian-source analysis of Section~\ref{sec:grb221009a} applies
-the exact closed form Eq.~\eqref{eq:g1obs_gauss}; the broadband
-blackbody requires its own derivation, obtained by applying the
-jitter-convolution Eq.~\eqref{eq:g1obs} to each thermal mode
-independently and integrating, in the fully dynamical limit
-$C_\alpha\to 0$.  In this limit Eq.~\eqref{eq:diffVarExt} gives a
-saturated jitter variance $\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2(D)/c^2$
-for all $\tau\neq 0$.
+The broadband blackbody admits a direct evaluation: compute
+$g^{(1)}_{\rm src}(\tau)$ as the Fourier transform of $B_\nu(T_0)$
+via Eq.~\eqref{eq:WK_obs}, apply the jitter-convolution
+Eq.~\eqref{eq:g1obs}, and inverse-transform to recover
+$S_{\rm obs}(\nu)$.  This route entangles the model-independent
+per-mode suppression $e^{-\sigma_\phi^2(\nu)}$ with the
+$C_\alpha$-dependent redistribution of the suppressed flux.  We
+instead present a derivation that isolates these two contributions:
+the coherent core, which depends only on the asymptotic phase
+variance $\sigma_\phi^2(\nu)$ and is therefore obtained in closed
+form independent of foam temporal dynamics, and the pedestal kernel
+$\hat{R}(\nu-\nu';\nu')$, which carries the full dependence on the
+short-$\tau$ behaviour of $C_\alpha(\tau)$ and is treated
+phenomenologically pending a first-principles specification of the
+foam temporal autocorrelation.  The Gaussian-source analysis of
+Section~\ref{sec:grb221009a} applies the exact closed form
+Eq.~\eqref{eq:g1obs_gauss}; the broadband blackbody requires its own
+derivation, obtained by applying the jitter-convolution
+Eq.~\eqref{eq:g1obs} to each thermal mode independently and
+integrating, in the fully dynamical limit $C_\alpha\to 0$.  In this
+limit Eq.~\eqref{eq:diffVarExt} gives a saturated jitter variance
+$\sigma_\Delta^2(\tau)\to 2\sigma_\ell^2(D)/c^2$ for all $\tau\neq 0$.
 
 Decomposing the blackbody as an incoherent superposition of narrowband
 modes $S_{\rm src}(\nu')=B_{\nu'}(T_0)$, each mode is modulated by the
@@ -947,7 +966,32 @@ fluctuation, not plasma dispersion), with per-mode foam suppression
   \sigma_\phi^2(\nu')=(2\pi\nu'/c)^2\sigma_\ell^2(D),
 \end{equation}
 that approaches the constant $e^{-\sigma_\phi^2(\nu')}$ for all
-$\tau\neq 0$ in the $C_\alpha\to 0$ limit.  To isolate the coherent-core
+$\tau\neq 0$ in the $C_\alpha\to 0$ limit.
+
+For a single narrowband mode at frequency $\nu'$, the source
+coherence is $g^{(1)}_{\rm src}(\tau)=e^{-i2\pi\nu'\tau}$ (the
+$\tau_G\to\infty$ limit of Eq.~\eqref{eq:g1src_gauss}), and the
+jitter convolution gives
+\[
+  g^{(1)}_{\rm obs}(\tau)
+    = e^{-i2\pi\nu'\tau}\,e^{-(2\pi\nu')^2\sigma_\Delta^2(\tau)/2}
+    = e^{-i2\pi\nu'\tau}\,\mathcal{F}_{\rm foam}(\tau;\nu').
+\]
+In the dynamical limit, $\mathcal{F}_{\rm foam}(\tau;\nu')$
+transitions from $\mathcal{F}_{\rm foam}(0;\nu')=1$ to the plateau
+$e^{-\sigma_\phi^2(\nu')}$ within the narrow window
+$|\tau|\lesssim\tau_{\rm foam}$.  The Fourier transform of the
+plateau (constant in $\tau$ outside that window) is
+$e^{-\sigma_\phi^2(\nu')}\delta(\nu-\nu')$ --- the coherent core at
+this mode's frequency --- while the Fourier transform of the rise
+from plateau to unity is supported on $|\tau|\lesssim\tau_{\rm foam}$
+and is therefore broad in frequency, of width
+$\sim 1/\tau_{\rm foam}$ --- the pedestal at this mode.  The split
+applied below to $\mathcal{F}_{\rm foam}(\tau;\nu')$ generalises this
+single-mode decomposition to the full Planck spectrum by linear
+superposition.
+
+To isolate the coherent-core
 and pedestal contributions, we split
 $\mathcal{F}_{\rm foam}(\tau;\nu')=e^{-\sigma_\phi^2(\nu')}+
 [\mathcal{F}_{\rm foam}(\tau;\nu')-e^{-\sigma_\phi^2(\nu')}]$: the
