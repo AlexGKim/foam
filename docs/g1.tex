@@ -624,14 +624,27 @@ width to centroid is
 $r_{\rm obs}\equiv\sigma_{\rm obs}/E_{\rm line} = 0.10\pm0.01$
 ($\chi^2/\mathrm{dof}=4/7$; Zhang et al.\ \S4.4 and their Figure~7c),
 consistent with a single constant across the full dynamic range.
-This constancy is naturally explained in the pair-annihilation
-interpretation: relativistic Doppler boosting from comoving frequency
-$\nu'$ to observed $\nu = \mathcal{D}\nu'$ preserves the fractional
-width, so the intrinsic contribution $r_{\rm int}\equiv
-\sigma_{\rm int}/E$ is independent of epoch.
+This constancy is the predicted behaviour of a Doppler-boosted line.
+In the comoving frame of the emitting plasma the line has some
+fractional width $r' = \sigma'/E'$, fixed by the comoving emission
+physics (pair-plasma temperature, velocity dispersion).  When the
+outflow has bulk Doppler factor $\mathcal{D}$ --- epoch-dependent as
+the jet decelerates --- both the line centroid and its width are
+multiplied by the same factor: $E = \mathcal{D}E'$,
+$\sigma_{\rm int} = \mathcal{D}\sigma'$, so $r_{\rm int} \equiv
+\sigma_{\rm int}/E = \mathcal{D}\sigma'/(\mathcal{D}E') = r'$.  The
+Doppler factor cancels exactly in the ratio; $r_{\rm int}$ is a
+Lorentz-invariant property of the line, independent of which epoch
+(and hence which $\mathcal{D}$) is observed.  The observed centroid
+evolution $E_{\rm line}\propto t^{-1}$ over a factor of $\approx 6$
+in energy traces the bulk-Doppler deceleration of the jet; the
+simultaneous constancy of $r_{\rm obs}$ then confirms the prediction.
 
 \textit{Width decomposition.}
-The Gaussian-source spectrum Eq.~\eqref{eq:Sobs_gauss} gives the
+Because $r_{\rm int}$ is the same in every epoch, the multi-epoch
+measurements constrain a single common $r_{\rm int}$ alongside the
+foam amplitude $r_{\rm foam,0}$, giving the lever arm its statistical
+power.  The Gaussian-source spectrum Eq.~\eqref{eq:Sobs_gauss} gives the
 observed centroid and absolute width
 $\nu_0^{\rm eff}=\nu_0\,\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ and
 $\sigma_{\rm obs}=1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$.  Although
