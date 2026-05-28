@@ -786,22 +786,10 @@ refine the exact coverage but is not expected to shift the bound by
 more than a few percent.
 
 \textit{Constraint on $\alpha$.}
-Converting via $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
-(Eq.~\eqref{eq:NgPerlmanVar} with $A_\alpha=1$):
-in the quasi-static case $\sigma_\ell = r_{\rm foam,0}\,\lambda_0$,
-giving
-\begin{equation}
-  \alpha \;\gtrsim\;
-  \frac{\ln(D_C/\lambda_0) + |\!\ln r_{\rm foam,0}^{\rm max}|}
-       {\ln(D_C/\ell_P)}
-  \;=\; \frac{89.2 + 1.3}{138.3}
-  \;\approx\; 0.65\,,
-  \label{eq:alpha_grb_qs}
-\end{equation}
-where $|\!\ln(0.27)|\approx1.3$.
-In the dynamical case Eq.~\eqref{eq:rfoam_dyn} gives
-$\sigma_\ell = r_{\rm foam,0}\,\lambda_0/(2\sqrt{2}\,\pi\,r_{\rm int}^2)$,
-so that
+Eq.~\eqref{eq:rfoam_dyn} gives
+$\sigma_\ell = r_{\rm foam,0}\,\lambda_0/(2\sqrt{2}\,\pi\,r_{\rm int}^2)$;
+converting via $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
+(Eq.~\eqref{eq:NgPerlmanVar} with $A_\alpha=1$) gives
 \begin{equation}
   \alpha \;\gtrsim\;
   \frac{\ln(D_C/\lambda_0) + |\!\ln r_{\rm foam,0}^{\rm max}|
@@ -811,15 +799,13 @@ so that
   \;\approx\; 0.64\,,
   \label{eq:alpha_grb_dyn}
 \end{equation}
-where $|\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|\approx 2.2$ for
-$r_{\rm int}=0.111$ (the argument is $<1$, so the log is negative).  The QS and dynamical $\alpha$ bounds therefore
-agree to within $\Delta\alpha\sim0.01$ --- as expected, since both
-share the model Eq.~\eqref{eq:robs_model} and differ only by an
-$\mathcal{O}(r_{\rm int}^2)$ prefactor relating $\sigma_\ell$ to
-$r_{\rm foam,0}$.  Numerically the dynamical bound is essentially
-identical to that reported in earlier versions of this analysis under
-the (incorrect) $\propto 1/E$ scaling, but the derivation no longer
-relies on conflating $\sigma_t=\sigma_\ell/c$ with $\tau_{\rm foam}$.
+where $|\!\ln(0.27)|\approx1.3$ and
+$|\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|\approx 2.2$ for
+$r_{\rm int}=0.111$ (the argument is $<1$, so the log is negative).
+Numerically this bound is essentially identical to that reported in
+earlier versions of this analysis under the (incorrect) $\propto 1/E$
+scaling, but the derivation no longer relies on conflating
+$\sigma_t=\sigma_\ell/c$ with $\tau_{\rm foam}$.
 
 The individual line-width measurements carry $30$--$50\%$ fractional
 uncertainties; the multi-epoch lever arm is essential for reaching
@@ -831,9 +817,8 @@ beyond the upper boundary of the GBM BGO detector range
 ($4$--$35$\,MeV), so its line-width measurement carries larger
 systematic uncertainty than the later intervals.  Excluding G1 and
 re-referencing to $E_0=18\,\mathrm{MeV}$ gives
-$r_{\rm foam,0}^{\rm max}=0.13$; the quasi-static bound remains
-$\alpha\gtrsim0.65$ (unchanged) and the dynamical bound
-$\alpha\gtrsim0.64$.
+$r_{\rm foam,0}^{\rm max}=0.13$, leaving the dynamical bound
+$\alpha\gtrsim0.64$ unchanged.
 (ii)~All bounds assume $A_\alpha=1$ in Eq.~\eqref{eq:sigmaphi};
 alternative normalizations shift $\alpha$ by
 $\mathcal{O}(\ln A_\alpha/\ln(D_C/\ell_P))$.
@@ -874,8 +859,8 @@ interpretation at the upper limit.
 energy (e.g.\ due to changing pair-plasma temperature across epochs),
 this could partially mimic or mask a foam signal.  Marginalizing over a
 free linear-in-$E$ nuisance term $r_{\rm int}(E) = r_0 + r_1(E/E_0)$
-leaves both bounds essentially unchanged
-($\alpha\gtrsim 0.64$--$0.65$), because the $E^2$ foam scaling has
+leaves the bound essentially unchanged
+($\alpha\gtrsim 0.64$), because the $E^2$ foam scaling has
 distinct curvature from a linear intrinsic trend across the
 factor-of-six energy range.  Numerically, the best-fit linear slope
 $r_1$ is consistent with zero and, although the 95\%~CL upper limit
@@ -902,15 +887,13 @@ at $0.4\sigma$.  This cross-instrument agreement
 (GECAM-C$+$Fermi/GBM versus Fermi/GBM alone) supports the
 astrophysical reality of the constant fractional width.
 
-Neither the quasi-static bound $\alpha\gtrsim0.65$
-(Eq.~\eqref{eq:alpha_grb_qs}) nor the dynamical bound
-$\alpha\gtrsim0.64$ (Eq.~\eqref{eq:alpha_grb_dyn}) excludes the
-holographic value $\alpha=2/3\approx0.667$, but both improve upon the
-single-line result $\alpha\gtrsim0.63$.
-Reducing the per-epoch line-width uncertainties to $\delta r\lesssim
-0.01$ --- achievable with future MeV spectroscopy missions --- would
-push the quasi-static bound to $\alpha\gtrsim0.68$ and begin to
-probe the holographic regime.
+The dynamical bound $\alpha\gtrsim 0.64$
+(Eq.~\eqref{eq:alpha_grb_dyn}) does not exclude the holographic value
+$\alpha=2/3\approx0.667$, but improves upon the single-line result
+$\alpha\gtrsim0.63$.  Reducing the per-epoch line-width uncertainties
+to $\delta r\lesssim 0.01$ --- achievable with future MeV spectroscopy
+missions --- would push the bound to $\alpha\gtrsim0.68$ and begin
+to probe the holographic regime.
 
 
 % ==============================================================
