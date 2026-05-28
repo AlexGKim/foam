@@ -759,12 +759,24 @@ degrees of freedom; since $r_{\rm foam,0}=0$ at the boundary the fit
 reduces to one free parameter $r_{\rm int}$), confirming the
 constant-$r_{\rm obs}$ hypothesis adopted by Zhang et al.\ (their
 \S4.4 and Figure~7c).  Profiling over $r_{\rm int}$ gives the one-sided
-95\%~CL upper limit ($\Delta\chi^2=2.71$, from the Chernoff boundary
-theorem: the best fit lies on the boundary $r_{\rm foam,0}=0$, so the
-likelihood-ratio statistic is a 50:50 mixture of $\chi^2(1)$ and a point mass at
-zero, giving the same 95th percentile as a standard one-sided Gaussian
-bound)
-$r_{\rm foam,0}^{\rm max} = 0.27$.  The constraint is comparatively weak
+95\%~CL upper limit $r_{\rm foam,0}^{\rm max} = 0.27$ at
+$\Delta\chi^2 = 2.71$.\footnote{The standard Wilks asymptotic result
+$\Delta\chi^2\sim\chi^2(1)$ for one extra parameter assumes the
+maximum-likelihood estimator lies in the \emph{interior} of the
+parameter space; here the physical constraint $r_{\rm foam,0}\geq 0$
+places the best fit on the boundary, so this assumption fails.  The
+Chernoff (1954) boundary theorem~\cite{Chernoff1954} replaces it: when
+the true value of a non-negative parameter lies on the boundary, the
+asymptotic distribution of the likelihood-ratio statistic
+$\Delta\chi^2$ is a 50:50 mixture of a point mass at zero and a
+$\chi^2(1)$ distribution.  Heuristically, half the realizations of the
+noise drive the unconstrained estimator above zero (contributing the
+$\chi^2(1)$ piece), and half drive it below zero where the constraint
+pins $r_{\rm foam,0}=0$ exactly (the point mass).  The 95th percentile
+of the mixture therefore coincides with the 90th percentile of
+$\chi^2(1)$, $\Delta\chi^2=2.71$ --- identical to the standard
+one-sided Gaussian $95\%$ CL threshold, but derived for the correct
+boundary-constrained sampling distribution.}  The constraint is comparatively weak
 because the foam signal peaks at $E_0 = 37$\,MeV, where the single
 most uncertain data point (G1) resides.  With seven measurements and
 per-point fractional uncertainties of $30$--$50\%$, the
