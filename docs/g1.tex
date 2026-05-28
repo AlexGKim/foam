@@ -946,7 +946,11 @@ form independent of foam temporal dynamics, and the pedestal kernel
 $\hat{R}(\nu-\nu';\nu')$, which carries the full dependence on the
 short-$\tau$ behaviour of $C_\alpha(\tau)$ and is treated
 phenomenologically pending a first-principles specification of the
-foam temporal autocorrelation.  The Gaussian-source analysis of
+foam temporal autocorrelation.  A worked example with exponential
+$C_\alpha(\tau)$ at the end of this subsection makes the pedestal
+kernel concrete and confirms the conservative-bound interpretation
+of the placeholder $K_\nu^{\rm fast}$ adopted in the Fisher analysis.
+The Gaussian-source analysis of
 Section~\ref{sec:grb221009a} applies the exact closed form
 Eq.~\eqref{eq:g1obs_gauss}; the broadband blackbody requires its own
 derivation, obtained by applying the jitter-convolution
@@ -1033,13 +1037,56 @@ precision.  Replacing the placeholder by a physical kernel from a
 specified $C_\alpha$ model is a prerequisite for a definitive FIRAS
 bound.
 
+To make the pedestal kernel concrete, we evaluate $\hat{R}$ for the
+minimal one-parameter model $C_\alpha(\tau)=e^{-|\tau|/\tau_{\rm foam}}$,
+the autocorrelation of a Markovian metric fluctuation.  The framework
+does not require this choice; any $C_\alpha$ with finite coherence
+time $\tau_{\rm foam}\lesssim 1/\nu_{\rm max}$ yields the same
+qualitative conclusion.  Substituting into
+Eq.~\eqref{eq:diffVarExt} gives
+\begin{equation}
+  \sigma_\Delta^2(\tau) = \frac{2\sigma_\ell^2(D)}{c^2}
+    \bigl[1 - e^{-|\tau|/\tau_{\rm foam}}\bigr].
+  \label{eq:sigmaDelta_exponential}
+\end{equation}
+In the linearised regime $\sigma_\phi^2(\nu')\ll 1$ adopted by the
+Fisher analysis below, expanding
+$\mathcal{F}_{\rm foam}(\tau;\nu')$ and subtracting the long-lag
+asymptote $e^{-\sigma_\phi^2(\nu')}$ leaves the short-$\tau$ residual
+\begin{equation}
+  \mathcal{F}_{\rm foam}(\tau;\nu') - e^{-\sigma_\phi^2(\nu')}
+  \;\approx\; \sigma_\phi^2(\nu')\,e^{-|\tau|/\tau_{\rm foam}},
+  \label{eq:Ffoam_residual_exponential}
+\end{equation}
+whose Fourier transform is a Lorentzian centred on the source
+frequency,
+\begin{equation}
+  \hat{R}(\nu-\nu';\nu')
+    \;=\; \sigma_\phi^2(\nu')\,
+    \frac{2\tau_{\rm foam}}{1 + [2\pi(\nu-\nu')\tau_{\rm foam}]^2},
+  \label{eq:R_lorentzian}
+\end{equation}
+of full width $1/(\pi\tau_{\rm foam})$.  For Planck-scale foam
+$\tau_{\rm foam}\sim\ell_P/c\approx 5\times 10^{-44}$\,s the
+Lorentzian width is $\sim 6\times 10^{42}$\,Hz, eleven orders of
+magnitude beyond the FIRAS upper edge $\nu_{\rm max}=6\times 10^{11}$\,Hz;
+the fraction of the redistributed flux falling within the FIRAS band
+is $\sim 10^{-31}$.  The physical pedestal therefore deposits no
+detectable in-band power for any plausible $\tau_{\rm foam}$, and the
+placeholder $K_\nu^{\rm fast}$ is a conservative upper bound on the
+in-band redistribution rather than a representative shape; the
+no-pedestal limit verified in Section~\ref{sec:CMB_degeneracy}
+($\alpha_{\rm threshold}\sim 0.56$) is the physical realisation.
+
 \subsubsection{Fast-foam validity}
 \label{sec:CMB_fastfoam}
 
 The above derivation requires $\tau_{\rm foam}\ll 1/\nu_{\rm CMB}\sim
 7$\,ps.  For Planck-scale foam, $\tau_{\rm foam}\sim\ell_P/c\approx
 5\times 10^{-44}$\,s, the condition is satisfied by a factor of
-$\sim 10^{32}$.  For larger $\tau_{\rm foam}$ the suppression factor
+$\sim 10^{32}$ --- the same margin that places the Lorentzian
+pedestal kernel of Eq.~\eqref{eq:R_lorentzian} entirely outside the
+FIRAS band.  For larger $\tau_{\rm foam}$ the suppression factor
 $e^{-\sigma_\phi^2[1-C_\alpha(\tau_{\rm foam})]}$
 (Eq.~\eqref{eq:Ffoam}) is reduced by $[1-C_\alpha(\tau_{\rm foam})]$
 and the distortion amplitude is suppressed accordingly.  In the
@@ -1151,23 +1198,30 @@ holographic prediction $\alpha=2/3$.}
 \label{fig:cmb_snr}
 \end{figure}
 
-We have also checked the no-pedestal limit, appropriate when
-$\tau_{\rm foam}\sim\ell_P/c$ displaces the redistributed power to
-$\sim 10^{43}$\,Hz, entirely outside the FIRAS band: the foam template
-then degenerates with $\partial B_\nu/\partial T_0$ at
+The exponential-$C_\alpha$ worked example of Section~\ref{sec:CMB_derivation}
+established that the physical pedestal kernel, for any plausible
+$\tau_{\rm foam}\lesssim\ell_P/c$, displaces essentially all of the
+redistributed power to frequencies $\sim 10^{42}$\,Hz, far outside
+the FIRAS band.  The no-pedestal limit is therefore the
+physically-realized case, not a heuristic edge case: the foam
+template then degenerates with $\partial B_\nu/\partial T_0$ at
 $\rho\approx 0.9997$ and the sensitivity worsens by $N\sim 13\times$,
 yet $\alpha_{\rm threshold}$ shifts only to $\sim 0.56$.  The
-near-coincidence reflects the logarithmic Ng--Perlman relation
-$\sigma_\ell^2=D_C^{2(1-\alpha)}\ell_P^{2\alpha}$: taking the
-$\alpha$-derivative of $\ln\sigma_\ell^2 = 2(1-\alpha)\ln D_C +
-2\alpha\ln\ell_P$ at fixed $\sigma_\ell$ gives $d\alpha/d\ln\sigma_\ell
-= 1/\ln(\ell_P/D_C)$, so a factor-$N$ worsening in sensitivity shifts
-$\alpha$ by only $\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]
-\approx 0.009$ for $N\approx 13$.
-The threshold $\alpha\lesssim 0.57$ is therefore robust to the kernel
-model at this precision; a definitive analysis requires specifying
-$C_\alpha(\tau)$ from first principles to determine the physical
-pedestal shape within the FIRAS band.
+near-coincidence with the placeholder result reflects the
+logarithmic Ng--Perlman relation $\sigma_\ell^2 =
+D_C^{2(1-\alpha)}\ell_P^{2\alpha}$: taking the $\alpha$-derivative of
+$\ln\sigma_\ell^2 = 2(1-\alpha)\ln D_C + 2\alpha\ln\ell_P$ at fixed
+$\sigma_\ell$ gives $d\alpha/d\ln\sigma_\ell = 1/\ln(\ell_P/D_C)$, so
+a factor-$N$ worsening in sensitivity shifts $\alpha$ by only
+$\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]\approx 0.009$ for $N\approx 13$.
+The placeholder threshold $\alpha\lesssim 0.57$ is therefore a
+conservative upper bound on the foam-detection sensitivity; the
+physical-kernel realisation $\alpha\lesssim 0.56$ is the
+marginally-tighter expectation.  A definitive analysis still
+requires specifying $C_\alpha(\tau)$ from first principles to set the
+in-band pedestal shape exactly, but the worked example shows that any
+exponential-class $C_\alpha$ with Planck-scale $\tau_{\rm foam}$ lies
+in the no-pedestal regime.
 
 \subsubsection{Bias in recovered $T_0$ from unmodeled foam}
 \label{sec:CMB_T0_bias}
