@@ -1020,8 +1020,12 @@ The physical pedestal kernel for Planck-scale foam is essentially
 zero in-band (worked example below), so the Fisher analysis of
 Section~\ref{sec:CMB_degeneracy} adopts the no-pedestal limit as the
 primary template.  To probe robustness against in-band pedestal
-contamination, we also evaluate the Fisher matrix with a worst-case
-band-filling redistribution kernel
+contamination, we also evaluate the Fisher matrix with a
+band-filling redistribution kernel deliberately chosen to share the
+Rayleigh--Jeans $1/\nu$ shape of the $\mu$-distortion template
+(Section~\ref{sec:CMB_degeneracy}), thereby maximizing the
+foam--$\mu$ Fisher degeneracy and yielding the loosest bound any
+one-parameter smooth pedestal kernel could give:
 \begin{equation}
   K_\nu^{\rm fast}(\nu) \;=\;
   \begin{cases}
@@ -1040,9 +1044,9 @@ intensity per Hz at observer frequency $\nu$; the form above
 corresponds to uniform energy redistribution in $\ln\nu$ across the
 band.  The template is energy-conserving but not
 photon-number-conserving, and so corresponds to no physical
-$C_\alpha$, but it spans the full band and serves as a maximally
-adversarial probe of kernel-shape sensitivity.  The two analyses
-differ by $\Delta\alpha\approx 0.009$.
+$C_\alpha$; it is retained purely as a worst-case probe of
+kernel-shape sensitivity.  The two analyses differ by
+$\Delta\alpha\approx 0.009$.
 
 To make the pedestal kernel concrete, we evaluate $\hat{R}$ for the
 minimal one-parameter model $C_\alpha(\tau)=e^{-|\tau|/\tau_{\rm foam}}$,
