@@ -1002,8 +1002,7 @@ intensity-weighted Fourier transform via Eq.~\eqref{eq:WK_obs} yields
     + \int_0^\infty B_{\nu'}(T_0)\,\hat{R}(\nu-\nu';\nu')\,d\nu',
   \label{eq:CMB_spectrum}
 \end{equation}
-where $\hat{R}(\nu-\nu';\nu')$ is the Fourier transform of the residual
-$\mathcal{F}_{\rm foam}(\tau;\nu')-e^{-\sigma_\phi^2(\nu')}$.  The
+where $\hat{R}$ denotes the residual's Fourier transform.  The
 coherent-core term $e^{-\sigma_\phi^2(\nu)}B_\nu(T_0)$ is exact and
 model-independent (requiring only achromatic jitter and
 $C_\alpha\to 0$); the pedestal kernel $\hat{R}$ depends on the
@@ -1019,19 +1018,22 @@ $\int [S_{\rm obs}(\nu)-B_\nu(T_0)]\,d\nu/(h\nu)=0$.
 To make the pedestal kernel concrete, we evaluate $\hat{R}$ for the
 minimal one-parameter model $C_\alpha(\tau)=e^{-|\tau|/\tau_{\rm foam}}$,
 the autocorrelation of a Markovian metric fluctuation.  The framework
-does not require this choice; any $C_\alpha$ with finite coherence
-time $\tau_{\rm foam}\lesssim 1/\nu_{\rm max}$ yields the same
-qualitative conclusion.  Substituting into
-Eq.~\eqref{eq:diffVarExt} gives
+does not require this specific choice; any $C_\alpha(\tau)$ with
+characteristic decorrelation time $\tau_{\rm foam}\ll 1/\nu_{\rm max}$
+has a Fourier transform of width $\gtrsim 1/\tau_{\rm foam}\gg
+\nu_{\rm max}$, so the pedestal kernel is constant across the FIRAS
+band irrespective of its functional form, and the conclusion that
+the in-band pedestal is negligible follows from the bandwidth ratio
+alone.  Substituting into Eq.~\eqref{eq:diffVarExt} gives
 \begin{equation}
   \sigma_\Delta^2(\tau) = \frac{2\sigma_\ell^2(D)}{c^2}
     \bigl[1 - e^{-|\tau|/\tau_{\rm foam}}\bigr].
   \label{eq:sigmaDelta_exponential}
 \end{equation}
-In the linearised regime $\sigma_\phi^2(\nu')\ll 1$ adopted by the
-Fisher analysis below, expanding
-$\mathcal{F}_{\rm foam}(\tau;\nu')$ and subtracting the long-lag
-asymptote $e^{-\sigma_\phi^2(\nu')}$ leaves the short-$\tau$ residual
+The Fisher analysis below operates in the linearised regime
+$\sigma_\phi^2(\nu')\ll 1$.  Expanding $\mathcal{F}_{\rm foam}(\tau;\nu')$
+to first order and subtracting the long-lag asymptote
+$e^{-\sigma_\phi^2(\nu')}$ leaves the short-$\tau$ residual
 \begin{equation}
   \mathcal{F}_{\rm foam}(\tau;\nu') - e^{-\sigma_\phi^2(\nu')}
   \;\approx\; \sigma_\phi^2(\nu')\,e^{-|\tau|/\tau_{\rm foam}},
@@ -1078,22 +1080,27 @@ K_\nu^{\rm fast}\,d\nu=1$, units Hz$^{-1}$) that specifies the
 fraction of the total foam-removed flux reappearing as pedestal
 intensity per Hz at observer frequency $\nu$; the form above
 corresponds to uniform energy redistribution in $\ln\nu$ across the
-band.  Within the FIRAS band, this placeholder approximates the
-pedestal contribution to Eq.~\eqref{eq:CMB_spectrum} as
+band.  Within the FIRAS band, $K_\nu^{\rm fast}(\nu)$ replaces the
+physical pedestal contribution to Eq.~\eqref{eq:CMB_spectrum} by an
+adversarial factorised substitution
 \begin{equation}
   \int B_{\nu'}(T_0)\,\hat{R}(\nu-\nu';\nu')\,d\nu'
-    \;\approx\;
+    \;\longrightarrow\;
     \sigma_\ell^2(D)\,K_\nu^{\rm fast}(\nu)\,P_{\rm foam},
   \quad
   P_{\rm foam} \equiv \int_{\nu_{\rm min}}^{\nu_{\rm max}}
     \!\left(\frac{2\pi\nu'}{c}\right)^{\!2} B_{\nu'}(T_0)\,d\nu',
   \label{eq:Kfast_pedestal}
 \end{equation}
-where $P_{\rm foam}$ is the total foam-removed flux per unit
-$\sigma_\ell^2$.  The template is energy-conserving but not
-photon-number-conserving, and so corresponds to no physical
-$C_\alpha$; it is retained purely as a worst-case probe of
-kernel-shape sensitivity.
+with $P_{\rm foam}$ the total foam-removed flux per unit
+$\sigma_\ell^2$.  The substitution forces the pedestal kernel to
+factorise into a $\nu$-only template (the placeholder
+$K_\nu^{\rm fast}$) times a $\nu'$-only weighting, a structure no
+physical $\hat{R}(\nu-\nu';\nu')$ satisfies (the Lorentzian above
+carries $\nu'$-dependence through $\sigma_\phi^2(\nu')$).  The
+template is energy-conserving but not photon-number-conserving and
+serves only as a worst-case Fisher probe of kernel-shape
+sensitivity.
 
 \subsubsection{Fast-foam validity}
 \label{sec:CMB_fastfoam}
