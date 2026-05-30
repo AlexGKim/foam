@@ -71,7 +71,9 @@ VOY_factor    = 5.5e-5 / 2.2e-9   # ~25000
 sig_A_marg_PIXIE  = sig_A_marg_FIRAS / PIXIE_factor
 sig_A_cond_PIXIE  = sig_A_cond_FIRAS / PIXIE_factor
 sig_A_marg_SPIXIE = sig_A_marg_FIRAS / SPIXIE_factor
+sig_A_cond_SPIXIE = sig_A_cond_FIRAS / SPIXIE_factor
 sig_A_marg_VOY    = sig_A_marg_FIRAS / VOY_factor
+sig_A_cond_VOY    = sig_A_cond_FIRAS / VOY_factor
 
 b_T0             = 1.465e7    # K / m^2  bias coefficient (PHYSICAL no-pedestal)
 sigma_T0_FIRAS   = 5.70e-4     # K  Fixsen 2009
@@ -92,7 +94,9 @@ snr_FIRAS_cond  = Ae / sig_A_cond_FIRAS
 snr_PIXIE_marg  = Ae / sig_A_marg_PIXIE
 snr_PIXIE_cond  = Ae / sig_A_cond_PIXIE
 snr_SPIXIE_marg = Ae / sig_A_marg_SPIXIE
+snr_SPIXIE_cond = Ae / sig_A_cond_SPIXIE
 snr_VOY_marg    = Ae / sig_A_marg_VOY
+snr_VOY_cond    = Ae / sig_A_cond_VOY
 
 # ── Bias curves ────────────────────────────────────────────────────────────────
 delta_T0      = b_T0 * Ae                          # K (instrument-independent)
@@ -122,12 +126,16 @@ ax1.semilogy(alpha, snr_SPIXIE_marg, color='C0', lw=1.8, ls='-.',
              label=r'SuperPIXIE, marginal')
 ax1.semilogy(alpha, snr_VOY_marg,    color='C0', lw=1.8, ls=':',
              label=r'Voyage 2050, marginal')
-# --- Conditional reference (mu,y fixed): FIRAS and PIXIE, showing the
+# --- Conditional curves (mu,y fixed), one per instrument, showing the
 #     foam-mu degeneracy penalty that marginalization incurs ---
-ax1.semilogy(alpha, snr_FIRAS_cond, color='C3', lw=2.0, ls='-',
+ax1.semilogy(alpha, snr_FIRAS_cond,  color='C3', lw=2.0, ls='-',
              label=r'FIRAS, conditional ($\mu,y$ fixed)')
-ax1.semilogy(alpha, snr_PIXIE_cond, color='C3', lw=2.0, ls='--',
+ax1.semilogy(alpha, snr_PIXIE_cond,  color='C3', lw=2.0, ls='--',
              label=r'PIXIE, conditional ($\mu,y$ fixed)')
+ax1.semilogy(alpha, snr_SPIXIE_cond, color='C3', lw=1.8, ls='-.',
+             label=r'SuperPIXIE, conditional ($\mu,y$ fixed)')
+ax1.semilogy(alpha, snr_VOY_cond,    color='C3', lw=1.8, ls=':',
+             label=r'Voyage 2050, conditional ($\mu,y$ fixed)')
 
 # --- Detection threshold ---
 ax1.axhline(1.0, color='k', lw=0.8, ls=':', alpha=0.7)
