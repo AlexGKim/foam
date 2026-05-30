@@ -38,7 +38,7 @@ For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 ($\sigma_\phi^2 \propto \nu^2$) with a low-frequency pedestal; a Fisher
 analysis of COBE/FIRAS reaches $\alpha \lesssim 0.52$ under the
 physical Planck-scale pedestal kernel (essentially zero in-band;
-$\Delta\alpha\approx 0.01$ loosening under an adversarial band-filling
+a $\Delta\alpha\approx 0.01$ shift under an adversarial band-filling
 template, modulo a $\Delta\alpha\sim 0.03$ cosmological-redshift
 systematic); the cosmological-accumulation variant tightens the
 FIRAS threshold to $\alpha\lesssim 0.55$, with PIXIE projected to
@@ -1073,11 +1073,12 @@ adopts the no-pedestal limit as the primary template.
 
 To probe robustness against in-band pedestal contamination beyond
 the physical-kernel result above, we also evaluate the Fisher matrix
-with a band-filling redistribution kernel deliberately chosen to
-share the Rayleigh--Jeans $1/\nu$ shape of the $\mu$-distortion
-template (Section~\ref{sec:CMB_degeneracy}), thereby maximizing the
-foam--$\mu$ Fisher degeneracy and yielding the loosest bound any
-one-parameter smooth pedestal kernel could give:
+with an \emph{adversarial} band-filling redistribution kernel,
+deliberately shaped $\propto 1/\nu$ to match the Rayleigh--Jeans form
+of the $\mu$-distortion template (Section~\ref{sec:CMB_degeneracy}) and
+thereby maximize the foam--$\mu$ Fisher degeneracy --- the most
+effective way an in-band pedestal could disguise foam as a standard
+$\mu$-distortion:
 \begin{equation}
   K_\nu^{\rm fast}(\nu) \;=\;
   \begin{cases}
@@ -1108,15 +1109,19 @@ adversarial factorised substitution
 \end{equation}
 with $P_{\rm foam}$ the total foam-removed flux per unit
 $\sigma_\ell^2$.  The substitution forces the pedestal kernel to
-factorise into a $\nu$-only template (the placeholder
-$K_\nu^{\rm fast}$) times a $\nu'$-only weighting, a structure no
-physical $\hat{R}(\nu-\nu';\nu')$ satisfies (the Lorentzian above
-carries $\nu'$-dependence through $\sigma_\phi^2(\nu')$).  The
-template is energy-conserving but not photon-number-conserving and
-serves only as a worst-case Fisher probe of kernel-shape
-sensitivity.
+factorise into a $\nu$-only template ($K_\nu^{\rm fast}$) times a
+$\nu'$-only weighting, a structure no physical
+$\hat{R}(\nu-\nu';\nu')$ satisfies (the Lorentzian above carries
+$\nu'$-dependence through $\sigma_\phi^2(\nu')$).  The template is
+energy-conserving but not photon-number-conserving, and serves purely
+as an adversarial probe of the foam--$\mu$ kernel-shape degeneracy.
+As Section~\ref{sec:CMB_degeneracy} shows, this adversarial choice does
+not in fact loosen the bound: by depositing an in-band pedestal it
+distorts the spectrum away from a pure blackbody and so makes the foam
+\emph{more} detectable, leaving the no-pedestal deficit as the
+conservative case.
 
-\subsubsection{Fisher analysis: degeneracy with $\mu$ and $y$}
+\subsubsection{Fisher analysis}
 \label{sec:CMB_degeneracy}
 
 We use $I_\nu\equiv S_{\rm obs}(\nu)$ to denote the observed CMB
@@ -1131,20 +1136,19 @@ $\sigma_\phi^2(\nu)=(2\pi\nu/c)^2 A_{\rm eff}$.  Note that $\alpha$ is
 not fitted directly; only the lumped amplitude $A_{\rm eff}$ enters
 the Fisher matrix, and bounds on $\alpha$ are obtained
 \emph{a posteriori} by inverting the Ng--Perlman relation at fixed
-$A_\alpha=1$.  The
-foam template is
+$A_\alpha=1$.
+
+In the physically-realized regime (Section~\ref{sec:CMB_derivation})
+the redistributed pedestal lies at $\sim 10^{42}$\,Hz, eleven orders of
+magnitude above the FIRAS band, so the only in-band foam signature is
+the pure deficit
 \begin{equation}
   \frac{\partial I_\nu}{\partial A_{\rm eff}}
-    = -\!\left(\frac{2\pi\nu}{c}\right)^{\!2} B_\nu(T_0)
-      + K_\nu^{\rm fast}(\nu)\!\int_{\nu_{\rm min}}^{\nu_{\rm max}}
-        \left(\frac{2\pi\nu'}{c}\right)^{\!2} B_{\nu'}(T_0)\,d\nu',
-  \label{eq:dIdA}
+    = -\!\left(\frac{2\pi\nu}{c}\right)^{\!2} B_\nu(T_0),
+  \label{eq:dIdA_phys}
 \end{equation}
-Equation~\eqref{eq:dIdA} comprises a high-frequency deficit and a
-compensating pedestal whose shape is set by the redistribution
-kernel $K_\nu^{\rm fast}(\nu)$ defined in Eq.~\eqref{eq:Knufast}.
-
-The chemical-potential and Compton-$y$ distortion templates are
+a $\nu^2$-weighted (blue-tilted) Planck spectrum.  The
+chemical-potential and Compton-$y$ distortion templates are
 \begin{align}
   \frac{\partial I_\nu}{\partial\mu}
     &= -B_\nu(T_0)\,\frac{x e^x}{(e^x-1)^2}, \label{eq:dIdmu}\\
@@ -1154,63 +1158,40 @@ The chemical-potential and Compton-$y$ distortion templates are
 \end{align}
 with $x=h\nu/(k_B T_0)$, encoding respectively early-universe energy
 injection (Silk damping, decaying particles) and late-time electron
-heating (reionization, cluster gas).  In the Rayleigh--Jeans limit the
-$\mu$-template approaches $\Delta I/B\to -\mu/x\propto\nu^{-1}$, the
-same frequency dependence as the fiducial pedestal $K_\nu^{\rm fast}$ ---
-which we deliberately gave this $1/\nu$ shape (Eq.~\eqref{eq:Knufast})
-precisely to maximize the foam--$\mu$ overlap.  The two templates
-therefore have nearly identical spectral shapes across the FIRAS band,
-producing a strong Fisher-matrix degeneracy by construction.
+heating (reionization, cluster gas).
 
 A Fisher analysis using the 43 FIRAS channels~\cite{Fixsen1996} with
 diagonal noise approximated as a flat $\sigma_\nu=0.01$\,MJy/sr per
 channel (a band-averaged simplification of the published
-channel-by-channel uncertainties) yields the correlation matrix for parameters
-$(A_{\rm eff},\,T_0,\,\mu,\,y)$ in that order:
+channel-by-channel uncertainties) quantifies how well $A_{\rm eff}$ can
+be separated from these templates.  Raising $T_0$ brightens the whole
+Planck curve, while the foam deficit suppresses it with an extra
+$\nu^2$ weighting: the two differ only by a spectral tilt that the
+CMB-bright band (the peak through the onset of the Wien fall-off)
+barely resolves.  The foam template is therefore degenerate with a
+temperature shift at $\rho_{A_{\rm eff}T_0}=0.9997$, and through that
+near-degeneracy it is also strongly collinear with the $y$ and $\mu$
+templates ($\rho_{A_{\rm eff}y}=0.999$, $\rho_{A_{\rm eff}\mu}=0.93$).
+The marginal amplitude uncertainty is correspondingly large,
 \begin{equation}
-\rho_{ij} = \begin{pmatrix}
-  1.000 & 0.937 & \mathbf{0.976} & 0.010 \\
-  0.937 & 1.000 & 0.969 & -0.212 \\
-  \mathbf{0.976} & 0.969 & 1.000 & -0.127 \\
-  0.010 & -0.212 & -0.127 & 1.000
-\end{pmatrix},
-\label{eq:fisher_corr_matrix}
-\end{equation}
-showing the dominant foam--$\mu$ degeneracy
-($\rho_{A_{\rm eff}\mu}=0.976$, bold) and a negligible foam--$y$
-correlation ($\rho_{A_{\rm eff}y}=0.010$).  The marginal Fisher
-uncertainties are
-\begin{equation}
-  \sigma(A_{\rm eff}) = 1.7\times10^{-12}\,{\rm m}^2,
+  \sigma(A_{\rm eff}) = 2.2\times10^{-11}\,{\rm m}^2,
   \qquad
   \sigma(A_{\rm eff})\big|_{\mu,y\,\text{fixed}}
-    = 2.9\times10^{-13}\,{\rm m}^2,
+    = 8.2\times10^{-13}\,{\rm m}^2,
   \label{eq:sigma_Aeff}
 \end{equation}
-so marginalising over $\mu$ and $T_0$ degrades the foam-amplitude
-uncertainty by a factor $\sim 6$ (the full $4\times4$ marginal factor
-exceeds the naive two-parameter estimate
-$(1-\rho_{A\mu}^2)^{-1/2}\approx 4.6$ because of the additional $T_0$
-degeneracy $\rho_{AT_0}=0.937$), driven almost entirely by the
-foam--$\mu$ collinearity.  Only the $\sim 5\%$ of foam-direction
-variance orthogonal to the $\mu$ template enters the marginal bound, so
-an external constraint on $\mu$ would directly tighten
-$\sigma(A_{\rm eff})$ by removing this near-degeneracy --- imposing the
-$\Lambda$CDM dissipation prediction $\mu\approx
-2\times10^{-8}$~\cite{Chluba2021} as a prior (some five orders of
-magnitude tighter than the FIRAS $\mu$ measurement, hence effectively
-fixing $\mu$) sharpens it by $\sim 3$--$5\times$, less in the
-no-pedestal limit where the residual foam--$T_0$ degeneracy dominates.
+and setting $A_{\rm eff}^{\rm Ng\text{-}Perlman}(\alpha,D_C)
+=\sigma(A_{\rm eff})$ (Fig.~\ref{fig:cmb_snr}) gives the conservative
+headline threshold $\alpha\lesssim 0.52$.
 
-These amplitude constraints translate into bounds on the foam exponent
-through the Ng--Perlman relation.  Figure~\ref{fig:cmb_snr} plots the
-SNR versus $\alpha$; setting
-$A_{\rm eff}^{\rm Ng\text{-}Perlman}(\alpha,D_C)=\sigma(A_{\rm eff})$
-and solving for $\alpha$ yields the threshold $\alpha\lesssim 0.53$
-under the $K_\nu^{\rm fast}$ template.  Because that relation is
-logarithmic, it sharply compresses amplitude gains into the exponent:
-the $\sim 3$--$5\times$ tightening available from a $\Lambda$CDM $\mu$
-prior shifts the threshold by only $\Delta\alpha\lesssim 0.005$.
+This is a best case.  The noise model is foreground-free, whereas
+galactic thermal dust and the cosmic infrared background dominate the
+Wien side of the spectrum --- precisely where the $\nu^2$-tilt would
+finally separate the foam deficit from a pure temperature shift.
+Marginalising over those foreground components would tighten the
+foam--$T_0$ degeneracy further and weaken the bound, so
+$\alpha\lesssim 0.52$ is the most optimistic FIRAS reach rather than a
+realistic forecast.
 
 \begin{figure}[h]
 \centering
@@ -1218,7 +1199,7 @@ prior shifts the threshold by only $\Delta\alpha\lesssim 0.005$.
 \caption{Detection SNR for the foam amplitude $A_{\rm eff}$ as a function
 of foam exponent $\alpha$ ($A_\alpha=1$, $D_C=13.87$\,Gpc).
 Blue curves: marginal SNR (all four parameters $A_{\rm eff},T_0,\mu,y$ free).
-Red curves: conditional SNR ($\mu,y$ held fixed), which is $\sim 6\times$ higher.
+Red curves: conditional SNR ($\mu,y$ held fixed), which is $\sim 27\times$ higher.
 Line styles denote the instrument: solid FIRAS, dashed PIXIE,
 dash-dotted SuperPIXIE, dotted Voyage~2050, with forecast
 $\mu$-sensitivities scaled relative to FIRAS \cite{Chluba2021}.
@@ -1230,30 +1211,67 @@ holographic prediction $\alpha=2/3$.}
 \label{fig:cmb_snr}
 \end{figure}
 
-The exponential-$C_\alpha$ worked example of
-Section~\ref{sec:CMB_derivation} establishes that the physical
-pedestal kernel, for any plausible
-$\tau_{\rm foam}\lesssim\ell_P/c$, displaces essentially all of the
-redistributed power to frequencies $\sim 10^{42}$\,Hz, far outside
-the FIRAS band.  The no-pedestal limit is therefore the
-physically-realized case: the foam template degenerates with
-$\partial B_\nu/\partial T_0$ at $\rho\approx 0.9997$ and the
-sensitivity worsens by $N\sim 13\times$, yielding the headline
-threshold $\alpha\lesssim 0.52$.  The Fisher matrix above with the
-adversarial $K_\nu^{\rm fast}$ template gives instead
-$\alpha\lesssim 0.53$, a $\Delta\alpha\approx 0.009$ loosening that
-quantifies robustness against worst-case in-band pedestal
-contamination.  The near-coincidence reflects the logarithmic
-Ng--Perlman relation $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$:
-taking the $\alpha$-derivative of
-$\ln\sigma_\ell^2 = 2(1-\alpha)\ln D_C + 2\alpha\ln\ell_P$ at fixed
-$\sigma_\ell$ gives $d\alpha/d\ln\sigma_\ell = 1/\ln(\ell_P/D_C)$,
-so a factor-$N$ worsening in sensitivity shifts $\alpha$ by only
-$\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]\approx 0.009$ for $N\approx 13$.
-Either calculation requires specifying $C_\alpha(\tau)$ from first
-principles for a definitive in-band pedestal shape, but the worked
-example shows that any exponential-class $C_\alpha$ with
-Planck-scale $\tau_{\rm foam}$ lies in the no-pedestal regime.
+To bound the impact of adversarial in-band pedestal contamination, we
+repeat the analysis with the adversarial band-filling kernel of
+Section~\ref{sec:CMB_derivation}, replacing the deficit by
+\begin{equation}
+  \frac{\partial I_\nu}{\partial A_{\rm eff}}
+    = -\!\left(\frac{2\pi\nu}{c}\right)^{\!2} B_\nu(T_0)
+      + K_\nu^{\rm fast}(\nu)\!\int_{\nu_{\rm min}}^{\nu_{\rm max}}
+        \left(\frac{2\pi\nu'}{c}\right)^{\!2} B_{\nu'}(T_0)\,d\nu',
+  \label{eq:dIdA}
+\end{equation}
+whose $1/\nu$ pedestal we deliberately gave the Rayleigh--Jeans shape
+of the $\mu$-distortion template (Eq.~\eqref{eq:Knufast}; the
+Rayleigh--Jeans limit of Eq.~\eqref{eq:dIdmu} is
+$\Delta I/B\to-\mu/x\propto\nu^{-1}$) so as to maximise the foam--$\mu$
+overlap.  The resulting correlation matrix for
+$(A_{\rm eff},\,T_0,\,\mu,\,y)$ is
+\begin{equation}
+\rho_{ij} = \begin{pmatrix}
+  1.000 & 0.937 & \mathbf{0.976} & 0.010 \\
+  0.937 & 1.000 & 0.969 & -0.212 \\
+  \mathbf{0.976} & 0.969 & 1.000 & -0.127 \\
+  0.010 & -0.212 & -0.127 & 1.000
+\end{pmatrix}.
+\label{eq:fisher_corr_matrix}
+\end{equation}
+Adding the in-band pedestal rotates the foam template off the
+temperature axis ($\rho_{A_{\rm eff}T_0}:0.9997\to0.937$) and off the
+$y$ template ($\rho_{A_{\rm eff}y}:0.999\to0.010$), leaving the
+engineered foam--$\mu$ degeneracy ($\rho_{A_{\rm eff}\mu}=0.976$, bold)
+as the dominant one.  Because $0.976$ is milder than the $0.9997$ it
+replaces, the amplitude is in fact \emph{better} constrained,
+\begin{equation}
+  \sigma(A_{\rm eff}) = 1.7\times10^{-12}\,{\rm m}^2,
+  \qquad
+  \sigma(A_{\rm eff})\big|_{\mu,y\,\text{fixed}}
+    = 2.9\times10^{-13}\,{\rm m}^2,
+  \label{eq:sigma_Aeff_adv}
+\end{equation}
+a factor $\sim 6$ marginalisation penalty driven by the foam--$\mu$
+collinearity, and the threshold \emph{tightens} slightly to
+$\alpha\lesssim 0.53$.  The adversarial in-band pedestal therefore does
+not loosen the conservative bound; it shifts it by only
+$\Delta\alpha\approx 0.009$, the near-coincidence reflecting the
+logarithmic Ng--Perlman relation
+$\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$: at fixed
+$\sigma_\ell$, $\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]\approx 0.009$ for
+the factor $N\approx 13$ separating the two amplitude uncertainties.
+An external constraint on $\mu$ helps most in this $\mu$-limited worst
+case: imposing the $\Lambda$CDM dissipation prediction
+$\mu\approx 2\times10^{-8}$~\cite{Chluba2021} as a prior (five orders
+of magnitude tighter than the FIRAS $\mu$ measurement, hence
+effectively fixing $\mu$) sharpens $\sigma(A_{\rm eff})$ by
+$\sim 3$--$5\times$, though the logarithmic relation again limits the
+threshold gain to $\Delta\alpha\lesssim 0.005$; in the physical
+no-pedestal case, where the limiting degeneracy is with $T_0$ rather
+than $\mu$, even fixing $\mu$ barely helps.  Either way, the worked
+example of Section~\ref{sec:CMB_derivation} shows that any
+exponential-class $C_\alpha$ with Planck-scale $\tau_{\rm foam}$ lies
+in the no-pedestal regime, so the physical $\alpha\lesssim 0.52$ is the
+headline and the adversarial $\alpha\lesssim 0.53$ merely confirms its
+robustness.
 
 The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
 ($T_{\rm sys}\approx2.7$\,K) nulling polarizing Fourier transform spectrometer
@@ -1266,38 +1284,33 @@ the marginal foam detection threshold shifts from
 $\alpha\lesssim0.52$ (FIRAS) to approximately $\alpha\lesssim0.55$ (PIXIE),
 narrowing the gap with the spectroscopic lower
 bound $\alpha\gtrsim0.63$ from GRB\,221009A (Fig.~\ref{fig:cmb_snr}).
-Both FIRAS and PIXIE thresholds are quoted for the placeholder
-$K_\nu^{\rm fast}\propto 1/\nu$ pedestal kernel and the observer-frame
-$\sigma_\phi^2$ of Eq.~\eqref{eq:sigmaphi}; a physically derived
-$C_\alpha(\tau)$ would generally relax the foam--$\mu$ degeneracy and
-tighten these bounds, while the cosmological-redshift weighting of
-Eq.~\eqref{eq:sigmaphi_cosmo} could shift each by up to
-$\Delta\alpha\sim 0.03$ in the same direction.
-The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
-linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
-regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ under the
+Both thresholds are quoted for the physical no-pedestal deficit and
+the observer-frame $\sigma_\phi^2$ of Eq.~\eqref{eq:sigmaphi}; the
+cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo} could
+shift each by up to $\Delta\alpha\sim 0.03$.
+The limiting degeneracy --- with a temperature shift for the
+no-pedestal deficit --- persists on the linearized template, but
+PIXIE's extension to $6$\,THz accesses the nonlinear regime
+$\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ under the
 cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo}
 (observer-frame Eq.~\eqref{eq:sigmaphi} shifts this to
-$\alpha\lesssim 0.52$), where the foam template
-diverges markedly from the $\mu$-distortion shape and the degeneracy may be
-substantially reduced.  The $\alpha\lesssim0.55$ projection is therefore
-conservative: if the nonlinear template effectively breaks the foam--$\mu$
-degeneracy at PIXIE sensitivity, the true threshold could be significantly
-more stringent.
+$\alpha\lesssim 0.52$), where the foam deficit diverges markedly from
+both the blackbody and $\mu$-distortion shapes and the degeneracy may
+be substantially reduced.  The $\alpha\lesssim0.55$ projection is
+therefore conservative: if the nonlinear template effectively breaks
+this degeneracy at PIXIE sensitivity, the true threshold could be
+significantly more stringent.
 
 \subsubsection{Bias in recovered $T_0$ from unmodeled foam}
 \label{sec:CMB_T0_bias}
 
 The Fisher matrix also quantifies how much the fitted CMB temperature
-would shift if foam were present but omitted from the model.  The
-magnitude and sign of the resulting $T_0$ bias both depend on the
-assumed pedestal kernel $K_\nu^{\rm fast}$, which is a placeholder
-rather than framework-derived (Section~\ref{sec:CMB_derivation}); a
-physical kernel from a specified $C_\alpha(\tau)$ could alter either.
-Suppose
-the data contain foam at amplitude $A_{\rm eff}^{\rm true}$ but the
-analyst fits only $\boldsymbol{\theta}_{\rm fit}=(T_0,\mu,y)$.  In the
-linearised Fisher regime the parameter shift is
+would shift if foam were present but omitted from the model.  We
+evaluate this for the physically-realized no-pedestal deficit
+(Eq.~\eqref{eq:dIdA_phys}).  Suppose the data contain foam at amplitude
+$A_{\rm eff}^{\rm true}$ but the analyst fits only
+$\boldsymbol{\theta}_{\rm fit}=(T_0,\mu,y)$.  In the linearised Fisher
+regime the parameter shift is
 \begin{equation}
   \hat{\boldsymbol{\theta}}_{\rm fit}
     - \boldsymbol{\theta}_{\rm fit}^{\rm true}
@@ -1306,8 +1319,8 @@ linearised Fisher regime the parameter shift is
 \end{equation}
 where $F_{\rm fit,fit}$ is the $3\times3$ Fisher block for
 $(T_0,\mu,y)$ and $F_{\rm fit,omit}$ couples the fitted parameters to
-the omitted foam amplitude.  Both blocks come from the same matrix as
-Eq.~\eqref{eq:fisher_corr_matrix}, so no new computation is required.
+the omitted foam amplitude, both evaluated for the no-pedestal template
+(Eqs.~\eqref{eq:dIdA_phys}--\eqref{eq:dIdy}).
 
 The $T_0$ component gives
 \begin{equation}
@@ -1315,17 +1328,19 @@ The $T_0$ component gives
   \qquad b_{T_0} = -\bigl[(F_{\rm fit,fit})^{-1}F_{\rm fit,omit}\bigr]_{T_0}.
   \label{eq:T0_bias}
 \end{equation}
-Numerically, $b_{T_0}=+1.21\times10^7\,{\rm K\,m^{-2}}$: the bias is
-\emph{positive}, reflecting the placeholder pedestal's Rayleigh--Jeans
-excess being absorbed as an apparent temperature increase
-($\partial B_\nu/\partial T>0$), while the high-frequency deficit is
-absorbed into a positive $\Delta\mu$ ($b_\mu\approx 1.05\times 10^8\,
-{\rm m^{-2}}$, consistent with $\rho_{A_{\rm eff}\mu}=0.976$).
+Numerically, $b_{T_0}=+1.5\times10^7\,{\rm K\,m^{-2}}$: because the
+$\nu^2$-tilted deficit is nearly a temperature shift
+($\rho_{A_{\rm eff}T_0}=0.9997$), unmodeled foam is absorbed largely
+into $T_0$, biasing the recovered temperature high.  (Unlike the
+adversarial pedestal, whose Rayleigh--Jeans excess the $\mu$ template
+soaks up, $b_\mu\approx 1.0\times10^8\,{\rm m^{-2}}$, the no-pedestal
+deficit carries no such $\mu$-like component, $b_\mu\approx
+4.5\times10^6\,{\rm m^{-2}}$, and so projects directly onto $T_0$.)
 Requiring $|\Delta T_0|<\sigma(T_0)=5.7\times 10^{-4}$\,K
 \cite{Fixsen2009} gives
 \begin{equation}
   A_{\rm eff}^{\rm max,\,bias}
-    = \frac{\sigma(T_0)}{|b_{T_0}|} = 4.7\times 10^{-11}\,{\rm m}^2,
+    = \frac{\sigma(T_0)}{|b_{T_0}|} = 3.9\times 10^{-11}\,{\rm m}^2,
   \label{eq:Aeff_bias_bound}
 \end{equation}
 corresponding (with $A_\alpha=1$) to a crossover exponent
@@ -1334,28 +1349,25 @@ biased the Fixsen $T_0$ by more than $1\sigma$ had such a signal been
 present and unmodeled; models with $\alpha>0.518$ would not.
 
 The crossover $\alpha_{\rm bias}\approx 0.518$ essentially coincides
-with the marginal detection threshold $\alpha\lesssim 0.52$: with the
-correctly normalized noise the foam amplitude that FIRAS could just
-detect is also large enough to shift $T_0$ by of order $1\sigma(T_0)$.
-The two boundaries probe complementary regimes from the GRB lower
-exclusion bound $\alpha\gtrsim 0.63$ --- FIRAS sets an upper
-detectability limit while the GRB analysis sets a lower exclusion
-bound.  Mechanistically, the foam pedestal's Rayleigh--Jeans-like
-low-frequency excess overlaps the $\mu$-distortion template much more
-than the $\partial B_\nu/\partial T_0$ template, so in the
-four-parameter fit the foam signal is absorbed primarily into $\mu$,
-leaving $T_0$ only weakly shifted; this is why the $T_0$-bias crossover
-($\alpha\approx 0.518$) lies marginally below, rather than far below,
-the detection threshold.
+with the marginal detection threshold $\alpha\lesssim 0.52$, and the
+coincidence is physical: the same foam--$T_0$ near-degeneracy that
+limits detection (Section~\ref{sec:CMB_degeneracy}) also channels
+unmodeled foam into the temperature.  The deficit is hard to
+distinguish from a temperature shift, so it is simultaneously difficult
+to \emph{detect} and, if omitted, efficiently absorbed into $T_0$;
+detection threshold and $T_0$-bias crossover are therefore set by the
+same degeneracy.  Both probe the regime below the GRB lower exclusion
+bound $\alpha\gtrsim 0.63$ --- FIRAS sets an upper detectability limit
+while the GRB analysis sets a lower exclusion bound.
 Figure~\ref{fig:cmb_bias} plots $|\Delta T_0|/\sigma(T_0)$ as a
 function of $\alpha$; at the detection threshold $\alpha\approx 0.52$
-(marginal SNR $\approx 1$) the ratio is $\approx 0.5$, falling below
+(marginal SNR $\approx 1$) the ratio is $\approx 0.6$, falling below
 $10^{-2}$ only for $\alpha\gtrsim 0.54$.  The published Fixsen
 $T_0=2.72548$\,K is therefore unbiased at the $\ll 10^{-4}\sigma$ level
 by any foam model consistent with the GRB bound $\alpha\gtrsim 0.63$,
 although a hypothetical strong-foam model at the very edge of FIRAS
 detectability ($\alpha\approx 0.52$) would shift it by up to
-$\sim 0.5\sigma(T_0)$.
+$\sim 0.6\,\sigma(T_0)$.
 
 \begin{figure}[h]
 \centering
@@ -1440,7 +1452,7 @@ $\sigma(A_{\rm eff})/\sigma(\mu)$.  The wider band does break the
 foam--$\mu$ degeneracy probed by the adversarial $K_\nu^{\rm fast}$
 pedestal (from $\rho_{A\mu}=0.98$ at FIRAS to $0.66$ over
 $10$\,GHz--$3$\,THz), so future missions are markedly more robust
-against worst-case in-band pedestal contamination; but this does not
+against adversarial in-band pedestal contamination; but this does not
 move the physical threshold.  Together with the logarithmic
 Ng--Perlman scaling
 $\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]$, which converts even a

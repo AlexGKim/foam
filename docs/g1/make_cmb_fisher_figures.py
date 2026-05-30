@@ -57,8 +57,9 @@ D_C    = 13.87e3 * 3.0857e22  # 13.87 Gpc [m]
 
 # ── Fisher-matrix results from fisher_firas.py (correctly normalized) ─────────
 # Per-channel diagonal Fisher F = sum_ch dI_i dI_j / sigma^2 (no bandwidth factor).
-sig_A_marg_FIRAS = 1.7140e-12   # m^2  marginal sigma(A_eff)
-sig_A_cond_FIRAS = 2.9427e-13   # m^2  conditional sigma(A_eff) [mu,y fixed]
+# PHYSICAL no-pedestal template (the headline case): pure deficit -(2*pi*nu/c)^2 B.
+sig_A_marg_FIRAS = 2.2222e-11   # m^2  marginal sigma(A_eff), no-pedestal
+sig_A_cond_FIRAS = 8.2089e-13   # m^2  conditional sigma(A_eff) [mu,y fixed], no-pedestal
 
 # Next-gen instruments scale by their forecast mu-sensitivity relative to FIRAS:
 #   factor = sigma(mu)_FIRAS / sigma(mu)_inst  (SNR ~ 1/sigma(A_eff) ~ 1/sigma(mu))
@@ -72,7 +73,7 @@ sig_A_cond_PIXIE  = sig_A_cond_FIRAS / PIXIE_factor
 sig_A_marg_SPIXIE = sig_A_marg_FIRAS / SPIXIE_factor
 sig_A_marg_VOY    = sig_A_marg_FIRAS / VOY_factor
 
-b_T0             = 1.2120e7    # K / m^2  bias coefficient  Delta_T0 = b_T0 * A_eff
+b_T0             = 1.465e7    # K / m^2  bias coefficient (PHYSICAL no-pedestal)
 sigma_T0_FIRAS   = 5.70e-4     # K  Fixsen 2009
 sigma_T0_PIXIE   = sigma_T0_FIRAS / 1e3   # PIXIE T0 noise floor ~1000x better
 
@@ -205,7 +206,7 @@ for xv, lbl, col in [
              rotation=90, va='center')
 
 # --- Annotate FIRAS crossover alpha ~ 0.518 ---
-alpha_cross_FIRAS = 0.5176
+alpha_cross_FIRAS = 0.5183
 ax2.axvline(alpha_cross_FIRAS, color='C0', lw=0.8, ls=':', alpha=0.5)
 ax2.text(alpha_cross_FIRAS + 0.002, 2e-4,
          r'FIRAS bias $= 1\sigma$' + '\n' + r'$\alpha\approx0.518$',
