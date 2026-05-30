@@ -55,16 +55,26 @@ plt.rcParams.update({
 ell_P  = 1.616e-35          # Planck length [m]
 D_C    = 13.87e3 * 3.0857e22  # 13.87 Gpc [m]
 
-# ── Fisher-matrix results from fisher_firas.py (exact) ────────────────────────
-sig_A_marg_FIRAS = 1.5116e-17   # m^2  marginal sigma(A_eff)
-sig_A_cond_FIRAS = 2.5952e-18   # m^2  conditional sigma(A_eff) [mu,y fixed]
-PIXIE_factor     = 1e3          # PIXIE noise floor ~1000x better
-sig_A_marg_PIXIE = sig_A_marg_FIRAS / PIXIE_factor
-sig_A_cond_PIXIE = sig_A_cond_FIRAS / PIXIE_factor
+# ── Fisher-matrix results from fisher_firas.py (correctly normalized) ─────────
+# Per-channel diagonal Fisher F = sum_ch dI_i dI_j / sigma^2 (no bandwidth factor).
+sig_A_marg_FIRAS = 1.7140e-12   # m^2  marginal sigma(A_eff)
+sig_A_cond_FIRAS = 2.9427e-13   # m^2  conditional sigma(A_eff) [mu,y fixed]
+
+# Next-gen instruments scale by their forecast mu-sensitivity relative to FIRAS:
+#   factor = sigma(mu)_FIRAS / sigma(mu)_inst  (SNR ~ 1/sigma(A_eff) ~ 1/sigma(mu))
+# FIRAS ~5.5e-5; PIXIE 3.0e-8; SuperPIXIE 7.7e-9; Voyage 2050 2.2e-9 [Chluba+2021]
+PIXIE_factor  = 5.5e-5 / 3.0e-8   # ~1833
+SPIXIE_factor = 5.5e-5 / 7.7e-9   # ~7143
+VOY_factor    = 5.5e-5 / 2.2e-9   # ~25000
+
+sig_A_marg_PIXIE  = sig_A_marg_FIRAS / PIXIE_factor
+sig_A_cond_PIXIE  = sig_A_cond_FIRAS / PIXIE_factor
+sig_A_marg_SPIXIE = sig_A_marg_FIRAS / SPIXIE_factor
+sig_A_marg_VOY    = sig_A_marg_FIRAS / VOY_factor
 
 b_T0             = 1.2120e7    # K / m^2  bias coefficient  Delta_T0 = b_T0 * A_eff
 sigma_T0_FIRAS   = 5.70e-4     # K  Fixsen 2009
-sigma_T0_PIXIE   = sigma_T0_FIRAS / PIXIE_factor
+sigma_T0_PIXIE   = sigma_T0_FIRAS / 1e3   # PIXIE T0 noise floor ~1000x better
 
 # ── Alpha grid ────────────────────────────────────────────────────────────────
 alpha = np.linspace(0.50, 0.70, 1000)
@@ -76,10 +86,12 @@ def A_eff(a):
 Ae = A_eff(alpha)
 
 # ── SNR curves ────────────────────────────────────────────────────────────────
-snr_FIRAS_marg = Ae / sig_A_marg_FIRAS
-snr_FIRAS_cond = Ae / sig_A_cond_FIRAS
-snr_PIXIE_marg = Ae / sig_A_marg_PIXIE
-snr_PIXIE_cond = Ae / sig_A_cond_PIXIE
+snr_FIRAS_marg  = Ae / sig_A_marg_FIRAS
+snr_FIRAS_cond  = Ae / sig_A_cond_FIRAS
+snr_PIXIE_marg  = Ae / sig_A_marg_PIXIE
+snr_PIXIE_cond  = Ae / sig_A_cond_PIXIE
+snr_SPIXIE_marg = Ae / sig_A_marg_SPIXIE
+snr_VOY_marg    = Ae / sig_A_marg_VOY
 
 # ── Bias curves ────────────────────────────────────────────────────────────────
 delta_T0      = b_T0 * Ae                          # K (instrument-independent)
@@ -87,7 +99,7 @@ ratio_FIRAS   = delta_T0 / sigma_T0_FIRAS
 ratio_PIXIE   = delta_T0 / sigma_T0_PIXIE
 
 # ── Reference alpha values ────────────────────────────────────────────────────
-alpha_FIRAS_threshold = 0.57    # marginal SNR ~ 1 (FIRAS)
+alpha_FIRAS_threshold = 0.52    # marginal SNR ~ 1 (FIRAS, corrected normalization)
 alpha_BzK             = 0.54    # BzK 4892 spectroscopic lower bound
 alpha_GRB_low         = 0.62    # GRB 221009A Ravasio lower bound
 alpha_GRB_high        = 0.63    # GRB 221009A Zhang lower bound
@@ -100,13 +112,19 @@ alpha_holo            = 2/3     # holographic prediction
 
 fig1, ax1 = plt.subplots(figsize=(6.5, 4.8))
 
-# --- Four curves ---
-ax1.semilogy(alpha, snr_FIRAS_marg, color='C0', lw=2.0, ls='-',
+# --- Marginal curves: one per instrument (blue, linestyle = instrument) ---
+ax1.semilogy(alpha, snr_FIRAS_marg,  color='C0', lw=2.0, ls='-',
              label=r'FIRAS, marginal (all params free)')
+ax1.semilogy(alpha, snr_PIXIE_marg,  color='C0', lw=2.0, ls='--',
+             label=r'PIXIE, marginal')
+ax1.semilogy(alpha, snr_SPIXIE_marg, color='C0', lw=1.8, ls='-.',
+             label=r'SuperPIXIE, marginal')
+ax1.semilogy(alpha, snr_VOY_marg,    color='C0', lw=1.8, ls=':',
+             label=r'Voyage 2050, marginal')
+# --- Conditional reference (mu,y fixed): FIRAS and PIXIE, showing the
+#     foam-mu degeneracy penalty that marginalization incurs ---
 ax1.semilogy(alpha, snr_FIRAS_cond, color='C3', lw=2.0, ls='-',
              label=r'FIRAS, conditional ($\mu,y$ fixed)')
-ax1.semilogy(alpha, snr_PIXIE_marg, color='C0', lw=2.0, ls='--',
-             label=r'PIXIE, marginal')
 ax1.semilogy(alpha, snr_PIXIE_cond, color='C3', lw=2.0, ls='--',
              label=r'PIXIE, conditional ($\mu,y$ fixed)')
 
@@ -137,15 +155,17 @@ ax1.set_ylim(1e-6, 3e10)
 ax1.set_xlabel(r'Foam exponent $\alpha$')
 ax1.set_ylabel(r'Detection SNR  ($A_\alpha = 1$, $D_C = 13.87\,{\rm Gpc}$)')
 
-# --- Legend: linestyle distinguishes FIRAS/PIXIE, colour distinguishes marg/cond ---
-solid_h  = mlines.Line2D([], [], color='k',  lw=2.0, ls='-',  label='FIRAS')
-dashed_h = mlines.Line2D([], [], color='k',  lw=2.0, ls='--', label='PIXIE')
+# --- Legend: linestyle distinguishes instrument, colour distinguishes marg/cond ---
+firas_h  = mlines.Line2D([], [], color='k',  lw=2.0, ls='-',  label='FIRAS')
+pixie_h  = mlines.Line2D([], [], color='k',  lw=2.0, ls='--', label='PIXIE')
+spixie_h = mlines.Line2D([], [], color='k',  lw=1.8, ls='-.', label='SuperPIXIE')
+voy_h    = mlines.Line2D([], [], color='k',  lw=1.8, ls=':',  label='Voyage 2050')
 blue_h   = mlines.Line2D([], [], color='C0', lw=2.0, ls='-',  label='Marginal (all params free)')
 red_h    = mlines.Line2D([], [], color='C3', lw=2.0, ls='-',  label=r'Conditional ($\mu,y$ fixed)')
 
-ax1.legend(handles=[solid_h, dashed_h, blue_h, red_h],
+ax1.legend(handles=[firas_h, pixie_h, spixie_h, voy_h, blue_h, red_h],
            loc='upper right', framealpha=0.92,
-           handlelength=2.2)
+           handlelength=2.6, fontsize=8.5)
 
 ax1.grid(True, which='major', alpha=0.20)
 ax1.grid(True, which='minor', alpha=0.07)

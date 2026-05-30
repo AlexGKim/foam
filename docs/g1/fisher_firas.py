@@ -101,11 +101,15 @@ dI_dy   = B * x * ex / (ex - 1) * (x * (ex + 1) / (ex - 1) - 4)  # same units
 # across the band; use sigma = 0.01 MJy/sr = 1e-22 W/m^2/Hz/sr as representative.
 sigma_noise = 0.01 * MJy_per_sr   # W m^{-2} Hz^{-1} sr^{-1}
 
-# Fisher matrix F_ij = Σ_nu (dI_i / sigma)^2 [uniform diagonal noise]
+# Fisher matrix for independent channels:  F_ij = Σ_ch (dI_i/sigma)(dI_j/sigma)
+# Diagonal per-channel noise; NO bandwidth factor — the discrete channel sum is
+# the correct continuum limit ∫ dI_i dI_j dν / (σ² Δν) = Σ_ch dI_i dI_j / σ².
+# (An earlier version multiplied by the channel width dnu, which is dimensionally
+#  inconsistent — F_μμ would carry units of Hz — and made σ(μ) ~10⁴ too optimistic.)
 derivs = np.array([dI_dA, dI_dT, dI_dmu, dI_dy])  # (4, n_ch)
 names  = ['A_eff', 'T_0',  'mu',   'y']
 
-F = np.einsum('ik,jk->ij', derivs, derivs) * (dnu / sigma_noise**2)
+F = np.einsum('ik,jk->ij', derivs, derivs) / sigma_noise**2
 
 # Parameter covariance
 Cov = np.linalg.inv(F)
@@ -246,7 +250,7 @@ print("tau_foam ~ ell_P/c: pedestal at ~10^43 Hz, outside FIRAS band")
 print("=" * 72)
 
 derivs_noped = np.array([dI_dA_noped, dI_dT, dI_dmu, dI_dy])
-F_noped = np.einsum('ik,jk->ij', derivs_noped, derivs_noped) * (dnu / sigma_noise**2)
+F_noped = np.einsum('ik,jk->ij', derivs_noped, derivs_noped) / sigma_noise**2
 Cov_noped = np.linalg.inv(F_noped)
 sig_noped = np.sqrt(np.diag(Cov_noped))
 rho_noped = Cov_noped / np.outer(sig_noped, sig_noped)
