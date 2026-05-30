@@ -1020,6 +1020,8 @@ minimal one-parameter model $C_\alpha(\tau)=e^{-|\tau|/\tau_{\rm foam}}$,
 the autocorrelation of a Markovian metric fluctuation.  The framework
 does not require this specific choice; any $C_\alpha(\tau)$ with
 characteristic decorrelation time $\tau_{\rm foam}\ll 1/\nu_{\rm max}$
+(satisfied with enormous margin for Planck-scale foam,
+$\tau_{\rm foam}\sim\ell_P/c\approx 5\times10^{-44}$\,s)
 has a Fourier transform of width $\gtrsim 1/\tau_{\rm foam}\gg
 \nu_{\rm max}$, so the pedestal kernel is constant across the FIRAS
 band irrespective of its functional form, and the conclusion that
@@ -1101,17 +1103,6 @@ carries $\nu'$-dependence through $\sigma_\phi^2(\nu')$).  The
 template is energy-conserving but not photon-number-conserving and
 serves only as a worst-case Fisher probe of kernel-shape
 sensitivity.
-
-The derivation above requires $\tau_{\rm foam}\ll 1/\nu_{\rm CMB}\sim
-7$\,ps, satisfied with enormous margin for Planck-scale foam.  For
-larger $\tau_{\rm foam}$ the suppression factor
-$e^{-\sigma_\phi^2[1-C_\alpha(\tau_{\rm foam})]}$
-(Eq.~\eqref{eq:Ffoam}) is reduced by $[1-C_\alpha(\tau_{\rm foam})]$
-and the distortion amplitude is suppressed accordingly; in the
-quasi-static limit $\tau_{\rm foam}\to\infty$, $C_\alpha\to 1$ and
-both the deficit and the pedestal vanish, consistent with the
-disappearance of the HBT Siegert signal in that limit
-(Section~\ref{sec:g1}).
 
 \subsubsection{Fisher analysis: degeneracy with $\mu$ and $y$}
 \label{sec:CMB_degeneracy}
@@ -1241,6 +1232,36 @@ Either calculation requires specifying $C_\alpha(\tau)$ from first
 principles for a definitive in-band pedestal shape, but the worked
 example shows that any exponential-class $C_\alpha$ with
 Planck-scale $\tau_{\rm foam}$ lies in the no-pedestal regime.
+
+The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
+($T_{\rm sys}\approx2.7$\,K) nulling polarizing Fourier transform spectrometer
+spanning $30$\,GHz to $6$\,THz --- is projected to surpass FIRAS sensitivity
+by roughly three orders of magnitude, reaching $|\mu|\lesssim10^{-8}$ and
+$|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
+spectral signals from Silk damping and reionization.
+Propagating this gain through the Fisher-matrix scaling derived above,
+the marginal foam detection threshold shifts from
+$\alpha\lesssim0.56$ (FIRAS) to approximately $\alpha\lesssim0.59$ (PIXIE),
+narrowing the gap with the spectroscopic lower
+bound $\alpha\gtrsim0.63$ from GRB\,221009A (Fig.~\ref{fig:cmb_snr}).
+Both FIRAS and PIXIE thresholds are quoted for the placeholder
+$K_\nu^{\rm fast}\propto 1/\nu$ pedestal kernel and the observer-frame
+$\sigma_\phi^2$ of Eq.~\eqref{eq:sigmaphi}; a physically derived
+$C_\alpha(\tau)$ would generally relax the foam--$\mu$ degeneracy and
+tighten these bounds, while the cosmological-redshift weighting of
+Eq.~\eqref{eq:sigmaphi_cosmo} could shift each by up to
+$\Delta\alpha\sim 0.03$ in the same direction.
+The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
+linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
+regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ under the
+cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo}
+(observer-frame Eq.~\eqref{eq:sigmaphi} shifts this to
+$\alpha\lesssim 0.52$), where the foam template
+diverges markedly from the $\mu$-distortion shape and the degeneracy may be
+substantially reduced.  The $\alpha\lesssim0.59$ projection is therefore
+conservative: if the nonlinear template effectively breaks the foam--$\mu$
+degeneracy at PIXIE sensitivity, the true threshold could be significantly
+more stringent.
 
 \subsubsection{Bias in recovered $T_0$ from unmodeled foam}
 \label{sec:CMB_T0_bias}
@@ -1374,6 +1395,10 @@ would reside.  A definitive FIRAS foam analysis would require
 specifying $C_\alpha(\tau)$ to determine the physical pedestal shape
 and replacing the linearised template with the full nonlinear
 expression at high frequencies where $\sigma_\phi^2\gtrsim 1$.
+Complementary concepts including PRISM~\cite{Andre2014} and BISOU would push
+sensitivity further; a generation of absolute spectrophotometry missions thus
+opens a distinct window onto foam parameter space below the spectroscopic
+bound established in Section~\ref{sec:grb221009a}.
 
 % ==============================================================
 \section{Conclusions}
@@ -1453,40 +1478,6 @@ $r_{\rm LIV}\propto(E/E_0)^n$ would yield bounds on
 $\langle\xi^2\rangle^{1/2}/E_{\rm QG,n}^n$ at each order, with the
 $n=2$ (quadratic) case particularly valuable because the
 deterministic time-of-flight tests are weakest there at $z=0.151$.
-
-The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
-($T_{\rm sys}\approx2.7$\,K) nulling polarizing Fourier transform spectrometer
-spanning $30$\,GHz to $6$\,THz --- is projected to surpass FIRAS sensitivity
-by roughly three orders of magnitude, reaching $|\mu|\lesssim10^{-8}$ and
-$|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
-spectral signals from Silk damping and reionization.
-Propagating this gain through the Fisher-matrix scaling derived in
-Section~\ref{sec:CMB}, the marginal foam detection threshold shifts from
-$\alpha\lesssim0.56$ (FIRAS) to approximately $\alpha\lesssim0.59$ (PIXIE),
-narrowing the gap with the spectroscopic lower
-bound $\alpha\gtrsim0.63$ from GRB\,221009A (Fig.~\ref{fig:cmb_snr}).
-Both FIRAS and PIXIE thresholds are quoted for the placeholder
-$K_\nu^{\rm fast}\propto 1/\nu$ pedestal kernel and the observer-frame
-$\sigma_\phi^2$ of Eq.~\eqref{eq:sigmaphi}; a physically derived
-$C_\alpha(\tau)$ would generally relax the foam--$\mu$ degeneracy and
-tighten these bounds, while the cosmological-redshift weighting of
-Eq.~\eqref{eq:sigmaphi_cosmo} could shift each by up to
-$\Delta\alpha\sim 0.03$ in the same direction.
-The dominant foam--$\mu$ degeneracy ($\rho\approx0.98$) persists on the
-linearized template, but PIXIE's extension to $6$\,THz accesses the nonlinear
-regime $\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ under the
-cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo}
-(observer-frame Eq.~\eqref{eq:sigmaphi} shifts this to
-$\alpha\lesssim 0.52$), where the foam template
-diverges markedly from the $\mu$-distortion shape and the degeneracy may be
-substantially reduced.  The $\alpha\lesssim0.59$ projection is therefore
-conservative: if the nonlinear template effectively breaks the foam--$\mu$
-degeneracy at PIXIE sensitivity, the true threshold could be significantly
-more stringent.
-Complementary concepts including PRISM~\cite{Andre2014} and BISOU would push
-sensitivity further; a generation of absolute spectrophotometry missions thus
-opens a distinct window onto foam parameter space below the spectroscopic
-bound established in Section~\ref{sec:grb221009a}.
 
 \begin{acknowledgments}
 This work was supported in part by the Director, Office of Science, Office of
