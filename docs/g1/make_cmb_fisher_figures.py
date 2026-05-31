@@ -75,10 +75,6 @@ sig_A_cond_SPIXIE = sig_A_cond_FIRAS / SPIXIE_factor
 sig_A_marg_VOY    = sig_A_marg_FIRAS / VOY_factor
 sig_A_cond_VOY    = sig_A_cond_FIRAS / VOY_factor
 
-b_T0             = 1.465e7    # K / m^2  bias coefficient (PHYSICAL no-pedestal)
-sigma_T0_FIRAS   = 5.70e-4     # K  Fixsen 2009
-sigma_T0_PIXIE   = sigma_T0_FIRAS / 1e3   # PIXIE T0 noise floor ~1000x better
-
 # ── Alpha grid ────────────────────────────────────────────────────────────────
 alpha = np.linspace(0.50, 0.70, 1000)
 
@@ -97,11 +93,6 @@ snr_SPIXIE_marg = Ae / sig_A_marg_SPIXIE
 snr_SPIXIE_cond = Ae / sig_A_cond_SPIXIE
 snr_VOY_marg    = Ae / sig_A_marg_VOY
 snr_VOY_cond    = Ae / sig_A_cond_VOY
-
-# ── Bias curves ────────────────────────────────────────────────────────────────
-delta_T0      = b_T0 * Ae                          # K (instrument-independent)
-ratio_FIRAS   = delta_T0 / sigma_T0_FIRAS
-ratio_PIXIE   = delta_T0 / sigma_T0_PIXIE
 
 # ── Reference alpha values ────────────────────────────────────────────────────
 alpha_FIRAS_threshold = 0.52    # marginal SNR ~ 1 (FIRAS, corrected normalization)
@@ -184,56 +175,5 @@ fig1.savefig('cmb_snr_alpha.pdf', bbox_inches='tight')
 fig1.savefig('cmb_snr_alpha.png', dpi=160, bbox_inches='tight')
 plt.close(fig1)
 print('Wrote cmb_snr_alpha.pdf and cmb_snr_alpha.png')
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# Figure 2: Bias Delta T_0 / sigma(T_0) vs alpha
-# ══════════════════════════════════════════════════════════════════════════════
-
-fig2, ax2 = plt.subplots(figsize=(6.5, 4.8))
-
-# --- Two curves ---
-ax2.semilogy(alpha, ratio_FIRAS, color='C0', lw=2.0, ls='-',
-             label=r'FIRAS $\;\sigma(T_0)=5.7\times10^{-4}\,{\rm K}$')
-ax2.semilogy(alpha, ratio_PIXIE, color='C0', lw=2.0, ls='--',
-             label=r'PIXIE $\;\sigma(T_0)=5.7\times10^{-7}\,{\rm K}$')
-
-# --- Threshold line: bias = 1 sigma ---
-ax2.axhline(1.0, color='k', lw=0.8, ls=':', alpha=0.7)
-ax2.text(0.695, 1.35, r'$|\Delta T_0| = \sigma(T_0)$',
-         fontsize=8.5, color='k', alpha=0.8, ha='right')
-
-# --- Vertical reference lines ---
-for xv, lbl, col in [
-        (alpha_BzK,    r'BzK ($\alpha\!\gtrsim\!0.54$)',  '#444444'),
-        (alpha_GRB_low, r'GRB ($\alpha\!\gtrsim\!0.62$)', '#666666'),
-        (alpha_holo,   r'$\alpha=2/3$',                   '#888888'),
-]:
-    ax2.axvline(xv, color=col, lw=0.8, ls='--', alpha=0.6)
-    ax2.text(xv + 0.002, 1e6, lbl, fontsize=7.5, color=col,
-             rotation=90, va='center')
-
-# --- Annotate FIRAS crossover alpha ~ 0.518 ---
-alpha_cross_FIRAS = 0.5183
-ax2.axvline(alpha_cross_FIRAS, color='C0', lw=0.8, ls=':', alpha=0.5)
-ax2.text(alpha_cross_FIRAS + 0.002, 2e-4,
-         r'FIRAS bias $= 1\sigma$' + '\n' + r'$\alpha\approx0.518$',
-         fontsize=7.5, color='C0', va='bottom')
-
-# --- Axes ---
-ax2.set_xlim(0.50, 0.70)
-ax2.set_ylim(1e-10, 3e14)
-ax2.set_xlabel(r'Foam exponent $\alpha$')
-ax2.set_ylabel(r'Temperature bias $|\Delta T_0|/\sigma(T_0)$'
-               '\n'
-               r'($A_\alpha = 1$, $D_C = 13.87\,{\rm Gpc}$)')
-
-ax2.legend(loc='upper right', framealpha=0.92)
-ax2.grid(True, which='major', alpha=0.20)
-ax2.grid(True, which='minor', alpha=0.07)
-
-plt.tight_layout()
-fig2.savefig('cmb_bias_alpha.pdf', bbox_inches='tight')
-fig2.savefig('cmb_bias_alpha.png', dpi=160, bbox_inches='tight')
-plt.close(fig2)
-print('Wrote cmb_bias_alpha.pdf and cmb_bias_alpha.png')
+# (The former Figure 2, the T0-bias-vs-alpha plot, was removed: the T0 result is
+#  now the fit-based uncertainty-inflation factor reported in fit_firas.py.)

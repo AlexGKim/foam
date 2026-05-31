@@ -79,7 +79,8 @@ def gls(cols, names, cov):
     theta = covp @ (M.T @ Cinv @ resid)
     err = np.sqrt(np.diag(covp))
     chi2 = float((resid - M @ theta) @ Cinv @ (resid - M @ theta))
-    return dict(theta=theta, err=err, chi2=chi2, dof=n_ch-len(names), names=names)
+    return dict(theta=theta, err=err, cov=covp, chi2=chi2,
+                dof=n_ch-len(names), names=names)
 
 def report(f):
     for nm, t, e in zip(f['names'], f['theta'], f['err']):
@@ -111,6 +112,19 @@ print(f"\n  A_eff = ({A_hat:+.3e} +/- {A_err:.3e}) m^2")
 print(f"  sigma(A_eff) = {A_err:.3e} m^2   ->  alpha <~ {alpha_from_Aeff(A_err):.3f}"
       f"   [Fisher forecast 2.2e-11, alpha<~0.52]")
 print(f"  95% UL  A_eff < {A_ul95:.3e} m^2  ->  alpha <~ {alpha_from_Aeff(A_ul95):.3f}")
+
+# ── (2b) T0/mu/y uncertainty inflation from adding the foam parameter ─────────
+print("\n" + "="*70 + "\nUNCERTAINTY INFLATION from the extra (foam) parameter, FULL cov\n" + "="*70)
+print(f"  {'param':6s}  {'sigma (no foam)':>16s}  {'sigma (+foam)':>14s}  {'inflation':>10s}")
+for nm, i in [('T0', 0), ('mu', 1), ('y', 2)]:
+    s0, s1 = f0['err'][i], f1['err'][i]
+    print(f"  {nm:6s}  {s0:16.3e}  {s1:14.3e}  {s1/s0:9.1f}x")
+print(f"\n  Fixsen 2009 sigma(T0) [calibration] = 5.7e-4 K  "
+      f"(cf. foam-marginalized {f1['err'][0]:.1e} K)")
+covA = f1['cov']; eA = f1['err']
+print("  fit correlations of A_eff with:  "
+      + "  ".join(f"{nm}={covA[4,i]/(eA[4]*eA[i]):+.3f}"
+                   for nm, i in [('T0',0),('y',2),('mu',1)]))
 
 # ── (3) comparison table: diagonal vs full; with/without galaxy ───────────────
 print("\n" + "="*70 + "\nCOMPARISON: sigma(A_eff) and alpha threshold\n" + "="*70)
