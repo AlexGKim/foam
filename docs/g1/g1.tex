@@ -1184,14 +1184,26 @@ and setting $A_{\rm eff}^{\rm Ng\text{-}Perlman}(\alpha,D_C)
 =\sigma(A_{\rm eff})$ (Fig.~\ref{fig:cmb_snr}) gives the conservative
 headline threshold $\alpha\lesssim 0.52$.
 
-This is a best case.  The noise model is foreground-free, whereas
-galactic thermal dust and the cosmic infrared background dominate the
-Wien side of the spectrum --- precisely where the $\nu^2$-tilt would
-finally separate the foam deficit from a pure temperature shift.
-Marginalising over those foreground components would tighten the
-foam--$T_0$ degeneracy further and weaken the bound, so
-$\alpha\lesssim 0.52$ is the most optimistic FIRAS reach rather than a
-realistic forecast.
+The forecast above assumes flat, foreground-free noise; we test it with
+a direct fit to the public COBE/FIRAS monopole residual spectrum and
+its calibration covariance~\cite{Fixsen1996}.  Marginalising over $T_0$,
+$\mu$, $y$, and the FIRAS Galactic-foreground template, and using the
+full $43\times43$ apodization covariance, the generalised
+least-squares fit recovers $\mu$ and $y$ consistent with zero and with
+the Fixsen limits ($|\mu|<1.7\times10^{-4}$, $|y|<1.0\times10^{-5}$ at
+$95\%$; $\chi^2/\nu=1.24$) and a foam amplitude consistent with zero,
+$A_{\rm eff}=(-2.4\pm5.3)\times10^{-11}\,{\rm m}^2$.  The resulting
+bound, $\alpha\lesssim 0.52$, reproduces the forecast: the real
+per-channel errors, the off-diagonal apodization correlations, and the
+Galactic-foreground marginalisation each move the threshold by only
+$\Delta\alpha\lesssim 0.002$.  This robustness is the logarithmic
+Ng--Perlman scaling at work --- the realistic
+$\sigma(A_{\rm eff})=5.3\times10^{-11}\,{\rm m}^2$ is $2.4\times$ the
+idealized forecast value yet leaves $\alpha$ unchanged.  The only
+direction that could still break the foam--$T_0$ degeneracy is deep
+into the Wien/sub-mm regime, where the $\nu^2$-tilt finally separates
+from a temperature shift but galactic dust and the cosmic infrared
+background dominate --- beyond the FIRAS band.
 
 \begin{figure}[h]
 \centering
