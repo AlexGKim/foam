@@ -1184,15 +1184,31 @@ Inverting the Ng--Perlman relation
 $A_{\rm eff}=A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$ at $A_\alpha=1$,
 the $1\sigma$ amplitude
 $\sigma(A_{\rm eff})=5.3\times10^{-11}\,{\rm m}^2$ gives the headline
-bound $\alpha\lesssim 0.52$.  The bound is robust: the real per-channel
-errors, the off-diagonal apodization correlations, and the
-Galactic-foreground marginalisation each move it by only
-$\Delta\alpha\lesssim 0.002$, a consequence of the logarithmic
-Ng--Perlman scaling.  The one direction that could still break the
+bound $\alpha\lesssim 0.52$.  The one direction that could still break the
 foam--$T_0$ degeneracy is deep into the Wien/sub-mm regime, where the
 $\nu^2$-tilt finally separates from a temperature shift but galactic
 dust and the cosmic infrared background dominate --- beyond the FIRAS
 band.
+
+That same near-degeneracy has two consequences for the CMB temperature
+itself.  First, admitting foam as a free parameter inflates the
+marginalised temperature uncertainty: the FIRAS spectral-shape
+determination of $T_0$ degrades from $1.2\times10^{-5}$\,K to
+$7.7\times10^{-4}$\,K (a factor $\sim 64$; $\sigma(y)$ and
+$\sigma(\mu)$ inflate by $\sim 17$ and $\sim 3$), the latter comparable
+to the full COBE/FIRAS calibration uncertainty
+$5.7\times10^{-4}$\,K~\cite{Fixsen2009} --- so a foam-agnostic monopole
+analysis roughly doubles the temperature error budget, and the quoted
+precision of $T_0=2.72548$\,K implicitly assumes no foam.  Second, foam
+present but \emph{omitted} from the fit shifts the central value by
+$\Delta T_0 = b_{T_0}A_{\rm eff}$ with
+$b_{T_0}\approx -1.5\times10^7\,{\rm K\,m^{-2}}$; for $A_\alpha=1$ this
+is only $\approx 3\times10^{-22}$\,K at the holographic $\alpha=2/3$ and
+$\approx 4\times10^{-63}$\,K at $\alpha=1$, reaching $\sigma(T_0)$ only
+at $\alpha\approx 0.52$ where the foam is already a many-$\sigma$
+signal.  Both effects therefore bite only for foam near FIRAS
+detectability; the recovered $T_0$ is immune to any foam consistent
+with the GRB bound $\alpha\gtrsim 0.63$.
 
 \subsubsection{Fisher forecasts for future spectrometers}
 \label{sec:CMB_forecast}
@@ -1317,34 +1333,6 @@ therefore conservative: if the nonlinear template effectively breaks
 this degeneracy at PIXIE sensitivity, the true threshold could be
 significantly more stringent.
 
-\subsubsection{Effect of foam on the recovered $T_0$}
-\label{sec:CMB_T0_bias}
-
-The foam--$T_0$ near-degeneracy that limits the constraint also exacts
-a price on the CMB temperature itself.  In the fit of
-Section~\ref{sec:CMB_degeneracy} the foam amplitude is almost perfectly
-correlated with $T_0$ ($\rho_{A_{\rm eff}T_0}\simeq 1$), so admitting
-foam as a free parameter inflates the marginalised temperature
-uncertainty dramatically: the FIRAS spectral-shape determination of
-$T_0$ degrades from $\sigma(T_0)=1.2\times10^{-5}$\,K with $A_{\rm eff}$
-fixed to zero to $7.7\times10^{-4}$\,K once $A_{\rm eff}$ floats --- a
-factor of $\sim 64$ --- while $\sigma(y)$ and $\sigma(\mu)$ inflate by
-$\sim 17$ and $\sim 3$, respectively.  The foam-marginalised
-$\sigma(T_0)\approx 7.7\times10^{-4}$\,K is comparable to the full
-COBE/FIRAS calibration uncertainty $5.7\times10^{-4}$\,K
-\cite{Fixsen2009}: a foam-agnostic monopole analysis would roughly
-double the temperature error budget, and conversely the quoted
-precision of $T_0=2.72548$\,K implicitly assumes no foam.
-
-Because the data prefer $A_{\rm eff}$ consistent with zero, the central
-temperature is unchanged, and for any foam consistent with the GRB
-bound $\alpha\gtrsim 0.63$ the amplitude is utterly negligible
-($\sigma_\phi^2\ll1$ at CMB frequencies), so neither the value nor the
-error of the Fixsen $T_0$ is affected in practice.  The inflation bites
-only if foam at the FIRAS detectability level ($\alpha\lesssim 0.52$)
-is entertained --- the same regime, and through the same foam--$T_0$
-degeneracy, in which the foam becomes detectable in the first place.
-
 \subsubsection{Caveats: nonlinear regime and parameter degeneracy}
 \label{sec:CMB_caveats}
 
@@ -1383,7 +1371,7 @@ overlap the GRB spectroscopic lower bound $\alpha\gtrsim 0.63$ of
 Section~\ref{sec:grb221009a}: FIRAS probes strictly lower exponents.
 Any foam model consistent with the GRB bound has $\sigma_\phi^2\ll 1$
 at CMB frequencies, so its effect on the recovered $T_0$ is entirely
-negligible (Section~\ref{sec:CMB_T0_bias}).
+negligible (Section~\ref{sec:CMB_degeneracy}).
 
 FIRAS provides an independent broadband test of foam --- absolute
 calibrated photometry, no source-profile assumption, and a different

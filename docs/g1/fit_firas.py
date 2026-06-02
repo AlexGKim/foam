@@ -126,6 +126,21 @@ print("  fit correlations of A_eff with:  "
       + "  ".join(f"{nm}={covA[4,i]/(eA[4]*eA[i]):+.3f}"
                    for nm, i in [('T0',0),('y',2),('mu',1)]))
 
+# ── (2c) T0 shift from UNACCOUNTED foam: bias when A_eff is present but omitted ─
+# Inject foam A_eff*foam and fit only (T0,mu,y,gal): bias = (Mf^T C^-1 Mf)^-1 Mf^T C^-1 foam.
+print("\n" + "="*70 + "\nT0 SHIFT from UNACCOUNTED foam (fit omits A_eff), FULL cov\n" + "="*70)
+Mf = np.array([dB_dT0, M_mu, M_y, galaxy]).T
+b_bias = np.linalg.solve(Mf.T @ np.linalg.inv(C) @ Mf, Mf.T @ np.linalg.inv(C) @ foam)
+bT0 = b_bias[0]                                  # K / m^2:  Delta_T0 = bT0 * A_eff
+print(f"  bias coefficient  b_T0 = {bT0:+.3e} K/m^2   (Delta_T0 = b_T0 * A_eff)")
+print(f"  {'alpha':>7s}  {'A_eff(A_alpha=1) [m^2]':>22s}  {'|Delta_T0| [K]':>14s}  "
+      f"{'/sigma(T0)=5.7e-4':>17s}")
+for a in [0.50, 0.52, 2/3, 1.0]:
+    A = A_eff_of_alpha(a); print(f"  {a:7.3f}  {A:22.3e}  {abs(bT0*A):14.3e}  "
+                                 f"{abs(bT0*A)/5.7e-4:17.2e}")
+print(f"  => |Delta_T0|=sigma(T0) only at A_eff={5.7e-4/abs(bT0):.2e} m^2 "
+      f"(alpha~{alpha_from_Aeff(5.7e-4/abs(bT0)):.3f}, foam already detectable)")
+
 # ── (3) comparison table: diagonal vs full; with/without galaxy ───────────────
 print("\n" + "="*70 + "\nCOMPARISON: sigma(A_eff) and alpha threshold\n" + "="*70)
 for lbl, cols, names in [
