@@ -901,32 +901,21 @@ sensitivity, and contrasts the result with the GRB spectroscopic bound.
 
 CMB photons travel from the last-scattering surface at comoving distance
 $D_{\rm C}= 13.87\,{\rm Gpc}$ (Planck\,2018 flat-$\Lambda$CDM cosmology;
-$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  For foam
-path-length variance accumulating uniformly in comoving distance
-($d\sigma_\ell^2/dD_C$ constant, with $(1+z')^2$ retained inside the
-integrand of Eq.~\eqref{eq:sigmaphi_cosmo}; anchoring~(a) of
-Section~\ref{sec:differential_jitter}), the high-$z$ portion of the
-path dominates the integral and the accumulated phase variance at
-last scattering is amplified, tightening the FIRAS threshold to
-$\alpha\lesssim 0.55$ (Section~\ref{sec:CMB_degeneracy};
-$\Delta\alpha\approx +0.033$ relative to the simpler form derived
-below).  Because the foam-evolution model in an expanding universe is
-not specified by Eq.~\eqref{eq:NgPerlmanVar}, we treat the
-cosmological enhancement as a multiplicative modification of
-$A_\alpha$ that the convention $A_\alpha=1$ absorbs.
-
-A more conservative alternative is anchoring~(b) of
-Section~\ref{sec:differential_jitter}: foam variance held fixed at the
-present epoch, $(1+z')^2\to 1$ inside the cosmological integrand, so
-that Eq.~\eqref{eq:sigmaphi_cosmo} reduces to
+$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  The
+accumulated phase variance, from Eq.~\eqref{eq:sigmaphi}, is
 \begin{equation}
   \sigma_\phi^2(\nu)
     = \left(\frac{2\pi\nu}{c}\right)^{\!2}\!
       A_\alpha\,D_{\rm C}^{2(1-\alpha)}\,\ell_P^{2\alpha},
   \label{eq:sigma_phi_CMB}
 \end{equation}
-where $\nu$ is the cyclic observer-frame frequency ($\omega=2\pi\nu$).
-At $\nu=150$\,GHz this gives
+where $\nu$ is the cyclic observer-frame frequency ($\omega=2\pi\nu$)
+and $\sigma_\phi^2$ is taken in the observer-frame convention
+(anchoring~(b) of Section~\ref{sec:differential_jitter}: foam variance
+held fixed at the present epoch, $(1+z')^2\to 1$ in
+Eq.~\eqref{eq:sigmaphi_cosmo}, so that the redshift-weighted form
+reduces to Eq.~\eqref{eq:sigmaphi}); the cosmological-weighted
+alternative is discussed below.  At $\nu=150$\,GHz,
 \begin{equation}
   \sigma_\phi^2(150\,{\rm GHz})\approx
   \begin{cases}
@@ -939,9 +928,23 @@ The strong $\nu^2$ dependence concentrates foam effects at high
 frequency; for $\alpha=1/2$ the variance reaches unity at
 $\nu\approx 574$\,GHz, near the top of the FIRAS band, marking where
 the linearised template breaks down (Section~\ref{sec:CMB_caveats}).
-The corresponding FIRAS threshold is $\alpha\lesssim 0.52$
-(Section~\ref{sec:CMB_degeneracy}), which we adopt as the conservative
-headline value.
+
+Equation~\eqref{eq:sigmaphi} treats foam variance as accumulating in
+observer-frame comoving distance.  The proper redshift-weighted
+integral Eq.~\eqref{eq:sigmaphi_cosmo} enhances $\sigma_\phi^2$ at last
+scattering by a factor $\sim 10^4$ under uniform accumulation in
+comoving distance (anchoring~(a) of
+Section~\ref{sec:differential_jitter}: $d\sigma_\ell^2/dD_C$ constant,
+with $(1+z')^2$ retained inside the integrand of
+Eq.~\eqref{eq:sigmaphi_cosmo}), corresponding to
+$\Delta\alpha\approx+0.033$ and tightening the threshold to
+$\alpha\lesssim 0.55$.  Because the foam-evolution model in an
+expanding universe is not specified by Eq.~\eqref{eq:NgPerlmanVar}, we
+treat the cosmological enhancement as a multiplicative modification of
+$A_\alpha$ that the convention $A_\alpha=1$ absorbs.  We quote
+$\alpha\lesssim 0.52$ as the observer-frame headline value; the
+cosmological-accumulation variant $\alpha\lesssim 0.55$ represents the
+tighter bound available if such an accumulation model is adopted.
 
 \subsubsection{Foam-modified CMB spectrum}
 \label{sec:CMB_derivation}
