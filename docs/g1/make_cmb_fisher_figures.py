@@ -55,6 +55,12 @@ plt.rcParams.update({
 ell_P  = 1.616e-35          # Planck length [m]
 D_C    = 13.87e3 * 3.0857e22  # 13.87 Gpc [m]
 
+# Comoving-foam model: the (1+z')^2 path weighting enters as an alpha- and
+# nu-independent enhancement (lambda_obs/lambda_eff)^2 = <(1+z')^2>_{D_C} ~ 1.2e4
+# of the observed amplitude over the bare Ng-Perlman variance, shifting every
+# SNR=1 threshold by Delta_alpha = ln(ENH)/[2 ln(D_C/ell_P)] ~ +0.033.
+ENH    = 1.2e4              # <(1+z')^2>_{D_C} for the CMB path
+
 # ── Fisher-matrix results from fisher_firas.py (correctly normalized) ─────────
 # Per-channel diagonal Fisher F = sum_ch dI_i dI_j / sigma^2 (no bandwidth factor).
 # PHYSICAL no-pedestal template (the headline case): pure deficit -(2*pi*nu/c)^2 B.
@@ -79,8 +85,8 @@ sig_A_cond_VOY    = sig_A_cond_FIRAS / VOY_factor
 alpha = np.linspace(0.50, 0.70, 1000)
 
 def A_eff(a):
-    """Foam amplitude A_eff(alpha) = D_C^{2(1-a)} * ell_P^{2a}."""
-    return D_C**(2*(1 - a)) * ell_P**(2*a)
+    """Comoving-foam amplitude A_eff(alpha) = ENH * D_C^{2(1-a)} * ell_P^{2a}."""
+    return ENH * D_C**(2*(1 - a)) * ell_P**(2*a)
 
 Ae = A_eff(alpha)
 
@@ -95,7 +101,7 @@ snr_VOY_marg    = Ae / sig_A_marg_VOY
 snr_VOY_cond    = Ae / sig_A_cond_VOY
 
 # ── Reference alpha values ────────────────────────────────────────────────────
-alpha_FIRAS_threshold = 0.52    # marginal SNR ~ 1 (FIRAS, corrected normalization)
+alpha_FIRAS_threshold = 0.55    # marginal SNR ~ 1 (FIRAS, comoving-foam)
 alpha_BzK             = 0.54    # BzK 4892 spectroscopic lower bound
 alpha_GRB_low         = 0.62    # GRB 221009A Ravasio lower bound
 alpha_GRB_high        = 0.63    # GRB 221009A Zhang lower bound

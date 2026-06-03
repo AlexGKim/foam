@@ -36,14 +36,12 @@ Applied to the MeV emission lines of GRB\,221009A in the dynamical-foam
 limit ($\tau_{\rm foam}\ll\tau_c$) we obtain $\alpha \gtrsim 0.63$.
 For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 ($\sigma_\phi^2 \propto \nu^2$) with a low-frequency pedestal; a fit to
-the COBE/FIRAS monopole spectrum reaches $\alpha \lesssim 0.52$
-(Ng--Perlman path-length form) or $\alpha\lesssim 0.55$
-(redshift-weighted form) under the physical Planck-scale pedestal
+the COBE/FIRAS monopole spectrum reaches $\alpha \lesssim 0.55$
+(comoving-foam model) under the physical Planck-scale pedestal
 kernel (essentially zero in-band; a $\Delta\alpha\approx 0.01$ shift
 under a $\mu$-aligned band-filling template); next-generation
 spectrometers (PIXIE, SuperPIXIE, Voyage~2050) are forecast to reach
-$\alpha\lesssim 0.55$--$0.56$ (path-length) or $0.58$--$0.59$
-(redshift-weighted) from instrumental noise improvement alone.  The final FIRAS threshold awaits
+$\alpha\lesssim 0.58$--$0.59$ from instrumental noise improvement alone.  The final FIRAS threshold awaits
 a first-principles derivation of the foam temporal autocorrelation
 $C_\alpha(\tau)$, which determines the pedestal shape and hence the
 foam--$\mu$ degeneracy that currently dominates the error budget. None of these bounds exclude
@@ -88,7 +86,7 @@ how the per-cell displacements accumulate: for random-walk foam ($\alpha=1/2$),
 contributions add in quadrature ($\sigma_\ell \propto \sqrt{D\ell_{\rm P}}$);
 holographic foam ($\alpha=2/3$) grows more slowly, constrained by an area-law
 bound on the number of independent degrees of freedom per Planck area; and
-conservative foam ($\alpha=1$) yields a distance-independent
+the weak-foam limit ($\alpha=1$) yields a distance-independent
 $\sigma_\ell \propto \ell_{\rm P}$, corresponding to perfectly correlated cell
 contributions.
 
@@ -314,15 +312,10 @@ frequency $\omega_0$, we define $\sigma_\phi^2 \equiv
 \tfrac{1}{2}\omega_0^2\cdot(2\sigma_\ell^2/c^2) = (\omega_0\sigma_\ell/c)^2$
 as the asymptotic phase variance --- the value
 $\tfrac{1}{2}\omega_0^2\sigma_\Delta^2(\tau)$ approaches as
-$C_\alpha(\tau;D)\to 0$.  In the dynamical-foam limit, the
-Ng--Perlman path-length model~\eqref{eq:NgPerlmanVar} with $D_C$ the
-line-of-sight comoving distance~\cite{NgPerlman2022} gives
-\begin{equation}
-  \sigma_\phi^2 = \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^{\!2}
-    A_\alpha\,D_C^{2(1-\alpha)}\,\ell_P^{2\alpha}.
-  \label{eq:sigmaphi}
-\end{equation}
-Substituting $\sigma_\Delta^2(\tau) =
+$C_\alpha(\tau;D)\to 0$.  In the dynamical-foam limit $\sigma_\phi^2$ is
+set by the Ng--Perlman path-length variance~\eqref{eq:NgPerlmanVar}
+accumulated along the line of sight, with $D_C$ the comoving distance
+to the source~\cite{NgPerlman2022}.  Substituting $\sigma_\Delta^2(\tau) =
 (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$ from
 Eq.~\eqref{eq:diffVarExt}, Eq.~\eqref{eq:gaussian_jitter} takes the compact form
 \begin{equation}
@@ -332,13 +325,14 @@ Eq.~\eqref{eq:diffVarExt}, Eq.~\eqref{eq:gaussian_jitter} takes the compact form
 At $\tau\to\infty$: $\mathcal{F}_{\rm foam}(\infty)$ equals
 $e^{-\sigma_\phi^2}$ in the dynamical limit ($C_\alpha\to 0$) and
 approaches unity for quasi-static foam ($C_\alpha\approx 1$).
-Equation~\eqref{eq:sigmaphi} uses observer-frame wavelength
-$\lambda_{\rm obs}$ throughout and so neglects the cosmological
-redshift of the photon along the propagation path: at redshift $z'$
-the photon's local wavelength was $\lambda(z') = \lambda_{\rm obs}/(1+z')$,
-and the phase accumulated per unit path length scales as $1/\lambda^2$.
-For a model in which foam path-length variance accumulates uniformly in
-comoving distance, the redshift-weighted form is
+The phase accumulated per unit path length scales as $1/\lambda^2$ in
+the photon's local wavelength $\lambda(z') = \lambda_{\rm obs}/(1+z')$,
+and the way foam fluctuations evolve in cosmic time is not fixed by
+Eq.~\eqref{eq:NgPerlmanVar}.  We therefore adopt the
+physically-motivated \emph{comoving-foam} model, in which the
+path-length variance accumulates uniformly in comoving distance with
+the full $(1+z')^2$ weighting that accounts for the photon's local
+wavelength along the path,
 \begin{equation}
   \sigma_\phi^2
   \;=\; \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^{\!2}
@@ -346,23 +340,13 @@ comoving distance, the redshift-weighted form is
         \frac{dD_C}{dz'}\,dz'\,,
   \label{eq:sigmaphi_cosmo}
 \end{equation}
-which reduces to Eq.~\eqref{eq:sigmaphi} when $(1+z')^2$ can be taken
-constant over the path.  For the GRB at $z=0.151$ the path-averaged
-$\langle(1+z')^2\rangle_{D_C}\approx 1.16$, enhancing $\sigma_\phi^2$
-by $16\%$ --- negligible at the precision of the present analysis.
-For the CMB at $z_{\rm LS}\approx 1089$ the weighting is dominated by
-the high-$z$ portion of the path: with Planck~2018 flat $\Lambda$CDM
-the size and sign of this correction depend on how foam fluctuations
-evolve in cosmic time; two natural anchorings bracket the range:
-(a)~variance anchored to proper-now coordinates with foam frozen at
-the present epoch gives $(1+z')^2\to 1$ inside the integral, leaving
-$\sigma_\phi^2$ unchanged;
-(b)~variance accumulating uniformly in comoving distance,
-$d\sigma_\ell^2/dD_C = \text{const}$, enhances $\sigma_\phi^2$ by a
-factor of $\sim 10^4$.
-Bounds quoted below use Eq.~\eqref{eq:sigmaphi} with $A_\alpha=1$ and
-adopt anchoring (a); the CMB systematic of Section~\ref{sec:CMB}
-discusses the corresponding shift under anchoring (b).
+with $A_\alpha=1$ the observed integrated foam coefficient.  For the GRB
+at $z=0.151$ the path-averaged $\langle(1+z')^2\rangle_{D_C}\approx 1.16$
+enhances $\sigma_\phi^2$ by only $16\%$
+($\Delta\alpha\sim 5\times10^{-4}$), immaterial for the GRB bound; for
+the CMB at $z_{\rm LS}\approx 1089$ the high-$z$ portion of the path
+dominates and the weighting is large --- the effect analysed in
+Section~\ref{sec:CMB}.
 
 % ==============================================================
 \section{First-Order Coherence }
@@ -713,7 +697,7 @@ foam-to-intrinsic timescale ratio takes the compact form
 \end{equation}
 the product of the intrinsic fractional width $r_{\rm int}$
 (a source property) and the asymptotic phase variance
-$\sigma_\phi$ (Eq.~\eqref{eq:sigmaphi}).  Substituting into
+$\sigma_\phi$ (Eq.~\eqref{eq:sigmaphi_cosmo}).  Substituting into
 Eq.~\eqref{eq:robs_decomp} gives
 $r_{\rm obs}^2(E) = r_{\rm int}^2\bigl[1+2\,r_{\rm int}^2\sigma_\phi^2(E)\bigr]$,
 so the foam excess is
@@ -795,10 +779,10 @@ where $|\!\ln(0.27)|\approx1.3$ and
 $|\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|\approx 3.3$ for
 $r_{\rm int}=0.066$, the extreme value within the $95\%$~CL
 contour.
-The cosmological redshift correction of Section~\ref{sec:closedforms}
-enhances $\sigma_\phi^2$ by $16\%$ at $z=0.151$, shifting the bound
-by $\Delta\alpha\sim 5\times10^{-4}$ --- negligible at the current
-precision.
+Under the comoving-foam model of Section~\ref{sec:closedforms} the
+$(1+z')^2$ weighting at $z=0.151$ is a negligible $\sim 16\%$ effect on
+$\sigma_\phi^2$ ($\Delta\alpha\sim 5\times10^{-4}$), so the bound
+$\alpha\gtrsim 0.63$ is unchanged.
 Using $\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ and
 $c\tau_G(E_0)=\hbar c/(r_{\rm int}E_0)\approx 8.1\times10^{-14}\,\mathrm{m}$
 for $r_{\rm int}=0.066$, the ratio $\sigma_\Delta/\tau_G(E_0)\approx 4.1$
@@ -860,7 +844,7 @@ distinct curvature from a linear intrinsic trend across the
 factor-of-six energy range.  Numerically, the best-fit linear slope
 $r_1$ is consistent with zero and, although the 95\%~CL upper limit
 on $r_{\rm foam,0}$ broadens from $0.27$ to $0.31$ when the nuisance
-is included, the corresponding conservative $\alpha$ bound shifts by
+is included, the corresponding $\alpha$ bound shifts by
 $\Delta\alpha\approx 3\times 10^{-3}$ --- a direct consequence of the
 logarithmic compression in the Ng--Perlman
 relation --- confirming that the $E^2$ and linear-$E$ shapes are
@@ -876,7 +860,7 @@ a spectral-line shift but instead redistributes power: the coherent-core
 component is suppressed by $e^{-\sigma_\phi^2(\nu)}$ and the missing flux
 reappears in a broad pedestal whose shape depends on the short-time
 behaviour of the correlation function $C_\alpha(\tau)$.  Because
-$\sigma_\phi^2\propto\nu^2$ (Eq.~\eqref{eq:sigmaphi}), the foam deficit
+$\sigma_\phi^2\propto\nu^2$ (Eq.~\eqref{eq:sigmaphi_cosmo}), the foam deficit
 is concentrated at high frequencies while the pedestal fills in at low
 frequencies, producing a spectral signature distinct from standard
 chemical-potential ($\mu$) and Compton-$y$ distortions.
@@ -901,46 +885,47 @@ sensitivity, and contrasts the result with the GRB spectroscopic bound.
 
 CMB photons travel from the last-scattering surface at comoving distance
 $D_{\rm C}= 13.87\,{\rm Gpc}$ (Planck\,2018 flat-$\Lambda$CDM cosmology;
-$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  We consider
-two models for the redshift dependence of the foam accumulation.  In
-the observer-frame Ng--Perlman path-length form (anchoring~(a) of
-Section~\ref{sec:differential_jitter}: foam variance held fixed at the
-present epoch, $(1+z')^2\to 1$ in Eq.~\eqref{eq:sigmaphi_cosmo}), the
-accumulated phase variance is
+$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  Foam's evolution in cosmic time is not fixed by
+Eq.~\eqref{eq:NgPerlmanVar}; we adopt the comoving-foam model
+(Section~\ref{sec:differential_jitter}), the $(1+z')^2$-weighted
+accumulation of Eq.~\eqref{eq:sigmaphi_cosmo}.  Phase accumulation is
+governed not by the observed wavelength $\lambda_{\rm obs}=c/\nu$ but by
+a shorter effective wavelength
+$\lambda_{\rm eff}=\lambda_{\rm obs}/\sqrt{\langle(1+z')^2\rangle_{D_C}}$:
+along the path the photon's local wavelength
+$\lambda(z')=\lambda_{\rm obs}/(1+z')$ was smaller --- less redshifted ---
+than the value observed today, and the accumulated phase scales as
+$1/\lambda^2$.  The ratio
+$\lambda_{\rm obs}/\lambda_{\rm eff}=\sqrt{\langle(1+z')^2\rangle_{D_C}}
+\approx 100$ for the CMB path is a purely cosmological factor,
+independent of $\alpha$ and of $\nu$ across the FIRAS band.  Carrying
+out the integral leaves the Ng--Perlman structure intact,
+$\sigma_\phi^2(\nu)=(2\pi/\lambda_{\rm eff})^2
+A_\alpha D_{\rm C}^{2(1-\alpha)}\ell_P^{2\alpha}$; for the fit we lump
+the redshift weighting into the observed amplitude
+$A_{\rm eff}=(\lambda_{\rm obs}/\lambda_{\rm eff})^2
+A_\alpha D_{\rm C}^{2(1-\alpha)}\ell_P^{2\alpha}$, the cumulative
+comoving foam variance used in Section~\ref{sec:CMB_degeneracy}, so that
 \begin{equation}
   \sigma_\phi^2(\nu)
-    = \left(\frac{2\pi\nu}{c}\right)^{\!2}\!
-      A_\alpha\,D_{\rm C}^{2(1-\alpha)}\,\ell_P^{2\alpha},
+    = \left(\frac{2\pi\nu}{c}\right)^{\!2}\! A_{\rm eff},
   \label{eq:sigma_phi_CMB}
 \end{equation}
-with $\nu$ the cyclic observer-frame frequency ($\omega=2\pi\nu$).  The
-redshift-weighted mean form (anchoring~(b)) instead retains the
-$(1+z')^2$ weighting in the cosmological integrand
-Eq.~\eqref{eq:sigmaphi_cosmo}, with the foam path-length variance
-accumulating uniformly in comoving distance ($d\sigma_\ell^2/dD_C$
-constant); the high-$z$ portion of the path then dominates and enhances
-$\sigma_\phi^2$ at last scattering by a factor $\sim 10^4$.  Because the
-foam-evolution model in an expanding universe is not specified by
-Eq.~\eqref{eq:NgPerlmanVar}, we treat this cosmological enhancement as a
-multiplicative modification of $A_\alpha$ that the convention
-$A_\alpha=1$ absorbs.
+with $A_\alpha=1$ the observed integrated foam coefficient.
 
-At $\nu=150$\,GHz the two models give
+At $\nu=150$\,GHz this gives
 \begin{equation}
   \sigma_\phi^2(150\,{\rm GHz})\approx
-  \begin{array}{l|cc}
-     & \text{path-length} & \text{redshift-weighted} \\[2pt]
-    \hline
-    \alpha=1/2\ \text{(random walk)}  & 6.8\times10^{-2} & 7\times10^{2} \\
-    \alpha=2/3\ \text{(holographic)} & 10^{-22}         & 10^{-18}
-  \end{array}
+  \begin{cases}
+    7\times10^{2} & \alpha=1/2\ \text{(random walk)},\\[2pt]
+    10^{-18}      & \alpha=2/3\ \text{(holographic)}.
+  \end{cases}
   \label{eq:sigma_phi_CMB_values}
 \end{equation}
 The strong $\nu^2$ dependence concentrates foam effects at high
-frequency; for $\alpha=1/2$ the variance reaches unity at
-$\nu\approx 574$\,GHz in the path-length form (and across the whole
-FIRAS band in the redshift-weighted form), marking where the
-linearised template breaks down (Section~\ref{sec:CMB_degeneracy}).
+frequency; for $\alpha=1/2$ the variance exceeds unity across the whole
+FIRAS band, marking where the linearised template breaks down
+(Section~\ref{sec:CMB_degeneracy}).
 
 \subsubsection{Foam-modified CMB spectrum}
 \label{sec:CMB_derivation}
@@ -1118,8 +1103,8 @@ as a $\mu$-aligned probe of the foam--$\mu$ kernel-shape degeneracy.
 As Section~\ref{sec:CMB_degeneracy} shows, the $\mu$-aligned kernel does
 not in fact loosen the bound: by depositing an in-band pedestal it
 distorts the spectrum away from a pure blackbody and so makes the foam
-\emph{more} detectable, leaving the no-pedestal deficit as the
-conservative case.
+\emph{more} detectable, so the no-pedestal deficit gives the weaker,
+more robust bound.
 
 \subsubsection{Constraint from FIRAS}
 \label{sec:CMB_degeneracy}
@@ -1129,9 +1114,9 @@ intensity including the foam signal.
 Working in the linearised regime
 $\sigma_\phi^2(\nu)\ll 1$, we treat four spectral parameters
 $\boldsymbol{\theta}=(A_{\rm eff},T_0,\mu,y)$, where
-$A_{\rm eff}=A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}=\sigma_\ell^2(D_C)$
-is the cumulative foam path-length variance at the CMB distance
-(Eq.~\eqref{eq:NgPerlmanVar}), so that
+$A_{\rm eff}=\langle(1+z')^2\rangle_{D_C}\,A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
+is the cumulative comoving foam variance at the CMB distance
+(Section~\ref{sec:CMB_phasevar}), so that
 $\sigma_\phi^2(\nu)=(2\pi\nu/c)^2 A_{\rm eff}$.  Note that $\alpha$ is
 not fitted directly; only the lumped amplitude $A_{\rm eff}$ enters
 the fit, and bounds on $\alpha$ are obtained
@@ -1181,28 +1166,26 @@ $95\%$; $\chi^2/\nu=1.24$) and a foam amplitude consistent with zero,
   A_{\rm eff}=(-2.4\pm5.3)\times10^{-11}\,{\rm m}^2 .
   \label{eq:Aeff_firas}
 \end{equation}
-Inverting the Ng--Perlman relation
-$A_{\rm eff}=A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$ at $A_\alpha=1$,
-the $1\sigma$ amplitude
+Inverting the comoving relation
+$A_{\rm eff}=\langle(1+z')^2\rangle_{D_C}\,A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
+at $A_\alpha=1$, the $1\sigma$ amplitude
 $\sigma(A_{\rm eff})=5.3\times10^{-11}\,{\rm m}^2$ gives the bound
-$\alpha\lesssim 0.52$ in the conservative Ng--Perlman path-length form,
-or $\alpha\lesssim 0.55$ in the redshift-weighted mean form
-(Section~\ref{sec:CMB_phasevar}; both forms, here and for the
-forecasts below, are collected in Table~\ref{tab:thresholds}).
+$\alpha\lesssim 0.55$ (comoving-foam; collected with the forecasts below
+in Table~\ref{tab:thresholds}).
 The one direction that could still break the
 foam--$T_0$ degeneracy is deep into the Wien/sub-mm regime, where the
 $\nu^2$-tilt finally separates from a temperature shift but galactic
 dust and the cosmic infrared background dominate --- beyond the FIRAS
 band.  The linearised template
 $\Delta I_\nu\approx\sigma_\phi^2(\nu)\,[\text{template}]$, valid for
-$\sigma_\phi^2\ll1$ across the FIRAS band away from the unity crossing
-of Section~\ref{sec:CMB_phasevar}, is robust at this threshold:
-replacing the deficit
-$-\sigma_\phi^2 B_\nu$ by the saturated form
+$\sigma_\phi^2\ll1$, holds across the FIRAS band at the headline
+threshold ($\sigma_\phi^2$ exceeds unity only for stronger foam,
+$\alpha\lesssim0.53$; Section~\ref{sec:CMB_phasevar}): replacing the
+deficit $-\sigma_\phi^2 B_\nu$ by the saturated form
 $-(1-e^{-\sigma_\phi^2})B_\nu$ changes the integrated in-band amplitude
-by $\approx13\%$ at $\alpha=0.50$ but by $<1\%$ at $\alpha\gtrsim0.52$
+by $\approx13\%$ at $\alpha=0.53$ but by $<1\%$ at $\alpha\gtrsim0.55$
 ($\Delta\alpha\sim3\times10^{-5}$), so the bound is unaffected;
-nonlinearity matters only for stronger foam ($\alpha\lesssim0.50$),
+nonlinearity matters only for stronger foam ($\alpha\lesssim0.53$),
 where it may also help break the foam--$\mu$ degeneracy.
 
 That same near-degeneracy has two consequences for the CMB temperature
@@ -1218,9 +1201,9 @@ precision of $T_0=2.72548$\,K implicitly assumes no foam.  Second, foam
 present but \emph{omitted} from the fit shifts the central value by
 $\Delta T_0 = b_{T_0}A_{\rm eff}$ with
 $b_{T_0}\approx -1.5\times10^7\,{\rm K\,m^{-2}}$; for $A_\alpha=1$ this
-is only $\approx 3\times10^{-22}$\,K at the holographic $\alpha=2/3$ and
-$\approx 4\times10^{-63}$\,K at $\alpha=1$, reaching $\sigma(T_0)$ only
-at $\alpha\approx 0.52$ where the foam is already a many-$\sigma$
+is only $\approx 4\times10^{-18}$\,K at the holographic $\alpha=2/3$ and
+$\approx 5\times10^{-59}$\,K at $\alpha=1$, reaching $\sigma(T_0)$ only
+at $\alpha\approx 0.55$ where the foam is already a many-$\sigma$
 signal.  Both effects therefore matter only for foam near FIRAS
 detectability; the recovered $T_0$ is immune to any foam consistent
 with the GRB bound $\alpha\gtrsim 0.63$.
@@ -1233,7 +1216,7 @@ same no-pedestal templates through a Fisher matrix.  Calibrated to
 FIRAS with a flat per-channel noise $\sigma_\nu=0.01$\,MJy/sr (a
 band-averaged stand-in for the measured errors), the Fisher forecast
 gives $\sigma(A_{\rm eff})=2.2\times10^{-11}\,{\rm m}^2$ and the same
-$\alpha\lesssim 0.52$, reproducing the data fit; the conditional value
+$\alpha\lesssim 0.55$, reproducing the data fit; the conditional value
 $\sigma(A_{\rm eff})|_{\mu,y\,\text{fixed}}=8.2\times10^{-13}\,{\rm
 m}^2$ shows that marginalising over the distortions costs a factor
 $\sim 27$ through the foam--$T_0$ collinearity.  The fiducial
@@ -1254,28 +1237,24 @@ collinear with the $y$ and $\mu$ distortions ($0.999$ and $0.928$).
 Defining the marginal detection SNR as $A_{\rm eff}/\sigma(A_{\rm
 eff})$, so that ${\rm SNR}=1$ marks the sensitivity threshold,
 Figure~\ref{fig:cmb_snr} plots it versus $\alpha$, and
-Table~\ref{tab:thresholds} collects the thresholds for both
-foam-evolution forms.
+Table~\ref{tab:thresholds} collects the thresholds.
 
 \begin{table}[h]
 \caption{Marginal foam-detection thresholds on the exponent $\alpha$
-($A_\alpha=1$) under the two foam-evolution forms of
-Section~\ref{sec:CMB_phasevar}: the conservative Ng--Perlman
-path-length form (Eq.~\eqref{eq:sigma_phi_CMB}) and the
-redshift-weighted mean form (Eq.~\eqref{eq:sigmaphi_cosmo}), the latter
-tighter by a uniform $\Delta\alpha\approx +0.033$.  FIRAS is from the
-data fit (Section~\ref{sec:CMB_degeneracy}); PIXIE, SuperPIXIE, and
-Voyage~2050 from the Fisher forecast scaled by their published
+($A_\alpha=1$) in the comoving-foam model of
+Section~\ref{sec:CMB_phasevar}.  FIRAS is from the data fit
+(Section~\ref{sec:CMB_degeneracy}); PIXIE, SuperPIXIE, and Voyage~2050
+from the Fisher forecast scaled by their published
 $\mu$-sensitivities~\cite{Chluba2021}.}
 \label{tab:thresholds}
 \begin{ruledtabular}
-\begin{tabular}{lcc}
- & Ng--Perlman path-length & redshift-weighted \\
+\begin{tabular}{lc}
+ & comoving-foam \\
 \hline
-FIRAS        & $\alpha\lesssim 0.52$ & $\alpha\lesssim 0.55$ \\
-PIXIE        & $\alpha\lesssim 0.55$ & $\alpha\lesssim 0.58$ \\
-SuperPIXIE   & $\alpha\lesssim 0.55$ & $\alpha\lesssim 0.58$ \\
-Voyage~2050  & $\alpha\lesssim 0.56$ & $\alpha\lesssim 0.59$ \\
+FIRAS        & $\alpha\lesssim 0.55$ \\
+PIXIE        & $\alpha\lesssim 0.58$ \\
+SuperPIXIE   & $\alpha\lesssim 0.58$ \\
+Voyage~2050  & $\alpha\lesssim 0.59$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -1290,7 +1269,7 @@ Red curves: conditional SNR ($\mu,y$ held fixed), which is $\sim 27\times$ highe
 Line styles denote the instrument: solid FIRAS, dashed PIXIE,
 dash-dotted SuperPIXIE, dotted Voyage~2050, with forecast
 $\mu$-sensitivities scaled relative to FIRAS \cite{Chluba2021}.
-The marginal thresholds (SNR\,$=1$) cluster at $\alpha\approx 0.52$--$0.56$,
+The marginal thresholds (SNR\,$=1$) cluster at $\alpha\approx 0.55$--$0.59$,
 illustrating the logarithmic saturation of the bound with sensitivity.
 The dotted horizontal line marks SNR\,$=1$; vertical dashed lines mark the
 spectroscopic lower bound from GRB\,221009A ($\alpha\gtrsim 0.63$) and the
@@ -1340,8 +1319,8 @@ replaces, the amplitude is in fact \emph{better} constrained,
 \end{equation}
 a factor $\sim 6$ marginalisation penalty driven by the foam--$\mu$
 collinearity, and the threshold \emph{tightens} slightly to
-$\alpha\lesssim 0.53$.  The $\mu$-aligned in-band pedestal therefore does
-not loosen the conservative bound; it shifts it by only
+$\alpha\lesssim 0.56$.  The $\mu$-aligned in-band pedestal therefore does
+not loosen the comoving-foam bound; it shifts it by only
 $\Delta\alpha\approx 0.009$, the near-coincidence reflecting the
 logarithmic Ng--Perlman relation
 $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$: at fixed
@@ -1357,8 +1336,8 @@ no-pedestal case, where the limiting degeneracy is with $T_0$ rather
 than $\mu$, even fixing $\mu$ barely helps.  Either way, the worked
 example of Section~\ref{sec:CMB_derivation} shows that any
 exponential-class $C_\alpha$ with Planck-scale $\tau_{\rm foam}$ lies
-in the no-pedestal regime, so the physical $\alpha\lesssim 0.52$ is the
-headline and the $\mu$-aligned $\alpha\lesssim 0.53$ merely confirms its
+in the no-pedestal regime, so the physical $\alpha\lesssim 0.55$ is the
+headline and the $\mu$-aligned $\alpha\lesssim 0.56$ merely confirms its
 robustness.
 
 The proposed PIXIE satellite~\cite{Kogut2011} --- a fully cryogenic
@@ -1369,36 +1348,27 @@ $|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
 spectral signals from Silk damping and reionization.
 Propagating this gain through the Fisher-matrix scaling derived above,
 the marginal foam detection threshold shifts from
-$\alpha\lesssim0.52$ (FIRAS) to approximately $\alpha\lesssim0.55$
-(PIXIE) in the Ng--Perlman path-length form, or $0.55\to0.58$ in the
-redshift-weighted mean form (Table~\ref{tab:thresholds}), narrowing the
-gap with the spectroscopic lower bound $\alpha\gtrsim0.63$ from
-GRB\,221009A (Fig.~\ref{fig:cmb_snr}).  All thresholds are quoted for
-the physical no-pedestal deficit; the two columns of
-Table~\ref{tab:thresholds} differ by the uniform $\Delta\alpha\approx
-0.033$ between the observer-frame $\sigma_\phi^2$ of
-Eq.~\eqref{eq:sigmaphi} and the redshift-weighted form of
-Eq.~\eqref{eq:sigmaphi_cosmo}.
+$\alpha\lesssim0.55$ (FIRAS) to approximately $\alpha\lesssim0.58$
+(PIXIE; Table~\ref{tab:thresholds}), narrowing the gap with the
+spectroscopic lower bound $\alpha\gtrsim0.63$ from GRB\,221009A
+(Fig.~\ref{fig:cmb_snr}).  All thresholds are quoted for the physical
+no-pedestal deficit.
 The limiting degeneracy --- with a temperature shift for the
 no-pedestal deficit --- persists on the linearized template, but
 PIXIE's extension to $6$\,THz accesses the nonlinear regime
-$\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ under the
-cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo}
-(observer-frame Eq.~\eqref{eq:sigmaphi} shifts this to
-$\alpha\lesssim 0.52$), where the foam deficit diverges markedly from
-both the blackbody and $\mu$-distortion shapes and the degeneracy may
-be substantially reduced.  The $\alpha\lesssim0.55$ projection is
-therefore conservative: if the nonlinear template effectively breaks
-this degeneracy at PIXIE sensitivity, the true threshold could be
-significantly more stringent.
+$\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$, where the foam deficit
+diverges markedly from both the blackbody and $\mu$-distortion shapes
+and the degeneracy may be substantially reduced.  The
+$\alpha\lesssim0.55$ projection may therefore understate the reach: if
+the nonlinear template effectively breaks this degeneracy at PIXIE
+sensitivity, the true threshold could be significantly more stringent.
 
 Extending the same Fisher analysis to the $10$\,GHz--$3$\,THz bands of
 the SuperPIXIE and Voyage~2050 concepts~\cite{Chluba2021} --- with
 forecast distortion sensitivities
 $\sigma(\mu)\approx 7.7\times10^{-9}$ and $2.2\times10^{-9}$ ---
-shifts the marginal threshold only to $\alpha\lesssim 0.55$ and
-$\alpha\lesssim 0.56$ in the path-length form ($0.58$ and $0.59$ in the
-redshift-weighted form, Table~\ref{tab:thresholds}), barely beyond the
+shifts the marginal threshold only to $\alpha\lesssim 0.58$ and
+$\alpha\lesssim 0.59$ (Table~\ref{tab:thresholds}), barely beyond the
 PIXIE projection.  The reason is structural rather than instrumental:
 in the physically realized no-pedestal limit the foam deficit
 $-\sigma_\phi^2(\nu)B_\nu$ is degenerate with a temperature shift at
@@ -1417,7 +1387,7 @@ $\Delta\alpha\lesssim 0.04$, this sets a firm ceiling: as an
 independent broadband probe --- absolute calibrated photometry, no
 source-profile assumption, and a different systematic-error budget from
 spectroscopy --- spectral-distortion photometry reaches
-$\alpha\lesssim 0.56$ ($\lesssim 0.59$ redshift-weighted) and cannot,
+$\alpha\lesssim 0.59$ and cannot,
 by sensitivity or bandwidth alone, attain the GRB spectroscopic bound
 $\alpha\gtrsim 0.63$ or the holographic value $\alpha=2/3$.  The two
 channels are therefore permanently complementary.
