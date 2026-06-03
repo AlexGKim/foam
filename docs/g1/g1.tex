@@ -940,7 +940,7 @@ The strong $\nu^2$ dependence concentrates foam effects at high
 frequency; for $\alpha=1/2$ the variance reaches unity at
 $\nu\approx 574$\,GHz in the path-length form (and across the whole
 FIRAS band in the redshift-weighted form), marking where the
-linearised template breaks down (Section~\ref{sec:CMB_caveats}).
+linearised template breaks down (Section~\ref{sec:CMB_degeneracy}).
 
 \subsubsection{Foam-modified CMB spectrum}
 \label{sec:CMB_derivation}
@@ -1170,7 +1170,8 @@ Wien fall-off) the two differ only by a spectral tilt, so the foam
 template is nearly indistinguishable from a temperature shift
 ($\rho_{A_{\rm eff}T_0}\simeq 1$ in the fit) and, through that
 near-degeneracy, strongly collinear with the $y$ and $\mu$ templates
-($\rho_{A_{\rm eff}y}=0.998$, $\rho_{A_{\rm eff}\mu}=0.93$).  Using the
+(quantified by the forecast correlation matrix
+Eq.~\eqref{eq:fisher_corr_matrix_fid} below).  Using the
 full $43\times43$ apodization covariance, the generalised
 least-squares fit over $(T_0,\mu,y,A_{\rm eff})$ and the foreground
 amplitude recovers $\mu$ and $y$ consistent with zero and with the
@@ -1192,7 +1193,17 @@ The one direction that could still break the
 foam--$T_0$ degeneracy is deep into the Wien/sub-mm regime, where the
 $\nu^2$-tilt finally separates from a temperature shift but galactic
 dust and the cosmic infrared background dominate --- beyond the FIRAS
-band.
+band.  The linearised template
+$\Delta I_\nu\approx\sigma_\phi^2(\nu)\,[\text{template}]$, valid for
+$\sigma_\phi^2\ll1$ across the FIRAS band away from the unity crossing
+of Section~\ref{sec:CMB_phasevar}, is robust at this threshold:
+replacing the deficit
+$-\sigma_\phi^2 B_\nu$ by the saturated form
+$-(1-e^{-\sigma_\phi^2})B_\nu$ changes the integrated in-band amplitude
+by $\approx13\%$ at $\alpha=0.50$ but by $<1\%$ at $\alpha\gtrsim0.52$
+($\Delta\alpha\sim3\times10^{-5}$), so the bound is unaffected;
+nonlinearity matters only for stronger foam ($\alpha\lesssim0.50$),
+where it may also help break the foam--$\mu$ degeneracy.
 
 That same near-degeneracy has two consequences for the CMB temperature
 itself.  First, admitting foam as a free parameter inflates the
@@ -1240,9 +1251,11 @@ $(A_{\rm eff},\,T_0,\,\mu,\,y)$,
 in which the foam deficit is almost perfectly aligned with a
 temperature shift ($\rho_{A_{\rm eff}T_0}=0.9997$, bold) and strongly
 collinear with the $y$ and $\mu$ distortions ($0.999$ and $0.928$).
-Figure~\ref{fig:cmb_snr} plots the resulting detection SNR versus
-$\alpha$, and Table~\ref{tab:thresholds} collects the thresholds for
-both foam-evolution forms.
+Defining the marginal detection SNR as $A_{\rm eff}/\sigma(A_{\rm
+eff})$, so that ${\rm SNR}=1$ marks the sensitivity threshold,
+Figure~\ref{fig:cmb_snr} plots it versus $\alpha$, and
+Table~\ref{tab:thresholds} collects the thresholds for both
+foam-evolution forms.
 
 \begin{table}[h]
 \caption{Marginal foam-detection thresholds on the exponent $\alpha$
@@ -1380,86 +1393,35 @@ therefore conservative: if the nonlinear template effectively breaks
 this degeneracy at PIXIE sensitivity, the true threshold could be
 significantly more stringent.
 
-\subsubsection{Caveats: nonlinear regime and parameter degeneracy}
-\label{sec:CMB_caveats}
-
-Two caveats qualify the linearised analysis.
-
-\emph{Nonlinear regime.}  The linearisation
-$\Delta I_\nu\approx\sigma_\phi^2(\nu)\times[\text{template}]$ is valid
-only for $\sigma_\phi^2\ll 1$.  For $\alpha=1/2$, $\sigma_\phi^2=1$ is
-reached at $\nu\approx 574$\,GHz, within the FIRAS band.  Replacing
-the linearised deficit $-\sigma_\phi^2(\nu)B_\nu$ by the saturated form
-$-(1-e^{-\sigma_\phi^2(\nu)})B_\nu$ reduces the \emph{integrated}
-in-band foam amplitude (summed over FIRAS channels) by $\approx 13\%$
-at $\alpha=0.50$ and by $<1\%$ at $\alpha\gtrsim 0.52$.
-At the headline threshold $\alpha\lesssim 0.52$ the saturation
-correction is thus only $\approx 1\%$
-($\Delta\alpha\sim 3\times 10^{-5}$), so the linearised bound is
-unaffected at the $\Delta\alpha\ll 10^{-3}$ level; the nonlinear
-template becomes important only for stronger foam
-($\alpha\lesssim 0.50$), where it may also help break the foam--$\mu$
-degeneracy.
-
-\emph{Parameter degeneracy within the foam template.}  The exponent
-$\alpha$ and the amplitude $A_\alpha$ enter only through the product
-$A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}=A_{\rm eff}$.  FIRAS
-constrains this product directly but not the exponent separately;
-converting a bound on $A_{\rm eff}$ to a bound on $\alpha$ requires
-fixing $A_\alpha$ by convention (here $A_\alpha=1$, following Ng \&
-Perlman~\cite{NgPerlman2022}).  Any quoted bound on $\alpha$ carries
-this implicit normalisation.
-
-\subsubsection{Complementarity with GRB\,221009A}
-\label{sec:CMB_complementarity}
-
-The FIRAS sensitivity range $\alpha\lesssim 0.52$--$0.55$ does not
-overlap the GRB spectroscopic lower bound $\alpha\gtrsim 0.63$ of
-Section~\ref{sec:grb221009a}: FIRAS probes strictly lower exponents.
-Any foam model consistent with the GRB bound has $\sigma_\phi^2\ll 1$
-at CMB frequencies, so its effect on the recovered $T_0$ is entirely
-negligible (Section~\ref{sec:CMB_degeneracy}).
-
-FIRAS provides an independent broadband test of foam --- absolute
-calibrated photometry, no source-profile assumption, and a different
-systematic-error budget from spectroscopy --- and constrains the
-parameter space below the GRB bound where more exotic foam models
-would reside.  A definitive FIRAS foam analysis would require
-specifying $C_\alpha(\tau)$ to determine the physical pedestal shape
-and replacing the linearised template with the full nonlinear
-expression at high frequencies where $\sigma_\phi^2\gtrsim 1$.
-The next generation of absolute spectrophotometers would deepen this
-reach only marginally.  Extending the Fisher analysis above to the
-$10$\,GHz--$3$\,THz band of the SuperPIXIE and Voyage~2050 concepts
-\cite{Chluba2021} --- with their forecast distortion sensitivities
-$\sigma(\mu)\approx 7.7\times 10^{-9}$ and $2.2\times 10^{-9}$,
-respectively --- shifts the marginal foam threshold only to
-$\alpha\lesssim 0.55$ (SuperPIXIE) and $\alpha\lesssim 0.56$
-(Voyage~2050) in the path-length form, or $0.58$ and $0.59$ in the
-redshift-weighted form (Table~\ref{tab:thresholds}), barely beyond the
-PIXIE projection.  The reason is
-structural rather than instrumental: in the physically-realized
-no-pedestal limit the foam deficit $-\sigma_\phi^2(\nu)B_\nu$ is
-degenerate with a temperature shift at $\rho_{A T_0}=0.9997$, and this
-degeneracy is \emph{band-robust} --- broadening the coverage from the
-FIRAS band to $10$\,GHz--$6$\,THz leaves it unchanged to four decimal
-places and even slightly worsens the foam-to-$\mu$ sensitivity ratio
-$\sigma(A_{\rm eff})/\sigma(\mu)$.  The wider band does break the
-foam--$\mu$ degeneracy probed by the adversarial $K_\nu^{\rm fast}$
-pedestal (from $\rho_{A\mu}=0.98$ at FIRAS to $0.66$ over
+Extending the same Fisher analysis to the $10$\,GHz--$3$\,THz bands of
+the SuperPIXIE and Voyage~2050 concepts~\cite{Chluba2021} --- with
+forecast distortion sensitivities
+$\sigma(\mu)\approx 7.7\times10^{-9}$ and $2.2\times10^{-9}$ ---
+shifts the marginal threshold only to $\alpha\lesssim 0.55$ and
+$\alpha\lesssim 0.56$ in the path-length form ($0.58$ and $0.59$ in the
+redshift-weighted form, Table~\ref{tab:thresholds}), barely beyond the
+PIXIE projection.  The reason is structural rather than instrumental:
+in the physically realized no-pedestal limit the foam deficit
+$-\sigma_\phi^2(\nu)B_\nu$ is degenerate with a temperature shift at
+$\rho^{\rm fid}_{A_{\rm eff}T_0}=0.9997$, and this degeneracy is
+\emph{band-robust} --- broadening the coverage from the FIRAS band to
+$10$\,GHz--$6$\,THz leaves it unchanged to four decimal places.  The
+wider band does break the foam--$\mu$ degeneracy probed by the
+adversarial $K_\nu^{\rm fast}$ pedestal (from
+$\rho^{\rm adv}_{A_{\rm eff}\mu}=0.98$ at FIRAS to $0.66$ over
 $10$\,GHz--$3$\,THz), so future missions are markedly more robust
-against adversarial in-band pedestal contamination; but this does not
-move the physical threshold.  Together with the logarithmic
-Ng--Perlman scaling
+against in-band pedestal contamination, but the physical threshold does
+not move.  Together with the logarithmic Ng--Perlman scaling
 $\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]$, which converts even a
-$10^{4}$-fold sensitivity gain over FIRAS into $\Delta\alpha\lesssim
-0.04$, this places a firm ceiling: spectral-distortion photometry
-probes the foam parameter space at $\alpha\lesssim 0.56$
-($\lesssim 0.59$ in the redshift-weighted form) and cannot,
-by sensitivity or bandwidth alone, reach the GRB spectroscopic bound
+$10^{4}$-fold sensitivity gain over FIRAS into
+$\Delta\alpha\lesssim 0.04$, this sets a firm ceiling: as an
+independent broadband probe --- absolute calibrated photometry, no
+source-profile assumption, and a different systematic-error budget from
+spectroscopy --- spectral-distortion photometry reaches
+$\alpha\lesssim 0.56$ ($\lesssim 0.59$ redshift-weighted) and cannot,
+by sensitivity or bandwidth alone, attain the GRB spectroscopic bound
 $\alpha\gtrsim 0.63$ or the holographic value $\alpha=2/3$.  The two
-channels are therefore permanently complementary rather than
-overlapping.
+channels are therefore permanently complementary.
 
 % ==============================================================
 \section{Conclusions}
