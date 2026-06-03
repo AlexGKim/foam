@@ -1206,7 +1206,7 @@ $b_{T_0}\approx -1.5\times10^7\,{\rm K\,m^{-2}}$; for $A_\alpha=1$ this
 is only $\approx 3\times10^{-22}$\,K at the holographic $\alpha=2/3$ and
 $\approx 4\times10^{-63}$\,K at $\alpha=1$, reaching $\sigma(T_0)$ only
 at $\alpha\approx 0.52$ where the foam is already a many-$\sigma$
-signal.  Both effects therefore bite only for foam near FIRAS
+signal.  Both effects therefore matter only for foam near FIRAS
 detectability; the recovered $T_0$ is immune to any foam consistent
 with the GRB bound $\alpha\gtrsim 0.63$.
 
@@ -1221,7 +1221,21 @@ gives $\sigma(A_{\rm eff})=2.2\times10^{-11}\,{\rm m}^2$ and the same
 $\alpha\lesssim 0.52$, reproducing the data fit; the conditional value
 $\sigma(A_{\rm eff})|_{\mu,y\,\text{fixed}}=8.2\times10^{-13}\,{\rm
 m}^2$ shows that marginalising over the distortions costs a factor
-$\sim 27$ through the foam--$T_0$ collinearity.
+$\sim 27$ through the foam--$T_0$ collinearity.  The fiducial
+degeneracy structure is captured by the correlation matrix for
+$(A_{\rm eff},\,T_0,\,\mu,\,y)$,
+\begin{equation}
+\rho^{\rm fid}_{ij} = \begin{pmatrix}
+  1.000 & \mathbf{0.9997} & 0.928 & 0.999 \\
+  \mathbf{0.9997} & 1.000 & 0.934 & 0.998 \\
+  0.928 & 0.934 & 1.000 & 0.915 \\
+  0.999 & 0.998 & 0.915 & 1.000
+\end{pmatrix},
+\label{eq:fisher_corr_matrix_fid}
+\end{equation}
+in which the foam deficit is almost perfectly aligned with a
+temperature shift ($\rho_{A_{\rm eff}T_0}=0.9997$, bold) and strongly
+collinear with the $y$ and $\mu$ distortions ($0.999$ and $0.928$).
 Figure~\ref{fig:cmb_snr} plots the resulting detection SNR versus
 $\alpha$.
 
@@ -1260,7 +1274,7 @@ $\Delta I/B\to-\mu/x\propto\nu^{-1}$) so as to maximise the foam--$\mu$
 overlap.  The resulting correlation matrix for
 $(A_{\rm eff},\,T_0,\,\mu,\,y)$ is
 \begin{equation}
-\rho_{ij} = \begin{pmatrix}
+\rho^{\rm adv}_{ij} = \begin{pmatrix}
   1.000 & 0.937 & \mathbf{0.976} & 0.010 \\
   0.937 & 1.000 & 0.969 & -0.212 \\
   \mathbf{0.976} & 0.969 & 1.000 & -0.127 \\
@@ -1268,11 +1282,13 @@ $(A_{\rm eff},\,T_0,\,\mu,\,y)$ is
 \end{pmatrix}.
 \label{eq:fisher_corr_matrix}
 \end{equation}
-Adding the in-band pedestal rotates the foam template off the
-temperature axis ($\rho_{A_{\rm eff}T_0}:0.9997\to0.937$) and off the
-$y$ template ($\rho_{A_{\rm eff}y}:0.999\to0.010$), leaving the
-engineered foam--$\mu$ degeneracy ($\rho_{A_{\rm eff}\mu}=0.976$, bold)
-as the dominant one.  Because $0.976$ is milder than the $0.9997$ it
+Compared with the fiducial matrix
+Eq.~\eqref{eq:fisher_corr_matrix_fid}, adding the in-band pedestal
+rotates the foam template off the temperature axis
+($\rho_{A_{\rm eff}T_0}:0.9997\to0.937$) and off the $y$ template
+($\rho_{A_{\rm eff}y}:0.999\to0.010$), leaving the engineered
+foam--$\mu$ degeneracy ($\rho_{A_{\rm eff}\mu}=0.976$, bold) as the
+dominant one.  Because $0.976$ is milder than the $0.9997$ it
 replaces, the amplitude is in fact \emph{better} constrained,
 \begin{equation}
   \sigma(A_{\rm eff}) = 1.7\times10^{-12}\,{\rm m}^2,
