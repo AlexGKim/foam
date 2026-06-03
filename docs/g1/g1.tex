@@ -36,13 +36,14 @@ Applied to the MeV emission lines of GRB\,221009A in the dynamical-foam
 limit ($\tau_{\rm foam}\ll\tau_c$) we obtain $\alpha \gtrsim 0.63$.
 For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 ($\sigma_\phi^2 \propto \nu^2$) with a low-frequency pedestal; a fit to
-the COBE/FIRAS monopole spectrum reaches $\alpha \lesssim 0.52$ under the
-physical Planck-scale pedestal kernel (essentially zero in-band;
-a $\Delta\alpha\approx 0.01$ shift under an adversarial band-filling
-template, modulo a $\Delta\alpha\sim 0.03$ cosmological-redshift
-systematic); the cosmological-accumulation variant tightens the
-FIRAS threshold to $\alpha\lesssim 0.55$, with PIXIE projected to
-reach $\alpha\lesssim 0.54$ from instrumental noise improvement alone.  The final FIRAS threshold awaits
+the COBE/FIRAS monopole spectrum reaches $\alpha \lesssim 0.52$
+(Ng--Perlman path-length form) or $\alpha\lesssim 0.55$
+(redshift-weighted form) under the physical Planck-scale pedestal
+kernel (essentially zero in-band; a $\Delta\alpha\approx 0.01$ shift
+under an adversarial band-filling template); next-generation
+spectrometers (PIXIE, SuperPIXIE, Voyage~2050) are forecast to reach
+$\alpha\lesssim 0.55$--$0.56$ (path-length) or $0.58$--$0.59$
+(redshift-weighted) from instrumental noise improvement alone.  The final FIRAS threshold awaits
 a first-principles derivation of the foam temporal autocorrelation
 $C_\alpha(\tau)$, which determines the pedestal shape and hence the
 foam--$\mu$ degeneracy that currently dominates the error budget. None of these bounds exclude
@@ -1183,8 +1184,12 @@ $95\%$; $\chi^2/\nu=1.24$) and a foam amplitude consistent with zero,
 Inverting the Ng--Perlman relation
 $A_{\rm eff}=A_\alpha D_C^{2(1-\alpha)}\ell_P^{2\alpha}$ at $A_\alpha=1$,
 the $1\sigma$ amplitude
-$\sigma(A_{\rm eff})=5.3\times10^{-11}\,{\rm m}^2$ gives the headline
-bound $\alpha\lesssim 0.52$.  The one direction that could still break the
+$\sigma(A_{\rm eff})=5.3\times10^{-11}\,{\rm m}^2$ gives the bound
+$\alpha\lesssim 0.52$ in the conservative Ng--Perlman path-length form,
+or $\alpha\lesssim 0.55$ in the redshift-weighted mean form
+(Section~\ref{sec:CMB_phasevar}; both forms, here and for the
+forecasts below, are collected in Table~\ref{tab:thresholds}).
+The one direction that could still break the
 foam--$T_0$ degeneracy is deep into the Wien/sub-mm regime, where the
 $\nu^2$-tilt finally separates from a temperature shift but galactic
 dust and the cosmic infrared background dominate --- beyond the FIRAS
@@ -1237,7 +1242,31 @@ in which the foam deficit is almost perfectly aligned with a
 temperature shift ($\rho_{A_{\rm eff}T_0}=0.9997$, bold) and strongly
 collinear with the $y$ and $\mu$ distortions ($0.999$ and $0.928$).
 Figure~\ref{fig:cmb_snr} plots the resulting detection SNR versus
-$\alpha$.
+$\alpha$, and Table~\ref{tab:thresholds} collects the thresholds for
+both foam-evolution forms.
+
+\begin{table}[h]
+\caption{Marginal foam-detection thresholds on the exponent $\alpha$
+($A_\alpha=1$) under the two foam-evolution forms of
+Section~\ref{sec:CMB_phasevar}: the conservative Ng--Perlman
+path-length form (Eq.~\eqref{eq:sigma_phi_CMB}) and the
+redshift-weighted mean form (Eq.~\eqref{eq:sigmaphi_cosmo}), the latter
+tighter by a uniform $\Delta\alpha\approx +0.033$.  FIRAS is from the
+data fit (Section~\ref{sec:CMB_degeneracy}); PIXIE, SuperPIXIE, and
+Voyage~2050 from the Fisher forecast scaled by their published
+$\mu$-sensitivities~\cite{Chluba2021}.}
+\label{tab:thresholds}
+\begin{ruledtabular}
+\begin{tabular}{lcc}
+ & Ng--Perlman path-length & redshift-weighted \\
+\hline
+FIRAS        & $\alpha\lesssim 0.52$ & $\alpha\lesssim 0.55$ \\
+PIXIE        & $\alpha\lesssim 0.55$ & $\alpha\lesssim 0.58$ \\
+SuperPIXIE   & $\alpha\lesssim 0.55$ & $\alpha\lesssim 0.58$ \\
+Voyage~2050  & $\alpha\lesssim 0.56$ & $\alpha\lesssim 0.59$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
 
 \begin{figure}[h]
 \centering
@@ -1329,13 +1358,16 @@ $|y|\lesssim10^{-9}$ and entering the regime of guaranteed $\Lambda$CDM
 spectral signals from Silk damping and reionization.
 Propagating this gain through the Fisher-matrix scaling derived above,
 the marginal foam detection threshold shifts from
-$\alpha\lesssim0.52$ (FIRAS) to approximately $\alpha\lesssim0.55$ (PIXIE),
-narrowing the gap with the spectroscopic lower
-bound $\alpha\gtrsim0.63$ from GRB\,221009A (Fig.~\ref{fig:cmb_snr}).
-Both thresholds are quoted for the physical no-pedestal deficit and
-the observer-frame $\sigma_\phi^2$ of Eq.~\eqref{eq:sigmaphi}; the
-cosmological-redshift weighting of Eq.~\eqref{eq:sigmaphi_cosmo} could
-shift each by up to $\Delta\alpha\sim 0.03$.
+$\alpha\lesssim0.52$ (FIRAS) to approximately $\alpha\lesssim0.55$
+(PIXIE) in the Ng--Perlman path-length form, or $0.55\to0.58$ in the
+redshift-weighted mean form (Table~\ref{tab:thresholds}), narrowing the
+gap with the spectroscopic lower bound $\alpha\gtrsim0.63$ from
+GRB\,221009A (Fig.~\ref{fig:cmb_snr}).  All thresholds are quoted for
+the physical no-pedestal deficit; the two columns of
+Table~\ref{tab:thresholds} differ by the uniform $\Delta\alpha\approx
+0.033$ between the observer-frame $\sigma_\phi^2$ of
+Eq.~\eqref{eq:sigmaphi} and the redshift-weighted form of
+Eq.~\eqref{eq:sigmaphi_cosmo}.
 The limiting degeneracy --- with a temperature shift for the
 no-pedestal deficit --- persists on the linearized template, but
 PIXIE's extension to $6$\,THz accesses the nonlinear regime
@@ -1404,7 +1436,9 @@ $10$\,GHz--$3$\,THz band of the SuperPIXIE and Voyage~2050 concepts
 $\sigma(\mu)\approx 7.7\times 10^{-9}$ and $2.2\times 10^{-9}$,
 respectively --- shifts the marginal foam threshold only to
 $\alpha\lesssim 0.55$ (SuperPIXIE) and $\alpha\lesssim 0.56$
-(Voyage~2050), barely beyond the PIXIE projection.  The reason is
+(Voyage~2050) in the path-length form, or $0.58$ and $0.59$ in the
+redshift-weighted form (Table~\ref{tab:thresholds}), barely beyond the
+PIXIE projection.  The reason is
 structural rather than instrumental: in the physically-realized
 no-pedestal limit the foam deficit $-\sigma_\phi^2(\nu)B_\nu$ is
 degenerate with a temperature shift at $\rho_{A T_0}=0.9997$, and this
@@ -1421,7 +1455,8 @@ Ng--Perlman scaling
 $\Delta\alpha=\ln N/[2\ln(D_C/\ell_P)]$, which converts even a
 $10^{4}$-fold sensitivity gain over FIRAS into $\Delta\alpha\lesssim
 0.04$, this places a firm ceiling: spectral-distortion photometry
-probes the foam parameter space at $\alpha\lesssim 0.56$ and cannot,
+probes the foam parameter space at $\alpha\lesssim 0.56$
+($\lesssim 0.59$ in the redshift-weighted form) and cannot,
 by sensitivity or bandwidth alone, reach the GRB spectroscopic bound
 $\alpha\gtrsim 0.63$ or the holographic value $\alpha=2/3$.  The two
 channels are therefore permanently complementary rather than
