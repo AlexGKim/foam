@@ -58,8 +58,9 @@ D_C    = 13.87e3 * 3.0857e22  # 13.87 Gpc [m]
 # Comoving-foam model: the (1+z')^2 path weighting enters as an alpha- and
 # nu-independent enhancement (lambda_obs/lambda_eff)^2 = <(1+z')^2>_{D_C} ~ 1.2e4
 # of the observed amplitude over the bare Ng-Perlman variance, shifting every
-# SNR=1 threshold by Delta_alpha = ln(ENH)/[2 ln(D_C/ell_P)] ~ +0.033.
-ENH    = 1.2e4              # <(1+z')^2>_{D_C} for the CMB path
+# SNR=1 threshold by Delta_alpha = ln(ENH)/[2 ln(D_C/ell_P)] ~ +0.034.
+# Value: <(1+z')^2>_{D_C} = int (1+z)^2 dD_C / int dD_C, Planck 2018 to z_LS=1089.
+ENH    = 1.365e4           # <(1+z')^2>_{D_C} for the CMB path
 
 # ── Fisher-matrix results from fisher_firas.py (correctly normalized) ─────────
 # Per-channel diagonal Fisher F = sum_ch dI_i dI_j / sigma^2 (no bandwidth factor).

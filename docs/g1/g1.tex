@@ -39,7 +39,7 @@ For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 the COBE/FIRAS monopole spectrum reaches $\alpha \lesssim 0.55$
 (comoving-foam model) under the physical Planck-scale pedestal
 kernel (essentially zero in-band; a $\Delta\alpha\approx 0.01$ shift
-under a $\mu$-aligned band-filling template); next-generation
+under a deliberately $\mu$-aligned band-filling template); next-generation
 spectrometers (PIXIE, SuperPIXIE, Voyage~2050) are forecast to reach
 $\alpha\lesssim 0.58$--$0.59$ from instrumental noise improvement alone.  The final FIRAS threshold awaits
 a first-principles derivation of the foam temporal autocorrelation
@@ -893,11 +893,13 @@ governed not by the observed wavelength $\lambda_{\rm obs}=c/\nu$ but by
 a shorter effective wavelength
 $\lambda_{\rm eff}=\lambda_{\rm obs}/\sqrt{\langle(1+z')^2\rangle_{D_C}}$:
 along the path the photon's local wavelength
-$\lambda(z')=\lambda_{\rm obs}/(1+z')$ was smaller --- less redshifted ---
-than the value observed today, and the accumulated phase scales as
+$\lambda(z')=\lambda_{\rm obs}/(1+z')$ was shorter than the value
+observed today, having not yet undergone the full redshift, and the
+accumulated phase scales as
 $1/\lambda^2$.  The ratio
 $\lambda_{\rm obs}/\lambda_{\rm eff}=\sqrt{\langle(1+z')^2\rangle_{D_C}}
-\approx 100$ for the CMB path is a purely cosmological factor,
+\approx 120$ ($\langle(1+z')^2\rangle_{D_C}\approx 1.4\times10^{4}$) for
+the CMB path is a purely cosmological factor,
 independent of $\alpha$ and of $\nu$ across the FIRAS band.  Carrying
 out the integral leaves the Ng--Perlman structure intact,
 $\sigma_\phi^2(\nu)=(2\pi/\lambda_{\rm eff})^2
@@ -917,8 +919,8 @@ At $\nu=150$\,GHz this gives
 \begin{equation}
   \sigma_\phi^2(150\,{\rm GHz})\approx
   \begin{cases}
-    7\times10^{2} & \alpha=1/2\ \text{(random walk)},\\[2pt]
-    10^{-18}      & \alpha=2/3\ \text{(holographic)}.
+    9\times10^{2} & \alpha=1/2\ \text{(random walk)},\\[2pt]
+    3\times10^{-18}      & \alpha=2/3\ \text{(holographic)}.
   \end{cases}
   \label{eq:sigma_phi_CMB_values}
 \end{equation}
@@ -1104,7 +1106,7 @@ As Section~\ref{sec:CMB_degeneracy} shows, the $\mu$-aligned kernel does
 not in fact loosen the bound: by depositing an in-band pedestal it
 distorts the spectrum away from a pure blackbody and so makes the foam
 \emph{more} detectable, so the no-pedestal deficit gives the weaker,
-more robust bound.
+safer bound.
 
 \subsubsection{Constraint from FIRAS}
 \label{sec:CMB_degeneracy}
@@ -1201,7 +1203,7 @@ precision of $T_0=2.72548$\,K implicitly assumes no foam.  Second, foam
 present but \emph{omitted} from the fit shifts the central value by
 $\Delta T_0 = b_{T_0}A_{\rm eff}$ with
 $b_{T_0}\approx -1.5\times10^7\,{\rm K\,m^{-2}}$; for $A_\alpha=1$ this
-is only $\approx 4\times10^{-18}$\,K at the holographic $\alpha=2/3$ and
+is only $\approx 5\times10^{-18}$\,K at the holographic $\alpha=2/3$ and
 $\approx 5\times10^{-59}$\,K at $\alpha=1$, reaching $\sigma(T_0)$ only
 at $\alpha\approx 0.55$ where the foam is already a many-$\sigma$
 signal.  Both effects therefore matter only for foam near FIRAS
@@ -1356,7 +1358,10 @@ no-pedestal deficit.
 The limiting degeneracy --- with a temperature shift for the
 no-pedestal deficit --- persists on the linearized template, but
 PIXIE's extension to $6$\,THz accesses the nonlinear regime
-$\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$, where the foam deficit
+$\sigma_\phi^2\gg1$ for $\alpha\lesssim0.55$ --- at higher $\alpha$ than
+the FIRAS-band crossing $\alpha\lesssim0.53$
+(Section~\ref{sec:CMB_degeneracy}), since the wider $6$\,THz band pushes
+the $\sigma_\phi^2=1$ boundary upward --- where the foam deficit
 diverges markedly from both the blackbody and $\mu$-distortion shapes
 and the degeneracy may be substantially reduced.  The
 $\alpha\lesssim0.55$ projection may therefore understate the reach: if
