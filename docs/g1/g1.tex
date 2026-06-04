@@ -241,12 +241,10 @@ analysis sits deep within the dynamical regime.  Models with long-range
 long-range \emph{transverse} spatial correlations of
 Ref.~\cite{LeeZurekChen2024} that evade interferometric imaging bounds
 --- would give $C_\alpha(\tau)\approx 1$ over macroscopic timescales
-and thereby drive $\sigma_\Delta^2(\tau)\to 0$, suppressing
-\emph{both} the GRB spectroscopic signal of
-Section~\ref{sec:grb221009a} and the CMB spectral distortion of
-Section~\ref{sec:CMB}.  The two channels therefore probe the same temporal
-decorrelation regime, and both depend on the dynamical-foam assumption
-$\tau_{\rm foam}\ll\tau_c$ adopted here.
+and thereby drive $\sigma_\Delta^2(\tau)\to 0$, suppressing the foam
+signal in both channels analysed below.  The bounds derived here
+therefore all rest on the dynamical-foam assumption
+$\tau_{\rm foam}\ll\tau_c$.
 
 \subsection{Differential Jitter and Its Distribution}
 \label{sec:differential_jitter}
@@ -458,11 +456,11 @@ $|\tau|\gtrsim\tau_{\rm foam}$, $\mathcal{F}_{\rm foam}(\tau)$ acquires
 a long-lag plateau $e^{-\sigma_\phi^2}$ outside a narrow window
 $|\tau|\lesssim\tau_{\rm foam}$.  Fourier-transforming via
 Eq.~\eqref{eq:WK_obs}, the plateau produces a coherent core
-$e^{-\sigma_\phi^2}S_{\rm src}(\nu)$, with the complementary fraction
-$1-e^{-\sigma_\phi^2}$ of the source flux in a pedestal sourced by the
-short-lag window.  The per-mode derivation in
-Section~\ref{sec:CMB_derivation} makes this decomposition explicit for
-a broadband source.
+$e^{-\sigma_\phi^2}S_{\rm src}(\nu)$, while the short-lag window
+redistributes the complementary fraction $1-e^{-\sigma_\phi^2}$ of the
+source flux into a broad pedestal.  This core-plus-pedestal split holds
+for any source; its broadband form for the CMB, including the pedestal
+shape, is worked out in Section~\ref{sec:CMB_derivation}.
 
 For the Gaussian source profile of Section~\ref{sec:closedforms},
 Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} with $\sigma_\Delta^2$
@@ -808,17 +806,13 @@ the all-seven-interval bound.  G1's large fractional uncertainty
 ($\sim 40\%$) gives it little weight in the $\chi^2$ despite its
 position at the top of the lever arm.
 
-The bound corresponds to $\sigma_\Delta\gtrsim\tau_G$,
-where Eq.~\eqref{eq:g1obs_gauss} predicts \emph{two} observable
-effects: (a)~line-width broadening
-$r_{\rm obs}^2 = r_{\rm int}^2(1+\sigma_\Delta^2/\tau_G^2)$ --- which the
-fit constrains via $r_{\rm foam,0}^{\rm max}=0.27$ --- and
-(b)~a line-center redshift $\nu_0^{\rm eff}/\nu_0 =
-\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ that becomes substantial at the
-upper limit ($\nu_0^{\rm eff}/\nu_0\approx 0.06$ at
-$\sigma_\Delta/\tau_G\approx 4.1$).  The lever-arm fit uses observed line
-centers as if they were intrinsic (pair-annihilation Doppler-boosted to
-$E_i$ in each epoch) and does not separately constrain (b).  Closing
+At the bound ($\sigma_\Delta\gtrsim\tau_G$), Eq.~\eqref{eq:g1obs_gauss}
+predicts two effects: line-width broadening --- which the fit constrains
+via $r_{\rm foam,0}^{\rm max}=0.27$ --- and a line-center redshift
+$\nu_0^{\rm eff}/\nu_0 = \tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ that
+becomes substantial there ($\nu_0^{\rm eff}/\nu_0\approx 0.06$ at
+$\sigma_\Delta/\tau_G\approx 4.1$).  The lever-arm fit constrains only
+the former, using observed line centers as if intrinsic.  Closing
 the gap requires either~(i) an independent constraint on the per-epoch
 bulk Doppler factor $\mathcal{D}_i$ --- from afterglow blastwave
 modeling, TeV-photon photosphere arguments, or variability-timescale
@@ -1109,11 +1103,7 @@ $\hat{R}(\nu-\nu';\nu')$ satisfies (the Lorentzian above carries
 $\nu'$-dependence through $\sigma_\phi^2(\nu')$).  The template is
 energy-conserving but not photon-number-conserving, and serves purely
 as a $\mu$-aligned probe of the foam--$\mu$ kernel-shape degeneracy.
-As Section~\ref{sec:CMB_degeneracy} shows, the $\mu$-aligned kernel does
-not in fact loosen the bound: by depositing an in-band pedestal it
-distorts the spectrum away from a pure blackbody and so makes the foam
-\emph{more} detectable, so the no-pedestal deficit gives the weaker,
-safer bound.
+Its effect on the bound is evaluated in Section~\ref{sec:CMB_forecast}.
 
 \subsubsection{Constraint from FIRAS}
 \label{sec:CMB_degeneracy}
