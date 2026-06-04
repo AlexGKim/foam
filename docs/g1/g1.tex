@@ -314,8 +314,9 @@ as the asymptotic phase variance --- the value
 $\tfrac{1}{2}\omega_0^2\sigma_\Delta^2(\tau)$ approaches as
 $C_\alpha(\tau;D)\to 0$.  In the dynamical-foam limit $\sigma_\phi^2$ is
 set by the Ng--Perlman path-length variance~\eqref{eq:NgPerlmanVar}
-accumulated along the line of sight, with $D_C$ the comoving distance
-to the source~\cite{NgPerlman2022}.  Substituting $\sigma_\Delta^2(\tau) =
+accumulated along the line of sight, with the proper distance $D$
+replaced by the comoving distance $D_C$ to the
+source~\cite{NgPerlman2022}.  Substituting $\sigma_\Delta^2(\tau) =
 (2\sigma_\ell^2/c^2)[1-C_\alpha(\tau;D)]$ from
 Eq.~\eqref{eq:diffVarExt}, Eq.~\eqref{eq:gaussian_jitter} takes the compact form
 \begin{equation}
@@ -611,7 +612,7 @@ The analysis below operates in the dynamical-foam regime
 $\tau_{\rm foam}\ll\tau_c$ adopted throughout
 Section~\ref{sec:model}; in the opposite quasi-static limit the
 framework yields no foam imprint on the line spectrum and the bound
-does not apply (caveat~(vi) below).
+does not apply (Section~\ref{sec:conclusions}).
 
 \textit{Multi-epoch line data.}
 Zhang et al.~\cite{YQZhang2024} perform a joint analysis of GECAM-C and
@@ -963,7 +964,11 @@ modes $S_{\rm src}(\nu')=B_{\nu'}(T_0)$, each mode is modulated by the
   \sigma_\phi^2(\nu')=(2\pi\nu'/c)^2\sigma_\ell^2(D),
 \end{equation}
 that approaches the constant $e^{-\sigma_\phi^2(\nu')}$ for all
-$\tau\neq 0$ in the $C_\alpha\to 0$ limit.
+$\tau\neq 0$ in the $C_\alpha\to 0$ limit.  For the CMB line of sight,
+$\sigma_\ell^2(D)$ here is the comoving cumulative variance of
+Section~\ref{sec:CMB_phasevar}, so that $\sigma_\phi^2(\nu')=(2\pi\nu'/c)^2
+A_{\rm eff}$ carries the same $\langle(1+z')^2\rangle$ weighting used in
+the fit.
 
 For a single narrowband mode at frequency $\nu'$, the source
 coherence is $g^{(1)}_{\rm src}(\tau)=e^{-i2\pi\nu'\tau}$ (the
@@ -1085,7 +1090,7 @@ fraction of the total foam-removed flux reappearing as pedestal
 intensity per Hz at observer frequency $\nu$; the form above
 corresponds to uniform energy redistribution in $\ln\nu$ across the
 band.  Within the FIRAS band, $K_\nu^{\rm fast}(\nu)$ replaces the
-physical pedestal contribution to Eq.~\eqref{eq:CMB_spectrum} by an
+physical pedestal contribution to Eq.~\eqref{eq:CMB_spectrum} by a
 $\mu$-aligned factorised substitution
 \begin{equation}
   \int B_{\nu'}(T_0)\,\hat{R}(\nu-\nu';\nu')\,d\nu'
