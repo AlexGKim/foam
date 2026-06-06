@@ -301,6 +301,11 @@ profile.  Since $\Delta(\tau)$ is Gaussian,
   \label{eq:gaussian_jitter}
 \end{equation}
 with $\mathcal{F}_{\rm foam}(0) = 1$.
+This foam suppression factor is the dominant term of the transfer
+function from intrinsic to observed coherence, the higher-cumulant
+corrections being negligible; the spectroscopic observables below ---
+line broadening, peak suppression, and the CMB core/pedestal split ---
+all follow from it.
 
 From the foam path-length variance $\sigma_\ell^2(D_C)$ and carrier
 frequency $\omega_0$, we define $\sigma_\phi^2 \equiv
@@ -752,9 +757,7 @@ pins $r_{\rm foam,0}=0$ exactly (the point mass).  The 95th percentile
 of the mixture therefore coincides with the 90th percentile of
 $\chi^2(1)$, $\Delta\chi^2=2.71$ --- identical to the standard
 one-sided Gaussian $95\%$ CL threshold, but derived for the correct
-boundary-constrained sampling distribution.}  The constraint is comparatively weak
-because the foam signal peaks at $E_0 = 37$\,MeV, where the single
-most uncertain data point (G1) resides.  With seven measurements and
+boundary-constrained sampling distribution.}  With seven measurements and
 per-point fractional uncertainties of $30$--$50\%$, the
 $\Delta\chi^2=2.71$ coverage relies on the Gaussian-$\chi^2$
 approximation.
@@ -770,13 +773,9 @@ converting via $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
         - |\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|}
        {\ln(D_C/\ell_P)}
   \;=\; \frac{89.2 + 1.3 - 3.3}{138.3}
-  \;\approx\; 0.63\,,
+  \;\approx\; 0.63\,.
   \label{eq:alpha_grb_dyn}
 \end{equation}
-where $|\!\ln(0.27)|\approx1.3$ and
-$|\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|\approx 3.3$ for
-$r_{\rm int}=0.066$, the extreme value within the $95\%$~CL
-contour.
 Under the comoving-foam model of Section~\ref{sec:closedforms} the
 $(1+z')^2$ weighting at $z=0.151$ is a negligible $\sim 16\%$ effect on
 $\sigma_\phi^2$ ($\Delta\alpha\sim 5\times10^{-4}$), so the bound
