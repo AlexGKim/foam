@@ -332,22 +332,28 @@ and the way foam fluctuations evolve in cosmic time is not fixed by
 Eq.~\eqref{eq:NgPerlmanVar}.  We therefore adopt the
 physically-motivated \emph{comoving-foam} model, in which the
 path-length variance accumulates uniformly in comoving distance with
-the full $(1+z')^2$ weighting that accounts for the photon's local
-wavelength along the path,
+the full $(1+z')^2$ weighting,
 \begin{equation}
   \sigma_\phi^2
   \;=\; \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^{\!2}
         \int_0^{z_{\rm s}}\!(1+z')^2\,\frac{d\sigma_\ell^2}{dD_C}\,
-        \frac{dD_C}{dz'}\,dz'\,,
+        \frac{dD_C}{dz'}\,dz'
+  \;=\; \left(\frac{2\pi}{\lambda_{\rm eff}}\right)^{\!2}\sigma_\ell^2(D_C),
   \label{eq:sigmaphi_cosmo}
 \end{equation}
-with $A_\alpha=1$ the observed integrated foam coefficient.  For the GRB
-at $z=0.151$ the path-averaged $\langle(1+z')^2\rangle_{D_C}\approx 1.16$
-enhances $\sigma_\phi^2$ by only $16\%$
-($\Delta\alpha\sim 5\times10^{-4}$), immaterial for the GRB bound; for
-the CMB at $z_{\rm LS}\approx 1089$ the high-$z$ portion of the path
-dominates and the weighting is large --- the effect analyzed in
-Section~\ref{sec:CMB}.
+with $A_\alpha=1$ the observed integrated foam coefficient and
+$\lambda_{\rm eff}\equiv\lambda_{\rm obs}/\sqrt{\langle(1+z')^2\rangle_{D_C}}$
+an effective wavelength shorter than $\lambda_{\rm obs}$.  The same
+$(1+z')^2$ weighting enters both the phase --- through the photon's
+local wavelength --- and the observed arrival-time jitter --- through
+cosmological time dilation; since $\sigma_\phi^2=\tfrac12\omega_0^2\sigma_\Delta^2$
+the two carry it identically, so this single $\sigma_\phi^2$ governs
+both line broadening and peak suppression in either channel.  The ratio
+$\lambda_{\rm obs}/\lambda_{\rm eff}=\sqrt{\langle(1+z')^2\rangle_{D_C}}$
+is a purely cosmological factor: $\approx 1.08$ for the GRB
+($z=0.151$) and $\approx 120$ for the CMB ($z_{\rm LS}\approx 1089$),
+where the high-$z$ portion of the path dominates --- the effect
+analyzed in Section~\ref{sec:CMB}.
 
 % ==============================================================
 \section{First-Order Coherence }
@@ -549,7 +555,12 @@ suppresses the coherent diffraction-limited PSF in imaging also
 suppresses the coherent line core in spectroscopy, placing the
 published imaging
 constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
-on a common footing with the present framework.  The duality is not
+on a common footing with the present framework.  A quantitative
+comparison across channels is, however, model-dependent: it requires
+relating the spatial ($C_\alpha^{\rm sp}$) and temporal ($C_\alpha$)
+foam correlation functions under a common foam-cell model, so the two
+constraints coincide only to the precision of those shared model
+details.  The duality is not
 perfect at the observational interface: in the imaging channel the
 reference truth---the telescope aperture---is known a priori, whereas in
 the spectroscopic channel the corresponding truth---the intrinsic source
@@ -691,9 +702,10 @@ The dominant foam effect on the spectrum is then carrier-phase
 suppression of the line peak by $e^{-\sigma_\phi^2(E)}$, together with
 line-width broadening captured by item~(ii) of
 Section~\ref{sec:closedforms}; both follow from
-Eq.~\eqref{eq:g1obs_gauss}.  Substituting
-$\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ and
-$\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$, the
+Eq.~\eqref{eq:g1obs_gauss}.  The observed arrival-time jitter carries
+the cosmological time dilation,
+$\sigma_\Delta=\sqrt{2}\,\sigma_\ell\,\lambda_{\rm obs}/(c\,\lambda_{\rm eff})$;
+with $\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$ the
 foam-to-intrinsic timescale ratio takes the compact form
 \begin{equation}
   \frac{\sigma_\Delta}{\tau_G(E)}
@@ -701,7 +713,7 @@ foam-to-intrinsic timescale ratio takes the compact form
   \label{eq:sigmaDelta_tauG_dyn}
 \end{equation}
 the product of the intrinsic fractional width $r_{\rm int}$
-(a source property) and the asymptotic phase variance
+(a source property) and the comoving phase variance
 $\sigma_\phi$ (Eq.~\eqref{eq:sigmaphi_cosmo}).  Substituting into
 Eq.~\eqref{eq:robs_decomp} gives
 $r_{\rm obs}^2(E) = r_{\rm int}^2\bigl[1+2\,r_{\rm int}^2\sigma_\phi^2(E)\bigr]$,
@@ -709,7 +721,7 @@ so the foam excess is
 \begin{equation}
   r_{\rm foam}(E)
   \;=\; \sqrt{2}\,r_{\rm int}^2\,\sigma_\phi(E)
-  \;=\; r_{\rm int}^2\cdot\frac{2\sqrt{2}\,\pi\,\sigma_\ell\,E}{hc}
+  \;=\; r_{\rm int}^2\cdot\frac{2\sqrt{2}\,\pi\,\sigma_\ell}{\lambda_{\rm eff}(E)}
   \;\propto\; E.
   \label{eq:rfoam_dyn}
 \end{equation}
@@ -727,8 +739,9 @@ The fit-ready two-parameter model is
   \label{eq:robs_model}
 \end{equation}
 with $r_{\rm foam,0}\equiv r_{\rm foam}(E_0)$ the foam contribution at
-the reference energy $E_0 = 37\,\mathrm{MeV}$
-($\lambda_0 = 3.4\times10^{-14}\,\mathrm{m}$).
+the reference energy $E_0 = 37\,\mathrm{MeV}$ (effective wavelength
+$\lambda_{\rm eff}(E_0)=\lambda_{\rm obs}(E_0)/\sqrt{\langle(1+z')^2\rangle}
+\approx 3.2\times10^{-14}\,\mathrm{m}$, Section~\ref{sec:closedforms}).
 
 \textit{Fit and upper limit on $r_{\rm foam,0}$.}
 A $\chi^2$ fit of the seven Zhang et al.\ measurements
@@ -764,26 +777,22 @@ approximation.
 
 \textit{Constraint on $\alpha$.}
 Eq.~\eqref{eq:rfoam_dyn} gives
-$\sigma_\ell = r_{\rm foam,0}\,\lambda_0/(2\sqrt{2}\,\pi\,r_{\rm int}^2)$;
+$\sigma_\ell = r_{\rm foam,0}\,\lambda_{\rm eff}/(2\sqrt{2}\,\pi\,r_{\rm int}^2)$;
 converting via $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
 (Eq.~\eqref{eq:NgPerlmanVar} with $A_\alpha=1$) gives
 \begin{equation}
   \alpha \;\gtrsim\;
-  \frac{\ln(D_C/\lambda_0) + |\!\ln r_{\rm foam,0}^{\rm max}|
+  \frac{\ln(D_C/\lambda_{\rm eff}) + |\!\ln r_{\rm foam,0}^{\rm max}|
         - |\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|}
        {\ln(D_C/\ell_P)}
-  \;=\; \frac{89.2 + 1.3 - 3.3}{138.3}
+  \;=\; \frac{89.3 + 1.3 - 3.3}{138.3}
   \;\approx\; 0.63\,.
   \label{eq:alpha_grb_dyn}
 \end{equation}
-Under the comoving-foam model of Section~\ref{sec:closedforms} the
-$(1+z')^2$ weighting at $z=0.151$ is a negligible $\sim 16\%$ effect on
-$\sigma_\phi^2$ ($\Delta\alpha\sim 5\times10^{-4}$), so the bound
-$\alpha\gtrsim 0.63$ is unchanged.
-Using $\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ and
+Using $\sigma_\Delta=\sqrt{2}\,\sigma_\ell\,\lambda_{\rm obs}/(c\,\lambda_{\rm eff})$ and
 $c\tau_G(E_0)=\hbar c/(r_{\rm int}E_0)\approx 8.1\times10^{-14}\,\mathrm{m}$
 for $r_{\rm int}=0.066$, the ratio $\sigma_\Delta/\tau_G(E_0)\approx 4.1$
-at the bound ($\sigma_\ell\approx 2.3\times 10^{-13}$~m), placing
+at the bound ($\sigma_\ell\approx 2.2\times 10^{-13}$~m), placing
 the bound deep in the strong-foam regime $\sigma_\Delta\gtrsim\tau_G$.
 The individual line-width measurements carry $30$--$50\%$ fractional
 uncertainties; the multi-epoch lever arm is essential for reaching
@@ -878,25 +887,17 @@ sensitivity, and contrasts the result with the GRB spectroscopic bound.
 
 CMB photons travel from the last-scattering surface at comoving distance
 $D_{\rm C}= 13.87\,{\rm Gpc}$ (Planck\,2018 flat-$\Lambda$CDM cosmology;
-$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  Foam's evolution in cosmic time is not fixed by
-Eq.~\eqref{eq:NgPerlmanVar}; we adopt the comoving-foam model
-(Section~\ref{sec:differential_jitter}), the $(1+z')^2$-weighted
-accumulation of Eq.~\eqref{eq:sigmaphi_cosmo}.  Phase accumulation is
-governed not by the observed wavelength $\lambda_{\rm obs}=c/\nu$ but by
-a shorter effective wavelength
-$\lambda_{\rm eff}=\lambda_{\rm obs}/\sqrt{\langle(1+z')^2\rangle_{D_C}}$:
-along the path the photon's local wavelength
-$\lambda(z')=\lambda_{\rm obs}/(1+z')$ was shorter than the value
-observed today, having not yet undergone the full redshift, and the
-accumulated phase scales as
-$1/\lambda^2$.  The ratio
+$H_0 = 67.36$\,km\,s$^{-1}$\,Mpc$^{-1}$, $\Omega_m=0.315$).  We adopt the comoving-foam model with the effective wavelength
+$\lambda_{\rm eff}=\lambda_{\rm obs}/\sqrt{\langle(1+z')^2\rangle_{D_C}}$
+of Section~\ref{sec:differential_jitter}
+(Eq.~\eqref{eq:sigmaphi_cosmo}).  For the CMB path the cosmological
+factor
 $\lambda_{\rm obs}/\lambda_{\rm eff}=\sqrt{\langle(1+z')^2\rangle_{D_C}}
-\approx 120$ ($\langle(1+z')^2\rangle_{D_C}\approx 1.4\times10^{4}$) for
-the CMB path is a purely cosmological factor,
-independent of $\alpha$ and of $\nu$ across the FIRAS band.  Carrying
-out the integral leaves the Ng--Perlman structure intact,
+\approx 120$ ($\langle(1+z')^2\rangle_{D_C}\approx 1.4\times10^{4}$) ---
+far larger than for the GRB --- is independent of $\alpha$ and of $\nu$
+across the FIRAS band.  With
 $\sigma_\phi^2(\nu)=(2\pi/\lambda_{\rm eff})^2
-A_\alpha D_{\rm C}^{2(1-\alpha)}\ell_P^{2\alpha}$; for the fit we lump
+A_\alpha D_{\rm C}^{2(1-\alpha)}\ell_P^{2\alpha}$, for the fit we lump
 the redshift weighting into the observed amplitude
 $A_{\rm eff}=(\lambda_{\rm obs}/\lambda_{\rm eff})^2
 A_\alpha D_{\rm C}^{2(1-\alpha)}\ell_P^{2\alpha}$, the cumulative
