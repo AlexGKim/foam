@@ -91,7 +91,7 @@ $\sigma_\ell \propto \ell_{\rm P}$, corresponding to perfectly correlated cell
 contributions.
 
 The primary observational probe of stochastic foam to date has been the imaging
-channel. Spacetime foam accumulates a cumulative phase dispersion
+channel. Light propagating through spacetime foam accumulates a phase dispersion
 $\Delta\phi \simeq 2\pi\ell^{1-\alpha}\ell_{\rm P}^{\alpha}/\lambda$ across the
 entrance aperture, degrading PSF sharpness and erasing interference fringes once
 $\Delta\phi \gtrsim 2\pi$~\cite{LieuHillman2003}.
@@ -177,7 +177,7 @@ line of sight of propagation distance $D$:
 \end{equation}
 The vacuum $c$ in Eq.~\eqref{eq:jitter} reflects the standard
 Ng--Perlman treatment of foam as a small perturbation atop a flat
-(or FLRW) background, with photons travelling at $c$ along
+(or FLRW) background, with photons traveling at $c$ along
 stochastically perturbed geodesics.
 In the geometric-optics limit the path-length shift $\Delta\ell_{\rm tot}$
 is a purely geometric quantity and hence frequency-independent (achromatic),
@@ -242,7 +242,7 @@ long-range \emph{transverse} spatial correlations of
 Ref.~\cite{LeeZurekChen2024} that evade interferometric imaging bounds
 --- would give $C_\alpha(\tau)\approx 1$ over macroscopic timescales
 and thereby drive $\sigma_\Delta^2(\tau)\to 0$, suppressing the foam
-signal in both channels analysed below.  The bounds derived here
+signal in both channels analyzed below.  The bounds derived here
 therefore all rest on the dynamical-foam assumption
 $\tau_{\rm foam}\ll\tau_c$.
 
@@ -254,13 +254,10 @@ that enters the coherence integrals.
 Define the differential jitter between photons arriving at
 times $t$ and $t+\tau$:
 \begin{equation}
-  \Delta_t(\tau)
+  \Delta(\tau)
   \equiv \delta t(t+\tau) - \delta t(t).
   \label{eq:DeltaExt}
 \end{equation}
-For fixed $D$, stationarity implies that the distribution of
-$\Delta_t(\tau)$ depends only on $\tau$; we suppress the $t$
-subscript and write $\Delta(\tau)$ henceforth.
 Expanding the square and applying Eq.~\eqref{eq:pathcov1ray}:
 \begin{align}
   \sigma_\Delta^2(\tau)
@@ -344,7 +341,7 @@ at $z=0.151$ the path-averaged $\langle(1+z')^2\rangle_{D_C}\approx 1.16$
 enhances $\sigma_\phi^2$ by only $16\%$
 ($\Delta\alpha\sim 5\times10^{-4}$), immaterial for the GRB bound; for
 the CMB at $z_{\rm LS}\approx 1089$ the high-$z$ portion of the path
-dominates and the weighting is large --- the effect analysed in
+dominates and the weighting is large --- the effect analyzed in
 Section~\ref{sec:CMB}.
 
 % ==============================================================
@@ -369,7 +366,7 @@ $v - u = \tau - \Delta(\tau)$, stationarity of $E_{\rm src}$ gives
 \end{equation}
 Since $\delta t$ is independent of $E_{\rm src}$, and since
 $\langle|E_{\rm obs}(t)|^2\rangle = \langle|E_{\rm src}(t-\delta t)|^2\rangle
-= \langle|E_{\rm src}|^2\rangle$ by stationarity (so the normalisation
+= \langle|E_{\rm src}|^2\rangle$ by stationarity (so the normalization
 in Eq.~\eqref{eq:g1def} cancels), averaging over the jitter yields
 \begin{equation}
   g^{(1)}_{\rm obs}(\tau)
@@ -387,7 +384,7 @@ convolved with the Gaussian differential-jitter kernel.
 The GRB\,221009A emission line is well described by a Gaussian profile
 in each epoch~\cite{YQZhang2024}, and it serves as the representative
 case admitting the simplest closed form.
-A Gaussian line of $1\sigma$ width $\sigma_\nu$ centred on $\nu_0$
+A Gaussian line of $1\sigma$ width $\sigma_\nu$ centered on $\nu_0$
 corresponds via the Wiener--Khinchin theorem to the coherence function
 \begin{equation}
   g^{(1)}_{\rm src}(\tau) \;=\; e^{-i\omega_0\tau}\,e^{-\tau^2/2\tau_G^2},
@@ -396,7 +393,7 @@ corresponds via the Wiener--Khinchin theorem to the coherence function
 where $\omega_0 \equiv 2\pi\nu_0$ and $\tau_G \equiv 1/(2\pi\sigma_\nu)$ is the
 Gaussian coherence decay time.  The carrier factor $e^{-i\omega_0\tau}$
 encodes the line's position in the spectrum and must be retained: dropping
-it would substitute a baseband Gaussian centred at $\nu=0$ for the physical
+it would substitute a baseband Gaussian centered at $\nu=0$ for the physical
 line and would lose the dominant foam effect (line-peak suppression).
 Substituting into the jitter-convolution integral~\eqref{eq:g1obs} and
 completing the square gives the exact closed form
@@ -417,7 +414,7 @@ carrier, $\nu_0^{\rm eff} = \nu_0\,\tau_G^2/[\tau_G^2+\sigma_\Delta^2(\tau)]$;
 scale $\sqrt{\tau_G^2+\sigma_\Delta^2(\tau)}$ vs.\ $\tau_G$);
 and (iii) a global amplitude suppression by the factor
 $\exp\!\left[-\omega_0^2\tau_G^2\sigma_\Delta^2/\{2(\tau_G^2+\sigma_\Delta^2)\}\right]$.
-Normalisation $g^{(1)}_{\rm obs}(0)=1$ holds because $\sigma_\Delta(0)=0$.
+Normalization $g^{(1)}_{\rm obs}(0)=1$ holds because $\sigma_\Delta(0)=0$.
 The narrowband limit $\tau_G\to\infty$ of
 Eq.~\eqref{eq:g1obs_gauss} reduces to a pure phase-modulated
 oscillation, which is the single-mode building block from which the
@@ -432,7 +429,7 @@ constructed by incoherent superposition.
 \subsection{The Wiener--Khinchin Bridge}
 
 The foam-modified observed coherence function — given in general by the
-jitter-convolution integral Eq.~\eqref{eq:g1obs} with closed forms
+jitter-convolution integral Eq.~\eqref{eq:g1obs} with the closed form
 Eq.~\eqref{eq:g1obs_gauss} — carries direct
 spectroscopic content: for a stationary field the power spectral density
 $S(\nu)$ and $g^{(1)}(\tau)$ are Fourier-transform pairs,
@@ -444,7 +441,7 @@ implying
 The theorem applies because astronomical emission lines have finite
 linewidth (so the Fourier transform is well defined) and because the
 foam-induced jitter is a stationary process independent of the source
-(foam acts on photons after emission, while $\delta t(t)$ statistics are
+(foam acts on light after emission, while $\delta t(t)$ statistics are
 time-translation invariant on observational timescales).  The observed
 field is then stationary when the integration time exceeds the foam
 coherence time $\tau_{\rm foam}$ (the lag scale beyond which
@@ -460,7 +457,8 @@ $e^{-\sigma_\phi^2}S_{\rm src}(\nu)$, while the short-lag window
 redistributes the complementary fraction $1-e^{-\sigma_\phi^2}$ of the
 source flux into a broad pedestal.  This core-plus-pedestal split holds
 for any source; its broadband form for the CMB, including the pedestal
-shape, is worked out in Section~\ref{sec:CMB_derivation}.
+shape, is worked out for a specific model of the temporal
+autocorrelation $C_\alpha$ in Section~\ref{sec:CMB_derivation}.
 
 For the Gaussian source profile of Section~\ref{sec:closedforms},
 Fourier-transforming Eq.~\eqref{eq:g1obs_gauss} with $\sigma_\Delta^2$
@@ -485,7 +483,7 @@ The pedestal in either decomposition is sourced by the short-lag
 window $|\tau|\lesssim\tau_{\rm foam}$ and so spreads over a frequency
 range $\sim 1/\tau_{\rm foam}$.  When $\tau_{\rm foam}\ll
 \tau_G,\sigma_\Delta$ the pedestal is correspondingly broad and
-shallow, and the coherent core is the operative spectrum near the line.
+shallow, and the spectrum near the line peak is dominated by the coherent core.
 
 
 % ==============================================================
@@ -547,10 +545,11 @@ suppresses the coherent line core in spectroscopy, placing the
 published imaging
 constraints~\cite{NgPerlman2022,LieuHillman2003,Christiansen2011,Perlman2015}
 on a common footing with the present framework.  The duality is not
-perfect at the observational interface: isolating the foam contribution
-requires an independently characterized telescope aperture in the
-imaging channel and an independently characterized intrinsic source
-spectrum in the spectroscopic channel.
+perfect at the observational interface: in the imaging channel the
+reference truth---the telescope aperture---is known a priori, whereas in
+the spectroscopic channel the corresponding truth---the intrinsic source
+spectrum---is itself uncertain, so the foam contribution is harder to
+isolate.
 
 % ==============================================================
 \section{Sources}
@@ -623,7 +622,7 @@ constrain its width, the measured fractional width
 $r_{\rm obs}\equiv\sigma_{\rm obs}/E_{\rm line} = 0.10\pm0.01$ is
 consistent with a single constant across the full dynamic range
 ($\chi^2/\mathrm{dof}=4/7$; Zhang et al.\ \S4.4 and their Figure~7c).
-This constancy is the predicted behaviour of a Doppler-boosted line.
+This constancy is the predicted behavior of a Doppler-boosted line.
 In the comoving frame of the emitting plasma the line has fractional
 width $r' = \sigma'/E'$, fixed by the comoving emission physics
 (pair-plasma temperature, velocity dispersion).  When the outflow has
@@ -703,7 +702,7 @@ Eq.~\eqref{eq:robs_decomp} gives
 $r_{\rm obs}^2(E) = r_{\rm int}^2\bigl[1+2\,r_{\rm int}^2\sigma_\phi^2(E)\bigr]$,
 so the foam excess is
 \begin{equation}
-  r_{\rm foam}^{\rm (dyn)}(E)
+  r_{\rm foam}(E)
   \;=\; \sqrt{2}\,r_{\rm int}^2\,\sigma_\phi(E)
   \;=\; r_{\rm int}^2\cdot\frac{2\sqrt{2}\,\pi\,\sigma_\ell\,E}{hc}
   \;\propto\; E.
@@ -758,9 +757,7 @@ because the foam signal peaks at $E_0 = 37$\,MeV, where the single
 most uncertain data point (G1) resides.  With seven measurements and
 per-point fractional uncertainties of $30$--$50\%$, the
 $\Delta\chi^2=2.71$ coverage relies on the Gaussian-$\chi^2$
-approximation; a bootstrap or profile-likelihood Monte Carlo would
-refine the exact coverage but is not expected to shift the bound by
-more than a few percent.
+approximation.
 
 \textit{Constraint on $\alpha$.}
 Eq.~\eqref{eq:rfoam_dyn} gives
@@ -856,7 +853,7 @@ For a broadband thermal source such as the CMB, foam does not introduce
 a spectral-line shift but instead redistributes power: the coherent-core
 component is suppressed by $e^{-\sigma_\phi^2(\nu)}$ and the missing flux
 reappears in a broad pedestal whose shape depends on the short-time
-behaviour of the correlation function $C_\alpha(\tau)$.  Because
+behavior of the correlation function $C_\alpha(\tau)$.  Because
 $\sigma_\phi^2\propto\nu^2$ (Eq.~\eqref{eq:sigmaphi_cosmo}), the foam deficit
 is concentrated at high frequencies while the pedestal fills in at low
 frequencies, producing a spectral signature distinct from standard
@@ -874,7 +871,7 @@ placing the still-standard limits $|\mu|\lesssim 9\times10^{-5}$ and
 $|y|\lesssim 1.5\times10^{-5}$ \cite{Fixsen1996}.  These limits and the
 $43$-channel calibrated spectrum form the empirical basis for the foam
 constraint derived in this subsection, which sets up the broadband
-signal, derives it from first principles, analyses the FIRAS
+signal, derives it from first principles, analyzes the FIRAS
 sensitivity, and contrasts the result with the GRB spectroscopic bound.
 
 \subsubsection{Foam phase variance at CMB frequencies}
@@ -941,7 +938,7 @@ the coherent core, which depends only on the asymptotic phase
 variance $\sigma_\phi^2(\nu)$ and is therefore obtained in closed
 form independent of foam temporal dynamics, and the pedestal kernel
 $\hat{R}(\nu-\nu';\nu')$, which carries the full dependence on the
-short-$\tau$ behaviour of $C_\alpha(\tau)$ and is treated
+short-$\tau$ behavior of $C_\alpha(\tau)$ and is treated
 phenomenologically pending a first-principles specification of the
 foam temporal autocorrelation.  A worked example with exponential
 $C_\alpha(\tau)$ below makes the pedestal kernel concrete and
@@ -983,7 +980,7 @@ this mode's frequency --- while the Fourier transform of the rise
 from plateau to unity is supported on $|\tau|\lesssim\tau_{\rm foam}$
 and is therefore broad in frequency, of width
 $\sim 1/\tau_{\rm foam}$ --- the pedestal at this mode.  The split
-applied below to $\mathcal{F}_{\rm foam}(\tau;\nu')$ generalises this
+applied below to $\mathcal{F}_{\rm foam}(\tau;\nu')$ generalizes this
 single-mode decomposition to the full Planck spectrum by linear
 superposition.
 
@@ -993,7 +990,7 @@ $\mathcal{F}_{\rm foam}(\tau;\nu')=e^{-\sigma_\phi^2(\nu')}+
 [\mathcal{F}_{\rm foam}(\tau;\nu')-e^{-\sigma_\phi^2(\nu')}]$: the
 first term contributes the constant asymptote at all lags
 (Fourier-transforming to a delta function at $\nu=\nu'$), while the
-residual is localised at $|\tau|\lesssim\tau_{\rm foam}$
+residual is localized at $|\tau|\lesssim\tau_{\rm foam}$
 (Fourier-transforming to a broad pedestal).  Taking the
 intensity-weighted Fourier transform via Eq.~\eqref{eq:WK_obs} yields
 \begin{equation}
@@ -1006,9 +1003,9 @@ where $\hat{R}$ denotes the residual's Fourier transform.  The
 coherent-core term $e^{-\sigma_\phi^2(\nu)}B_\nu(T_0)$ is exact and
 model-independent (requiring only achromatic jitter and
 $C_\alpha\to 0$); the pedestal kernel $\hat{R}$ depends on the
-short-$\tau$ behaviour of $C_\alpha(\tau)$ --- the foam coherence
+short-$\tau$ behavior of $C_\alpha(\tau)$ --- the foam coherence
 timescale $\tau_{\rm foam}$ --- and is therefore undetermined without
-specifying $C_\alpha$.  This is the broadband generalisation of the
+specifying $C_\alpha$.  This is the broadband generalization of the
 core-plus-pedestal decomposition stated in Section~\ref{sec:spec}.
 Because the per-mode phase modulation $e^{i\omega\delta t(t)}$ is
 unitary, any physical pedestal kernel $\hat{R}$ derived from a
@@ -1041,7 +1038,7 @@ $e^{-\sigma_\phi^2(\nu')}$ leaves the short-$\tau$ residual
   \;\approx\; \sigma_\phi^2(\nu')\,e^{-|\tau|/\tau_{\rm foam}},
   \label{eq:Ffoam_residual_exponential}
 \end{equation}
-whose Fourier transform is a Lorentzian centred on the source
+whose Fourier transform is a Lorentzian centered on the source
 frequency,
 \begin{equation}
   \hat{R}(\nu-\nu';\nu')
@@ -1156,7 +1153,7 @@ template is nearly indistinguishable from a temperature shift
 near-degeneracy, strongly collinear with the $y$ and $\mu$ templates
 (quantified by the forecast correlation matrix
 Eq.~\eqref{eq:fisher_corr_matrix_fid} below).  Using the
-full $43\times43$ apodization covariance, the generalised
+full $43\times43$ apodization covariance, the generalized
 least-squares fit over $(T_0,\mu,y,A_{\rm eff})$ and the foreground
 amplitude recovers $\mu$ and $y$ consistent with zero and with the
 Fixsen limits ($|\mu|<1.7\times10^{-4}$, $|y|<1.0\times10^{-5}$ at
@@ -1189,7 +1186,7 @@ where it may also help break the foam--$\mu$ degeneracy.
 
 That same near-degeneracy has two consequences for the CMB temperature
 itself.  First, admitting foam as a free parameter inflates the
-marginalised temperature uncertainty: the FIRAS spectral-shape
+marginalized temperature uncertainty: the FIRAS spectral-shape
 determination of $T_0$ degrades from $1.2\times10^{-5}$\,K to
 $7.7\times10^{-4}$\,K (a factor $\sim 64$; $\sigma(y)$ and
 $\sigma(\mu)$ inflate by $\sim 17$ and $\sim 3$), the latter comparable
@@ -1217,7 +1214,7 @@ band-averaged stand-in for the measured errors), the Fisher forecast
 gives $\sigma(A_{\rm eff})=2.2\times10^{-11}\,{\rm m}^2$ and the same
 $\alpha\lesssim 0.55$, reproducing the data fit; the conditional value
 $\sigma(A_{\rm eff})|_{\mu,y\,\text{fixed}}=8.2\times10^{-13}\,{\rm
-m}^2$ shows that marginalising over the distortions costs a factor
+m}^2$ shows that marginalizing over the distortions costs a factor
 $\sim 27$ through the foam--$T_0$ collinearity.  The fiducial
 degeneracy structure is captured by the correlation matrix for
 $(A_{\rm eff},\,T_0,\,\mu,\,y)$,
@@ -1289,7 +1286,7 @@ Section~\ref{sec:CMB_derivation}, replacing the deficit by
 whose $1/\nu$ pedestal we deliberately gave the Rayleigh--Jeans shape
 of the $\mu$-distortion template (Eq.~\eqref{eq:Knufast}; the
 Rayleigh--Jeans limit of Eq.~\eqref{eq:dIdmu} is
-$\Delta I/B\to-\mu/x\propto\nu^{-1}$) so as to maximise the foam--$\mu$
+$\Delta I/B\to-\mu/x\propto\nu^{-1}$) so as to maximize the foam--$\mu$
 overlap.  The resulting correlation matrix for
 $(A_{\rm eff},\,T_0,\,\mu,\,y)$ is
 \begin{equation}
@@ -1316,7 +1313,7 @@ replaces, the amplitude is in fact \emph{better} constrained,
     = 2.9\times10^{-13}\,{\rm m}^2,
   \label{eq:sigma_Aeff_adv}
 \end{equation}
-a factor $\sim 6$ marginalisation penalty driven by the foam--$\mu$
+a factor $\sim 6$ marginalization penalty driven by the foam--$\mu$
 collinearity, and the threshold \emph{tightens} slightly to
 $\alpha\lesssim 0.56$.  The $\mu$-aligned in-band pedestal therefore does
 not loosen the comoving-foam bound; it shifts it by only
