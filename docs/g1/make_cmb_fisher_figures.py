@@ -134,8 +134,8 @@ ax1.semilogy(alpha, snr_VOY_cond,    color='C3', lw=1.8, ls=':',
              label=r'Voyage 2050, conditional ($\mu,y$ fixed)')
 
 # --- Detection threshold ---
-ax1.axhline(1.0, color='k', lw=0.8, ls=':', alpha=0.7)
-ax1.text(0.695, 1.35, r'SNR $= 1$', fontsize=8.5, color='k', alpha=0.8)
+ax1.axhline(1.645, color='k', lw=0.8, ls=':', alpha=0.7)   # one-sided 95% CL
+ax1.text(0.690, 2.2, r'SNR $= 1.645$ ($95\%$ CL)', fontsize=8.5, color='k', alpha=0.8)
 
 # --- Spectroscopic lower bounds ---
 ylo, yhi = 1e-6, 3e10
