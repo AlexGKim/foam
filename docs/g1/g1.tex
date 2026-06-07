@@ -38,13 +38,10 @@ For the broadband CMB the foam induces an $e^{-\sigma_\phi^2(\nu)}$ deficit
 ($\sigma_\phi^2 \propto \nu^2$) with a low-frequency pedestal; a fit to
 the COBE/FIRAS monopole spectrum reaches $\alpha \lesssim 0.55$
 (comoving-foam model, $95\%$ CL) under the physical Planck-scale pedestal
-kernel (essentially zero in-band; a $\Delta\alpha\approx 0.009$ shift
-under a deliberately $\mu$-aligned band-filling template); next-generation
-spectrometers (PIXIE, SuperPIXIE, Voyage~2050) are forecast to reach
-$\alpha\lesssim 0.58$--$0.59$ from instrumental noise improvement alone.  The final FIRAS threshold awaits
-a first-principles derivation of the foam temporal autocorrelation
-$C_\alpha(\tau)$, which determines the pedestal shape and hence the
-foam--$\mu$ degeneracy that currently dominates the error budget. None of these bounds exclude
+kernel, and next-generation spectrometers (PIXIE, SuperPIXIE,
+Voyage~2050) are forecast to reach only $\alpha\lesssim 0.58$--$0.59$,
+the bound saturating logarithmically as the foam deficit is nearly
+degenerate with a temperature shift. None of these bounds exclude
 the holographic value $\alpha = 2/3$, which would require a confirmed
 narrow spectral line at $E_{\rm obs} \gtrsim 720$\,MeV in a $z \sim 0.15$ GRB.
 \end{abstract}
@@ -1409,6 +1406,21 @@ channels are therefore permanently complementary.
 \section{Conclusions}
 \label{sec:conclusions}
 
+Spacetime foam imprints an achromatic, stochastic arrival-time jitter
+that modifies the first-order temporal coherence $g^{(1)}(\tau)$, and
+hence the observed spectrum, providing a spectroscopic probe
+complementary to the imaging (PSF, Strehl) channel.  In the
+dynamical-foam limit the spectrum splits into a coherent line core
+suppressed by $e^{-\sigma_\phi^2}$ and an incoherent pedestal, yielding
+a shape-distortion bound on the Ng--Perlman exponent $\alpha$.  The MeV
+emission lines of GRB\,221009A give $\alpha\gtrsim 0.63$ (one-sided
+$95\%$ CL), while a fit to the COBE/FIRAS monopole gives
+$\alpha\lesssim 0.55$ (comoving-foam model, $95\%$ CL); next-generation
+spectrometers (PIXIE, SuperPIXIE, Voyage~2050) reach only
+$\alpha\lesssim 0.58$--$0.59$, the bound saturating logarithmically
+because the foam deficit is nearly degenerate with a temperature shift.
+None of these bounds exclude the holographic value $\alpha=2/3$.
+
 All single-source spectroscopic bounds derived in this paper assume the
 dynamical-foam limit $\tau_{\rm foam}\ll\tau_c$
 (Section~\ref{sec:closedforms}), in which the foam path-length jitter
@@ -1458,6 +1470,12 @@ discontinuity that limits the present work; reducing the per-epoch
 line-width uncertainties to $\delta r\lesssim 0.01$ would tighten the
 bound to $\alpha\gtrsim 0.64$, removing a major systematic and
 enabling substantially tighter tests of spacetime-foam models.
+Independently, a joint fit of the line centroid and width across epochs
+--- the present analysis constrains the width alone --- would exploit
+the energy-dependent line-center shift
+$\nu_0^{\rm eff}=\nu_0\,\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$
+(Eq.~\eqref{eq:Sobs_gauss}) that the same foam jitter induces, adding a
+second handle on $\alpha$ and further tightening the bound.
 
 A complementary implication runs in the opposite direction.  The
 flagship goal of next-generation CMB spectrometers --- PIXIE,
@@ -1478,7 +1496,12 @@ contaminate the guaranteed-$\mu$ target; but this same
 spectroscopy-plus-GRB complementarity is what would be needed to
 attribute a larger, anomalous $\mu$.  In this sense the CMB
 $\mu$-distortion measurement and the foam search are two readings of a
-single spectral degeneracy.
+single spectral degeneracy.  The decisive limitation here is
+theoretical rather than instrumental: the pedestal shape --- and hence
+how completely the foam deficit can be separated from a temperature
+shift or from $\mu$ --- is fixed by the foam temporal autocorrelation
+$C_\alpha(\tau)$, which still awaits a first-principles derivation from
+a quantum-gravity model.
 
 The multi-epoch $r_{\rm obs}$ dataset constrains any propagation
 effect that broadens an emission line in proportion to a power of
