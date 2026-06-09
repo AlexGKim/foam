@@ -178,7 +178,8 @@ line of sight of propagation distance $D$:
 The vacuum $c$ in Eq.~\eqref{eq:jitter} reflects the standard
 Ng--Perlman treatment of foam as a small perturbation atop a flat
 (or FLRW) background, with photons traveling at $c$ along
-stochastically perturbed geodesics.
+stochastically perturbed geodesics, an origin made explicit in
+Section~\ref{sec:metric_origin}.
 In the geometric-optics limit the path-length shift $\Delta\ell_{\rm tot}$
 is a purely geometric quantity and hence frequency-independent (achromatic),
 in contrast to plasma dispersion which scales as $\lambda^2$.
@@ -188,6 +189,105 @@ turbulence --- all of which imprint frequency-dependent signatures.
 For broadband sources such as the CMB, the foam distortion is likewise
 distinct from standard spectral distortions ($\mu$, $y$) that have
 different frequency dependences. 
+
+\subsection{Metric Origin: Foam as a Time-Varying Refractive Index}
+\label{sec:metric_origin}
+
+To ground the phenomenological jitter of Eq.~\eqref{eq:jitter} in the
+foam metric --- and to show that, \emph{within the eikonal reduction
+adopted here}, its achromaticity is a geometric consequence rather than a
+separate assumption (its validity is examined at the end of this
+subsection) --- we treat the foam as a
+stochastic, time-dependent perturbation of a radial
+Friedmann--Lema\^{\i}tre--Robertson--Walker background.  For a radial ray
+in conformal time $\tau$ and comoving radius $r$,
+\begin{equation}
+  ds^2 = a^2(\tau)\bigl[-(1+h_{00})\,d\tau^2 + (1+h_{11})\,dr^2\bigr],
+  \label{eq:foam_metric}
+\end{equation}
+with $h_{ab}(\tau,r)$ zero-mean, statistically stationary metric
+perturbations encoding the Planck-scale foam.  The null condition
+$ds^2=0$ gives, to linear order,
+$dr/d\tau=\sqrt{(1+h_{00})/(1+h_{11})}\simeq 1+\tfrac12(h_{00}-h_{11})$,
+so the ray propagates with an effective refractive index
+\begin{equation}
+  n(\tau,r) \;=\; \Bigl(\frac{dr}{d\tau}\Bigr)^{\!-1}
+  \;\simeq\; 1 - \tfrac12\,(h_{00}-h_{11}).
+  \label{eq:foam_index}
+\end{equation}
+Because $n-1$ is geometric --- a property of the metric, not of the
+photon energy --- it is frequency-independent, unlike a plasma
+($n-1\propto\lambda^2$); this is the achromaticity asserted below
+Eq.~\eqref{eq:jitter}.  The linearization is \emph{per cell}
+($|h_{ab}|\ll1$); the jitter accumulated over the $\sim D/\ell_{\rm P}$
+cells of Eq.~\eqref{eq:NgPerlmanVar} can nonetheless be large
+($\sigma_\phi^2\gtrsim1$; Sec.~\ref{sec:CMB_phasevar}).  As $h_{ab}$ is
+zero-mean, $\langle n\rangle=1$ and the stray $n<1$ excursions average
+out: only the second moment $\langle(n-1)^2\rangle$ enters the
+observables.  The arrival-time jitter is then the excess
+optical path,
+\begin{equation}
+  \delta t \;=\; \frac1c\!\int (n-1)\,dr
+           \;=\; -\frac{1}{2c}\!\int (h_{00}-h_{11})\,dr,
+  \label{eq:dt_metric}
+\end{equation}
+identifying $\Delta\ell_{\rm tot}=-\tfrac12\!\int(h_{00}-h_{11})\,dr$ in
+Eq.~\eqref{eq:jitter}.  The integral runs over comoving radius, so
+$\Delta\ell_{\rm tot}$ is a comoving path-length fluctuation with variance
+$\sigma_\ell^2(D_C)=\langle\Delta\ell_{\rm tot}^2\rangle$ supplied by the
+Ng--Perlman relation Eq.~\eqref{eq:NgPerlmanVar}; the redshift weighting
+that carries it to the observed phase variance --- the $(1+z')^2$ factor
+--- is applied in Sec.~\ref{sec:differential_jitter}.  Although the path
+and time jitter are achromatic, the phase variance
+$\sigma_\phi=(2\pi/\lambda)\,\sigma_\ell$ that governs every observable
+inherits the ordinary $1/\lambda$ chromaticity (phase $=$ wavenumber
+$\times$ achromatic path), the scaling $\sigma_\phi\propto1/\lambda$ used
+throughout Sec.~\ref{sec:sources}; achromatic delay and chromatic phase
+are thus consistent.  What the metric calculation fixes is the
+\emph{kinematic} map from perturbation to observable; the amplitude and
+the temporal structure of the correlations
+(Secs.~\ref{sec:Calpha_origin}--\ref{sec:differential_jitter}) are
+modeled.
+
+The frequency shift is fixed by the same $h_{ab}$.  With the observed
+field $E_{\rm obs}(t)=E_{\rm src}(t-\delta t(t))$ of
+Eq.~\eqref{eq:Eobs}, a monochromatic carrier acquires the instantaneous
+frequency
+\begin{equation}
+  \frac{\delta\omega}{\omega_0} \;=\; -\,\frac{d\,\delta t}{dt},
+  \label{eq:dwdt}
+\end{equation}
+which is exact for the time-warped carrier of Eq.~\eqref{eq:Eobs}: the
+phase of $E_{\rm src}(t-\delta t(t))$ advances as
+$-\omega_0[t-\delta t(t)]$, giving an instantaneous frequency
+$\omega_0\,(1-d\,\delta t/dt)$, i.e.\ Eq.~\eqref{eq:dwdt}.  Equivalently,
+it is the leading-order perturbation of the geodesic frequency
+$\omega=-k_\mu u^\mu$, the homogeneous background contributing the
+endpoint-determined redshift $\omega\propto a^{-1}$ and the time-dependent
+perturbation the shift Eq.~\eqref{eq:dwdt}.  Phase
+(through $\delta t$) and frequency (through $\delta\omega$) are therefore
+two projections of the single field $h_{ab}(t)$: a \emph{static} screen
+($d\,\delta t/dt=0$) shifts no frequency, whereas a time-varying one
+does, with $\langle\delta\omega\rangle=0$ and a variance that becomes the
+line broadening.  This is why the bounds rest on the dynamical regime
+(Section~\ref{sec:Calpha_origin}).
+
+Equations~\eqref{eq:foam_index}--\eqref{eq:dwdt} place the problem in the
+standard setting of wave propagation through a random, time-varying
+refractive medium~\cite{Ishimaru1978,Flatte1979,Rickett1990}: the phase
+variance $\sigma_\phi^2$ introduced below is the eikonal phase variance
+of $n$, and the temporal autocorrelation $C_\alpha(\tau)$ and
+differential-jitter variance $\sigma_\Delta^2(\tau)$ of the next two
+subsections are its mutual-coherence and phase-structure functions.  We
+adopt this eikonal phase-screen reduction throughout.  It is the
+geometric-optics limit of the wave equation in $n(\tau,r)$; with
+$\tau_{\rm foam}\sim\ell_{\rm P}/c$ and foam structure on scales
+$\ell_{\rm P}\ll\lambda$, the temporal and transverse variation is
+strongly non-adiabatic, and a complete wave treatment would add
+diffractive and inelastic effects beyond the linear phase screen, which
+we do not model here.  In particular, the achromaticity established above
+holds within this reduction; whether it survives a full sub-wavelength
+treatment ($\ell_{\rm P}\ll\lambda$) is beyond our scope.
 
 \subsection{Temporal Decorrelation of Spacetime Foam}
 \label{sec:Calpha_origin}
