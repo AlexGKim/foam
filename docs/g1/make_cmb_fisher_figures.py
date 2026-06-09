@@ -55,12 +55,12 @@ plt.rcParams.update({
 ell_P  = 1.616e-35          # Planck length [m]
 D_C    = 13.87e3 * 3.0857e22  # 13.87 Gpc [m]
 
-# Comoving-foam model: the (1+z')^2 path weighting enters as an alpha- and
-# nu-independent enhancement (lambda_obs/lambda_eff)^2 = <(1+z')^2>_{D_C} ~ 1.2e4
-# of the observed amplitude over the bare Ng-Perlman variance, shifting every
-# SNR=1 threshold by Delta_alpha = ln(ENH)/[2 ln(D_C/ell_P)] ~ +0.034.
-# Value: <(1+z')^2>_{D_C} = int (1+z)^2 dD_C / int dD_C, Planck 2018 to z_LS=1089.
-ENH    = 1.365e4           # <(1+z')^2>_{D_C} for the CMB path
+# Observed-frame amplitude: the foam phase variance is sigma_phi^2 =
+# (2pi/lambda_obs)^2 sigma_ell^2(D_C) with the OBSERVED wavelength and the bare
+# Ng-Perlman variance sigma_ell^2(D_C) = D_C^{2(1-a)} ell_P^{2a}.  No (1+z')^2
+# enhancement is applied (g^(1) = exp(-1/2 omega_obs^2 sigma_Delta^2) is already
+# observer-frame; the comoving (1+z')^2 reweighting was a frame-inconsistent add-on).
+ENH    = 1.0               # no cosmological enhancement
 
 # ── Fisher-matrix results from fisher_firas.py (correctly normalized) ─────────
 # Per-channel diagonal Fisher F = sum_ch dI_i dI_j / sigma^2 (no bandwidth factor).
@@ -83,10 +83,10 @@ sig_A_marg_VOY    = sig_A_marg_FIRAS / VOY_factor
 sig_A_cond_VOY    = sig_A_cond_FIRAS / VOY_factor
 
 # ── Alpha grid ────────────────────────────────────────────────────────────────
-alpha = np.linspace(0.50, 0.70, 1000)
+alpha = np.linspace(0.45, 0.70, 1000)
 
 def A_eff(a):
-    """Comoving-foam amplitude A_eff(alpha) = ENH * D_C^{2(1-a)} * ell_P^{2a}."""
+    """Foam amplitude A_eff(alpha) = D_C^{2(1-a)} * ell_P^{2a} (observed frame, ENH=1)."""
     return ENH * D_C**(2*(1 - a)) * ell_P**(2*a)
 
 Ae = A_eff(alpha)
@@ -102,7 +102,7 @@ snr_VOY_marg    = Ae / sig_A_marg_VOY
 snr_VOY_cond    = Ae / sig_A_cond_VOY
 
 # ── Reference alpha values ────────────────────────────────────────────────────
-alpha_FIRAS_threshold = 0.55    # marginal SNR ~ 1 (FIRAS, comoving-foam)
+alpha_FIRAS_threshold = 0.52    # marginal SNR=1.645 (FIRAS, observed-frame)
 alpha_GRB             = 0.63    # GRB 221009A Zhang lower bound (headline, Eq. 24)
 alpha_holo            = 2/3     # holographic prediction
 
