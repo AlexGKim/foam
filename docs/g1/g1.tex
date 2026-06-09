@@ -9,6 +9,11 @@
 \usepackage{booktabs}
 \usepackage{aas_macros}
 
+% Draft-only flag for numerical values awaiting independent verification.
+% Remove (or redefine to \relax) before submission.
+\newcommand{\verify}[1]{\textcolor{red}{[VERIFY]}%
+  \marginpar{\scriptsize\raggedright\color{red}#1}}
+
 \begin{document}
 
 \title{Spectroscopy as a Probe of Spacetime Foam}
@@ -691,272 +696,284 @@ In this section we consider these two possibilities.
 \subsection{GRB\,221009A}
 \label{sec:grb221009a}
 
-For spectroscopy of a single source without an absolute flux reference,
-the smooth suppression factor $e^{-\sigma_\phi^2(\nu)}$ attenuates line
-and continuum equally at any given frequency, preserving the equivalent
-width: uniform dimming is undetectable from the spectrum alone.  The
-carrier-included closed form Eq.~\eqref{eq:g1obs_gauss} supplies the
-needed shape-distortion criterion: foam broadens the observed line width
-by a calculable energy-dependent amount (derived below as
-Eq.~\eqref{eq:robs_decomp}), and multi-epoch line-width measurements
-across a wide energy range give additional leverage, as we now show
-for GRB\,221009A.  We first establish the multi-epoch line dataset,
-decompose the observed fractional width into intrinsic and foam
-contributions, fit the two-parameter model to obtain an upper limit on
-the foam amplitude, and convert it into a lower bound on $\alpha$.
+GRB\,221009A affords two independent foam probes that draw on the same
+physics but differ sharply in strength and in what they assume.  The
+stronger of the two is an \emph{absolute} one: time-varying foam
+suppresses the coherent core of any source spectrum by
+$e^{-\sigma_\phi^2(\nu)}$ (Eq.~\eqref{eq:Ffoam}), and because the
+complementary flux is redistributed into a pedestal of enormous
+bandwidth, essentially none of it returns to the observing band.  The
+in-band flux is therefore attenuated outright, so the mere survival of
+the TeV photons detected by LHAASO already bounds $\sigma_\phi^2$ at TeV
+energies and hence $\alpha$.  The weaker, secondary probe is a
+\emph{relative} one: the energy-dependent broadening of the MeV
+emission line, which is insensitive to the absolute suppression and
+constrains $\alpha$ only in the deep strong-foam regime.  We develop the
+absolute bound first and demote the line-width analysis to a
+cross-check, because the former is both more stringent and rests on
+weaker assumptions.
 
 GRB\,221009A (``the BOAT,'' Brightest Of All Time) is the most
-energetic gamma-ray burst in the instrumental record, with isotropic-equivalent
-energy $E_{\rm iso}\sim10^{55}\,\mathrm{erg}$ at redshift $z=0.151$,
-a once-in-$\sim10^4$-year event~\cite{Burns2023}.
-Two independent spectral analyses have reported a narrow gamma-ray
-emission feature in the Fermi/GBM data, interpreted as blueshifted
-electron--positron pair annihilation~\cite{Ravasio2024,YQZhang2024}, at
-observed energies spanning $6$--$37\,\mathrm{MeV}$.
-This pair-annihilation identification is one proposed interpretation
-and is not yet definitive; the foam analysis depends only on
-Doppler-invariance of the line's fractional width, not on the specific
-emission mechanism.
-We exploit the \emph{multi-epoch} constancy of the fractional line
-width to obtain a stringent constraint; the seven sub-intervals with
-well-constrained widths span the $9$--$37$\,MeV lever arm (a factor of
-$\approx 4$ in energy), within the broader $6$--$37$\,MeV detection
-range.
-Adopting flat $\Lambda$CDM
-($\Omega_M=0.27$, $\Omega_\Lambda=0.73$,
+energetic gamma-ray burst in the instrumental record, with
+isotropic-equivalent energy $E_{\rm iso}\sim10^{55}\,\mathrm{erg}$ at
+redshift $z=0.151$, a once-in-$\sim10^4$-year event~\cite{Burns2023}.
+Adopting flat $\Lambda$CDM ($\Omega_M=0.27$, $\Omega_\Lambda=0.73$,
 $H_0=70\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$), the comoving distance is
 $D_C(z=0.151)\approx0.63\,\mathrm{Gpc}\approx1.93\times10^{25}\,\mathrm{m}$
-and $\ln(D_C/\ell_P)\approx138.3$.
+and $\ln(D_C/\ell_P)\approx138.3$.  Both probes below operate in the
+dynamical-foam regime $\tau_{\rm foam}\ll\tau_c$ adopted throughout
+Section~\ref{sec:model}; the opposite quasi-static limit is addressed
+explicitly as Assumption~(i) below.
 
-The analysis below operates in the dynamical-foam regime
-$\tau_{\rm foam}\ll\tau_c$ adopted throughout
-Section~\ref{sec:model}; in the opposite quasi-static limit the
-framework yields no foam imprint on the line spectrum and the bound
-does not apply (Section~\ref{sec:conclusions}).
+\subsubsection{Mechanism and assumptions}
+\label{sec:grb_mechanism}
 
-\textit{Multi-epoch line data.}
-Zhang et al.~\cite{YQZhang2024} perform a joint analysis of GECAM-C and
-Fermi/GBM data covering the full prompt emission, including the initial
-bright phase that saturated GBM alone.  They detect a Gaussian emission
-line with centroid evolving as $E_{\rm line}\propto t^{-1}$ from
-$\approx37$\,MeV down to $\approx6$\,MeV over $T_{\rm ref}+246$--$360$\,s.
-In the seven sub-intervals where the line is sufficiently bright to
-constrain its width, the measured fractional width
-$r_{\rm obs}\equiv\sigma_{\rm obs}/E_{\rm line} = 0.10\pm0.01$ is
-consistent with a single constant across the full dynamic range
-($\chi^2/\mathrm{dof}=4/7$; Zhang et al.\ \S4.4 and their Figure~7c).
-This constancy is the predicted behavior of a Doppler-boosted line.
-In the comoving frame of the emitting plasma the line has fractional
-width $r' = \sigma'/E'$, fixed by the comoving emission physics
-(pair-plasma temperature, velocity dispersion).  When the outflow has
-bulk Doppler factor $\mathcal{D}$ --- epoch-dependent as the jet
-decelerates --- both the line centroid and its width are multiplied by
-the same factor: $E = \mathcal{D}E'$, $\sigma_{\rm int} =
-\mathcal{D}\sigma'$, so $r_{\rm int} \equiv \sigma_{\rm int}/E = r'$.
-The Doppler factor cancels in the ratio; $r_{\rm int}$ is a
-Lorentz-invariant property of the line, independent of epoch.  The
-observed $E_{\rm line}\propto t^{-1}$ centroid evolution over a factor
-of $\approx 6$ in energy traces the bulk-Doppler deceleration of the
-jet, and the simultaneous constancy of $r_{\rm obs}$ confirms the
-prediction.  The line is independently detected by Ravasio et
-al.~\cite{Ravasio2024} in Fermi/GBM data alone, with
-$\sigma_{\rm gauss}=1.31^{+0.31}_{-0.30}$\,MeV at
-$E_{\rm line}=12.56^{+0.30}_{-0.31}$\,MeV in $T+280$--$300$\,s
-($\sigma/E\approx 10.4\%$, consistent with Zhang's
-$r_{\rm obs}=0.10\pm0.01$ at $0.4\sigma$ in the time interval that
-overlaps Zhang's bright-line window).  Ravasio also reports the line
-in three later intervals ($T+300$--$360$\,s) where $\sigma/E$ rises
-to $\approx 15$--$20\%$, so the constancy of $r_{\rm obs}$ across the
-full $9$--$37$\,MeV lever arm rests on the GECAM-C$+$Fermi/GBM joint
-analysis~\cite{YQZhang2024}, with Ravasio providing an
-instrument-independent confirmation of the line at the
-highest-signal-to-noise epoch.
+The foam-modified spectrum of a broadband source splits into a coherent
+core and an incoherent pedestal,
+\begin{equation}
+  S_{\rm obs}(\nu)
+    = e^{-\sigma_\phi^2(\nu)}\,B_\nu
+    + \int B_{\nu'}\,\hat{R}(\nu-\nu';\nu')\,d\nu',
+  \label{eq:robs_decomp}
+\end{equation}
+derived in full for the blackbody as Eq.~\eqref{eq:CMB_spectrum} but
+valid for any source: the first term is the surviving carrier,
+suppressed per mode by $e^{-\sigma_\phi^2(\nu)}$, while the second is the
+flux removed from the core, $1-e^{-\sigma_\phi^2}$, redistributed by the
+pedestal kernel $\hat{R}$ of width $\sim1/\tau_{\rm foam}$.  The
+decomposition conserves photon number \emph{globally}, integrated over
+the full pedestal, but not within any finite observing band; whether the
+redistributed flux returns to the band is the crux of what follows, and
+is governed by two assumptions.
 
-\textit{Width decomposition.}
-Because $r_{\rm int}$ is the same in every epoch, the multi-epoch
-measurements constrain a single common $r_{\rm int}$ alongside the
-foam amplitude $r_{\rm foam,0}$, giving the lever arm its statistical
-power.  The Gaussian-source spectrum Eq.~\eqref{eq:Sobs_gauss} gives the
-observed centroid and absolute width
-$\nu_0^{\rm eff}=\nu_0\,\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ and
-$\sigma_{\rm obs}=1/[2\pi\sqrt{\tau_G^2+\sigma_\Delta^2}]$.  Although
-$\sigma_{\rm obs}$ is slightly \emph{narrower} than the intrinsic
-$\sigma_\nu$ by a factor $\tau_G/\sqrt{\tau_G^2+\sigma_\Delta^2}$,
-the centroid is redshifted by the \emph{square} of that factor, so
-the fractional width that Zhang et al.\ report as $\sigma/E$ in each
-epoch \emph{increases}:
+\emph{Assumption (i): dynamical foam.}  The pedestal exists only if the
+foam decorrelates on accessible timescales, $C_\alpha(\tau)\to0$;
+in the quasi-static limit $C_\alpha\to1$ the foam factor
+$\mathcal{F}_{\rm foam}\to1$ and there is no suppression to constrain
+(Section~\ref{sec:Calpha_origin}).  This escape is closed at TeV
+energies by the paper's own estimate: with
+$\tau_{\rm foam}\sim\tau_P\equiv\ell_P/c\approx5\times10^{-44}$\,s, the
+foam is already dynamical with margin $\tau_c/\tau_{\rm foam}\gtrsim10^{22}$
+\emph{even at $37$\,MeV} (Section~\ref{sec:Calpha_origin}), and since the
+coherence time $\tau_c\propto1/\nu$ shrinks with energy, the margin only
+grows at TeV.  Whatever sets the foam dynamical at MeV sets it more
+dynamical at TeV, so the quasi-static loophole cannot be invoked
+selectively to spare the TeV bound.
+
+\emph{Assumption (ii): the source bandwidth is far narrower than the
+pedestal.}  The pedestal width is
+$\sim1/\tau_{\rm foam}\sim c/\ell_P\approx10^{43}$\,Hz, whereas the
+entire electromagnetic output of a GRB --- radio to TeV --- spans
+$\lesssim10^{27}$\,Hz.  The ratio of source bandwidth to pedestal
+bandwidth is $\sim10^{-16}$, and this inequality holds for \emph{every}
+astrophysical source, the CMB included.  Relative to the kernel the
+whole source is effectively a single line, so the flux scattered out of
+the core is spread over $\sim16$ decades of frequency and the fraction
+returning to any astrophysical band is $\sim10^{-16}$ ---
+negligible.
+
+\subsubsection{Absolute in-band suppression}
+\label{sec:grb_absolute}
+
+With the in-band pedestal negligible by Assumption~(ii), the second term
+of Eq.~\eqref{eq:robs_decomp} drops inside the band and the observed
+in-band flux reduces to
+\begin{equation}
+  S_{\rm obs}(\nu)\Big|_{\rm in\text{-}band}
+    \;\approx\; e^{-\sigma_\phi^2(\nu)}\,S_{\rm src}(\nu),
+  \label{eq:absolute_suppression}
+\end{equation}
+an \emph{absolute} attenuation of the source flux that
+$\to0$ as $\sigma_\phi^2(\nu)\gg1$.  We attach the $\to0$ to the observed
+in-band flux of Eq.~\eqref{eq:absolute_suppression}, not to the bare
+factor $e^{-\sigma_\phi^2}$ in Eq.~\eqref{eq:robs_decomp}: photon number
+is conserved globally, and it is only after the pedestal has been shown
+to escape the band that the surviving in-band flux genuinely vanishes.
+This is the key distinction from single-feature spectroscopy.  The
+statement that ``uniform dimming is undetectable'' --- the smooth
+$e^{-\sigma_\phi^2(\nu)}$ attenuates line and continuum equally at a
+given frequency, preserving the equivalent width --- holds only for
+\emph{relative} measurements within one spectrum, where no external flux
+reference is available.  It does \emph{not} protect an \emph{absolute}
+flux: a measurement that compares the detected flux to an
+independently predicted intrinsic flux is sensitive to the suppression
+directly.
+
+\subsubsection{Primary bound: survival of the LHAASO TeV photons}
+\label{sec:grb_tev}
+
+LHAASO detected GRB\,221009A in TeV gamma rays~\cite{LHAASO2024}.  By
+Eq.~\eqref{eq:absolute_suppression} the observed in-band TeV photon
+count is $N\approx e^{-\sigma_\phi^2(E_{\rm TeV})}\,N_0$, with $N_0$ the
+count expected from the modeled intrinsic fluence after standard
+extragalactic-background-light attenuation.  A detection of $N$ photons
+against the prediction $N_0$ therefore requires
+\begin{equation}
+  e^{-\sigma_\phi^2(E_{\rm TeV})}\;\gtrsim\;\frac{N}{N_0},
+  \qquad\Longrightarrow\qquad
+  \sigma_\phi^2(E_{\rm TeV})\;\lesssim\;\ln\!\frac{N_0}{N}
+  \;\equiv\;\sigma_{\phi,\max}^2
+  \;=\;\mathcal{O}(\text{few}),
+  \label{eq:tev_sigmaphi}
+\end{equation}
+since even a complete intrinsic model leaves $N/N_0$ within a small
+factor of unity.\verify{Insert LHAASO photon count $N$ and EBL-corrected
+expected count $N_0$; do not invent these. Confirm
+$\sigma_{\phi,\max}^2=\ln(N_0/N)=\mathcal{O}(\text{few})$.}
+Writing $\sigma_\phi^2(E_{\rm TeV})=(2\pi/\lambda_{\rm obs})^2
+D_C^{2(1-\alpha)}\ell_P^{2\alpha}
+=(2\pi D_C/\lambda_{\rm obs})^2(\ell_P/D_C)^{2\alpha}$ from
+Eqs.~\eqref{eq:NgPerlmanVar} and \eqref{eq:sigmaphi_cosmo} (with
+$A_\alpha=1$ and $\lambda_{\rm obs}=hc/E_{\rm TeV}$) and inverting the
+inequality gives a lower bound on $\alpha$ parallel to
+Eq.~\eqref{eq:alpha_grb_dyn},
+\begin{equation}
+  \alpha \;\gtrsim\;
+  \frac{\ln\!\bigl(2\pi D_C/\lambda_{\rm obs}(E_{\rm TeV})\bigr)
+        -\tfrac12\ln\sigma_{\phi,\max}^2}
+       {\ln(D_C/\ell_P)}
+  \;\approx\; \alpha_{\rm TeV}.
+  \label{eq:alpha_grb_tev}
+\end{equation}
+The numerator is dominated by the first term, which grows logarithmically
+with the carrier wavenumber $2\pi/\lambda_{\rm obs}$ and is therefore far
+larger at TeV than at the MeV line energies of the secondary probe; the
+$\sigma_{\phi,\max}^2$ term enters only as its half-logarithm and is
+nearly inert.  Evaluating at a representative $E_{\rm TeV}\sim1$\,TeV
+gives $\alpha_{\rm TeV}\approx0.7$.\verify{Recompute
+$\alpha_{\rm TeV}$ from Eq.~\eqref{eq:alpha_grb_tev} using the verified
+$\sigma_{\phi,\max}^2$ and the representative LHAASO photon energy
+$E_{\rm TeV}$ (expected $\alpha\gtrsim0.66$--$0.73$); flag the chosen
+$E_{\rm TeV}$.}  This bound is stronger than the line-width bound of
+Section~\ref{sec:grb_width} below and is logically independent of it ---
+it uses the absolute flux rather than the relative line shape --- while
+resting on the identical $\sigma_\phi^2\propto\nu^2$ suppression physics
+that underlies the CMB constraint of Section~\ref{sec:CMB}.
+
+\subsubsection{The loophole, and why it is double-edged}
+\label{sec:grb_loophole}
+
+The TeV bound can be evaded in exactly one way: if the pedestal kernel
+$\hat{R}$ is light-tailed rather than Lorentzian, so that a
+non-negligible fraction of the redistributed flux refills the observing
+band and partially replenishes the suppressed core.  Quantifying such a
+tail would require resolving the foam on scales $\ell_P\ll\lambda$ ---
+a genuinely sub-wavelength treatment of the metric fluctuations, beyond
+the eikonal (phase-only) reduction used here and throughout the
+literature.  But this escape is double-edged.  The same eikonal
+derivation that fixes the pedestal shape also produces the suppression
+amplitude $e^{-\sigma_\phi^2}$ itself; the two are not separable outputs.
+To disown the Lorentzian pedestal tail at TeV --- in order to refill the
+band --- is to disown the very $e^{-\sigma_\phi^2}$, $\sigma_\phi^2\propto
+\nu^2$ machinery on which the CMB bound (Section~\ref{sec:CMB}) and the
+line-width bound (Section~\ref{sec:grb_width}) equally rest.  The
+loophole, if invoked, does not merely soften the TeV bound: it
+invalidates the entire framework's predictive content at once.  A
+self-consistent foam phenomenology must therefore accept the TeV bound or
+abandon the suppression physics altogether.
+
+\subsubsection{Secondary cross-check: energy-dependent line width}
+\label{sec:grb_width}
+
+The line-width probe is complementary precisely because it is
+\emph{relative}.  The absolute suppression $e^{-\sigma_\phi^2(\nu)}$
+attenuates line peak and adjacent continuum identically and so cancels
+in the fractional width $\sigma/E$; the line-width bound is therefore
+\emph{pedestal-independent}, immune to the redistribution physics that
+the loophole above contests.  That immunity is its virtue.  Its vice is
+that it bites only in the deep strong-foam regime $\sigma_\Delta\gtrsim
+\tau_G$ and yields a significantly weaker constraint.  It rests on the
+same dynamical-foam Assumption~(i) as the TeV bound --- the two are
+consistent siblings, not independent assumptions.
+
+Two independent analyses report a narrow gamma-ray emission feature in
+the Fermi/GBM data, interpreted as blueshifted electron--positron pair
+annihilation~\cite{Ravasio2024,YQZhang2024}, at observed energies
+spanning $6$--$37$\,MeV; the foam analysis depends only on the
+Doppler-invariance of the line's fractional width, not on the emission
+mechanism.  Zhang et al.~\cite{YQZhang2024} detect a Gaussian line whose
+centroid evolves as $E_{\rm line}\propto t^{-1}$ from $\approx37$\,MeV
+to $\approx6$\,MeV, with a fractional width
+$r_{\rm obs}\equiv\sigma_{\rm obs}/E_{\rm line}=0.10\pm0.01$ constant
+across the seven well-constrained sub-intervals spanning the $9$--$37$\,MeV
+lever arm ($\chi^2/\mathrm{dof}=4/7$).  In the comoving frame the line
+has fixed fractional width $r'=\sigma'/E'$; under a bulk Doppler boost
+$\mathcal{D}$ both centroid and width scale by $\mathcal{D}$, so
+$r_{\rm int}\equiv\sigma_{\rm int}/E=r'$ is Lorentz-invariant and
+epoch-independent.  The Gaussian-source spectrum
+Eq.~\eqref{eq:Sobs_gauss} then gives the observed fractional width as a
+multiplicative excess over $r_{\rm int}$,
 \begin{equation}
   r_{\rm obs}^2(E) \;=\; r_{\rm int}^2\bigl[1+\sigma_\Delta^2/\tau_G^2(E)\bigr]
                   \;=\; r_{\rm int}^2 + r_{\rm foam}^2(E),
-  \label{eq:robs_decomp}
+  \label{eq:robs_decomp_width}
 \end{equation}
-with foam excess $r_{\rm foam}^2(E)\equiv r_{\rm int}^2\,
-\sigma_\Delta^2/\tau_G^2(E)$.  The relation is multiplicative in
-$(1+\sigma_\Delta^2/\tau_G^2)$, not additive in independent
-foam/intrinsic widths: the foam acts on the source through the
-jitter-convolution Eq.~\eqref{eq:g1obs}, a \emph{multiplication} of
-the spectrum by a Gaussian factor rather than a convolution with it
-(Section~\ref{sec:closedforms}).
-
-In the dynamical-foam limit ($\tau_{\rm foam}\ll\tau_c$),
-$\sigma_\Delta^2(\tau)$ saturates to $2\sigma_\ell^2/c^2$ on lags
-$|\tau|\gtrsim\tau_{\rm foam}$.  The broadening term in
-Eq.~\eqref{eq:robs_decomp} is set by this variance at the source
-coherence lag $\tau\sim\tau_G$, which satisfies
-$\tau_G\sim\tau_c\gg\tau_{\rm foam}$ in this regime, so the saturated
-value is the operative one.
-The dominant foam effect on the spectrum is then carrier-phase
-suppression of the line peak by $e^{-\sigma_\phi^2(E)}$, together with
-line-width broadening captured by item~(ii) of
-Section~\ref{sec:closedforms}; both follow from
-Eq.~\eqref{eq:g1obs_gauss}.  The observed arrival-time jitter is
-$\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ (Eq.~\eqref{eq:diffVarExt});
-with $\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$ the
-foam-to-intrinsic timescale ratio takes the compact form
-\begin{equation}
-  \frac{\sigma_\Delta}{\tau_G(E)}
-  \;=\; \sqrt{2}\,r_{\rm int}\,\sigma_\phi(E),
-  \label{eq:sigmaDelta_tauG_dyn}
-\end{equation}
-the product of the intrinsic fractional width $r_{\rm int}$
-(a source property) and the phase variance
-$\sigma_\phi$ (Eq.~\eqref{eq:sigmaphi_cosmo}).  Substituting into
-Eq.~\eqref{eq:robs_decomp} gives
-$r_{\rm obs}^2(E) = r_{\rm int}^2\bigl[1+2\,r_{\rm int}^2\sigma_\phi^2(E)\bigr]$,
-so the foam excess is
+with $r_{\rm foam}^2(E)\equiv r_{\rm int}^2\,\sigma_\Delta^2/\tau_G^2(E)$.
+In the dynamical limit $\sigma_\Delta=\sqrt2\,\sigma_\ell/c$ saturates,
+and with $\tau_G(E)=\lambda_{\rm obs}(E)/(2\pi c\,r_{\rm int})$ the foam
+excess becomes
 \begin{equation}
   r_{\rm foam}(E)
   \;=\; \sqrt{2}\,r_{\rm int}^2\,\sigma_\phi(E)
   \;=\; r_{\rm int}^2\cdot\frac{2\sqrt{2}\,\pi\,\sigma_\ell}{\lambda_{\rm obs}(E)}
-  \;\propto\; E.
+  \;\propto\; E,
   \label{eq:rfoam_dyn}
 \end{equation}
-The $r_{\rm int}^2$ prefactor reflects two geometric factors: one
-converts the absolute foam-induced shift ($\propto\sigma_\phi\,\nu_0$)
-into a fractional width; the other enters through
-$\tau_G\propto 1/r_{\rm int}$ in the broadening term
-$\sigma_\Delta^2/\tau_G^2$.  A narrower intrinsic line (smaller
-$r_{\rm int}$, longer $\tau_G$) is therefore more robust to dynamical
-foam: $\sigma_\Delta$ falls further below the source coherence time.
-
-The fit-ready two-parameter model is
+so a $\chi^2$ fit of the seven measurements to the two-parameter model
 \begin{equation}
   r_{\rm obs}^2(E) \;=\; r_{\rm int}^2 + r_{\rm foam,0}^2\,(E/E_0)^2,
+  \qquad E_0=37\,\mathrm{MeV},
   \label{eq:robs_model}
 \end{equation}
-with $r_{\rm foam,0}\equiv r_{\rm foam}(E_0)$ the foam contribution at
-the reference energy $E_0 = 37\,\mathrm{MeV}$ (observed wavelength
-$\lambda_{\rm obs}(E_0)=hc/E_0\approx 3.35\times10^{-14}\,\mathrm{m}$).
-
-\textit{Fit and upper limit on $r_{\rm foam,0}$.}
-A $\chi^2$ fit of the seven Zhang et al.\ measurements
-$(E_i, r_i\pm\delta r_i)$ to Eq.~\eqref{eq:robs_model} with free
-parameters $(r_{\rm int},\,r_{\rm foam,0}\geq 0)$ yields a best
-fit at $r_{\rm foam,0}=0$, $r_{\rm int}=0.111$, with
-$\chi^2_{\rm min}=5.3$ ($\chi^2/\mathrm{dof}=0.88$ with 6 effective
-degrees of freedom; since $r_{\rm foam,0}=0$ at the boundary the fit
-reduces to one free parameter $r_{\rm int}$), confirming the
-constant-$r_{\rm obs}$ hypothesis adopted by Zhang et al.\ (their
-\S4.4 and Figure~7c).  Profiling over $r_{\rm int}$ gives the one-sided
-95\%~CL upper limit $r_{\rm foam,0}^{\rm max} = 0.27$ at
-$\Delta\chi^2 = 2.71$.\footnote{The standard Wilks asymptotic result
-$\Delta\chi^2\sim\chi^2(1)$ for one extra parameter assumes the
-maximum-likelihood estimator lies in the \emph{interior} of the
-parameter space; here the physical constraint $r_{\rm foam,0}\geq 0$
-places the best fit on the boundary, so this assumption fails.  The
-Chernoff (1954) boundary theorem~\cite{Chernoff1954} replaces it: when
-the true value of a non-negative parameter lies on the boundary, the
-asymptotic distribution of the likelihood-ratio statistic
-$\Delta\chi^2$ is a 50:50 mixture of a point mass at zero and a
-$\chi^2(1)$ distribution.  Heuristically, half the realizations of the
-noise drive the unconstrained estimator above zero (contributing the
-$\chi^2(1)$ piece), and half drive it below zero where the constraint
-pins $r_{\rm foam,0}=0$ exactly (the point mass).  The 95th percentile
-of the mixture therefore coincides with the 90th percentile of
-$\chi^2(1)$, $\Delta\chi^2=2.71$ --- identical to the standard
-one-sided Gaussian $95\%$ CL threshold, but derived for the correct
-boundary-constrained sampling distribution.}  With seven measurements and
-per-point fractional uncertainties of $30$--$50\%$, the
-$\Delta\chi^2=2.71$ coverage relies on the Gaussian-$\chi^2$
-approximation.
-
-\textit{Constraint on $\alpha$.}
-Eq.~\eqref{eq:rfoam_dyn} gives
-$\sigma_\ell = r_{\rm foam,0}\,\lambda_{\rm obs}/(2\sqrt{2}\,\pi\,r_{\rm int}^2)$;
-converting via $\sigma_\ell^2 = D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
-(Eq.~\eqref{eq:NgPerlmanVar} with $A_\alpha=1$) gives
+constrains the foam amplitude.  The best fit lies at the boundary
+$r_{\rm foam,0}=0$ ($r_{\rm int}=0.111$, $\chi^2_{\rm min}=5.3$),
+confirming the constant-$r_{\rm obs}$ hypothesis; profiling over
+$r_{\rm int}$ gives the one-sided $95\%$\,CL upper limit
+$r_{\rm foam,0}^{\rm max}=0.27$ at $\Delta\chi^2=2.71$ (the
+boundary-corrected Chernoff threshold~\cite{Chernoff1954}).  Converting
+via Eq.~\eqref{eq:rfoam_dyn} and $\sigma_\ell^2=D_C^{2(1-\alpha)}\ell_P^{2\alpha}$
+(Eq.~\eqref{eq:NgPerlmanVar}, $A_\alpha=1$) gives
 \begin{equation}
   \alpha \;\gtrsim\;
   \frac{\ln(D_C/\lambda_{\rm obs}) + |\!\ln r_{\rm foam,0}^{\rm max}|
         - |\!\ln(2\sqrt{2}\,\pi\,r_{\rm int}^2)|}
        {\ln(D_C/\ell_P)}
   \;=\; \frac{89.3 + 1.3 - 3.3}{138.3}
-  \;\approx\; 0.63\,.
+  \;\approx\; 0.63\,,
   \label{eq:alpha_grb_dyn}
 \end{equation}
-Using $\sigma_\Delta=\sqrt{2}\,\sigma_\ell/c$ and
-$c\tau_G(E_0)=\hbar c/(r_{\rm int}E_0)\approx 8.1\times10^{-14}\,\mathrm{m}$
-for $r_{\rm int}=0.066$, the ratio $\sigma_\Delta/\tau_G(E_0)\approx 4.1$
-at the bound ($\sigma_\ell\approx 2.3\times 10^{-13}$~m), placing
-the bound deep in the strong-foam regime $\sigma_\Delta\gtrsim\tau_G$.
-The individual line-width measurements carry $30$--$50\%$ fractional
-uncertainties; the multi-epoch lever arm is essential for reaching
-this precision.
+weaker than the TeV bound of Eq.~\eqref{eq:alpha_grb_tev} as anticipated.
+At this limit the ratio $\sigma_\Delta/\tau_G(E_0)\approx4.1$ places the
+bound deep in the strong-foam regime $\sigma_\Delta\gtrsim\tau_G$, where
+Eq.~\eqref{eq:g1obs_gauss} predicts not only the constrained line-width
+broadening but also a line-center redshift
+$\nu_0^{\rm eff}/\nu_0=\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$.  This is the
+probe's chief internal caveat: the lever-arm fit uses observed line
+centers as if intrinsic, yet at the upper limit the foam-induced centroid
+factor would run from $\nu_0^{\rm eff}/\nu_0\approx0.06$ at $37$\,MeV to
+$\approx0.7$ at $6$\,MeV, a strongly energy-dependent depression in mild
+tension with the smooth $E_{\rm line}\propto t^{-1}$ Doppler-deceleration
+trend in the data.  A joint center-plus-width fit is required for
+self-consistency at $\alpha\approx0.63$ and would likely tighten the
+bound; the present width-only result should be read as the conservative,
+pedestal-independent floor beneath the primary TeV constraint.
 
-The G1 interval ($T+246$--$256$\,s, $E\approx37$\,MeV) lies at or
-beyond the upper boundary of the GBM BGO detector range
-($4$--$35$\,MeV), so its line-width measurement carries larger
-systematic uncertainty than the later intervals.  Refitting the
-remaining six intervals gives a best fit at $r_{\rm foam,0}=0$,
-$r_{\rm int}=0.109$, with $\chi^2_{\rm min}=4.4$ over five effective
-degrees of freedom, and a $95\%$~CL profile boundary at
-$r_{\rm foam,0}^{\rm max}=0.27$ paired with $r_{\rm int}=0.066$ ---
-yielding $\alpha\gtrsim 0.63$, statistically indistinguishable from
-the all-seven-interval bound.  G1's large fractional uncertainty
-($\sim 40\%$) gives it little weight in the $\chi^2$ despite its
-position at the top of the lever arm.
-
-At the bound ($\sigma_\Delta\gtrsim\tau_G$), Eq.~\eqref{eq:g1obs_gauss}
-predicts two effects: line-width broadening --- which the fit constrains
-via $r_{\rm foam,0}^{\rm max}=0.27$ --- and a line-center redshift
-$\nu_0^{\rm eff}/\nu_0 = \tau_G^2/(\tau_G^2+\sigma_\Delta^2)$ that
-becomes substantial there ($\nu_0^{\rm eff}/\nu_0\approx 0.06$ at
-$\sigma_\Delta/\tau_G\approx 4.1$).  The lever-arm fit constrains only
-the former, using observed line centers as if intrinsic.  Closing
-the gap requires either~(i) an independent constraint on the per-epoch
-bulk Doppler factor $\mathcal{D}_i$ --- from afterglow blastwave
-modeling, TeV-photon photosphere arguments, or variability-timescale
-estimates --- that pins the pre-foam centroid, or~(ii) detection of a
-second emission line of known rest-frame energy whose distinct
-$\tau_G(E)$ would produce a different foam-redshift factor in the same
-epoch and thereby separate $\mathcal{D}_i$ from the foam shift.
-Neither is available in the present dataset.  The bound is therefore
-weaker than what a joint fit would yield, and at the upper limit it is
-moreover not internally self-consistent: with $\sigma_\Delta^2/\tau_G^2
-\propto E^2$, the foam-induced centroid factor $\nu_0^{\rm eff}/\nu_0$
-would vary across the data range from $\approx 0.06$ at
-$E=37$\,MeV to $\approx 0.7$ at $E=6$\,MeV, producing a strongly
-energy-dependent depression of the observed centroid that is visibly
-inconsistent with the smooth $E_{\rm line}\propto t^{-1}$
-Doppler-deceleration trend in the data.  A joint center-plus-width fit
-would quantify this and likely tighten the bound substantially.
-
-If the intrinsic fractional width $r_{\rm int}$ evolves with
-energy (e.g.\ due to changing pair-plasma temperature across epochs),
-this could partially mimic or mask a foam signal.  Marginalizing over a
-free linear-in-$E$ nuisance term $r_{\rm int}(E) = r_0 + r_1(E/E_0)$
-leaves the bound essentially unchanged
-($\alpha\gtrsim 0.63$), because the $E^2$ foam scaling has
-distinct curvature from a linear intrinsic trend across the
-lever arm.  Numerically, the best-fit linear slope
-$r_1$ is consistent with zero and, although the 95\%~CL upper limit
-on $r_{\rm foam,0}$ broadens from $0.27$ to $0.31$ when the nuisance
-is included, the corresponding $\alpha$ bound shifts by
-$\Delta\alpha\approx 3\times 10^{-3}$ --- a direct consequence of the
-logarithmic compression in the Ng--Perlman
-relation --- confirming that the $E^2$ and linear-$E$ shapes are
-effectively orthogonal for the seven-point lever-arm spanning
-$9$--$37$~MeV.
+% ==============================================================
+% [VERIFY] CHECKLIST for integration (remove before submission):
+%   1. Eq.~\eqref{eq:tev_sigmaphi}: LHAASO photon count N and
+%      EBL-corrected expected count N_0. Do NOT invent; insert from
+%      LHAASO2024 + intrinsic-fluence model. Confirm
+%      sigma_{phi,max}^2 = ln(N_0/N) = O(few).
+%   2. Eq.~\eqref{eq:alpha_grb_tev}: numerical alpha_TeV. Recompute from
+%      the verified sigma_{phi,max}^2 and the chosen representative
+%      photon energy E_TeV (expected alpha >~ 0.66-0.73). State E_TeV.
+%   3. Representative E_TeV / lambda_obs(E_TeV) used in the numerator
+%      ln(2 pi D_C / lambda_obs): confirm against the actual LHAASO
+%      spectral range (sub-TeV to ~13 TeV).
+%   4. Cross-check that the pedestal-bandwidth number ~1/tau_foam ~
+%      c/ell_P ~ 1e43 Hz and the source/pedestal ratio ~1e-16 are
+%      consistent with the CMB-section values (~6e42 Hz, Eq. R_lorentzian).
+% ==============================================================
 
 % ==============================================================
 \subsection{CMB}
@@ -1634,5 +1651,133 @@ We thank Robin Kaiser for helpful discussions that helped motivate this work.
 
 \bibliographystyle{apsrev4-2}
 \bibliography{../references}
+\appendix
+
+\section{Prescription Dependence of the Accumulated Phase Variance at High Redshift}
+\label{app:prescription}
+
+Throughout this article we adopt the Ng--Perlman convention in which
+\emph{comoving} distance is the distance measure for the path-length
+statistics, including the differential variance elements below. The per-shell
+element $\delta\ell^2(D_C)$ carries no explicit redshift dependence; the
+redshift weighting enters only through the local wavenumber. This convention is
+held fixed throughout. The two prescriptions distinguished below share this
+comoving measure, yet the redshift weighting still forces different $A$
+normalizations for $\alpha\neq1/2$.
+
+\subsection{The two anchorings of the Ng--Perlman convention}
+
+The Ng--Perlman prescription for the accumulated phase variance is calibrated
+at the level of the \emph{total} line-of-sight distance,
+\begin{equation}
+  \sigma_\phi^2(D)
+  = A\left(\frac{D}{\ell_P}\right)^{2-2\alpha} k^2 \ell_P^2 ,
+  \label{eq:np-total}
+\end{equation}
+where $A$ is a dimensionless amplitude, $\alpha$ is the foam exponent
+($\alpha=1/2$ for the random-walk model, $\alpha=2/3$ for the holographic
+model, $\alpha=1$ for the most conservative scaling), and $k=2\pi/\lambda$ is
+the wavenumber of the propagating radiation. In a flat, static geometry with a
+single source distance, Eq.~\eqref{eq:np-total} is unambiguous: there is one
+distance $D$, one wavenumber $k$, and one amplitude $A$.
+
+Extending this prescription to a cosmological line of sight along an FLRW ray
+requires accumulating the variance shell-by-shell, with the local wavenumber
+in each shell blueshifted relative to the observer,
+$k_{\rm local}(z') = (2\pi/\lambda_{\rm obs})(1+z')$. Phase is counted
+crest-by-crest in the local rest frame, so the differential variance element
+is weighted by $k_{\rm local}^2(z')$,
+\begin{equation}
+  \sigma_\phi^2(\text{obs})
+  = \left(\frac{2\pi}{\lambda_{\rm obs}}\right)^2
+    \int (1+z')^2 \, d\sigma_\ell^2(D_C),
+  \label{eq:diff-accum}
+\end{equation}
+with the path-length statistics anchored in comoving distance $D_C$. The
+factor $(1+z')^2$ (i.e. $p=2$) follows from retaining the comoving anchoring of
+the path element while applying the $k^2$ weighting per shell in the proper
+frame.
+
+The difficulty exposed at high redshift is that
+Eq.~\eqref{eq:diff-accum} and Eq.~\eqref{eq:np-total} are \emph{not} the same
+prescription for $\alpha \neq 1/2$, even at fixed amplitude $A$. The
+total-distance formula~\eqref{eq:np-total} is a nonlinear (power-law) function
+of $D$, so its differential element,
+\begin{equation}
+  \frac{d\sigma_\ell^2}{dD_C}
+  \propto (2-2\alpha)\left(\frac{D_C}{\ell_P}\right)^{1-2\alpha},
+  \label{eq:diff-element}
+\end{equation}
+is not the integrand of a naive linear accumulation. Re-integrating
+Eq.~\eqref{eq:diff-element} with the $(1+z')^2$ weighting inserted does not
+return Eq.~\eqref{eq:np-total} in the no-redshift limit unless $\alpha=1/2$,
+where the variance is linear in $D$ and differentiation commutes trivially with
+accumulation. Consequently there are two distinct prescriptions:
+
+\paragraph{Differential-primary.} The per-shell variance element is defined
+from local Planck-cell physics in the shell rest frame, weighted by
+$k_{\rm local}^2$, and integrated. The amplitude $A$ is fixed at the
+differential level; the total-distance formula becomes a derived,
+redshift-dependent output that need not reproduce Eq.~\eqref{eq:np-total} for
+$\alpha\neq 1/2$. This anchoring is physically preferred, as the per-shell
+construction is where the foam physics resides.
+
+\paragraph{Total-primary.} The no-redshift limit is required to reproduce the
+calibrated total-distance formula~\eqref{eq:np-total} exactly, and the
+differential element is defined as $d/dD_C$ of that formula,
+Eq.~\eqref{eq:diff-element}, with the redshift weighting attached afterward.
+This preserves continuity with the literature's calibration of $A$ but carries
+the $(2-2\alpha)$ prefactor and the $(D_C/\ell_P)^{1-2\alpha}$ shape into the
+high-$z$ weighting.
+
+\subsection{Why the ambiguity is invisible below the CMB}
+
+For $\alpha=1/2$ the two prescriptions coincide identically. For
+$\alpha\neq1/2$ they diverge, but the divergence is negligible in every regime
+previously tested. Low-redshift and single-source geometries (e.g.\ GRB
+phase-coherence bounds) satisfy two conditions simultaneously: the integration
+range is short enough that the $(1+z')^2$ weighting is $\approx 1$, and the
+power-law nonlinearity in Eq.~\eqref{eq:np-total} is mild over that range. Both
+conditions fail maximally for the CMB at $z\approx1100$: the $(1+z')^2$ weight
+is dominated entirely by the high-$z$ end of the integral, and the
+$(D_C/\ell_P)^{2-2\alpha}$ nonlinearity is probed over its full dynamic range.
+The CMB is therefore the first observable for which the choice between the
+differential-primary and total-primary anchorings produces a materially
+different bound on the foam amplitude.
+
+\subsection{Quantifying the prescription dependence}
+
+If the two prescriptions are forced to share the same total variance
+$\sigma_\phi^2(D)$ for a given observable, they require different amplitudes $A$;
+the fractional difference $\Delta A / A$ measures the prescription dependence
+of the inferred bound.
+
+% CLAUDE: Build a table here of the fractional difference in A between the
+% differential-primary and total-primary prescriptions, under the constraint
+% that the two models share the same sigma_phi^2(D) for each observable.
+% Rows: the two observables, GRB and CMB (use representative z: GRB at z~1-9,
+% CMB at z~1100). Columns: alpha = 0.5, 2/3, 1. At alpha = 0.5 the entry must
+% be exactly zero (the prescriptions coincide). Caption should note that the
+% GRB column demonstrates the historical invisibility of the ambiguity and the
+% CMB column demonstrates that the bound is prescription-limited rather than
+% data-limited at the largest entries. Fill in the fiducial cosmology used.
+
+A nonzero entry in the CMB column establishes that the CMB constraint on
+spacetime foam is prescription-limited rather than data-limited: the quoted
+bound is well-defined only because earlier work had not pushed to redshifts
+large enough to expose the anchoring ambiguity. The corresponding GRB entries,
+which remain small, confirm that the historical bounds were insensitive to the
+choice.
+
+\subsection{On the existence of a fundamental amplitude}
+
+The ambiguity is partly dissolved if a first-principles value of $A$ exists at
+the cell level---for instance one fixed by a fluctuation-dissipation or
+holographic-entropy argument rather than by total-distance phenomenology. Such
+a calibration would privilege the differential-primary prescription, since the
+foam physics would then select the anchoring directly. We note this explicitly
+because the question ``which $A$ is fundamental?'' determines which column of
+the table represents a genuine physical bound and which represents only a
+phenomenological extrapolation.
 
 \end{document}
