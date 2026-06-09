@@ -109,9 +109,9 @@ report(f1)
 A_hat, A_err = f1['theta'][4], f1['err'][4]
 A_ul95 = max(A_hat, 0.0) + 1.645 * A_err
 print(f"\n  A_eff = ({A_hat:+.3e} +/- {A_err:.3e}) m^2")
-print(f"  sigma(A_eff) = {A_err:.3e} m^2   ->  alpha <~ {alpha_from_Aeff(A_err):.3f}"
-      f"   [Fisher forecast 2.2e-11, alpha<~0.52]")
-print(f"  95% UL  A_eff < {A_ul95:.3e} m^2  ->  alpha <~ {alpha_from_Aeff(A_ul95):.3f}")
+print(f"  sigma(A_eff) = {A_err:.3e} m^2   ->  alpha >~ {alpha_from_Aeff(A_err):.3f}"
+      f"   [Fisher forecast 2.2e-11, alpha>~0.52]")
+print(f"  95% UL  A_eff < {A_ul95:.3e} m^2  ->  alpha >~ {alpha_from_Aeff(A_ul95):.3f}")
 
 # ── (2b) T0/mu/y uncertainty inflation from adding the foam parameter ─────────
 print("\n" + "="*70 + "\nUNCERTAINTY INFLATION from the extra (foam) parameter, FULL cov\n" + "="*70)
@@ -150,4 +150,4 @@ for lbl, cols, names in [
 ]:
     f = gls(cols, names, C if 'full' in lbl else Cdiag)
     sA = f['err'][-1]
-    print(f"  {lbl:22s}: sigma(A_eff)={sA:.3e} m^2  ->  alpha <~ {alpha_from_Aeff(sA):.3f}")
+    print(f"  {lbl:22s}: sigma(A_eff)={sA:.3e} m^2  ->  alpha >~ {alpha_from_Aeff(sA):.3f}")
