@@ -32,7 +32,7 @@ Foam templates (linearized, C_alpha->0):
 """
 
 import numpy as np
-from scipy import constants
+from scipy import constants, integrate
 from scipy.optimize import brentq
 
 h, k_B, c = constants.h, constants.k, constants.c
@@ -42,8 +42,21 @@ T0    = 2.7255                        # K
 MJy   = 1e-20                         # W m^-2 Hz^-1 sr^-1
 LOG_DC = np.log(D_C / ell_P)          # ~141 ; 2*LOG_DC ~ 282
 
+# Total-primary (derivative-of-total) (1+z')^2 weighting (Appendix app:prescription): ENH(a)=<(1+z')^2>
+# = INT (1+z')^2 d(D_C^{2-2a}) / D_C(LS)^{2-2a}, alpha-dependent; integrated in u=D_C^{2-2a}.
+_Om, _OL, _Or, _H0 = 0.315, 0.685, 9.2e-5, 67.36       # Planck 2018 (Aghanim2020) + radiation
+_DH, _Mpc, _z_LS = 299792.458/_H0, 3.0856775814913673e22, 1089.8
+_zg  = np.linspace(0.0, _z_LS, 60000)
+_DCg = _DH * integrate.cumulative_trapezoid(
+    1.0/np.sqrt(_Om*(1+_zg)**3 + _OL + _Or*(1+_zg)**4), _zg, initial=0.0) * _Mpc
+_pz2 = (1.0 + _zg)**2
+
+def ENH(a):
+    u = np.power(_DCg, 2 - 2*a)
+    return np.trapezoid(_pz2, u) / u[-1]
+
 def A_eff_of_alpha(alpha, A_alpha=1.0):
-    return A_alpha * D_C**(2*(1 - alpha)) * ell_P**(2*alpha)
+    return A_alpha * ENH(alpha) * D_C**(2*(1 - alpha)) * ell_P**(2*alpha)
 
 def templates(nu, pedestal):
     """Return derivative templates (dI/dA, dI/dT0, dI/dmu, dI/dy) on grid nu."""
@@ -106,14 +119,14 @@ for tmpl, ped in [('NO-PEDESTAL (physical)', False), ('ADVERSARIAL pedestal', Tr
         print(f"  {label:32s}  {rho[0,2]:10.4f}  {rho[0,1]:10.4f}  {rho[0,3]:9.4f}  {R:22.4e}")
 
 # ---------------------------------------------------------------------------
-# Threshold relative to FIRAS anchor alpha<=0.56, isolating the R-reduction gain
+# Threshold relative to FIRAS anchor alpha>=0.55, isolating the R-reduction gain
 # ---------------------------------------------------------------------------
 print("\n" + "="*88)
-print("FOAM THRESHOLD  (anchored to paper FIRAS alpha<=0.56; physical no-pedestal)")
+print("FOAM THRESHOLD  (anchored to paper FIRAS alpha>=0.55; physical no-pedestal)")
 print("="*88)
 tmpl = 'NO-PEDESTAL (physical)'
 R_firas = results[(tmpl, 'FIRAS            (60-600 GHz)')][3]
-alpha_anchor = 0.52   # corrected FIRAS no-pedestal threshold (normalization fixed)
+alpha_anchor = 0.55   # FIRAS no-pedestal threshold, (1+z')^2 weighted (App. prescription)
 
 def alpha_threshold(sigma_A):
     return brentq(lambda a: A_eff_of_alpha(a) - sigma_A, 0.45, 0.75)

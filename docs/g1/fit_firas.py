@@ -26,7 +26,7 @@ GLS:  theta = (M^T C^-1 M)^-1 M^T C^-1 r ,  Cov = (M^T C^-1 M)^-1.
 """
 
 import numpy as np
-from scipy import constants
+from scipy import constants, integrate
 from scipy.optimize import brentq
 from astropy.io import fits
 
@@ -37,8 +37,23 @@ T0    = 2.725
 GHz_per_cm = 29.9792458
 kJy   = 1e-23
 
+# Total-primary (derivative-of-total) (1+z')^2 weighting (Appendix app:prescription): each comoving
+# shell radiates at its blueshifted local wavenumber k_local=(2pi/lambda_obs)(1+z'),
+# multiplying the bare Ng-Perlman variance by ENH(a)=<(1+z')^2>=INT(1+z')^2 d(D_C^{2-2a})
+# / D_C(LS)^{2-2a} (alpha-dependent).  Integrated in the variance coordinate u=D_C^{2-2a}.
+_Om, _OL, _Or, _H0 = 0.315, 0.685, 9.2e-5, 67.36       # Planck 2018 (Aghanim2020) + radiation
+_DH, _Mpc, _z_LS = 299792.458/_H0, 3.0856775814913673e22, 1089.8
+_zg  = np.linspace(0.0, _z_LS, 60000)
+_DCg = _DH * integrate.cumulative_trapezoid(
+    1.0/np.sqrt(_Om*(1+_zg)**3 + _OL + _Or*(1+_zg)**4), _zg, initial=0.0) * _Mpc
+_pz2 = (1.0 + _zg)**2
+
+def ENH(a):
+    u = np.power(_DCg, 2 - 2*a)
+    return np.trapezoid(_pz2, u) / u[-1]
+
 def A_eff_of_alpha(a, A_alpha=1.0):
-    return A_alpha * D_C**(2*(1 - a)) * ell_P**(2*a)
+    return A_alpha * ENH(a) * D_C**(2*(1 - a)) * ell_P**(2*a)
 
 # ── monopole residual spectrum ────────────────────────────────────────────────
 d = np.genfromtxt('data/firas_monopole_spec_v1.txt', comments='#')
@@ -110,7 +125,7 @@ A_hat, A_err = f1['theta'][4], f1['err'][4]
 A_ul95 = max(A_hat, 0.0) + 1.645 * A_err
 print(f"\n  A_eff = ({A_hat:+.3e} +/- {A_err:.3e}) m^2")
 print(f"  sigma(A_eff) = {A_err:.3e} m^2   ->  alpha >~ {alpha_from_Aeff(A_err):.3f}"
-      f"   [Fisher forecast 2.2e-11, alpha>~0.52]")
+      f"   [Fisher forecast 2.2e-11, alpha>~0.55]")
 print(f"  95% UL  A_eff < {A_ul95:.3e} m^2  ->  alpha >~ {alpha_from_Aeff(A_ul95):.3f}")
 
 # ── (2b) T0/mu/y uncertainty inflation from adding the foam parameter ─────────

@@ -52,15 +52,31 @@ plt.rcParams.update({
 })
 
 # ── Physical / cosmological constants ─────────────────────────────────────────
+from scipy import integrate
 ell_P  = 1.616e-35          # Planck length [m]
 D_C    = 13.87e3 * 3.0857e22  # 13.87 Gpc [m]
 
-# Observed-frame amplitude: the foam phase variance is sigma_phi^2 =
-# (2pi/lambda_obs)^2 sigma_ell^2(D_C) with the OBSERVED wavelength and the bare
-# Ng-Perlman variance sigma_ell^2(D_C) = D_C^{2(1-a)} ell_P^{2a}.  No (1+z')^2
-# enhancement is applied (g^(1) = exp(-1/2 omega_obs^2 sigma_Delta^2) is already
-# observer-frame; the comoving (1+z')^2 reweighting was a frame-inconsistent add-on).
-ENH    = 1.0               # no cosmological enhancement
+# Total-primary (derivative-of-total) (1+z')^2 weighting (Appendix app:prescription).  The
+# accumulated phase variance is sigma_phi^2 = (2pi/lambda_obs)^2 INT (1+z')^2
+# d sigma_ell^2(D_C): each comoving shell contributes at its blueshifted local
+# wavenumber k_local = (2pi/lambda_obs)(1+z').  This multiplies the bare Ng-Perlman
+# variance sigma_ell^2(D_C)=D_C^{2(1-a)} ell_P^{2a} by the variance-weighted average
+# ENH(a) = <(1+z')^2> = INT (1+z')^2 d(D_C^{2-2a}) / D_C(LS)^{2-2a}, alpha-dependent
+# (differential-primary anchoring, the physically preferred one).  Integrated in the
+# variance coordinate u = D_C^{2-2a} for numerical stability.
+_Om, _OL, _Or, _H0 = 0.315, 0.685, 9.2e-5, 67.36     # Planck 2018 (Aghanim2020) + radiation
+_DH  = 299792.458 / _H0                               # Hubble distance [Mpc]
+_Mpc = 3.0856775814913673e22
+_z_LS = 1089.8
+_zg  = np.linspace(0.0, _z_LS, 60000)
+_Ez  = np.sqrt(_Om*(1+_zg)**3 + _OL + _Or*(1+_zg)**4)
+_DCg = _DH * integrate.cumulative_trapezoid(1.0/_Ez, _zg, initial=0.0) * _Mpc   # [m]
+_pz2 = (1.0 + _zg)**2
+
+def ENH(a):
+    """Total-primary (derivative-of-total) <(1+z')^2> enhancement at exponent alpha (alpha-dependent)."""
+    u = np.power(_DCg, 2 - 2*a)
+    return np.trapezoid(_pz2, u) / u[-1]
 
 # ── Fisher-matrix results from fisher_firas.py (correctly normalized) ─────────
 # Per-channel diagonal Fisher F = sum_ch dI_i dI_j / sigma^2 (no bandwidth factor).
@@ -86,8 +102,12 @@ sig_A_cond_VOY    = sig_A_cond_FIRAS / VOY_factor
 alpha = np.linspace(0.45, 0.70, 1000)
 
 def A_eff(a):
-    """Foam amplitude A_eff(alpha) = D_C^{2(1-a)} * ell_P^{2a} (observed frame, ENH=1)."""
-    return ENH * D_C**(2*(1 - a)) * ell_P**(2*a)
+    """Foam amplitude A_eff(alpha) = ENH(alpha) * D_C^{2(1-a)} * ell_P^{2a}
+    with the differential-primary (1+z')^2 weighting (App. app:prescription)."""
+    base = D_C**(2*(1 - a)) * ell_P**(2*a)
+    if np.ndim(a) == 0:
+        return ENH(a) * base
+    return np.array([ENH(ai) for ai in a]) * base
 
 Ae = A_eff(alpha)
 
@@ -102,7 +122,7 @@ snr_VOY_marg    = Ae / sig_A_marg_VOY
 snr_VOY_cond    = Ae / sig_A_cond_VOY
 
 # ── Reference alpha values ────────────────────────────────────────────────────
-alpha_FIRAS_threshold = 0.52    # marginal SNR=1.645 (FIRAS, observed-frame)
+alpha_FIRAS_threshold = 0.55    # marginal SNR=1.645 (FIRAS, (1+z')^2 weighted)
 alpha_GRB             = 0.63    # GRB 221009A Zhang lower bound (headline, Eq. 24)
 alpha_holo            = 2/3     # holographic prediction
 
