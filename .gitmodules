@@ -1,0 +1,6 @@
+[submodule "g1"]
+	path = g1
+	url = git@github.com:AlexGKim/foam-g1.git
+[submodule "g2"]
+	path = g2
+	url = git@github.com:AlexGKim/foam-g2.git
