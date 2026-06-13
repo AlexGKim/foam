@@ -1,0 +1,39 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lot
+*.lof
+*.loc
+*.soc
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.swp
+*~
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+texput.log
+x.log
