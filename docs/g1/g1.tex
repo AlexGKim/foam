@@ -49,6 +49,10 @@ the bound saturating logarithmically as the foam deficit is nearly
 degenerate with a temperature shift. None of these bounds exclude
 the holographic value $\alpha = 2/3$, which would require a confirmed
 narrow spectral line at $E_{\rm obs} \gtrsim 720$\,MeV in a $z \sim 0.15$ GRB.
+A forecast for a narrow line at $\sim$1\,TeV --- whose survival at
+measurable absolute strength, rather than its width, supplies the
+constraint --- yields $\alpha \gtrsim 0.72$--$0.73$, which would
+exclude holographic foam.
 \end{abstract}
 
 \maketitle
@@ -154,7 +158,9 @@ spectrum into a coherent line core suppressed by $e^{-\sigma_\phi^2}$ and a
 broad pedestal, and connects them to the imaging Strehl ratio.
 Section~\ref{sec:sources} applies the spectral shape-distortion bound to two sources:
 GRB\,221009A (Section~\ref{sec:grb221009a}) and the CMB as observed by
-COBE/FIRAS (Section~\ref{sec:CMB}).
+COBE/FIRAS (Section~\ref{sec:CMB}), and derives the bound that a
+confirmed narrow TeV emission line would deliver
+(Section~\ref{sec:grb_tevline}).
 Section~\ref{sec:conclusions} summarizes the main results and outlines future
 observational directions.
 
@@ -704,7 +710,10 @@ broadband spectral energy distribution is distorted: the cosmic
 microwave background, expected to be a near-perfect blackbody, would
 acquire foam-induced deviations whose chromatic signature is distinct
 from standard chemical-potential and Compton-$y$ distortions.
-In this section we consider these two possibilities.
+In this section we consider these two possibilities, and add a
+forecast: the bound that would follow from a confirmed narrow
+emission line at TeV energies --- a feature not yet observed in any
+GRB (Section~\ref{sec:grb_tevline}).
 
 \subsection{GRB\,221009A}
 \label{sec:grb221009a}
@@ -987,7 +996,322 @@ pedestal-independent floor beneath the primary TeV constraint.
 %   4. Cross-check that the pedestal-bandwidth number ~1/tau_foam ~
 %      c/ell_P ~ 1e43 Hz and the source/pedestal ratio ~1e-16 are
 %      consistent with the CMB-section values (~6e42 Hz, Eq. R_lorentzian).
+%   5. Sec.~\ref{sec:grb_tevline}: three flagged inputs --- the LHAASO
+%      TeV-band E_iso (few x 10^51 erg), the EBL optical depth
+%      tau(1 TeV, z=0.151) ~ 0.5, and the line-fluence threshold
+%      Y ~ 3e-7 erg/cm^2. Each enters W only through (1/2)ln Z, so
+%      none can move the forecast by more than ~0.01.
 % ==============================================================
+
+% ==============================================================
+\subsection{Forecast: A Narrow TeV Emission Line}
+\label{sec:grb_tevline}
+
+No narrow spectral feature has yet been detected in the TeV emission
+of any GRB; this subsection is therefore a forecast --- the bound that
+\emph{would} follow from such a detection.  The logic chains five
+steps: (i) GRB emission models cap the isotropic-equivalent energy a
+narrow line at observed energy $E_0$ can carry at $X$; (ii) foam of
+exponent $\alpha$ damps the line into the broad pedestal of
+Eq.~\eqref{eq:robs_decomp} over the comoving distance $D_C$; (iii) a
+line is observed with absolute strength $Y$; (iv) survival of $Y$ caps
+the damping, $\sigma_\phi^2(E_0)\le Z$; (v) the cap inverts to a lower
+bound $\alpha\ge W$.  The probe combines the absolute-flux channel of
+Section~\ref{sec:grb_tev} --- with the model ceiling $X$ replacing the
+continuum-fluence prediction $N_0$ --- and the pedestal-independent
+width channel of Section~\ref{sec:grb_width}, at energies where the
+chromatic lever $\sigma_\phi\propto E$ is strongest.
+
+\subsubsection{The foam kernel for a narrow line}
+\label{sec:tevline_kernel}
+
+The operative mechanism is phase decoherence of the wavetrain by the
+dynamical jitter $\delta t(t)$, as throughout this paper.  Two
+neighboring mechanisms must be excluded explicitly.  Stochastic
+time-of-flight spreading alone --- each photon delayed but retaining
+its energy --- leaves the time-integrated spectrum unchanged and
+smears only light curves; a spectral effect requires either phase
+modulation \emph{within} a coherence time (elastic, the present
+framework) or genuine energy exchange with foam degrees of freedom
+(inelastic).  The inelastic alternative --- a random walk in photon
+energy with per-cell step $\delta E/E\sim(E/E_P)^\alpha$, where
+$E_P\equiv\hbar c/\ell_P=1.22\times10^{28}$\,eV is the Planck
+energy~\cite{NgvanDam2000,AmelinoCamelia2013}, accumulating to
+$\sigma_E/E=\sqrt{D_C/\ell_P}\,(E/E_P)^\alpha$ over the
+$N\sim D_C/\ell_P$ cells --- is dispatched in
+Table~\ref{tab:tevline}: it is excluded for all $\alpha\lesssim1.9$
+by the existence of any sharp astrophysical spectral feature, and is
+not viable microphysics.  In the elastic framework the foam phase
+variance takes the compact form
+\begin{equation}
+  \sigma_\phi
+  \;=\; \frac{E_0}{E_P}\left(\frac{D_C}{\ell_P}\right)^{\!1-\alpha}
+  \;=\; \left(\frac{E_0}{E_P}\right)^{\!\alpha}
+        \left(\frac{D_C}{\bar\lambda_0}\right)^{\!1-\alpha},
+  \label{eq:tevline_sigmaphi}
+\end{equation}
+(Eqs.~\eqref{eq:NgPerlmanVar} and \eqref{eq:sigmaphi_cosmo} with
+$A_\alpha=1$ and the $\langle(1+z')^2\rangle$ weighting restored
+below; $\bar\lambda_0=\hbar c/E_0$), whose second form exhibits the
+per-cell Ng--van Dam factor $(E/E_P)^\alpha$ multiplied by the
+distance lever --- the number of reduced wavelengths along the path
+--- raised to the accumulation exponent.
+
+The spectral transfer is fixed by Eq.~\eqref{eq:Ffoam}: each source
+mode is convolved with the kernel
+\begin{equation}
+  K(\Delta E;E')
+    = \mathcal{F}\!\left\{e^{-\sigma_\phi^2(E')[1-C_\alpha(\tau)]}\right\},
+  \qquad
+  \int K\,d(\Delta E) = \mathcal{F}_{\rm foam}(0)=1,
+  \label{eq:tevline_K}
+\end{equation}
+unit-normalized because the phase modulation $e^{i\omega\delta t}$ is
+unitary: integrated power is conserved \emph{exactly}.  Because
+$\delta t$ is stationary with bounded variance,
+$\mathcal{F}_{\rm foam}(\tau)$ does not decay to zero at large lag but
+plateaus at $e^{-\sigma_\phi^2}$; splitting off the plateau and
+expanding the remainder,
+\begin{equation}
+  K(\Delta E) = e^{-\sigma_\phi^2}\,\delta(\Delta E)
+  \;+\; e^{-\sigma_\phi^2}\sum_{n\ge1}\frac{\sigma_\phi^{2n}}{n!}\,
+  L_n(\Delta E),
+  \qquad L_n \equiv \mathcal{F}\{C_\alpha^n\},
+  \label{eq:tevline_Ksplit}
+\end{equation}
+with each $L_n$ of width $\gtrsim\hbar/\tau_{\rm foam}$ (for the
+Markovian $C_\alpha$ of Section~\ref{sec:CMB_derivation}, a Lorentzian
+of width $n\hbar/\tau_{\rm foam}$).  For Planck-scale foam,
+$\hbar/\tau_{\rm foam}=\hbar c/\ell_P=E_P$: \emph{the pedestal is
+Planck-energy wide}.  The kernel is therefore bimodal --- a
+$\delta$-function core of weight $e^{-\sigma_\phi^2}$ plus a pedestal
+of weight $1-e^{-\sigma_\phi^2}$ spread over $\sim10^{16}$\,TeV ---
+the optical analogue of the Lamb--M\"ossbauer/Debye--Waller factor: a
+stationary Gaussian phase always leaves a ``recoilless'' carrier of
+weight $e^{-\langle\phi^2\rangle}$.  (A \emph{Wiener} phase, as in
+laser phase diffusion, has unbounded variance and no core, only a
+Lorentzian of width set by the diffusion coefficient; foam jitter is
+not of that class because $\sigma_\Delta^2(\tau)$ saturates,
+Eq.~\eqref{eq:diffVarExt}.)
+
+Convolving Eq.~\eqref{eq:tevline_Ksplit} with an intrinsic Gaussian
+line of integrated (isotropic-equivalent) energy $X$, centroid $E_0$,
+and $1\sigma$ width $\Gamma_0=r_{\rm int}E_0$ gives
+\begin{equation}
+  S_{\rm obs}(E)
+  = e^{-\sigma_\phi^2}\,S_{\rm src}(E)
+  + X\bigl(1-e^{-\sigma_\phi^2}\bigr)P(E-E_0),
+  \qquad P(0)\sim 1/E_P,
+  \label{eq:tevline_conv}
+\end{equation}
+so the pedestal-to-core ratio at the line peak is
+$\sim e^{\sigma_\phi^2}\,\Gamma_0/E_P$ with
+$\Gamma_0/E_P\approx 8\times10^{-18}$ at $E_0=1$\,TeV,
+$r_{\rm int}=0.1$: for any $\sigma_\phi^2\lesssim 35$ the pedestal
+under the line is invisible and
+\begin{equation}
+  S^{\rm peak}_{\rm obs} = e^{-\sigma_\phi^2}\,S^{\rm peak}_{\rm src},
+  \qquad
+  Y \equiv \int_{\rm line}\! S_{\rm obs}\,dE
+    = e^{-\sigma_\phi^2}\,X\,\bigl[1+\mathcal{O}(\Gamma_0/E_P)\bigr].
+  \label{eq:tevline_suppression}
+\end{equation}
+Power is conserved globally but not in band: ``smeared'' means spread
+over sixteen decades of energy (Assumption~(ii),
+Section~\ref{sec:grb_mechanism}).  The familiar intuition --- a
+Gaussian smearing kernel of growing width $\sigma_{\rm foam}$, with
+the peak dropping only as
+$\Gamma_0/\sqrt{\Gamma_0^2+\sigma_{\rm foam}^2}$ --- corresponds to
+the opposite time ordering $\tau_G\ll\tau_{\rm foam}$, in which the
+phase drift is frozen across each wavetrain and the ensemble of
+realizations Doppler-convolves the line.  Here
+$\tau_G=\hbar/\Gamma_0\approx 6.6\times10^{-27}$\,s, so
+$\tau_{\rm foam}/\tau_G\sim10^{-17}$: the smearing regime would
+require foam frozen for $\sim10^{17}$ Planck times, the temporal
+analogue of the long-range spatial correlations of
+Ref.~\cite{LeeZurekChen2024}.  In the physical dynamical regime the
+line dies by exponential amplitude drain long before it visibly
+distorts: from Eq.~\eqref{eq:Sobs_gauss} with
+$\sigma_\Delta^2/\tau_G^2 = 2r_{\rm int}^2\sigma_\phi^2$, the
+surviving core's centroid and fractional width are modified only at
+relative order $r_{\rm int}^2\sigma_\phi^2$,
+\begin{equation}
+  E^{\rm eff}_{\rm line} = \frac{E_0}{1+2r_{\rm int}^2\sigma_\phi^2},
+  \qquad
+  r_{\rm obs}^2 = r_{\rm int}^2\bigl(1+2r_{\rm int}^2\sigma_\phi^2\bigr),
+  \label{eq:tevline_shape}
+\end{equation}
+suppressed relative to the $e^{-\sigma_\phi^2}$ amplitude channel by
+the extra factor $r_{\rm int}^2\sim10^{-2}$.  This hierarchy ---
+exponential in amplitude, quadratic and $r_{\rm int}^2$-suppressed in
+shape --- is why a smearing-based estimate misjudges both the
+functional form and the strength of the bound.
+
+\subsubsection{The observable and the bound}
+\label{sec:tevline_bound}
+
+The observable doing the work is the \emph{detection of the line at
+absolute strength}: $Y$ is the background-subtracted, absolutely
+calibrated line fluence ($\mathrm{erg\,cm^{-2}}$) in the resolution
+element containing the feature.  It must be absolute: the
+line-to-continuum contrast and the equivalent width are foam-blind,
+since the continuum at the same energy is suppressed by the identical
+$e^{-\sigma_\phi^2(E)}$ and the ratio cancels
+(Section~\ref{sec:grb_absolute}).  The external reference is the
+burst's energy budget measured in the keV--MeV bands, and that
+reference is itself clean because $\sigma_\phi^2\propto E^2$: at the
+bound derived below, the MeV-band suppression is
+$1-e^{-\sigma_\phi^2({\rm MeV})}\sim10^{-11}$, closing what would
+otherwise be a circularity.  The non-detection of broadening
+($r_{\rm obs}$ consistent with $r_{\rm int}$ plus instrumental
+resolution) supplies the secondary, pedestal-independent channel,
+exactly as in Section~\ref{sec:grb_width}.
+
+The chain, keeping every factor: with true intrinsic line energy
+$X_{\rm true}\le X$ at redshift $z$,
+\begin{equation}
+  Y = e^{-\sigma_\phi^2}\,e^{-\tau_{\rm EBL}(E_0,z)}\,
+      \frac{(1+z)\,X_{\rm true}}{4\pi d_L^2}
+  \qquad\Longrightarrow\qquad
+  \sigma_\phi^2 \;\le\;
+  \ln\!\frac{(1+z)\,X}{4\pi d_L^2\,Y\,e^{\tau_{\rm EBL}}}
+  \;\equiv\; Z,
+  \label{eq:tevline_Z}
+\end{equation}
+with $d_L=(1+z)D_C$ the luminosity distance and the
+extragalactic-background-light (EBL) optical depth kept explicit.
+Substituting
+$\sigma_\phi^2 = A_\alpha\langle(1+z')^2\rangle_{D_C}
+(E_0/E_P)^2(D_C/\ell_P)^{2(1-\alpha)}$ --- with $E_0$ the
+\emph{observed-frame} line energy, the emitted frame entering only
+through the $\langle(1+z')^2\rangle$ shell weighting of
+Eq.~\eqref{eq:sigmaphi_cosmo} --- and solving,
+\begin{equation}
+  \alpha \;\ge\; W
+  = 1 - \frac{\ln(E_P/E_0)
+        - \tfrac12\ln\langle(1+z')^2\rangle_{D_C}
+        - \tfrac12\ln A_\alpha
+        + \tfrac12\ln Z}
+       {\ln(D_C/\ell_P)},
+  \label{eq:tevline_W}
+\end{equation}
+the line-detection analogue of Eq.~\eqref{eq:alpha_grb_tev}
+[$\ln(2\pi D_C/\lambda_{\rm obs}) = \ln(D_C/\ell_P)-\ln(E_P/E_0)$].
+Order-unity ambiguities enter only inside half-logarithms: the
+convention $A_\alpha=1$ (a factor of $10$ either way moves $W$ by
+$\mp0.008$), the peak-versus-integrated-core definition of $Y$
+(identical to $\mathcal{O}(\Gamma_0/E_P)$), and the factor-of-two
+conventions among $\sigma_\ell$, $\sigma_\Delta$, and $\sigma_\phi$
+(fixed by Eqs.~\eqref{eq:diffVarExt}--\eqref{eq:sigmaphi_cosmo}).
+The entire astrophysics of the ceiling and the detection enters as
+$\tfrac12\ln Z$ against the denominator
+$\ln(D_C/\ell_P)\approx138$: the bound is a double logarithm of the
+model-dependent inputs.
+
+Fiducial inputs: a line at $E_0=1$\,TeV observed
+[$\ln(E_P/E_0)=37.0$] from a $z=0.151$ burst
+[$D_C=2.0\times10^{25}$\,m, $\ln(D_C/\ell_P)=138.4$,
+$4\pi d_L^2=6.7\times10^{55}\,\mathrm{cm^2}$,
+$\tfrac12\ln\langle(1+z')^2\rangle=0.07$]; intrinsic fractional width
+$r_{\rm int}=0.10$, anchored to the measured, epoch-invariant
+fractional width of the GRB\,221009A MeV line
+(Section~\ref{sec:grb_width}) --- the one empirical calibration of a
+GRB line width --- with instrumental resolution giving
+$r_{\rm max}\approx0.15$; EBL optical depth
+$\tau_{\rm EBL}(1\,\mathrm{TeV},z=0.151)\approx0.5$;\verify{EBL
+optical depth from a standard model (Dom\'inguez-class); reference
+not yet in the bibliography.} and detection threshold
+$Y=3\times10^{-7}\,\mathrm{erg\,cm^{-2}}$ ($\approx0.5\%$ of a
+GRB\,221009A-like TeV continuum fluence in one resolution
+element).\verify{Line-fluence threshold for LHAASO/CTA-class response
+to a $\sim10^3$\,s transient; confirm against published
+sensitivities.}  For the ceiling $X$ we bracket: the generous choice
+puts the \emph{entire} TeV-band isotropic-equivalent output of a
+GRB\,221009A-like burst, $X=3\times10^{51}$\,erg, into the
+line;\verify{LHAASO TeV-band $E_{\rm iso}$ (few$\,\times10^{51}$\,erg);
+confirm against the LHAASO detection papers.} the modeled choice caps
+the line at a few percent of the contemporaneous band power
+($X=10^{50}$\,erg), the fraction carried by the MeV
+feature~\cite{Ravasio2024}.  These give $Z=\ln(X/X_Y)=4.6$ and $1.2$
+respectively, where
+$X_Y\equiv 4\pi d_L^2\,Y\,e^{\tau_{\rm EBL}}/(1+z)
+=2.9\times10^{49}$\,erg is the isotropic-equivalent energy of a
+threshold detection, and Eq.~\eqref{eq:tevline_W} evaluates to
+\begin{equation}
+  W = 1-\frac{37.0-0.07+0.77}{138.4}=0.727
+  \quad(\text{generous } X),
+  \qquad
+  W = 0.732 \quad(\text{modeled } X).
+  \label{eq:tevline_Wnum}
+\end{equation}
+At the bound, $\sigma_\phi^2=Z\approx4.6$ gives shape distortions
+$2r_{\rm int}^2\sigma_\phi^2\approx0.09$ --- centroid depressed
+$9\%$, width inflated $5\%$ (Eq.~\eqref{eq:tevline_shape}) --- so a
+sharp line at strength $Y$ is internally consistent with the maximal
+allowed damping, and the forecast does not contradict its own
+premise.  Table~\ref{tab:tevline} compares the defensible kernel
+conventions and observation channels; all elastic conventions land in
+$W=0.72$--$0.75$, and we quote the primary physical channel
+conservatively as
+\begin{equation}
+  \alpha \;\gtrsim\; 0.72\text{--}0.73 .
+  \label{eq:tevline_headline}
+\end{equation}
+
+\begin{table}[h]
+\caption{Forecast lower bounds $W$ on the foam exponent $\alpha$ from
+a confirmed narrow TeV emission line, under the defensible kernel
+conventions and observation channels (fiducial $E_0=1$\,TeV,
+$z=0.151$, $r_{\rm int}=0.10$, $r_{\rm max}=0.15$ unless noted;
+$A_\alpha=1$).  The first row is the physical primary channel; the
+second is the pedestal-independent floor, immune to the
+light-tailed-kernel loophole of Section~\ref{sec:grb_loophole}; the
+third requires foam temporal correlations of $\gtrsim10^{17}\,t_P$
+and is listed as the alternative convention (the identification
+$\sigma_{\rm foam}/E_0=\sigma_\phi$ follows
+Ref.~\cite{LieuHillman2003}); the fourth is excluded as a model class
+by the existence of any sharp astrophysical spectral feature and is
+shown for completeness.}
+\label{tab:tevline}
+\begin{ruledtabular}
+\begin{tabular}{llc}
+Kernel / channel & damping constraint & $W$ \\
+\hline
+Debye--Waller core, absolute fluence &
+  $\sigma_\phi^2\le\ln(X/X_Y)\approx1.2$--$4.6$ & $0.73$ \\
+Same kernel, width channel &
+  $\sigma_\phi^2\le(r_{\rm max}^2-r_{\rm int}^2)/(2r_{\rm int}^4)\approx62$ & $0.72$ \\
+Slow-foam Gaussian smearing ($\tau_{\rm foam}\gg\tau_G$) &
+  $\sigma_\phi\le\sqrt{r_{\rm max}^2-r_{\rm int}^2}\approx0.11$ & $0.75$ \\
+Inelastic energy random walk &
+  $\sqrt{D_C/\ell_P}\,(E_0/E_P)^\alpha\le0.11$ & all $\alpha\lesssim1.9$ excluded \\
+Variant: $z=1$, $E_0=0.3$\,TeV (EBL-limited) &
+  $\sigma_\phi^2\le Z\approx0.9$ & $0.73$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The uncertainty budget inverts the natural expectation: the distance
+lever arm is \emph{not} dominant.  Moving the source from $z=0.151$
+to $z=1$ changes $\ln(D_C/\ell_P)$ from $138.4$ to $140.0$ and $W$ by
+only $+0.006$, while costing flux as $d_L^{-2}$ and EBL attenuation
+exponentially --- at $z=1$ a $1$\,TeV line is undetectable within any
+plausible energy budget, and the EBL-limited variant
+($E_0\approx0.3$\,TeV, Table~\ref{tab:tevline}) returns the same
+$W\approx0.73$.  The optimal target is therefore a
+\emph{low-redshift, ultra-bright} burst at the \emph{highest}
+accessible line energy --- precisely the GRB\,221009A configuration.
+What dominates instead is the kernel/regime convention (spread
+$0.72$--$0.75$, a model-structure rather than measurement
+uncertainty) and the line energy ($E_0=0.3$--$10$\,TeV moves $W$ by
+$\mp0.012$); three decades in the ceiling-to-threshold ratio $X/X_Y$
+move $W$ by $0.011$, the amplitude convention $A_\alpha\in[0.1,10]$
+by $\pm0.008$, and the EBL model and the anchoring prescription of
+Appendix~\ref{app:prescription} by $<10^{-3}$ each at the fiducial
+redshift.  Any confirmed narrow TeV line in a low-redshift GRB would
+therefore force $\alpha\gtrsim0.72$, excluding the holographic value
+$\alpha=2/3$ outright and leaving only nearly-coherent foam
+($\alpha\gtrsim0.73$ under the primary channel) viable.
 
 % ==============================================================
 \subsection{CMB}
@@ -1548,7 +1872,10 @@ $\alpha\gtrsim 0.55$ ($95\%$ CL); next-generation
 spectrometers (PIXIE, SuperPIXIE, Voyage~2050) reach only
 $\alpha\gtrsim 0.58$--$0.59$, the bound saturating logarithmically
 because the foam deficit is nearly degenerate with a temperature shift.
-None of these bounds exclude the holographic value $\alpha=2/3$.
+None of these bounds exclude the holographic value $\alpha=2/3$; a
+confirmed narrow emission line at $\sim$1\,TeV in a low-redshift GRB
+would, forcing $\alpha\gtrsim0.72$--$0.73$
+(Section~\ref{sec:grb_tevline}).
 
 All single-source spectroscopic bounds derived in this paper assume the
 dynamical-foam limit $\tau_{\rm foam}\ll\tau_c$
@@ -1605,6 +1932,14 @@ the energy-dependent line-center shift
 $\nu_0^{\rm eff}=\nu_0\,\tau_G^2/(\tau_G^2+\sigma_\Delta^2)$
 (Eq.~\eqref{eq:Sobs_gauss}) that the same foam jitter induces, adding a
 second handle on $\alpha$ and further tightening the bound.
+At higher energies the decisive measurement is sharper still:
+Section~\ref{sec:grb_tevline} shows that a confirmed narrow emission
+line at $\sim$1\,TeV in a low-redshift GRB would force
+$\alpha\gtrsim0.72$--$0.73$ --- its mere survival at measurable
+absolute strength capping the $e^{-\sigma_\phi^2}$ damping ---
+excluding the holographic value outright and making TeV line searches
+with LHAASO- and CTA-class instruments the most direct route to
+testing $\alpha=2/3$.
 
 A complementary implication runs in the opposite direction.  The
 flagship goal of next-generation CMB spectrometers --- PIXIE,
